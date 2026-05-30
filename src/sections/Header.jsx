@@ -75,7 +75,8 @@ function Header({ logoImage, currentRoute, newsPanelOpen, setNewsPanelOpen }) {
               className={`nav-item ${
                 currentRoute === "services" ||
                 currentRoute === "service-detail" ||
-                currentRoute === "bolsa-trabajo"
+                currentRoute === "bolsa-trabajo" ||
+                currentRoute === "feria"
                   ? "active"
                   : ""
               }`}
@@ -87,6 +88,7 @@ function Header({ logoImage, currentRoute, newsPanelOpen, setNewsPanelOpen }) {
                 <a href="#/servicios/practicas-profesionales">
                   Practicas profesionales
                 </a>
+                <a href="#/feria">Feria 2025</a>
                 <a href="#/bolsa-de-trabajo">Bolsa de trabajo</a>
                 <a href="https://sumafeca.ujed.mx/" target="_blank" rel="noreferrer">
                   Registro de egresados
@@ -207,6 +209,7 @@ function Header({ logoImage, currentRoute, newsPanelOpen, setNewsPanelOpen }) {
               Practicas profesionales
             </a>
             <a href="#/solicitud">Solicitud de admisión</a>
+            <a href="#/feria">Feria 2025</a>
             <a href="https://sumafeca.ujed.mx/" target="_blank" rel="noreferrer">
               Registro de egresados
             </a>

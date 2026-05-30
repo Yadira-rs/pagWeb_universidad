@@ -35,8 +35,8 @@ function ServiceDetailPage({
             {item.href ? (
               <a
                 href={item.href}
-                target="_blank"
-                rel="noreferrer"
+                target={item.href.startsWith("http") ? "_blank" : undefined}
+                rel={item.href.startsWith("http") ? "noreferrer" : undefined}
                 className="pdf-btn"
               >
                 {item.label ?? "Abrir enlace →"}

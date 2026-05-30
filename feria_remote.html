@@ -1,0 +1,1047 @@
+﻿
+
+<!DOCTYPE html>
+<html class="wide wow-animation desktop landscape rd-navbar-static-linked" lang="es">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Inicio</title>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+
+    <!-- font google -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Poppins:300,300i,400,500,600,700,800,900,900i%7CPT+Serif:400,700">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../librerias_feria/css/style.css?x=0" rel="stylesheet">
+    <link href="../librerias_feria/css/fonts.css" rel="stylesheet">
+    <style>
+        .seccion {
+            padding-top: 115px !important;
+        }
+
+        .texto {
+            font-size: 20px !important;
+        }
+
+        .lista-numerica {
+            list-style: decimal;
+            margin-left: 20px !important;
+        }
+
+        .pasos-entrevista {
+            list-style: decimal;
+            margin-left: 40px !important;
+        }
+
+        .lista-numerica li,
+        .pasos-entrevista li {
+            display: list-item;
+        }
+
+        .container {
+            max-width: 1400px !important;
+        }
+
+        #myModal {
+            z-index: 10000;
+        }
+
+        @media (max-width: 576px) {
+            .wow-outer {
+                margin-bottom: 70px !important;
+            }
+        }
+    </style>
+
+    <script>
+        var img1 = new Image();
+        img1.src="../images/portada-feria-min.JPG";
+    </script>
+
+    <link rel="stylesheet" href="data:text/css;charset=utf-8;base64,Y2xvdWRmbGFyZS1hcHBbYXBwLWlkPSJhLWJldHRlci1icm93c2VyIl0gewogIGRpc3BsYXk6IGJsb2NrOwogIGJhY2tncm91bmQ6ICM0NTQ4NGQ7CiAgY29sb3I6ICNmZmY7CiAgbGluZS1oZWlnaHQ6IDEuNDU7CiAgcG9zaXRpb246IGZpeGVkOwogIHotaW5kZXg6IDkwMDAwMDAwOwogIHRvcDogMDsKICBsZWZ0OiAwOwogIHJpZ2h0OiAwOwogIHBhZGRpbmc6IC41ZW0gMWVtOwogIHRleHQtYWxpZ246IGNlbnRlcjsKICAtd2Via2l0LXVzZXItc2VsZWN0OiBub25lOwogICAgIC1tb3otdXNlci1zZWxlY3Q6IG5vbmU7CiAgICAgIC1tcy11c2VyLXNlbGVjdDogbm9uZTsKICAgICAgICAgIHVzZXItc2VsZWN0OiBub25lOwp9CgpjbG91ZGZsYXJlLWFwcFthcHAtaWQ9ImEtYmV0dGVyLWJyb3dzZXIiXVtkYXRhLXZpc2liaWxpdHk9ImhpZGRlbiJdIHsKICBkaXNwbGF5OiBub25lOwp9CgpjbG91ZGZsYXJlLWFwcFthcHAtaWQ9ImEtYmV0dGVyLWJyb3dzZXIiXSBjbG91ZGZsYXJlLWFwcC1tZXNzYWdlIHsKICBkaXNwbGF5OiBibG9jazsKfQoKY2xvdWRmbGFyZS1hcHBbYXBwLWlkPSJhLWJldHRlci1icm93c2VyIl0gYSB7CiAgdGV4dC1kZWNvcmF0aW9uOiB1bmRlcmxpbmU7CiAgY29sb3I6ICNlYmViZjQ7Cn0KCmNsb3VkZmxhcmUtYXBwW2FwcC1pZD0iYS1iZXR0ZXItYnJvd3NlciJdIGE6aG92ZXIsCmNsb3VkZmxhcmUtYXBwW2FwcC1pZD0iYS1iZXR0ZXItYnJvd3NlciJdIGE6YWN0aXZlIHsKICBjb2xvcjogI2RiZGJlYjsKfQoKY2xvdWRmbGFyZS1hcHBbYXBwLWlkPSJhLWJldHRlci1icm93c2VyIl0gY2xvdWRmbGFyZS1hcHAtY2xvc2UgewogIGRpc3BsYXk6IGJsb2NrOwogIGN1cnNvcjogcG9pbnRlcjsKICBmb250LXNpemU6IDEuNWVtOwogIHBvc2l0aW9uOiBhYnNvbHV0ZTsKICByaWdodDogLjRlbTsKICB0b3A6IC4zNWVtOwogIGhlaWdodDogMWVtOwogIHdpZHRoOiAxZW07CiAgbGluZS1oZWlnaHQ6IDE7Cn0KCmNsb3VkZmxhcmUtYXBwW2FwcC1pZD0iYS1iZXR0ZXItYnJvd3NlciJdIGNsb3VkZmxhcmUtYXBwLWNsb3NlOmFjdGl2ZSB7CiAgLXdlYmtpdC10cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMXB4KTsKICAgICAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgxcHgpOwp9CgpjbG91ZGZsYXJlLWFwcFthcHAtaWQ9ImEtYmV0dGVyLWJyb3dzZXIiXSBjbG91ZGZsYXJlLWFwcC1jbG9zZTpob3ZlciB7CiAgb3BhY2l0eTogLjllbTsKICBjb2xvcjogI2ZmZjsKfQo=">
+</head>
+
+<body class="">
+    <div class="preloader loaded">
+        <div class="preloader-body">
+            <div class="cssload-container">
+                <div class="cssload-speeding-wheel"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page animated" style="animation-duration: 500ms;">
+
+        <!-- Header-->
+        <header class="section page-header">
+            <!-- RD Navbar-->
+            <div class="rd-navbar-wrap" style="height: 110.3px;">
+                <nav class="rd-navbar rd-navbar-aside context-dark rd-navbar-original rd-navbar-static" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-static" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-lg-stick-up-offset="46px" data-xl-stick-up-offset="46px" data-xxl-stick-up-offset="46px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+                    <div class="rd-navbar-main-outer">
+                        <div class="rd-navbar-main">
+                            <!-- RD Navbar Panel-->
+                            <div class="rd-navbar-panel">
+                                <!-- RD Navbar Toggle-->
+                                <button class="rd-navbar-toggle toggle-original" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                                <!-- RD Navbar Brand-->
+                                <div class="rd-navbar-brand">
+                                    <a class="brand" href="http://feca.ujed.mx/">
+                                        <img class="brand-logo-dark" src="../images/logo-feca-invertido.svg" alt="" width="155" height="41">
+                                        <img class="brand-logo-light" src="../images/logo-feca-invertido.svg" alt="" width="155" height="41">
+                                    </a>
+                                </div>
+                                <div class="block-right">
+                                    <ul class="list-inline nav-list">
+                                        <li class="list-inline-item"><a href="#dinamica">DinÃ¡mica</a></li>
+                                        <li class="list-inline-item"><a href="#servicio-social">Servicio social</a></li>
+                                        <li class="list-inline-item"><a href="#practicas-profesionales">Experiencia Recepcional (PrÃ¡cticas Profesionales)</a></li>
+                                        <!--li class="list-inline-item"><a href="#ofertas-laborales">Ofertas laborales</a></li-->
+                                    </ul>
+                                    <div class="rd-navbar-collapse-toggle rd-navbar-fixed-element-1 toggle-original" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
+                                    <div class="rd-navbar-aside-outer rd-navbar-collapse toggle-original-elements">
+                                        <div class="rd-navbar-aside">
+                                            <ul class="list-inline header-soc-list">
+                                                <li><a class="icon fa-facebook" target="_blank" href="https://www.facebook.com/FECAUJEDMX/"></a></li>
+                                                <li><a class="icon fa-instagram" href="https://www.instagram.com/fecaujedmx/"></a></li>
+                                                <li><a class="icon fa-twitter" href="https://twitter.com/fecaujedmx"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="rd-navbar-main-element">
+                                <div class="rd-navbar-nav-wrap toggle-original-elements">
+                                    <!-- RD Navbar Nav-->
+                                    <ul class="rd-navbar-nav">
+                                        <li class="rd-nav-item active"><a class="rd-nav-link" href="http://feca.ujed.mx/feria">Inicio</a></li>
+                                        <li class="rd-nav-item"><a class="rd-nav-link" href="#dinamica">DinÃ¡mica</a></li>
+                                        <li class="rd-nav-item"><a class="rd-nav-link" href="#servicio-social">Servicio social</a></li>
+                                        <li class="rd-nav-item"><a class="rd-nav-link" href="#practicas-profesionales">Experiencia Recepcional (PrÃ¡cticas Profesionales)</a></li>
+                                        <!--li class="rd-nav-item"><a class="rd-nav-link" href="">Ofertas laborales</a></li-->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Portada -->
+        <section class="section section-lg section-main-bunner section-main-bunner-filter text-center">
+            <div class="main-bunner-img" style="background-image: url('../images/portada-feria-min.JPG'); background-size: cover;"></div>
+            <div class="main-bunner-inner">
+                <div class="container">
+                    <div class="box-default">
+                        <h2 class="box-default-title text-uppercase">Feria del Servicio Social y Experiencia Recepcional (PrÃ¡cticas Profesionales)</h2>
+                        <div class="box-default-decor"></div>
+                        <!-- <p class="big box-default-text">Servicio social y prÃ¡cticas profesionales. -->
+                            <!--y bolsa de trabajo.-->
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DinÃ¡mica -->
+        <div class="bg-gray-1 seccion" id="dinamica">
+            <section class="section section-lg section-inset-1 bg-gray-1 pt-lg-0">
+                <div class="container">
+                    <div class="row row-50 justify-content-xl-between align-items-lg-center">
+                        <div class="col-lg-12 col-xl-12 wow fadeInRight" style="visibility: visible; animation-name: fadeInRight;">
+                            <h3 class=" mb-5 pb-3">Programa de la Feria del Servicio Social y Experiencia Recepcional (PrÃ¡cticas Profesionales) 2025: </h3>
+                            <p>
+                                <ol class="lista-numerica texto">
+                                    <li class="font-weight-bold">
+                                        InauguraciÃ³n de la Feria y Oferta de vacantes por parte de las entidades y empresas para realizar el Servicio Social o la 
+                                        Experiencia Recepcional (PrÃ¡cticas Profesionales)
+                                    </li>
+                                    <p style="font-size: 80%;" class="ml-4 mt-2 mb-5 pb-2">
+                                        <span class="font-weight-bold text-muted">Fecha: </span> 26 de agosto 2025<br />
+                                        <span class="font-weight-bold text-muted">InauguraciÃ³n: </span> 9:30 a.m<br />
+                                        <span class="font-weight-bold text-muted">Horario de la oferta de vacantes: </span> 10:00 a.m. a 12:00 p.m.<br />
+                                        <span class="font-weight-bold text-muted">Lugar: </span>Patio cÃ­vico de la FECA <br>
+                                        <span><small><i>* Evento obligatorio para alumnos de 7mo, 8vo y 9no semestre (ya que es un requisito para iniciar los trÃ¡mites del Servicio 
+                                            Social de Pasante o de las PrÃ¡cticas Profesionales)</small></i></span>
+                                    </p>
+
+                                    <li class="font-weight-bold">
+                                        Foro âLos Servicios Sociales y la Experiencia Recepcional, requisitos, pasos a seguir y toda la informaciÃ³n al respectoâ
+                                    </li>
+                                    <p style="font-size: 80%;" class="ml-4 mt-2 mb-5 pb-2">
+                                        <span class="font-weight-bold text-muted">Fecha: </span> 26 de agosto 2025<br />
+                                        <span class="font-weight-bold text-muted">Horario:</span> 12:00 hrs.<br />
+                                        <span class="font-weight-bold text-muted">Lugar: </span> Auditorio de la FECA â C.P. JosÃ© FÃ©lix RodrÃ­guez FrÃ­asâ 
+                                        <!-- <span class="font-weight-bold text-muted">VÃ­a:</span> Zoom (para alumnos de Distancia), se compartirÃ¡ liga a sus correos.<br /> -->
+                                        <span><small><i>* Foro obligatorio para alumnos de 1er semestre (ya que es un requisito para iniciar el Servicio Social de Pasante)</small></i></span>
+                                    </p>
+
+                                    <li class="font-weight-bold">
+                                        Te invitamos a explorar estÃ© Micrositio en donde podrÃ¡s consultar durante todo el ciclo escolar las diversas vacantes que ofertan las entidades y
+                                        empresas para realizar los servicios sociales y la Experiencia Recepcional (PrÃ¡cticas Profesionales).
+                                    </li>
+                                </ol>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- SecciÃ³n de Servicios Social -->
+        <section class="section section-lg bg-default seccion" id="servicio-social">
+            <div class="container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-md-9 col-lg-7 wow-outer">
+                        <div class="wow slideInDown" style="visibility: visible; animation-name: slideInDown;">
+                            <h3 class="title-decorate title-decorate-center">Servicio social</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row row-20 row-lg-30">
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="img/ss/CEDDU.jpeg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="img/ss/CEDDU.jpeg">
+                                            <span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5>
+                                        <a class="product-featured-title">CEDDU</a>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="img/ss/CIIEDO .jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="img/ss/CIIEDO .jpg">
+                                            <span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">CIIEDO</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="img/ss/COORDINACIOÌN DE INVESTIGACIOÌN.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="img/ss/COORDINACIOÌN DE INVESTIGACIOÌN.jpg">
+                                            <span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">CoordinaciÃ³n de InvestigaciÃ³n</a></h5>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="img/ss/DIF MUNICIPAL.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="img/ss/DIF MUNICIPAL.jpg">
+                                            <span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">DIF Municipal</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row row-20 row-lg-30">
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="img/ss/IEM.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="img/ss/IEM.jpg">
+                                            <span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5>
+                                        <a class="product-featured-title">Instituto Estatal de las Mujeres</a>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="img/ss/IMM.jpeg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="img/ss/IMM.jpeg"><span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">Instituto Municipal de la Mujer</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="img/ss/INM.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="img/ss/INM.jpg"><span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">Instituto Nacional de MigraciÃ³n</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="img/ss/JEFATURAS DE CARRERA FECA.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="img/ss/JEFATURAS DE CARRERA FECA.jpg">
+                                            <span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">Jefatura de las Carreras</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="row row-20 row-lg-30">
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="../librerias_feria/images/servicios/Instituto_Municipal_de_la_Juventud_SS.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="../librerias_feria/images/servicios/Instituto_Municipal_de_la_Juventud_SS.jpg"><span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5>
+                                        <a class="product-featured-title">Instituto Municipal de la Juventud</a>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="../librerias_feria/images/servicios/IMPLAN.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="../librerias_feria/images/servicios/IMPLAN.jpg"><span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">Instituto Municipal de PlaneaciÃ³n de Durango</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="../librerias_feria/images/servicios/Poder_Judicial_del_Estado_SS.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="../librerias_feria/images/servicios/Poder_Judicial_del_Estado_SS.jpg"><span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">Poder Judicial del Estado de Durango</a></h5>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="../librerias_feria/images/servicios/SECRETARIA_DE_DESARROLLO_ECONOMICO.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="../librerias_feria/images/servicios/SECRETARIA_DE_DESARROLLO_ECONOMICO.jpg"><span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">SecretarÃ­a de Desarrollo EconÃ³mico</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-20 row-lg-30">
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="../librerias_feria/images/servicios/SECRETARIA_DE_CONTRALORIA.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="../librerias_feria/images/servicios/SECRETARIA_DE_CONTRALORIA.jpg"><span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5>
+                                        <a class="product-featured-title">SecretarÃ­a de ContralorÃ­a del Estado de Durango</a>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="../librerias_feria/images/servicios/Biblioteca_FECA.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="../librerias_feria/images/servicios/Biblioteca_FECA.jpg"><span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">Biblioteca FECA</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="../librerias_feria/images/servicios/INSTITUTO_MUNICIPAL_DE_VIVIENDA.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="../librerias_feria/images/servicios/INSTITUTO_MUNICIPAL_DE_VIVIENDA.jpeg"><span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">Instituto Municipal de Vivienda</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="../librerias_feria/images/servicios/contraloria_UJED_ss.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="../librerias_feria/images/servicios/contraloria_UJED_ss.jpg"><span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">ContralorÃ­a General de la UJED</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-20 row-lg-30">
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="../librerias_feria/images/servicios/INSTITUTO_DE_CULTURA.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="../librerias_feria/images/servicios/INSTITUTO_DE_CULTURA.jpg"><span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">Instituto de Cultura del Estado de Durango</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="../librerias_feria/images/servicios/DIRECCION_DE_PENSIONES_DEL_ESTADO_SS.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="../librerias_feria/images/servicios/DIRECCION_DE_PENSIONES_DEL_ESTADO_SS.jpg"><span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">DirecciÃ³n de Pensiones del Estado</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="../librerias_feria/images/servicios/INEVAP_SS.png" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="../librerias_feria/images/servicios/INEVAP_SS.png"><span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">Instituto de EvaluaciÃ³n de PolÃ­ticas PÃºblicas del Estado de Durango (INEVAP)</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="../librerias_feria/images/servicios/PROFECO.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="../librerias_feria/images/servicios/PROFECO.jpg"><span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">PROFECO</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-20 row-lg-30">
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="../librerias_feria/images/servicios/SERVICIOS_ESCOLARES_UJED.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="../librerias_feria/images/servicios/SERVICIOS_ESCOLARES_UJED.jpg"><span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">Servicios Escolares UJED</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="../librerias_feria/images/servicios/EASE_SS.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="../librerias_feria/images/servicios/EASE_SS.jpg"><span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">Entidad de Auditoria Superior del Estado de Durango</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="../librerias_feria/images/servicios/INFONAVIT_SS.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="../librerias_feria/images/servicios/INFONAVIT_SS.jpg"><span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">INFONAVIT</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="../librerias_feria/images/servicios/Fomento_economico_ss.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="../librerias_feria/images/servicios/Fomento_economico_ss.jpg"><span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">Fomento EconÃ³mico</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-20 row-lg-30">
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="../librerias_feria/images/servicios/seguridad_publica_ss.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="../librerias_feria/images/servicios/seguridad_publica_ss.jpg"><span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">DirecciÃ³n Municipal de Seguridad PÃºblica</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="../librerias_feria/images/servicios/sat_ss.png" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="../librerias_feria/images/servicios/sat_ss.png"><span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">SAT</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="../librerias_feria/images/servicios/idaip_ss.png" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="../librerias_feria/images/servicios/idaip_ss.png"><span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">IDAIP</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="../librerias_feria/images/servicios/contraloria_estado_ss.jpeg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="../librerias_feria/images/servicios/contraloria_estado_ss.jpeg"><span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">SecretarÃ­a de ContralorÃ­a del Estado de Durango</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-20 row-lg-30">
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="../librerias_feria/images/servicios/Libreria_UJED_ss.png" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="../librerias_feria/images/servicios/Libreria_UJED_ss.png"><span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">LibrerÃ­a de la UJED</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="../librerias_feria/images/servicios/desarrollo_rural_municipal_ss.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="../librerias_feria/images/servicios/desarrollo_rural_municipal_ss.jpg"><span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">DirecciÃ³n Municipal de Desarrollo Rural</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+
+        <!-- SecciÃ³n de PrÃ¡cticas profesionales -->
+        <section class="section section-lg bg-default seccion" id="practicas-profesionales">
+            <div class="container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-md-9 col-lg-7 wow-outer">
+                        <div class="wow slideInDown" style="visibility: visible; animation-name: slideInDown;">
+                            <h3 class="title-decorate title-decorate-center">PrÃ¡cticas profesionales</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row row-20 row-lg-30">
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="img/pp/ARAUCO.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="img/pp/ARAUCO.jpg">
+                                            <span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5>
+                                        <a class="product-featured-title">ARAUCO</a>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="img/pp/CEDDU.jpeg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="img/pp/CEDDU.jpeg">
+                                            <span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">CEDDU</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="img/pp/CIIEDO .jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="img/pp/CIIEDO .jpg">
+                                            <span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">CIIEDO</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="img/pp/COORDINACIOÌN DE INVESTIGACIOÌN.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="img/pp/COORDINACIOÌN DE INVESTIGACIOÌN.jpg">
+                                            <span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">CoordinaciÃ³n de InvestigaciÃ³n</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row row-20 row-lg-30">
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="img/pp/Despacho contable.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="img/pp/Despacho contable.jpg">
+                                            <span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5>
+                                        <a class="product-featured-title">Despacho contable</a>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="img/pp/DIF MUNICIPAL.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="img/pp/DIF MUNICIPAL.jpg">
+                                            <span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">DIF MUNICIPAL</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="img/pp/IEM.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="img/pp/IEM.jpg">
+                                            <span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">Instituto Estatal de las Mujeres</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="img/pp/IMM.jpeg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="img/pp/IMM.jpeg">
+                                            <span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">Instituto Municipal de la Mujer</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row row-20 row-lg-30">
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="img/pp/JEFATURAS DE CARRERA FECA.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="img/pp/JEFATURAS DE CARRERA FECA.jpg">
+                                            <span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5>
+                                        <a class="product-featured-title">Jefaturas de las Carreras FECA</a>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="img/pp/INMOBILIARIA.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="img/pp/INMOBILIARIA.jpg">
+                                            <span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">INMOBILIARIA</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="img/pp/MasConstrucciones.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="img/pp/MasConstrucciones.jpg">
+                                            <span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">Mas Construcciones</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="img/pp/NEUMATICS.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="img/pp/NEUMATICS.jpg">
+                                            <span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">NEUMATICS Tool</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row row-20 row-lg-30">
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="img/pp/Rochell asesores.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="img/pp/Rochell asesores.jpg">
+                                            <span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5>
+                                        <a class="product-featured-title">Rochell asesores</a>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="img/pp/SHITSU.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="img/pp/SHITSU.jpg">
+                                            <span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">SHITSU</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="img/pp/MasConstrucciones.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="img/pp/MasConstrucciones.jpg">
+                                            <span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">Mas Construcciones</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 wow-outer">
+                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="product-featured">
+                                <div class="product-featured-figure">
+                                    <img src="img/pp/NEUMATICS.jpg" alt="" width="250" height="325">
+                                    <div class="product-featured-button">
+                                        <button class="button button-primary boton" data-toggle="modal" data-target="#myModal" data-imagen="img/pp/NEUMATICS.jpg">
+                                            <span class="fa-search-plus"> </span> ver</button>
+                                    </div>
+                                </div>
+                                <div class="product-featured-caption">
+                                    <h5><a class="product-featured-title">NEUMATICS Tool</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer-->
+        <footer class="section footer-minimal context-dark">
+            <div class="container wow-outer">
+                <div class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                    <div class="row row-60">
+                        <div class="col-12">
+                            <ul class="social-list">
+                                <li><a class="icon icon-sm icon-circle icon-circle-md icon-bg-white fa-facebook" target="_blank" href="https://www.facebook.com/FECAUJEDMX/"></a></li>
+                                <li><a class="icon icon-sm icon-circle icon-circle-md icon-bg-white fa-instagram" target="_blank" href="https://www.instagram.com/fecaujedmx/"></a></li>
+                                <li><a class="icon icon-sm icon-circle icon-circle-md icon-bg-white fa-twitter" target="_blank" href="https://twitter.com/fecaujedmx"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="rights">
+                        Copyright Â© FECA 2019-2025
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="../librerias_feria/js/core.js"></script>
+    <script src="../librerias_feria/js/script.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $(".boton").each(function() {
+                $(this).on("click", function() {
+                    var url_imagen = $(this).attr('data-imagen');
+                    $('.imagen').attr("src", url_imagen);
+                });
+            });
+
+        });
+    </script>
+
+    <a href="#" id="ui-to-top" class="ui-to-top fa fa-angle-up"></a>
+
+</body>
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <button type="button" class="close text-right font-dark m-2 fa-times" data-dismiss="modal">cerrar</button>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <img class="imagen">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</html>

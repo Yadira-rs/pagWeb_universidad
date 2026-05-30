@@ -605,8 +605,8 @@ export const servicePages = {
       },
       {
         title: "Micrositio “Feria del Servicio Social y Experiencia Recepcional”",
-        href: "http://www.feca.ujed.mx/feria/",
-        label: "Ir al micrositio →",
+        href: "#/feria",
+        label: "Ir al micrositio interno →",
       },
     ],
   },
@@ -651,8 +651,8 @@ export const servicePages = {
       },
       {
         title: "Micrositio",
-        href: "http://www.feca.ujed.mx/feria/",
-        label: "Ir al micrositio →",
+        href: "#/feria",
+        label: "Ir al micrositio interno →",
       },
     ],
   },
