@@ -19,7 +19,7 @@ function MissionVisionPage({
       <section
         className="legacy-hero"
         style={{
-          backgroundImage: `linear-gradient(180deg, rgba(123,18,24,0.2), rgba(123,18,24,0.92)), url('${content.heroImage}')`,
+          backgroundImage: `linear-gradient(180deg, rgba(227,19,19,0.2), rgba(227,19,19,0.92)), url('${content.heroImage}')`,
         }}
       >
         <div className="legacy-hero-inner">

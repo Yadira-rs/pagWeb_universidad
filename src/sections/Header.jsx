@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
+import { logoImage as defaultLogo, logoUjedImage } from "../data/siteData";
 
-function Header({ logoImage, currentRoute, newsPanelOpen, setNewsPanelOpen }) {
+function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const mobileMenuRef = useRef(null);
   const hamburgerRef = useRef(null);
@@ -26,7 +27,7 @@ function Header({ logoImage, currentRoute, newsPanelOpen, setNewsPanelOpen }) {
         <div className="topbar-inner">
           <div className="brand-header">
             <div className="logo-emblem">
-              <img src={logoImage} alt="UJED logo" />
+              <img src={logoUjedImage} alt="UJED logo" />
             </div>
             <div>
               <div className="brand-title">UJED</div>
@@ -61,13 +62,17 @@ function Header({ logoImage, currentRoute, newsPanelOpen, setNewsPanelOpen }) {
                 currentRoute === "legacy-program" ? "active" : ""
               }`}
             >
-              <a href="#/administracion">Oferta Educativa v</a>
+              <a href="#/licenciaturas">Oferta Educativa v</a>
               <div className="dropdown">
+                <a href="#/licenciaturas">Licenciaturas</a>
                 <a href="#/administracion">Administración</a>
                 <a href="#/contabilidad">Contabilidad</a>
                 <a href="#/economia">Economía</a>
+                <a href="#/licenciaturas-distancia">Distancia</a>
                 <a href="#/posgrado">Posgrado</a>
-                <a href="#/celci">CELCI</a>
+                <a href="#/curso-propedeutico">Curso propedeutico</a>
+                <a href="#/cursos-intersemestrales">Intersemestrales</a>
+                <a href="#/celci">Lenguas</a>
                 <a href="#/ciiedo">CIIEDO</a>
               </div>
             </div>
@@ -197,7 +202,12 @@ function Header({ logoImage, currentRoute, newsPanelOpen, setNewsPanelOpen }) {
             className={`mobile-menu ${mobileMenuOpen ? "open" : ""}`}
           >
             <a href="#/">Inicio</a>
-            <a href="#/administracion">Oferta educativa</a>
+            <a href="#/licenciaturas">Oferta educativa</a>
+            <a href="#/licenciaturas">Licenciaturas</a>
+            <a href="#/licenciaturas-distancia">Distancia</a>
+            <a href="#/curso-propedeutico">Curso propedeutico</a>
+            <a href="#/cursos-intersemestrales">Intersemestrales</a>
+            <a href="#/celci">Lenguas</a>
             <a href="#/campus-central">Vida campus</a>
             <a href="#/lucia-herrera">Maestros</a>
             <a href="#/servicios">Servicios</a>

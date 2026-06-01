@@ -1,6 +1,7 @@
 import heroImage from '../assets/hero.png'
 
 export const logoImage = '/imagenes/logo.png'
+export const logoUjedImage = '/imagenes/logo-ujed.png'
 
 export const heroSlides = [
   {
@@ -388,13 +389,34 @@ export const sectionPages = {
     intro:
       'Los valores institucionales orientan la cultura de trabajo, convivencia y servicio dentro de la facultad.',
     eyebrow: 'Valores',
-    title: 'Principios que sostienen nuestra comunidad',
+    title: 'Valores que sostienen nuestra comunidad',
     body:
-      'Promovemos una cultura basada en integridad, respeto, compromiso, responsabilidad y excelencia academica en cada accion institucional, formativa y profesional.',
-    points: [
-      'Actuacion etica y responsable en todos los ambitos.',
-      'Respeto por las personas, la diversidad y el entorno.',
-      'Compromiso con calidad, disciplina y mejora permanente.',
+      'Estos principios guian la vida academica, el trabajo institucional y la convivencia de la comunidad FECA.',
+    valueGroups: [
+      {
+        title: 'Valores de pertenencia',
+        items: ['Responsabilidad social', 'sentido de pertenencia'],
+      },
+      {
+        title: 'Valores de compromiso',
+        items: ['Compromiso social', 'integridad academica', 'liderazgo'],
+      },
+      {
+        title: 'Valores de excelencia y transformacion',
+        items: ['Innovacion', 'calidad', 'cultura del emprendimiento'],
+      },
+      {
+        title: 'Valores institucionales',
+        items: ['Responsabilidad social', 'sentido de pertenencia'],
+      },
+      {
+        title: 'Valores sociales',
+        items: ['Equidad', 'igualdad', 'interculturalidad', 'cultura de la paz'],
+      },
+      {
+        title: 'Valores fundamentales',
+        items: ['Etica', 'honestidad', 'respeto a la dignidad humana'],
+      },
     ],
   },
   politicas: {

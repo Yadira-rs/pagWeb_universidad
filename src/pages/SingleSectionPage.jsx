@@ -29,21 +29,44 @@ function SingleSectionPage({
         </div>
       </section>
 
-      <section className="section mission-vision-section">
+      <section
+        className={`section mission-vision-section ${
+          content.valueGroups ? "values-section" : ""
+        }`}
+      >
         <div className="container">
-          <article className="mission-vision-card single-section-card fade-up">
-            <div className="mission-vision-eyebrow">{content.eyebrow}</div>
-            <h2 className="mission-vision-title">{content.title}</h2>
-            <p className="mission-vision-body">{content.body}</p>
-            <div className="mission-vision-points">
-              {content.points.map((point) => (
-                <div key={point} className="mission-vision-point">
-                  <span className="mission-vision-dot"></span>
-                  <span>{point}</span>
+          {content.valueGroups ? (
+            <article className="values-poster fade-up">
+              <div className="values-poster-bg values-poster-bg-left"></div>
+              <div className="values-poster-bg values-poster-bg-right"></div>
+              <h2 className="values-poster-title">{content.heroTitle}</h2>
+              <div className="values-poster-content">
+                <div className="values-red-triangle" aria-hidden="true"></div>
+                <div className="values-groups">
+                  {content.valueGroups.map((group) => (
+                    <div key={group.title} className="values-group">
+                      <h3>{group.title}</h3>
+                      <p>{group.items.join(", ")}</p>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </article>
+              </div>
+            </article>
+          ) : (
+            <article className="mission-vision-card single-section-card fade-up">
+              <div className="mission-vision-eyebrow">{content.eyebrow}</div>
+              <h2 className="mission-vision-title">{content.title}</h2>
+              <p className="mission-vision-body">{content.body}</p>
+              <div className="mission-vision-points">
+                {content.points.map((point) => (
+                  <div key={point} className="mission-vision-point">
+                    <span className="mission-vision-dot"></span>
+                    <span>{point}</span>
+                  </div>
+                ))}
+              </div>
+            </article>
+          )}
         </div>
       </section>
 

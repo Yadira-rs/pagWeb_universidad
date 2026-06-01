@@ -1,4 +1,109 @@
 export const legacyPages = {
+  licenciaturas: {
+    routeGroup: "legacy-program",
+    heroImage: "/imagenes/lic.jpg",
+    kicker: "Oferta academica",
+    title: "Licenciaturas FECA",
+    intro:
+      "Conoce los programas presenciales de la Facultad de Economia, Contaduria y Administracion.",
+    panels: [
+      {
+        title: "Planes disponibles",
+        body:
+          "Consulta y descarga los documentos disponibles para cada programa.",
+      },
+      {
+        title: "Contador Publico P2021",
+        body:
+          "Formacion en informacion financiera, fiscal, administrativa, auditoria, costos y finanzas para la toma de decisiones.",
+        actions: [
+          {
+            href: "/docs/plan-de-estudios_cp_2021.pdf",
+            label: "Descargar plan",
+          },
+          {
+            href: "/docs/mapa-curricular_cp_2021.pdf",
+            label: "Mapa curricular",
+          },
+        ],
+      },
+      {
+        title: "Licenciado en Administracion P2021",
+        body:
+          "Formacion para planear, dirigir y evaluar organizaciones con vision estrategica, flexible y emprendedora.",
+        actions: [
+          {
+            href: "/docs/plan_de_estudios_la_2021.pdf",
+            label: "Descargar plan",
+          },
+          {
+            href: "/docs/mapas_curriculares_la_2021.pdf",
+            label: "Mapa curricular",
+          },
+        ],
+      },
+      {
+        title: "Licenciado en Economia y Negocios Internacionales P2021",
+        body:
+          "Formacion en analisis economico, comercio exterior, finanzas, mercados y negocios internacionales.",
+        actions: [
+          {
+            href: "/docs/plan_de_estudios_leni_2021.pdf",
+            label: "Descargar plan",
+          },
+          {
+            href: "/docs/mapas_curriculares_leni_2021.pdf",
+            label: "Mapa curricular",
+          },
+        ],
+      },
+      {
+        title: "Contador Publico P2014",
+        body:
+          "Objetivo: formar profesionales capaces de aplicar tecnicas y conocimientos de contabilidad financiera y administrativa, fiscal y financiera para generar, analizar y emitir opiniones sobre informacion confiable, con caracter emprendedor y responsabilidad social. Plan anterior disponible para consulta academica y administrativa.",
+        actions: [
+          {
+            href: "/docs/cp_plan_de_estudio_2014.pdf",
+            label: "Contenido",
+          },
+          {
+            href: "/docs/cp_plan_de_estudio_2014.pdf",
+            label: "Descargar plan",
+          },
+        ],
+      },
+      {
+        title: "Licenciado en Administracion P2014",
+        body:
+          "Objetivo: disenar organizaciones y garantizar su funcionamiento mediante la gestion de recursos financieros, tecnologicos y de talento humano, con enfoque en efectividad, rentabilidad, competitividad y responsabilidad social. Plan anterior disponible para consulta academica y administrativa.",
+        actions: [
+          {
+            href: "/docs/cp_plan_de_estudio_2014.pdf",
+            label: "Contenido",
+          },
+          {
+            href: "/docs/la_plan_de_estudio_2014.pdf",
+            label: "Descargar plan",
+          },
+        ],
+      },
+      {
+        title: "Licenciado en Economia y Negocios Internacionales P2014",
+        body:
+          "Objetivo: dotar a los egresados de una formacion equilibrada en teoria economica, finanzas y comercio internacional, con capacidad para disenar y evaluar escenarios de competitividad global. Plan anterior disponible para consulta academica y administrativa.",
+        actions: [
+          {
+            href: "/docs/cp_plan_de_estudio_2014.pdf",
+            label: "Contenido",
+          },
+          {
+            href: "/docs/leni_plan_de_estudio_2014.pdf",
+            label: "Descargar plan",
+          },
+        ],
+      },
+    ],
+  },
   administracion: {
     routeGroup: "legacy-program",
     heroImage: "/imagenes/aniversario.jpeg",
@@ -131,90 +236,555 @@ export const legacyPages = {
       },
     ],
   },
-  posgrado: {
+  "licenciaturas-distancia": {
     routeGroup: "legacy-program",
-    heroImage: "/imagenes/aniversario.jpeg",
-    kicker: "Formación Avanzada",
-    title: "POSGRADO",
+    heroImage: "/imagenes/distancia.jpg",
+    kicker: "Modalidad en linea",
+    title: "Licenciaturas a Distancia",
     intro:
-      "Programas para profesionistas que buscan especializarse, investigar y fortalecer su liderazgo en áreas económico-administrativas.",
-    stats: [
-      { label: "Nivel", value: "Especialidad, maestría y actualización" },
-      { label: "Modalidad", value: "Sesiones presenciales y asesorías académicas" },
-      { label: "Perfil", value: "Profesionistas y egresados FECA" },
-    ],
+      "Programas disenados para estudiar desde casa con apoyo academico y herramientas digitales.",
     panels: [
       {
-        title: "Información general",
+        title: "Planes de estudio",
         body:
-          "El área de Posgrado ofrece formación especializada para egresados y profesionistas interesados en actualizar sus competencias, desarrollar investigación y asumir nuevos retos directivos. Sus programas integran teoría, práctica y análisis de casos.",
+          "Consulta y descarga los planes de estudio disponibles para modalidad a distancia.",
+      },
+      {
+        title: "Contador Publico P2018",
+        body:
+          "Formacion en analisis financiero, gestion contable, fiscal y auditoria en modalidad a distancia.",
+        actions: [
+          {
+            href: "/docs/Plan_estudios_LA_2018_distancia.pdf",
+            label: "Descargar plan",
+          },
+        ],
+      },
+      {
+        title: "Licenciado en Administracion P2018",
+        body:
+          "Formacion para planear, dirigir y evaluar organizaciones con vision estrategica y flexible.",
+        actions: [
+          {
+            href: "/docs/Plan_estudios_LA_2018_distancia (1).pdf",
+            label: "Descargar plan",
+          },
+        ],
+      },
+    ],
+  },
+  posgrado: {
+    routeGroup: "legacy-program",
+    heroImage: "/imagenes/lic.jpg",
+    kicker: "Oferta academica",
+    title: "Posgrado",
+    intro:
+      "Programas de formacion avanzada para fortalecer la investigacion, la gestion y el desarrollo profesional.",
+    panels: [
+      {
+        title: "Programas de posgrado",
+        body:
+          "Selecciona un programa para descargar su documento informativo.",
+      },
+      {
+        title: "Especialidad en Administracion de Hospitales",
+        body: "Documento del programa de especialidad.",
+        actions: [
+          {
+            href: "/docs/Plan_estudio_Especialidad_de_Administracion_de_Hospitales.pdf",
+            label: "Descargar documento",
+          },
+        ],
+      },
+      {
+        title: "Maestria en Gestion Publica",
+        body: "Documento del programa de maestria.",
+        actions: [
+          {
+            href: "/docs/Plan_estudio_Maestria_en_Gestion_Publica.pdf",
+            label: "Descargar documento",
+          },
+        ],
+      },
+      {
+        title: "Maestria en Gestion de Negocios",
+        body: "Documento del programa de maestria.",
+        actions: [
+          {
+            href: "/docs/Plan_estudio_Maestria_en_Gestion_de_Negocios.pdf",
+            label: "Descargar documento",
+          },
+        ],
+      },
+      {
+        title: "Maestria en Estrategias Contables",
+        body: "Documento del programa de maestria.",
+        actions: [
+          {
+            href: "/docs/Plan_estudio_Maestria_en_Estrategias_Contables.pdf",
+            label: "Descargar documento",
+          },
+        ],
+      },
+      {
+        title: "Maestria en Mercadotecnia",
+        body: "Documento del programa de maestria.",
+        actions: [
+          {
+            href: "/docs/Plan_estudio_Maestria_en_Mercadotecnia.pdf",
+            label: "Descargar documento",
+          },
+        ],
+      },
+      {
+        title: "Maestria en Economia",
+        body: "Documento del programa de maestria.",
+        actions: [
+          {
+            href: "/docs/Plan_estudio_Maestria_en_Economia.pdf",
+            label: "Descargar documento",
+          },
+        ],
+      },
+      {
+        title: "Maestria en Auditoria Gubernamental",
+        body: "Documento del programa de maestria.",
+        actions: [
+          {
+            href: "/docs/Plan_estudio_Maestria_en_Auditoria_Gubernamental.pdf",
+            label: "Descargar documento",
+          },
+        ],
+      },
+      {
+        title: "Doctorado en Gestion de las Organizaciones",
+        body:
+          "Documento del programa de doctorado. El archivo PDF no se encontro en la carpeta de documentos del proyecto.",
       },
       {
         title: "Contacto",
         body:
-          "Atención en coordinación de Posgrado FECA, teléfono (618) 827-13-65.",
+          "Facultad de Economia, Contaduria y Administracion. Telefono: (618) 827-13-65. Ubicacion: Fanny Anitua y Priv. Loza s/n, C.P. 34000, Durango, Dgo.",
         variant: "contact",
-      },
-      {
-        title: "Servicios y actividades",
         items: [
-          "Orientación sobre programas de especialidad y maestría.",
-          "Acompañamiento para procesos de admisión y documentación.",
-          "Seminarios de investigación, liderazgo y gestión empresarial.",
-          "Asesoría para proyectos terminales y líneas de investigación.",
+          "Facultad: Facultad de Economia, Contaduria y Administracion",
+          "Telefono: (618) 827-13-65",
+          "Ubicacion: Fanny Anitua y Priv. Loza s/n, C.P. 34000, Durango, Dgo.",
+        ],
+      },
+    ],
+  },
+  "curso-propedeutico": {
+    routeGroup: "legacy-program",
+    heroImage: "/imagenes/objetivo1.jpg",
+    kicker: "Nuevo ingreso",
+    title: "Curso Propedeutico",
+    intro:
+      "Preparacion academica para aspirantes a ingresar a la Facultad de Economia, Contaduria y Administracion.",
+    stats: [
+      { label: "Modalidades", value: "Presencial y virtual" },
+      { label: "Dirigido a", value: "Aspirantes de nuevo ingreso" },
+      { label: "Contacto", value: "propedeuticofeca@ujed.mx" },
+    ],
+    panels: [
+      {
+        title: "Historia",
+        paragraphs: [
+          "Desde sus inicios, la Facultad de Economia, Contaduria y Administracion ha tenido como proposito fundamental preparar profesionistas de la contaduria publica y la administracion con un alto nivel academico.",
+          "A partir del analisis de los resultados del examen de seleccion y de los indices de reprobacion en materias de primeros semestres, se identifico la necesidad de mejorar la preparacion de los aspirantes para elevar su desempeno academico.",
+          "Durante el ciclo B 1989 se establecio en la propia facultad el primer curso propedeutico semestral, el cual ha demostrado su efectividad a traves de estudios de seguimiento de egresados.",
+          "Actualmente conserva el mismo proposito en Contaduria Publica, Administracion y, desde 2008, Economia y Negocios Internacionales.",
         ],
       },
       {
-        title: "Áreas de apoyo",
+        title: "Mision",
+        body:
+          "Formamos a nuestros alumnos para ingresar en la FECA, proporcionandoles herramientas para mejorar su desempeno academico y orientarlos en su definicion profesional.",
+      },
+      {
+        title: "Vision",
+        body:
+          "Posicionarnos como un propedeutico de licenciatura reconocido por su calidad, orientando al aspirante a una eleccion adecuada de carrera y culminacion exitosa de estudios.",
+      },
+      {
+        title: "Modalidad presencial",
+        body: "Los alumnos asisten de lunes a viernes a clases.",
         items: [
-          "Maestrías",
-          "Seminarios",
-          "Investigación",
-          "Educación continua",
+          "Contabilidad",
+          "Administracion",
+          "Matematicas",
+          "Computacion",
+          "Metodos de Estudio",
+          "Economia",
+          "Ingles",
         ],
+      },
+      {
+        title: "Modalidad virtual",
+        body: "El curso se ofrece a traves de la plataforma Moodle.",
+        items: [
+          "Contabilidad",
+          "Administracion",
+          "Matematicas",
+          "Desarrollo de TIC's",
+          "Metodos de Estudio",
+          "Ingles",
+        ],
+      },
+      {
+        title: "Contacto",
+        body:
+          "Telefono: (618) 8 27 13 65. Correo: propedeuticofeca@ujed.mx. Oficinas: instalaciones de la Facultad.",
+        variant: "contact",
+        actions: [
+          {
+            href: "mailto:propedeuticofeca@ujed.mx",
+            label: "Enviar correo",
+          },
+        ],
+      },
+    ],
+  },
+  "curso-propedeutico": {
+    routeGroup: "legacy-program",
+    heroImage: "/imagenes/objetivo1.jpg",
+    kicker: "Nuevo ingreso",
+    title: "Curso Propedeutico",
+    intro:
+      "Preparacion academica para aspirantes a ingresar a la Facultad de Economia, Contaduria y Administracion.",
+    tabs: [
+      { href: "historia", label: "Historia" },
+      { href: "mision", label: "Mision y vision" },
+      { href: "modalidades", label: "Modalidades" },
+      { href: "contacto", label: "Contacto" },
+    ],
+    sections: [
+      {
+        id: "historia",
+        label: "Antecedentes",
+        title: "Historia",
+        variant: "wide",
+        paragraphs: [
+          "Desde sus inicios, la Facultad de Economia, Contaduria y Administracion ha tenido como proposito fundamental preparar profesionistas de la contaduria publica y la administracion con un alto nivel academico.",
+          "A partir del analisis de los resultados del examen de seleccion y de los indices de reprobacion en materias de primeros semestres, se identifico la necesidad de mejorar la preparacion de los aspirantes para elevar su desempeno academico.",
+          "Durante el ciclo B 1989 se establecio en la propia facultad el primer curso propedeutico semestral, el cual ha demostrado su efectividad a traves de estudios de seguimiento de egresados.",
+          "Actualmente conserva el mismo proposito en Contaduria Publica, Administracion y, desde 2008, Economia y Negocios Internacionales.",
+        ],
+      },
+      {
+        id: "mision",
+        label: "Identidad",
+        title: "Mision y vision",
+        cards: [
+          {
+            title: "Mision",
+            body:
+              "Formamos a nuestros alumnos para ingresar en la FECA, proporcionandoles herramientas para mejorar su desempeno academico y orientarlos en su definicion profesional.",
+          },
+          {
+            title: "Vision",
+            body:
+              "Posicionarnos como un propedeutico de licenciatura reconocido por su calidad, orientando al aspirante a una eleccion adecuada de carrera y culminacion exitosa de estudios.",
+          },
+          {
+            title: "Proposito",
+            body:
+              "Fortalecer conocimientos y facilitar la integracion a la vida universitaria.",
+          },
+        ],
+      },
+      {
+        id: "modalidades",
+        label: "Oferta",
+        title: "Modalidades que se cursan",
+        cards: [
+          {
+            title: "Modalidad Presencial",
+            body: "Los alumnos asisten de lunes a viernes a clases.",
+            items: [
+              "Contabilidad",
+              "Administracion",
+              "Matematicas",
+              "Computacion",
+              "Metodos de Estudio",
+              "Economia",
+              "Ingles",
+            ],
+          },
+          {
+            title: "Modalidad Virtual",
+            body: "El curso se ofrece a traves de la plataforma Moodle.",
+            items: [
+              "Contabilidad",
+              "Administracion",
+              "Matematicas",
+              "Desarrollo de TIC's",
+              "Metodos de Estudio",
+              "Ingles",
+            ],
+          },
+        ],
+      },
+      {
+        id: "contacto",
+        label: "Informes",
+        title: "Contacto",
+        variant: "wide",
+        contacts: [
+          { label: "Telefono", value: "(618) 8 27 13 65" },
+          {
+            label: "Correo",
+            value: "propedeuticofeca@ujed.mx",
+            href: "mailto:propedeuticofeca@ujed.mx",
+          },
+          { label: "Oficinas", value: "Instalaciones de la Facultad" },
+        ],
+      },
+    ],
+  },
+  "cursos-intersemestrales": {
+    routeGroup: "legacy-program",
+    heroImage: "/imagenes/objetivo1.jpg",
+    kicker: "Oferta academica",
+    title: "Cursos Intersemestrales",
+    intro:
+      "Espacio academico para consultar la oferta de cursos intersemestrales de la Facultad de Economia, Contaduria y Administracion.",
+    panels: [
+      {
+        title: "Proximamente",
+        body:
+          "Esta pagina ya comparte el diseno institucional de FECA. Cuando tengas la informacion de cursos intersemestrales, la integramos aqui.",
+      },
+      {
+        title: "Oferta disponible",
+        body:
+          "Consulta posteriormente las materias, horarios, docentes y requisitos de inscripcion.",
+        actions: [
+          {
+            href: "/docs/CUSRSOS INTERSEMESTRALES.pdf",
+            label: "Descargar plan",
+          },
+        ],
+      },
+      {
+        title: "Contacto",
+        body:
+          "Facultad de Economia, Contaduria y Administracion. Tel. (618) 827-13-65.",
+        variant: "contact",
       },
     ],
   },
   celci: {
     routeGroup: "legacy-program",
-    heroImage: "/imagenes/inicio.png",
-    kicker: "Centro de Lenguas, Cómputo e Innovación",
-    title: "CELCI",
+    heroImage: "/imagenes/lic.jpg",
+    kicker: "Ciclo A-2025 | Modalidad presencial",
+    title: "Centro de Lenguas e Internacionalizacion",
     intro:
-      "Un espacio de apoyo académico para fortalecer competencias digitales, idiomas y herramientas tecnológicas aplicadas a los negocios.",
-    stats: [
-      { label: "Cursos", value: "Idiomas, ofimática y herramientas digitales" },
-      { label: "Modalidad", value: "Presencial con actividades prácticas" },
-      { label: "Enfoque", value: "Innovación, tecnología y aprendizaje continuo" },
+      "Cursos de idiomas para adultos, ninos y jovenes en la Facultad de Economia, Contaduria y Administracion.",
+    tabMode: "switch",
+    tabs: [
+      { href: "cursos", label: "Cursos" },
+      { href: "costos", label: "Costos" },
+      { href: "inscripcion", label: "Proceso inscripcion" },
+      { href: "diagnostico", label: "Examen de diagnostico" },
+      { href: "preguntas", label: "Preguntas frecuentes" },
+      { href: "informacion", label: "Informacion general" },
+      { href: "contacto", label: "Contacto" },
     ],
-    panels: [
+    sections: [
       {
-        title: "Información general",
-        body:
-          "CELCI impulsa la formación integral de los estudiantes mediante cursos, talleres y asesorías enfocadas en tecnología, comunicación e innovación. Su propósito es que la comunidad FECA desarrolle habilidades útiles para el aula, la investigación y el entorno profesional.",
-      },
-      {
-        title: "Contacto",
-        body:
-          "Informes en coordinación académica FECA o al teléfono (618) 827-13-65.",
-        variant: "contact",
-      },
-      {
-        title: "Servicios y actividades",
-        items: [
-          "Talleres de software administrativo, hojas de cálculo y presentaciones profesionales.",
-          "Asesorías de herramientas digitales para proyectos escolares y empresariales.",
-          "Cursos de idiomas orientados a comunicación académica y profesional.",
-          "Apoyo en proyectos de innovación y transformación digital.",
+        id: "cursos",
+        label: "Oferta",
+        title: "Cursos",
+        cards: [
+          {
+            title: "Ingles para adultos",
+            body: "Mayores de 15 anos.",
+            items: [
+              "Lunes a viernes: 1 hora diaria.",
+              "Sabatinos: 9:00 a.m. a 2:00 p.m.",
+            ],
+            actions: [
+              {
+                href: "/docs/horarios_ingles_adultos.pdf",
+                label: "Ver horarios",
+              },
+            ],
+          },
+          {
+            title: "Ingles para ninos",
+            body:
+              "Edad: 8 a 11 anos. En febrero-junio solamente hay inscripciones de reingreso.",
+            items: ["Sabatinos: 9:00 a.m. a 2:00 p.m."],
+            actions: [
+              {
+                href: "/docs/horarios_ingles_ninos.pdf",
+                label: "Ver horarios",
+              },
+            ],
+          },
+          {
+            title: "Ingles para jovenes",
+            body: "Edad: 12 a 15 anos.",
+            items: ["Sabatinos: 9:00 a.m. a 2:00 p.m."],
+            actions: [
+              {
+                href: "/docs/horarios_ingles_jovenes.pdf",
+                label: "Ver horarios",
+              },
+            ],
+          },
+          {
+            title: "Frances",
+            body: "15 anos en adelante.",
+            items: ["Lunes a viernes: 1 hora diaria."],
+            actions: [
+              {
+                href: "/docs/horarios_frances.pdf",
+                label: "Ver horarios",
+              },
+            ],
+          },
+          {
+            title: "Italiano",
+            body: "15 anos en adelante.",
+            items: ["Lunes a viernes: 1 hora diaria."],
+            actions: [
+              {
+                href: "/docs/horarios_italiano.pdf",
+                label: "Ver horarios",
+              },
+            ],
+          },
+          {
+            title: "Japones",
+            body: "15 anos en adelante.",
+            items: ["Lunes a viernes: 1 hora diaria."],
+            actions: [
+              {
+                href: "/docs/horarios_japones.pdf",
+                label: "Ver horarios",
+              },
+            ],
+          },
         ],
       },
       {
-        title: "Áreas de apoyo",
-        items: [
-          "Laboratorio de cómputo",
-          "Capacitación tecnológica",
-          "Idiomas y comunicación",
-          "Innovación aplicada",
+        id: "costos",
+        label: "Ciclo A-2025",
+        title: "Costos",
+        cards: [
+          {
+            title: "Ingles",
+            price: "$1,100",
+            body:
+              "Estudiantes UJED: 10% de descuento. Estudiantes FECA: 25% de descuento.",
+          },
+          {
+            title: "Frances, italiano y japones",
+            price: "$700",
+            body: "Precio unico. No hay descuentos.",
+          },
+        ],
+      },
+      {
+        id: "inscripcion",
+        label: "Tramite",
+        title: "Proceso inscripcion",
+        variant: "wide",
+        paragraphs: [
+          "Para realizar tu inscripcion, comunicate al Centro de Lenguas e Internacionalizacion o acude a las instalaciones de la Facultad. Ahi podran orientarte sobre horarios disponibles, costos, requisitos y grupos abiertos.",
+        ],
+        contacts: [
+          { label: "Modalidad", value: "Presencial" },
+          { label: "Ciclo", value: "A-2025" },
+          { label: "Atencion", value: "Oficinas del Centro de Lenguas" },
+        ],
+      },
+      {
+        id: "diagnostico",
+        label: "Ubicacion de nivel",
+        title: "Examen de diagnostico",
+        variant: "wide",
+        paragraphs: [
+          "El examen de diagnostico para ubicarte en el nivel correcto, si tienes conocimientos del idioma, esta disponible en el modulo de inscripciones del SUMA.",
+        ],
+      },
+      {
+        id: "preguntas",
+        label: "Ayuda",
+        title: "Preguntas frecuentes",
+        faq: [
+          {
+            question:
+              "1. Soy alumno de reingreso y no se cual es mi matricula. Como puedo conseguirla?",
+            answer:
+              "Puedes solicitarla enviando tu nombre completo a cli.feca@ujed.mx, por Facebook en facebook/CLI.FECA.UJED o por telefono al 827-13-65 ext. 5725, lunes, miercoles y viernes de 10:00 a.m. a 2:00 p.m.",
+          },
+          {
+            question:
+              "2. Ya tengo mi matricula pero no se mi contrasena. Como puedo conseguirla?",
+            answer:
+              "La primera vez que entres al SUMA+ usa tu matricula como contrasena. Al entrar, el sistema te pedira que la cambies por una nueva.",
+          },
+          {
+            question: "3. Cual es el numero de cuenta al que debo hacer mi pago?",
+            answer:
+              "Una vez que selecciones tu clase, el sistema te dara datos de cuenta, monto y referencia. Incluye la referencia correcta para identificar tu pago automaticamente.",
+          },
+          {
+            question: "4. Soy trabajador de la UJED. Como tramito mi exencion de pago?",
+            answer:
+              "El tramite se hace con la Coordinacion de Finanzas y Planeacion y no sustituye la inscripcion del CLI. Despues de enviarlo, recibiras tu folio entre 24 y 48 horas; la validacion puede demorar hasta 72 horas adicionales.",
+            href: "https://forms.gle/cQmnVdiDu1ujkQKq6",
+            hrefLabel: "Formulario de exencion",
+          },
+        ],
+      },
+      {
+        id: "informacion",
+        label: "Identidad",
+        title: "Informacion general",
+        variant: "wide",
+        paragraphs: [
+          "El Centro de Idiomas de la FECA de la UJED fue fundado formalmente en 1975 bajo la direccion del C.P. Mtro. Ruben Vargas Quinones. Desde sus inicios ha desempenado un papel fundamental en la ensenanza de lenguas extranjeras.",
+          "Actualmente atiende a mas de mil alumnos, ofreciendo formacion de calidad en ingles, italiano, frances y japones para estudiantes universitarios y publico en general.",
+        ],
+        cards: [
+          {
+            title: "Mision",
+            body:
+              "Ofrecer programas educativos en lengua extranjera y servicios especializados de alta calidad que sumen ventajas competitivas en un entorno global.",
+          },
+          {
+            title: "Vision",
+            body:
+              "Ser un centro reconocido por la excelencia en la ensenanza de lenguas extranjeras y por contribuir al desarrollo integral e intercultural.",
+          },
+          {
+            title: "Normativa",
+            body: "Reglamentos aplicables para grupos infantiles y juveniles.",
+            items: ["Reglamento de ninos", "Reglamento de jovenes"],
+          },
+        ],
+      },
+      {
+        id: "contacto",
+        label: "Informes",
+        title: "Ubicacion y contacto",
+        variant: "wide",
+        contacts: [
+          {
+            label: "Direccion",
+            value:
+              "Fanny Anitua y Privada de Loza s/n. C.P. 34000 Durango, Dgo., Mexico",
+          },
+          { label: "Telefono", value: "827-13-65 ext. 5725" },
+          {
+            label: "Correo",
+            value: "cli.feca@ujed.mx",
+            href: "mailto:cli.feca@ujed.mx",
+          },
         ],
       },
     ],
@@ -263,7 +833,7 @@ export const legacyPages = {
       },
     ],
   },
-  "campus-central": {
+  "campus-central-archivo": {
     routeGroup: "legacy-campus",
     heroImage: "/imagenes/aniversario.jpeg",
     kicker: "Vida universitaria",

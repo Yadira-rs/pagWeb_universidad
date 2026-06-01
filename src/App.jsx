@@ -3,6 +3,7 @@ import "./App.css";
 import {
   historyEntries,
   logoImage,
+  logoUjedImage,
   missionVisionContent,
   servicePages,
   sectionPages,
@@ -18,7 +19,8 @@ import ServicesPage from "./pages/ServicesPage";
 import SingleSectionPage from "./pages/SingleSectionPage";
 import BolsaTrabajoPage from "./pages/BolsaTrabajoPage";
 import FeriaPage from "./pages/FeriaPage";
-
+import PosgradoPage from "./pages/PosgradoPage";
+import LenguasPage from "./pages/LenguasPage";
 
 function getCurrentRoute() {
   const hash = window.location.hash || "#/";
@@ -27,9 +29,9 @@ function getCurrentRoute() {
   if (hash === "#/mision-vision") return { page: "mission-vision" };
   if (hash === "#/bolsa-de-trabajo") return { page: "bolsa-trabajo" };
   if (hash === "#/servicios") return { page: "services" };
-  if (hash === "#/feria") { 
-   return { page:"feria" };
-}
+  if (hash === "#/feria") return { page: "feria" };
+  if (hash === "#/posgrado") return { page: "posgrado" };
+  if (hash === "#/celci" || hash === "#/lenguas") return { page: "lenguas" };
 
   if (legacyPages[hash.replace("#/", "")]) {
     const slug = hash.replace("#/", "");
@@ -76,20 +78,24 @@ function App() {
             : route.page === "services"
               ? "FECA - Servicios"
               : route.page === "feria"
-              ? "FECA - Feria"
-              : route.page === "legacy-program"
-                ? `FECA - ${legacyPages[route.slug]?.title ?? "Oferta Educativa"}`
-                : route.page === "legacy-campus"
-                  ? `FECA - ${legacyPages[route.slug]?.title ?? "Vida universitaria"}`
-                  : route.page === "legacy-teacher"
-                    ? `FECA - ${legacyPages[route.slug]?.title ?? "Maestros"}`
-                    : route.page === "legacy-admission"
-                      ? `FECA - ${legacyPages[route.slug]?.title ?? "Solicitud"}`
-              : route.page === "service-detail"
-                ? `FECA - ${servicePages[route.slug]?.heroTitle ?? "Servicios"}`
-            : route.page === "single-section"
-              ? `FECA - ${sectionPages[route.slug]?.heroTitle ?? "Nosotros"}`
-              : "FECA - Inicio";
+                ? "FECA - Feria"
+                : route.page === "posgrado"
+                  ? "FECA - Posgrado"
+                  : route.page === "lenguas"
+                    ? "FECA - Centro de Lenguas e Internacionalización"
+                    : route.page === "legacy-program"
+                      ? `FECA - ${legacyPages[route.slug]?.title ?? "Oferta Educativa"}`
+                      : route.page === "legacy-campus"
+                        ? `FECA - ${legacyPages[route.slug]?.title ?? "Vida universitaria"}`
+                        : route.page === "legacy-teacher"
+                          ? `FECA - ${legacyPages[route.slug]?.title ?? "Maestros"}`
+                          : route.page === "legacy-admission"
+                            ? `FECA - ${legacyPages[route.slug]?.title ?? "Solicitud"}`
+                            : route.page === "service-detail"
+                              ? `FECA - ${servicePages[route.slug]?.heroTitle ?? "Servicios"}`
+                              : route.page === "single-section"
+                                ? `FECA - ${sectionPages[route.slug]?.heroTitle ?? "Nosotros"}`
+                                : "FECA - Inicio";
   }, [route]);
 
   useEffect(() => {
@@ -144,13 +150,25 @@ function App() {
         logoImage={logoImage}
         newsPanelOpen={newsPanelOpen}
         setNewsPanelOpen={setNewsPanelOpen}
-      /> 
+      />
     ) : route.page === "feria" ? (
       <FeriaPage
         logoImage={logoImage}
         newsPanelOpen={newsPanelOpen}
         setNewsPanelOpen={setNewsPanelOpen}
-     />
+      />
+    ) : route.page === "posgrado" ? (
+      <PosgradoPage
+        logoImage={logoImage}
+        newsPanelOpen={newsPanelOpen}
+        setNewsPanelOpen={setNewsPanelOpen}
+      />
+    ) : route.page === "lenguas" ? (
+      <LenguasPage
+        logoImage={logoImage}
+        newsPanelOpen={newsPanelOpen}
+        setNewsPanelOpen={setNewsPanelOpen}
+      />
     ) : route.page === "legacy-admission" ? (
       <LegacyAdmissionPage
         content={legacyPages[route.slug]}
@@ -160,9 +178,9 @@ function App() {
       />
     ) : route.page === "feria" ? (
       <FeriaPage
-       logoImage={logoImage}
-       newsPanelOpen={newsPanelOpen}
-       setNewsPanelOpen={setNewsPanelOpen}
+        logoImage={logoImage}
+        newsPanelOpen={newsPanelOpen}
+        setNewsPanelOpen={setNewsPanelOpen}
       />
     ) : route.page === "legacy-program" ||
       route.page === "legacy-campus" ||

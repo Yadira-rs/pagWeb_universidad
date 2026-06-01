@@ -12,6 +12,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -33,4 +37,5 @@ a {
 
 #root {
   min-height: 100vh;
+  min-height: 100dvh;
 }
