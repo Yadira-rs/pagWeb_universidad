@@ -106,6 +106,10 @@ function App() {
   }, [newsPanelOpen]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [route.page]);
+
+  useEffect(() => {
     const elements = document.querySelectorAll(".fade-up");
     const observer = new IntersectionObserver(
       (entries) => {
