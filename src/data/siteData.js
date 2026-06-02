@@ -6,14 +6,14 @@ export const logoUjedHorizontalImage = '/imagenes/logo-ujed-horizontal-2024.png'
 
 export const heroSlides = [
   {
-    titleLines: ['Por una cultura', 'de', 'innovacion y emprendimiento'],
+    titleLines: ['Facultad de', 'Economía', 'Contaduría y Administración'],
     description:
-      'Formamos profesionales con vision global, preparados para liderar en un mundo en constante cambio.',
+      'Formamos profesionales con visión global, preparados para liderar en un mundo en constante cambio.',
     image: heroImage,
     badge: null,
   },
   {
-    title: 'Facultad de Economia, Contaduria y Administracion',
+    titleLines: ['Facultad de', 'Economía', 'Contaduría y Administración'],
     description:
       'Nuestra historia se construye con las generaciones que estudian y transforman el futuro de Durango.',
     image:
@@ -26,27 +26,27 @@ export const programs = [
   {
     title: 'CELSI',
     description:
-      'Desarrolla soluciones tecnologicas de alto impacto con enfoque en inteligencia artificial y ciberseguridad.',
+      'Desarrolla soluciones tecnológicas de alto impacto con enfoque en inteligencia artificial y ciberseguridad.',
     image: heroImage,
-    duration: '4 anos',
+    duration: '4 años',
     mode: 'Presencial',
   },
   {
     title: 'CIIEDO',
     description:
-      'Forma lideres empresariales con vision estrategica, finanzas, marketing y habilidades directivas.',
+      'Forma líderes empresariales con visión estratégica, finanzas, marketing y habilidades directivas.',
     image:
       'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80',
-    duration: '4 anos',
+    duration: '4 años',
     mode: 'Presencial / En linea',
   },
   {
     title: 'POSGRADO',
     description:
-      'Programa con vinculacion academica, proyectos aplicados y desarrollo de investigacion para perfiles de alto nivel.',
+      'Programa con vinculación académica, proyectos aplicados y desarrollo de investigación para perfiles de alto nivel.',
     image:
       'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=900&q=80',
-    duration: '6 anos',
+    duration: '6 años',
     mode: 'Presencial',
   },
 ]
@@ -55,22 +55,22 @@ export const highlights = [
   {
     title: 'Docentes con experiencia real',
     description:
-      'El 80% de nuestros profesores trabajan activamente en la industria, trayendo casos reales al salon.',
+      'El 80% de nuestros profesores trabajan activamente en la industria, trayendo casos reales al salón.',
   },
   {
     title: 'Movilidad internacional',
     description:
-      'Convenios con mas de 80 universidades en 25 paises para intercambios academicos y practicas profesionales.',
+      'Convenios con más de 80 universidades en 25 países para intercambios académicos y prácticas profesionales.',
   },
   {
-    title: 'Tecnologia de punta',
+    title: 'Tecnología de punta',
     description:
-      'Laboratorios equipados con herramientas actuales para analisis, simulacion e innovacion aplicada.',
+      'Laboratorios equipados con herramientas actuales para análisis, simulación e innovación aplicada.',
   },
   {
     title: 'Red de egresados activa',
     description:
-      'Conectamos a nuestros alumnos con una red de egresados en empresas lideres del pais y el mundo.',
+      'Conectamos a nuestros alumnos con una red de egresados en empresas líderes del país y el mundo.',
   },
 ]
 
@@ -78,57 +78,57 @@ export const teachers = [
   {
     name: 'Dra. Lucia Herrera',
     role: 'Marketing estrategico',
-    years: '15 anos de experiencia',
+    years: '15 años de experiencia',
     focus: 'Casos reales',
     description:
-      'Impulsa el pensamiento estrategico con casos empresariales reales que conectan a los estudiantes con el mercado actual.',
+      'Impulsa el pensamiento estratégico con casos empresariales reales que conectan a los estudiantes con el mercado actual.',
     image: heroImage,
   },
   {
     name: 'Mtro. Jorge Salinas',
     role: 'Finanzas corporativas',
-    years: '12 anos formando lideres',
-    focus: 'Casos practicos',
+    years: '12 años formando líderes',
+    focus: 'Casos prácticos',
     description:
-      'Acompana a los estudiantes a dominar finanzas con ejercicios basados en empresas reales y analisis profesional.',
+      'Acompaña a los estudiantes a dominar finanzas con ejercicios basados en empresas reales y análisis profesional.',
     image:
       'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80',
   },
   {
     name: 'Mtra. Elena Cruz',
-    role: 'Economia internacional',
-    years: '18 anos en docencia',
-    focus: 'Vision global',
+    role: 'Economía internacional',
+    years: '18 años en docencia',
+    focus: 'Visión global',
     description:
-      'Prepara a los alumnos para el entorno global con analisis de tendencias, negociacion y alianzas academicas internacionales.',
+      'Prepara a los alumnos para el entorno global con análisis de tendencias, negociación y alianzas académicas internacionales.',
     image:
       'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80',
   },
   {
     name: 'Dr. Mario Torres',
     role: 'Liderazgo empresarial',
-    years: '+20 anos de experiencia',
-    focus: 'Mentoria cercana',
+    years: '+20 años de experiencia',
+    focus: 'Mentoría cercana',
     description:
-      'Combina la practica gerencial con la ensenanza para formar estudiantes capaces de tomar decisiones estrategicas en entornos complejos.',
+      'Combina la práctica gerencial con la enseñanza para formar estudiantes capaces de tomar decisiones estratégicas en entornos complejos.',
     image:
       'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80',
   },
   {
     name: 'Mtra. Ana Perez',
-    role: 'Investigacion aplicada',
-    years: '10 anos de proyectos',
-    focus: 'Innovacion practica',
+    role: 'Investigación aplicada',
+    years: '10 años de proyectos',
+    focus: 'Innovación práctica',
     description:
-      'Guia a los alumnos en proyectos de investigacion que se traducen en soluciones reales para empresas y comunidades.',
+      'Guía a los alumnos en proyectos de investigación que se traducen en soluciones reales para empresas y comunidades.',
     image:
       'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=900&q=80',
   },
   {
     name: 'Prof. Luis Gomez',
-    role: 'Gestion de operaciones',
-    years: '14 anos en la industria',
-    focus: 'Ejecucion efectiva',
+    role: 'Gestión de operaciones',
+    years: '14 años en la industria',
+    focus: 'Ejecución efectiva',
     description:
       'Forma profesionales capaces de optimizar procesos, coordinar equipos y entregar resultados de alto impacto.',
     image:
@@ -272,7 +272,7 @@ export const news = [
   {
     tag: 'Logros',
     title:
-      'La facultad fortalece su vinculacion academica con nuevos proyectos de certificacion y mejora continua.',
+      'La facultad fortalece su vinculación académica con nuevos proyectos de certificación y mejora continua.',
     date: '15 de mayo, 2025',
     image:
       'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=900&q=80',
@@ -280,13 +280,13 @@ export const news = [
   {
     tag: 'Eventos',
     title:
-      'Feria de empleo 2025: mas de 80 empresas buscan talento universitario.',
+      'Feria de empleo 2025: más de 80 empresas buscan talento universitario.',
     date: '10 de mayo, 2025',
     image:
       'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=900&q=80',
   },
   {
-    tag: 'Investigacion',
+    tag: 'Investigación',
     title:
       'Equipos docentes y estudiantiles impulsan proyectos aplicados con impacto regional.',
     date: '3 de mayo, 2025',
@@ -317,7 +317,7 @@ export const missionVisionContent = {
 export const institutionalContent = {
   heroTitle: 'Marco institucional',
   intro:
-    'Nuestros principios, lineamientos y criterios rectores orientan cada decision academica e institucional.',
+    'Nuestros principios, lineamientos y criterios rectores orientan cada decisión académica e institucional.',
   sections: [
     {
       id: 'valores',
@@ -333,14 +333,14 @@ export const institutionalContent = {
     },
     {
       id: 'politicas',
-      eyebrow: 'Politicas',
-      title: 'Lineamientos para una gestion clara y consistente',
+      eyebrow: 'Políticas',
+      title: 'Lineamientos para una gestión clara y consistente',
       body:
-        'Nuestras politicas institucionales buscan asegurar procesos transparentes, decisiones coherentes y una operacion academica centrada en resultados formativos de calidad.',
+        'Nuestras políticas institucionales buscan asegurar procesos transparentes, decisiones coherentes y una operación académica centrada en resultados formativos de calidad.',
       points: [
-        'Fortalecimiento de procesos academicos, administrativos y de evaluacion.',
+        'Fortalecimiento de procesos academicos, administrativos y de evaluación.',
         'Transparencia en la toma de decisiones y uso de recursos.',
-        'Enfoque en atencion oportuna a estudiantes, docentes y comunidad.',
+        'Enfoque en atención oportuna a estudiantes, docentes y comunidad.',
       ],
     },
     {
@@ -348,11 +348,11 @@ export const institutionalContent = {
       eyebrow: 'Ejes rectores',
       title: 'Rumbo estrategico para crecer con sentido',
       body:
-        'Los ejes rectores articulan la planeacion institucional y definen las prioridades para consolidar innovacion, pertinencia academica y vinculacion con el entorno.',
+        'Los ejes rectores articulan la planeación institucional y definen las prioridades para consolidar innovación, pertinencia académica y vinculación con el entorno.',
       points: [
-        'Excelencia academica y fortalecimiento curricular.',
-        'Innovacion, investigacion aplicada y transformacion digital.',
-        'Vinculacion social, empresarial e internacionalizacion institucional.',
+        'Excelencia académica y fortalecimiento curricular.',
+        'Innovación, investigación aplicada y transformación digital.',
+        'Vinculación social, empresarial e internacionalización institucional.',
       ],
     },
     {
@@ -374,15 +374,15 @@ export const sectionPages = {
   organigrama: {
     heroTitle: 'Organigrama',
     intro:
-      'La estructura organizacional de la facultad define responsabilidades claras y coordinacion efectiva para el desarrollo academico e institucional.',
+      'La estructura organizacional de la facultad define responsabilidades claras y coordinación efectiva para el desarrollo académico e institucional.',
     eyebrow: 'Organigrama',
-    title: 'Estructura para una gestion academica coordinada',
+    title: 'Estructura para una gestión académica coordinada',
     body:
-      'El organigrama institucional integra las areas directivas, academicas y administrativas que permiten operar con orden, seguimiento y capacidad de respuesta ante las necesidades de la comunidad universitaria.',
+      'El organigrama institucional integra las áreas directivas, académicas y administrativas que permiten operar con orden, seguimiento y capacidad de respuesta ante las necesidades de la comunidad universitaria.',
     points: [
-      'Direccion y coordinaciones con funciones delimitadas.',
-      'Articulacion entre academicos, gestion escolar y apoyo institucional.',
-      'Procesos claros para decision, supervision y mejora continua.',
+      'Dirección y coordinaciones con funciones delimitadas.',
+      'Articulación entre académicos, gestión escolar y apoyo institucional.',
+      'Procesos claros para decisión, supervisión y mejora continua.',
     ],
   },
   valores: {
@@ -392,7 +392,7 @@ export const sectionPages = {
     eyebrow: 'Valores',
     title: 'Valores que sostienen nuestra comunidad',
     body:
-      'Estos principios guian la vida academica, el trabajo institucional y la convivencia de la comunidad FECA.',
+      'Estos principios guían la vida académica, el trabajo institucional y la convivencia de la comunidad FECA.',
     valueGroups: [
       {
         title: 'Valores de pertenencia',
@@ -400,11 +400,11 @@ export const sectionPages = {
       },
       {
         title: 'Valores de compromiso',
-        items: ['Compromiso social', 'integridad academica', 'liderazgo'],
+        items: ['Compromiso social', 'integridad académica', 'liderazgo'],
       },
       {
-        title: 'Valores de excelencia y transformacion',
-        items: ['Innovacion', 'calidad', 'cultura del emprendimiento'],
+        title: 'Valores de excelencia y transformación',
+        items: ['Innovación', 'calidad', 'cultura del emprendimiento'],
       },
       {
         title: 'Valores institucionales',
@@ -416,36 +416,36 @@ export const sectionPages = {
       },
       {
         title: 'Valores fundamentales',
-        items: ['Etica', 'honestidad', 'respeto a la dignidad humana'],
+        items: ['Ética', 'honestidad', 'respeto a la dignidad humana'],
       },
     ],
   },
   politicas: {
-    heroTitle: 'Politicas',
+    heroTitle: 'Políticas',
     intro:
-      'Las politicas institucionales establecen criterios de actuacion coherentes para fortalecer la calidad y la transparencia.',
-    eyebrow: 'Politicas',
-    title: 'Lineamientos para una operacion consistente',
+      'Las políticas institucionales establecen criterios de actuación coherentes para fortalecer la calidad y la transparencia.',
+    eyebrow: 'Políticas',
+    title: 'Lineamientos para una operación consistente',
     body:
-      'Nuestras politicas buscan asegurar decisiones claras, procesos ordenados y una gestion enfocada en resultados formativos, eficiencia administrativa y atencion oportuna a la comunidad.',
+      'Nuestras políticas buscan asegurar decisiones claras, procesos ordenados y una gestión enfocada en resultados formativos, eficiencia administrativa y atención oportuna a la comunidad.',
     points: [
-      'Fortalecimiento de procesos academicos y administrativos.',
-      'Transparencia en gestion, evaluacion y seguimiento.',
-      'Atencion institucional orientada al servicio y la calidad.',
+      'Fortalecimiento de procesos académicos y administrativos.',
+      'Transparencia en gestión, evaluación y seguimiento.',
+      'Atención institucional orientada al servicio y la calidad.',
     ],
   },
   'ejes-rectores': {
     heroTitle: 'Ejes rectores',
     intro:
-      'Los ejes rectores marcan las prioridades estrategicas que orientan la evolucion de la facultad.',
+      'Los ejes rectores marcan las prioridades estratégicas que orientan la evolución de la facultad.',
     eyebrow: 'Ejes rectores',
-    title: 'Rumbo institucional con enfoque estrategico',
+    title: 'Rumbo institucional con enfoque estratégico',
     body:
-      'Estos ejes articulan el crecimiento academico, la innovacion, la vinculacion y la proyeccion de la facultad para consolidar su pertinencia en el entorno regional y nacional.',
+      'Estos ejes articulan el crecimiento académico, la innovación, la vinculación y la proyección de la facultad para consolidar su pertinencia en el entorno regional y nacional.',
     points: [
-      'Excelencia academica y fortalecimiento curricular.',
-      'Innovacion, investigacion aplicada y transformacion digital.',
-      'Vinculacion social, empresarial e internacionalizacion.',
+      'Excelencia académica y fortalecimiento curricular.',
+      'Innovación, investigación aplicada y transformación digital.',
+      'Vinculación social, empresarial e internacionalización.',
     ],
   },
   'marco-normativo': {
@@ -453,11 +453,11 @@ export const sectionPages = {
     intro:
       'El marco normativo brinda certeza institucional y orienta la convivencia, los procesos y la toma de decisiones.',
     eyebrow: 'Marco normativo',
-    title: 'Base regulatoria para la vida academica e institucional',
+    title: 'Base regulatoria para la vida académica e institucional',
     body:
-      'Integra reglamentos, criterios y disposiciones que sustentan el funcionamiento de la facultad, protegen derechos y delimitan responsabilidades en el ambito academico y administrativo.',
+      'Integra reglamentos, criterios y disposiciones que sustentan el funcionamiento de la facultad, protegen derechos y delimitan responsabilidades en el ámbito académico y administrativo.',
     points: [
-      'Reglas claras para convivencia, organizacion y evaluacion.',
+      'Reglas claras para convivencia, organización y evaluación.',
       'Cumplimiento de disposiciones universitarias y legales.',
       'Referencia formal para decisiones con seguridad institucional.',
     ],

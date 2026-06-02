@@ -1,11 +1,11 @@
-﻿import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const heroSlides = [
   {
     image: "/imagenes/inicio.png",
-    titleLines: ["Por una cultura", "de", "innovacion y emprendimiento"],
+    titleLines: ["Por una cultura", "de", "innovación y emprendimiento"],
     description:
-      "Formamos profesionales con vision global, preparados para liderar en un mundo en constante cambio.",
+      "Formamos profesionales con visión global, preparados para liderar en un mundo en constante cambio.",
   },
   {
     image: "/imagenes/aniversario.jpeg",
@@ -18,27 +18,27 @@ const programs = [
   {
     title: "CELCI",
     description:
-      "Desarrolla soluciones tecnologicas de alto impacto con enfoque en inteligencia artificial y ciberseguridad.",
+      "Desarrolla soluciones tecnológicas de alto impacto con enfoque en inteligencia artificial y ciberseguridad.",
     image: "/imagenes/inicio.png",
-    duration: "4 anos",
+    duration: "4 años",
     mode: "Presencial",
     href: "#/celci",
   },
   {
     title: "CIIEDO",
     description:
-      "Forma lideres empresariales con vision estrategica, finanzas, marketing y habilidades directivas.",
+      "Forma líderes empresariales con visión estratégica, finanzas, marketing y habilidades directivas.",
     image: "/imagenes/imagen.jpeg",
-    duration: "4 anos",
+    duration: "4 años",
     mode: "Presencial / En linea",
     href: "#/ciiedo",
   },
   {
     title: "POSGRADO",
     description:
-      "Programa con vinculacion academica, proyectos aplicados y desarrollo de investigacion para perfiles de alto nivel.",
+      "Programa con vinculación académica, proyectos aplicados y desarrollo de investigación para perfiles de alto nivel.",
     image: "/imagenes/aniversario.jpeg",
-    duration: "6 anos",
+    duration: "6 años",
     mode: "Presencial",
     href: "#/posgrado",
   },
@@ -46,42 +46,42 @@ const programs = [
 
 const careers = [
   {
-    tag: "Economia",
-    title: "Licenciatura en Economia",
+    tag: "Economía",
+    title: "Licenciatura en Economía",
     description:
-      "Forma especialistas capaces de estudiar mercados, politicas publicas, finanzas y desarrollo regional con analisis de datos y pensamiento critico.",
+      "Forma especialistas capaces de estudiar mercados, políticas públicas, finanzas y desarrollo regional con análisis de datos y pensamiento crítico.",
     image: "/imagenes/cafeteria.jpeg",
     href: "#/economia",
     points: [
-      "Duracion aproximada: 4 anos",
+      "Duración aproximada: 4 años",
       "Modalidad presencial",
-      "Campo laboral: analisis economico, sector publico, consultoria y finanzas",
+      "Campo laboral: análisis económico, sector público, consultoría y finanzas",
     ],
   },
   {
     tag: "Contabilidad",
     title: "Licenciatura en Contabilidad",
     description:
-      "Prepara profesionales para interpretar informacion financiera, realizar auditorias, cumplir obligaciones fiscales y apoyar decisiones empresariales.",
+      "Prepara profesionales para interpretar información financiera, realizar auditorías, cumplir obligaciones fiscales y apoyar decisiones empresariales.",
     image: "/imagenes/aniversario.jpeg",
     href: "#/contabilidad",
     points: [
-      "Duracion aproximada: 4 anos",
+      "Duración aproximada: 4 años",
       "Modalidad presencial",
-      "Campo laboral: auditoria, impuestos, finanzas, costos y contraloria",
+      "Campo laboral: auditoría, impuestos, finanzas, costos y contraloría",
     ],
   },
   {
-    tag: "Administracion",
-    title: "Licenciatura en Administracion",
+    tag: "Administración",
+    title: "Licenciatura en Administración",
     description:
-      "Desarrolla habilidades para planear, organizar y dirigir empresas, proyectos y equipos con enfoque estrategico, innovador y humano.",
+      "Desarrolla habilidades para planear, organizar y dirigir empresas, proyectos y equipos con enfoque estratégico, innovador y humano.",
     image: "/imagenes/goffyymikimause.jpg",
     href: "#/administracion",
     points: [
-      "Duracion aproximada: 4 anos",
+      "Duración aproximada: 4 años",
       "Modalidad presencial",
-      "Campo laboral: direccion, recursos humanos, emprendimiento y gestion de proyectos",
+      "Campo laboral: dirección, recursos humanos, emprendimiento y gestión de proyectos",
     ],
   },
 ];
@@ -90,7 +90,7 @@ const highlights = [
   {
     title: "Docentes con experiencia real",
     description:
-      "El 80% de nuestros profesores trabajan activamente en la industria, trayendo casos reales al salon.",
+      "El 80% de nuestros profesores trabajan activamente en la industria, trayendo casos reales al salón.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
         <path d="M22 10v6" />
@@ -102,7 +102,7 @@ const highlights = [
   {
     title: "Movilidad internacional",
     description:
-      "Convenios con mas de 80 universidades en 25 paises para intercambios academicos y practicas profesionales.",
+      "Convenios con más de 80 universidades en 25 países para intercambios académicos y prácticas profesionales.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
         <circle cx="12" cy="12" r="10" />
@@ -112,9 +112,9 @@ const highlights = [
     ),
   },
   {
-    title: "Tecnologia de punta",
+    title: "Tecnología de punta",
     description:
-      "Laboratorios equipados con la ultima tecnologia: IA, roboti ca, simuladores y espacios de innovacion.",
+      "Laboratorios equipados con la última tecnología: IA, robótica, simuladores y espacios de innovación.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
         <rect x="2" y="3" width="20" height="14" rx="2" />
@@ -126,7 +126,7 @@ const highlights = [
   {
     title: "Red de egresados activa",
     description:
-      "Conectamos a nuestros alumnos con una red de mas de 40,000 egresados en empresas lideres del pais y el mundo.",
+      "Conectamos a nuestros alumnos con una red de más de 40,000 egresados en empresas líderes del país y el mundo.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -140,64 +140,54 @@ const highlights = [
 
 const teachers = [
   {
-    name: "Dra. Lucia Herrera",
-    role: "Marketing estrategico",
-    years: "15 anos de experiencia",
-    focus: "Casos reales",
+    name: "Dr. Jesús Guillermo Sotelo Asef",
+    role: "Dirección FECA",
+    years: "Gestión institucional",
+    focus: "Liderazgo académico",
     description:
-      "Impulsa el pensamiento estrategico con casos empresariales reales que conectan a los estudiantes con el mercado actual.",
-    image: "/imagenes/inicio.png",
-    profile: "#/lucia-herrera",
+      "Liderando el desarrollo académico y administrativo de la facultad",
+    image: "/imagenes/director.jpeg",
+    profile: "#/directores",
   },
   {
-    name: "Mtro. Jorge Salinas",
-    role: "Finanzas corporativas",
-    years: "12 anos formando lideres",
-    focus: "Casos practicos",
+    name: "Dr. Iván",
+    role: "CIIEDO",
+    years: "Vinculación empresarial",
+    focus: "Programas ejecutivos",
     description:
-      "Acompana a los estudiantes a dominar finanzas con ejercicios basados en empresas reales y analisis profesional.",
+      "Impulsa CIIEDO con innovación empresarial, proyectos ejecutivos y equipos directivos.",
     image: "/imagenes/imagen.jpeg",
-    profile: "#/jorge-salinas",
+    profile: "#/directores",
   },
   {
-    name: "Mtra. Elena Cruz",
-    role: "Economia internacional",
-    years: "18 anos en docencia",
-    focus: "Vision global",
+    name: "Dr. Juan",
+    role: "CELCI",
+    years: "Formación internacional",
+    focus: "Inglés práctico",
     description:
-      "Prepara a los alumnos para el entorno global con analisis de tendencias, negociacion y alianzas academicas internacionales.",
+      "Fortalece CELCI con aprendizaje de inglés práctico y experiencias internacionales.",
+    image: "/imagenes/cafeteria.jpeg",
+    profile: "#/directores",
+  },
+  {
+    name: "Dr. Luis",
+    role: "Posgrado",
+    years: "Investigación aplicada",
+    focus: "Formación avanzada",
+    description:
+      "Impulsa posgrado con investigación aplicada y formación académica avanzada.",
     image: "/imagenes/aniversario.jpeg",
-    profile: "#/elena-cruz",
+    profile: "#/directores",
   },
   {
-    name: "Dr. Mario Torres",
-    role: "Liderazgo empresarial",
-    years: "+20 anos de experiencia",
-    focus: "Mentoria cercana",
+    name: "Dr. Miguel",
+    role: "Secretaría Técnica",
+    years: "Gestión operativa",
+    focus: "Excelencia institucional",
     description:
-      "Combina la practica gerencial con la ensenanza para formar estudiantes capaces de tomar decisiones estrategicas en entornos complejos.",
-    image: "/imagenes/logo.png",
-    profile: "#/mario-torres",
-  },
-  {
-    name: "Mtra. Ana Perez",
-    role: "Investigacion aplicada",
-    years: "10 anos de proyectos",
-    focus: "Innovacion practica",
-    description:
-      "Guia a los alumnos en proyectos de investigacion que se traducen en soluciones reales para empresas y comunidades.",
+      "Fortalece la Secretaría Técnica con gestión interna y atención operativa.",
     image: "/imagenes/inicio.png",
-    profile: "#/ana-perez",
-  },
-  {
-    name: "Prof. Luis Gomez",
-    role: "Gestion de operaciones",
-    years: "14 anos en la industria",
-    focus: "Ejecucion efectiva",
-    description:
-      "Forma profesionales capaces de optimizar procesos, coordinar equipos y entregar resultados de alto impacto.",
-    image: "/imagenes/imagen.jpeg",
-    profile: "#/luis-gomez",
+    profile: "#/directores",
   },
 ];
 
@@ -230,11 +220,9 @@ const news = [
 function HomePage({ logoImage, setNewsPanelOpen }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [heroCurrentSlide, setHeroCurrentSlide] = useState(0);
-  const [teacherCurrentSlide, setTeacherCurrentSlide] = useState(0);
-  const [teacherExpanded, setTeacherExpanded] = useState(false);
-  const teacherTrackRef = useRef(null);
-  const teacherWrapperRef = useRef(null);
-  const teacherDetailsRef = useRef(null);
+  const [trackIndex, setTrackIndex] = useState(2);
+  const [hasTransition, setHasTransition] = useState(true);
+  const [autoplayPaused, setAutoplayPaused] = useState(false);
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
@@ -277,187 +265,49 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
     return () => observer.disconnect();
   }, []);
 
+  const clonedTeachers = [
+    teachers[teachers.length - 2],
+    teachers[teachers.length - 1],
+    ...teachers,
+    teachers[0],
+    teachers[1],
+  ];
+
+  const handleNext = () => {
+    setHasTransition(true);
+    setTrackIndex((prev) => prev + 1);
+  };
+
+  const handlePrev = () => {
+    setHasTransition(true);
+    setTrackIndex((prev) => prev - 1);
+  };
+
+  const handleTransitionEnd = () => {
+    if (trackIndex >= 7) {
+      setHasTransition(false);
+      setTrackIndex(2);
+    } else if (trackIndex <= 1) {
+      setHasTransition(false);
+      setTrackIndex(6);
+    }
+  };
+
+  const handleCardClick = (idx) => {
+    if (idx !== trackIndex) {
+      setHasTransition(true);
+      setTrackIndex(idx);
+    }
+  };
+
   useEffect(() => {
-    const teacherCarouselTrack = teacherTrackRef.current;
-    const teacherCarouselWrapper = teacherWrapperRef.current;
-    const teacherDetailsPanel = teacherDetailsRef.current;
-    const teacherDetailRole = document.getElementById("teacherDetailRole");
-    const teacherDetailDesc = document.getElementById("teacherDetailDesc");
-    const teacherDetailMeta = document.getElementById("teacherDetailMeta");
-    const teacherPrev = document.querySelector(".teacher-prev");
-    const teacherNext = document.querySelector(".teacher-next");
-
-    if (!teacherCarouselTrack || !teacherCarouselWrapper) return undefined;
-
-    let teacherCards = Array.from(
-      teacherCarouselTrack.querySelectorAll(".teacher-card"),
-    );
-    const teacherOriginalCount = teacherCards.length;
-    const teacherCloneCount = teacherOriginalCount > 0 ? 1 : 0;
-    let teacherCurrentSlideIndex = teacherCloneCount;
-    let teacherCarouselInterval;
-    let teacherIsWrapping = false;
-
-    const syncTeacherCurrentSlide = (index) => {
-      if (!teacherOriginalCount) return;
-
-      if (index === 0) {
-        setTeacherCurrentSlide(teacherOriginalCount - 1);
-        return;
-      }
-
-      if (index === teacherOriginalCount + teacherCloneCount) {
-        setTeacherCurrentSlide(0);
-        return;
-      }
-
-      setTeacherCurrentSlide(index - teacherCloneCount);
-    };
-
-    if (teacherOriginalCount > 0) {
-      const firstClone = teacherCards[0].cloneNode(true);
-      firstClone.classList.add("clone");
-      teacherCarouselTrack.appendChild(firstClone);
-
-      const lastClone = teacherCards[teacherOriginalCount - 1].cloneNode(true);
-      lastClone.classList.add("clone");
-      teacherCarouselTrack.insertBefore(lastClone, teacherCarouselTrack.firstChild);
-
-      teacherCards = Array.from(
-        teacherCarouselTrack.querySelectorAll(".teacher-card"),
-      );
-    }
-
-    function showTeacherDetails(index) {
-      const card = teacherCards[index];
-      if (!card || !teacherDetailsPanel || !teacherDetailRole || !teacherDetailDesc || !teacherDetailMeta) return;
-
-      teacherDetailRole.textContent = card.dataset.role ?? "";
-      teacherDetailDesc.textContent = card.dataset.desc ?? "";
-      teacherDetailMeta.innerHTML = `<span>${card.dataset.years ?? ""}</span><span>${card.dataset.focus ?? ""}</span>`;
-      teacherDetailsPanel.classList.add("active");
-    }
-
-    function updateTeacherCarousel(animate = true) {
-      if (!teacherCards.length) return;
-
-      const wrapperWidth = teacherCarouselWrapper.offsetWidth;
-      const currentCard = teacherCards[teacherCurrentSlideIndex];
-      if (!currentCard) return;
-
-      const cardWidth = currentCard.offsetWidth;
-      const cardOffset = currentCard.offsetLeft;
-      const translateX = cardOffset - wrapperWidth / 2 + cardWidth / 2;
-
-      teacherCarouselTrack.style.transition = animate
-        ? "transform 0.75s ease"
-        : "none";
-      teacherCarouselTrack.style.transform = `translateX(-${translateX}px)`;
-
-      teacherCards.forEach((card, index) => {
-        card.classList.remove("is-center");
-        card.classList.remove("active");
-
-        if (index === teacherCurrentSlideIndex) {
-          card.classList.add("is-center");
-        }
-      });
-
-      syncTeacherCurrentSlide(teacherCurrentSlideIndex);
-      showTeacherDetails(teacherCurrentSlideIndex);
-    }
-
-    function goToTeacherSlide(index, animate = true) {
-      teacherCurrentSlideIndex = Math.max(
-        0,
-        Math.min(index, teacherCards.length - 1),
-      );
-      setTeacherExpanded(false);
-      updateTeacherCarousel(animate);
-    }
-
-    function startTeacherCarousel() {
-      teacherCarouselInterval = window.setInterval(() => {
-        goToTeacherSlide(teacherCurrentSlideIndex + 1);
-      }, 5200);
-    }
-
-    function resetTeacherCarousel() {
-      window.clearInterval(teacherCarouselInterval);
-      startTeacherCarousel();
-    }
-
-    function handleTeacherTransitionEnd(event) {
-      if (event.target !== teacherCarouselTrack) return;
-      if (event.propertyName !== "transform") return;
-      if (teacherIsWrapping) return;
-
-      if (teacherCurrentSlideIndex === 0) {
-        teacherIsWrapping = true;
-        teacherCurrentSlideIndex = teacherOriginalCount;
-        teacherCarouselTrack.style.transition = "none";
-        updateTeacherCarousel(false);
-        teacherCarouselTrack.getBoundingClientRect();
-        teacherIsWrapping = false;
-      } else if (
-        teacherCurrentSlideIndex === teacherOriginalCount + teacherCloneCount
-      ) {
-        teacherIsWrapping = true;
-        teacherCurrentSlideIndex = teacherCloneCount;
-        teacherCarouselTrack.style.transition = "none";
-        updateTeacherCarousel(false);
-        teacherCarouselTrack.getBoundingClientRect();
-        teacherIsWrapping = false;
-      }
-    }
-
-    function handleTeacherClick(event) {
-      if (event.target.closest(".teacher-profile-link")) return;
-
-      const card = event.target.closest(".teacher-card");
-      if (!card) return;
-
-      const index = teacherCards.indexOf(card);
-      if (index === -1) return;
-
-      if (teacherCurrentSlideIndex !== index) {
-        goToTeacherSlide(index);
-        resetTeacherCarousel();
-      } else if (card.dataset.profile) {
-        setTeacherExpanded((current) => !current);
-      }
-    }
-
-    function handleTeacherPrev() {
-      goToTeacherSlide(teacherCurrentSlideIndex - 1);
-      resetTeacherCarousel();
-    }
-
-    function handleTeacherNext() {
-      goToTeacherSlide(teacherCurrentSlideIndex + 1);
-      resetTeacherCarousel();
-    }
-
-    teacherCarouselTrack.addEventListener("transitionend", handleTeacherTransitionEnd);
-    teacherCarouselTrack.addEventListener("click", handleTeacherClick);
-    teacherPrev?.addEventListener("click", handleTeacherPrev);
-    teacherNext?.addEventListener("click", handleTeacherNext);
-
-    window.addEventListener("resize", () => updateTeacherCarousel(false));
-    updateTeacherCarousel(false);
-    if (teacherCards.length) startTeacherCarousel();
-
-    return () => {
-      window.clearInterval(teacherCarouselInterval);
-      teacherCarouselTrack.removeEventListener(
-        "transitionend",
-        handleTeacherTransitionEnd,
-      );
-      teacherCarouselTrack.removeEventListener("click", handleTeacherClick);
-      teacherPrev?.removeEventListener("click", handleTeacherPrev);
-      teacherNext?.removeEventListener("click", handleTeacherNext);
-    };
-  }, []);
+    if (autoplayPaused) return;
+    const intervalId = setInterval(() => {
+      setTrackIndex((prev) => prev + 1);
+      setHasTransition(true);
+    }, 4800);
+    return () => clearInterval(intervalId);
+  }, [autoplayPaused]);
 
   return (
     <div className="site-shell">
@@ -516,7 +366,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
                 <a href="#/servicios/servicios-escolares">Servicios escolares</a>
                 <a href="#/servicios/servicio-social">Servicio social</a>
                 <a href="#/servicios/practicas-profesionales">
-                  Practicas profesionales
+                  Prácticas profesionales
                 </a>
                 <a href="#/bolsa-de-trabajo">Bolsa de trabajo</a>
                 <a href="https://sumafeca.ujed.mx/" target="_blank" rel="noreferrer">
@@ -772,66 +622,88 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
 
           <div className="fade-up teacher-carousel-heading" id="maestros">
             <div className="section-label">Nuestro equipo</div>
-            <h3 className="section-title">Maestros</h3>
+            <h3 className="section-title">Directores</h3>
             <p className="section-desc">
-              Conoce a los profesores que acompanan el aprendizaje con experiencias
-              reales, mentoria personalizada y vocacion por la ensenanza.
+              Conoce al equipo que guía la vida académica, administrativa y de
+              vinculación de nuestra facultad.
             </p>
           </div>
+        </div>
 
-          <div className="teacher-carousel fade-up">
-            <button type="button" className="teacher-arrow teacher-prev" aria-label="Anterior">
-              {"<"}
-            </button>
+        <div 
+          className="teacher-carousel fade-up"
+          onMouseEnter={() => setAutoplayPaused(true)}
+          onMouseLeave={() => setAutoplayPaused(false)}
+        >
+          <button
+            type="button"
+            className="teacher-scroll-down"
+            aria-label="Bajar a la siguiente sección"
+            onClick={() => window.scrollBy({ top: window.innerHeight * 0.85, behavior: "smooth" })}
+          />
 
-            <div className="teacher-carousel-wrapper" ref={teacherWrapperRef}>
-              <div className="teacher-carousel-track" ref={teacherTrackRef}>
-                {teachers.map((teacher, index) => (
-                  <article
-                    key={teacher.name}
-                    className={`teacher-card ${
-                      index === teacherCurrentSlide ? "is-center" : ""
-                    } ${teacherExpanded && index === teacherCurrentSlide ? "is-expanded" : ""}`}
-                    data-index={index}
-                    data-profile={teacher.profile}
-                    data-role={teacher.role}
-                    data-years={teacher.years}
-                    data-focus={teacher.focus}
-                    data-desc={teacher.description}
-                  >
-                    <div className="teacher-card-img">
-                      <img src={teacher.image} alt={teacher.name} />
-                    </div>
-                    <div className="teacher-card-body">
-                      <h4 className="teacher-card-name">{teacher.name}</h4>
-                    </div>
-                    <div className="teacher-card-info">
-                      <span className="teacher-info-role">{teacher.role}</span>
-                      <p>{teacher.description}</p>
-                      <div className="teacher-info-meta">
-                        <span>{teacher.years}</span>
-                        <span>{teacher.focus}</span>
+          <div className="teacher-carousel-wrapper">
+            <div 
+              className="teacher-carousel-track" 
+              style={{
+                "--track-index": String(trackIndex),
+                "--track-transition": hasTransition ? "transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)" : "none"
+              }}
+              onTransitionEnd={handleTransitionEnd}
+            >
+                {clonedTeachers.map((teacher, idx) => {
+                  let statusClass = "";
+                  if (idx === trackIndex) statusClass = "is-center";
+                  else if (idx === trackIndex - 1) statusClass = "is-prev";
+                  else if (idx === trackIndex + 1) statusClass = "is-next";
+                  else if (idx === trackIndex - 2) statusClass = "is-far-prev";
+                  else if (idx === trackIndex + 2) statusClass = "is-far-next";
+
+                  return (
+                    <article
+                      key={`${teacher.name}-${idx}`}
+                      className={`teacher-card ${statusClass}`}
+                      onClick={() => handleCardClick(idx)}
+                    >
+                      <div className="teacher-card-img">
+                        <img src={teacher.image} alt={teacher.name} />
+                        <div className="teacher-card-hover-overlay">
+                          <p className="teacher-hover-desc">{teacher.description}</p>
+                        </div>
                       </div>
-                      <button
-                        type="button"
-                        className="teacher-profile-link"
-                        onClick={() => setTeacherExpanded(true)}
-                      >
-                        Ver perfil
-                      </button>
-                    </div>
-                  </article>
-                ))}
+                      <div className="teacher-card-body">
+                        <h4 className="teacher-card-name">{teacher.name}</h4>
+                      </div>
+                    </article>
+                  );
+                })}
               </div>
             </div>
 
-            <button type="button" className="teacher-arrow teacher-next" aria-label="Siguiente">
-              {">"}
-            </button>
-
+            <div className="teacher-carousel-controls">
+              <button 
+                type="button" 
+                className="teacher-arrow teacher-prev" 
+                aria-label="Anterior"
+                onClick={handlePrev}
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                  <path d="M15 19l-7-7 7-7" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+              <button 
+                type="button" 
+                className="teacher-arrow teacher-next" 
+                aria-label="Siguiente"
+                onClick={handleNext}
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                  <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
       <section className="section">
         <div className="container">

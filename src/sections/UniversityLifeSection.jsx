@@ -4,9 +4,9 @@ function UniversityLifeSection() {
       <div className="container">
         <div className="fade-up">
           <div className="section-label">Vida universitaria</div>
-          <h2 className="section-title">Un campus que inspira cada dia</h2>
+          <h2 className="section-title">Un campus que inspira cada día</h2>
           <p className="section-desc">
-            Mas de 40 hectareas de espacios disenados para el aprendizaje, la
+            Más de 40 hectáreas de espacios diseñados para el aprendizaje, la
             convivencia y el deporte.
           </p>
         </div>
@@ -50,7 +50,7 @@ function UniversityLifeSection() {
           <div>
             <h2>Listo para dar el siguiente paso?</h2>
             <p>
-              Proceso de admision sencillo y en linea. Resultados en menos de 72
+              Proceso de admisión sencillo y en línea. Resultados en menos de 72
               horas.
             </p>
           </div>

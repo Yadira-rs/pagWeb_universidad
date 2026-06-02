@@ -11,7 +11,7 @@ function Footer({ logoImage }) {
           </div>
           <p className="footer-about">
             Formando profesionales de excelencia desde 1958. Comprometidos con la
-            innovacion, la investigacion y el desarrollo de Durango.
+            innovación, la investigación y el desarrollo de Durango.
           </p>
           <div className="footer-social">
             <a href="#" aria-label="Facebook">
@@ -35,18 +35,18 @@ function Footer({ logoImage }) {
             <li><a href="#">Licenciaturas</a></li>
             <li><a href="#">Posgrados</a></li>
             <li><a href="#">Diplomados</a></li>
-            <li><a href="#">Educacion continua</a></li>
+            <li><a href="#">Educación continua</a></li>
             <li><a href="#">Doctorados</a></li>
           </ul>
         </div>
 
         <div className="footer-col">
-          <h4>Institucion</h4>
+          <h4>Institución</h4>
           <ul>
             <li><a href="#">Nuestra historia</a></li>
             <li><a href="#">Acreditaciones</a></li>
-            <li><a href="#">Investigacion</a></li>
-            <li><a href="#">Vinculacion</a></li>
+            <li><a href="#">Investigación</a></li>
+            <li><a href="#">Vinculación</a></li>
             <li><a href="#">Rankings</a></li>
           </ul>
         </div>
@@ -67,7 +67,7 @@ function Footer({ logoImage }) {
         <span>© 2025 FECA. Todos los derechos reservados.</span>
         <div className="footer-bottom-links">
           <a href="#">Aviso de privacidad</a>
-          <a href="#">Terminos de uso</a>
+          <a href="#">Términos de uso</a>
         </div>
       </div>
     </footer>

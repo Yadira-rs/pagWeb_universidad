@@ -3,11 +3,11 @@ function ProgramsSection({ programs }) {
     <section className="section">
       <div className="container">
         <div className="fade-up">
-          <div className="section-label">Oferta academica</div>
+          <div className="section-label">Oferta académica</div>
           <h2 className="section-title">Departamentos</h2>
           <p className="section-desc">
-            Nuestros programas combinan teoria solida con practica profesional,
-            impulsados por tecnologia y vinculacion empresarial.
+            Nuestros programas combinan teoría sólida con práctica profesional,
+            impulsados por tecnología y vinculación empresarial.
           </p>
         </div>
 

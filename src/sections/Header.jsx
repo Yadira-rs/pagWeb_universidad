@@ -36,7 +36,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
             />
           </div>
           <div className="feca-title">
-            Facultad de Economia, Contaduria y Administracion
+            Facultad de Economía, Contaduría y Administración
           </div>
         </div>
       </div>

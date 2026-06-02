@@ -2,10 +2,10 @@ export const legacyPages = {
   licenciaturas: {
     routeGroup: "legacy-program",
     heroImage: "/imagenes/lic.jpg",
-    kicker: "Oferta academica",
+    kicker: "Oferta académica",
     title: "Licenciaturas FECA",
     intro:
-      "Conoce los programas presenciales de la Facultad de Economia, Contaduria y Administracion.",
+      "Conoce los programas presenciales de la Facultad de Economía, Contaduría y Administración.",
     panels: [
       {
         title: "Planes disponibles",
@@ -13,9 +13,9 @@ export const legacyPages = {
           "Consulta y descarga los documentos disponibles para cada programa.",
       },
       {
-        title: "Contador Publico P2021",
+        title: "Contador Público P2021",
         body:
-          "Formacion en informacion financiera, fiscal, administrativa, auditoria, costos y finanzas para la toma de decisiones.",
+          "Formación en información financiera, fiscal, administrativa, auditoría, costos y finanzas para la toma de decisiones.",
         actions: [
           {
             href: "/docs/plan-de-estudios_cp_2021.pdf",
@@ -28,9 +28,9 @@ export const legacyPages = {
         ],
       },
       {
-        title: "Licenciado en Administracion P2021",
+        title: "Licenciado en Administración P2021",
         body:
-          "Formacion para planear, dirigir y evaluar organizaciones con vision estrategica, flexible y emprendedora.",
+          "Formación para planear, dirigir y evaluar organizaciones con visión estratégica, flexible y emprendedora.",
         actions: [
           {
             href: "/docs/plan_de_estudios_la_2021.pdf",
@@ -43,9 +43,9 @@ export const legacyPages = {
         ],
       },
       {
-        title: "Licenciado en Economia y Negocios Internacionales P2021",
+        title: "Licenciado en Economía y Negocios Internacionales P2021",
         body:
-          "Formacion en analisis economico, comercio exterior, finanzas, mercados y negocios internacionales.",
+          "Formación en análisis económico, comercio exterior, finanzas, mercados y negocios internacionales.",
         actions: [
           {
             href: "/docs/plan_de_estudios_leni_2021.pdf",
@@ -58,9 +58,9 @@ export const legacyPages = {
         ],
       },
       {
-        title: "Contador Publico P2014",
+        title: "Contador Público P2014",
         body:
-          "Objetivo: formar profesionales capaces de aplicar tecnicas y conocimientos de contabilidad financiera y administrativa, fiscal y financiera para generar, analizar y emitir opiniones sobre informacion confiable, con caracter emprendedor y responsabilidad social. Plan anterior disponible para consulta academica y administrativa.",
+          "Objetivo: formar profesionales capaces de aplicar técnicas y conocimientos de contabilidad financiera y administrativa, fiscal y financiera para generar, analizar y emitir opiniones sobre información confiable, con carácter emprendedor y responsabilidad social. Plan anterior disponible para consulta académica y administrativa.",
         actions: [
           {
             href: "/docs/cp_plan_de_estudio_2014.pdf",
@@ -73,9 +73,9 @@ export const legacyPages = {
         ],
       },
       {
-        title: "Licenciado en Administracion P2014",
+        title: "Licenciado en Administración P2014",
         body:
-          "Objetivo: disenar organizaciones y garantizar su funcionamiento mediante la gestion de recursos financieros, tecnologicos y de talento humano, con enfoque en efectividad, rentabilidad, competitividad y responsabilidad social. Plan anterior disponible para consulta academica y administrativa.",
+          "Objetivo: diseñar organizaciones y garantizar su funcionamiento mediante la gestión de recursos financieros, tecnológicos y de talento humano, con enfoque en efectividad, rentabilidad, competitividad y responsabilidad social. Plan anterior disponible para consulta académica y administrativa.",
         actions: [
           {
             href: "/docs/cp_plan_de_estudio_2014.pdf",
@@ -88,9 +88,9 @@ export const legacyPages = {
         ],
       },
       {
-        title: "Licenciado en Economia y Negocios Internacionales P2014",
+        title: "Licenciado en Economía y Negocios Internacionales P2014",
         body:
-          "Objetivo: dotar a los egresados de una formacion equilibrada en teoria economica, finanzas y comercio internacional, con capacidad para disenar y evaluar escenarios de competitividad global. Plan anterior disponible para consulta academica y administrativa.",
+          "Objetivo: dotar a los egresados de una formación equilibrada en teoría económica, finanzas y comercio internacional, con capacidad para diseñar y evaluar escenarios de competitividad global. Plan anterior disponible para consulta académica y administrativa.",
         actions: [
           {
             href: "/docs/cp_plan_de_estudio_2014.pdf",
@@ -252,7 +252,7 @@ export const legacyPages = {
       {
         title: "Contador Publico P2018",
         body:
-          "Formacion en analisis financiero, gestion contable, fiscal y auditoria en modalidad a distancia.",
+          "Formación en análisis financiero, gestión contable, fiscal y auditoría en modalidad a distancia.",
         actions: [
           {
             href: "/docs/Plan_estudios_LA_2018_distancia.pdf",
@@ -261,9 +261,9 @@ export const legacyPages = {
         ],
       },
       {
-        title: "Licenciado en Administracion P2018",
+        title: "Licenciado en Administración P2018",
         body:
-          "Formacion para planear, dirigir y evaluar organizaciones con vision estrategica y flexible.",
+          "Formación para planear, dirigir y evaluar organizaciones con visión estratégica y flexible.",
         actions: [
           {
             href: "/docs/Plan_estudios_LA_2018_distancia (1).pdf",
@@ -279,7 +279,7 @@ export const legacyPages = {
     kicker: "Oferta academica",
     title: "Posgrado",
     intro:
-      "Programas de formacion avanzada para fortalecer la investigacion, la gestion y el desarrollo profesional.",
+      "Programas de formación avanzada para fortalecer la investigación, la gestión y el desarrollo profesional.",
     panels: [
       {
         title: "Programas de posgrado",
@@ -297,8 +297,8 @@ export const legacyPages = {
         ],
       },
       {
-        title: "Maestria en Gestion Publica",
-        body: "Documento del programa de maestria.",
+        title: "Maestría en Gestión Pública",
+        body: "Documento del programa de maestría.",
         actions: [
           {
             href: "/docs/Plan_estudio_Maestria_en_Gestion_Publica.pdf",
@@ -307,8 +307,8 @@ export const legacyPages = {
         ],
       },
       {
-        title: "Maestria en Gestion de Negocios",
-        body: "Documento del programa de maestria.",
+        title: "Maestría en Gestión de Negocios",
+        body: "Documento del programa de maestría.",
         actions: [
           {
             href: "/docs/Plan_estudio_Maestria_en_Gestion_de_Negocios.pdf",
@@ -317,8 +317,8 @@ export const legacyPages = {
         ],
       },
       {
-        title: "Maestria en Estrategias Contables",
-        body: "Documento del programa de maestria.",
+        title: "Maestría en Estrategias Contables",
+        body: "Documento del programa de maestría.",
         actions: [
           {
             href: "/docs/Plan_estudio_Maestria_en_Estrategias_Contables.pdf",
@@ -327,8 +327,8 @@ export const legacyPages = {
         ],
       },
       {
-        title: "Maestria en Mercadotecnia",
-        body: "Documento del programa de maestria.",
+        title: "Maestría en Mercadotecnia",
+        body: "Documento del programa de maestría.",
         actions: [
           {
             href: "/docs/Plan_estudio_Maestria_en_Mercadotecnia.pdf",
@@ -337,7 +337,7 @@ export const legacyPages = {
         ],
       },
       {
-        title: "Maestria en Economia",
+        title: "Maestría en Economía",
         body: "Documento del programa de maestria.",
         actions: [
           {
@@ -347,8 +347,8 @@ export const legacyPages = {
         ],
       },
       {
-        title: "Maestria en Auditoria Gubernamental",
-        body: "Documento del programa de maestria.",
+        title: "Maestría en Auditoría Gubernamental",
+        body: "Documento del programa de maestría.",
         actions: [
           {
             href: "/docs/Plan_estudio_Maestria_en_Auditoria_Gubernamental.pdf",
@@ -364,10 +364,10 @@ export const legacyPages = {
       {
         title: "Contacto",
         body:
-          "Facultad de Economia, Contaduria y Administracion. Telefono: (618) 827-13-65. Ubicacion: Fanny Anitua y Priv. Loza s/n, C.P. 34000, Durango, Dgo.",
+          "Facultad de Economía, Contaduría y Administración. Teléfono: (618) 827-13-65. Ubicación: Fanny Anitua y Priv. Loza s/n, C.P. 34000, Durango, Dgo.",
         variant: "contact",
         items: [
-          "Facultad: Facultad de Economia, Contaduria y Administracion",
+          "Facultad: Facultad de Economía, Contaduría y Administración",
           "Telefono: (618) 827-13-65",
           "Ubicacion: Fanny Anitua y Priv. Loza s/n, C.P. 34000, Durango, Dgo.",
         ],
@@ -580,7 +580,7 @@ export const legacyPages = {
     kicker: "Ciclo A-2025 | Modalidad presencial",
     title: "Centro de Lenguas e Internacionalizacion",
     intro:
-      "Cursos de idiomas para adultos, ninos y jovenes en la Facultad de Economia, Contaduria y Administracion.",
+      "Cursos de idiomas para adultos, niños y jóvenes en la Facultad de Economía, Contaduría y Administración.",
     tabMode: "switch",
     tabs: [
       { href: "cursos", label: "Cursos" },
@@ -588,7 +588,7 @@ export const legacyPages = {
       { href: "inscripcion", label: "Proceso inscripcion" },
       { href: "diagnostico", label: "Examen de diagnostico" },
       { href: "preguntas", label: "Preguntas frecuentes" },
-      { href: "informacion", label: "Informacion general" },
+      { href: "informacion", label: "Información general" },
       { href: "contacto", label: "Contacto" },
     ],
     sections: [
@@ -599,7 +599,7 @@ export const legacyPages = {
         cards: [
           {
             title: "Ingles para adultos",
-            body: "Mayores de 15 anos.",
+            body: "Mayores de 15 años.",
             items: [
               "Lunes a viernes: 1 hora diaria.",
               "Sabatinos: 9:00 a.m. a 2:00 p.m.",
@@ -612,9 +612,9 @@ export const legacyPages = {
             ],
           },
           {
-            title: "Ingles para ninos",
+            title: "Inglés para niños",
             body:
-              "Edad: 8 a 11 anos. En febrero-junio solamente hay inscripciones de reingreso.",
+              "Edad: 8 a 11 años. En febrero-junio solamente hay inscripciones de reingreso.",
             items: ["Sabatinos: 9:00 a.m. a 2:00 p.m."],
             actions: [
               {
@@ -624,8 +624,8 @@ export const legacyPages = {
             ],
           },
           {
-            title: "Ingles para jovenes",
-            body: "Edad: 12 a 15 anos.",
+            title: "Inglés para jóvenes",
+            body: "Edad: 12 a 15 años.",
             items: ["Sabatinos: 9:00 a.m. a 2:00 p.m."],
             actions: [
               {
@@ -636,7 +636,7 @@ export const legacyPages = {
           },
           {
             title: "Frances",
-            body: "15 anos en adelante.",
+            body: "15 años en adelante.",
             items: ["Lunes a viernes: 1 hora diaria."],
             actions: [
               {
@@ -647,7 +647,7 @@ export const legacyPages = {
           },
           {
             title: "Italiano",
-            body: "15 anos en adelante.",
+            body: "15 años en adelante.",
             items: ["Lunes a viernes: 1 hora diaria."],
             actions: [
               {
@@ -658,7 +658,7 @@ export const legacyPages = {
           },
           {
             title: "Japones",
-            body: "15 anos en adelante.",
+            body: "15 años en adelante.",
             items: ["Lunes a viernes: 1 hora diaria."],
             actions: [
               {
@@ -744,11 +744,11 @@ export const legacyPages = {
       {
         id: "informacion",
         label: "Identidad",
-        title: "Informacion general",
+        title: "Información general",
         variant: "wide",
         paragraphs: [
-          "El Centro de Idiomas de la FECA de la UJED fue fundado formalmente en 1975 bajo la direccion del C.P. Mtro. Ruben Vargas Quinones. Desde sus inicios ha desempenado un papel fundamental en la ensenanza de lenguas extranjeras.",
-          "Actualmente atiende a mas de mil alumnos, ofreciendo formacion de calidad en ingles, italiano, frances y japones para estudiantes universitarios y publico en general.",
+          "El Centro de Idiomas de la FECA de la UJED fue fundado formalmente en 1975 bajo la dirección del C.P. Mtro. Rubén Vargas Quiñones. Desde sus inicios ha desempeñado un papel fundamental en la enseñanza de lenguas extranjeras.",
+          "Actualmente atiende a más de mil alumnos, ofreciendo formación de calidad en inglés, italiano, francés y japonés para estudiantes universitarios y público en general.",
         ],
         cards: [
           {
@@ -757,14 +757,14 @@ export const legacyPages = {
               "Ofrecer programas educativos en lengua extranjera y servicios especializados de alta calidad que sumen ventajas competitivas en un entorno global.",
           },
           {
-            title: "Vision",
+            title: "Visión",
             body:
-              "Ser un centro reconocido por la excelencia en la ensenanza de lenguas extranjeras y por contribuir al desarrollo integral e intercultural.",
+              "Ser un centro reconocido por la excelencia en la enseñanza de lenguas extranjeras y por contribuir al desarrollo integral e intercultural.",
           },
           {
             title: "Normativa",
             body: "Reglamentos aplicables para grupos infantiles y juveniles.",
-            items: ["Reglamento de ninos", "Reglamento de jovenes"],
+            items: ["Reglamento de niños", "Reglamento de jóvenes"],
           },
         ],
       },
@@ -961,6 +961,46 @@ export const legacyPages = {
           "Trabajo en equipo",
           "Convivencia universitaria",
           "Identidad y pertenencia FECA",
+        ],
+      },
+    ],
+  },
+  directores: {
+    routeGroup: "legacy-teacher",
+    heroImage: "/imagenes/director.jpeg",
+    kicker: "Equipo directivo",
+    title: "Directores FECA",
+    intro:
+      "Autoridades y responsables institucionales que coordinan la planeacion academica, administrativa y de vinculacion de la Facultad de Economia, Contaduria y Administracion.",
+    stats: [
+      { label: "Gestion", value: "Direccion institucional" },
+      { label: "Enfoque", value: "Atencion a estudiantes" },
+      { label: "Trabajo", value: "Academia y administracion" },
+    ],
+    panels: [
+      {
+        title: "Dirección",
+        body:
+          "La Direccion encabeza la toma de decisiones estrategicas de la facultad, promueve el desarrollo academico y fortalece la vinculacion con la comunidad universitaria.",
+      },
+      {
+        title: "Subdirecciones y coordinaciones",
+        body:
+          "Las areas directivas acompanan procesos academicos, administrativos, de investigacion, extension y servicios para apoyar el trabajo de estudiantes, docentes y personal administrativo.",
+      },
+      {
+        title: "Atencion institucional",
+        body:
+          "Para informacion sobre tramites, citas o seguimiento academico, acercate a las oficinas de la facultad o a los canales oficiales de FECA.",
+        variant: "contact",
+      },
+      {
+        title: "Areas de trabajo",
+        items: [
+          "Planeacion academica y seguimiento estudiantil",
+          "Gestion administrativa y servicios escolares",
+          "Vinculacion, extension e investigacion",
+          "Comunicacion institucional y mejora continua",
         ],
       },
     ],
