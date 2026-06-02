@@ -3613,3 +3613,42 @@
     margin-top: 18px;
   }
 }
+
+
+/* --- RESPONSIVE DESIGN GLOBALS --- */
+@media (max-width: 1024px) {
+  .hero-inner, .legacy-hero-inner, .mission-vision-page-inner, .history-page-inner {
+    padding: 0 16px;
+    width: 100%;
+  }
+  
+  .services-grid, .legacy-stats, .legacy-content-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .services-grid, .legacy-stats, .legacy-content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-links {
+    display: none !important;
+  }
+
+  .hamburger {
+    display: flex !important;
+  }
+
+  .hero.small-hero h1, .history-page-title, .legacy-hero h1, .feria-overlay h1, .mv-title {
+    font-size: clamp(32px, 8vw, 42px) !important;
+  }
+
+  .hero.small-hero .hero-content, .legacy-section, .feria-section, .details-page, .services-page {
+    padding: 32px 16px !important;
+  }
+
+  .legacy-stats {
+    margin-top: -30px !important;
+  }
+}
