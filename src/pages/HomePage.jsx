@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+﻿import { useEffect, useRef, useState } from "react";
 
 const heroSlides = [
   {
@@ -9,10 +9,8 @@ const heroSlides = [
   },
   {
     image: "/imagenes/aniversario.jpeg",
-    badge: "68 aniversario",
-    title: "Facultad de Economia, Contaduria y Administracion",
-    description:
-      "Nuestra historia se construye con las generaciones que estudian y transforman el futuro de Durango.",
+    logo: "/imagenes/logo-68-aniversario.png",
+    logoAlt: "Logo 68 aniversario FECA",
   },
 ];
 
@@ -496,7 +494,10 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
               <a href="#/">Inicio</a>
             </div>
             <div className="nav-item">
-              <a href="#/administracion">Oferta Educativa ▾</a>
+              <a href="#/administracion">
+                Oferta Educativa
+                <span className="nav-caret" aria-hidden="true"></span>
+              </a>
               <div className="dropdown">
                 <a href="#/administracion">Licenciaturas</a>
                 <a href="#/posgrado">Posgrado</a>
@@ -507,7 +508,10 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
               </div>
             </div>
             <div className="nav-item">
-              <a href="#/servicios">Servicios ▾</a>
+              <a href="#/servicios">
+                Servicios
+                <span className="nav-caret" aria-hidden="true"></span>
+              </a>
               <div className="dropdown">
                 <a href="#/servicios/servicios-escolares">Servicios escolares</a>
                 <a href="#/servicios/servicio-social">Servicio social</a>
@@ -521,32 +525,10 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
               </div>
             </div>
             <div className="nav-item">
-              <a href="#/campus-central">Vida campus ▾</a>
-              <div className="dropdown">
-                <a href="#/campus-central">Campus central</a>
-                <a href="#/cafeteria">Cafeteria</a>
-                <a href="#/cultura-campus">Cultura y actividades</a>
-              </div>
-            </div>
-            <div className="nav-item">
-              <a href="#/lucia-herrera">Maestros ▾</a>
-              <div className="dropdown">
-                <a href="#/lucia-herrera">Dra. Lucia Herrera</a>
-                <a href="#/jorge-salinas">Mtro. Jorge Salinas</a>
-                <a href="#/elena-cruz">Mtra. Elena Cruz</a>
-                <a href="#/mario-torres">Dr. Mario Torres</a>
-                <a href="#/ana-perez">Mtra. Ana Perez</a>
-                <a href="#/luis-gomez">Prof. Luis Gomez</a>
-              </div>
-            </div>
-            <div className="nav-item">
-              <a href="#/solicitud">Admision ▾</a>
-              <div className="dropdown">
-                <a href="#/solicitud">Inicia tu solicitud</a>
-              </div>
-            </div>
-            <div className="nav-item">
-              <a href="#/historia">Nosotros ▾</a>
+              <a href="#/historia">
+                Nosotros
+                <span className="nav-caret" aria-hidden="true"></span>
+              </a>
               <div className="dropdown">
                 <a href="#/historia">Historia</a>
                 <a href="#/mision-vision">Mision y vision</a>
@@ -597,20 +579,8 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
           >
             <a href="#/">Inicio</a>
             <a href="#/administracion">Oferta educativa</a>
-            <a href="#/campus-central">Vida campus</a>
-            <a href="#/lucia-herrera">Maestros</a>
             <a href="#/servicios">Servicios</a>
-            <a href="#/historia">Nuestra historia</a>
-            <a href="#/bolsa-de-trabajo">Bolsa de trabajo</a>
-            <a href="#/servicios/servicios-escolares">Servicios escolares</a>
-            <a href="#/servicios/servicio-social">Servicio social</a>
-            <a href="#/servicios/practicas-profesionales">
-              Practicas profesionales
-            </a>
-            <a href="#/solicitud">Solicitud de admision</a>
-            <a href="https://sumafeca.ujed.mx/" target="_blank" rel="noreferrer">
-              Registro de egresados
-            </a>
+            <a href="#/historia">Nosotros</a>
           </div>
         </div>
       </nav>
@@ -623,27 +593,39 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
           >
             {heroSlides.map((slide, index) => (
               <div
-                key={slide.title ?? index}
-                className="carousel-slide"
+                key={slide.title ?? slide.logo ?? index}
+                className={`carousel-slide ${
+                  index === heroCurrentSlide ? "is-active" : ""
+                }`}
                 style={{ backgroundImage: `url('${slide.image}')` }}
               >
                 <div className="carousel-slide-content">
-                  {slide.badge ? (
-                    <div className="carousel-badge">{slide.badge}</div>
-                  ) : null}
-                  <h1 className="hero-title">
-                    {slide.titleLines ? (
-                      slide.titleLines.map((line, lineIndex) => (
-                        <span key={line}>
-                          {line}
-                          {lineIndex < slide.titleLines.length - 1 ? <br /> : null}
-                        </span>
-                      ))
-                    ) : (
-                      slide.title
-                    )}
-                  </h1>
-                  <p className="hero-desc">{slide.description}</p>
+                  {slide.logo ? (
+                    <img
+                      className="anniversary-hero-logo"
+                      src={slide.logo}
+                      alt={slide.logoAlt}
+                    />
+                  ) : (
+                    <>
+                      {slide.badge ? (
+                        <div className="carousel-badge">{slide.badge}</div>
+                      ) : null}
+                      <h1 className="hero-title">
+                        {slide.titleLines ? (
+                          slide.titleLines.map((line, lineIndex) => (
+                            <span key={line}>
+                              {line}
+                              {lineIndex < slide.titleLines.length - 1 ? <br /> : null}
+                            </span>
+                          ))
+                        ) : (
+                          slide.title
+                        )}
+                      </h1>
+                      <p className="hero-desc">{slide.description}</p>
+                    </>
+                  )}
                 </div>
               </div>
             ))}
@@ -663,7 +645,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
         </div>
       </section>
 
-      <div className="statsbar">
+      <div className="statsbar fade-up">
         <div className="statsbar-inner">
           <div className="statsbar-item">
             <div className="statsbar-num">2,000+</div>
@@ -679,7 +661,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
           </div>
           <div className="statsbar-item">
             <div className="statsbar-num">68</div>
-            <div className="statsbar-label">Años de excelencia</div>
+            <div className="statsbar-label">AÃ±os de excelencia</div>
           </div>
         </div>
       </div>
@@ -988,7 +970,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
         </div>
 
         <div className="footer-bottom">
-          <span>© 2026 FECA. Todos los derechos reservados.</span>
+          <span>Â© 2026 FECA. Todos los derechos reservados.</span>
           <div className="footer-bottom-links">
             <a href="#">Aviso de privacidad</a>
             <a href="#">Terminos de uso</a>

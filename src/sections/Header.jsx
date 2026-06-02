@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { logoImage as defaultLogo, logoUjedImage } from "../data/siteData";
+import {
+  logoImage as defaultLogo,
+  logoUjedHorizontalImage,
+} from "../data/siteData";
 
 function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -26,15 +29,11 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
       <div className="topbar">
         <div className="topbar-inner">
           <div className="brand-header">
-            <div className="logo-emblem">
-              <img src={logoUjedImage} alt="UJED logo" />
-            </div>
-            <div>
-              <div className="brand-title">UJED</div>
-              <div className="brand-subtitle">
-                Universidad Juarez del Estado de Durango
-              </div>
-            </div>
+            <img
+              className="brand-lockup"
+              src={logoUjedHorizontalImage}
+              alt="UJED Universidad Juarez del Estado de Durango"
+            />
           </div>
           <div className="feca-title">
             Facultad de Economia, Contaduria y Administracion
@@ -52,109 +51,24 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
           </a>
 
           <div className="nav-links">
-            <div
-              className={`nav-item ${currentRoute === "home" ? "active" : ""}`}
-            >
+            <div className={`nav-item ${currentRoute === "home" ? "active" : ""}`}>
               <a href="#/">Inicio</a>
             </div>
-            <div
-              className={`nav-item ${
-                currentRoute === "legacy-program" ? "active" : ""
-              }`}
-            >
-              <a href="#/licenciaturas">Oferta Educativa v</a>
-              <div className="dropdown">
-                <a href="#/licenciaturas">Licenciaturas</a>
-                <a href="#/administracion">Administración</a>
-                <a href="#/contabilidad">Contabilidad</a>
-                <a href="#/economia">Economía</a>
-                <a href="#/licenciaturas-distancia">Distancia</a>
-                <a href="#/posgrado">Posgrado</a>
-                <a href="#/curso-propedeutico">Curso propedeutico</a>
-                <a href="#/cursos-intersemestrales">Intersemestrales</a>
-                <a href="#/celci">Lenguas</a>
-                <a href="#/ciiedo">CIIEDO</a>
-              </div>
+
+            <div className={`nav-item ${currentRoute === "legacy-program" ? "active" : ""}`}>
+              <a href="#/licenciaturas">Oferta Educativa</a>
             </div>
-            <div
-              className={`nav-item ${
-                currentRoute === "services" ||
-                currentRoute === "service-detail" ||
-                currentRoute === "bolsa-trabajo" ||
-                currentRoute === "feria"
-                  ? "active"
-                  : ""
-              }`}
-            >
-              <a href="#/servicios">Servicios v</a>
-              <div className="dropdown">
-                <a href="#/servicios/servicios-escolares">Servicios escolares</a>
-                <a href="#/servicios/servicio-social">Servicio social</a>
-                <a href="#/servicios/practicas-profesionales">
-                  Practicas profesionales
-                </a>
-                <a href="#/feria">Feria 2025</a>
-                <a href="#/bolsa-de-trabajo">Bolsa de trabajo</a>
-                <a href="https://sumafeca.ujed.mx/" target="_blank" rel="noreferrer">
-                  Registro de egresados
-                </a>
-              </div>
+
+            <div className={`nav-item ${
+              currentRoute === "services" || currentRoute === "service-detail" ? "active" : ""
+            }`}>
+              <a href="#/servicios">Servicios</a>
             </div>
-            <div
-              className={`nav-item ${
-                currentRoute === "legacy-campus" ? "active" : ""
-              }`}
-            >
-              <a href="#/campus-central">Vida campus v</a>
-              <div className="dropdown">
-                <a href="#/campus-central">Campus central</a>
-                <a href="#/cafeteria">Cafetería</a>
-                <a href="#/cultura-campus">Cultura y actividades</a>
-              </div>
-            </div>
-            <div
-              className={`nav-item ${
-                currentRoute === "legacy-teacher" ? "active" : ""
-              }`}
-            >
-              <a href="#/lucia-herrera">Maestros v</a>
-              <div className="dropdown">
-                <a href="#/lucia-herrera">Dra. Lucía Herrera</a>
-                <a href="#/jorge-salinas">Mtro. Jorge Salinas</a>
-                <a href="#/elena-cruz">Mtra. Elena Cruz</a>
-                <a href="#/mario-torres">Dr. Mario Torres</a>
-                <a href="#/ana-perez">Mtra. Ana Pérez</a>
-                <a href="#/luis-gomez">Prof. Luis Gómez</a>
-              </div>
-            </div>
-            <div
-              className={`nav-item ${
-                currentRoute === "legacy-admission" ? "active" : ""
-              }`}
-            >
-              <a href="#/solicitud">Admisión v</a>
-              <div className="dropdown">
-                <a href="#/solicitud">Inicia tu solicitud</a>
-              </div>
-            </div>
-            <div
-              className={`nav-item ${
-                currentRoute === "history" ||
-                currentRoute === "mission-vision" ||
-                currentRoute === "single-section"
-                  ? "active"
-                  : ""
-              }`}
-            >
-              <a href="#">Nosotros v</a>
-              <div className="dropdown">
-                <a href="#/historia">Historia</a>
-                <a href="#/mision-vision">Mision y vision</a>
-                <a href="#/nosotros/valores">Valores</a>
-                <a href="#/nosotros/politicas">Politicas</a>
-                <a href="#/nosotros/ejes-rectores">Ejes rectores</a>
-                <a href="#/nosotros/marco-normativo">Marco normativo</a>
-              </div>
+
+            <div className={`nav-item ${
+              currentRoute === "history" || currentRoute === "mission-vision" || currentRoute === "single-section" ? "active" : ""
+            }`}>
+              <a href="#/nosotros">Nosotros</a>
             </div>
           </div>
 
@@ -202,27 +116,9 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
             className={`mobile-menu ${mobileMenuOpen ? "open" : ""}`}
           >
             <a href="#/">Inicio</a>
-            <a href="#/licenciaturas">Oferta educativa</a>
-            <a href="#/licenciaturas">Licenciaturas</a>
-            <a href="#/licenciaturas-distancia">Distancia</a>
-            <a href="#/curso-propedeutico">Curso propedeutico</a>
-            <a href="#/cursos-intersemestrales">Intersemestrales</a>
-            <a href="#/celci">Lenguas</a>
-            <a href="#/campus-central">Vida campus</a>
-            <a href="#/lucia-herrera">Maestros</a>
+            <a href="#/licenciaturas">Oferta Educativa</a>
             <a href="#/servicios">Servicios</a>
-            <a href="#/historia">Nuestra historia</a>
-            <a href="#/bolsa-de-trabajo">Bolsa de trabajo</a>
-            <a href="#/servicios/servicios-escolares">Servicios escolares</a>
-            <a href="#/servicios/servicio-social">Servicio social</a>
-            <a href="#/servicios/practicas-profesionales">
-              Practicas profesionales
-            </a>
-            <a href="#/solicitud">Solicitud de admisión</a>
-            <a href="#/feria">Feria 2025</a>
-            <a href="https://sumafeca.ujed.mx/" target="_blank" rel="noreferrer">
-              Registro de egresados
-            </a>
+            <a href="#/nosotros">Nosotros</a>
           </div>
         </div>
       </nav>

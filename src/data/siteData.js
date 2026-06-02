@@ -1,7 +1,8 @@
 import heroImage from '../assets/hero.png'
 
-export const logoImage = '/imagenes/logo.png'
-export const logoUjedImage = '/imagenes/logo-ujed.png'
+export const logoImage = '/imagenes/logo-ujed-2024.png'
+export const logoUjedImage = '/imagenes/logo-ujed-2024.png'
+export const logoUjedHorizontalImage = '/imagenes/logo-ujed-horizontal-2024.png'
 
 export const heroSlides = [
   {
