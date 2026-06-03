@@ -219,6 +219,7 @@ const news = [
 
 function HomePage({ logoImage, setNewsPanelOpen }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [heroCurrentSlide, setHeroCurrentSlide] = useState(0);
   const [trackIndex, setTrackIndex] = useState(2);
   const [hasTransition, setHasTransition] = useState(true);
@@ -230,6 +231,12 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
     }, 5200);
 
     return () => window.clearInterval(intervalId);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
@@ -311,7 +318,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
 
   return (
     <div className="site-shell">
-      <div className="topbar">
+      <div className={`topbar${scrolled ? " topbar-hidden" : ""}`}>
         <div className="topbar-inner">
           <div className="brand-header">
             <div className="logo-emblem">
@@ -330,7 +337,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
         </div>
       </div>
 
-      <nav className="navbar">
+      <nav className={`navbar${scrolled ? " navbar-top" : ""}`}>
         <div className="navbar-inner">
           <a href="#/" className="logo">
             <div className="logo-emblem">
