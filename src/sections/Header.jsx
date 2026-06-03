@@ -11,6 +11,12 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
   const hamburgerRef = useRef(null);
 
   useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
     const handleDocumentClick = (event) => {
       const menu = mobileMenuRef.current;
       const trigger = hamburgerRef.current;

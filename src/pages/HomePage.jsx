@@ -226,6 +226,12 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
   const [autoplayPaused, setAutoplayPaused] = useState(false);
 
   useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
     const intervalId = window.setInterval(() => {
       setHeroCurrentSlide((current) => (current + 1) % heroSlides.length);
     }, 5200);
@@ -452,9 +458,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
             {heroSlides.map((slide, index) => (
               <div
                 key={slide.title ?? slide.logo ?? index}
-                className={`carousel-slide ${
-                  index === heroCurrentSlide ? "is-active" : ""
-                }`}
+                className={`carousel-slide ${index === heroCurrentSlide ? "is-active" : ""}${slide.logo ? " carousel-slide--anniversary" : ""}`}
                 style={{ backgroundImage: `url('${slide.image}')` }}
               >
                 <div className="carousel-slide-content">

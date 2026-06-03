@@ -1440,6 +1440,10 @@
   background: linear-gradient(180deg, rgb(227 19 19 / 14%) 0%, rgb(227 19 19 / 82%) 100%);
 }
 
+.carousel-slide--anniversary::before {
+  background: linear-gradient(180deg, rgb(255 255 255 / 10%) 0%, rgb(255 255 255 / 55%) 100%);
+}
+
 .carousel-slide::after {
   content: '';
   position: absolute;
@@ -1850,11 +1854,11 @@
   position: absolute;
   top: 12px;
   left: 12px;
-  background: var(--gold);
-  color: var(--navy);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
+  background: rgb(255 255 255 / 92%);
+  color: #951823;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   padding: 4px 10px;
   border-radius: 20px;
   text-transform: uppercase;
@@ -1895,6 +1899,16 @@
 .program-meta-item {
   font-size: 12px;
   color: var(--gray-dark);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.program-meta-item svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  stroke-width: 2;
 }
 
 .careers-section {
