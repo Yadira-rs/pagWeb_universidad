@@ -88,12 +88,11 @@
   z-index: 1000;
   box-shadow: 0 2px 12px rgb(0 0 0 / 12%);
   animation: headerDropIn 0.45s ease both;
-  transition: transform 0.35s ease, opacity 0.35s ease;
+  transition: top 0.35s ease;
 }
 
 .topbar-hidden {
-  transform: translateY(-100%);
-  opacity: 0;
+  top: calc(-1 * var(--topbar-height));
   pointer-events: none;
 }
 
