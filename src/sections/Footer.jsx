@@ -33,7 +33,7 @@ function Footer({ logoImage }) {
           <h4>Programas</h4>
           <ul>
             <li><a href="#">Licenciaturas</a></li>
-            <li><a href="#">Posgrados</a></li>
+            <li><a href="https://posgradofeca.ujed.mx/" target="_blank" rel="noreferrer">Posgrados</a></li>
             <li><a href="#">Diplomados</a></li>
             <li><a href="#">Educación continua</a></li>
             <li><a href="#">Doctorados</a></li>

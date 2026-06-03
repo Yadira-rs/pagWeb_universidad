@@ -19,7 +19,6 @@ import ServicesPage from "./pages/ServicesPage";
 import SingleSectionPage from "./pages/SingleSectionPage";
 import BolsaTrabajoPage from "./pages/BolsaTrabajoPage";
 import FeriaPage from "./pages/FeriaPage";
-import PosgradoPage from "./pages/PosgradoPage";
 import LenguasPage from "./pages/LenguasPage";
 
 function getCurrentRoute() {
@@ -30,7 +29,6 @@ function getCurrentRoute() {
   if (hash === "#/bolsa-de-trabajo") return { page: "bolsa-trabajo" };
   if (hash === "#/servicios") return { page: "services" };
   if (hash === "#/feria") return { page: "feria" };
-  if (hash === "#/posgrado") return { page: "posgrado" };
   if (hash === "#/celci" || hash === "#/lenguas") return { page: "lenguas" };
 
   if (legacyPages[hash.replace("#/", "")]) {
@@ -79,9 +77,7 @@ function App() {
               ? "FECA - Servicios"
               : route.page === "feria"
                 ? "FECA - Feria"
-                : route.page === "posgrado"
-                  ? "FECA - Posgrado"
-                  : route.page === "lenguas"
+                : route.page === "lenguas"
                     ? "FECA - Centro de Lenguas e Internacionalización"
                     : route.page === "legacy-program"
                       ? `FECA - ${legacyPages[route.slug]?.title ?? "Oferta Educativa"}`
@@ -153,12 +149,6 @@ function App() {
       />
     ) : route.page === "feria" ? (
       <FeriaPage
-        logoImage={logoImage}
-        newsPanelOpen={newsPanelOpen}
-        setNewsPanelOpen={setNewsPanelOpen}
-      />
-    ) : route.page === "posgrado" ? (
-      <PosgradoPage
         logoImage={logoImage}
         newsPanelOpen={newsPanelOpen}
         setNewsPanelOpen={setNewsPanelOpen}

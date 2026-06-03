@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import Header from "../sections/Header";
 
 const heroSlides = [
   {
@@ -40,7 +41,7 @@ const programs = [
     image: "/imagenes/aniversario.jpeg",
     duration: "6 años",
     mode: "Presencial",
-    href: "#/posgrado",
+    href: "https://posgradofeca.ujed.mx/",
   },
 ];
 
@@ -202,7 +203,8 @@ const news = [
   },
   {
     tag: "Eventos",
-    title: "Feria de empleo 2025: mas de 80 empresas buscan talento universitario.",
+    title:
+      "Feria de empleo 2025: mas de 80 empresas buscan talento universitario.",
     date: "10 de mayo, 2025",
     image:
       "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=900&q=80",
@@ -218,18 +220,10 @@ const news = [
 ];
 
 function HomePage({ logoImage, setNewsPanelOpen }) {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [heroCurrentSlide, setHeroCurrentSlide] = useState(0);
   const [trackIndex, setTrackIndex] = useState(2);
   const [hasTransition, setHasTransition] = useState(true);
   const [autoplayPaused, setAutoplayPaused] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
@@ -237,27 +231,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
     }, 5200);
 
     return () => window.clearInterval(intervalId);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const handleDocumentClick = (event) => {
-      const menu = document.getElementById("mobile-menu");
-      const trigger = document.querySelector(".hamburger");
-      if (!menu || !trigger) return;
-
-      if (!menu.contains(event.target) && !trigger.contains(event.target)) {
-        setMobileMenuOpen(false);
-      }
-    };
-
-    document.addEventListener("click", handleDocumentClick);
-    return () => document.removeEventListener("click", handleDocumentClick);
   }, []);
 
   useEffect(() => {
@@ -274,7 +247,9 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
       { threshold: 0.1 },
     );
 
-    document.querySelectorAll(".fade-up").forEach((element) => observer.observe(element));
+    document
+      .querySelectorAll(".fade-up")
+      .forEach((element) => observer.observe(element));
     return () => observer.disconnect();
   }, []);
 
@@ -324,130 +299,11 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
 
   return (
     <div className="site-shell">
-      <div className={`topbar${scrolled ? " topbar-hidden" : ""}`}>
-        <div className="topbar-inner">
-          <div className="brand-header">
-            <div className="logo-emblem">
-              <img src={logoImage} alt="UJED logo" />
-            </div>
-            <div>
-              <div className="brand-title">UJED</div>
-              <div className="brand-subtitle">
-                Universidad Juarez del Estado de Durango
-              </div>
-            </div>
-          </div>
-          <div className="feca-title">
-            Facultad de Economia, Contaduria y Administracion
-          </div>
-        </div>
-      </div>
-
-      <nav className={`navbar${scrolled ? " navbar-top" : ""}`}>
-        <div className="navbar-inner">
-          <a href="#/" className="logo">
-            <img
-              className="navbar-ujed-logo"
-              src="/imagenes/logo-ujed-horizontal-2024.png"
-              alt="UJED logo"
-            />
-          </a>
-
-          <div className="nav-links">
-            <div className="nav-item active">
-              <a href="#/">Inicio</a>
-            </div>
-            <div className="nav-item">
-              <a href="#/administracion">
-                Oferta Educativa
-                <span className="nav-caret" aria-hidden="true"></span>
-              </a>
-              <div className="dropdown">
-                <a href="#/administracion">Licenciaturas</a>
-                <a href="#/posgrado">Posgrado</a>
-                <a href="#/celci">CELCI</a>
-                <a href="#/ciiedo">CIIEDO</a>
-                <a href="#/servicios">Servicios</a>
-                <a href="#/bolsa-de-trabajo">Bolsa de trabajo</a>
-              </div>
-            </div>
-            <div className="nav-item">
-              <a href="#/servicios">
-                Servicios
-                <span className="nav-caret" aria-hidden="true"></span>
-              </a>
-              <div className="dropdown">
-                <a href="#/servicios/servicios-escolares">Servicios escolares</a>
-                <a href="#/servicios/servicio-social">Servicio social</a>
-                <a href="#/servicios/practicas-profesionales">
-                  Prácticas profesionales
-                </a>
-                <a href="#/bolsa-de-trabajo">Bolsa de trabajo</a>
-                <a href="https://sumafeca.ujed.mx/" target="_blank" rel="noreferrer">
-                  Registro de egresados
-                </a>
-              </div>
-            </div>
-            <div className="nav-item">
-              <a href="#/historia">
-                Nosotros
-                <span className="nav-caret" aria-hidden="true"></span>
-              </a>
-              <div className="dropdown">
-                <a href="#/historia">Historia</a>
-                <a href="#/mision-vision">Mision y vision</a>
-                <a href="#/nosotros/valores">Valores</a>
-                <a href="#/nosotros/politicas">Politicas</a>
-                <a href="#/nosotros/ejes-rectores">Ejes rectores</a>
-                <a href="#/nosotros/marco-normativo">Marco normativo</a>
-              </div>
-            </div>
-          </div>
-
-          <form className="nav-search" onSubmit={(event) => event.preventDefault()}>
-            <input
-              type="search"
-              name="q"
-              placeholder="Buscar programas, carreras o servicios"
-            />
-            <button type="submit">Buscar</button>
-          </form>
-
-          <button
-            type="button"
-            className="nav-panel-button"
-            aria-label="Abrir ultimas noticias"
-            onClick={() => setNewsPanelOpen((current) => !current)}
-          >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M7 8h10" />
-              <path d="M7 12h10" />
-              <path d="M7 16h10" />
-            </svg>
-          </button>
-
-          <button
-            type="button"
-            className="hamburger"
-            aria-label="Menu"
-            onClick={() => setMobileMenuOpen((current) => !current)}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-
-          <div
-            id="mobile-menu"
-            className={`mobile-menu ${mobileMenuOpen ? "open" : ""}`}
-          >
-            <a href="#/">Inicio</a>
-            <a href="#/administracion">Oferta educativa</a>
-            <a href="#/servicios">Servicios</a>
-            <a href="#/historia">Nosotros</a>
-          </div>
-        </div>
-      </nav>
+      <Header
+        logoImage={logoImage}
+        currentRoute="home"
+        setNewsPanelOpen={setNewsPanelOpen}
+      />
 
       <section className="hero">
         <div className="carousel" aria-label="Carrusel de aniversario FECA">
@@ -474,16 +330,16 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
                         <div className="carousel-badge">{slide.badge}</div>
                       ) : null}
                       <h1 className="hero-title">
-                        {slide.titleLines ? (
-                          slide.titleLines.map((line, lineIndex) => (
-                            <span key={line}>
-                              {line}
-                              {lineIndex < slide.titleLines.length - 1 ? <br /> : null}
-                            </span>
-                          ))
-                        ) : (
-                          slide.title
-                        )}
+                        {slide.titleLines
+                          ? slide.titleLines.map((line, lineIndex) => (
+                              <span key={line}>
+                                {line}
+                                {lineIndex < slide.titleLines.length - 1 ? (
+                                  <br />
+                                ) : null}
+                              </span>
+                            ))
+                          : slide.title}
                       </h1>
                       <p className="hero-desc">{slide.description}</p>
                     </>
@@ -534,14 +390,18 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
             <div className="section-label">Oferta academica</div>
             <h2 className="section-title">Departamentos</h2>
             <p className="section-desc">
-              Nuestros programas combinan teoria solida con practica profesional,
-              impulsados por tecnologia y vinculacion empresarial.
+              Nuestros programas combinan teoria solida con practica
+              profesional, impulsados por tecnologia y vinculacion empresarial.
             </p>
           </div>
 
           <div className="programs-grid fade-up">
             {programs.map((program) => (
-              <a key={program.title} className="program-card" href={program.href}>
+              <a
+                key={program.title}
+                className="program-card"
+                href={program.href}
+              >
                 <div className="program-card-img">
                   <img src={program.image} alt={program.title} />
                   <span className="program-level">Departamentos</span>
@@ -551,14 +411,22 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
                   <div className="program-card-desc">{program.description}</div>
                   <div className="program-card-meta">
                     <span className="program-meta-item">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                      >
                         <circle cx="12" cy="12" r="10" />
                         <path d="M12 6v6l4 2" />
                       </svg>
                       {program.duration}
                     </span>
                     <span className="program-meta-item">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                      >
                         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                         <circle cx="9" cy="7" r="4" />
                       </svg>
@@ -584,8 +452,9 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
             <div className="section-label">Carreras</div>
             <h2 className="section-title">Licenciaturas FECA</h2>
             <p className="section-desc">
-              Conoce las carreras que forman profesionales preparados para analizar,
-              dirigir y transformar organizaciones publicas y privadas.
+              Conoce las carreras que forman profesionales preparados para
+              analizar, dirigir y transformar organizaciones publicas y
+              privadas.
             </p>
           </div>
 
@@ -642,7 +511,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
           </div>
         </div>
 
-        <div 
+        <div
           className="teacher-carousel fade-up"
           onMouseEnter={() => setAutoplayPaused(true)}
           onMouseLeave={() => setAutoplayPaused(false)}
@@ -651,71 +520,102 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
             type="button"
             className="teacher-scroll-down"
             aria-label="Bajar a la siguiente sección"
-            onClick={() => window.scrollBy({ top: window.innerHeight * 0.85, behavior: "smooth" })}
+            onClick={() =>
+              window.scrollBy({
+                top: window.innerHeight * 0.85,
+                behavior: "smooth",
+              })
+            }
           />
 
           <div className="teacher-carousel-wrapper">
-            <div 
-              className="teacher-carousel-track" 
+            <div
+              className="teacher-carousel-track"
               style={{
                 "--track-index": String(trackIndex),
-                "--track-transition": hasTransition ? "transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)" : "none"
+                "--track-transition": hasTransition
+                  ? "transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)"
+                  : "none",
               }}
               onTransitionEnd={handleTransitionEnd}
             >
-                {clonedTeachers.map((teacher, idx) => {
-                  let statusClass = "";
-                  if (idx === trackIndex) statusClass = "is-center";
-                  else if (idx === trackIndex - 1) statusClass = "is-prev";
-                  else if (idx === trackIndex + 1) statusClass = "is-next";
-                  else if (idx === trackIndex - 2) statusClass = "is-far-prev";
-                  else if (idx === trackIndex + 2) statusClass = "is-far-next";
+              {clonedTeachers.map((teacher, idx) => {
+                let statusClass = "";
+                if (idx === trackIndex) statusClass = "is-center";
+                else if (idx === trackIndex - 1) statusClass = "is-prev";
+                else if (idx === trackIndex + 1) statusClass = "is-next";
+                else if (idx === trackIndex - 2) statusClass = "is-far-prev";
+                else if (idx === trackIndex + 2) statusClass = "is-far-next";
 
-                  return (
-                    <article
-                      key={`${teacher.name}-${idx}`}
-                      className={`teacher-card ${statusClass}`}
-                      onClick={() => handleCardClick(idx)}
-                    >
-                      <div className="teacher-card-img">
-                        <img src={teacher.image} alt={teacher.name} />
-                        <div className="teacher-card-hover-overlay">
-                          <p className="teacher-hover-desc">{teacher.description}</p>
-                        </div>
+                return (
+                  <article
+                    key={`${teacher.name}-${idx}`}
+                    className={`teacher-card ${statusClass}`}
+                    onClick={() => handleCardClick(idx)}
+                  >
+                    <div className="teacher-card-img">
+                      <img src={teacher.image} alt={teacher.name} />
+                      <div className="teacher-card-hover-overlay">
+                        <p className="teacher-hover-desc">
+                          {teacher.description}
+                        </p>
                       </div>
-                      <div className="teacher-card-body">
-                        <h4 className="teacher-card-name">{teacher.name}</h4>
-                      </div>
-                    </article>
-                  );
-                })}
-              </div>
-            </div>
-
-            <div className="teacher-carousel-controls">
-              <button 
-                type="button" 
-                className="teacher-arrow teacher-prev" 
-                aria-label="Anterior"
-                onClick={handlePrev}
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                  <path d="M15 19l-7-7 7-7" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
-              <button 
-                type="button" 
-                className="teacher-arrow teacher-next" 
-                aria-label="Siguiente"
-                onClick={handleNext}
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                  <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
+                    </div>
+                    <div className="teacher-card-body">
+                      <h4 className="teacher-card-name">{teacher.name}</h4>
+                    </div>
+                  </article>
+                );
+              })}
             </div>
           </div>
-        </section>
+
+          <div className="teacher-carousel-controls">
+            <button
+              type="button"
+              className="teacher-arrow teacher-prev"
+              aria-label="Anterior"
+              onClick={handlePrev}
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="3"
+              >
+                <path
+                  d="M15 19l-7-7 7-7"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+            <button
+              type="button"
+              className="teacher-arrow teacher-next"
+              aria-label="Siguiente"
+              onClick={handleNext}
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="3"
+              >
+                <path
+                  d="M9 5l7 7-7 7"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
 
       <section className="section">
         <div className="container">
@@ -738,8 +638,8 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
               <div className="campus-main-overlay">
                 <h3>Campus central</h3>
                 <p>
-                  Biblioteca, auditorio, laboratorios y areas verdes en un entorno
-                  ideal para estudiar
+                  Biblioteca, auditorio, laboratorios y areas verdes en un
+                  entorno ideal para estudiar
                 </p>
               </div>
             </a>
@@ -764,11 +664,21 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
           <div className="admissions-banner fade-up">
             <div>
               <h2>Listo para dar el siguiente paso?</h2>
-              <p>Proceso de admision sencillo y en linea. Resultados en menos de 72 horas.</p>
+              <p>
+                Proceso de admision sencillo y en linea. Resultados en menos de
+                72 horas.
+              </p>
             </div>
             <a href="#/solicitud" className="btn-primary">
               Iniciar mi solicitud
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+              >
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </a>
@@ -806,17 +716,21 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
       </section>
 
       <footer className="footer">
-        <div className="footer-grid">
+        <div className="footer-tagline">
+          Por una Cultura de Innovación y Emprendimiento
+        </div>
+
+        <div className="footer-grid footer-grid--two">
           <div className="footer-brand">
             <div className="footer-logo">
-              <div className="logo-emblem footer-emblem">
-                <img src={logoImage} alt="FECA" />
+              <div className="logo-emblem footer-emblem footer-emblem--lg">
+                <img src="/imagenes/logo_ujed.png" alt="UJED" />
               </div>
               FECA
             </div>
             <p className="footer-about">
-              Formando profesionales de excelencia desde 1958. Comprometidos con la
-              innovacion, la investigacion y el desarrollo de Durango.
+              Formando profesionales de excelencia desde 1958. Comprometidos con
+              la innovación, la investigación y el desarrollo de Durango.
             </p>
           </div>
 
@@ -824,7 +738,9 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
             <h4>Contacto</h4>
             <ul>
               <li>
-                <a href="#">Fanny Anitua y Priv. Loza s/n, C.P. 34000., Durango, Dgo., Mexico</a>
+                <a href="#">
+                  Fanny Anitua y Priv. Loza s/n, C.P. 34000., Durango, Dgo., México
+                </a>
               </li>
               <li>
                 <a href="#">(618) 827-13-65</a>
@@ -836,7 +752,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
                 <a href="#">Preguntas frecuentes</a>
               </li>
             </ul>
-            <div className="footer-social">
+            <div className="footer-social footer-social--images">
               <a href="#" aria-label="Facebook">
                 <img src="/imagenes/facebook.png" alt="Facebook" />
               </a>
@@ -854,10 +770,10 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
         </div>
 
         <div className="footer-bottom">
-          <span>Â© 2026 FECA. Todos los derechos reservados.</span>
+          <span>© 2026 FECA. Todos los derechos reservados.</span>
           <div className="footer-bottom-links">
             <a href="#">Aviso de privacidad</a>
-            <a href="#">Terminos de uso</a>
+            <a href="#">Términos de uso</a>
           </div>
         </div>
       </footer>
