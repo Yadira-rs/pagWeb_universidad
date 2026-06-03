@@ -6,6 +6,7 @@ import {
 
 function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const mobileMenuRef = useRef(null);
   const hamburgerRef = useRef(null);
 
@@ -24,9 +25,15 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
     return () => document.removeEventListener("click", handleDocumentClick);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
-      <div className="topbar">
+      <div className={`topbar${scrolled ? " topbar-hidden" : ""}`}>
         <div className="topbar-inner">
           <div className="brand-header">
             <img
@@ -41,7 +48,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
         </div>
       </div>
 
-      <nav className="navbar">
+      <nav className={`navbar${scrolled ? " navbar-top" : ""}`}>
         <div className="navbar-inner">
           <a href="#/" className="logo">
             <div className="logo-emblem">
