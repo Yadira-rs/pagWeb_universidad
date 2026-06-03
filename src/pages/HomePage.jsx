@@ -29,7 +29,7 @@ const programs = [
     title: "CIIEDO",
     description:
       "Forma líderes empresariales con visión estratégica, finanzas, marketing y habilidades directivas.",
-    image: "/imagenes/imagen.jpeg",
+    image: "/imagenes/CIIEDO.jpeg",
     duration: "4 años",
     mode: "Presencial / En linea",
     href: "#/ciiedo",
@@ -222,8 +222,9 @@ const news = [
 function HomePage({ logoImage, setNewsPanelOpen }) {
   const [heroCurrentSlide, setHeroCurrentSlide] = useState(0);
   const [trackIndex, setTrackIndex] = useState(2);
-  const [hasTransition, setHasTransition] = useState(true);
-  const [autoplayPaused, setAutoplayPaused] = useState(false);
+  const trackRef = useRef(null);
+  const trackIdxRef = useRef(2);
+  const pausedRef = useRef(false);
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
@@ -253,49 +254,47 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
     return () => observer.disconnect();
   }, []);
 
+  // 2 clones al inicio + 5 reales + 2 clones al final = 9 items
+  // trackIndex real: 2-6, clones: 0-1 y 7-8
   const clonedTeachers = [
-    teachers[teachers.length - 2],
-    teachers[teachers.length - 1],
+    teachers[3], teachers[4],
     ...teachers,
-    teachers[0],
-    teachers[1],
+    teachers[0], teachers[1],
   ];
 
-  const handleNext = () => {
-    setHasTransition(true);
-    setTrackIndex((prev) => prev + 1);
+  const moveTo = (newIdx, animated) => {
+    if (!trackRef.current) return;
+    trackRef.current.style.transition = animated
+      ? 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)'
+      : 'none';
+    trackRef.current.style.transform =
+      `translateX(calc(50% - 120px - ${newIdx * 338}px - 155px))`;
+    trackIdxRef.current = newIdx;
+    setTrackIndex(newIdx);
   };
 
-  const handlePrev = () => {
-    setHasTransition(true);
-    setTrackIndex((prev) => prev - 1);
-  };
+  const handleNext = () => moveTo(trackIdxRef.current + 1, true);
+  const handlePrev = () => moveTo(trackIdxRef.current - 1, true);
 
   const handleTransitionEnd = () => {
-    if (trackIndex >= 7) {
-      setHasTransition(false);
-      setTrackIndex(2);
-    } else if (trackIndex <= 1) {
-      setHasTransition(false);
-      setTrackIndex(6);
-    }
+    const idx = trackIdxRef.current;
+    if (idx >= 7) moveTo(idx - 5, false);
+    else if (idx <= 1) moveTo(idx + 5, false);
   };
 
-  const handleCardClick = (idx) => {
-    if (idx !== trackIndex) {
-      setHasTransition(true);
-      setTrackIndex(idx);
-    }
-  };
-
+  // Posición inicial sin animación
   useEffect(() => {
-    if (autoplayPaused) return;
-    const intervalId = setInterval(() => {
-      setTrackIndex((prev) => prev + 1);
-      setHasTransition(true);
-    }, 4800);
-    return () => clearInterval(intervalId);
-  }, [autoplayPaused]);
+    moveTo(2, false);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Autoplay cada 3 segundos
+  useEffect(() => {
+    const id = setInterval(() => {
+      if (!pausedRef.current) moveTo(trackIdxRef.current + 1, true);
+    }, 3000);
+    return () => clearInterval(id);
+  }, []);
 
   return (
     <div className="site-shell">
@@ -438,11 +437,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
             ))}
           </div>
 
-          <div style={{ textAlign: "center", marginTop: "36px" }}>
-            <a href="#/administracion" className="btn-primary">
-              Ver todos los programas
-            </a>
-          </div>
         </div>
       </section>
 
@@ -513,9 +507,10 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
 
         <div
           className="teacher-carousel fade-up"
-          onMouseEnter={() => setAutoplayPaused(true)}
-          onMouseLeave={() => setAutoplayPaused(false)}
+          onMouseEnter={() => { pausedRef.current = true; }}
+          onMouseLeave={() => { pausedRef.current = false; }}
         >
+<<<<<<< HEAD
           <button
             type="button"
             className="teacher-scroll-down"
@@ -559,6 +554,36 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
                         <p className="teacher-hover-desc">
                           {teacher.description}
                         </p>
+=======
+
+          <div className="teacher-carousel-wrapper">
+            <div
+              ref={trackRef}
+              className="teacher-carousel-track"
+              onTransitionEnd={handleTransitionEnd}
+            >
+                {clonedTeachers.map((teacher, idx) => {
+                  const dist = idx - trackIndex;
+                  let statusClass = "";
+                  if (dist === 0) statusClass = "is-center";
+                  else if (dist === -1) statusClass = "is-prev";
+                  else if (dist === 1) statusClass = "is-next";
+                  else if (dist === -2) statusClass = "is-far-prev";
+                  else if (dist === 2) statusClass = "is-far-next";
+
+                  return (
+                    <article
+                      key={`${teacher.name}-${idx}`}
+                      className={`teacher-card ${statusClass}`}
+                      onClick={() => moveTo(idx, true)}
+                    >
+                      <div className="teacher-card-img">
+                        <img src={teacher.image} alt={teacher.name} />
+                        <div className="teacher-card-hover-overlay">
+                          <h4 className="teacher-hover-name">{teacher.name}</h4>
+                          <p className="teacher-hover-desc">{teacher.description}</p>
+                        </div>
+>>>>>>> b043326 (Mejoras UI: carrusel directores, dropdowns en todas las páginas, imagen CIIEDO)
                       </div>
                     </div>
                     <div className="teacher-card-body">
