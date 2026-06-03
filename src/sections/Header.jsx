@@ -51,10 +51,11 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
       <nav className={`navbar${scrolled ? " navbar-top" : ""}`}>
         <div className="navbar-inner">
           <a href="#/" className="logo">
-            <div className="logo-emblem">
-              <img src={logoImage} alt="FECA logo" />
-            </div>
-            FECA
+            <img
+              className="navbar-ujed-logo"
+              src="/imagenes/logo-ujed-horizontal-2024.png"
+              alt="UJED logo"
+            />
           </a>
 
           <div className="nav-links">
