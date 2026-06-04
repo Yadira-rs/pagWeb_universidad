@@ -20,7 +20,7 @@ function UniversityLifeSection() {
             <div className="campus-main-overlay">
               <h3>Campus central</h3>
               <p>
-                Biblioteca, auditorio, laboratorios y areas verdes en un entorno
+                Biblioteca, auditorio, laboratorios y áreas verdes en un entorno
                 ideal para estudiar.
               </p>
             </div>
@@ -48,7 +48,7 @@ function UniversityLifeSection() {
 
         <div className="admissions-banner fade-up">
           <div>
-            <h2>Listo para dar el siguiente paso?</h2>
+            <h2>¿Listo para dar el siguiente paso?</h2>
             <p>
               Proceso de admisión sencillo y en línea. Resultados en menos de 72
               horas.

@@ -52,8 +52,8 @@ function HistorySection({ entries }) {
           <div className="section-label">Nuestra historia</div>
           <h2 className="section-title history-title">Nuestra historia</h2>
           <p className="section-desc history-subtitle">
-            Un recorrido por los hitos que han definido nuestra evolucion
-            academica, institucional y profesional a lo largo de los anos.
+            Un recorrido por los hitos que han definido nuestra evolución
+            académica, institucional y profesional a lo largo de los años.
           </p>
         </div>
 
@@ -61,7 +61,7 @@ function HistorySection({ entries }) {
           <button
             type="button"
             className="history-nav-button"
-            aria-label="Anio anterior"
+            aria-label="Año anterior"
             onClick={() => goToIndex(activeIndex - 1)}
           >
             {'<'}
@@ -91,7 +91,7 @@ function HistorySection({ entries }) {
           <button
             type="button"
             className="history-nav-button"
-            aria-label="Siguiente anio"
+            aria-label="Siguiente año"
             onClick={() => goToIndex(activeIndex + 1)}
           >
             {'>'}

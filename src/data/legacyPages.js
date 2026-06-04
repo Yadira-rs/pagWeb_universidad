@@ -239,10 +239,10 @@ export const legacyPages = {
   "licenciaturas-distancia": {
     routeGroup: "legacy-program",
     heroImage: "/imagenes/distancia.jpg",
-    kicker: "Modalidad en linea",
+    kicker: "Modalidad en línea",
     title: "Licenciaturas a Distancia",
     intro:
-      "Programas disenados para estudiar desde casa con apoyo academico y herramientas digitales.",
+      "Programas diseñados para estudiar desde casa con apoyo académico y herramientas digitales.",
     panels: [
       {
         title: "Planes de estudio",
@@ -250,7 +250,7 @@ export const legacyPages = {
           "Consulta y descarga los planes de estudio disponibles para modalidad a distancia.",
       },
       {
-        title: "Contador Publico P2018",
+        title: "Contador Público P2018",
         body:
           "Formación en análisis financiero, gestión contable, fiscal y auditoría en modalidad a distancia.",
         actions: [
@@ -277,9 +277,9 @@ export const legacyPages = {
     routeGroup: "legacy-program",
     heroImage: "/imagenes/objetivo1.jpg",
     kicker: "Nuevo ingreso",
-    title: "Curso Propedeutico",
+    title: "Curso Propedéutico",
     intro:
-      "Preparacion academica para aspirantes a ingresar a la Facultad de Economia, Contaduria y Administracion.",
+      "Preparación académica para aspirantes a ingresar a la Facultad de Economía, Contaduría y Administración.",
     stats: [
       { label: "Modalidades", value: "Presencial y virtual" },
       { label: "Dirigido a", value: "Aspirantes de nuevo ingreso" },
@@ -289,51 +289,51 @@ export const legacyPages = {
       {
         title: "Historia",
         paragraphs: [
-          "Desde sus inicios, la Facultad de Economia, Contaduria y Administracion ha tenido como proposito fundamental preparar profesionistas de la contaduria publica y la administracion con un alto nivel academico.",
-          "A partir del analisis de los resultados del examen de seleccion y de los indices de reprobacion en materias de primeros semestres, se identifico la necesidad de mejorar la preparacion de los aspirantes para elevar su desempeno academico.",
-          "Durante el ciclo B 1989 se establecio en la propia facultad el primer curso propedeutico semestral, el cual ha demostrado su efectividad a traves de estudios de seguimiento de egresados.",
-          "Actualmente conserva el mismo proposito en Contaduria Publica, Administracion y, desde 2008, Economia y Negocios Internacionales.",
+          "Desde sus inicios, la Facultad de Economía, Contaduría y Administración ha tenido como propósito fundamental preparar profesionistas de la contaduría pública y la administración con un alto nivel académico.",
+          "A partir del análisis de los resultados del examen de selección y de los índices de reprobación en materias de primeros semestres, se identificó la necesidad de mejorar la preparación de los aspirantes para elevar su desempeño académico.",
+          "Durante el ciclo B 1989 se estableció en la propia facultad el primer curso propedéutico semestral, el cual ha demostrado su efectividad a través de estudios de seguimiento de egresados.",
+          "Actualmente conserva el mismo propósito en Contaduría Pública, Administración y, desde 2008, Economía y Negocios Internacionales.",
         ],
       },
       {
-        title: "Mision",
+        title: "Misión",
         body:
-          "Formamos a nuestros alumnos para ingresar en la FECA, proporcionandoles herramientas para mejorar su desempeno academico y orientarlos en su definicion profesional.",
+          "Formamos a nuestros alumnos para ingresar en la FECA, proporcionándoles herramientas para mejorar su desempeño académico y orientarlos en su definición profesional.",
       },
       {
-        title: "Vision",
+        title: "Visión",
         body:
-          "Posicionarnos como un propedeutico de licenciatura reconocido por su calidad, orientando al aspirante a una eleccion adecuada de carrera y culminacion exitosa de estudios.",
+          "Posicionarnos como un propedéutico de licenciatura reconocido por su calidad, orientando al aspirante a una elección adecuada de carrera y culminación exitosa de estudios.",
       },
       {
         title: "Modalidad presencial",
         body: "Los alumnos asisten de lunes a viernes a clases.",
         items: [
           "Contabilidad",
-          "Administracion",
-          "Matematicas",
-          "Computacion",
-          "Metodos de Estudio",
-          "Economia",
-          "Ingles",
+          "Administración",
+          "Matemáticas",
+          "Computación",
+          "Métodos de Estudio",
+          "Economía",
+          "Inglés",
         ],
       },
       {
         title: "Modalidad virtual",
-        body: "El curso se ofrece a traves de la plataforma Moodle.",
+        body: "El curso se ofrece a través de la plataforma Moodle.",
         items: [
           "Contabilidad",
-          "Administracion",
-          "Matematicas",
+          "Administración",
+          "Matemáticas",
           "Desarrollo de TIC's",
-          "Metodos de Estudio",
-          "Ingles",
+          "Métodos de Estudio",
+          "Inglés",
         ],
       },
       {
         title: "Contacto",
         body:
-          "Telefono: (618) 8 27 13 65. Correo: propedeuticofeca@ujed.mx. Oficinas: instalaciones de la Facultad.",
+          "Teléfono: (618) 8 27 13 65. Correo: propedeuticofeca@ujed.mx. Oficinas: instalaciones de la Facultad.",
         variant: "contact",
         actions: [
           {
@@ -348,12 +348,12 @@ export const legacyPages = {
     routeGroup: "legacy-program",
     heroImage: "/imagenes/objetivo1.jpg",
     kicker: "Nuevo ingreso",
-    title: "Curso Propedeutico",
+    title: "Curso Propedéutico",
     intro:
-      "Preparacion academica para aspirantes a ingresar a la Facultad de Economia, Contaduria y Administracion.",
+      "Preparación académica para aspirantes a ingresar a la Facultad de Economía, Contaduría y Administración.",
     tabs: [
       { href: "historia", label: "Historia" },
-      { href: "mision", label: "Mision y vision" },
+      { href: "mision", label: "Misión y visión" },
       { href: "modalidades", label: "Modalidades" },
       { href: "contacto", label: "Contacto" },
     ],
@@ -364,31 +364,31 @@ export const legacyPages = {
         title: "Historia",
         variant: "wide",
         paragraphs: [
-          "Desde sus inicios, la Facultad de Economia, Contaduria y Administracion ha tenido como proposito fundamental preparar profesionistas de la contaduria publica y la administracion con un alto nivel academico.",
-          "A partir del analisis de los resultados del examen de seleccion y de los indices de reprobacion en materias de primeros semestres, se identifico la necesidad de mejorar la preparacion de los aspirantes para elevar su desempeno academico.",
-          "Durante el ciclo B 1989 se establecio en la propia facultad el primer curso propedeutico semestral, el cual ha demostrado su efectividad a traves de estudios de seguimiento de egresados.",
-          "Actualmente conserva el mismo proposito en Contaduria Publica, Administracion y, desde 2008, Economia y Negocios Internacionales.",
+          "Desde sus inicios, la Facultad de Economía, Contaduría y Administración ha tenido como propósito fundamental preparar profesionistas de la contaduría pública y la administración con un alto nivel académico.",
+          "A partir del análisis de los resultados del examen de selección y de los índices de reprobación en materias de primeros semestres, se identificó la necesidad de mejorar la preparación de los aspirantes para elevar su desempeño académico.",
+          "Durante el ciclo B 1989 se estableció en la propia facultad el primer curso propedéutico semestral, el cual ha demostrado su efectividad a través de estudios de seguimiento de egresados.",
+          "Actualmente conserva el mismo propósito en Contaduría Pública, Administración y, desde 2008, Economía y Negocios Internacionales.",
         ],
       },
       {
         id: "mision",
         label: "Identidad",
-        title: "Mision y vision",
+        title: "Misión y visión",
         cards: [
           {
-            title: "Mision",
+            title: "Misión",
             body:
-              "Formamos a nuestros alumnos para ingresar en la FECA, proporcionandoles herramientas para mejorar su desempeno academico y orientarlos en su definicion profesional.",
+              "Formamos a nuestros alumnos para ingresar en la FECA, proporcionándoles herramientas para mejorar su desempeño académico y orientarlos en su definición profesional.",
           },
           {
-            title: "Vision",
+            title: "Visión",
             body:
-              "Posicionarnos como un propedeutico de licenciatura reconocido por su calidad, orientando al aspirante a una eleccion adecuada de carrera y culminacion exitosa de estudios.",
+              "Posicionarnos como un propedéutico de licenciatura reconocido por su calidad, orientando al aspirante a una elección adecuada de carrera y culminación exitosa de estudios.",
           },
           {
-            title: "Proposito",
+            title: "Propósito",
             body:
-              "Fortalecer conocimientos y facilitar la integracion a la vida universitaria.",
+              "Fortalecer conocimientos y facilitar la integración a la vida universitaria.",
           },
         ],
       },
@@ -402,24 +402,24 @@ export const legacyPages = {
             body: "Los alumnos asisten de lunes a viernes a clases.",
             items: [
               "Contabilidad",
-              "Administracion",
-              "Matematicas",
-              "Computacion",
-              "Metodos de Estudio",
-              "Economia",
-              "Ingles",
+              "Administración",
+              "Matemáticas",
+              "Computación",
+              "Métodos de Estudio",
+              "Economía",
+              "Inglés",
             ],
           },
           {
             title: "Modalidad Virtual",
-            body: "El curso se ofrece a traves de la plataforma Moodle.",
+            body: "El curso se ofrece a través de la plataforma Moodle.",
             items: [
               "Contabilidad",
-              "Administracion",
-              "Matematicas",
+              "Administración",
+              "Matemáticas",
               "Desarrollo de TIC's",
-              "Metodos de Estudio",
-              "Ingles",
+              "Métodos de Estudio",
+              "Inglés",
             ],
           },
         ],
@@ -430,7 +430,7 @@ export const legacyPages = {
         title: "Contacto",
         variant: "wide",
         contacts: [
-          { label: "Telefono", value: "(618) 8 27 13 65" },
+          { label: "Teléfono", value: "(618) 8 27 13 65" },
           {
             label: "Correo",
             value: "propedeuticofeca@ujed.mx",
@@ -444,20 +444,20 @@ export const legacyPages = {
   "cursos-intersemestrales": {
     routeGroup: "legacy-program",
     heroImage: "/imagenes/objetivo1.jpg",
-    kicker: "Oferta academica",
+    kicker: "Oferta académica",
     title: "Cursos Intersemestrales",
     intro:
-      "Espacio academico para consultar la oferta de cursos intersemestrales de la Facultad de Economia, Contaduria y Administracion.",
+      "Espacio académico para consultar la oferta de cursos intersemestrales de la Facultad de Economía, Contaduría y Administración.",
     panels: [
       {
-        title: "Proximamente",
+        title: "Próximamente",
         body:
-          "Esta pagina ya comparte el diseno institucional de FECA. Cuando tengas la informacion de cursos intersemestrales, la integramos aqui.",
+          "Esta página ya comparte el diseño institucional de FECA. Cuando tengas la información de cursos intersemestrales, la integramos aquí.",
       },
       {
         title: "Oferta disponible",
         body:
-          "Consulta posteriormente las materias, horarios, docentes y requisitos de inscripcion.",
+          "Consulta posteriormente las materias, horarios, docentes y requisitos de inscripción.",
         actions: [
           {
             href: "/docs/CUSRSOS INTERSEMESTRALES.pdf",
@@ -468,7 +468,7 @@ export const legacyPages = {
       {
         title: "Contacto",
         body:
-          "Facultad de Economia, Contaduria y Administracion. Tel. (618) 827-13-65.",
+          "Facultad de Economía, Contaduría y Administración. Tel. (618) 827-13-65.",
         variant: "contact",
       },
     ],
@@ -477,15 +477,15 @@ export const legacyPages = {
     routeGroup: "legacy-program",
     heroImage: "/imagenes/lic.jpg",
     kicker: "Ciclo A-2025 | Modalidad presencial",
-    title: "Centro de Lenguas e Internacionalizacion",
+    title: "Centro de Lenguas e Internacionalización",
     intro:
       "Cursos de idiomas para adultos, niños y jóvenes en la Facultad de Economía, Contaduría y Administración.",
     tabMode: "switch",
     tabs: [
       { href: "cursos", label: "Cursos" },
       { href: "costos", label: "Costos" },
-      { href: "inscripcion", label: "Proceso inscripcion" },
-      { href: "diagnostico", label: "Examen de diagnostico" },
+      { href: "inscripcion", label: "Proceso inscripción" },
+      { href: "diagnostico", label: "Examen de diagnóstico" },
       { href: "preguntas", label: "Preguntas frecuentes" },
       { href: "informacion", label: "Información general" },
       { href: "contacto", label: "Contacto" },
@@ -497,7 +497,7 @@ export const legacyPages = {
         title: "Cursos",
         cards: [
           {
-            title: "Ingles para adultos",
+            title: "Inglés para adultos",
             body: "Mayores de 15 años.",
             items: [
               "Lunes a viernes: 1 hora diaria.",
@@ -534,7 +534,7 @@ export const legacyPages = {
             ],
           },
           {
-            title: "Frances",
+            title: "Francés",
             body: "15 años en adelante.",
             items: ["Lunes a viernes: 1 hora diaria."],
             actions: [
@@ -556,7 +556,7 @@ export const legacyPages = {
             ],
           },
           {
-            title: "Japones",
+            title: "Japonés",
             body: "15 años en adelante.",
             items: ["Lunes a viernes: 1 hora diaria."],
             actions: [
@@ -574,39 +574,39 @@ export const legacyPages = {
         title: "Costos",
         cards: [
           {
-            title: "Ingles",
+            title: "Inglés",
             price: "$1,100",
             body:
               "Estudiantes UJED: 10% de descuento. Estudiantes FECA: 25% de descuento.",
           },
           {
-            title: "Frances, italiano y japones",
+            title: "Francés, italiano y japonés",
             price: "$700",
-            body: "Precio unico. No hay descuentos.",
+            body: "Precio único. No hay descuentos.",
           },
         ],
       },
       {
         id: "inscripcion",
-        label: "Tramite",
-        title: "Proceso inscripcion",
+        label: "Trámite",
+        title: "Proceso inscripción",
         variant: "wide",
         paragraphs: [
-          "Para realizar tu inscripcion, comunicate al Centro de Lenguas e Internacionalizacion o acude a las instalaciones de la Facultad. Ahi podran orientarte sobre horarios disponibles, costos, requisitos y grupos abiertos.",
+          "Para realizar tu inscripción, comunícate al Centro de Lenguas e Internacionalización o acude a las instalaciones de la Facultad. Ahí podrán orientarte sobre horarios disponibles, costos, requisitos y grupos abiertos.",
         ],
         contacts: [
           { label: "Modalidad", value: "Presencial" },
           { label: "Ciclo", value: "A-2025" },
-          { label: "Atencion", value: "Oficinas del Centro de Lenguas" },
+          { label: "Atención", value: "Oficinas del Centro de Lenguas" },
         ],
       },
       {
         id: "diagnostico",
-        label: "Ubicacion de nivel",
-        title: "Examen de diagnostico",
+        label: "Ubicación de nivel",
+        title: "Examen de diagnóstico",
         variant: "wide",
         paragraphs: [
-          "El examen de diagnostico para ubicarte en el nivel correcto, si tienes conocimientos del idioma, esta disponible en el modulo de inscripciones del SUMA.",
+          "El examen de diagnóstico para ubicarte en el nivel correcto, si tienes conocimientos del idioma, está disponible en el módulo de inscripciones del SUMA.",
         ],
       },
       {
@@ -616,27 +616,27 @@ export const legacyPages = {
         faq: [
           {
             question:
-              "1. Soy alumno de reingreso y no se cual es mi matricula. Como puedo conseguirla?",
+              "1. Soy alumno de reingreso y no sé cuál es mi matrícula. ¿Cómo puedo conseguirla?",
             answer:
-              "Puedes solicitarla enviando tu nombre completo a cli.feca@ujed.mx, por Facebook en facebook/CLI.FECA.UJED o por telefono al 827-13-65 ext. 5725, lunes, miercoles y viernes de 10:00 a.m. a 2:00 p.m.",
+              "Puedes solicitarla enviando tu nombre completo a cli.feca@ujed.mx, por Facebook en facebook/CLI.FECA.UJED o por teléfono al 827-13-65 ext. 5725, lunes, miércoles y viernes de 10:00 a.m. a 2:00 p.m.",
           },
           {
             question:
-              "2. Ya tengo mi matricula pero no se mi contrasena. Como puedo conseguirla?",
+              "2. Ya tengo mi matrícula pero no sé mi contraseña. ¿Cómo puedo conseguirla?",
             answer:
-              "La primera vez que entres al SUMA+ usa tu matricula como contrasena. Al entrar, el sistema te pedira que la cambies por una nueva.",
+              "La primera vez que entres al SUMA+ usa tu matrícula como contraseña. Al entrar, el sistema te pedirá que la cambies por una nueva.",
           },
           {
-            question: "3. Cual es el numero de cuenta al que debo hacer mi pago?",
+            question: "3. ¿Cuál es el número de cuenta al que debo hacer mi pago?",
             answer:
-              "Una vez que selecciones tu clase, el sistema te dara datos de cuenta, monto y referencia. Incluye la referencia correcta para identificar tu pago automaticamente.",
+              "Una vez que selecciones tu clase, el sistema te dará datos de cuenta, monto y referencia. Incluye la referencia correcta para identificar tu pago automáticamente.",
           },
           {
-            question: "4. Soy trabajador de la UJED. Como tramito mi exencion de pago?",
+            question: "4. Soy trabajador de la UJED. ¿Cómo tramito mi exención de pago?",
             answer:
-              "El tramite se hace con la Coordinacion de Finanzas y Planeacion y no sustituye la inscripcion del CLI. Despues de enviarlo, recibiras tu folio entre 24 y 48 horas; la validacion puede demorar hasta 72 horas adicionales.",
+              "El trámite se hace con la Coordinación de Finanzas y Planeación y no sustituye la inscripción del CLI. Después de enviarlo, recibirás tu folio entre 24 y 48 horas; la validación puede demorar hasta 72 horas adicionales.",
             href: "https://forms.gle/cQmnVdiDu1ujkQKq6",
-            hrefLabel: "Formulario de exencion",
+            hrefLabel: "Formulario de exención",
           },
         ],
       },
@@ -651,7 +651,7 @@ export const legacyPages = {
         ],
         cards: [
           {
-            title: "Mision",
+            title: "Misión",
             body:
               "Ofrecer programas educativos en lengua extranjera y servicios especializados de alta calidad que sumen ventajas competitivas en un entorno global.",
           },
@@ -670,15 +670,15 @@ export const legacyPages = {
       {
         id: "contacto",
         label: "Informes",
-        title: "Ubicacion y contacto",
+        title: "Ubicación y contacto",
         variant: "wide",
         contacts: [
           {
-            label: "Direccion",
+            label: "Dirección",
             value:
-              "Fanny Anitua y Privada de Loza s/n. C.P. 34000 Durango, Dgo., Mexico",
+              "Fanny Anitúa y Privada de Loza s/n. C.P. 34000 Durango, Dgo., México",
           },
-          { label: "Telefono", value: "827-13-65 ext. 5725" },
+          { label: "Teléfono", value: "827-13-65 ext. 5725" },
           {
             label: "Correo",
             value: "cli.feca@ujed.mx",
@@ -870,36 +870,36 @@ export const legacyPages = {
     kicker: "Equipo directivo",
     title: "Directores FECA",
     intro:
-      "Autoridades y responsables institucionales que coordinan la planeacion academica, administrativa y de vinculacion de la Facultad de Economia, Contaduria y Administracion.",
+      "Autoridades y responsables institucionales que coordinan la planeación académica, administrativa y de vinculación de la Facultad de Economía, Contaduría y Administración.",
     stats: [
-      { label: "Gestion", value: "Direccion institucional" },
-      { label: "Enfoque", value: "Atencion a estudiantes" },
-      { label: "Trabajo", value: "Academia y administracion" },
+      { label: "Gestión", value: "Dirección institucional" },
+      { label: "Enfoque", value: "Atención a estudiantes" },
+      { label: "Trabajo", value: "Academia y administración" },
     ],
     panels: [
       {
         title: "Dirección",
         body:
-          "La Direccion encabeza la toma de decisiones estrategicas de la facultad, promueve el desarrollo academico y fortalece la vinculacion con la comunidad universitaria.",
+          "La Dirección encabeza la toma de decisiones estratégicas de la facultad, promueve el desarrollo académico y fortalece la vinculación con la comunidad universitaria.",
       },
       {
         title: "Subdirecciones y coordinaciones",
         body:
-          "Las areas directivas acompanan procesos academicos, administrativos, de investigacion, extension y servicios para apoyar el trabajo de estudiantes, docentes y personal administrativo.",
+          "Las áreas directivas acompañan procesos académicos, administrativos, de investigación, extensión y servicios para apoyar el trabajo de estudiantes, docentes y personal administrativo.",
       },
       {
-        title: "Atencion institucional",
+        title: "Atención institucional",
         body:
-          "Para informacion sobre tramites, citas o seguimiento academico, acercate a las oficinas de la facultad o a los canales oficiales de FECA.",
+          "Para información sobre trámites, citas o seguimiento académico, acércate a las oficinas de la facultad o a los canales oficiales de FECA.",
         variant: "contact",
       },
       {
-        title: "Areas de trabajo",
+        title: "Áreas de trabajo",
         items: [
-          "Planeacion academica y seguimiento estudiantil",
-          "Gestion administrativa y servicios escolares",
-          "Vinculacion, extension e investigacion",
-          "Comunicacion institucional y mejora continua",
+          "Planeación académica y seguimiento estudiantil",
+          "Gestión administrativa y servicios escolares",
+          "Vinculación, extensión e investigación",
+          "Comunicación institucional y mejora continua",
         ],
       },
     ],
@@ -1168,26 +1168,26 @@ export const legacyPages = {
     kicker: "Admisiones FECA",
     title: "Inicia tu solicitud",
     intro:
-      "Comienza tu proceso de admision con un registro sencillo. Nuestro equipo puede orientarte sobre carreras, requisitos y fechas importantes.",
+      "Comienza tu proceso de admisión con un registro sencillo. Nuestro equipo puede orientarte sobre carreras, requisitos y fechas importantes.",
     steps: [
       {
         title: "1. Registro",
-        body: "Comparte tus datos y la carrera de interes.",
+        body: "Comparte tus datos y la carrera de interés.",
       },
       {
-        title: "2. Orientacion",
-        body: "Recibe informacion sobre requisitos, fechas y documentos.",
+        title: "2. Orientación",
+        body: "Recibe información sobre requisitos, fechas y documentos.",
       },
       {
         title: "3. Seguimiento",
-        body: "Un asesor te acompana hasta completar tu inscripcion.",
+        body: "Un asesor te acompañará hasta completar tu inscripción.",
       },
     ],
     requirements: [
       "Acta de nacimiento",
       "CURP",
       "Certificado o constancia de bachillerato",
-      "Correo y telefono de contacto",
+      "Correo y teléfono de contacto",
     ],
     formFields: [
       { label: "Nombre completo", name: "nombre", type: "text", placeholder: "Tu nombre" },
@@ -1208,7 +1208,7 @@ export const legacyPages = {
         label: "Mensaje",
         name: "mensaje",
         type: "textarea",
-        placeholder: "Cuentanos si tienes dudas sobre horarios, requisitos o proceso.",
+        placeholder: "Cuéntanos si tienes dudas sobre horarios, requisitos o proceso.",
       },
     ],
   },

@@ -5,7 +5,7 @@ function NewsSection({ news }) {
         <div className="news-heading fade-up">
           <div>
             <div className="section-label">Noticias y eventos</div>
-            <h2 className="section-title">Lo mas reciente</h2>
+            <h2 className="section-title">Lo más reciente</h2>
           </div>
           <a href="#" className="news-link">
             Ver todas las noticias

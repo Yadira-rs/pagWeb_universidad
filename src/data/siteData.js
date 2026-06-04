@@ -38,7 +38,7 @@ export const programs = [
     image:
       'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80',
     duration: '4 años',
-    mode: 'Presencial / En linea',
+    mode: 'Presencial / En línea',
   },
   {
     title: 'POSGRADO',
@@ -76,8 +76,8 @@ export const highlights = [
 
 export const teachers = [
   {
-    name: 'Dra. Lucia Herrera',
-    role: 'Marketing estrategico',
+    name: 'Dra. Lucía Herrera',
+    role: 'Marketing estratégico',
     years: '15 años de experiencia',
     focus: 'Casos reales',
     description:
@@ -115,7 +115,7 @@ export const teachers = [
       'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80',
   },
   {
-    name: 'Mtra. Ana Perez',
+    name: 'Mtra. Ana Pérez',
     role: 'Investigación aplicada',
     years: '10 años de proyectos',
     focus: 'Innovación práctica',
@@ -125,7 +125,7 @@ export const teachers = [
       'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=900&q=80',
   },
   {
-    name: 'Prof. Luis Gomez',
+    name: 'Prof. Luis Gómez',
     role: 'Gestión de operaciones',
     years: '14 años en la industria',
     focus: 'Ejecución efectiva',
@@ -139,7 +139,7 @@ export const teachers = [
 export const historyEntries = [
   {
     year: 2000,
-    tag: 'Fundacion',
+    tag: 'Fundación',
     title: 'Campus established',
     body: "Manipal Dubai was established as a branch campus of MAHE India - the university's first international campus, expanding its academic reach into the UAE.",
     image:
@@ -324,9 +324,9 @@ export const institutionalContent = {
       eyebrow: 'Valores',
       title: 'Principios que sostienen nuestra comunidad',
       body:
-        'Promovemos una cultura institucional basada en integridad, respeto, compromiso, responsabilidad y excelencia academica en todas las actividades de la facultad.',
+        'Promovemos una cultura institucional basada en integridad, respeto, compromiso, responsabilidad y excelencia académica en todas las actividades de la facultad.',
       points: [
-        'Actuacion etica y responsable en el ejercicio profesional y academico.',
+        'Actuación ética y responsable en el ejercicio profesional y académico.',
         'Respeto por la diversidad de ideas, personas y contextos.',
         'Compromiso permanente con calidad, servicio y mejora continua.',
       ],
@@ -338,7 +338,7 @@ export const institutionalContent = {
       body:
         'Nuestras políticas institucionales buscan asegurar procesos transparentes, decisiones coherentes y una operación académica centrada en resultados formativos de calidad.',
       points: [
-        'Fortalecimiento de procesos academicos, administrativos y de evaluación.',
+        'Fortalecimiento de procesos académicos, administrativos y de evaluación.',
         'Transparencia en la toma de decisiones y uso de recursos.',
         'Enfoque en atención oportuna a estudiantes, docentes y comunidad.',
       ],
@@ -346,7 +346,7 @@ export const institutionalContent = {
     {
       id: 'ejes-rectores',
       eyebrow: 'Ejes rectores',
-      title: 'Rumbo estrategico para crecer con sentido',
+      title: 'Rumbo estratégico para crecer con sentido',
       body:
         'Los ejes rectores articulan la planeación institucional y definen las prioridades para consolidar innovación, pertinencia académica y vinculación con el entorno.',
       points: [
@@ -360,11 +360,11 @@ export const institutionalContent = {
       eyebrow: 'Marco normativo',
       title: 'Base regulatoria para la vida institucional',
       body:
-        'El marco normativo integra reglamentos, disposiciones y criterios que respaldan el funcionamiento de la facultad y garantizan certeza en su vida academica y administrativa.',
+        'El marco normativo integra reglamentos, disposiciones y criterios que respaldan el funcionamiento de la facultad y garantizan certeza en su vida académica y administrativa.',
       points: [
-        'Reglas claras para convivencia, evaluacion y organizacion interna.',
+        'Reglas claras para convivencia, evaluación y organización interna.',
         'Cumplimiento de disposiciones universitarias y legales aplicables.',
-        'Referencia para la toma de decisiones con seguridad juridica e institucional.',
+        'Referencia para la toma de decisiones con seguridad jurídica e institucional.',
       ],
     },
   ],

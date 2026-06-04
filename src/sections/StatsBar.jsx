@@ -16,7 +16,7 @@ function StatsBar() {
         </div>
         <div className="statsbar-item">
           <div className="statsbar-num">68</div>
-          <div className="statsbar-label">Anos de excelencia</div>
+          <div className="statsbar-label">Años de excelencia</div>
         </div>
       </div>
     </div>

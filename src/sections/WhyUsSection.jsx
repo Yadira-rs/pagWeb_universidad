@@ -52,7 +52,7 @@ function WhyUsSection({ highlights, teachers }) {
     <section className="section section-alt">
       <div className="container">
         <div className="fade-up">
-          <div className="section-label">Por que elegirnos</div>
+          <div className="section-label">Por qué elegirnos</div>
           <h2 className="section-title">Una experiencia educativa completa</h2>
         </div>
 
@@ -70,9 +70,9 @@ function WhyUsSection({ highlights, teachers }) {
           <div className="section-label">Nuestro equipo</div>
           <h3 className="section-title">Maestros destacados</h3>
           <p className="section-desc">
-            Conoce a los profesores que acompanan el aprendizaje con
-            experiencias reales, mentoria personalizada y vocacion por la
-            ensenanza.
+            Conoce a los profesores que acompañan el aprendizaje con
+            experiencias reales, mentoría personalizada y vocación por la
+            enseñanza.
           </p>
         </div>
 

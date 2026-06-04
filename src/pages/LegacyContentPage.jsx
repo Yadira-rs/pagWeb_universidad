@@ -46,7 +46,7 @@ function LegacyContentPage({
       <section className="legacy-section">
         <div className="container">
           {content.tabs ? (
-            <nav className="legacy-tabs" aria-label="Secciones de la pagina">
+            <nav className="legacy-tabs" aria-label="Secciones de la página">
               {content.tabs.map((tab) => (
                 <button
                   key={tab.href}

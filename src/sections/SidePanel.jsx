@@ -15,7 +15,7 @@ function SidePanel() {
       <button
         type="button"
         className="nav-panel-button nav-panel-floating"
-        aria-label="Abrir ultimas noticias"
+        aria-label="Abrir últimas noticias"
         onClick={() => setPanelOpen(true)}
       >
         <svg viewBox="0 0 24 24">
@@ -38,13 +38,13 @@ function SidePanel() {
           className="slide-panel"
           role="dialog"
           aria-modal="true"
-          aria-label="Ultimas noticias y fechas de inscripcion"
+          aria-label="Últimas noticias y fechas de inscripción"
         >
           <div className="panel-header">
             <div>
-              <h2>Ultimas noticias</h2>
+              <h2>Últimas noticias</h2>
               <p className="panel-header-copy">
-                Lo mas reciente del campus y las fechas clave de admision.
+                Lo más reciente del campus y las fechas clave de admisión.
               </p>
             </div>
             <button
@@ -61,8 +61,8 @@ function SidePanel() {
             <h3>Noticias recientes</h3>
             <ul className="panel-list">
               <li className="panel-item">
-                <a href="#">Convocatoria de inscripcion julio 2026</a>
-                <span>Abierta la inscripcion para nuevos ingresos.</span>
+                <a href="#">Convocatoria de inscripción julio 2026</a>
+                <span>Abierta la inscripción para nuevos ingresos.</span>
               </li>
               <li className="panel-item">
                 <a href="#">Jornadas deportivas y eventos del campus</a>
@@ -72,7 +72,7 @@ function SidePanel() {
           </section>
 
           <section className="panel-section">
-            <h3>Fechas de inscripcion</h3>
+            <h3>Fechas de inscripción</h3>
             <ul className="panel-list">
               <li className="panel-item">
                 <strong>Inicio de clases</strong>
@@ -80,7 +80,7 @@ function SidePanel() {
               </li>
               <li className="panel-item">
                 <strong>Modalidad</strong>
-                <span>Presencial | En linea</span>
+                <span>Presencial | En línea</span>
               </li>
               <li className="panel-item">
                 <strong>Cierre de registro</strong>
@@ -94,7 +94,7 @@ function SidePanel() {
           </section>
 
           <section className="panel-section">
-            <h3>Siguenos</h3>
+            <h3>Síguenos</h3>
             <div className="panel-social">
               <a href="#" aria-label="Facebook">
                 FB
