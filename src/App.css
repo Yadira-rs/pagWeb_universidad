@@ -166,7 +166,7 @@
 
 .feca-title {
   font-family: var(--font-display);
-  font-size: 12px;
+  font-size: 16px;
   color: rgb(255 255 255 / 95%);
   letter-spacing: 0.05em;
   line-height: 1.3;
@@ -202,12 +202,21 @@
   display: block;
 }
 
+.navbar-feca-logo {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  mix-blend-mode: multiply;
+}
+
 .navbar-inner {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 12px;
   min-height: var(--navbar-height);
   position: relative;
+  flex-wrap: nowrap;
 }
 
 .logo {
@@ -232,6 +241,7 @@
   justify-content: center;
   flex-shrink: 0;
   overflow: hidden;
+  margin-left: auto;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -252,8 +262,7 @@
   gap: 2px;
   flex: 1;
   align-items: center;
-  flex-wrap: wrap;
-  align-content: center;
+  flex-wrap: nowrap;
   min-width: 0;
 }
 
@@ -321,11 +330,24 @@
   color: var(--navy);
 }
 
+.nav-search-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.suma-logo {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 .nav-search {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-left: auto;
   width: clamp(260px, 24vw, 360px);
   min-width: 0;
   background: var(--off-white);
@@ -3027,13 +3049,14 @@
 }
 
 .footer-logo {
-  font-size: 20px;
+  font-size: 26px;
   font-weight: 700;
   color: var(--white);
-  margin-bottom: 14px;
+  margin-bottom: 16px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: flex-start;
+  gap: 14px;
 }
 
 .footer-emblem {
@@ -3041,9 +3064,34 @@
   height: 32px;
 }
 
+.footer-tagline-logo {
+  position: absolute;
+  left: 62px;
+  width: 88px;
+  height: 88px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-tagline-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.footer-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
 .footer-about {
-  font-size: 13px;
-  margin-bottom: 20px;
+  font-size: 17px;
+  margin: 0;
 }
 
 .footer-col h4 {
@@ -3085,7 +3133,11 @@
 }
 
 .footer-tagline {
-  text-align: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
   font-size: 22px;
   font-style: italic;
   font-weight: 700;
@@ -3101,8 +3153,8 @@
 }
 
 .footer-emblem--lg {
-  width: 44px !important;
-  height: 44px !important;
+  width: 80px !important;
+  height: 80px !important;
 }
 
 .footer-social--images a {
@@ -3221,7 +3273,8 @@
   }
 
   .nav-links,
-  .nav-search {
+  .nav-search,
+  .nav-search-wrapper {
     display: none;
   }
 

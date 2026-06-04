@@ -32,12 +32,6 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
     <>
       <div className={`topbar${scrolled ? " topbar-hidden" : ""}`}>
         <div className="topbar-inner">
-          <div className="brand-header">
-            <div className="logo-emblem">
-              <img src="/imagenes/logo_ujed.png" alt="UJED logo" />
-            </div>
-            <div></div>
-          </div>
           <div className="feca-title">
             Facultad de Economía, Contaduría y Administración
           </div>
@@ -51,6 +45,11 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
               className="navbar-ujed-logo"
               src="/imagenes/logo-ujed.png"
               alt="UJED logo"
+            />
+            <img
+              className="navbar-feca-logo"
+              src="/imagenes/logo_feca.jpeg"
+              alt="FECA logo"
             />
           </a>
 
@@ -108,14 +107,23 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
             </div>
           </div>
 
-          <form className="nav-search" onSubmit={(event) => event.preventDefault()}>
-            <input
-              type="search"
-              name="q"
-              placeholder="Buscar programas, carreras o servicios"
-            />
-            <button type="submit">Buscar</button>
-          </form>
+          <div className="nav-search-wrapper">
+            <a href="https://sumafeca.ujed.mx/" target="_blank" rel="noreferrer">
+              <img
+                src="/imagenes/suma_logo.png"
+                alt="SUMA+"
+                className="suma-logo"
+              />
+            </a>
+            <form className="nav-search" onSubmit={(event) => event.preventDefault()}>
+              <input
+                type="search"
+                name="q"
+                placeholder="Buscar programas, carreras o servicios"
+              />
+              <button type="submit">Buscar</button>
+            </form>
+          </div>
 
           <button
             type="button"
