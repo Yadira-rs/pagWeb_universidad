@@ -27,6 +27,23 @@
   color: var(--text);
   background: var(--off-white);
   padding-top: calc(var(--topbar-height) + var(--navbar-height));
+  font-family: var(--font-body);
+}
+
+.site-shell h1,
+.site-shell h2,
+.site-shell h3,
+.site-shell h4,
+.site-shell h5,
+.site-shell h6 {
+  font-family: var(--font-display);
+}
+
+.site-shell p,
+.site-shell li,
+.site-shell span,
+.site-shell a {
+  font-family: inherit;
 }
 
 @keyframes headerDropIn {
