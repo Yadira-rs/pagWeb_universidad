@@ -18,6 +18,15 @@ const heroSlides = [
 
 const programs = [
   {
+    title: "POSGRADO",
+    description:
+      "Programa con vinculación académica, proyectos aplicados y desarrollo de investigación para perfiles de alto nivel.",
+    image: "/imagenes/aniversario.jpeg",
+    duration: "6 años",
+    mode: "Presencial",
+    href: "https://posgradofeca.ujed.mx/",
+  },
+  {
     title: "CELCI",
     description:
       "Desarrolla soluciones tecnológicas de alto impacto con enfoque en inteligencia artificial y ciberseguridad.",
@@ -34,15 +43,6 @@ const programs = [
     duration: "4 años",
     mode: "Presencial / En línea",
     href: "#/ciiedo",
-  },
-  {
-    title: "POSGRADO",
-    description:
-      "Programa con vinculación académica, proyectos aplicados y desarrollo de investigación para perfiles de alto nivel.",
-    image: "/imagenes/aniversario.jpeg",
-    duration: "6 años",
-    mode: "Presencial",
-    href: "https://posgradofeca.ujed.mx/",
   },
 ];
 
@@ -641,10 +641,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
             </a>
 
             <div className="campus-side">
-              <a className="campus-mini" href="#/cafeteria">
-                <img src="/imagenes/cafeteria.jpeg" alt="Cafeteria" />
-                <div className="campus-mini-overlay">Cafetería</div>
-              </a>
               <a className="campus-mini" href="#/cultura-campus">
                 <img
                   src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=75"

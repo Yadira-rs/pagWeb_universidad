@@ -57,8 +57,8 @@ function Footer() {
       <div className="footer-bottom">
         <span>© 2026 FECA. Todos los derechos reservados.</span>
         <div className="footer-bottom-links">
-          <a href="#">Aviso de privacidad</a>
-          <a href="#">Términos de uso</a>
+          <a href="#/aviso-de-privacidad">Aviso de privacidad</a>
+          <a href="#/terminos-de-uso">Términos de uso</a>
         </div>
       </div>
     </footer>

@@ -21,10 +21,16 @@ import SingleSectionPage from "./pages/SingleSectionPage";
 import FeriaPage from "./pages/FeriaPage";
 import Biblioteca from "./pages/Biblioteca";
 import LenguasPage from "./pages/LenguasPage";
+import PrivacyPage from "./pages/PrivacyPage";
+import TermsPage from "./pages/TermsPage";
+import BolsaTrabajoPage from "./pages/BolsaTrabajoPage";
 
 function getCurrentRoute() {
   const hash = window.location.hash || "#/";
 
+  if (hash === "#/aviso-de-privacidad") return { page: "privacy" };
+  if (hash === "#/terminos-de-uso") return { page: "terms" };
+  if (hash === "#/bolsa-de-trabajo") return { page: "bolsa-trabajo" };
   if (hash === "#/historia") return { page: "history" };
   if (hash === "#/mision-vision") return { page: "mission-vision" };
 
@@ -66,6 +72,10 @@ function App() {
     window.addEventListener("hashchange", handleRouteChange);
     return () => window.removeEventListener("hashchange", handleRouteChange);
   }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [route]);
 
   useEffect(() => {
     document.title =
@@ -123,7 +133,13 @@ function App() {
   }, [route]);
 
   const pageContent =
-    route.page === "history" ? (
+    route.page === "privacy" ? (
+      <PrivacyPage logoImage={logoImage} newsPanelOpen={newsPanelOpen} setNewsPanelOpen={setNewsPanelOpen} />
+    ) : route.page === "terms" ? (
+      <TermsPage logoImage={logoImage} newsPanelOpen={newsPanelOpen} setNewsPanelOpen={setNewsPanelOpen} />
+    ) : route.page === "bolsa-trabajo" ? (
+      <BolsaTrabajoPage logoImage={logoImage} newsPanelOpen={newsPanelOpen} setNewsPanelOpen={setNewsPanelOpen} />
+    ) : route.page === "history" ? (
       <HistoryPage
         entries={historyEntries}
         logoImage={logoImage}
@@ -193,6 +209,7 @@ function App() {
       sectionPages[route.slug] ? (
         <SingleSectionPage
           content={sectionPages[route.slug]}
+          slug={route.slug}
           logoImage={logoImage}
           newsPanelOpen={newsPanelOpen}
           setNewsPanelOpen={setNewsPanelOpen}

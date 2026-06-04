@@ -59,7 +59,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
 
           <div className="nav-links">
             <div className={`nav-item ${currentRoute === "home" ? "active" : ""}`}>
-              <a href="#/">Inicio</a>
+              <a href="#/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Inicio</a>
             </div>
 
             <div className={`nav-item ${currentRoute === "legacy-program" ? "active" : ""}`}>
@@ -69,9 +69,14 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
               </a>
               <div className="dropdown">
                 <a href="#/administracion">Licenciaturas</a>
+                <a href="#/distancia">Licenciaturas a distancia</a>
                 <a href="https://posgradofeca.ujed.mx/" target="_blank" rel="noreferrer">Posgrado</a>
+                <a href="#/curso-propedeutico">Cursos Propedéutico</a>
+                <a href="#/cursos-intersemestrales">Cursos Intersemestrales</a>
                 <a href="#/celci">CELCI</a>
                 <a href="#/ciiedo">CIIEDO</a>
+                <a href="#/servicios">Servicios</a>
+                <a href="#/bolsa-de-trabajo">Bolsa de trabajo</a>
               </div>
             </div>
 

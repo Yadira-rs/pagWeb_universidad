@@ -1,8 +1,10 @@
 import Footer from "../sections/Footer";
 import Header from "../sections/Header";
+import DirectorsCarousel from "../components/DirectorsCarousel";
 
 function SingleSectionPage({
   content,
+  slug,
   logoImage,
   newsPanelOpen,
   setNewsPanelOpen,
@@ -69,6 +71,21 @@ function SingleSectionPage({
           )}
         </div>
       </section>
+
+      {slug === "ejes-rectores" && (
+        <section className="section section-alt">
+          <div className="container">
+            <div className="teacher-carousel-heading">
+              <div className="section-label">Nuestro equipo</div>
+              <h3 className="section-title">Directores</h3>
+              <p className="section-desc">
+                Conoce al equipo que guía la vida académica, administrativa y de vinculación de nuestra facultad.
+              </p>
+            </div>
+          </div>
+          <DirectorsCarousel />
+        </section>
+      )}
 
       <Footer logoImage={logoImage} />
     </div>

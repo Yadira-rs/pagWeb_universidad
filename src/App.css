@@ -3035,8 +3035,12 @@
 
 .campus-side {
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr;
   gap: 24px;
+}
+
+.campus-side .campus-mini {
+  height: 380px;
 }
 
 .campus-mini {
@@ -3074,6 +3078,72 @@
   padding: 16px 18px;
   font-size: 14px;
   font-weight: 500;
+}
+
+.legal-hero {
+  background: linear-gradient(135deg, #e31313 0%, #951823 100%);
+  padding: 80px 0 60px;
+}
+
+.legal-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 12px;
+}
+
+.legal-subtitle {
+  font-size: 16px;
+  color: rgb(255 255 255 / 80%);
+  margin: 0;
+}
+
+.legal-body {
+  padding-top: 60px;
+  padding-bottom: 80px;
+  max-width: 800px !important;
+}
+
+.legal-section {
+  margin-bottom: 40px;
+}
+
+.legal-section h2 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: #e31313;
+  margin: 0 0 12px;
+}
+
+.legal-section p,
+.legal-section li {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #444;
+}
+
+.legal-section ul {
+  padding-left: 20px;
+  margin: 10px 0 0;
+}
+
+.legal-section li {
+  margin-bottom: 6px;
+}
+
+.legal-section a {
+  color: #e31313;
+  text-decoration: underline;
+}
+
+.legal-date {
+  font-size: 13px;
+  color: #999;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
 }
 
 .admissions-banner {
