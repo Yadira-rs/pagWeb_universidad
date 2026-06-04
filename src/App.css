@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Satisfy&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@400;500;700;900&display=swap');
 
 .site-shell *,
 .site-shell *::before,
@@ -20,10 +20,10 @@
   --gray-dark: #342d2a;
   --text: #241f1d;
   --radius: 4px;
-  --font-display: 'Mestiza Sans Bold', 'Arial Black', 'DM Sans', sans-serif;
-  --font-secondary: 'Haydon Brush', 'Brush Script MT', 'Segoe Script', cursive;
-  --font-body: 'IvyStyle', 'Ivy Style', 'Source Serif 4', Georgia, serif;
-  --font-ui: 'Mestiza Sans Bold', 'DM Sans', Arial, sans-serif;
+  --font-display: 'Oswald', 'DM Sans', Arial, sans-serif;
+  --font-secondary: 'Satisfy', cursive;
+  --font-body: 'Lora', Georgia, serif;
+  --font-ui: 'Oswald', 'DM Sans', Arial, sans-serif;
   color: var(--text);
   background: var(--off-white);
   padding-top: calc(var(--topbar-height) + var(--navbar-height));
@@ -1460,7 +1460,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgb(227 19 19 / 14%) 0%, rgb(227 19 19 / 82%) 100%);
+  background: linear-gradient(180deg, rgb(255 255 255 / 10%) 0%, rgb(255 255 255 / 55%) 100%);
 }
 
 .carousel-slide--anniversary::before {
@@ -1530,6 +1530,7 @@
   line-height: 1.1;
   color: var(--white);
   margin: 0 0 20px;
+  font-family: var(--font-secondary);
 }
 
 .hero-title span {
@@ -1541,6 +1542,7 @@
   color: rgb(255 255 255 / 82%);
   max-width: 720px;
   line-height: 1.75;
+  font-family: var(--font-body);
   margin: 0 auto;
 }
 
@@ -1678,6 +1680,7 @@
 .admissions-banner p,
 .footer-about {
   line-height: 1.75;
+  font-family: var(--font-body);
 }
 
 .panel-header-copy {
@@ -1945,6 +1948,7 @@
   font-size: 13px;
   color: var(--gray-mid);
   line-height: 1.65;
+  font-family: var(--font-body);
 }
 
 .program-card-meta {
@@ -2064,6 +2068,7 @@
   font-size: 16px;
   line-height: 1.9;
   margin: 0 0 18px;
+  font-family: var(--font-body);
 }
 
 .career-list {
@@ -3197,9 +3202,15 @@
   height: 32px;
 }
 
-.footer-tagline-logo {
+.footer-tagline-logos {
   position: absolute;
   left: 62px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-tagline-logo {
   width: 88px;
   height: 88px;
   flex-shrink: 0;
@@ -3208,6 +3219,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.footer-tagline-logo--feca {
+  background: white;
+  padding: 4px;
 }
 
 .footer-tagline-logo img {
@@ -3292,14 +3308,17 @@
 
 .footer-social--images a {
   background: transparent !important;
-  overflow: hidden;
+  border-radius: 0 !important;
+  overflow: visible;
   padding: 0;
+  width: auto !important;
+  height: auto !important;
 }
 
 .footer-social--images a img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
   display: block;
   border-radius: 50%;
 }

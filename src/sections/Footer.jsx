@@ -2,8 +2,13 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer-tagline">
-        <div className="footer-tagline-logo">
-          <img src="/imagenes/logo_ujed.png" alt="UJED" />
+        <div className="footer-tagline-logos">
+          <div className="footer-tagline-logo">
+            <img src="/imagenes/logo_ujed.png" alt="UJED" />
+          </div>
+          <div className="footer-tagline-logo footer-tagline-logo--feca">
+            <img src="/imagenes/logo_feca.jpeg" alt="FECA" />
+          </div>
         </div>
         <span>Por una Cultura de Innovación y Emprendimiento</span>
       </div>
