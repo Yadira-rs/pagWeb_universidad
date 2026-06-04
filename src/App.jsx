@@ -24,6 +24,7 @@ import LenguasPage from "./pages/LenguasPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import TermsPage from "./pages/TermsPage";
 import BolsaTrabajoPage from "./pages/BolsaTrabajoPage";
+import TutoriasPage from "./pages/TutoriasPage";
 
 function getCurrentRoute() {
   const hash = window.location.hash || "#/";
@@ -34,6 +35,7 @@ function getCurrentRoute() {
   if (hash === "#/historia") return { page: "history" };
   if (hash === "#/mision-vision") return { page: "mission-vision" };
 
+  if (hash === "#/tutorias") return { page: "tutorias" };
   if (hash === "#/servicios") return { page: "services" };
   if (hash === "#/feria") return { page: "feria" };
   if (hash === "#/biblioteca") return { page: "biblioteca" };
