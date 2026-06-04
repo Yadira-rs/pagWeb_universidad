@@ -21,10 +21,10 @@ const serviceCards = [
     imageClass: "img3",
   },
   {
-    title: "Bolsa de Trabajo",
-    description: "Oportunidades laborales para estudiantes y egresados.",
-    href: "#/bolsa-de-trabajo",
-    imageClass: "img4",
+    title: "Biblioteca",
+    description: "Accede a los servicios y recursos disponibles en la Biblioteca FECA.",
+    href: "#/biblioteca",
+    imageClass: "img6",
   },
   {
     title: "Registro Egresados",
@@ -55,9 +55,7 @@ function ServicesPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
             Explora información académica, profesional y estudiantil en una
             plataforma moderna y organizada.
           </p>
-          <a href="#servicios" className="hero-btn">
-            Explorar servicios
-          </a>
+          
         </div>
       </section>
 

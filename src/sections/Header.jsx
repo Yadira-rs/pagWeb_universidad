@@ -69,7 +69,6 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 <a href="#/celci">CELCI</a>
                 <a href="#/ciiedo">CIIEDO</a>
                 <a href="#/servicios">Servicios</a>
-                <a href="#/bolsa-de-trabajo">Bolsa de trabajo</a>
               </div>
             </div>
 
@@ -84,7 +83,6 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 <a href="#/servicios/servicios-escolares">Servicios escolares</a>
                 <a href="#/servicios/servicio-social">Servicio social</a>
                 <a href="#/servicios/practicas-profesionales">Prácticas profesionales</a>
-                <a href="#/bolsa-de-trabajo">Bolsa de trabajo</a>
                 <a href="https://sumafeca.ujed.mx/" target="_blank" rel="noreferrer">Registro de egresados</a>
               </div>
             </div>

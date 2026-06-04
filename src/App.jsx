@@ -19,6 +19,7 @@ import ServicesPage from "./pages/ServicesPage";
 import SingleSectionPage from "./pages/SingleSectionPage";
 
 import FeriaPage from "./pages/FeriaPage";
+import Biblioteca from "./pages/Biblioteca";
 import LenguasPage from "./pages/LenguasPage";
 
 function getCurrentRoute() {
@@ -29,6 +30,7 @@ function getCurrentRoute() {
 
   if (hash === "#/servicios") return { page: "services" };
   if (hash === "#/feria") return { page: "feria" };
+  if (hash === "#/biblioteca") return { page: "biblioteca" };
   if (hash === "#/celci" || hash === "#/lenguas") return { page: "lenguas" };
 
   if (legacyPages[hash.replace("#/", "")]) {
@@ -75,6 +77,8 @@ function App() {
               ? "FECA - Servicios"
               : route.page === "feria"
                 ? "FECA - Feria"
+                 : route.page === "biblioteca"
+                 ? "FECA - Biblioteca"
                 : route.page === "lenguas"
                     ? "FECA - Centro de Lenguas e Internacionalización"
                     : route.page === "legacy-program"
@@ -146,6 +150,7 @@ function App() {
         newsPanelOpen={newsPanelOpen}
         setNewsPanelOpen={setNewsPanelOpen}
       />
+      
     ) : route.page === "lenguas" ? (
       <LenguasPage
         logoImage={logoImage}
@@ -159,8 +164,9 @@ function App() {
         newsPanelOpen={newsPanelOpen}
         setNewsPanelOpen={setNewsPanelOpen}
       />
-    ) : route.page === "feria" ? (
-      <FeriaPage
+    
+    ) : route.page === "biblioteca" ? (
+      <Biblioteca
         logoImage={logoImage}
         newsPanelOpen={newsPanelOpen}
         setNewsPanelOpen={setNewsPanelOpen}
