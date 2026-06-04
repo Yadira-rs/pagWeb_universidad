@@ -653,6 +653,10 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
             </a>
 
             <div className="campus-side">
+              <a className="campus-mini" href="#/cafeteria">
+                <img className="campus-mini-logo" src="/imagenes/cafeca.png" alt="CAFECA" />
+                <div className="campus-mini-overlay">CAFECA</div>
+              </a>
               <a className="campus-mini" href="#/cultura-campus">
                 <img
                   src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=75"
@@ -697,41 +701,50 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
       <section className="section section-alt feca-store-wrapper fade-up">
         <div className="feca-store-section">
           <div className="feca-store-inner">
-            <div className="feca-store-logo-wrap">
-              <img
-                src="/imagenes/feca_store.png"
-                alt="FECA Store"
-                className="feca-store-logo"
-              />
-            </div>
-            <div className="feca-store-content">
-              <div className="section-label feca-store-label">
-                Tienda oficial
+            <article className="feca-store-card">
+              <div className="feca-store-logo-wrap">
+                <img src="/imagenes/feca_store.png" alt="FECA Store" className="feca-store-logo" />
               </div>
-              <h2 className="feca-store-title">Lleva la FECA contigo</h2>
-              <p className="feca-store-desc">
-                Encuentra playeras, sudaderas, accesorios y más con el sello
-                oficial de la Facultad de Economía, Contaduría y Administración.
-              </p>
-              <a
-                href="https://fecastore.com/"
-                target="_blank"
-                rel="noreferrer"
-                className="feca-store-btn"
-              >
-                Visitar FECA Store
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
+              <div className="feca-store-content">
+                <div className="section-label feca-store-label">Tienda oficial</div>
+                <h2 className="feca-store-title">Lleva la FECA contigo</h2>
+                <p className="feca-store-desc">
+                  Encuentra playeras, sudaderas, accesorios y más con el sello oficial de la Facultad de Economía, Contaduría y Administración.
+                </p>
+                <a
+                  href="https://fecastore.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="feca-store-btn"
                 >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </a>
-            </div>
+                  Visitar FECA Store
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <article className="feca-store-card">
+              <div className="feca-store-logo-wrap feca-store-logo-wrap--photo">
+                <img src="/imagenes/cafeca.png" alt="CAFECA" className="feca-store-logo feca-store-logo--cafeca" />
+              </div>
+              <div className="feca-store-content">
+                <div className="section-label feca-store-label">CAFECA</div>
+                <h2 className="feca-store-title">Sabores para tu día</h2>
+                <p className="feca-store-desc">
+                  Disfruta alimentos, bebidas y un espacio cómodo para convivir entre clases dentro de la facultad.
+                </p>
+                <a href="#/cafeteria" className="feca-store-btn">
+                  Ver CAFECA
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
           </div>
         </div>
       </section>
