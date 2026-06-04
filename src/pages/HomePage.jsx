@@ -511,51 +511,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
           onMouseEnter={() => { pausedRef.current = true; }}
           onMouseLeave={() => { pausedRef.current = false; }}
         >
-<<<<<<< HEAD
-          <button
-            type="button"
-            className="teacher-scroll-down"
-            aria-label="Bajar a la siguiente sección"
-            onClick={() =>
-              window.scrollBy({
-                top: window.innerHeight * 0.85,
-                behavior: "smooth",
-              })
-            }
-          />
-
-          <div className="teacher-carousel-wrapper">
-            <div
-              className="teacher-carousel-track"
-              style={{
-                "--track-index": String(trackIndex),
-                "--track-transition": hasTransition
-                  ? "transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)"
-                  : "none",
-              }}
-              onTransitionEnd={handleTransitionEnd}
-            >
-              {clonedTeachers.map((teacher, idx) => {
-                let statusClass = "";
-                if (idx === trackIndex) statusClass = "is-center";
-                else if (idx === trackIndex - 1) statusClass = "is-prev";
-                else if (idx === trackIndex + 1) statusClass = "is-next";
-                else if (idx === trackIndex - 2) statusClass = "is-far-prev";
-                else if (idx === trackIndex + 2) statusClass = "is-far-next";
-
-                return (
-                  <article
-                    key={`${teacher.name}-${idx}`}
-                    className={`teacher-card ${statusClass}`}
-                    onClick={() => handleCardClick(idx)}
-                  >
-                    <div className="teacher-card-img">
-                      <img src={teacher.image} alt={teacher.name} />
-                      <div className="teacher-card-hover-overlay">
-                        <p className="teacher-hover-desc">
-                          {teacher.description}
-                        </p>
-=======
 
           <div className="teacher-carousel-wrapper">
             <div
@@ -584,9 +539,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
                           <h4 className="teacher-hover-name">{teacher.name}</h4>
                           <p className="teacher-hover-desc">{teacher.description}</p>
                         </div>
->>>>>>> b043326 (Mejoras UI: carrusel directores, dropdowns en todas las páginas, imagen CIIEDO)
                       </div>
-                    </div>
                     <div className="teacher-card-body">
                       <h4 className="teacher-card-name">{teacher.name}</h4>
                     </div>
