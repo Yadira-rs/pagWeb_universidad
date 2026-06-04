@@ -91,6 +91,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 <a href="#/servicios/servicios-escolares">Servicios escolares</a>
                 <a href="#/servicios/servicio-social">Servicio social</a>
                 <a href="#/servicios/practicas-profesionales">Prácticas profesionales</a>
+                <a href="#/tutorias">Tutorías</a>
               </div>
             </div>
 

@@ -7,7 +7,7 @@ function Footer() {
             <img src="/imagenes/logo_ujed.png" alt="UJED" />
           </div>
           <div className="footer-tagline-logo footer-tagline-logo--feca">
-            <img src="/imagenes/LOGO_FECA PNG.png" alt="FECA" />
+            <img src="/imagenes/LOGO_FECA 3PNG.png" alt="FECA" />
           </div>
         </div>
         <span>Por una Cultura de Innovación y Emprendimiento</span>
@@ -25,7 +25,10 @@ function Footer() {
           <h4>Contacto</h4>
           <ul>
             <li>
-              <a href="#">Fanny Anitua y Priv. Loza s/n, C.P. 34000., Durango, Dgo., México</a>
+              <a href="#">
+                Fanny Anitua y Priv. Loza s/n, C.P. 34000., Durango, Dgo.,
+                México
+              </a>
             </li>
             <li>
               <a href="#">(618) 827-13-65</a>

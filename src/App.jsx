@@ -139,6 +139,8 @@ function App() {
       <TermsPage logoImage={logoImage} newsPanelOpen={newsPanelOpen} setNewsPanelOpen={setNewsPanelOpen} />
     ) : route.page === "bolsa-trabajo" ? (
       <BolsaTrabajoPage logoImage={logoImage} newsPanelOpen={newsPanelOpen} setNewsPanelOpen={setNewsPanelOpen} />
+    ) : route.page === "tutorias" ? (
+      <TutoriasPage logoImage={logoImage} newsPanelOpen={newsPanelOpen} setNewsPanelOpen={setNewsPanelOpen} />
     ) : route.page === "history" ? (
       <HistoryPage
         entries={historyEntries}
