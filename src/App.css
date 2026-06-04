@@ -293,7 +293,8 @@
 }
 
 .nav-item > a:hover {
-  background: var(--off-white);
+  background: transparent;
+  color: #6b6b6b;
 }
 
 .nav-item.active > a {
@@ -326,8 +327,8 @@
 }
 
 .dropdown a:hover {
-  background: var(--off-white);
-  color: var(--navy);
+  background: transparent;
+  color: #e31313;
 }
 
 .nav-search-wrapper {
@@ -1592,13 +1593,49 @@
   width: min(480px, 100%);
   height: 100vh;
   height: 100dvh;
-  padding: 36px 32px;
-  background: linear-gradient(180deg, rgb(255 255 255 / 100%), rgb(249 244 241 / 100%));
+  padding: 0;
+  background: #fff;
   box-shadow: -24px 0 80px rgb(0 0 0 / 16%);
   transform: translateX(100%);
   transition: transform 0.28s cubic-bezier(.2,.9,.2,1);
   overflow-y: auto;
   z-index: 1010;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-header {
+  background: #e31313;
+  padding: 32px 32px 28px;
+  position: relative;
+}
+
+.panel-header h2 {
+  color: #fff !important;
+}
+
+.panel-header-copy {
+  color: rgb(255 255 255 / 80%) !important;
+}
+
+.panel-close {
+  background: rgb(255 255 255 / 20%) !important;
+  color: #fff !important;
+  border: none !important;
+}
+
+.panel-close:hover {
+  background: rgb(255 255 255 / 35%) !important;
+}
+
+.panel-red-bar {
+  height: 6px;
+  background: linear-gradient(90deg, #951823, #e31313, #ff4d4d);
+}
+
+.panel-body {
+  padding: 28px 32px;
+  flex: 1;
 }
 
 .panel-overlay.open .slide-panel {
@@ -1624,7 +1661,6 @@
   display: flex;
   align-items: flex-start;
   gap: 16px;
-  margin-bottom: 18px;
   position: relative;
 }
 
@@ -1712,23 +1748,22 @@
 
 .panel-social a,
 .footer-social a {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: var(--gray-light);
+  background: #f2f2f2;
+  color: #333;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 13px;
-  font-weight: 700;
-  transition: background 0.2s, transform 0.2s;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
 }
 
 .panel-social a:hover,
 .footer-social a:hover {
-  background: var(--gold);
-  color: var(--white);
-  transform: scale(1.05);
+  background: #e31313;
+  color: #fff;
+  transform: scale(1.08);
 }
 
 .statsbar {
@@ -3032,6 +3067,104 @@
   font-size: 15px;
   line-height: 1.45;
   margin-bottom: 8px;
+}
+
+.feca-store-wrapper {
+  padding: 60px 24px;
+}
+
+.feca-store-section {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d0a0a 50%, #1a1a1a 100%);
+  padding: 70px 48px;
+  border-radius: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.feca-store-inner {
+  display: flex;
+  align-items: center;
+  gap: 72px;
+}
+
+.feca-store-logo-wrap {
+  flex: 0 0 280px;
+  background: #fff;
+  border-radius: 24px;
+  padding: 36px 40px;
+  box-shadow: 0 24px 60px rgb(0 0 0 / 40%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feca-store-logo {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  display: block;
+}
+
+.feca-store-content {
+  flex: 1;
+}
+
+.feca-store-label {
+  color: #e31313 !important;
+}
+
+.feca-store-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+  margin: 10px 0 20px;
+}
+
+.feca-store-desc {
+  font-size: 16px;
+  color: rgb(255 255 255 / 70%);
+  line-height: 1.7;
+  max-width: 480px;
+  margin-bottom: 36px;
+}
+
+.feca-store-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #e31313;
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 8px 24px rgb(227 19 19 / 40%);
+}
+
+.feca-store-btn:hover {
+  background: #b80f0f;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgb(227 19 19 / 50%);
+}
+
+@media (max-width: 768px) {
+  .feca-store-inner {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+  .feca-store-logo-wrap {
+    flex: none;
+    width: 200px;
+  }
+  .feca-store-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .footer {

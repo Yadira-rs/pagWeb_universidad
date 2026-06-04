@@ -98,6 +98,8 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
               </a>
               <div className="dropdown">
                 <a href="#/historia">Historia</a>
+                <a href="/ORGANIGRAMA-FECA.pdf" target="_blank" rel="noreferrer">Organigrama</a>
+                <a href="#/nosotros/pdua">PDUA</a>
                 <a href="#/mision-vision">Misión y visión</a>
                 <a href="#/nosotros/valores">Valores</a>
                 <a href="#/nosotros/politicas">Políticas</a>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Header from "../sections/Header";
 import Footer from "../sections/Footer";
 
@@ -32,7 +32,7 @@ const programs = [
       "Forma líderes empresariales con visión estratégica, finanzas, marketing y habilidades directivas.",
     image: "/imagenes/CIIEDO.jpeg",
     duration: "4 años",
-    mode: "Presencial / En linea",
+    mode: "Presencial / En línea",
     href: "#/ciiedo",
   },
   {
@@ -197,7 +197,7 @@ const news = [
   {
     tag: "Logros",
     title:
-      "La facultad fortalece su vinculacion academica con nuevos proyectos de certificacion y mejora continua.",
+      "La facultad fortalece su vinculación académica con nuevos proyectos de certificación y mejora continua.",
     date: "15 de mayo, 2025",
     image:
       "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=900&q=80",
@@ -205,13 +205,13 @@ const news = [
   {
     tag: "Eventos",
     title:
-      "Feria de empleo 2025: mas de 80 empresas buscan talento universitario.",
+      "Feria de empleo 2025: más de 80 empresas buscan talento universitario.",
     date: "10 de mayo, 2025",
     image:
       "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=900&q=80",
   },
   {
-    tag: "Investigacion",
+    tag: "Investigación",
     title:
       "Equipos docentes y estudiantiles impulsan proyectos aplicados con impacto regional.",
     date: "3 de mayo, 2025",
@@ -379,7 +379,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
           </div>
           <div className="statsbar-item">
             <div className="statsbar-num">68</div>
-            <div className="statsbar-label">AÃ±os de excelencia</div>
+            <div className="statsbar-label">Años de excelencia</div>
           </div>
         </div>
       </div>
@@ -387,11 +387,11 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
       <section className="section" id="departamentos">
         <div className="container">
           <div className="fade-up">
-            <div className="section-label">Oferta academica</div>
+            <div className="section-label">Oferta académica</div>
             <h2 className="section-title">Departamentos</h2>
             <p className="section-desc">
-              Nuestros programas combinan teoria solida con practica
-              profesional, impulsados por tecnologia y vinculacion empresarial.
+              Nuestros programas combinan teoría sólida con práctica
+              profesional, impulsados por tecnología y vinculación empresarial.
             </p>
           </div>
 
@@ -448,7 +448,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
             <h2 className="section-title">Licenciaturas FECA</h2>
             <p className="section-desc">
               Conoce las carreras que forman profesionales preparados para
-              analizar, dirigir y transformar organizaciones publicas y
+              analizar, dirigir y transformar organizaciones públicas y
               privadas.
             </p>
           </div>
@@ -478,7 +478,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
       <section className="section section-alt">
         <div className="container">
           <div className="fade-up">
-            <div className="section-label">Por que elegirnos</div>
+            <div className="section-label">Por qué elegirnos</div>
             <h2 className="section-title">
               Una experiencia
               <br />
@@ -540,7 +540,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
                           <p className="teacher-hover-desc">{teacher.description}</p>
                         </div>
                       </div>
-                    <div className="teacher-card-body">
+                      <div className="teacher-card-body">
                       <h4 className="teacher-card-name">{teacher.name}</h4>
                     </div>
                   </article>
@@ -603,10 +603,10 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
             <h2 className="section-title">
               Un campus que
               <br />
-              inspira cada dia
+              inspira cada día
             </h2>
             <p className="section-desc">
-              Mas de 40 hectareas de espacios disenados para el aprendizaje, la
+              Más de 40 hectáreas de espacios diseñados para el aprendizaje, la
               convivencia y el deporte.
             </p>
           </div>
@@ -617,7 +617,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
               <div className="campus-main-overlay">
                 <h3>Campus central</h3>
                 <p>
-                  Biblioteca, auditorio, laboratorios y areas verdes en un
+                  Biblioteca, auditorio, laboratorios y áreas verdes en un
                   entorno ideal para estudiar
                 </p>
               </div>
@@ -626,7 +626,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
             <div className="campus-side">
               <a className="campus-mini" href="#/cafeteria">
                 <img src="/imagenes/cafeteria.jpeg" alt="Cafeteria" />
-                <div className="campus-mini-overlay">Cafeteria</div>
+                <div className="campus-mini-overlay">Cafetería</div>
               </a>
               <a className="campus-mini" href="#/cultura-campus">
                 <img
@@ -642,9 +642,9 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
 
           <div className="admissions-banner fade-up">
             <div>
-              <h2>Listo para dar el siguiente paso?</h2>
+              <h2>¿Listo para dar el siguiente paso?</h2>
               <p>
-                Proceso de admision sencillo y en linea. Resultados en menos de
+                Proceso de admisión sencillo y en línea. Resultados en menos de
                 72 horas.
               </p>
             </div>
@@ -665,32 +665,31 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
         </div>
       </section>
 
-      <section className="section section-alt">
-        <div className="container">
-          <div className="news-heading fade-up">
-            <div>
-              <div className="section-label">Noticias y eventos</div>
-              <h2 className="section-title">Lo mas reciente</h2>
-            </div>
-            <a href="#" className="news-link">
-              Ver todas las noticias
+      <section className="section section-alt feca-store-wrapper fade-up">
+        <div className="feca-store-section">
+        <div className="feca-store-inner">
+          <div className="feca-store-logo-wrap">
+            <img src="/imagenes/feca_store.png" alt="FECA Store" className="feca-store-logo" />
+          </div>
+          <div className="feca-store-content">
+            <div className="section-label feca-store-label">Tienda oficial</div>
+            <h2 className="feca-store-title">Lleva la FECA contigo</h2>
+            <p className="feca-store-desc">
+              Encuentra playeras, sudaderas, accesorios y más con el sello oficial de la Facultad de Economía, Contaduría y Administración.
+            </p>
+            <a
+              href="https://fecastore.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="feca-store-btn"
+            >
+              Visitar FECA Store
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
             </a>
           </div>
-
-          <div className="news-grid fade-up">
-            {news.map((item) => (
-              <article key={item.title} className="news-card">
-                <div className="news-card-img">
-                  <img src={item.image} alt={item.title} />
-                </div>
-                <div className="news-card-body">
-                  <span className="news-tag">{item.tag}</span>
-                  <div className="news-card-title">{item.title}</div>
-                  <div className="news-card-date">{item.date}</div>
-                </div>
-              </article>
-            ))}
-          </div>
+        </div>
         </div>
       </section>
 
