@@ -17,7 +17,7 @@ import MissionVisionPage from "./pages/MissionVisionPage";
 import ServiceDetailPage from "./pages/ServiceDetailPage";
 import ServicesPage from "./pages/ServicesPage";
 import SingleSectionPage from "./pages/SingleSectionPage";
-import BolsaTrabajoPage from "./pages/BolsaTrabajoPage";
+
 import FeriaPage from "./pages/FeriaPage";
 import LenguasPage from "./pages/LenguasPage";
 
@@ -26,7 +26,7 @@ function getCurrentRoute() {
 
   if (hash === "#/historia") return { page: "history" };
   if (hash === "#/mision-vision") return { page: "mission-vision" };
-  if (hash === "#/bolsa-de-trabajo") return { page: "bolsa-trabajo" };
+
   if (hash === "#/servicios") return { page: "services" };
   if (hash === "#/feria") return { page: "feria" };
   if (hash === "#/celci" || hash === "#/lenguas") return { page: "lenguas" };
@@ -71,8 +71,6 @@ function App() {
         ? "FECA - Historia"
         : route.page === "mission-vision"
           ? "FECA - Misión y Visión"
-          : route.page === "bolsa-trabajo"
-            ? "FECA - Bolsa de Trabajo"
             : route.page === "services"
               ? "FECA - Servicios"
               : route.page === "feria"
@@ -135,12 +133,7 @@ function App() {
         newsPanelOpen={newsPanelOpen}
         setNewsPanelOpen={setNewsPanelOpen}
       />
-    ) : route.page === "bolsa-trabajo" ? (
-      <BolsaTrabajoPage
-        logoImage={logoImage}
-        newsPanelOpen={newsPanelOpen}
-        setNewsPanelOpen={setNewsPanelOpen}
-      />
+    
     ) : route.page === "services" ? (
       <ServicesPage
         logoImage={logoImage}
