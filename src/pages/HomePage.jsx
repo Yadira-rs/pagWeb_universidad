@@ -5,9 +5,8 @@ import Footer from "../sections/Footer";
 const heroSlides = [
   {
     image: "/imagenes/inicio.png",
-    titleLines: ["Por una cultura", "de", "innovación y emprendimiento"],
-    description:
-      "Formamos profesionales con visión global, preparados para liderar en un mundo en constante cambio.",
+    logo: "/imagenes/LOGO_FECA PNG.png",
+    logoAlt: "Logo FECA",
   },
   {
     image: "/imagenes/aniversario.jpeg",
