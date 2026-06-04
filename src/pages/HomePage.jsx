@@ -224,8 +224,10 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
   const [heroCurrentSlide, setHeroCurrentSlide] = useState(0);
   const [trackIndex, setTrackIndex] = useState(2);
   const trackRef = useRef(null);
+  const carouselRef = useRef(null);
   const trackIdxRef = useRef(2);
   const pausedRef = useRef(false);
+  const hoverIntervalRef = useRef(null);
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
@@ -265,6 +267,9 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
 
   const moveTo = (newIdx, animated) => {
     if (!trackRef.current) return;
+    if (!animated && carouselRef.current) {
+      carouselRef.current.classList.add('no-card-transition');
+    }
     trackRef.current.style.transition = animated
       ? 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)'
       : 'none';
@@ -272,6 +277,13 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
       `translateX(calc(50% - 120px - ${newIdx * 338}px - 155px))`;
     trackIdxRef.current = newIdx;
     setTrackIndex(newIdx);
+    if (!animated && carouselRef.current) {
+      requestAnimationFrame(() =>
+        requestAnimationFrame(() =>
+          carouselRef.current?.classList.remove('no-card-transition')
+        )
+      );
+    }
   };
 
   const handleNext = () => moveTo(trackIdxRef.current + 1, true);
@@ -507,6 +519,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
         </div>
 
         <div
+          ref={carouselRef}
           className="teacher-carousel fade-up"
           onMouseEnter={() => { pausedRef.current = true; }}
           onMouseLeave={() => { pausedRef.current = false; }}
@@ -555,6 +568,8 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
               className="teacher-arrow teacher-prev"
               aria-label="Anterior"
               onClick={handlePrev}
+              onMouseEnter={() => { hoverIntervalRef.current = setInterval(handlePrev, 600); }}
+              onMouseLeave={() => { clearInterval(hoverIntervalRef.current); }}
             >
               <svg
                 width="20"
@@ -576,6 +591,8 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
               className="teacher-arrow teacher-next"
               aria-label="Siguiente"
               onClick={handleNext}
+              onMouseEnter={() => { hoverIntervalRef.current = setInterval(handleNext, 600); }}
+              onMouseLeave={() => { clearInterval(hoverIntervalRef.current); }}
             >
               <svg
                 width="20"

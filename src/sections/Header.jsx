@@ -40,18 +40,22 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
 
       <nav className={`navbar${scrolled ? " navbar-top" : ""}`}>
         <div className="navbar-inner">
-          <a href="#/" className="logo">
-            <img
-              className="navbar-ujed-logo"
-              src="/imagenes/logo-ujed.png"
-              alt="UJED logo"
-            />
-            <img
-              className="navbar-feca-logo"
-              src="/imagenes/logo_feca.jpeg"
-              alt="FECA logo"
-            />
-          </a>
+          <div className="logo">
+            <a href="https://www.ujed.mx/" target="_blank" rel="noreferrer">
+              <img
+                className="navbar-ujed-logo"
+                src="/imagenes/logo-ujed.png"
+                alt="UJED logo"
+              />
+            </a>
+            <a href="#/">
+              <img
+                className="navbar-feca-logo"
+                src="/imagenes/LOGO_FECA2 JPG.jpg.jpeg"
+                alt="FECA logo"
+              />
+            </a>
+          </div>
 
           <div className="nav-links">
             <div className={`nav-item ${currentRoute === "home" ? "active" : ""}`}>
@@ -68,7 +72,6 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 <a href="https://posgradofeca.ujed.mx/" target="_blank" rel="noreferrer">Posgrado</a>
                 <a href="#/celci">CELCI</a>
                 <a href="#/ciiedo">CIIEDO</a>
-                <a href="#/servicios">Servicios</a>
               </div>
             </div>
 
@@ -83,7 +86,6 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 <a href="#/servicios/servicios-escolares">Servicios escolares</a>
                 <a href="#/servicios/servicio-social">Servicio social</a>
                 <a href="#/servicios/practicas-profesionales">Prácticas profesionales</a>
-                <a href="https://sumafeca.ujed.mx/" target="_blank" rel="noreferrer">Registro de egresados</a>
               </div>
             </div>
 
