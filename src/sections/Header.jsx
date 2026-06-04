@@ -51,7 +51,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
             <a href="#/">
               <img
                 className="navbar-feca-logo"
-                src="/imagenes/LOGO_FECA PNG.png"
+                src="/imagenes/LOGO_FECA2 JPG.jpg.jpeg"
                 alt="FECA logo"
               />
             </a>
