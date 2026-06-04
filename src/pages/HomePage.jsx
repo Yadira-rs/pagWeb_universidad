@@ -645,8 +645,9 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
                   src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=75"
                   alt="Cultura"
                 />
-                <div className="campus-mini-overlay">
-                  Cultura y actividades extracurriculares
+                <div className="campus-main-overlay">
+                  <h3>Cultura y actividades extracurriculares</h3>
+                  <p>Espacios de convivencia, arte, deporte y crecimiento personal para toda la comunidad</p>
                 </div>
               </a>
             </div>

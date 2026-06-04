@@ -307,6 +307,20 @@ function App() {
                 <span>(618) 827-13-65</span>
               </li>
             </ul>
+            <a
+              href="mailto:informes@feca.ujed.mx?subject=Queja%20/%20Sugerencia"
+              className="panel-buzon-btn"
+            >
+              <div className="panel-buzon-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="22" height="22">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+              </div>
+              <div className="panel-buzon-text">
+                <span className="panel-buzon-title">Buzón de quejas y sugerencias</span>
+                <span className="panel-buzon-sub">Tu opinión nos ayuda a mejorar. Haz clic para enviarnos un mensaje.</span>
+              </div>
+            </a>
           </section>
 
           <section className="panel-section">
