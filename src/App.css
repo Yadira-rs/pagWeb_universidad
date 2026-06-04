@@ -220,11 +220,10 @@
 }
 
 .navbar-feca-logo {
-  height: 48px;
+  height: 52px;
   width: auto;
   object-fit: contain;
   display: block;
-  mix-blend-mode: multiply;
 }
 
 .navbar-inner {
