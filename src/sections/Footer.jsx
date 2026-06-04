@@ -7,7 +7,7 @@ function Footer() {
             <img src="/imagenes/logo_ujed.png" alt="UJED" />
           </div>
           <div className="footer-tagline-logo footer-tagline-logo--feca">
-            <img src="/imagenes/LOGO_FECA2 JPG.jpg.jpeg" alt="FECA" />
+            <img src="/imagenes/LOGO_FECA PNG.png" alt="FECA" />
           </div>
         </div>
         <span>Por una Cultura de Innovación y Emprendimiento</span>

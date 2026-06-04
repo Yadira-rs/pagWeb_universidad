@@ -5,7 +5,7 @@ import Footer from "../sections/Footer";
 const heroSlides = [
   {
     image: "/imagenes/inicio.png",
-    logo: "/imagenes/LOGO_FECA2 JPG.jpg.jpeg",
+    logo: "/imagenes/LOGO_FECA PNG.png",
     logoAlt: "Logo FECA",
   },
   {
