@@ -213,14 +213,14 @@
 }
 
 .navbar-ujed-logo {
-  height: 44px;
+  height: 58px;
   width: auto;
   object-fit: contain;
   display: block;
 }
 
 .navbar-feca-logo {
-  height: 52px;
+  height: 45px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -352,6 +352,57 @@
   align-items: center;
   gap: 10px;
   margin-left: auto;
+}
+
+.nav-search-container {
+  position: relative;
+}
+
+.search-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid var(--gray-light);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  list-style: none;
+  margin: 0;
+  padding: 6px 0;
+  z-index: 9999;
+  min-width: 300px;
+}
+
+.search-dropdown li a {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.15s;
+}
+
+.search-dropdown li a:hover {
+  background: #f5f5f5;
+}
+
+.search-dropdown-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy, #1a1a2e);
+}
+
+.search-dropdown-desc {
+  font-size: 12px;
+  color: #666;
+  margin-top: 2px;
+}
+
+.search-dropdown-empty {
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #888;
 }
 
 .suma-logo {
@@ -3502,8 +3553,12 @@
 }
 
 .footer-tagline-logo--feca {
-  background: white;
-  padding: 4px;
+  background: transparent;
+  padding: 5px;
+  width: 110px;
+  height: auto;
+  border-radius: 0;
+  overflow: visible;
 }
 
 .footer-tagline-logo img {

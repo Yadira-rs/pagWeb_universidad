@@ -1,8 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { logoImage as defaultLogo } from "../data/siteData";
+import { searchIndex } from "../data/searchIndex";
 
 function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const searchRef = useRef(null);
   const [scrolled, setScrolled] = useState(false);
   const mobileMenuRef = useRef(null);
   const hamburgerRef = useRef(null);
@@ -28,6 +33,33 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const q = searchQuery.trim().toLowerCase();
+    if (q.length < 2) {
+      setSearchResults([]);
+      setSearchOpen(false);
+      return;
+    }
+    const results = searchIndex.filter(
+      (item) =>
+        item.title.toLowerCase().includes(q) ||
+        item.description.toLowerCase().includes(q) ||
+        item.keywords.toLowerCase().includes(q)
+    );
+    setSearchResults(results.slice(0, 6));
+    setSearchOpen(true);
+  }, [searchQuery]);
+
+  useEffect(() => {
+    const handleClick = (e) => {
+      if (searchRef.current && !searchRef.current.contains(e.target)) {
+        setSearchOpen(false);
+      }
+    };
+    document.addEventListener("click", handleClick);
+    return () => document.removeEventListener("click", handleClick);
+  }, []);
+
   return (
     <>
       <div className={`topbar${scrolled ? " topbar-hidden" : ""}`}>
@@ -51,18 +83,27 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
             <a href="#/">
               <img
                 className="navbar-feca-logo"
-                src="/imagenes/LOGO_FECA PNG.png"
+                src="/imagenes/logofeca JPG.jpg.jpeg"
                 alt="FECA logo"
               />
             </a>
           </div>
 
           <div className="nav-links">
-            <div className={`nav-item ${currentRoute === "home" ? "active" : ""}`}>
-              <a href="#/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Inicio</a>
+            <div
+              className={`nav-item ${currentRoute === "home" ? "active" : ""}`}
+            >
+              <a
+                href="#/"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              >
+                Inicio
+              </a>
             </div>
 
-            <div className={`nav-item ${currentRoute === "legacy-program" ? "active" : ""}`}>
+            <div
+              className={`nav-item ${currentRoute === "legacy-program" ? "active" : ""}`}
+            >
               <a href="#/administracion">
                 Oferta Educativa
                 <span className="nav-caret" aria-hidden="true"></span>
@@ -70,7 +111,13 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
               <div className="dropdown">
                 <a href="#/administracion">Licenciaturas</a>
                 <a href="#/distancia">Licenciaturas a distancia</a>
-                <a href="https://posgradofeca.ujed.mx/" target="_blank" rel="noreferrer">Posgrado</a>
+                <a
+                  href="https://posgradofeca.ujed.mx/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Posgrado
+                </a>
                 <a href="#/curso-propedeutico">Cursos Propedéutico</a>
                 <a href="#/cursos-intersemestrales">Cursos Intersemestrales</a>
                 <a href="#/celci">CELCI</a>
@@ -80,31 +127,51 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
               </div>
             </div>
 
-            <div className={`nav-item ${
-              currentRoute === "services" || currentRoute === "service-detail" ? "active" : ""
-            }`}>
+            <div
+              className={`nav-item ${
+                currentRoute === "services" || currentRoute === "service-detail"
+                  ? "active"
+                  : ""
+              }`}
+            >
               <a href="#/servicios">
                 Servicios
                 <span className="nav-caret" aria-hidden="true"></span>
               </a>
               <div className="dropdown">
-                <a href="#/servicios/servicios-escolares">Servicios escolares</a>
+                <a href="#/servicios/servicios-escolares">
+                  Servicios escolares
+                </a>
                 <a href="#/servicios/servicio-social">Servicio social</a>
-                <a href="#/servicios/practicas-profesionales">Prácticas profesionales</a>
+                <a href="#/servicios/practicas-profesionales">
+                  Prácticas profesionales
+                </a>
                 <a href="#/tutorias">Tutorías</a>
               </div>
             </div>
 
-            <div className={`nav-item ${
-              currentRoute === "history" || currentRoute === "mission-vision" || currentRoute === "single-section" ? "active" : ""
-            }`}>
+            <div
+              className={`nav-item ${
+                currentRoute === "history" ||
+                currentRoute === "mission-vision" ||
+                currentRoute === "single-section"
+                  ? "active"
+                  : ""
+              }`}
+            >
               <a href="#/historia">
                 Nosotros
                 <span className="nav-caret" aria-hidden="true"></span>
               </a>
               <div className="dropdown">
                 <a href="#/historia">Historia</a>
-                <a href="/ORGANIGRAMA-FECA.pdf" target="_blank" rel="noreferrer">Organigrama</a>
+                <a
+                  href="/ORGANIGRAMA-FECA.pdf"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Organigrama
+                </a>
                 <a href="#/nosotros/pdua">PDUA</a>
                 <a href="#/mision-vision">Misión y visión</a>
                 <a href="#/nosotros/valores">Valores</a>
@@ -116,21 +183,67 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
           </div>
 
           <div className="nav-search-wrapper">
-            <a href="https://sumafeca.ujed.mx/" target="_blank" rel="noreferrer">
+            <a
+              href="https://sumafeca.ujed.mx/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img
                 src="/imagenes/suma_logo.png"
                 alt="SUMA+"
                 className="suma-logo"
               />
             </a>
-            <form className="nav-search" onSubmit={(event) => event.preventDefault()}>
-              <input
-                type="search"
-                name="q"
-                placeholder="Buscar programas, carreras o servicios"
-              />
-              <button type="submit">Buscar</button>
-            </form>
+            <div className="nav-search-container" ref={searchRef}>
+              <form
+                className="nav-search"
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  if (searchResults.length > 0) {
+                    const first = searchResults[0];
+                    if (first.href.startsWith("http")) {
+                      window.open(first.href, "_blank", "noreferrer");
+                    } else {
+                      window.location.hash = first.href.replace("#", "");
+                    }
+                    setSearchOpen(false);
+                    setSearchQuery("");
+                  }
+                }}
+              >
+                <input
+                  type="search"
+                  name="q"
+                  placeholder="Buscar programas, carreras o servicio"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  autoComplete="off"
+                />
+                <button type="submit">Buscar</button>
+              </form>
+              {searchOpen && searchResults.length > 0 && (
+                <ul className="search-dropdown">
+                  {searchResults.map((item, i) => (
+                    <li key={i}>
+                      <a
+                        href={item.href}
+                        target={item.href.startsWith("http") ? "_blank" : undefined}
+                        rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+                        onClick={() => { setSearchOpen(false); setSearchQuery(""); }}
+                      >
+                        <span className="search-dropdown-title">{item.title}</span>
+                        <span className="search-dropdown-desc">{item.description}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {searchOpen && searchQuery.trim().length >= 2 && searchResults.length === 0 && (
+                <ul className="search-dropdown">
+                  <li className="search-dropdown-empty">Sin resultados para "{searchQuery}"</li>
+                </ul>
+              )}
+            </div>
           </div>
 
           <button

@@ -259,28 +259,29 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
   // 2 clones al inicio + 5 reales + 2 clones al final = 9 items
   // trackIndex real: 2-6, clones: 0-1 y 7-8
   const clonedTeachers = [
-    teachers[3], teachers[4],
+    teachers[3],
+    teachers[4],
     ...teachers,
-    teachers[0], teachers[1],
+    teachers[0],
+    teachers[1],
   ];
 
   const moveTo = (newIdx, animated) => {
     if (!trackRef.current) return;
     if (!animated && carouselRef.current) {
-      carouselRef.current.classList.add('no-card-transition');
+      carouselRef.current.classList.add("no-card-transition");
     }
     trackRef.current.style.transition = animated
-      ? 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)'
-      : 'none';
-    trackRef.current.style.transform =
-      `translateX(calc(50% - 120px - ${newIdx * 338}px - 155px))`;
+      ? "transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)"
+      : "none";
+    trackRef.current.style.transform = `translateX(calc(50% - 120px - ${newIdx * 338}px - 155px))`;
     trackIdxRef.current = newIdx;
     setTrackIndex(newIdx);
     if (!animated && carouselRef.current) {
       requestAnimationFrame(() =>
         requestAnimationFrame(() =>
-          carouselRef.current?.classList.remove('no-card-transition')
-        )
+          carouselRef.current?.classList.remove("no-card-transition"),
+        ),
       );
     }
   };
@@ -297,7 +298,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
   // Posición inicial sin animación
   useEffect(() => {
     moveTo(2, false);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Autoplay cada 3 segundos
@@ -448,7 +449,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
               </a>
             ))}
           </div>
-
         </div>
       </section>
 
@@ -520,39 +520,44 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
         <div
           ref={carouselRef}
           className="teacher-carousel fade-up"
-          onMouseEnter={() => { pausedRef.current = true; }}
-          onMouseLeave={() => { pausedRef.current = false; }}
+          onMouseEnter={() => {
+            pausedRef.current = true;
+          }}
+          onMouseLeave={() => {
+            pausedRef.current = false;
+          }}
         >
-
           <div className="teacher-carousel-wrapper">
             <div
               ref={trackRef}
               className="teacher-carousel-track"
               onTransitionEnd={handleTransitionEnd}
             >
-                {clonedTeachers.map((teacher, idx) => {
-                  const dist = idx - trackIndex;
-                  let statusClass = "";
-                  if (dist === 0) statusClass = "is-center";
-                  else if (dist === -1) statusClass = "is-prev";
-                  else if (dist === 1) statusClass = "is-next";
-                  else if (dist === -2) statusClass = "is-far-prev";
-                  else if (dist === 2) statusClass = "is-far-next";
+              {clonedTeachers.map((teacher, idx) => {
+                const dist = idx - trackIndex;
+                let statusClass = "";
+                if (dist === 0) statusClass = "is-center";
+                else if (dist === -1) statusClass = "is-prev";
+                else if (dist === 1) statusClass = "is-next";
+                else if (dist === -2) statusClass = "is-far-prev";
+                else if (dist === 2) statusClass = "is-far-next";
 
-                  return (
-                    <article
-                      key={`${teacher.name}-${idx}`}
-                      className={`teacher-card ${statusClass}`}
-                      onClick={() => moveTo(idx, true)}
-                    >
-                      <div className="teacher-card-img">
-                        <img src={teacher.image} alt={teacher.name} />
-                        <div className="teacher-card-hover-overlay">
-                          <h4 className="teacher-hover-name">{teacher.name}</h4>
-                          <p className="teacher-hover-desc">{teacher.description}</p>
-                        </div>
+                return (
+                  <article
+                    key={`${teacher.name}-${idx}`}
+                    className={`teacher-card ${statusClass}`}
+                    onClick={() => moveTo(idx, true)}
+                  >
+                    <div className="teacher-card-img">
+                      <img src={teacher.image} alt={teacher.name} />
+                      <div className="teacher-card-hover-overlay">
+                        <h4 className="teacher-hover-name">{teacher.name}</h4>
+                        <p className="teacher-hover-desc">
+                          {teacher.description}
+                        </p>
                       </div>
-                      <div className="teacher-card-body">
+                    </div>
+                    <div className="teacher-card-body">
                       <h4 className="teacher-card-name">{teacher.name}</h4>
                     </div>
                   </article>
@@ -567,8 +572,12 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
               className="teacher-arrow teacher-prev"
               aria-label="Anterior"
               onClick={handlePrev}
-              onMouseEnter={() => { hoverIntervalRef.current = setInterval(handlePrev, 600); }}
-              onMouseLeave={() => { clearInterval(hoverIntervalRef.current); }}
+              onMouseEnter={() => {
+                hoverIntervalRef.current = setInterval(handlePrev, 600);
+              }}
+              onMouseLeave={() => {
+                clearInterval(hoverIntervalRef.current);
+              }}
             >
               <svg
                 width="20"
@@ -590,8 +599,12 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
               className="teacher-arrow teacher-next"
               aria-label="Siguiente"
               onClick={handleNext}
-              onMouseEnter={() => { hoverIntervalRef.current = setInterval(handleNext, 600); }}
-              onMouseLeave={() => { clearInterval(hoverIntervalRef.current); }}
+              onMouseEnter={() => {
+                hoverIntervalRef.current = setInterval(handleNext, 600);
+              }}
+              onMouseLeave={() => {
+                clearInterval(hoverIntervalRef.current);
+              }}
             >
               <svg
                 width="20"
@@ -647,7 +660,10 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
                 />
                 <div className="campus-main-overlay">
                   <h3>Cultura y actividades extracurriculares</h3>
-                  <p>Espacios de convivencia, arte, deporte y crecimiento personal para toda la comunidad</p>
+                  <p>
+                    Espacios de convivencia, arte, deporte y crecimiento
+                    personal para toda la comunidad
+                  </p>
                 </div>
               </a>
             </div>
@@ -680,29 +696,43 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
 
       <section className="section section-alt feca-store-wrapper fade-up">
         <div className="feca-store-section">
-        <div className="feca-store-inner">
-          <div className="feca-store-logo-wrap">
-            <img src="/imagenes/feca_store.png" alt="FECA Store" className="feca-store-logo" />
+          <div className="feca-store-inner">
+            <div className="feca-store-logo-wrap">
+              <img
+                src="/imagenes/feca_store.png"
+                alt="FECA Store"
+                className="feca-store-logo"
+              />
+            </div>
+            <div className="feca-store-content">
+              <div className="section-label feca-store-label">
+                Tienda oficial
+              </div>
+              <h2 className="feca-store-title">Lleva la FECA contigo</h2>
+              <p className="feca-store-desc">
+                Encuentra playeras, sudaderas, accesorios y más con el sello
+                oficial de la Facultad de Economía, Contaduría y Administración.
+              </p>
+              <a
+                href="https://fecastore.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="feca-store-btn"
+              >
+                Visitar FECA Store
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
           </div>
-          <div className="feca-store-content">
-            <div className="section-label feca-store-label">Tienda oficial</div>
-            <h2 className="feca-store-title">Lleva la FECA contigo</h2>
-            <p className="feca-store-desc">
-              Encuentra playeras, sudaderas, accesorios y más con el sello oficial de la Facultad de Economía, Contaduría y Administración.
-            </p>
-            <a
-              href="https://fecastore.com/"
-              target="_blank"
-              rel="noreferrer"
-              className="feca-store-btn"
-            >
-              Visitar FECA Store
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </a>
-          </div>
-        </div>
         </div>
       </section>
 
