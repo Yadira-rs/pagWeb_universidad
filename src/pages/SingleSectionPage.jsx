@@ -21,11 +21,6 @@ function SingleSectionPage({
       <section className="history-page-hero institutional-hero">
         <div className="history-page-overlay"></div>
         <div className="history-page-inner">
-          <div className="history-breadcrumbs">
-            <a href="#/">Inicio</a>
-            <span>/</span>
-            <span>{content.heroTitle}</span>
-          </div>
           <h1 className="history-page-title">{content.heroTitle}</h1>
           <p className="mission-vision-hero-copy">{content.intro}</p>
         </div>

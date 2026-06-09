@@ -507,7 +507,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
         <div className="container">
           <div className="fade-up careers-heading">
             <div className="section-label">Carreras</div>
-            <h2 className="section-title">Licenciaturas FECA</h2>
+            <h2 className="section-title">Licenciaturas</h2>
             <p className="section-desc">
               Conoce las carreras que forman profesionales preparados para
               analizar, dirigir y transformar organizaciones públicas y
@@ -706,25 +706,19 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
               </div>
             </a>
 
-            <div className="campus-side">
-              <a className="campus-mini" href="#/cafeteria">
-                <img className="campus-mini-logo" src="/imagenes/cafeca.png" alt="CAFECA" />
-                <div className="campus-mini-overlay">CAFECA</div>
-              </a>
-              <a className="campus-mini" href="#/cultura-campus">
-                <img
-                  src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=75"
-                  alt="Cultura"
-                />
-                <div className="campus-main-overlay">
-                  <h3>Cultura y actividades extracurriculares</h3>
-                  <p>
-                    Espacios de convivencia, arte, deporte y crecimiento
-                    personal para toda la comunidad
-                  </p>
-                </div>
-              </a>
-            </div>
+            <a className="campus-main" href="#/cultura-campus">
+              <img
+                src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=75"
+                alt="Cultura"
+              />
+              <div className="campus-main-overlay">
+                <h3>Cultura y actividades extracurriculares</h3>
+                <p>
+                  Espacios de convivencia, arte, deporte y crecimiento
+                  personal para toda la comunidad
+                </p>
+              </div>
+            </a>
           </div>
 
           <div className="admissions-banner fade-up">

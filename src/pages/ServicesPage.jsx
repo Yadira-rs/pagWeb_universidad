@@ -50,7 +50,7 @@ function ServicesPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
           <div className="hero-tag">
             Facultad de Economía, Contaduría y Administración
           </div>
-          <h1>Servicios FECA</h1>
+          <h1>Servicios</h1>
           <p>
             Explora información académica, profesional y estudiantil en una
             plataforma moderna y organizada.
@@ -61,7 +61,7 @@ function ServicesPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
 
       <main id="servicios" className="services-page">
         <div className="section-title-block">
-          <div className="section-label">Servicios FECA</div>
+          <div className="section-label">Servicios</div>
           <h2 className="section-title">Todo lo que necesitas en un solo lugar</h2>
           <p className="section-desc">
             Consulta información estudiantil, formatos y procesos importantes.

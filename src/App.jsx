@@ -39,7 +39,7 @@ function getCurrentRoute() {
   if (hash === "#/servicios") return { page: "services" };
   if (hash === "#/feria") return { page: "feria" };
   if (hash === "#/biblioteca") return { page: "biblioteca" };
-  if (hash === "#/celci" || hash === "#/lenguas") return { page: "lenguas" };
+  if (hash === "#/lenguas") return { page: "lenguas" };
 
   if (legacyPages[hash.replace("#/", "")]) {
     const slug = hash.replace("#/", "");

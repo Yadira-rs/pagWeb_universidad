@@ -160,7 +160,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 >
                   Organigrama
                 </a>
-                <a href="#/nosotros/pdua">PDUA</a>
+                <a href="/PDUA-SILD27.pdf" target="_blank" rel="noreferrer">PDUA</a>
                 <a href="#/mision-vision">Misión y visión</a>
                 <a href="#/nosotros/valores">Valores</a>
                 <a href="#/nosotros/politicas">Políticas</a>

@@ -3,7 +3,7 @@ export const legacyPages = {
     routeGroup: "legacy-program",
     heroImage: "/imagenes/lic.jpg",
     kicker: "Oferta académica",
-    title: "Licenciaturas FECA",
+    title: "Licenciaturas",
     intro:
       "Conoce los programas presenciales de la Facultad de Economía, Contaduría y Administración.",
     panels: [
@@ -477,7 +477,7 @@ export const legacyPages = {
     routeGroup: "legacy-program",
     heroImage: "/imagenes/lic.jpg",
     kicker: "Ciclo A-2025 | Modalidad presencial",
-    title: "Centro de Lenguas e Internacionalización",
+    title: "CELCI - Centro de Lenguas e Internacionalización",
     intro:
       "Cursos de idiomas para adultos, niños y jóvenes en la Facultad de Economía, Contaduría y Administración.",
     tabMode: "switch",

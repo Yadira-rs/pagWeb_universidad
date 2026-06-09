@@ -19,7 +19,7 @@ export default function TutoriasPage({ logoImage, newsPanelOpen, setNewsPanelOpe
       >
         <div className="hero-content">
           <div className="hero-tag">Servicios</div>
-          <h1>Tutorías FECA</h1>
+          <h1>Tutorías</h1>
           <p>
             Acompañamiento académico personalizado para el éxito y permanencia
             de nuestros estudiantes.
