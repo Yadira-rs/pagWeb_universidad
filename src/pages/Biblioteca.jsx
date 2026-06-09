@@ -40,17 +40,17 @@ const digitalResources = [
   {
     title: "Investigación Económico Administrativa Aplicada",
     image: "/imagenes/qr1.png",
-    alt: "Código QR 1 Biblioteca FECA",
+    alt: "Código QR 1 Biblioteca",
   },
   {
     title: "Gestión Financiera y Desarrollo Económico",
     image: "/imagenes/qr2.png",
-    alt: "Código QR 2 Biblioteca FECA",
+    alt: "Código QR 2 Biblioteca",
   },
   {
-    title: "Recursos digitales Biblioteca FECA",
+    title: "Recursos digitales Biblioteca",
     image: "/imagenes/qr3.png",
-    alt: "Código QR 3 Biblioteca FECA",
+    alt: "Código QR 3 Biblioteca",
   },
 ];
 
@@ -73,7 +73,7 @@ export default function Biblioteca({ logoImage, newsPanelOpen, setNewsPanelOpen 
       >
         <div className="hero-content">
           <div className="hero-tag">Biblioteca</div>
-          <h1>Biblioteca FECA</h1>
+          <h1>Biblioteca</h1>
           <p>
             Un espacio dedicado al conocimiento, la investigación y el acceso libre
             a la información para estudiantes y académicos.
@@ -83,7 +83,7 @@ export default function Biblioteca({ logoImage, newsPanelOpen, setNewsPanelOpen 
 
       <main className="services-page biblioteca-page">
         <div className="section-title-block">
-          <div className="section-label">Biblioteca FECA</div>
+          <div className="section-label">Biblioteca</div>
           <h2 className="section-title">Servicios, colecciones y recursos digitales</h2>
           <p className="section-desc">
             Conoce la historia, misión, visión y los servicios que hacen de esta
@@ -165,7 +165,7 @@ export default function Biblioteca({ logoImage, newsPanelOpen, setNewsPanelOpen 
             <div className="section-label">Recursos</div>
             <h2 className="section-title">Biblioteca digital</h2>
             <p className="section-desc">
-              La Biblioteca FECA ofrece recursos digitales accesibles mediante códigos
+              La Biblioteca ofrece recursos digitales accesibles mediante códigos
               QR para descargar libros completos y material académico desde cualquier
               dispositivo.
             </p>

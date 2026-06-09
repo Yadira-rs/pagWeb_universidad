@@ -114,7 +114,6 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 <a href="#/cursos-intersemestrales">Cursos Intersemestrales</a>
                 <a href="#/celci">CELCI</a>
                 <a href="#/ciiedo">CIIEDO</a>
-                <a href="#/servicios">Servicios</a>
               </div>
             </div>
 
@@ -133,7 +132,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 <a href="#/servicios/servicios-escolares">Servicios escolares</a>
                 <a href="#/servicios/servicio-social">Servicio social</a>
                 <a href="#/servicios/practicas-profesionales">Prácticas profesionales</a>
-                <a href="#/tutorias">Tutorías</a>
+                <a href="https://mat.ujed.mx/" target="_blank" rel="noreferrer">Tutorías</a>
                 <a href="#/biblioteca">Biblioteca</a>
                 <a href="https://sumafeca.ujed.mx/" target="_blank" rel="noreferrer">Registro de egresados</a>
               </div>

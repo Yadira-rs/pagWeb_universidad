@@ -22,7 +22,7 @@ const serviceCards = [
   },
   {
     title: "Biblioteca",
-    description: "Accede a los servicios y recursos disponibles en la Biblioteca FECA.",
+    description: "Accede a los servicios y recursos disponibles en la Biblioteca.",
     href: "#/biblioteca",
     imageClass: "img6",
   },
