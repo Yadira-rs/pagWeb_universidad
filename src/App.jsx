@@ -65,6 +65,12 @@ function App() {
   const [newsPanelOpen, setNewsPanelOpen] = useState(false);
 
   useEffect(() => {
+    if (!window.location.hash || window.location.hash === "#") {
+      window.history.replaceState(null, "", "#/");
+    }
+  }, []);
+
+  useEffect(() => {
     const handleRouteChange = () => {
       setRoute(getCurrentRoute());
       setNewsPanelOpen(false);

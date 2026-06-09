@@ -4474,3 +4474,298 @@
 .whatsapp-fab:hover {
   animation: none;
 }
+
+/* ── Teacher modal (full screen) ── */
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.teacher-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 2, 2, 0.82);
+  backdrop-filter: blur(6px);
+  z-index: 2100;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  overflow: hidden;
+}
+
+.teacher-modal {
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  animation: modalFadeIn 0.35s cubic-bezier(0.2, 0.9, 0.2, 1) both;
+  position: relative;
+  overflow-y: auto;
+}
+
+.teacher-modal-close {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+}
+
+.teacher-modal-close:hover {
+  background: rgba(255, 255, 255, 0.32);
+  transform: scale(1.08);
+}
+
+/* ─── media / image area ─── */
+.teacher-modal-media {
+  position: relative;
+  width: 100%;
+  height: 62vh;
+  min-height: 340px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.teacher-modal-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.teacher-modal-media-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(0,0,0,0.08) 0%,
+    rgba(120, 8, 8, 0.78) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 32px 40px;
+}
+
+/* placeholder play button (para cuando se agregue el video) */
+.teacher-modal-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+  border: 2px solid rgba(255,255,255,0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.teacher-modal-play-btn svg {
+  margin-left: 4px;
+}
+
+.teacher-modal-play-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 30px);
+  color: rgba(255,255,255,0.6);
+  font-size: 11px;
+  font-family: var(--font-ui);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.teacher-modal-name {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 10px;
+  line-height: 1.05;
+}
+
+.teacher-modal-role-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  border-radius: 999px;
+}
+
+/* ─── info area ─── */
+.teacher-modal-body {
+  flex: 1;
+  padding: 36px 40px 56px;
+  background: #fff;
+}
+
+.teacher-modal-desc {
+  font-family: var(--font-body);
+  font-size: clamp(16px, 1.8vw, 20px);
+  line-height: 1.85;
+  color: var(--gray-dark);
+  margin: 0 0 32px;
+  max-width: 760px;
+}
+
+.teacher-modal-meta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.teacher-modal-meta-item {
+  background: var(--off-white);
+  border-radius: 14px;
+  padding: 18px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 160px;
+}
+
+.teacher-modal-meta-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.teacher-modal-meta-value {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* ─── welcome quote ─── */
+.teacher-modal-welcome {
+  position: relative;
+  background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
+  border-left: 4px solid var(--navy);
+  border-radius: 0 14px 14px 0;
+  padding: 22px 24px 22px 28px;
+  margin-bottom: 32px;
+}
+
+.teacher-modal-quote-icon {
+  color: var(--navy);
+  opacity: 0.18;
+  position: absolute;
+  top: 16px;
+  right: 20px;
+}
+
+.teacher-modal-welcome-text {
+  font-family: var(--font-body);
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: 1.9;
+  color: var(--gray-dark);
+  margin: 0;
+  font-style: italic;
+}
+
+/* ─── section title ─── */
+.teacher-modal-section {
+  margin-bottom: 28px;
+}
+
+.teacher-modal-section-title {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.teacher-modal-section-title::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+/* ─── education cards ─── */
+.teacher-modal-education {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.teacher-modal-edu-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--off-white);
+  border-radius: 12px;
+  padding: 14px 18px;
+}
+
+.teacher-modal-edu-item::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--navy);
+  flex-shrink: 0;
+}
+
+.teacher-modal-edu-degree {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  flex: 1;
+}
+
+.teacher-modal-edu-institution {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold);
+  background: rgba(227, 19, 19, 0.08);
+  padding: 3px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .teacher-modal-media { height: 50vh; }
+  .teacher-modal-media-overlay { padding: 24px 20px; }
+  .teacher-modal-body { padding: 28px 20px 48px; }
+  .teacher-modal-close { top: 14px; right: 14px; }
+  .teacher-modal-welcome { padding: 18px 18px 18px 20px; }
+  .teacher-modal-edu-item { flex-wrap: wrap; }
+}
