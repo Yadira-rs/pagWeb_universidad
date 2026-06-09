@@ -18,7 +18,7 @@ function HistoryPage({ entries, logoImage, newsPanelOpen, setNewsPanelOpen }) {
           <div className="history-breadcrumbs">
             <a href="#/">Inicio</a>
             <span>/</span>
-            <span>Nuestra historia</span>
+            <span>Historia</span>
           </div>
           <h1 className="history-page-title">Nuestra historia</h1>
         </div>

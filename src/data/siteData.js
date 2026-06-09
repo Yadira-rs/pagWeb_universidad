@@ -296,19 +296,19 @@ export const news = [
 ]
 
 export const missionVisionContent = {
-  heroImage: '/imagenes/aniversario.jpeg',
+  heroImage: '/imagenes/imagen.jpeg',
   heroTitle: 'Misión y Visión',
   intro:
     'Definimos nuestro rumbo institucional a partir de una formación académica rigurosa, compromiso social y una mirada clara hacia el futuro.',
   mission: {
     eyebrow: 'MISIÓN',
-    title: 'Formar profesionistas de licenciatura y posgrado',
+    title: 'Misión',
     body:
       'Formar profesionistas de licenciatura y posgrado en las ciencias económicas, contables y administrativas, distinguidos por su responsabilidad social, compromiso ético y sustentable. La facultad impulsa la innovación y el emprendimiento, el desarrollo organizacional y la generación de conocimiento mediante la investigación, promoviendo además la cultura, el deporte y la participación cívica. Con ello, contribuye al avance científico, humanístico y tecnológico en los ámbitos local, regional, nacional e internacional.',
   },
   vision: {
     eyebrow: 'VISIÓN',
-    title: 'Consolidarse como una institución líder en calidad educativa',
+    title: 'Visión',
     body:
       'Consolidarse como una institución líder en calidad educativa, dedicada a la formación de profesionales competitivos y éticos, que promuevan una cultura de innovación y emprendimiento.',
   },

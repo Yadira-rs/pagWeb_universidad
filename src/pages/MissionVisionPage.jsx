@@ -33,35 +33,45 @@ function MissionVisionPage({
         <div className="container">
           <div className="mission-vision-page-inner">
             <section className="mv-section fade-up">
-              <span className="mv-badge">{content.mission.eyebrow}</span>
-              <h2 className="mv-title">{content.mission.title}</h2>
-              <p className="mv-body">{content.mission.body}</p>
-              {content.mission.points?.length ? (
-                <div className="mv-points">
-                  {content.mission.points.map((point) => (
-                    <div key={point} className="mv-point">
-                      <span className="mv-dot"></span>
-                      <span>{point}</span>
-                    </div>
-                  ))}
-                </div>
-              ) : null}
+              <div className="mv-image mv-image-mission">
+                <img src="/imagenes/feca-plaza-1.jpg" alt="Fachada principal de la FECA" />
+              </div>
+              <div className="mv-content">
+                <span className="mv-badge">{content.mission.eyebrow}</span>
+                <h2 className="mv-title">{content.mission.title}</h2>
+                <p className="mv-body">{content.mission.body}</p>
+                {content.mission.points?.length ? (
+                  <div className="mv-points">
+                    {content.mission.points.map((point) => (
+                      <div key={point} className="mv-point">
+                        <span className="mv-dot"></span>
+                        <span>{point}</span>
+                      </div>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
             </section>
 
-            <section className="mv-section fade-up">
-              <span className="mv-badge">{content.vision.eyebrow}</span>
-              <h2 className="mv-title">{content.vision.title}</h2>
-              <p className="mv-body">{content.vision.body}</p>
-              {content.vision.points?.length ? (
-                <div className="mv-points">
-                  {content.vision.points.map((point) => (
-                    <div key={point} className="mv-point">
-                      <span className="mv-dot"></span>
-                      <span>{point}</span>
-                    </div>
-                  ))}
-                </div>
-              ) : null}
+            <section className="mv-section mv-section-reverse fade-up">
+              <div className="mv-image">
+                <img src="/imagenes/aniversario.jpeg" alt="Comunidad universitaria FECA" />
+              </div>
+              <div className="mv-content">
+                <span className="mv-badge">{content.vision.eyebrow}</span>
+                <h2 className="mv-title">{content.vision.title}</h2>
+                <p className="mv-body">{content.vision.body}</p>
+                {content.vision.points?.length ? (
+                  <div className="mv-points">
+                    {content.vision.points.map((point) => (
+                      <div key={point} className="mv-point">
+                        <span className="mv-dot"></span>
+                        <span>{point}</span>
+                      </div>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
             </section>
           </div>
         </div>
