@@ -778,9 +778,9 @@ export const legacyPages = {
   },
   cafeteria: {
     routeGroup: "legacy-campus",
-    heroImage: "/imagenes/cafeteria.jpeg",
+    heroImage: "/imagenes/cafeca.png",
     kicker: "Vida universitaria",
-    title: "Cafetería",
+    title: "CAFECA",
     intro:
       "Un espacio para descansar, conversar y recargar energía durante la jornada universitaria.",
     stats: [

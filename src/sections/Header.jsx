@@ -101,29 +101,20 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
               </a>
             </div>
 
-            <div
-              className={`nav-item ${currentRoute === "legacy-program" ? "active" : ""}`}
-            >
-              <a href="#/administracion">
+            <div className={`nav-item ${currentRoute === "legacy-program" ? "active" : ""}`}>
+              <a href="#/licenciaturas">
                 Oferta Educativa
                 <span className="nav-caret" aria-hidden="true"></span>
               </a>
               <div className="dropdown">
-                <a href="#/administracion">Licenciaturas</a>
-                <a href="#/distancia">Licenciaturas a distancia</a>
-                <a
-                  href="https://posgradofeca.ujed.mx/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Posgrado
-                </a>
+                <a href="#/licenciaturas">Licenciaturas</a>
+                <a href="#/licenciaturas-distancia">Licenciaturas a distancia</a>
+                <a href="https://posgradofeca.ujed.mx/" target="_blank" rel="noreferrer">Posgrado</a>
                 <a href="#/curso-propedeutico">Cursos Propedéutico</a>
                 <a href="#/cursos-intersemestrales">Cursos Intersemestrales</a>
                 <a href="#/celci">CELCI</a>
                 <a href="#/ciiedo">CIIEDO</a>
                 <a href="#/servicios">Servicios</a>
-                <a href="#/bolsa-de-trabajo">Bolsa de trabajo</a>
               </div>
             </div>
 
@@ -139,14 +130,11 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 <span className="nav-caret" aria-hidden="true"></span>
               </a>
               <div className="dropdown">
-                <a href="#/servicios/servicios-escolares">
-                  Servicios escolares
-                </a>
+                <a href="#/servicios/servicios-escolares">Servicios escolares</a>
                 <a href="#/servicios/servicio-social">Servicio social</a>
-                <a href="#/servicios/practicas-profesionales">
-                  Prácticas profesionales
-                </a>
+                <a href="#/servicios/practicas-profesionales">Prácticas profesionales</a>
                 <a href="#/tutorias">Tutorías</a>
+                <a href="https://sumafeca.ujed.mx/" target="_blank" rel="noreferrer">Registro de egresados</a>
               </div>
             </div>
 
@@ -281,7 +269,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
             className={`mobile-menu ${mobileMenuOpen ? "open" : ""}`}
           >
             <a href="#/">Inicio</a>
-            <a href="#/administracion">Oferta educativa</a>
+            <a href="#/licenciaturas">Oferta educativa</a>
             <a href="#/servicios">Servicios</a>
             <a href="#/historia">Nosotros</a>
           </div>
