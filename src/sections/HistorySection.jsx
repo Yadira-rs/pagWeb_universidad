@@ -4,9 +4,14 @@ function HistorySection({ entries }) {
   const [activeIndex, setActiveIndex] = useState(0)
   const yearsTrackRef = useRef(null)
   const yearButtonRefs = useRef([])
-  const hoverIntervalRef = useRef(null)
+  const autoplayIntervalRef = useRef(null)
 
   const activeEntry = useMemo(() => entries[activeIndex] ?? entries[0], [activeIndex, entries])
+  const collageEntries = useMemo(() => {
+    if (!entries.length) return []
+
+    return [0, 1, 2, 3].map((offset) => entries[(activeIndex + offset) % entries.length])
+  }, [activeIndex, entries])
 
   useEffect(() => {
     const activeButton = yearButtonRefs.current[activeIndex]
@@ -18,61 +23,67 @@ function HistorySection({ entries }) {
   }, [activeIndex])
 
   useEffect(() => {
+    if (entries.length < 2) return undefined
+
+    autoplayIntervalRef.current = window.setInterval(() => {
+      setActiveIndex((current) => (current + 1) % entries.length)
+    }, 3200)
+
     return () => {
-      if (hoverIntervalRef.current) {
-        window.clearInterval(hoverIntervalRef.current)
-      }
+      window.clearInterval(autoplayIntervalRef.current)
+      autoplayIntervalRef.current = null
     }
-  }, [])
+  }, [entries.length])
 
   const goToIndex = (index) => {
     const nextIndex = (index + entries.length) % entries.length
     setActiveIndex(nextIndex)
   }
 
-  const startHoverAutoplay = () => {
-    if (hoverIntervalRef.current) return
+  const pauseAutoplay = () => {
+    if (!autoplayIntervalRef.current) return
 
-    hoverIntervalRef.current = window.setInterval(() => {
-      setActiveIndex((current) => (current + 1) % entries.length)
-    }, 1400)
+    window.clearInterval(autoplayIntervalRef.current)
+    autoplayIntervalRef.current = null
   }
 
-  const stopHoverAutoplay = () => {
-    if (!hoverIntervalRef.current) return
+  const resumeAutoplay = () => {
+    if (autoplayIntervalRef.current || entries.length < 2) return
 
-    window.clearInterval(hoverIntervalRef.current)
-    hoverIntervalRef.current = null
+    autoplayIntervalRef.current = window.setInterval(() => {
+      setActiveIndex((current) => (current + 1) % entries.length)
+    }, 3200)
   }
 
   return (
     <section id="historia" className="section history-section">
       <div className="container">
         <div className="history-header fade-up">
-          <div className="section-label">Nuestra historia</div>
-          <h2 className="section-title history-title">Nuestra historia</h2>
+          <div className="section-label">Trayectoria institucional</div>
+          <h2 className="section-title history-title">Un legado que sigue avanzando</h2>
           <p className="section-desc history-subtitle">
-            Un recorrido por los hitos que han definido nuestra evolución
-            académica, institucional y profesional a lo largo de los años.
+            Un recorrido por los momentos que han marcado la evolucion
+            academica, institucional y profesional de la facultad.
           </p>
         </div>
 
-        <div className="history-years-shell fade-up">
+        <div
+          className="history-years-shell fade-up"
+          onMouseEnter={pauseAutoplay}
+          onMouseLeave={resumeAutoplay}
+          onFocus={pauseAutoplay}
+          onBlur={resumeAutoplay}
+        >
           <button
             type="button"
             className="history-nav-button"
-            aria-label="Año anterior"
+            aria-label="Ano anterior"
             onClick={() => goToIndex(activeIndex - 1)}
           >
             {'<'}
           </button>
 
-          <div
-            className="history-years-track"
-            ref={yearsTrackRef}
-            onMouseEnter={startHoverAutoplay}
-            onMouseLeave={stopHoverAutoplay}
-          >
+          <div className="history-years-track" ref={yearsTrackRef}>
             {entries.map((entry, index) => (
               <button
                 key={entry.year}
@@ -91,7 +102,7 @@ function HistorySection({ entries }) {
           <button
             type="button"
             className="history-nav-button"
-            aria-label="Siguiente año"
+            aria-label="Siguiente ano"
             onClick={() => goToIndex(activeIndex + 1)}
           >
             {'>'}
@@ -108,8 +119,12 @@ function HistorySection({ entries }) {
         </div>
 
         <article className="history-feature fade-up">
-          <div className="history-visual history-visual-muted">
-            <img src={activeEntry.image} alt={activeEntry.title} />
+          <div className="history-collage" aria-hidden="true">
+            {collageEntries.map((entry, index) => (
+              <div key={`${entry.year}-${index}`} className={`history-collage-photo photo-${index + 1}`}>
+                <img src={entry.image} alt="" />
+              </div>
+            ))}
           </div>
 
           <div className="history-feature-body">
@@ -131,9 +146,10 @@ function HistorySection({ entries }) {
             ) : null}
           </div>
 
-          <div className="history-visual history-visual-main">
+          <figure className="history-visual history-visual-main">
             <img src={activeEntry.image} alt={activeEntry.title} />
-          </div>
+            <figcaption>{activeEntry.tag}</figcaption>
+          </figure>
         </article>
       </div>
     </section>

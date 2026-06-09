@@ -134,6 +134,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 <a href="#/servicios/servicio-social">Servicio social</a>
                 <a href="#/servicios/practicas-profesionales">Prácticas profesionales</a>
                 <a href="#/tutorias">Tutorías</a>
+                <a href="#/biblioteca">Biblioteca</a>
                 <a href="https://sumafeca.ujed.mx/" target="_blank" rel="noreferrer">Registro de egresados</a>
               </div>
             </div>
@@ -271,6 +272,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
             <a href="#/">Inicio</a>
             <a href="#/licenciaturas">Oferta educativa</a>
             <a href="#/servicios">Servicios</a>
+            <a href="#/biblioteca">Biblioteca</a>
             <a href="#/historia">Nosotros</a>
           </div>
         </div>

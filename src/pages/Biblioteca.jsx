@@ -1,20 +1,74 @@
 import Footer from "../sections/Footer";
 import Header from "../sections/Header";
 
+const identityCards = [
+  {
+    title: "Misión",
+    text:
+      "La misión del sistema bibliotecario de la universidad es apoyar a la docencia, la investigación y la difusión de la cultura, administrando los recursos informativos y brindando servicios bibliotecarios de excelencia.",
+  },
+  {
+    title: "Visión",
+    text:
+      "El sistema bibliotecario será una organización líder capaz de atender todas las demandas de información de sus usuarios, ofreciendo asesorías permanentes para transformar la información en conocimiento.",
+  },
+  {
+    title: "Política de calidad",
+    text:
+      "La Universidad Juárez del Estado de Durango está comprometida en ofrecer servicios académicos, de investigación, administrativos y culturales de calidad, eficientes y transparentes, con un proceso de mejora continua basado en ISO 9001:2015.",
+  },
+];
+
+const collections = [
+  "Colección de consulta",
+  "Colección de consulta general",
+  "Colección UJED",
+  "Colección Durango",
+  "Colección Antigua",
+];
+
+const services = [
+  "Préstamo interno",
+  "Préstamo externo",
+  "Préstamo interbibliotecario",
+  "Área de cómputo",
+  "Préstamo de cubículos",
+  "Recursos digitales y libros electrónicos",
+];
+
+const digitalResources = [
+  {
+    title: "Investigación Económico Administrativa Aplicada",
+    image: "/imagenes/qr1.png",
+    alt: "Código QR 1 Biblioteca FECA",
+  },
+  {
+    title: "Gestión Financiera y Desarrollo Económico",
+    image: "/imagenes/qr2.png",
+    alt: "Código QR 2 Biblioteca FECA",
+  },
+  {
+    title: "Recursos digitales Biblioteca FECA",
+    image: "/imagenes/qr3.png",
+    alt: "Código QR 3 Biblioteca FECA",
+  },
+];
+
 export default function Biblioteca({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
   return (
     <div className="site-shell">
       <Header
         logoImage={logoImage}
         currentRoute="services"
+        newsPanelOpen={newsPanelOpen}
         setNewsPanelOpen={setNewsPanelOpen}
       />
 
       <section
-        className="hero small-hero"
+        className="hero small-hero biblioteca-hero"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.35)), url('/imagenes/imagen.jpeg')",
+            "linear-gradient(rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.38)), url('/imagenes/imagen.jpeg')",
         }}
       >
         <div className="hero-content">
@@ -27,7 +81,7 @@ export default function Biblioteca({ logoImage, newsPanelOpen, setNewsPanelOpen 
         </div>
       </section>
 
-      <main className="services-page">
+      <main className="services-page biblioteca-page">
         <div className="section-title-block">
           <div className="section-label">Biblioteca FECA</div>
           <h2 className="section-title">Servicios, colecciones y recursos digitales</h2>
@@ -37,108 +91,93 @@ export default function Biblioteca({ logoImage, newsPanelOpen, setNewsPanelOpen 
           </p>
         </div>
 
-        <div className="container">
-          <div className="info-box">
-            <h2>Historia</h2>
-            <p>
-              En el año de 1972, el Sr. C.P. Guillermo Garza Calderón entrega la
-              dirección de la Escuela al Sr. C.P. Rubén Vargas Quiñones. Así se
-              llegó a un acto de gran importancia: la inauguración del nuevo
-              edificio de la Escuela el 12 de junio de 1973.
-            </p>
-            <p>
-              El programa inició con una emotiva despedida del antiguo edificio
-              de la Escuela, ubicado en el caserón de la Universidad Juárez del
-              Estado de Durango, después de la última clase impartida por el
-              C.P. José Félix Rodríguez.
-            </p>
-            <p>
-              Posteriormente, el nuevo edificio se inauguró a cargo del
-              Gobernador del Estado, Ing. Alejandro Páez Urquidi, con la presencia
-              del Lic. Ángel Rodríguez Solórzano, el Rector Carlos Galindo, y el
-              Director Rubén Vargas Quiñones.
-            </p>
-          </div>
+        <div className="biblioteca-layout">
+          <section className="section biblioteca-section">
+            <article className="wide-card biblioteca-history">
+              <div>
+                <div className="section-label">Origen</div>
+                <h3>Historia</h3>
+              </div>
+              <div>
+                <p>
+                  En el año de 1972, el Sr. C.P. Guillermo Garza Calderón entrega la
+                  dirección de la Escuela al Sr. C.P. Rubén Vargas Quiñones. Así se
+                  llegó a un acto de gran importancia: la inauguración del nuevo
+                  edificio de la Escuela el 12 de junio de 1973.
+                </p>
+                <p>
+                  El programa inició con una emotiva despedida del antiguo edificio
+                  de la Escuela, ubicado en el caserón de la Universidad Juárez del
+                  Estado de Durango, después de la última clase impartida por el
+                  C.P. José Félix Rodríguez.
+                </p>
+                <p>
+                  Posteriormente, el nuevo edificio se inauguró a cargo del
+                  Gobernador del Estado, Ing. Alejandro Páez Urquidi, con la presencia
+                  del Lic. Ángel Rodríguez Solórzano, el Rector Carlos Galindo, y el
+                  Director Rubén Vargas Quiñones.
+                </p>
+              </div>
+            </article>
+          </section>
 
-          <div className="info-box">
-            <h2>Misión</h2>
-            <p>
-              La misión del sistema bibliotecario de la universidad es apoyar a la
-              docencia, la investigación y la difusión de la cultura, administrando
-              los recursos informativos y brindando servicios bibliotecarios de
-              excelencia.
-            </p>
-          </div>
+          <section className="section biblioteca-section">
+            <div className="grid">
+              {identityCards.map((card) => (
+                <article className="card biblioteca-card" key={card.title}>
+                  <h3>{card.title}</h3>
+                  <p>{card.text}</p>
+                </article>
+              ))}
+            </div>
+          </section>
 
-          <div className="info-box">
-            <h2>Visión</h2>
-            <p>
-              El sistema bibliotecario será una organización líder capaz de atender
-              todas las demandas de información de sus usuarios, ofreciendo
-              asesorías permanentes para transformar la información en conocimiento.
-            </p>
-          </div>
+          <section className="section biblioteca-section">
+            <div className="biblioteca-two-column">
+              <article className="card biblioteca-card">
+                <div className="section-label">Acervo</div>
+                <h3>Colecciones</h3>
+                <ul className="pill-list biblioteca-list">
+                  {collections.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </article>
 
-          <div className="info-box">
-            <h2>Política de calidad</h2>
-            <p>
-              La Universidad Juárez del Estado de Durango está comprometida en
-              ofrecer servicios académicos, de investigación, administrativos y
-              culturales de calidad, eficientes y transparentes, con un proceso de
-              mejora continua basado en ISO 9001:2015.
-            </p>
-          </div>
+              <article className="card biblioteca-card">
+                <div className="section-label">Atención</div>
+                <h3>Servicios disponibles</h3>
+                <ul className="pill-list biblioteca-list">
+                  {services.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+                <p>
+                  Aunque es una biblioteca compacta, cuenta con los recursos
+                  necesarios para apoyar el aprendizaje, la investigación y el trabajo
+                  académico de nuestros estudiantes.
+                </p>
+              </article>
+            </div>
+          </section>
 
-          <div className="info-box">
-            <h2>Colecciones</h2>
-            <ul>
-              <li>Colección de consulta.</li>
-              <li>Colección de consulta general.</li>
-              <li>Colección UJED.</li>
-              <li>Colección Durango.</li>
-              <li>Colección Antigua.</li>
-            </ul>
-          </div>
-
-          <div className="info-box">
-            <h2>Servicios disponibles</h2>
-            <ul>
-              <li>Préstamo interno.</li>
-              <li>Préstamo externo.</li>
-              <li>Préstamo inter bibliotecario.</li>
-              <li>Área de cómputo.</li>
-              <li>Préstamo de cubículos.</li>
-              <li>Recursos digitales y libros electrónicos.</li>
-            </ul>
-            <p>
-              Aunque es una biblioteca compacta, cuenta con todos los recursos
-              necesarios para apoyar el aprendizaje, la investigación y el trabajo
-              académico de nuestros estudiantes.
-            </p>
-          </div>
-
-          <div className="info-box">
-            <h2>Biblioteca digital</h2>
-            <p>
+          <section className="section biblioteca-section">
+            <div className="section-label">Recursos</div>
+            <h2 className="section-title">Biblioteca digital</h2>
+            <p className="section-desc">
               La Biblioteca FECA ofrece recursos digitales accesibles mediante códigos
               QR para descargar libros completos y material académico desde cualquier
               dispositivo.
             </p>
             <div className="qr-grid">
-              <div className="qr-card">
-                <h3>Investigación Económico Administrativa Aplicada</h3>
-                <img src="/imagenes/qr1.png" alt="Código QR 1 Biblioteca FECA" />
-              </div>
-              <div className="qr-card">
-                <h3>Gestión Financiera y Desarrollo Económico</h3>
-                <img src="/imagenes/qr2.png" alt="Código QR 2 Biblioteca FECA" />
-              </div>
-              <div className="qr-card">
-                <h3>este fallaaaaaa</h3>
-                <img src="/imagenes/qr3.png" alt="Código QR 3 Biblioteca FECA" />
-              </div>
+              {digitalResources.map((resource) => (
+                <article className="qr-card" key={resource.title}>
+                  <h3>{resource.title}</h3>
+                  <img src={resource.image} alt={resource.alt} />
+                </article>
+              ))}
             </div>
-          </div>
+          </section>
         </div>
       </main>
 

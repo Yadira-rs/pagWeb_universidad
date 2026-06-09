@@ -41,16 +41,16 @@ function Footer() {
             </li>
           </ul>
           <div className="footer-social footer-social--images">
-            <a href="#" aria-label="Facebook">
+            <a href="https://www.facebook.com/FECAUJEDMX/" aria-label="Facebook" target="_blank" rel="noreferrer">
               <img src="/imagenes/facebook.png" alt="Facebook" />
             </a>
-            <a href="#" aria-label="X">
+            <a href="https://x.com/fecaujedmx" aria-label="X" target="_blank" rel="noreferrer">
               <img src="/imagenes/x.png" alt="X" />
             </a>
-            <a href="#" aria-label="Instagram">
+            <a href="https://www.instagram.com/fecaujedmx" aria-label="Instagram" target="_blank" rel="noreferrer">
               <img src="/imagenes/instagram.jpg" alt="Instagram" />
             </a>
-            <a href="#" aria-label="TikTok">
+            <a href="https://www.tiktok.com/@fecaujed.mx" aria-label="TikTok" target="_blank" rel="noreferrer">
               <img src="/imagenes/tiktok.png" alt="TikTok" />
             </a>
           </div>
