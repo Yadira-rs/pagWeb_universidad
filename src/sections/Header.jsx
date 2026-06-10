@@ -200,14 +200,32 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 }}
               >
                 <input
-                  type="search"
+                  type="text"
                   name="q"
                   placeholder="Buscar programas, carreras o servicio"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   autoComplete="off"
                 />
-                <button type="submit">Buscar</button>
+                {searchQuery && (
+                  <button
+                    type="button"
+                    className="nav-search-clear"
+                    aria-label="Limpiar búsqueda"
+                    onClick={() => { setSearchQuery(""); setSearchResults([]); setSearchOpen(false); }}
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="16" height="16">
+                      <line x1="18" y1="6" x2="6" y2="18" />
+                      <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                  </button>
+                )}
+                <button type="submit" className="nav-search-submit" aria-label="Buscar">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="17" height="17">
+                    <circle cx="11" cy="11" r="7" />
+                    <line x1="16.5" y1="16.5" x2="22" y2="22" />
+                  </svg>
+                </button>
               </form>
               {searchOpen && searchResults.length > 0 && (
                 <ul className="search-dropdown">
