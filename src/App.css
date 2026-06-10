@@ -1542,6 +1542,35 @@
   background: linear-gradient(180deg, var(--off-white), white);
 }
 
+.legacy-panel-docs {
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+.legacy-panel-docs h2 {
+  margin-bottom: 24px;
+}
+
+.legacy-panel-docs .legacy-actions {
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 0;
+}
+
+.legacy-panel-docs .btn-primary {
+  background: var(--primary);
+  font-size: 14px;
+  padding: 13px 24px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.legacy-panel-docs .btn-primary:hover {
+  background: var(--navy);
+  transform: translateY(-2px);
+}
+
 .legacy-admission-grid {
   display: grid;
   grid-template-columns: 0.85fr 1.15fr;

@@ -482,15 +482,44 @@ export const legacyPages = {
       "Cursos de idiomas para adultos, niños y jóvenes en la Facultad de Economía, Contaduría y Administración.",
     tabMode: "switch",
     tabs: [
+      { href: "historia", label: "Historia" },
+      { href: "mision", label: "Misión y Visión" },
       { href: "cursos", label: "Cursos" },
       { href: "costos", label: "Costos" },
       { href: "inscripcion", label: "Proceso inscripción" },
       { href: "diagnostico", label: "Examen de diagnóstico" },
       { href: "preguntas", label: "Preguntas frecuentes" },
-      { href: "informacion", label: "Información general" },
       { href: "contacto", label: "Contacto" },
     ],
     sections: [
+      {
+        id: "historia",
+        label: "Nuestra historia",
+        title: "Historia",
+        variant: "wide",
+        paragraphs: [
+          "El Centro de Idiomas de la Facultad de Economía, Contaduría y Administración (FECA) de la Universidad Juárez del Estado de Durango (UJED) fue fundado formalmente en el año 1975, bajo la dirección del C.P. Mtro. Rubén Vargas Quiñones. Desde sus inicios, el Centro ha desempeñado un papel fundamental en la enseñanza de lenguas extranjeras a generaciones de profesionistas y al público en general, contribuyendo de manera significativa al desarrollo académico y profesional de nuestra comunidad.",
+          "El primer coordinador del Centro de Idiomas fue el Mtro. Jack Hanlon, quien inició esta importante labor educativa con un grupo de apenas treinta alumnos. En el año 1981, la coordinación quedó a cargo del Dr. José Ninahualpa Lucano (q.e.p.d.), dando continuidad al proyecto con un enfoque académico sólido y creciente.",
+          "A partir del año 1994, la Lic. Leticia Moreno Elizalde asumió la coordinación del Centro, etapa en la que se vivieron cambios significativos, tanto en estructura como en oferta académica, consolidando al Centro como un referente en la enseñanza de idiomas dentro de la Universidad.",
+          "Actualmente, el Centro de Idiomas de la FECA atiende a una población de más de mil alumnos, ofreciendo una formación de calidad en los idiomas de inglés, italiano, francés y japonés, dirigida tanto a estudiantes universitarios como al público en general.",
+          "A lo largo de sus casi cinco décadas de trayectoria, el Centro se ha distinguido por su compromiso con la excelencia académica, la innovación en la enseñanza de lenguas y la inclusión de nuevas culturas, consolidándose como un pilar en la formación integral de los estudiantes de la UJED y de la sociedad duranguense.",
+        ],
+      },
+      {
+        id: "mision",
+        label: "Misión y Visión",
+        title: "Misión y Visión",
+        cards: [
+          {
+            title: "Misión",
+            body: "Ofrecer a la comunidad programas educativos en la lengua extranjera y servicios especializados de alta calidad que permitan sumar ventajas competitivas a nuestros alumnos y clientes dentro de un entorno global.",
+          },
+          {
+            title: "Visión",
+            body: "Ser un centro de idiomas reconocido por la excelencia en la enseñanza de lenguas extranjeras, formando profesionales capaces de interactuar eficazmente en un entorno global y contribuyendo al desarrollo integral, intercultural y profesional de la comunidad y sociedad en general.",
+          },
+        ],
+      },
       {
         id: "cursos",
         label: "Oferta",
@@ -641,33 +670,6 @@ export const legacyPages = {
         ],
       },
       {
-        id: "informacion",
-        label: "Identidad",
-        title: "Información general",
-        variant: "wide",
-        paragraphs: [
-          "El Centro de Idiomas de la FECA de la UJED fue fundado formalmente en 1975 bajo la dirección del C.P. Mtro. Rubén Vargas Quiñones. Desde sus inicios ha desempeñado un papel fundamental en la enseñanza de lenguas extranjeras.",
-          "Actualmente atiende a más de mil alumnos, ofreciendo formación de calidad en inglés, italiano, francés y japonés para estudiantes universitarios y público en general.",
-        ],
-        cards: [
-          {
-            title: "Misión",
-            body:
-              "Ofrecer programas educativos en lengua extranjera y servicios especializados de alta calidad que sumen ventajas competitivas en un entorno global.",
-          },
-          {
-            title: "Visión",
-            body:
-              "Ser un centro reconocido por la excelencia en la enseñanza de lenguas extranjeras y por contribuir al desarrollo integral e intercultural.",
-          },
-          {
-            title: "Normativa",
-            body: "Reglamentos aplicables para grupos infantiles y juveniles.",
-            items: ["Reglamento de niños", "Reglamento de jóvenes"],
-          },
-        ],
-      },
-      {
         id: "contacto",
         label: "Informes",
         title: "Ubicación y contacto",
@@ -728,6 +730,24 @@ export const legacyPages = {
           "Emprendimiento",
           "Consultoría",
           "Desarrollo institucional",
+        ],
+      },
+      {
+        title: "Documentos",
+        variant: "docs",
+        actions: [
+          {
+            href: "/FOLLETO-GENERAL-CERTIFICACIONES.pdf",
+            label: "Folleto general de certificaciones",
+          },
+          {
+            href: "/calendario-ciiedo.html",
+            label: "Certificate con validez nacional SEP-CONOCER-STPS",
+          },
+          {
+            href: "/diagrama-coordinacion.jpeg",
+            label: "Diagrama coordinación",
+          },
         ],
       },
     ],

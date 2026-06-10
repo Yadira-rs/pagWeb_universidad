@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calendario CIIEDO</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f5f4f2;
+      font-family: system-ui, sans-serif;
+      padding: 32px 16px;
+    }
+    h1 {
+      text-align: center;
+      color: #7b1218;
+      font-size: 26px;
+      margin-bottom: 32px;
+      letter-spacing: -0.5px;
+    }
+    .calendars {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .calendars img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    }
+    .back {
+      display: block;
+      text-align: center;
+      margin-top: 32px;
+      color: #7b1218;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 15px;
+    }
+    .back:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>Calendario CIIEDO</h1>
+  <div class="calendars">
+    <img src="/calendario-ciiedo.jpeg" alt="Calendario CIIEDO" />
+    <img src="/calendario-ciiedo-2.jpeg" alt="Calendario CIIEDO 2" />
+  </div>
+  <a class="back" href="javascript:history.back()">← Regresar</a>
+</body>
+</html>
