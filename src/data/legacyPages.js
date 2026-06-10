@@ -476,7 +476,7 @@ export const legacyPages = {
   celci: {
     routeGroup: "legacy-program",
     heroImage: "/imagenes/lic.jpg",
-    kicker: "Ciclo A-2025 | Modalidad presencial",
+    kicker: "Modalidad presencial",
     title: "CELCI - Centro de Lenguas e Internacionalización",
     intro:
       "Cursos de idiomas para adultos, niños y jóvenes en la Facultad de Economía, Contaduría y Administración.",
@@ -713,6 +713,10 @@ export const legacyPages = {
         body:
           "Atención en coordinación de vinculación y actividades académicas FECA.",
         variant: "contact",
+        items: [
+          "📧 ciiedo.feca@ujed.mx",
+          "📞 618 154 4657",
+        ],
       },
       {
         title: "Servicios y actividades",

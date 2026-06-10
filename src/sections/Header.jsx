@@ -102,7 +102,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
             </div>
 
             <div className={`nav-item ${currentRoute === "legacy-program" ? "active" : ""}`}>
-              <a href="#/licenciaturas">
+              <a href="#/oferta-educativa">
                 Oferta Educativa
                 <span className="nav-caret" aria-hidden="true"></span>
               </a>
@@ -147,7 +147,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                   : ""
               }`}
             >
-              <a href="#/historia">
+              <a href="#/nosotros">
                 Nosotros
                 <span className="nav-caret" aria-hidden="true"></span>
               </a>
