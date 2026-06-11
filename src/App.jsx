@@ -27,6 +27,7 @@ import BolsaTrabajoPage from "./pages/BolsaTrabajoPage";
 import TutoriasPage from "./pages/TutoriasPage";
 import OfertaEducativaPage from "./pages/OfertaEducativaPage";
 import NosotrosPage from "./pages/NosotrosPage";
+import ContraloriaPage from "./pages/ContraloriaPage";
 
 function getCurrentRoute() {
   const hash = window.location.hash || "#/";
@@ -41,6 +42,7 @@ function getCurrentRoute() {
   if (hash === "#/oferta-educativa") return { page: "oferta-educativa" };
   if (hash === "#/nosotros") return { page: "nosotros" };
   if (hash === "#/servicios") return { page: "services" };
+  if (hash === "#/servicios/contraloria-interna") return { page: "contraloria-interna" };
   if (hash === "#/feria") return { page: "feria" };
   if (hash === "#/biblioteca") return { page: "biblioteca" };
   if (hash === "#/lenguas") return { page: "lenguas" };
@@ -97,7 +99,9 @@ function App() {
           ? "FECA - Misión y Visión"
             : route.page === "services"
               ? "FECA - Servicios"
-              : route.page === "feria"
+              : route.page === "contraloria-interna"
+                ? "FECA - Contraloría Interna"
+                : route.page === "feria"
                 ? "FECA - Feria"
                  : route.page === "biblioteca"
                  ? "FECA - Biblioteca"
@@ -174,6 +178,12 @@ function App() {
     
     ) : route.page === "services" ? (
       <ServicesPage
+        logoImage={logoImage}
+        newsPanelOpen={newsPanelOpen}
+        setNewsPanelOpen={setNewsPanelOpen}
+      />
+    ) : route.page === "contraloria-interna" ? (
+      <ContraloriaPage
         logoImage={logoImage}
         newsPanelOpen={newsPanelOpen}
         setNewsPanelOpen={setNewsPanelOpen}

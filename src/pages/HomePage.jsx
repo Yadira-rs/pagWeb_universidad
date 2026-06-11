@@ -20,7 +20,7 @@ const programs = [
     title: "POSGRADO",
     description:
       "Programa con vinculación académica, proyectos aplicados y desarrollo de investigación para perfiles de alto nivel.",
-    image: "/imagenes/aniversario.jpeg",
+    image: "/imagenes/logo-posgrado.png",
     duration: "6 años",
     mode: "Presencial",
     href: "https://posgradofeca.ujed.mx/",
@@ -29,7 +29,8 @@ const programs = [
     title: "CELCI",
     description:
       "Desarrolla soluciones tecnológicas de alto impacto con enfoque en inteligencia artificial y ciberseguridad.",
-    image: "/imagenes/inicio.png",
+    image: "/imagenes/logo-celci.png",
+    imageClass: "program-card-img--celci",
     duration: "4 años",
     mode: "Presencial",
     href: "#/celci",
@@ -38,7 +39,7 @@ const programs = [
     title: "CIIEDO",
     description:
       "Forma líderes empresariales con visión estratégica, finanzas, marketing y habilidades directivas.",
-    image: "/imagenes/CIIEDO.jpeg",
+    image: "/imagenes/logo-ciiedo.png",
     duration: "4 años",
     mode: "Presencial / En línea",
     href: "#/ciiedo",
@@ -252,7 +253,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
   const carouselRef = useRef(null);
   const trackIdxRef = useRef(2);
   const pausedRef = useRef(false);
-  const hoverIntervalRef = useRef(null);
   const selectedTeacherRef = useRef(null);
 
   const openModal = (teacher) => {
@@ -465,7 +465,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
                 className="program-card"
                 href={program.href}
               >
-                <div className="program-card-img">
+                <div className={`program-card-img${program.imageClass ? ` ${program.imageClass}` : ""}`}>
                   <img src={program.image} alt={program.title} />
                   <span className="program-level">Departamentos</span>
                 </div>
@@ -571,12 +571,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
         <div
           ref={carouselRef}
           className="teacher-carousel fade-up"
-          onMouseEnter={() => {
-            pausedRef.current = true;
-          }}
-          onMouseLeave={() => {
-            pausedRef.current = false;
-          }}
         >
           <div className="teacher-carousel-wrapper">
             <div
@@ -626,12 +620,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
               className="teacher-arrow teacher-prev"
               aria-label="Anterior"
               onClick={(e) => { e.preventDefault(); e.stopPropagation(); handlePrev(); }}
-              onMouseEnter={() => {
-                hoverIntervalRef.current = setInterval(handlePrev, 600);
-              }}
-              onMouseLeave={() => {
-                clearInterval(hoverIntervalRef.current);
-              }}
             >
               <svg
                 width="20"
@@ -653,12 +641,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
               className="teacher-arrow teacher-next"
               aria-label="Siguiente"
               onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleNext(); }}
-              onMouseEnter={() => {
-                hoverIntervalRef.current = setInterval(handleNext, 600);
-              }}
-              onMouseLeave={() => {
-                clearInterval(hoverIntervalRef.current);
-              }}
             >
               <svg
                 width="20"
@@ -766,9 +748,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
                   className="feca-store-btn"
                 >
                   Visitar FECA Store
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
                 </a>
               </div>
             </article>
@@ -785,9 +764,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
                 </p>
                 <a href="#/cafeteria" className="feca-store-btn">
                   Ver CAFECA
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
                 </a>
               </div>
             </article>

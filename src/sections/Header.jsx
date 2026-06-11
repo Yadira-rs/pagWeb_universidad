@@ -132,7 +132,8 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 <a href="#/servicios/servicios-escolares">Servicios escolares</a>
                 <a href="#/servicios/servicio-social">Servicio social</a>
                 <a href="#/servicios/practicas-profesionales">Prácticas profesionales</a>
-                <a href="/docs/LCPEI.pdf" target="_blank" rel="noreferrer">CPEI</a>
+                <a href="/docs/LCPEI.pdf" target="_blank" rel="noreferrer">Coordinación de Planeación y Evaluación Institucional</a>
+                <a href="#/servicios/contraloria-interna">Contraloría interna</a>
                 <a href="https://mat.ujed.mx/" target="_blank" rel="noreferrer">Tutorías</a>
                 <a href="#/biblioteca">Biblioteca</a>
                 <a href="https://sumafeca.ujed.mx/" target="_blank" rel="noreferrer">Registro de egresados</a>

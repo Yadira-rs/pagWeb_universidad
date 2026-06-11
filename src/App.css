@@ -1627,6 +1627,53 @@
   margin-top: 34px;
 }
 
+.legacy-content-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.legacy-list-intro {
+  font-size: 15px;
+  color: var(--gray-mid);
+  margin: 8px 0 0;
+  line-height: 1.6;
+}
+
+.legacy-panel-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 28px;
+}
+
+.legacy-panel-row-info h2 {
+  font-size: 18px;
+  margin: 0 0 4px;
+}
+
+.legacy-panel-row-info p {
+  font-size: 14px;
+  color: var(--gray-mid);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.legacy-actions-row {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.legacy-actions-row .btn-primary {
+  font-size: 13px;
+  padding: 10px 20px;
+  white-space: nowrap;
+  color: #fff !important;
+}
+
 .legacy-panel {
   padding: 30px;
 }
@@ -2469,7 +2516,21 @@
 
 .program-card-img {
   height: 190px;
-  background: var(--navy-mid);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.program-card-img img {
+  object-fit: contain !important;
+  width: auto;
+  max-width: calc(100% - 32px);
+  max-height: 158px;
+}
+
+.program-card-img--celci img {
+  padding: 32px;
 }
 
 .program-card-img img,
@@ -3766,16 +3827,6 @@
   overflow: hidden;
 }
 
-.admissions-banner::before {
-  content: '';
-  position: absolute;
-  top: -60px;
-  right: -60px;
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  background: rgb(216 117 111 / 8%);
-}
 
 .admissions-banner h2 {
   font-size: 30px;
@@ -3787,6 +3838,16 @@
   color: rgb(255 255 255 / 72%);
   font-size: 15px;
   margin: 0;
+}
+
+.admissions-banner .btn-primary {
+  background: #fff;
+  color: var(--navy-mid);
+}
+
+.admissions-banner .btn-primary:hover {
+  background: var(--off-white);
+  transform: translateY(-1px);
 }
 
 .news-heading {
@@ -3942,6 +4003,8 @@
   border-radius: 18px;
   background: rgb(255 255 255 / 4%);
   border: 1px solid rgb(255 255 255 / 10%);
+  text-align: center;
+  align-items: center;
 }
 
 .feca-store-logo-wrap {
@@ -4006,9 +4069,10 @@
 .feca-store-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  background: #e31313;
-  color: #fff;
+  background: var(--navy);
+  color: #fff !important;
   font-weight: 700;
   font-size: 15px;
   padding: 14px 32px;
@@ -4019,7 +4083,7 @@
 }
 
 .feca-store-btn:hover {
-  background: #951823;
+  background: var(--navy-mid);
   transform: translateY(-2px);
   box-shadow: 0 12px 32px rgb(227 19 19 / 50%);
 }
@@ -5421,4 +5485,92 @@
   .teacher-modal-close { top: 14px; right: 14px; }
   .teacher-modal-welcome { padding: 18px 18px 18px 20px; }
   .teacher-modal-edu-item { flex-wrap: wrap; }
+}
+
+/* Contraloría Interna styles */
+.img_contraloria {
+  background-image:
+    linear-gradient(rgba(125, 19, 32, 0.25), rgba(125, 19, 32, 0.45)),
+    url('/imagenes/contraloria_feca.png');
+}
+
+.contraloria-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: start;
+  margin-top: 20px;
+}
+
+@media (max-width: 960px) {
+  .contraloria-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* Uniform Button Styles */
+.btn-primary,
+.feria-btn,
+.pdf-btn,
+.legacy-btn,
+.feca-store-btn,
+.buzon-btn {
+  border: none !important;
+  background: var(--gold) !important; /* Contrasting red #e31313 */
+  color: var(--white) !important;
+  font-weight: 700 !important;
+  font-family: var(--font-ui) !important;
+  border-radius: 999px !important; /* Uniform pill shape */
+  padding: 12px 28px !important; /* Uniform size */
+  font-size: 15px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  cursor: pointer !important;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
+  text-decoration: none !important;
+  box-shadow: 0 6px 18px rgba(227, 19, 19, 0.2) !important;
+  min-height: unset !important;
+  min-width: unset !important;
+  line-height: normal !important;
+  box-sizing: border-box !important;
+}
+
+.btn-primary:hover,
+.feria-btn:hover,
+.pdf-btn:hover,
+.legacy-btn:hover,
+.feca-store-btn:hover,
+.buzon-btn:hover {
+  background: var(--navy-mid) !important; /* Darker red #951823 */
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(227, 19, 19, 0.3) !important;
+}
+
+.hero-btn {
+  border: none !important;
+  background: var(--white) !important; /* White button for dark backgrounds */
+  color: var(--navy) !important; /* Red text */
+  font-weight: 700 !important;
+  font-family: var(--font-ui) !important;
+  border-radius: 999px !important; /* Uniform pill shape */
+  padding: 12px 28px !important; /* Uniform size */
+  font-size: 15px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  cursor: pointer !important;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
+  text-decoration: none !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+  box-sizing: border-box !important;
+}
+
+.hero-btn:hover {
+  background: rgba(255, 255, 255, 0.9) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2) !important;
 }

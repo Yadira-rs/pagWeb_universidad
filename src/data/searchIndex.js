@@ -96,6 +96,12 @@ export const searchIndex = [
     keywords: "lcpei coordinación planeación evaluación institucional",
   },
   {
+    title: "Contraloría Interna FECA",
+    description: "[Órgano de control, transparencia, auditóría y buzón de quejas y sugerencias",
+    href: "#/servicios/contraloria-interna",
+    keywords: "contraloría interna feca control fiscalización auditóría transparencia quejas sugerencias buzón",
+  },
+  {
     title: "Tutorías",
     description: "Programa Institucional de Tutorías FECA",
     href: "#/tutorias",
