@@ -247,11 +247,11 @@ const news = [
 
 function HomePage({ logoImage, setNewsPanelOpen }) {
   const [heroCurrentSlide, setHeroCurrentSlide] = useState(0);
-  const [trackIndex, setTrackIndex] = useState(2);
+  const [trackIndex, setTrackIndex] = useState(10);
   const [selectedTeacher, setSelectedTeacher] = useState(null);
   const trackRef = useRef(null);
   const carouselRef = useRef(null);
-  const trackIdxRef = useRef(2);
+  const trackIdxRef = useRef(10);
   const pausedRef = useRef(false);
   const selectedTeacherRef = useRef(null);
 
@@ -307,14 +307,11 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
     return () => observer.disconnect();
   }, []);
 
-  // 2 clones al inicio + 5 reales + 2 clones al final = 9 items
-  // trackIndex real: 2-6, clones: 0-1 y 7-8
+  // 5 copies × 5 teachers = 25 items. Start in the middle (idx=10).
+  // No snap before animation — the reset happens AFTER animation ends
+  // via handleTransitionEnd, when the carousel is idle and the snap is invisible.
   const clonedTeachers = [
-    teachers[3],
-    teachers[4],
-    ...teachers,
-    teachers[0],
-    teachers[1],
+    ...teachers, ...teachers, ...teachers, ...teachers, ...teachers,
   ];
 
   const moveTo = (newIdx, animated) => {
@@ -323,39 +320,48 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
       carouselRef.current.classList.add("no-card-transition");
     }
     trackRef.current.style.transition = animated
-      ? "transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)"
+      ? "transform 1.2s cubic-bezier(0.45, 0, 0.55, 1)"
       : "none";
+    void trackRef.current.getBoundingClientRect();
     trackRef.current.style.transform = `translateX(calc(50% - 120px - ${newIdx * 338}px - 155px))`;
     trackIdxRef.current = newIdx;
     setTrackIndex(newIdx);
     if (!animated && carouselRef.current) {
-      requestAnimationFrame(() =>
-        requestAnimationFrame(() =>
-          carouselRef.current?.classList.remove("no-card-transition"),
-        ),
-      );
+      setTimeout(() => {
+        carouselRef.current?.classList.remove("no-card-transition");
+      }, 100);
     }
   };
 
-  const handleNext = () => moveTo(trackIdxRef.current + 1, true);
-  const handlePrev = () => moveTo(trackIdxRef.current - 1, true);
-
-  const handleTransitionEnd = () => {
+  const advance = (dir) => {
     const idx = trackIdxRef.current;
-    if (idx >= 7) moveTo(idx - 5, false);
-    else if (idx <= 1) moveTo(idx + 5, false);
+    const next = idx + dir;
+    if (next < 0 || next >= 25) return;
+    moveTo(next, true);
+  };
+
+  const handleNext = () => advance(1);
+  const handlePrev = () => advance(-1);
+
+  // After each animation ends, silently re-center if near boundary.
+  // The carousel is idle so the instant snap is completely invisible.
+  const handleTransitionEnd = (e) => {
+    if (e.target !== trackRef.current || e.propertyName !== "transform") return;
+    const idx = trackIdxRef.current;
+    if (idx >= 20) moveTo(idx - 10, false);
+    else if (idx <= 4) moveTo(idx + 10, false);
   };
 
   // Posición inicial sin animación
   useEffect(() => {
-    moveTo(2, false);
+    moveTo(10, false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Autoplay cada 3 segundos
   useEffect(() => {
     const id = setInterval(() => {
-      if (!pausedRef.current) moveTo(trackIdxRef.current + 1, true);
+      if (!pausedRef.current) advance(1);
     }, 3000);
     return () => clearInterval(id);
   }, []);

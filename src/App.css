@@ -2770,6 +2770,292 @@
   margin: 0 0 18px;
 }
 
+/* ── DirectorsFeatured (Ejes Rectores) ─────────────────────── */
+.df-wrap {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 24px 64px;
+}
+
+.df-card {
+  display: flex;
+  gap: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.13);
+  background: #fff;
+  min-height: 340px;
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+.df-card--in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.df-card--out {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.df-img-col {
+  position: relative;
+  flex: 0 0 42%;
+  overflow: hidden;
+}
+
+.df-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.df-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, transparent 60%, #fff);
+}
+
+.df-info-col {
+  flex: 1;
+  padding: 40px 36px 36px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+}
+
+.df-role-badge {
+  display: inline-block;
+  background: var(--navy);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 100px;
+  align-self: flex-start;
+}
+
+.df-name {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--navy-mid);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.df-desc {
+  font-size: 14px;
+  color: var(--gray-mid);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.df-meta {
+  display: flex;
+  gap: 24px;
+  margin: 4px 0 0;
+}
+
+.df-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.df-meta-item dt {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.df-meta-item dd {
+  font-size: 13px;
+  color: #333;
+  margin: 0;
+}
+
+.df-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 0 4px;
+}
+
+.df-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.df-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #d0d0d0;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.df-dot--active {
+  background: var(--navy);
+  transform: scale(1.35);
+}
+
+.df-arrows {
+  display: flex;
+  gap: 8px;
+}
+
+.df-arrow {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid #e0e0e0;
+  background: #fff;
+  color: var(--navy-mid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.18s, border-color 0.18s, color 0.18s;
+}
+
+.df-arrow:hover {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+}
+
+/* ── DirectorsCarouselAlt (Ejes Rectores) ──────────────────── */
+.teacher-carousel-alt {
+  --card-width-alt: 360px;
+  position: relative;
+  padding: 48px 0 80px;
+  overflow: hidden;
+}
+
+.teacher-carousel-track-alt {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  width: max-content;
+  padding: 24px 120px;
+  will-change: transform;
+}
+
+.no-card-transition .card-alt,
+.no-card-transition .card-alt * {
+  transition: none !important;
+}
+
+.card-alt {
+  flex: 0 0 var(--card-width-alt);
+  width: var(--card-width-alt);
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  transform: scale(0.72);
+  opacity: 0;
+  transition: transform 1.2s cubic-bezier(0.45, 0, 0.55, 1),
+              opacity 1.2s ease,
+              box-shadow 1.2s ease;
+  cursor: pointer;
+}
+
+.card-alt.is-edge-alt {
+  transform: scale(0.78);
+  opacity: 0.35;
+}
+
+.card-alt.is-prev-alt,
+.card-alt.is-next-alt {
+  transform: scale(0.88);
+  opacity: 0.72;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.card-alt.is-center-alt {
+  transform: scale(1.04);
+  opacity: 1;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.18);
+  border-left: 4px solid var(--navy);
+}
+
+.card-alt-img {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.card-alt-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.card-alt.is-center-alt:hover .card-alt-img img {
+  transform: scale(1.05);
+}
+
+.card-alt-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px 18px 16px;
+  background: linear-gradient(to top, rgba(123,18,24,0.9) 0%, rgba(0,0,0,0.4) 65%, transparent 100%);
+  transform: translateY(100%);
+  transition: transform 0.38s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+}
+
+.card-alt.is-center-alt:hover .card-alt-overlay {
+  transform: translateY(0);
+}
+
+.card-alt-body {
+  padding: 14px 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card-alt-role {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.card-alt-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.card-alt-desc {
+  font-size: 12px;
+  color: rgba(255,255,255,0.9);
+  margin: 0;
+  line-height: 1.5;
+}
+
 .teacher-carousel-heading .section-label {
   justify-content: flex-start;
 }
@@ -2784,7 +3070,9 @@
   box-shadow: none;
   margin: 18px auto 0;
   width: 100%;
-  background: linear-gradient(115deg, #951823 0%, #951823 46%, #6a1020 100%);
+  background:
+    radial-gradient(ellipse at 25% 60%, rgba(200, 30, 50, 0.35) 0%, transparent 55%),
+    linear-gradient(135deg, #2d060c 0%, #7b1218 42%, #c41230 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2804,9 +3092,11 @@
   gap: var(--card-gap);
   width: max-content;
   padding: 16px 120px;
+  will-change: transform;
 }
 
-.no-card-transition .teacher-card {
+.no-card-transition .teacher-card,
+.no-card-transition .teacher-card * {
   transition: none !important;
 }
 
@@ -2821,7 +3111,7 @@
   flex-direction: column;
   align-items: center;
   transform: scale(0.75);
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.6s ease;
+  transition: transform 1.2s cubic-bezier(0.45, 0, 0.55, 1), filter 1.2s ease-in-out;
   cursor: pointer;
   z-index: 1;
   opacity: 0.65;

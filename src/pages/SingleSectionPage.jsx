@@ -1,6 +1,6 @@
 import Footer from "../sections/Footer";
 import Header from "../sections/Header";
-import DirectorsCarousel from "../components/DirectorsCarousel";
+import DirectorsCarouselAlt from "../components/DirectorsCarouselAlt";
 
 function SingleSectionPage({
   content,
@@ -78,7 +78,7 @@ function SingleSectionPage({
               </p>
             </div>
           </div>
-          <DirectorsCarousel />
+          <DirectorsCarouselAlt />
         </section>
       )}
 
