@@ -245,11 +245,16 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              strokeWidth="2.5"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
-              <path d="M7 8h10" />
-              <path d="M7 12h10" />
-              <path d="M7 16h10" />
+              <path d="M4 5h13a3 3 0 0 1 3 3v11H7a3 3 0 0 1-3-3V5Z" />
+              <path d="M17 8h3" />
+              <path d="M17 12h3" />
+              <path d="M8 9h5" />
+              <path d="M8 13h5" />
+              <path d="M8 17h7" />
             </svg>
           </button>
 

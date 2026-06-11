@@ -1022,6 +1022,13 @@
   padding: 42px 24px 92px;
 }
 
+.details-page.service-card-grid {
+  max-width: 1360px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 36px;
+}
+
 .services-page {
   width: 100%;
   max-width: 1200px;
@@ -1221,9 +1228,27 @@
   box-shadow: var(--sombra);
 }
 
+.service-card-grid .info-box {
+  margin-bottom: 0;
+}
+
+.service-download-card {
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .info-box h2 {
   margin: 0 0 20px;
   color: var(--navy);
+}
+
+.service-download-card h2 {
+  color: #e30613;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.3;
 }
 
 .info-box p {
@@ -1232,16 +1257,35 @@
   line-height: 1.9;
 }
 
+.service-download-card p {
+  color: #171717;
+  font-family: var(--font-display);
+  font-size: 21px;
+  line-height: 1.5;
+}
+
+.info-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 20px;
+}
+
 .pdf-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-top: 18px;
-  background: linear-gradient(135deg, #7d1320, #5a0d16);
-  color: #ffffff !important;
-  padding: 14px 24px;
-  border-radius: 14px;
+  min-height: 58px;
+  min-width: 190px;
+  background: #ff4d50;
+  color: #111111 !important;
+  padding: 14px 28px;
+  border-radius: 999px;
   font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 18px;
+  text-align: center;
+  box-shadow: 0 10px 18px rgba(255, 77, 80, 0.18);
 }
 
 .pdf-btn:hover {
@@ -1376,8 +1420,24 @@
 .legacy-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 22px;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.legacy-actions .btn-primary {
+  min-height: 58px;
+  min-width: 190px;
+  background: #ff4d50;
+  color: #111111;
+  border-radius: 999px;
+  padding: 14px 28px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  box-shadow: 0 10px 18px rgba(255, 77, 80, 0.18);
+}
+
+.legacy-actions .btn-primary:hover {
+  background: #f04447;
 }
 
 .legacy-tabs {
@@ -3881,20 +3941,33 @@
 .hamburger {
   display: none;
   flex-direction: column;
-  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
   cursor: pointer;
-  padding: 6px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
   margin-left: auto;
-  background: transparent;
+  background: var(--gold);
   border: 0;
+  border-radius: 50%;
+  box-shadow: 0 12px 28px rgb(227 19 19 / 14%);
+  flex-shrink: 0;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
 .hamburger span {
   display: block;
-  width: 22px;
+  width: 10px;
   height: 2px;
-  background: var(--navy);
+  background: var(--white);
   border-radius: 2px;
+}
+
+.hamburger:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
 }
 
 .mobile-menu {
@@ -3968,6 +4041,33 @@
 .fade-up.visible .highlight-card:nth-child(4),
 .fade-up.visible .statsbar-item:nth-child(4) {
   animation-delay: 0.24s;
+}
+
+@media (max-width: 1180px) {
+  .nav-links,
+  .nav-search,
+  .nav-search-wrapper {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+    margin-left: auto;
+    order: 1;
+  }
+
+  .nav-panel-button {
+    margin-left: 18px;
+    order: 2;
+  }
+
+  .navbar-ujed-logo {
+    height: 50px;
+  }
+
+  .navbar-feca-logo {
+    height: 38px;
+  }
 }
 
 @media (max-width: 900px) {
@@ -4648,6 +4748,10 @@
   .services-grid, .legacy-stats, .legacy-content-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .details-page.service-card-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 768px) {
@@ -4694,44 +4798,52 @@
   z-index: 2000;
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
   background: #25d366;
   color: #fff;
-  border-radius: 50px;
-  padding: 14px 18px;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  padding: 0;
   box-shadow: 0 4px 20px rgb(37 211 102 / 45%);
   text-decoration: none;
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   overflow: hidden;
-  max-width: 56px;
-  transition: max-width 0.4s ease, padding 0.4s ease, box-shadow 0.3s ease;
+  white-space: nowrap;
+  transition: width 0.35s ease, border-radius 0.35s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .whatsapp-fab svg {
-  width: 28px;
-  height: 28px;
+  width: 25px;
+  height: 25px;
   flex-shrink: 0;
 }
 
 .whatsapp-fab-label {
-  white-space: nowrap;
-  opacity: 0;
   max-width: 0;
+  opacity: 0;
   overflow: hidden;
-  transition: opacity 0.3s ease 0.1s, max-width 0.4s ease;
+  transition: max-width 0.35s ease, opacity 0.25s ease 0.1s;
 }
 
 .whatsapp-fab:hover {
-  max-width: 260px;
-  padding: 14px 20px;
+  transform: translateY(-2px);
   box-shadow: 0 6px 28px rgb(37 211 102 / 55%);
 }
 
+.whatsapp-fab:hover {
+  justify-content: flex-start;
+  gap: 12px;
+  width: min(270px, calc(100vw - 32px));
+  border-radius: 999px;
+  padding: 0 20px;
+}
+
 .whatsapp-fab:hover .whatsapp-fab-label {
+  max-width: 280px;
   opacity: 1;
-  max-width: 200px;
 }
 
 @keyframes waPulse {
