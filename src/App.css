@@ -1627,6 +1627,53 @@
   margin-top: 34px;
 }
 
+.legacy-content-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.legacy-list-intro {
+  font-size: 15px;
+  color: var(--gray-mid);
+  margin: 8px 0 0;
+  line-height: 1.6;
+}
+
+.legacy-panel-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 28px;
+}
+
+.legacy-panel-row-info h2 {
+  font-size: 18px;
+  margin: 0 0 4px;
+}
+
+.legacy-panel-row-info p {
+  font-size: 14px;
+  color: var(--gray-mid);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.legacy-actions-row {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.legacy-actions-row .btn-primary {
+  font-size: 13px;
+  padding: 10px 20px;
+  white-space: nowrap;
+  color: #fff !important;
+}
+
 .legacy-panel {
   padding: 30px;
 }
@@ -3780,16 +3827,6 @@
   overflow: hidden;
 }
 
-.admissions-banner::before {
-  content: '';
-  position: absolute;
-  top: -60px;
-  right: -60px;
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  background: rgb(216 117 111 / 8%);
-}
 
 .admissions-banner h2 {
   font-size: 30px;

@@ -6,6 +6,7 @@ export const legacyPages = {
     title: "Licenciaturas",
     intro:
       "Conoce los programas presenciales de la Facultad de Economía, Contaduría y Administración.",
+    listStyle: true,
     panels: [
       {
         title: "Planes disponibles",

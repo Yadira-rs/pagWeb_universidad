@@ -253,7 +253,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
   const carouselRef = useRef(null);
   const trackIdxRef = useRef(2);
   const pausedRef = useRef(false);
-  const hoverIntervalRef = useRef(null);
   const selectedTeacherRef = useRef(null);
 
   const openModal = (teacher) => {
@@ -572,12 +571,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
         <div
           ref={carouselRef}
           className="teacher-carousel fade-up"
-          onMouseEnter={() => {
-            pausedRef.current = true;
-          }}
-          onMouseLeave={() => {
-            pausedRef.current = false;
-          }}
         >
           <div className="teacher-carousel-wrapper">
             <div
@@ -627,12 +620,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
               className="teacher-arrow teacher-prev"
               aria-label="Anterior"
               onClick={(e) => { e.preventDefault(); e.stopPropagation(); handlePrev(); }}
-              onMouseEnter={() => {
-                hoverIntervalRef.current = setInterval(handlePrev, 600);
-              }}
-              onMouseLeave={() => {
-                clearInterval(hoverIntervalRef.current);
-              }}
             >
               <svg
                 width="20"
@@ -654,12 +641,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
               className="teacher-arrow teacher-next"
               aria-label="Siguiente"
               onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleNext(); }}
-              onMouseEnter={() => {
-                hoverIntervalRef.current = setInterval(handleNext, 600);
-              }}
-              onMouseLeave={() => {
-                clearInterval(hoverIntervalRef.current);
-              }}
             >
               <svg
                 width="20"

@@ -210,6 +210,38 @@ function LegacyContentPage({
           ) : null}
 
           {content.panels ? (
+            content.listStyle ? (
+              <>
+                {content.panels.filter(p => !p.actions && !p.items).map(panel => (
+                  <p key={panel.title} className="legacy-list-intro">{panel.body}</p>
+                ))}
+                <div className="legacy-content-list">
+                  {content.panels.filter(p => p.actions || p.items).map((panel) => (
+                    <article key={panel.title} className="legacy-panel legacy-panel-row">
+                      <div className="legacy-panel-row-info">
+                        <h2>{panel.title}</h2>
+                        {panel.body ? <p>{panel.body}</p> : null}
+                      </div>
+                      {panel.actions ? (
+                        <div className="legacy-actions legacy-actions-row">
+                          {panel.actions.map((action) => (
+                            <a
+                              key={action.href}
+                              className="btn-primary"
+                              href={action.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {action.label}
+                            </a>
+                          ))}
+                        </div>
+                      ) : null}
+                    </article>
+                  ))}
+                </div>
+              </>
+            ) : (
           <div className="legacy-content-grid">
             {content.panels.map((panel) => (
               <article
@@ -253,6 +285,7 @@ function LegacyContentPage({
               </article>
             ))}
           </div>
+            )
           ) : null}
         </div>
       </section>
