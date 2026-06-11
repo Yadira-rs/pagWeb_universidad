@@ -2469,7 +2469,21 @@
 
 .program-card-img {
   height: 190px;
-  background: var(--navy-mid);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.program-card-img img {
+  object-fit: contain !important;
+  width: auto;
+  max-width: calc(100% - 32px);
+  max-height: 158px;
+}
+
+.program-card-img--celci img {
+  padding: 32px;
 }
 
 .program-card-img img,
@@ -3789,6 +3803,16 @@
   margin: 0;
 }
 
+.admissions-banner .btn-primary {
+  background: #fff;
+  color: var(--navy-mid);
+}
+
+.admissions-banner .btn-primary:hover {
+  background: var(--off-white);
+  transform: translateY(-1px);
+}
+
 .news-heading {
   display: flex;
   justify-content: space-between;
@@ -3942,6 +3966,8 @@
   border-radius: 18px;
   background: rgb(255 255 255 / 4%);
   border: 1px solid rgb(255 255 255 / 10%);
+  text-align: center;
+  align-items: center;
 }
 
 .feca-store-logo-wrap {
@@ -4006,9 +4032,10 @@
 .feca-store-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  background: #e31313;
-  color: #fff;
+  background: var(--navy);
+  color: #fff !important;
   font-weight: 700;
   font-size: 15px;
   padding: 14px 32px;
@@ -4019,7 +4046,7 @@
 }
 
 .feca-store-btn:hover {
-  background: #951823;
+  background: var(--navy-mid);
   transform: translateY(-2px);
   box-shadow: 0 12px 32px rgb(227 19 19 / 50%);
 }
