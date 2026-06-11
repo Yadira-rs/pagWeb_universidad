@@ -97,6 +97,11 @@ export default function Biblioteca({ logoImage, newsPanelOpen, setNewsPanelOpen 
               <div>
                 <div className="section-label">Origen</div>
                 <h3>Historia</h3>
+                <img 
+                  src="/imagenes/biblioteca_historica.png" 
+                  alt="Biblioteca FECA Histórica" 
+                  style={{ width: "100%", borderRadius: "8px", marginTop: "16px", boxShadow: "0 6px 16px rgba(0,0,0,0.12)", display: "block" }}
+                />
               </div>
               <div>
                 <p>

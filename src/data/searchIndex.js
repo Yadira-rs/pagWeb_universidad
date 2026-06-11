@@ -90,6 +90,12 @@ export const searchIndex = [
     keywords: "prácticas profesionales experiencia recepcional formatos liberación",
   },
   {
+    title: "Contraloría Interna FECA",
+    description: "Órgano de control, transparencia, auditoría y buzón de quejas y sugerencias",
+    href: "#/servicios/contraloria-interna",
+    keywords: "contraloría interna feca control fiscalización auditoría transparencia quejas sugerencias buzón",
+  },
+  {
     title: "Tutorías",
     description: "Programa Institucional de Tutorías FECA",
     href: "#/tutorias",
