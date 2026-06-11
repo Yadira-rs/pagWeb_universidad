@@ -90,6 +90,12 @@ export const searchIndex = [
     keywords: "prácticas profesionales experiencia recepcional formatos liberación",
   },
   {
+    title: "Coordinación de Planeación y Evaluación Institucional",
+    description: "Coordinación de Planeación y Evaluación Institucional",
+    href: "/docs/LCPEI.pdf",
+    keywords: "lcpei coordinación planeación evaluación institucional",
+  },
+  {
     title: "Tutorías",
     description: "Programa Institucional de Tutorías FECA",
     href: "#/tutorias",

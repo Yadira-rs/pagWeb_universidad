@@ -132,6 +132,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 <a href="#/servicios/servicios-escolares">Servicios escolares</a>
                 <a href="#/servicios/servicio-social">Servicio social</a>
                 <a href="#/servicios/practicas-profesionales">Prácticas profesionales</a>
+                <a href="/docs/LCPEI.pdf" target="_blank" rel="noreferrer">CPEI</a>
                 <a href="https://mat.ujed.mx/" target="_blank" rel="noreferrer">Tutorías</a>
                 <a href="#/biblioteca">Biblioteca</a>
                 <a href="https://sumafeca.ujed.mx/" target="_blank" rel="noreferrer">Registro de egresados</a>
@@ -233,8 +234,8 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                     <li key={i}>
                       <a
                         href={item.href}
-                        target={item.href.startsWith("http") ? "_blank" : undefined}
-                        rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+                        target={item.href.startsWith("http") || item.href.startsWith("/docs/") ? "_blank" : undefined}
+                        rel={item.href.startsWith("http") || item.href.startsWith("/docs/") ? "noreferrer" : undefined}
                         onClick={() => { setSearchOpen(false); setSearchQuery(""); }}
                       >
                         <span className="search-dropdown-title">{item.title}</span>
@@ -294,6 +295,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
             <a href="#/">Inicio</a>
             <a href="#/licenciaturas">Oferta educativa</a>
             <a href="#/servicios">Servicios</a>
+            <a href="/docs/LCPEI.pdf" target="_blank" rel="noreferrer">Coordinación de Planeación y Evaluación Institucional</a>
             <a href="#/biblioteca">Biblioteca</a>
             <a href="#/historia">Nosotros</a>
           </div>
