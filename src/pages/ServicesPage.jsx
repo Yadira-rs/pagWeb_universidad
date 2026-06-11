@@ -21,6 +21,12 @@ const serviceCards = [
     imageClass: "img3",
   },
   {
+    title: "Contraloría Interna FECA",
+    description: "Espacio de transparencia, auditoría y atención de quejas y sugerencias.",
+    href: "#/servicios/contraloria-interna",
+    imageClass: "img_contraloria",
+  },
+  {
     title: "Biblioteca",
     description: "Accede a los servicios y recursos disponibles en la Biblioteca.",
     href: "#/biblioteca",
