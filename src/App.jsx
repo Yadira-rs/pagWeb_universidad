@@ -25,6 +25,8 @@ import PrivacyPage from "./pages/PrivacyPage";
 import TermsPage from "./pages/TermsPage";
 import BolsaTrabajoPage from "./pages/BolsaTrabajoPage";
 import TutoriasPage from "./pages/TutoriasPage";
+import OfertaEducativaPage from "./pages/OfertaEducativaPage";
+import NosotrosPage from "./pages/NosotrosPage";
 
 function getCurrentRoute() {
   const hash = window.location.hash || "#/";
@@ -36,6 +38,8 @@ function getCurrentRoute() {
   if (hash === "#/mision-vision") return { page: "mission-vision" };
 
   if (hash === "#/tutorias") return { page: "tutorias" };
+  if (hash === "#/oferta-educativa") return { page: "oferta-educativa" };
+  if (hash === "#/nosotros") return { page: "nosotros" };
   if (hash === "#/servicios") return { page: "services" };
   if (hash === "#/feria") return { page: "feria" };
   if (hash === "#/biblioteca") return { page: "biblioteca" };
@@ -149,6 +153,10 @@ function App() {
       <BolsaTrabajoPage logoImage={logoImage} newsPanelOpen={newsPanelOpen} setNewsPanelOpen={setNewsPanelOpen} />
     ) : route.page === "tutorias" ? (
       <TutoriasPage logoImage={logoImage} newsPanelOpen={newsPanelOpen} setNewsPanelOpen={setNewsPanelOpen} />
+    ) : route.page === "oferta-educativa" ? (
+      <OfertaEducativaPage logoImage={logoImage} newsPanelOpen={newsPanelOpen} setNewsPanelOpen={setNewsPanelOpen} />
+    ) : route.page === "nosotros" ? (
+      <NosotrosPage logoImage={logoImage} newsPanelOpen={newsPanelOpen} setNewsPanelOpen={setNewsPanelOpen} />
     ) : route.page === "history" ? (
       <HistoryPage
         entries={historyEntries}

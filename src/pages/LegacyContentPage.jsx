@@ -215,7 +215,8 @@ function LegacyContentPage({
               <article
                 key={panel.title}
                 className={`legacy-panel ${
-                  panel.variant === "contact" ? "legacy-panel-contact" : ""
+                  panel.variant === "contact" ? "legacy-panel-contact" :
+                  panel.variant === "docs" ? "legacy-panel-docs" : ""
                 }`}
               >
                 <h2>{panel.title}</h2>

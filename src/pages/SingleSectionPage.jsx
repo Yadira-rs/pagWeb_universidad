@@ -29,7 +29,7 @@ function SingleSectionPage({
       <section
         className={`section mission-vision-section ${
           content.valueGroups ? "values-section" : ""
-        }`}
+        } ${slug === "ejes-rectores" ? "ejes-section-bg" : ""}`}
       >
         <div className="container">
           {content.valueGroups ? (
@@ -70,7 +70,7 @@ function SingleSectionPage({
       {slug === "ejes-rectores" && (
         <section className="section section-alt">
           <div className="container">
-            <div className="teacher-carousel-heading">
+            <div className="teacher-carousel-heading ejes-dirs-heading">
               <div className="section-label">Nuestro equipo</div>
               <h3 className="section-title">Directores</h3>
               <p className="section-desc">
