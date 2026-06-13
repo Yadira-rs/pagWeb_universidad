@@ -21,6 +21,12 @@ const serviceCards = [
     imageClass: "img3",
   },
   {
+    title: "Contraloría Interna FECA",
+    description: "Espacio de transparencia, auditoría y atención de quejas y sugerencias.",
+    href: "#/servicios/contraloria-interna",
+    imageClass: "img_contraloria",
+  },
+  {
     title: "Biblioteca",
     description: "Accede a los servicios y recursos disponibles en la Biblioteca.",
     href: "#/biblioteca",
@@ -70,20 +76,19 @@ function ServicesPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
 
         <div className="services-grid">
           {serviceCards.map((card) => (
-            <article key={card.title} className="service-card">
+            <a
+              key={card.title}
+              href={card.href}
+              target={card.external ? "_blank" : undefined}
+              rel={card.external ? "noreferrer" : undefined}
+              className="service-card"
+            >
               <div className={`service-image ${card.imageClass}`}></div>
               <div className="service-content">
                 <h3>{card.title}</h3>
                 <p>{card.description}</p>
-                <a
-                  href={card.href}
-                  target={card.external ? "_blank" : undefined}
-                  rel={card.external ? "noreferrer" : undefined}
-                >
-                  Ver más →
-                </a>
               </div>
-            </article>
+            </a>
           ))}
         </div>
       </main>

@@ -410,6 +410,7 @@ export const servicePages = {
     heroTitle: "Servicio Social",
     intro:
       "Información importante, reglamentos, formatos y documentos oficiales.",
+    grouped: true,
     items: [
       {
         title: "1.- Información importante para iniciar tus Servicios",
@@ -534,11 +535,6 @@ export const servicePages = {
         label: "Abrir PDF →",
       },
       {
-        title: "Facebook",
-        href: "https://www.facebook.com/FECAUJEDMX",
-        label: "FECAUJEDMX →",
-      },
-      {
         title: "Micrositio “Feria del Servicio Social y Experiencia Recepcional”",
         href: "#/feria",
         label: "Ir al micrositio interno →",
@@ -580,14 +576,9 @@ export const servicePages = {
         label: "Abrir PDF →",
       },
       {
-        title: "Facebook",
-        href: "https://www.facebook.com/FECAUJEDMX",
-        label: "FECAUJEDMX →",
-      },
-      {
-        title: "Micrositio",
-        href: "#/feria",
-        label: "Ir al micrositio interno →",
+        title: "Micrositio \"Feria del Servicio Social y Experiencia Recepcional (Prácticas Profesionales)\"",
+        href: "http://www.feca.ujed.mx/feria/",
+        label: "Ir al micrositio →",
       },
     ],
   },

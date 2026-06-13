@@ -126,6 +126,8 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 <a href="#/servicios/servicios-escolares">Servicios escolares</a>
                 <a href="#/servicios/servicio-social">Servicio social</a>
                 <a href="#/servicios/practicas-profesionales">Prácticas profesionales</a>
+                <a href="/docs/LCPEI.pdf" target="_blank" rel="noreferrer">Coordinación de Planeación y Evaluación Institucional</a>
+                <a href="#/servicios/contraloria-interna">Contraloría interna</a>
                 <a href="https://mat.ujed.mx/" target="_blank" rel="noreferrer">Tutorías</a>
                 <a href="#/biblioteca">Biblioteca</a>
                 <a href="https://sumafeca.ujed.mx/" target="_blank" rel="noreferrer">Registro de egresados</a>
@@ -172,14 +174,32 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 }}
               >
                 <input
-                  type="search"
+                  type="text"
                   name="q"
                   placeholder="Buscar programas, carreras o servicio"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   autoComplete="off"
                 />
-                <button type="submit">Buscar</button>
+                {searchQuery && (
+                  <button
+                    type="button"
+                    className="nav-search-clear"
+                    aria-label="Limpiar búsqueda"
+                    onClick={() => { setSearchQuery(""); setSearchResults([]); setSearchOpen(false); }}
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="16" height="16">
+                      <line x1="18" y1="6" x2="6" y2="18" />
+                      <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                  </button>
+                )}
+                <button type="submit" className="nav-search-submit" aria-label="Buscar">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="17" height="17">
+                    <circle cx="11" cy="11" r="7" />
+                    <line x1="16.5" y1="16.5" x2="22" y2="22" />
+                  </svg>
+                </button>
               </form>
               {searchOpen && searchResults.length > 0 && (
                 <ul className="search-dropdown">
@@ -187,8 +207,8 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                     <li key={i}>
                       <a
                         href={item.href}
-                        target={item.href.startsWith("http") ? "_blank" : undefined}
-                        rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+                        target={item.href.startsWith("http") || item.href.startsWith("/docs/") ? "_blank" : undefined}
+                        rel={item.href.startsWith("http") || item.href.startsWith("/docs/") ? "noreferrer" : undefined}
                         onClick={() => { setSearchOpen(false); setSearchQuery(""); }}
                       >
                         <span className="search-dropdown-title">{item.title}</span>
@@ -287,6 +307,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
             <span className="mobile-menu-section-label">Servicios</span>
             <a href="#/servicios" className="mobile-nav-sub" onClick={closeMobile}>Todos los servicios</a>
             <a href="#/biblioteca" className="mobile-nav-sub" onClick={closeMobile}>Biblioteca</a>
+            <a href="/docs/LCPEI.pdf" className="mobile-nav-sub" target="_blank" rel="noreferrer" onClick={closeMobile}>Coord. Planeación y Evaluación Institucional</a>
             <a href="https://mat.ujed.mx/" className="mobile-nav-sub" target="_blank" rel="noreferrer" onClick={closeMobile}>Tutorías</a>
             <a href="https://sumafeca.ujed.mx/" className="mobile-nav-sub" target="_blank" rel="noreferrer" onClick={closeMobile}>Registro de egresados</a>
           </div>

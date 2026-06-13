@@ -20,7 +20,7 @@ const programs = [
     title: "POSGRADO",
     description:
       "Programa con vinculación académica, proyectos aplicados y desarrollo de investigación para perfiles de alto nivel.",
-    image: "/imagenes/aniversario.jpeg",
+    image: "/imagenes/logo-posgrado.png",
     duration: "6 años",
     mode: "Presencial",
     href: "https://posgradofeca.ujed.mx/",
@@ -29,7 +29,8 @@ const programs = [
     title: "CELCI",
     description:
       "Desarrolla soluciones tecnológicas de alto impacto con enfoque en inteligencia artificial y ciberseguridad.",
-    image: "/imagenes/inicio.png",
+    image: "/imagenes/logo-celci.png",
+    imageClass: "program-card-img--celci",
     duration: "4 años",
     mode: "Presencial",
     href: "#/celci",
@@ -38,7 +39,7 @@ const programs = [
     title: "CIIEDO",
     description:
       "Forma líderes empresariales con visión estratégica, finanzas, marketing y habilidades directivas.",
-    image: "/imagenes/CIIEDO.jpeg",
+    image: "/imagenes/logo-ciiedo.png",
     duration: "4 años",
     mode: "Presencial / En línea",
     href: "#/ciiedo",
@@ -246,13 +247,12 @@ const news = [
 
 function HomePage({ logoImage, setNewsPanelOpen }) {
   const [heroCurrentSlide, setHeroCurrentSlide] = useState(0);
-  const [trackIndex, setTrackIndex] = useState(2);
+  const [trackIndex, setTrackIndex] = useState(10);
   const [selectedTeacher, setSelectedTeacher] = useState(null);
   const trackRef = useRef(null);
   const carouselRef = useRef(null);
-  const trackIdxRef = useRef(2);
+  const trackIdxRef = useRef(10);
   const pausedRef = useRef(false);
-  const hoverIntervalRef = useRef(null);
   const selectedTeacherRef = useRef(null);
 
   const openModal = (teacher) => {
@@ -307,14 +307,11 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
     return () => observer.disconnect();
   }, []);
 
-  // 2 clones al inicio + 5 reales + 2 clones al final = 9 items
-  // trackIndex real: 2-6, clones: 0-1 y 7-8
+  // 5 copies × 5 teachers = 25 items. Start in the middle (idx=10).
+  // No snap before animation — the reset happens AFTER animation ends
+  // via handleTransitionEnd, when the carousel is idle and the snap is invisible.
   const clonedTeachers = [
-    teachers[3],
-    teachers[4],
-    ...teachers,
-    teachers[0],
-    teachers[1],
+    ...teachers, ...teachers, ...teachers, ...teachers, ...teachers,
   ];
 
   const moveTo = (newIdx, animated) => {
@@ -323,39 +320,48 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
       carouselRef.current.classList.add("no-card-transition");
     }
     trackRef.current.style.transition = animated
-      ? "transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)"
+      ? "transform 1.2s cubic-bezier(0.45, 0, 0.55, 1)"
       : "none";
+    void trackRef.current.getBoundingClientRect();
     trackRef.current.style.transform = `translateX(calc(50% - 120px - ${newIdx * 338}px - 155px))`;
     trackIdxRef.current = newIdx;
     setTrackIndex(newIdx);
     if (!animated && carouselRef.current) {
-      requestAnimationFrame(() =>
-        requestAnimationFrame(() =>
-          carouselRef.current?.classList.remove("no-card-transition"),
-        ),
-      );
+      setTimeout(() => {
+        carouselRef.current?.classList.remove("no-card-transition");
+      }, 100);
     }
   };
 
-  const handleNext = () => moveTo(trackIdxRef.current + 1, true);
-  const handlePrev = () => moveTo(trackIdxRef.current - 1, true);
-
-  const handleTransitionEnd = () => {
+  const advance = (dir) => {
     const idx = trackIdxRef.current;
-    if (idx >= 7) moveTo(idx - 5, false);
-    else if (idx <= 1) moveTo(idx + 5, false);
+    const next = idx + dir;
+    if (next < 0 || next >= 25) return;
+    moveTo(next, true);
+  };
+
+  const handleNext = () => advance(1);
+  const handlePrev = () => advance(-1);
+
+  // After each animation ends, silently re-center if near boundary.
+  // The carousel is idle so the instant snap is completely invisible.
+  const handleTransitionEnd = (e) => {
+    if (e.target !== trackRef.current || e.propertyName !== "transform") return;
+    const idx = trackIdxRef.current;
+    if (idx >= 20) moveTo(idx - 10, false);
+    else if (idx <= 4) moveTo(idx + 10, false);
   };
 
   // Posición inicial sin animación
   useEffect(() => {
-    moveTo(2, false);
+    moveTo(10, false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Autoplay cada 3 segundos
   useEffect(() => {
     const id = setInterval(() => {
-      if (!pausedRef.current) moveTo(trackIdxRef.current + 1, true);
+      if (!pausedRef.current) advance(1);
     }, 3000);
     return () => clearInterval(id);
   }, []);
@@ -465,7 +471,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
                 className="program-card"
                 href={program.href}
               >
-                <div className="program-card-img">
+                <div className={`program-card-img${program.imageClass ? ` ${program.imageClass}` : ""}`}>
                   <img src={program.image} alt={program.title} />
                   <span className="program-level">Departamentos</span>
                 </div>
@@ -571,12 +577,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
         <div
           ref={carouselRef}
           className="teacher-carousel fade-up"
-          onMouseEnter={() => {
-            pausedRef.current = true;
-          }}
-          onMouseLeave={() => {
-            pausedRef.current = false;
-          }}
         >
           <div className="teacher-carousel-wrapper">
             <div
@@ -626,12 +626,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
               className="teacher-arrow teacher-prev"
               aria-label="Anterior"
               onClick={(e) => { e.preventDefault(); e.stopPropagation(); handlePrev(); }}
-              onMouseEnter={() => {
-                hoverIntervalRef.current = setInterval(handlePrev, 600);
-              }}
-              onMouseLeave={() => {
-                clearInterval(hoverIntervalRef.current);
-              }}
             >
               <svg
                 width="20"
@@ -653,12 +647,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
               className="teacher-arrow teacher-next"
               aria-label="Siguiente"
               onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleNext(); }}
-              onMouseEnter={() => {
-                hoverIntervalRef.current = setInterval(handleNext, 600);
-              }}
-              onMouseLeave={() => {
-                clearInterval(hoverIntervalRef.current);
-              }}
             >
               <svg
                 width="20"
@@ -766,9 +754,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
                   className="feca-store-btn"
                 >
                   Visitar FECA Store
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
                 </a>
               </div>
             </article>
@@ -785,9 +770,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
                 </p>
                 <a href="#/cafeteria" className="feca-store-btn">
                   Ver CAFECA
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
                 </a>
               </div>
             </article>
