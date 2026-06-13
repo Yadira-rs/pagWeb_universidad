@@ -1,3 +1,5 @@
+import { IconFacebook, IconInstagram, IconXTwitter, IconTikTok } from '../components/SocialIcons';
+
 function Footer() {
   return (
     <footer className="footer">
@@ -40,18 +42,18 @@ function Footer() {
               <a href="#">Preguntas frecuentes</a>
             </li>
           </ul>
-          <div className="footer-social footer-social--images">
-            <a href="https://www.facebook.com/FECAUJEDMX/" aria-label="Facebook" target="_blank" rel="noreferrer">
-              <img src="/imagenes/facebook.png" alt="Facebook" />
+          <div className="footer-social">
+            <a className="si-facebook" href="https://www.facebook.com/FECAUJEDMX/" aria-label="Facebook" target="_blank" rel="noreferrer">
+              <IconFacebook size={22} />
             </a>
-            <a href="https://x.com/fecaujedmx" aria-label="X" target="_blank" rel="noreferrer">
-              <img src="/imagenes/x.png" alt="X" />
+            <a className="si-twitter" href="https://x.com/fecaujedmx" aria-label="X / Twitter" target="_blank" rel="noreferrer">
+              <IconXTwitter size={22} />
             </a>
-            <a href="https://www.instagram.com/fecaujedmx" aria-label="Instagram" target="_blank" rel="noreferrer">
-              <img src="/imagenes/instagram.jpg" alt="Instagram" />
+            <a className="si-instagram" href="https://www.instagram.com/fecaujedmx" aria-label="Instagram" target="_blank" rel="noreferrer">
+              <IconInstagram size={22} />
             </a>
-            <a href="https://www.tiktok.com/@fecaujed.mx" aria-label="TikTok" target="_blank" rel="noreferrer">
-              <img src="/imagenes/tiktok.png" alt="TikTok" />
+            <a className="si-tiktok" href="https://www.tiktok.com/@fecaujed.mx" aria-label="TikTok" target="_blank" rel="noreferrer">
+              <IconTikTok size={22} />
             </a>
           </div>
         </div>

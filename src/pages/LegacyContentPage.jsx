@@ -2,6 +2,78 @@ import { useEffect, useState } from "react";
 import Footer from "../sections/Footer";
 import Header from "../sections/Header";
 
+function HistoryCarousel({ slides }) {
+  const [current, setCurrent] = useState(0);
+  const [animating, setAnimating] = useState(false);
+
+  const goTo = (index) => {
+    if (animating || index === current) return;
+    setAnimating(true);
+    setCurrent(index);
+    setTimeout(() => setAnimating(false), 350);
+  };
+
+  const prev = () => goTo(current === 0 ? slides.length - 1 : current - 1);
+  const next = () => goTo(current === slides.length - 1 ? 0 : current + 1);
+
+  const slide = slides[current];
+  const dotPercent = slides.length > 1 ? (current / (slides.length - 1)) * 100 : 0;
+
+  return (
+    <div className="hc-wrap">
+      {/* Timeline nav */}
+      <div className="hc-topbar">
+        <button className="hc-arrow-btn" onClick={prev} aria-label="Anterior">‹</button>
+        <div className="hc-years-row">
+          {slides.map((s, i) => (
+            <button
+              key={s.year}
+              className={`hc-year-btn ${i === current ? "active" : ""}`}
+              onClick={() => goTo(i)}
+            >
+              {s.year}
+            </button>
+          ))}
+        </div>
+        <button className="hc-arrow-btn" onClick={next} aria-label="Siguiente">›</button>
+      </div>
+
+      <div className="hc-timeline-bar">
+        <div className="hc-timeline-line" />
+        <div className="hc-timeline-dot" style={{ left: `${dotPercent}%` }} />
+      </div>
+
+      {/* Main content */}
+      <div className={`hc-body ${animating ? "hc-fade" : ""}`}>
+        {/* Left collage */}
+        <div className="hc-collage">
+          {slide.images.map((src, i) => (
+            <div key={i} className={`hc-photo hc-photo-${i + 1}`}>
+              <img src={src} alt="" loading="lazy" />
+            </div>
+          ))}
+        </div>
+
+        {/* Center text */}
+        <div className="hc-center">
+          <span className="hc-tag">{slide.tag}</span>
+          <div className="hc-big-year">{slide.year}</div>
+          <h3 className="hc-title">{slide.title}</h3>
+          <p className="hc-text">{slide.text}</p>
+        </div>
+
+        {/* Right photo */}
+        <div className="hc-side">
+          <div className="hc-side-img-wrap">
+            <img src={slide.sideImage} alt="" loading="lazy" />
+          </div>
+          <span className="hc-side-tag">{slide.tag}</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function LegacyContentPage({
   content,
   logoImage,
@@ -76,13 +148,56 @@ function LegacyContentPage({
                   id={section.id}
                   className={`legacy-inner-section fade-up ${
                     content.tabMode === "switch" ? "visible" : ""
-                  }`}
+                  }${section.variant === "programs" ? " programs-section" : ""}`}
                 >
                   <div className="legacy-kicker legacy-section-label">
                     {section.label}
                   </div>
                   <h2>{section.title}</h2>
-                  {section.variant === "wide" ? (
+                  {section.variant === "programs" ? (
+                    <>
+                      {section.note ? (
+                        <p className="program-section-note">{section.note}</p>
+                      ) : null}
+                      <div className="programs-grid">
+                        {section.cards?.map((card) => (
+                          <article
+                            key={card.title}
+                            className="program-card"
+                            style={{ "--program-color": card.color }}
+                          >
+                            <div className="program-card-header">
+                              <div className="program-card-icon">{card.abbr}</div>
+                              <div>
+                                <div className="program-card-plan">{card.plan}</div>
+                                <h3>{card.title}</h3>
+                              </div>
+                            </div>
+                            <div className="program-card-body">
+                              <p>{card.body}</p>
+                              {card.actions ? (
+                                <div className="legacy-actions">
+                                  {card.actions.map((action, i) => (
+                                    <a
+                                      key={action.href}
+                                      className={i === 0 ? "btn-program-primary" : "btn-program-outline"}
+                                      href={action.href}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                    >
+                                      {action.label}
+                                    </a>
+                                  ))}
+                                </div>
+                              ) : null}
+                            </div>
+                          </article>
+                        ))}
+                      </div>
+                    </>
+                  ) : section.variant === "carousel" ? (
+                    <HistoryCarousel slides={section.slides} />
+                  ) : section.variant === "wide" ? (
                     <article className="legacy-panel legacy-wide-card">
                       {section.paragraphs?.map((paragraph) => (
                         <p key={paragraph}>{paragraph}</p>

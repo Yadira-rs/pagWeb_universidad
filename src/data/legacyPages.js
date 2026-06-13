@@ -6,99 +6,89 @@ export const legacyPages = {
     title: "Licenciaturas",
     intro:
       "Conoce los programas presenciales de la Facultad de Economía, Contaduría y Administración.",
-    panels: [
+    tabMode: "switch",
+    tabs: [
+      { href: "vigentes", label: "Planes 2021" },
+      { href: "anteriores", label: "Planes 2014" },
+    ],
+    sections: [
       {
-        title: "Planes disponibles",
-        body:
-          "Consulta y descarga los documentos disponibles para cada programa.",
-      },
-      {
-        title: "Contador Público P2021",
-        body:
-          "Formación en información financiera, fiscal, administrativa, auditoría, costos y finanzas para la toma de decisiones.",
-        actions: [
+        id: "vigentes",
+        label: "Planes vigentes",
+        title: "Programas Plan 2021",
+        variant: "programs",
+        cards: [
           {
-            href: "/docs/plan-de-estudios_cp_2021.pdf",
-            label: "Descargar plan",
+            title: "Contador Público",
+            plan: "P2021",
+            abbr: "CP",
+            color: "#7b1218",
+            body: "Formación en información financiera, fiscal, administrativa, auditoría, costos y finanzas para la toma de decisiones empresariales e institucionales.",
+            actions: [
+              { href: "/docs/plan-de-estudios_cp_2021.pdf", label: "Descargar plan" },
+              { href: "/docs/mapa-curricular_cp_2021.pdf", label: "Mapa curricular" },
+            ],
           },
           {
-            href: "/docs/mapa-curricular_cp_2021.pdf",
-            label: "Mapa curricular",
+            title: "Licenciado en Administración",
+            plan: "P2021",
+            abbr: "LA",
+            color: "#7b1218",
+            body: "Formación para planear, dirigir y evaluar organizaciones con visión estratégica, flexible y emprendedora orientada al liderazgo.",
+            actions: [
+              { href: "/docs/plan_de_estudios_la_2021.pdf", label: "Descargar plan" },
+              { href: "/docs/mapas_curriculares_la_2021.pdf", label: "Mapa curricular" },
+            ],
+          },
+          {
+            title: "Lic. en Economía y Negocios Internacionales",
+            plan: "P2021",
+            abbr: "LENI",
+            color: "#7b1218",
+            body: "Formación en análisis económico, comercio exterior, finanzas, mercados y negocios internacionales con visión global.",
+            actions: [
+              { href: "/docs/plan_de_estudios_leni_2021.pdf", label: "Descargar plan" },
+              { href: "/docs/mapas_curriculares_leni_2021.pdf", label: "Mapa curricular" },
+            ],
           },
         ],
       },
       {
-        title: "Licenciado en Administración P2021",
-        body:
-          "Formación para planear, dirigir y evaluar organizaciones con visión estratégica, flexible y emprendedora.",
-        actions: [
+        id: "anteriores",
+        label: "Planes anteriores",
+        title: "Programas Plan 2014",
+        variant: "programs",
+        note: "Planes anteriores disponibles para consulta académica y administrativa.",
+        cards: [
           {
-            href: "/docs/plan_de_estudios_la_2021.pdf",
-            label: "Descargar plan",
+            title: "Contador Público",
+            plan: "P2014",
+            abbr: "CP",
+            color: "#7b1218",
+            body: "Profesionales capaces de aplicar técnicas de contabilidad financiera, fiscal y administrativa para generar y analizar información confiable con responsabilidad social.",
+            actions: [
+              { href: "/docs/cp_plan_de_estudio_2014.pdf", label: "Descargar plan" },
+            ],
           },
           {
-            href: "/docs/mapas_curriculares_la_2021.pdf",
-            label: "Mapa curricular",
-          },
-        ],
-      },
-      {
-        title: "Licenciado en Economía y Negocios Internacionales P2021",
-        body:
-          "Formación en análisis económico, comercio exterior, finanzas, mercados y negocios internacionales.",
-        actions: [
-          {
-            href: "/docs/plan_de_estudios_leni_2021.pdf",
-            label: "Descargar plan",
+            title: "Licenciado en Administración",
+            plan: "P2014",
+            abbr: "LA",
+            color: "#7b1218",
+            body: "Diseñar organizaciones y garantizar su funcionamiento mediante la gestión de recursos financieros, tecnológicos y de talento humano con enfoque en competitividad.",
+            actions: [
+              { href: "/docs/la_plan_de_estudio_2014.pdf", label: "Descargar plan" },
+            ],
           },
           {
-            href: "/docs/mapas_curriculares_leni_2021.pdf",
-            label: "Mapa curricular",
-          },
-        ],
-      },
-      {
-        title: "Contador Público P2014",
-        body:
-          "Objetivo: formar profesionales capaces de aplicar técnicas y conocimientos de contabilidad financiera y administrativa, fiscal y financiera para generar, analizar y emitir opiniones sobre información confiable, con carácter emprendedor y responsabilidad social. Plan anterior disponible para consulta académica y administrativa.",
-        actions: [
-          {
-            href: "/docs/cp_plan_de_estudio_2014.pdf",
-            label: "Contenido",
-          },
-          {
-            href: "/docs/cp_plan_de_estudio_2014.pdf",
-            label: "Descargar plan",
-          },
-        ],
-      },
-      {
-        title: "Licenciado en Administración P2014",
-        body:
-          "Objetivo: diseñar organizaciones y garantizar su funcionamiento mediante la gestión de recursos financieros, tecnológicos y de talento humano, con enfoque en efectividad, rentabilidad, competitividad y responsabilidad social. Plan anterior disponible para consulta académica y administrativa.",
-        actions: [
-          {
-            href: "/docs/cp_plan_de_estudio_2014.pdf",
-            label: "Contenido",
-          },
-          {
-            href: "/docs/la_plan_de_estudio_2014.pdf",
-            label: "Descargar plan",
-          },
-        ],
-      },
-      {
-        title: "Licenciado en Economía y Negocios Internacionales P2014",
-        body:
-          "Objetivo: dotar a los egresados de una formación equilibrada en teoría económica, finanzas y comercio internacional, con capacidad para diseñar y evaluar escenarios de competitividad global. Plan anterior disponible para consulta académica y administrativa.",
-        actions: [
-          {
-            href: "/docs/cp_plan_de_estudio_2014.pdf",
-            label: "Contenido",
-          },
-          {
-            href: "/docs/leni_plan_de_estudio_2014.pdf",
-            label: "Descargar plan",
+            title: "Lic. en Economía y Negocios Internacionales",
+            plan: "P2014",
+            abbr: "LENI",
+            color: "#7b1218",
+            body: "Formación equilibrada en teoría económica, finanzas y comercio internacional con capacidad para diseñar y evaluar escenarios de competitividad global.",
+            actions: [
+              { href: "/docs/leni_plan_de_estudio_2014.pdf", label: "Descargar plan" },
+            ],
           },
         ],
       },
@@ -496,13 +486,68 @@ export const legacyPages = {
         id: "historia",
         label: "Nuestra historia",
         title: "Historia",
-        variant: "wide",
-        paragraphs: [
-          "El Centro de Idiomas de la Facultad de Economía, Contaduría y Administración (FECA) de la Universidad Juárez del Estado de Durango (UJED) fue fundado formalmente en el año 1975, bajo la dirección del C.P. Mtro. Rubén Vargas Quiñones. Desde sus inicios, el Centro ha desempeñado un papel fundamental en la enseñanza de lenguas extranjeras a generaciones de profesionistas y al público en general, contribuyendo de manera significativa al desarrollo académico y profesional de nuestra comunidad.",
-          "El primer coordinador del Centro de Idiomas fue el Mtro. Jack Hanlon, quien inició esta importante labor educativa con un grupo de apenas treinta alumnos. En el año 1981, la coordinación quedó a cargo del Dr. José Ninahualpa Lucano (q.e.p.d.), dando continuidad al proyecto con un enfoque académico sólido y creciente.",
-          "A partir del año 1994, la Lic. Leticia Moreno Elizalde asumió la coordinación del Centro, etapa en la que se vivieron cambios significativos, tanto en estructura como en oferta académica, consolidando al Centro como un referente en la enseñanza de idiomas dentro de la Universidad.",
-          "Actualmente, el Centro de Idiomas de la FECA atiende a una población de más de mil alumnos, ofreciendo una formación de calidad en los idiomas de inglés, italiano, francés y japonés, dirigida tanto a estudiantes universitarios como al público en general.",
-          "A lo largo de sus casi cinco décadas de trayectoria, el Centro se ha distinguido por su compromiso con la excelencia académica, la innovación en la enseñanza de lenguas y la inclusión de nuevas culturas, consolidándose como un pilar en la formación integral de los estudiantes de la UJED y de la sociedad duranguense.",
+        variant: "carousel",
+        slides: [
+          {
+            year: "1975",
+            tag: "FUNDACIÓN",
+            title: "Nace el Centro de Idiomas FECA",
+            text: "El Centro de Idiomas de la FECA de la UJED fue fundado formalmente en el año 1975, bajo la dirección del C.P. Mtro. Rubén Vargas Quiñones. Desde sus inicios, el Centro ha desempeñado un papel fundamental en la enseñanza de lenguas extranjeras, contribuyendo de manera significativa al desarrollo académico y profesional de nuestra comunidad.",
+            images: [
+              "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=400&q=80",
+              "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=400&q=80",
+              "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=400&q=80",
+            ],
+            sideImage: "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=600&q=80",
+          },
+          {
+            year: "1981",
+            tag: "NUEVOS LIDERAZGOS",
+            title: "Primeros coordinadores",
+            text: "El primer coordinador del Centro fue el Mtro. Jack Hanlon, quien inició esta labor educativa con apenas treinta alumnos. En 1981, la coordinación quedó a cargo del Dr. José Ninahualpa Lucano (q.e.p.d.), dando continuidad al proyecto con un enfoque académico sólido y creciente.",
+            images: [
+              "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=400&q=80",
+              "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=400&q=80",
+              "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=400&q=80",
+            ],
+            sideImage: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80",
+          },
+          {
+            year: "1994",
+            tag: "NUEVA ETAPA",
+            title: "Lic. Leticia Moreno Elizalde asume la coordinación",
+            text: "A partir de 1994, la Lic. Leticia Moreno Elizalde asumió la coordinación del Centro, etapa en la que se vivieron cambios significativos tanto en estructura como en oferta académica, consolidando al Centro como un referente en la enseñanza de idiomas dentro de la Universidad Juárez del Estado de Durango.",
+            images: [
+              "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=400&q=80",
+              "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=400&q=80",
+              "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?auto=format&fit=crop&w=400&q=80",
+            ],
+            sideImage: "https://images.unsplash.com/photo-1606761568499-6d2451b23c66?auto=format&fit=crop&w=600&q=80",
+          },
+          {
+            year: "2000",
+            tag: "CRECIMIENTO",
+            title: "Expansión de la oferta académica",
+            text: "Con el inicio del nuevo milenio, el Centro amplió su catálogo de idiomas incorporando italiano, francés y japonés. La matrícula creció sostenidamente, consolidando a la FECA como el centro de idiomas universitario más completo del estado de Durango.",
+            images: [
+              "https://images.unsplash.com/photo-1558021212-51b6ecfa0db9?auto=format&fit=crop&w=400&q=80",
+              "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=400&q=80",
+              "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=400&q=80",
+            ],
+            sideImage: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=80",
+          },
+          {
+            year: "2024",
+            tag: "ACTUALIDAD",
+            title: "Casi cinco décadas de excelencia",
+            text: "Hoy el Centro de Idiomas de la FECA atiende a más de mil alumnos, ofreciendo formación de calidad en inglés, italiano, francés y japonés. A lo largo de casi cinco décadas se ha distinguido por su compromiso con la excelencia académica y la inclusión de nuevas culturas, consolidándose como un pilar de la UJED.",
+            images: [
+              "https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=400&q=80",
+              "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=400&q=80",
+              "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=400&q=80",
+            ],
+            sideImage: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80",
+          },
         ],
       },
       {

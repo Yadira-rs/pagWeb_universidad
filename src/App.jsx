@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { IconFacebook, IconInstagram, IconXTwitter, IconTikTok } from './components/SocialIcons';
 import "./App.css";
 import {
   historyEntries,
@@ -64,9 +65,58 @@ function getCurrentRoute() {
   return { page: "home" };
 }
 
+const NEWS_ITEMS = [
+  {
+    id: 1,
+    badge: "NUEVO",
+    date: "9 jun 2026",
+    cat: "Admisión",
+    title: "Convocatoria de inscripción julio – agosto 2026",
+    summary: "Abierta la inscripción para nuevos ingresos a todos los programas de licenciatura y posgrado.",
+    type: "article",
+    body: "La Facultad de Economía, Contaduría y Administración (FECA) de la UJED abre su convocatoria de inscripción para el ciclo julio – agosto 2026.\n\nPueden participar egresados de bachillerato con promedio mínimo de 7.0. El proceso incluye examen de admisión, entrega de documentos y pago de arancel.\n\nFecha límite de registro: 31 de julio de 2026.\nMayores informes al (618) 827-13-65 o en las instalaciones de la facultad.",
+    doc: null,
+  },
+  {
+    id: 2,
+    badge: "NUEVO",
+    date: "6 jun 2026",
+    cat: "Eventos",
+    title: "Semana Cultural FECA 2026",
+    summary: "Del 16 al 20 de junio: exposiciones, conferencias y actividades artísticas abiertas a toda la comunidad.",
+    type: "article",
+    body: "La Semana Cultural FECA 2026 se llevará a cabo del 16 al 20 de junio en las instalaciones de la facultad.\n\nActividades programadas:\n• Lunes 16 — Exposición de arte universitario\n• Martes 17 — Conferencia: Economía global y México\n• Miércoles 18 — Concurso de oratoria\n• Jueves 19 — Noche cultural y música en vivo\n• Viernes 20 — Clausura y premiación\n\nEntrada libre para toda la comunidad universitaria.",
+    doc: null,
+  },
+  {
+    id: 3,
+    badge: null,
+    date: "2 jun 2026",
+    cat: "Académico",
+    title: "Taller de titulación: guía para egresados",
+    summary: "Sesiones informativas sobre modalidades de titulación. Inscripción gratuita hasta el 12 de junio.",
+    type: "document",
+    body: "Consulta el documento oficial con todos los requisitos, modalidades y fechas del proceso de titulación 2026.",
+    doc: "/PDUA-SILD27.pdf",
+  },
+  {
+    id: 4,
+    badge: null,
+    date: "28 may 2026",
+    cat: "Deportes",
+    title: "Jornadas deportivas interfacultades",
+    summary: "Calendario de actividades y resultados de la participación de FECA en los juegos universitarios UJED.",
+    type: "article",
+    body: "FECA participó en los Juegos Universitarios UJED 2026 con equipos en las disciplinas de fútbol, basquetbol y voleibol.\n\nResultados destacados:\n• Fútbol varonil — 2.° lugar\n• Basquetbol femenil — 1.er lugar\n• Voleibol mixto — participación\n\nFelicitamos a todos los estudiantes y representantes deportivos de nuestra facultad.",
+    doc: null,
+  },
+];
+
 function App() {
   const [route, setRoute] = useState(getCurrentRoute());
   const [newsPanelOpen, setNewsPanelOpen] = useState(false);
+  const [buzonOpen, setBuzonOpen] = useState(false);
+  const [selectedNews, setSelectedNews] = useState(null);
 
   useEffect(() => {
     if (!window.location.hash || window.location.hash === "#") {
@@ -119,11 +169,11 @@ function App() {
   }, [route]);
 
   useEffect(() => {
-    document.body.style.overflow = newsPanelOpen ? "hidden" : "";
+    document.body.style.overflow = (newsPanelOpen || buzonOpen) ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [newsPanelOpen]);
+  }, [newsPanelOpen, buzonOpen]);
 
   useEffect(() => {
     const elements = document.querySelectorAll(".fade-up");
@@ -294,14 +344,23 @@ function App() {
           <section className="panel-section panel-news">
             <h3>Noticias recientes</h3>
             <ul className="panel-list">
-              <li className="panel-item">
-                <a href="#">Convocatoria de inscripción julio 2026</a>
-                <span>Abierta la inscripción para nuevos ingresos.</span>
-              </li>
-              <li className="panel-item">
-                <a href="#">Jornadas deportivas y eventos del campus</a>
-                <span>Calendario de actividades para toda la comunidad.</span>
-              </li>
+              {NEWS_ITEMS.map((item) => (
+                <li key={item.id} className="panel-item panel-item--news panel-item--clickable" onClick={() => setSelectedNews(item)}>
+                  <div className="panel-news-meta">
+                    {item.badge && <span className="panel-news-badge">{item.badge}</span>}
+                    <span className="panel-news-date">{item.date}</span>
+                    <span className="panel-news-cat">{item.cat}</span>
+                    {item.type === "document" && (
+                      <span className="panel-news-doc-chip">
+                        <svg viewBox="0 0 16 16" fill="currentColor" width="11" height="11"><path d="M4 0h6l4 4v11a1 1 0 01-1 1H3a1 1 0 01-1-1V1a1 1 0 011-1zm6 1v3h3L10 1zM4 7h8v1H4V7zm0 2h8v1H4V9zm0 2h5v1H4v-1z"/></svg>
+                        PDF
+                      </span>
+                    )}
+                  </div>
+                  <span className="panel-news-title">{item.title}</span>
+                  <span>{item.summary}</span>
+                </li>
+              ))}
             </ul>
           </section>
 
@@ -325,9 +384,9 @@ function App() {
                 <span>(618) 827-13-65</span>
               </li>
             </ul>
-            <a
-              href="mailto:informes@feca.ujed.mx?subject=Queja%20/%20Sugerencia"
+            <button
               className="panel-buzon-btn"
+              onClick={() => { setNewsPanelOpen(false); setBuzonOpen(true); }}
             >
               <div className="panel-buzon-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="22" height="22">
@@ -338,29 +397,138 @@ function App() {
                 <span className="panel-buzon-title">Buzón de quejas y sugerencias</span>
                 <span className="panel-buzon-sub">Tu opinión nos ayuda a mejorar. Haz clic para enviarnos un mensaje.</span>
               </div>
-            </a>
+            </button>
           </section>
 
           <section className="panel-section">
             <h3>Síguenos</h3>
-             <div className="footer-social footer-social--images">
-            <a href="https://www.facebook.com/FECAUJEDMX/" aria-label="Facebook" target="_blank" rel="noreferrer">
-              <img src="/imagenes/facebook.png" alt="Facebook" />
-            </a>
-            <a href="https://x.com/fecaujedmx" aria-label="X" target="_blank" rel="noreferrer">
-              <img src="/imagenes/x.png" alt="X" />
-            </a>
-            <a href="https://www.instagram.com/fecaujedmx" aria-label="Instagram" target="_blank" rel="noreferrer">
-              <img src="/imagenes/instagram.jpg" alt="Instagram" />
-            </a>
-            <a href="https://www.tiktok.com/@fecaujed.mx" aria-label="TikTok" target="_blank" rel="noreferrer">
-              <img src="/imagenes/tiktok.png" alt="TikTok" />
-            </a>
-          </div>
+            <div className="panel-social">
+              <a className="si-facebook" href="https://www.facebook.com/FECAUJEDMX/" aria-label="Facebook" target="_blank" rel="noreferrer">
+                <IconFacebook size={20} />
+              </a>
+              <a className="si-twitter" href="https://x.com/fecaujedmx" aria-label="X / Twitter" target="_blank" rel="noreferrer">
+                <IconXTwitter size={20} />
+              </a>
+              <a className="si-instagram" href="https://www.instagram.com/fecaujedmx" aria-label="Instagram" target="_blank" rel="noreferrer">
+                <IconInstagram size={20} />
+              </a>
+              <a className="si-tiktok" href="https://www.tiktok.com/@fecaujed.mx" aria-label="TikTok" target="_blank" rel="noreferrer">
+                <IconTikTok size={20} />
+              </a>
+            </div>
           </section>
           </div>
         </aside>
       </div>
+
+      {/* Modal detalle de noticia */}
+      {selectedNews && (
+        <div className="buzon-overlay" onClick={(e) => { if (e.target === e.currentTarget) setSelectedNews(null); }}>
+          <div className="buzon-modal news-detail-modal" role="dialog" aria-modal="true">
+            <div className="buzon-modal-header">
+              <div className="buzon-modal-header-left">
+                <div className="buzon-modal-icon">
+                  {selectedNews.type === "document" ? (
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M6 2h9l5 5v15a1 1 0 01-1 1H5a1 1 0 01-1-1V3a1 1 0 011-1zm9 1v4h4L15 3zM8 12h8v1.5H8V12zm0 3h8v1.5H8V15zm0-6h4v1.5H8V9z"/></svg>
+                  ) : (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="20" height="20"><path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10l6 6v10a2 2 0 01-2 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+                  )}
+                </div>
+                <div>
+                  <div className="panel-news-meta" style={{marginBottom: 0}}>
+                    {selectedNews.badge && <span className="panel-news-badge">{selectedNews.badge}</span>}
+                    <span className="panel-news-date">{selectedNews.date}</span>
+                    <span className="panel-news-cat">{selectedNews.cat}</span>
+                  </div>
+                </div>
+              </div>
+              <button className="buzon-modal-close" onClick={() => setSelectedNews(null)} aria-label="Cerrar">✕</button>
+            </div>
+
+            <div className="news-detail-body">
+              <h2 className="news-detail-title">{selectedNews.title}</h2>
+
+              {selectedNews.type === "document" && selectedNews.doc ? (
+                <>
+                  <p className="news-detail-text">{selectedNews.body}</p>
+                  <div className="news-detail-pdf-wrap">
+                    <iframe
+                      src={selectedNews.doc}
+                      className="news-detail-pdf"
+                      title={selectedNews.title}
+                    />
+                  </div>
+                  <a href={selectedNews.doc} download className="news-detail-download">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Descargar PDF
+                  </a>
+                </>
+              ) : (
+                <div className="news-detail-text">
+                  {selectedNews.body.split("\n").map((line, i) => (
+                    line.trim() === "" ? <br key={i} /> : <p key={i}>{line}</p>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Modal Buzón de quejas y sugerencias */}
+      {buzonOpen && (
+        <div
+          className="buzon-overlay"
+          onClick={(e) => { if (e.target === e.currentTarget) setBuzonOpen(false); }}
+        >
+          <div className="buzon-modal" role="dialog" aria-modal="true" aria-label="Buzón de quejas y sugerencias">
+            <div className="buzon-modal-header">
+              <div className="buzon-modal-header-left">
+                <div className="buzon-modal-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="20" height="20">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <h2 className="buzon-modal-title">Buzón de quejas y sugerencias</h2>
+                  <p className="buzon-modal-sub">Tu opinión nos ayuda a mejorar.</p>
+                </div>
+              </div>
+              <button className="buzon-modal-close" onClick={() => setBuzonOpen(false)} aria-label="Cerrar">✕</button>
+            </div>
+
+            <div className="buzon-modal-body">
+              <div className="buzon-placeholder">
+                <svg viewBox="0 0 64 64" fill="none" width="56" height="56">
+                  <rect x="4" y="12" width="56" height="40" rx="6" stroke="#e31313" strokeWidth="2.5" fill="#fff0f0"/>
+                  <path d="M4 20l28 18 28-18" stroke="#e31313" strokeWidth="2.5" strokeLinecap="round"/>
+                </svg>
+                <p className="buzon-placeholder-title">Formulario próximamente</p>
+                <p className="buzon-placeholder-text">
+                  El formulario se habilitará en cuanto se vincule el correo institucional.<br/>
+                  Por ahora puedes escribirnos directamente a:
+                </p>
+                <a href="mailto:informes@feca.ujed.mx" className="buzon-placeholder-email">
+                  informes@feca.ujed.mx
+                </a>
+              </div>
+              {/*
+                CUANDO TENGAS TU GOOGLE FORM, REEMPLAZA EL DIV DE ARRIBA POR ESTO:
+                <iframe
+                  src="PEGA_AQUI_TU_URL_DE_GOOGLE_FORMS"
+                  className="buzon-iframe"
+                  title="Buzón de quejas y sugerencias"
+                  frameBorder="0"
+                  marginHeight="0"
+                  marginWidth="0"
+                >
+                  Cargando…
+                </iframe>
+              */}
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

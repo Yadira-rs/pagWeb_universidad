@@ -138,133 +138,45 @@ export const teachers = [
 
 export const historyEntries = [
   {
-    year: 2000,
+    year: 1975,
     tag: 'Fundación',
-    title: 'Campus established',
-    body: "Manipal Dubai was established as a branch campus of MAHE India - the university's first international campus, expanding its academic reach into the UAE.",
-    image:
-      'https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80',
+    title: 'Fundación del Centro de Idiomas',
+    body: 'El Centro de Idiomas de la FECA-UJED fue fundado formalmente en 1975 bajo la dirección del C.P. Mtro. Rubén Vargas Quiñones. El primer coordinador fue el Mtro. Jack Hanlon, quien inició esta labor educativa con un grupo de apenas treinta alumnos, marcando el inicio de una larga trayectoria en la enseñanza de lenguas extranjeras.',
+    image: '/imagenes/distancia.jpg',
   },
   {
-    year: 2001,
-    tag: 'Academics',
-    title: 'Undergraduate programs launch',
-    body: 'The Dubai campus launched undergraduate programs in Engineering and Business, catering to an international student body.',
-    image:
-      'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80',
+    year: 1981,
+    tag: 'Nueva coordinación',
+    title: 'Dr. José Ninahualpa Lucano al frente',
+    body: 'En 1981 la coordinación del Centro quedó a cargo del Dr. José Ninahualpa Lucano (q.e.p.d.), quien dio continuidad al proyecto con un enfoque académico sólido y creciente, consolidando la enseñanza de idiomas como parte esencial de la formación universitaria en la FECA.',
+    image: '/imagenes/aniversario.jpeg',
   },
   {
-    year: 2003,
-    tag: 'Growth',
-    title: 'Postgraduate programs added',
-    body: 'The campus expanded its academic offerings with postgraduate programs for students seeking advanced degrees in Engineering and Business.',
-    image:
-      'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80',
+    year: 1994,
+    tag: 'Nueva etapa',
+    title: 'Lic. Leticia Moreno Elizalde asume la coordinación',
+    body: 'A partir de 1994, la Lic. Leticia Moreno Elizalde asumió la coordinación del Centro, etapa en la que se vivieron cambios significativos tanto en estructura como en oferta académica, consolidando al Centro como un referente en la enseñanza de idiomas dentro de la Universidad Juárez del Estado de Durango.',
+    image: '/imagenes/lic.jpg',
   },
   {
-    year: 2007,
-    tag: 'Infrastructure',
-    title: 'Specialized labs inaugurated',
-    body: 'New specialized labs for media, biotechnology, and information technology were added, enhancing practical learning experiences.',
-    image:
-      'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80',
-  },
-  {
-    year: 2008,
-    tag: 'Milestone',
-    title: 'Over 1,500 students enrolled',
-    body: 'MAHE Dubai saw a significant increase in student enrollment, surpassing 1,500 students across various disciplines.',
-    image:
-      'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80',
-  },
-  {
-    year: 2011,
-    tag: 'Major milestone',
-    title: 'Move to DIAC campus',
-    body: 'MAHE Dubai relocated to its iconic new campus in Dubai International Academic City, with facilities for 4,000 students, state-of-the-art labs and studios.',
-    image:
-      'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80',
-  },
-  {
-    year: 2015,
-    tag: 'Scholarship',
-    title: '100% Higher Education Scholarship',
-    body: 'In collaboration with the Embassy of India in Abu Dhabi, MAHE Dubai launched the Mahila Sarva Siksha Abhiyan for select girl students.',
-    image:
-      'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80',
-  },
-  {
-    year: 2019,
-    tag: 'Award',
-    title: 'Forbes Middle East Award',
-    body: 'Won the Forbes Middle East Higher Education Award for outstanding support for students at the 2019 edition.',
-    image:
-      'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80',
-  },
-  {
-    year: 2020,
-    tag: 'Excellence',
-    title: 'KHDA 5-star rating',
-    body: 'Received a 5-star rating in the KHDA Higher Education Classification Ratings, achieving the highest overall score among participating institutions.',
-    image:
-      'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80',
-  },
-  {
-    year: 2021,
-    tag: 'Technology',
-    title: 'Centre for Robotics & AI established',
-    body: 'Established the Centre for Robotics and Artificial Intelligence to equip students with practical skills and exposure to new technologies.',
-    image:
-      'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80',
-  },
-  {
-    year: 2022,
-    tag: 'Recognition',
-    title: '5 stars across all categories + climate pledge',
-    items: [
-      'Only university with 5 stars in all eight KHDA/QS 2022 categories, scoring 876/1000.',
-      'Recognized as a signatory of the UNFCC Race to Zero, with a Climate Action Plan and 2040 Net Zero target.',
-    ],
-    image:
-      'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80',
-  },
-  {
-    year: 2023,
-    tag: 'Accreditation',
-    title: 'COP28, awards & new accreditations',
-    items: [
-      'Participated in COP28 hosted by the UAE as a member of the Universities Climate Network.',
-      'CIBSE Award winner in sustainability initiative and digital innovation of the year.',
-      'School of Engineering earned IET accreditation for four BTech programs.',
-      'New labs for management, AR/VR, cyber security, IoT and interdisciplinary studies.',
-    ],
-    image:
-      'https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=1200&q=80',
+    year: 2000,
+    tag: 'Crecimiento',
+    title: 'Expansión de la oferta académica',
+    body: 'A lo largo de sus primeras décadas, el Centro de Idiomas de la FECA fue ampliando progresivamente su oferta académica, incorporando nuevos idiomas y metodologías de enseñanza para responder a las necesidades de una comunidad universitaria en constante crecimiento.',
+    image: '/imagenes/cafeteria.jpeg',
   },
   {
     year: 2024,
-    tag: 'Campus',
-    title: 'New campus facilities',
+    tag: 'Actualidad',
+    title: 'Más de mil alumnos y cuatro idiomas',
+    body: 'Actualmente el Centro de Idiomas de la FECA atiende a una población de más de mil alumnos, ofreciendo formación de calidad en inglés, italiano, francés y japonés, dirigida tanto a estudiantes universitarios como al público en general.',
     items: [
-      'Fintech Lab for financial technology innovation.',
-      'Co-Lab for interdisciplinary projects and entrepreneurship.',
-      'Outdoor Sports Arena for sports and recreation.',
-      'RTA Bus Shelter to improve campus accessibility.',
+      'Más de 1,000 alumnos activos.',
+      'Cuatro idiomas: inglés, italiano, francés y japonés.',
+      'Atención a estudiantes universitarios y público en general.',
+      'Casi cinco décadas de trayectoria y excelencia académica.',
     ],
-    image:
-      'https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=1200&q=80',
-  },
-  {
-    year: 2025,
-    tag: 'Today',
-    title: 'MoHESR license, RIBA accreditation & Kaplan alliance',
-    items: [
-      'Official license from the Ministry of Higher Education and Scientific Research.',
-      'BArch program earned RIBA accreditation as a mark of international excellence.',
-      'Strategic MoU with Kaplan Middle East for certification courses and CMA preparation.',
-    ],
-    image:
-      'https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=1200&q=80',
+    image: '/imagenes/inicio.png',
   },
 ]
 
@@ -304,13 +216,13 @@ export const missionVisionContent = {
     eyebrow: 'MISIÓN',
     title: 'Misión',
     body:
-      'Formar profesionistas de licenciatura y posgrado en las ciencias económicas, contables y administrativas, distinguidos por su responsabilidad social, compromiso ético y sustentable. La facultad impulsa la innovación y el emprendimiento, el desarrollo organizacional y la generación de conocimiento mediante la investigación, promoviendo además la cultura, el deporte y la participación cívica. Con ello, contribuye al avance científico, humanístico y tecnológico en los ámbitos local, regional, nacional e internacional.',
+      'Ofrecer a la comunidad programas educativos en la lengua extranjera y servicios especializados de alta calidad que permitan sumar ventajas competitivas a nuestros alumnos y clientes dentro de un entorno global.',
   },
   vision: {
     eyebrow: 'VISIÓN',
     title: 'Visión',
     body:
-      'Consolidarse como una institución líder en calidad educativa, dedicada a la formación de profesionales competitivos y éticos, que promuevan una cultura de innovación y emprendimiento.',
+      'Ser un centro de idiomas reconocido por la excelencia en la enseñanza de lenguas extranjeras, formando profesionales capaces de interactuar eficazmente en un entorno global y contribuyendo al desarrollo integral, intercultural y profesional de la comunidad y sociedad en general.',
   },
 }
 
