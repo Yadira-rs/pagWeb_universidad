@@ -247,12 +247,13 @@ const news = [
 
 function HomePage({ logoImage, setNewsPanelOpen }) {
   const [heroCurrentSlide, setHeroCurrentSlide] = useState(0);
-  const [trackIndex, setTrackIndex] = useState(10);
+  const [trackIndex, setTrackIndex] = useState(2);
   const [selectedTeacher, setSelectedTeacher] = useState(null);
   const trackRef = useRef(null);
   const carouselRef = useRef(null);
-  const trackIdxRef = useRef(10);
+  const trackIdxRef = useRef(2);
   const pausedRef = useRef(false);
+  const hoverIntervalRef = useRef(null);
   const selectedTeacherRef = useRef(null);
 
   const openModal = (teacher) => {
@@ -307,11 +308,13 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
     return () => observer.disconnect();
   }, []);
 
-  // 5 copies × 5 teachers = 25 items. Start in the middle (idx=10).
-  // No snap before animation — the reset happens AFTER animation ends
-  // via handleTransitionEnd, when the carousel is idle and the snap is invisible.
+  // 2 clones al inicio + 5 reales + 2 clones al final = 9 items
   const clonedTeachers = [
-    ...teachers, ...teachers, ...teachers, ...teachers, ...teachers,
+    teachers[3],
+    teachers[4],
+    ...teachers,
+    teachers[0],
+    teachers[1],
   ];
 
   const moveTo = (newIdx, animated) => {
@@ -320,48 +323,37 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
       carouselRef.current.classList.add("no-card-transition");
     }
     trackRef.current.style.transition = animated
-      ? "transform 1.2s cubic-bezier(0.45, 0, 0.55, 1)"
+      ? "transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)"
       : "none";
-    void trackRef.current.getBoundingClientRect();
     trackRef.current.style.transform = `translateX(calc(50% - 120px - ${newIdx * 338}px - 155px))`;
     trackIdxRef.current = newIdx;
     setTrackIndex(newIdx);
     if (!animated && carouselRef.current) {
-      setTimeout(() => {
-        carouselRef.current?.classList.remove("no-card-transition");
-      }, 100);
+      requestAnimationFrame(() =>
+        requestAnimationFrame(() =>
+          carouselRef.current?.classList.remove("no-card-transition"),
+        ),
+      );
     }
   };
 
-  const advance = (dir) => {
+  const handleNext = () => moveTo(trackIdxRef.current + 1, true);
+  const handlePrev = () => moveTo(trackIdxRef.current - 1, true);
+
+  const handleTransitionEnd = () => {
     const idx = trackIdxRef.current;
-    const next = idx + dir;
-    if (next < 0 || next >= 25) return;
-    moveTo(next, true);
+    if (idx >= 7) moveTo(idx - 5, false);
+    else if (idx <= 1) moveTo(idx + 5, false);
   };
 
-  const handleNext = () => advance(1);
-  const handlePrev = () => advance(-1);
-
-  // After each animation ends, silently re-center if near boundary.
-  // The carousel is idle so the instant snap is completely invisible.
-  const handleTransitionEnd = (e) => {
-    if (e.target !== trackRef.current || e.propertyName !== "transform") return;
-    const idx = trackIdxRef.current;
-    if (idx >= 20) moveTo(idx - 10, false);
-    else if (idx <= 4) moveTo(idx + 10, false);
-  };
-
-  // Posición inicial sin animación
   useEffect(() => {
-    moveTo(10, false);
+    moveTo(2, false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Autoplay cada 3 segundos
   useEffect(() => {
     const id = setInterval(() => {
-      if (!pausedRef.current) advance(1);
+      if (!pausedRef.current) moveTo(trackIdxRef.current + 1, true);
     }, 3000);
     return () => clearInterval(id);
   }, []);
@@ -376,10 +368,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
 
       <section className="hero">
         <div className="carousel" aria-label="Carrusel de aniversario FECA">
-          <div
-            className="carousel-track"
-            style={{ transform: `translateX(-${heroCurrentSlide * 100}%)` }}
-          >
+          <div className="carousel-track">
             {heroSlides.map((slide, index) => (
               <div
                 key={slide.title ?? slide.logo ?? index}
@@ -577,6 +566,8 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
         <div
           ref={carouselRef}
           className="teacher-carousel fade-up"
+          onMouseEnter={() => { pausedRef.current = true; }}
+          onMouseLeave={() => { pausedRef.current = false; }}
         >
           <div className="teacher-carousel-wrapper">
             <div
@@ -606,9 +597,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
                       <img src={teacher.image} alt={teacher.name} />
                       <div className="teacher-card-hover-overlay">
                         <h4 className="teacher-hover-name">{teacher.name}</h4>
-                        <p className="teacher-hover-desc">
-                          {teacher.description}
-                        </p>
+                        <p className="teacher-hover-desc">{teacher.description}</p>
                       </div>
                     </div>
                     <div className="teacher-card-body">
@@ -626,20 +615,11 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
               className="teacher-arrow teacher-prev"
               aria-label="Anterior"
               onClick={(e) => { e.preventDefault(); e.stopPropagation(); handlePrev(); }}
+              onMouseEnter={() => { hoverIntervalRef.current = setInterval(handlePrev, 600); }}
+              onMouseLeave={() => { clearInterval(hoverIntervalRef.current); }}
             >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="3"
-              >
-                <path
-                  d="M15 19l-7-7 7-7"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                <path d="M15 19l-7-7 7-7" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
             <button
@@ -647,20 +627,11 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
               className="teacher-arrow teacher-next"
               aria-label="Siguiente"
               onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleNext(); }}
+              onMouseEnter={() => { hoverIntervalRef.current = setInterval(handleNext, 600); }}
+              onMouseLeave={() => { clearInterval(hoverIntervalRef.current); }}
             >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="3"
-              >
-                <path
-                  d="M9 5l7 7-7 7"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
           </div>

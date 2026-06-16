@@ -78,33 +78,19 @@ const teachers = [
   },
 ];
 
-// 5 copies × 5 = 25 items, start at idx 10 (copy 3 = middle)
-const SLOT = 388; // card-width-alt (360) + gap (28)
-
 function DirectorsCarouselAlt() {
-  const [trackIndex, setTrackIndex] = useState(10);
   const [selectedTeacher, setSelectedTeacher] = useState(null);
-  const trackRef = useRef(null);
-  const carouselRef = useRef(null);
-  const trackIdxRef = useRef(10);
-  const pausedRef = useRef(false);
   const selectedTeacherRef = useRef(null);
-
-  const clonedTeachers = [
-    ...teachers, ...teachers, ...teachers, ...teachers, ...teachers,
-  ];
 
   const openModal = (teacher) => {
     selectedTeacherRef.current = teacher;
     setSelectedTeacher(teacher);
-    pausedRef.current = true;
     window.history.pushState({ teacherModal: true }, "", window.location.hash);
   };
 
   const closeModal = () => {
     selectedTeacherRef.current = null;
     setSelectedTeacher(null);
-    pausedRef.current = false;
   };
 
   useEffect(() => {
@@ -112,124 +98,40 @@ function DirectorsCarouselAlt() {
       if (selectedTeacherRef.current) {
         selectedTeacherRef.current = null;
         setSelectedTeacher(null);
-        pausedRef.current = false;
       }
     };
     window.addEventListener("popstate", handlePop);
     return () => window.removeEventListener("popstate", handlePop);
   }, []);
 
-  const moveTo = (newIdx, animated) => {
-    if (!trackRef.current) return;
-    if (!animated && carouselRef.current) {
-      carouselRef.current.classList.add("no-card-transition");
-    }
-    trackRef.current.style.transition = animated
-      ? "transform 1.2s cubic-bezier(0.45, 0, 0.55, 1)"
-      : "none";
-    void trackRef.current.getBoundingClientRect();
-    // 50% - padding(120) - halfCard(180) = 50% - 300px
-    trackRef.current.style.transform =
-      `translateX(calc(50% - 300px - ${newIdx * SLOT}px))`;
-    trackIdxRef.current = newIdx;
-    setTrackIndex(newIdx);
-    if (!animated && carouselRef.current) {
-      setTimeout(() => {
-        carouselRef.current?.classList.remove("no-card-transition");
-      }, 100);
-    }
-  };
-
-  const advance = (dir) => {
-    const idx = trackIdxRef.current;
-    const next = idx + dir;
-    if (next < 0 || next >= 25) return;
-    moveTo(next, true);
-  };
-
-  const handleTransitionEnd = (e) => {
-    if (e.target !== trackRef.current || e.propertyName !== "transform") return;
-    const idx = trackIdxRef.current;
-    if (idx >= 20) moveTo(idx - 10, false);
-    else if (idx <= 4) moveTo(idx + 10, false);
-  };
-
-  useEffect(() => {
-    moveTo(10, false);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      if (!pausedRef.current) advance(1);
-    }, 3000);
-    return () => clearInterval(id);
-  }, []);
-
   return (
     <>
-      <div ref={carouselRef} className="teacher-carousel-alt">
-        <div className="teacher-carousel-wrapper">
-          <div
-            ref={trackRef}
-            className="teacher-carousel-track-alt"
-            onTransitionEnd={handleTransitionEnd}
-          >
-            {clonedTeachers.map((teacher, idx) => {
-              const dist = idx - trackIndex;
-              let statusClass = "";
-              if (dist === 0) statusClass = "is-center-alt";
-              else if (dist === -1) statusClass = "is-prev-alt";
-              else if (dist === 1) statusClass = "is-next-alt";
-              else if (dist === -2 || dist === 2) statusClass = "is-edge-alt";
-
-              return (
-                <article
-                  key={`${teacher.name}-${idx}`}
-                  className={`card-alt ${statusClass}`}
-                  onClick={() => {
-                    if (dist === 0) openModal(teacher);
-                    else moveTo(idx, true);
-                  }}
-                >
-                  <div className="card-alt-img">
-                    <img src={teacher.image} alt={teacher.name} />
-                    <div className="card-alt-overlay">
-                      <p className="card-alt-desc">{teacher.description}</p>
-                    </div>
-                  </div>
-                  <div className="card-alt-body">
-                    <span className="card-alt-role">{teacher.role}</span>
-                    <h4 className="card-alt-name">{teacher.name}</h4>
-                  </div>
-                </article>
-              );
-            })}
-          </div>
-        </div>
-
-        <div className="teacher-carousel-controls">
-          <button
-            type="button"
-            className="teacher-arrow teacher-prev"
-            aria-label="Anterior"
-            onClick={(e) => { e.preventDefault(); e.stopPropagation(); advance(-1); }}
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-              <path d="M15 19l-7-7 7-7" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-          <button
-            type="button"
-            className="teacher-arrow teacher-next"
-            aria-label="Siguiente"
-            onClick={(e) => { e.preventDefault(); e.stopPropagation(); advance(1); }}
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-              <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-        </div>
+      <div className="directors-list">
+        {teachers.map((teacher) => (
+          <article key={teacher.name} className="director-row">
+            <div className="director-row-photo">
+              <img src={teacher.image} alt={teacher.name} />
+            </div>
+            <div className="director-row-info">
+              <span className="director-row-role">{teacher.role}</span>
+              <h4 className="director-row-name">{teacher.name}</h4>
+              <div className="director-row-tags">
+                <span>{teacher.area}</span>
+                <span>{teacher.enfoque}</span>
+              </div>
+              <p className="director-row-quote">
+                "{teacher.welcomeMessage.slice(0, 120)}…"
+              </p>
+              <button
+                type="button"
+                className="director-row-btn"
+                onClick={() => openModal(teacher)}
+              >
+                Ver perfil completo
+              </button>
+            </div>
+          </article>
+        ))}
       </div>
 
       {selectedTeacher && (

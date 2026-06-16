@@ -81,25 +81,29 @@ export default function Biblioteca({ logoImage, newsPanelOpen, setNewsPanelOpen 
         </div>
       </section>
 
-      <main className="services-page biblioteca-page">
-        <div className="section-title-block">
-          <div className="section-label">Biblioteca</div>
-          <h2 className="section-title">Servicios, colecciones y recursos digitales</h2>
-          <p className="section-desc">
-            Conoce la historia, misión, visión y los servicios que hacen de esta
-            biblioteca un apoyo fundamental para la comunidad universitaria.
-          </p>
+      <section className="section">
+        <div className="container">
+          <div className="fade-up">
+            <div className="section-label">Biblioteca</div>
+            <h2 className="section-title">Servicios, colecciones y recursos digitales</h2>
+            <p className="section-desc">
+              Conoce la historia, misión, visión y los servicios que hacen de esta
+              biblioteca un apoyo fundamental para la comunidad universitaria.
+            </p>
+          </div>
         </div>
+      </section>
 
-        <div className="biblioteca-layout">
-          <section className="section biblioteca-section">
-            <article className="wide-card biblioteca-history">
+      <div className="biblioteca-layout">
+        <section className="section biblioteca-section">
+          <div className="container">
+            <article className="wide-card biblioteca-history fade-up">
               <div>
                 <div className="section-label">Origen</div>
                 <h3>Historia</h3>
-                <img 
-                  src="/imagenes/biblioteca_historica.png" 
-                  alt="Biblioteca FECA Histórica" 
+                <img
+                  src="/imagenes/biblioteca_historica.png"
+                  alt="Biblioteca FECA Histórica"
                   style={{ width: "100%", borderRadius: "8px", marginTop: "16px", boxShadow: "0 6px 16px rgba(0,0,0,0.12)", display: "block" }}
                 />
               </div>
@@ -124,10 +128,12 @@ export default function Biblioteca({ logoImage, newsPanelOpen, setNewsPanelOpen 
                 </p>
               </div>
             </article>
-          </section>
+          </div>
+        </section>
 
-          <section className="section biblioteca-section">
-            <div className="grid">
+        <section className="section section-alt biblioteca-section">
+          <div className="container">
+            <div className="grid fade-up">
               {identityCards.map((card) => (
                 <article className="card biblioteca-card" key={card.title}>
                   <h3>{card.title}</h3>
@@ -135,10 +141,12 @@ export default function Biblioteca({ logoImage, newsPanelOpen, setNewsPanelOpen 
                 </article>
               ))}
             </div>
-          </section>
+          </div>
+        </section>
 
-          <section className="section biblioteca-section">
-            <div className="biblioteca-two-column">
+        <section className="section biblioteca-section">
+          <div className="container">
+            <div className="biblioteca-two-column fade-up">
               <article className="card biblioteca-card">
                 <div className="section-label">Acervo</div>
                 <h3>Colecciones</h3>
@@ -164,17 +172,21 @@ export default function Biblioteca({ logoImage, newsPanelOpen, setNewsPanelOpen 
                 </p>
               </article>
             </div>
-          </section>
+          </div>
+        </section>
 
-          <section className="section biblioteca-section">
-            <div className="section-label">Recursos</div>
-            <h2 className="section-title">Biblioteca digital</h2>
-            <p className="section-desc">
-              La Biblioteca ofrece recursos digitales accesibles mediante códigos
-              QR para descargar libros completos y material académico desde cualquier
-              dispositivo.
-            </p>
-            <div className="qr-grid">
+        <section className="section section-alt biblioteca-section">
+          <div className="container">
+            <div className="fade-up">
+              <div className="section-label">Recursos</div>
+              <h2 className="section-title">Biblioteca digital</h2>
+              <p className="section-desc">
+                La Biblioteca ofrece recursos digitales accesibles mediante códigos
+                QR para descargar libros completos y material académico desde cualquier
+                dispositivo.
+              </p>
+            </div>
+            <div className="qr-grid fade-up">
               {digitalResources.map((resource) => (
                 <article className="qr-card" key={resource.title}>
                   <h3>{resource.title}</h3>
@@ -182,9 +194,9 @@ export default function Biblioteca({ logoImage, newsPanelOpen, setNewsPanelOpen 
                 </article>
               ))}
             </div>
-          </section>
-        </div>
-      </main>
+          </div>
+        </section>
+      </div>
 
       <Footer logoImage={logoImage} />
     </div>

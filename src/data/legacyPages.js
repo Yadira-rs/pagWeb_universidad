@@ -22,7 +22,7 @@ export const legacyPages = {
             title: "Contador Público",
             plan: "P2021",
             abbr: "CP",
-            color: "#7b1218",
+            color: "#e31313",
             body: "Formación en información financiera, fiscal, administrativa, auditoría, costos y finanzas para la toma de decisiones empresariales e institucionales.",
             actions: [
               { href: "/docs/plan-de-estudios_cp_2021.pdf", label: "Descargar plan" },
@@ -33,7 +33,7 @@ export const legacyPages = {
             title: "Licenciado en Administración",
             plan: "P2021",
             abbr: "LA",
-            color: "#7b1218",
+            color: "#e31313",
             body: "Formación para planear, dirigir y evaluar organizaciones con visión estratégica, flexible y emprendedora orientada al liderazgo.",
             actions: [
               { href: "/docs/plan_de_estudios_la_2021.pdf", label: "Descargar plan" },
@@ -44,7 +44,7 @@ export const legacyPages = {
             title: "Lic. en Economía y Negocios Internacionales",
             plan: "P2021",
             abbr: "LENI",
-            color: "#7b1218",
+            color: "#e31313",
             body: "Formación en análisis económico, comercio exterior, finanzas, mercados y negocios internacionales con visión global.",
             actions: [
               { href: "/docs/plan_de_estudios_leni_2021.pdf", label: "Descargar plan" },
@@ -64,7 +64,7 @@ export const legacyPages = {
             title: "Contador Público",
             plan: "P2014",
             abbr: "CP",
-            color: "#7b1218",
+            color: "#e31313",
             body: "Profesionales capaces de aplicar técnicas de contabilidad financiera, fiscal y administrativa para generar y analizar información confiable con responsabilidad social.",
             actions: [
               { href: "/docs/cp_plan_de_estudio_2014.pdf", label: "Descargar plan" },
@@ -74,7 +74,7 @@ export const legacyPages = {
             title: "Licenciado en Administración",
             plan: "P2014",
             abbr: "LA",
-            color: "#7b1218",
+            color: "#e31313",
             body: "Diseñar organizaciones y garantizar su funcionamiento mediante la gestión de recursos financieros, tecnológicos y de talento humano con enfoque en competitividad.",
             actions: [
               { href: "/docs/la_plan_de_estudio_2014.pdf", label: "Descargar plan" },
@@ -84,7 +84,7 @@ export const legacyPages = {
             title: "Lic. en Economía y Negocios Internacionales",
             plan: "P2014",
             abbr: "LENI",
-            color: "#7b1218",
+            color: "#e31313",
             body: "Formación equilibrada en teoría económica, finanzas y comercio internacional con capacidad para diseñar y evaluar escenarios de competitividad global.",
             actions: [
               { href: "/docs/leni_plan_de_estudio_2014.pdf", label: "Descargar plan" },

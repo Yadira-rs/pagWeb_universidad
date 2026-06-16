@@ -29,6 +29,7 @@ import TutoriasPage from "./pages/TutoriasPage";
 import OfertaEducativaPage from "./pages/OfertaEducativaPage";
 import NosotrosPage from "./pages/NosotrosPage";
 import ContraloriaPage from "./pages/ContraloriaPage";
+import ValoresPage from "./pages/ValoresPage";
 
 function getCurrentRoute() {
   const hash = window.location.hash || "#/";
@@ -58,6 +59,8 @@ function getCurrentRoute() {
     const slug = hash.replace("#/servicios/", "");
     return { page: "service-detail", slug };
   }
+
+  if (hash === "#/nosotros/valores") return { page: "valores" };
 
   if (hash.startsWith("#/nosotros/")) {
     const slug = hash.replace("#/nosotros/", "");
@@ -167,7 +170,9 @@ function App() {
                             ? `FECA - ${legacyPages[route.slug]?.title ?? "Solicitud"}`
                             : route.page === "service-detail"
                               ? `FECA - ${servicePages[route.slug]?.heroTitle ?? "Servicios"}`
-                              : route.page === "single-section"
+                              : route.page === "valores"
+                                  ? "FECA - Valores Institucionales"
+                                  : route.page === "single-section"
                                 ? `FECA - ${sectionPages[route.slug]?.heroTitle ?? "Nosotros"}`
                                 : "FECA - Inicio";
   }, [route]);
@@ -283,6 +288,12 @@ function App() {
           setNewsPanelOpen={setNewsPanelOpen}
         />
       ) : null
+    ) : route.page === "valores" ? (
+      <ValoresPage
+        logoImage={logoImage}
+        newsPanelOpen={newsPanelOpen}
+        setNewsPanelOpen={setNewsPanelOpen}
+      />
     ) : route.page === "single-section" ? (
       sectionPages[route.slug] ? (
         <SingleSectionPage
@@ -305,7 +316,8 @@ function App() {
     <>
       {pageContent}
 
-      <a
+
+<a
         className="whatsapp-fab"
         href="https://wa.me/526188271365"
         target="_blank"
@@ -424,6 +436,18 @@ function App() {
               </a>
               <a className="si-tiktok" href="https://www.tiktok.com/@fecaujed.mx" aria-label="TikTok" target="_blank" rel="noreferrer">
                 <IconTikTok size={20} />
+              </a>
+              <a
+                className="si-location"
+                href="https://maps.app.goo.gl/cn9D7n9UWF9ZckCZ7"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Ver ubicación en Google Maps"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
               </a>
             </div>
           </section>

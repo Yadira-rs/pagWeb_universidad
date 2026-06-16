@@ -27,7 +27,7 @@ function Footer() {
           <h4>Contacto</h4>
           <ul>
             <li>
-              <a href="#">
+              <a href="https://maps.app.goo.gl/cn9D7n9UWF9ZckCZ7" target="_blank" rel="noopener noreferrer">
                 Fanny Anitua y Priv. Loza s/n, C.P. 34000., Durango, Dgo.,
                 México
               </a>
@@ -59,7 +59,8 @@ function Footer() {
         </div>
       </div>
 
-      <div className="footer-bottom">
+
+<div className="footer-bottom">
         <span>© 2026 FECA. Todos los derechos reservados.</span>
         <div className="footer-bottom-links">
           <a href="#/aviso-de-privacidad">Aviso de privacidad</a>

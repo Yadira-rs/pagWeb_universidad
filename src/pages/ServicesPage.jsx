@@ -27,17 +27,17 @@ const serviceCards = [
     imageClass: "img_contraloria",
   },
   {
+    title: "Coordinación de Planeación y Evaluación Institucional",
+    shortTitle: "CPEI",
+    description: "Planeación estratégica, evaluación y seguimiento del desarrollo institucional.",
+    href: "#/servicios/cpei",
+    imageClass: "img_cpei",
+  },
+  {
     title: "Biblioteca",
     description: "Accede a los servicios y recursos disponibles en la Biblioteca.",
     href: "#/biblioteca",
     imageClass: "img6",
-  },
-  {
-    title: "Registro Egresados",
-    description: "Accede al sistema SUMA FECA.",
-    href: "https://sumafeca.ujed.mx/",
-    imageClass: "img5",
-    external: true,
   },
 ];
 
@@ -61,37 +61,38 @@ function ServicesPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
             Explora información académica, profesional y estudiantil en una
             plataforma moderna y organizada.
           </p>
-          
         </div>
       </section>
 
-      <main id="servicios" className="services-page">
-        <div className="section-title-block">
-          <div className="section-label">Servicios</div>
-          <h2 className="section-title">Todo lo que necesitas en un solo lugar</h2>
-          <p className="section-desc">
-            Consulta información estudiantil, formatos y procesos importantes.
-          </p>
-        </div>
+      <section className="section" id="servicios">
+        <div className="container">
+          <div className="fade-up">
+            <div className="section-label">Servicios</div>
+            <h2 className="section-title">Todo lo que necesitas en un solo lugar</h2>
+            <p className="section-desc">
+              Consulta información estudiantil, formatos y procesos importantes.
+            </p>
+          </div>
 
-        <div className="services-grid">
-          {serviceCards.map((card) => (
-            <a
-              key={card.title}
-              href={card.href}
-              target={card.external ? "_blank" : undefined}
-              rel={card.external ? "noreferrer" : undefined}
-              className="service-card"
-            >
-              <div className={`service-image ${card.imageClass}`}></div>
-              <div className="service-content">
-                <h3>{card.title}</h3>
-                <p>{card.description}</p>
-              </div>
-            </a>
-          ))}
+          <div className="services-grid fade-up">
+            {serviceCards.map((card) => (
+              <a
+                key={card.title}
+                href={card.href}
+                target={card.external ? "_blank" : undefined}
+                rel={card.external ? "noreferrer" : undefined}
+                className="service-card"
+              >
+                <div className={`service-image ${card.imageClass}`}></div>
+                <div className="service-content">
+                  <h3>{card.shortTitle ?? card.title}</h3>
+                  <p>{card.description}</p>
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
-      </main>
+      </section>
 
       <Footer logoImage={logoImage} />
     </div>

@@ -69,33 +69,35 @@ function OfertaEducativaPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
         </div>
       </section>
 
-      <main id="oferta-educativa" className="services-page">
-        <div className="section-title-block">
-          <div className="section-label">Programas y centros</div>
-          <h2 className="section-title">Todo lo que tenemos para ti</h2>
-          <p className="section-desc">
-            Desde licenciaturas hasta idiomas y cursos de innovación, encuentra el programa que impulse tu futuro.
-          </p>
-        </div>
+      <section className="section" id="oferta-educativa">
+        <div className="container">
+          <div className="fade-up">
+            <div className="section-label">Programas y centros</div>
+            <h2 className="section-title">Todo lo que tenemos para ti</h2>
+            <p className="section-desc">
+              Desde licenciaturas hasta idiomas y cursos de innovación, encuentra el programa que impulse tu futuro.
+            </p>
+          </div>
 
-        <div className="services-grid">
-          {ofertaCards.map((card) => (
-            <a
-              key={card.title}
-              href={card.href}
-              target={card.external ? "_blank" : undefined}
-              rel={card.external ? "noreferrer" : undefined}
-              className="service-card"
-            >
-              <div className={`service-image ${card.imageClass}`}></div>
-              <div className="service-content">
-                <h3>{card.title}</h3>
-                <p>{card.description}</p>
-              </div>
-            </a>
-          ))}
+          <div className="services-grid fade-up">
+            {ofertaCards.map((card) => (
+              <a
+                key={card.title}
+                href={card.href}
+                target={card.external ? "_blank" : undefined}
+                rel={card.external ? "noreferrer" : undefined}
+                className="service-card"
+              >
+                <div className={`service-image ${card.imageClass}`}></div>
+                <div className="service-content">
+                  <h3>{card.title}</h3>
+                  <p>{card.description}</p>
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
-      </main>
+      </section>
 
       <Footer logoImage={logoImage} />
     </div>

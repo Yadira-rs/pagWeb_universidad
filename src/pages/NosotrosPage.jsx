@@ -76,33 +76,35 @@ function NosotrosPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
         </div>
       </section>
 
-      <main className="services-page">
-        <div className="section-title-block">
-          <div className="section-label">La facultad</div>
-          <h2 className="section-title">Quiénes somos</h2>
-          <p className="section-desc">
-            Todo sobre nuestra institución: historia, organización, principios y normativa.
-          </p>
-        </div>
+      <section className="section">
+        <div className="container">
+          <div className="fade-up">
+            <div className="section-label">La facultad</div>
+            <h2 className="section-title">Quiénes somos</h2>
+            <p className="section-desc">
+              Todo sobre nuestra institución: historia, organización, principios y normativa.
+            </p>
+          </div>
 
-        <div className="services-grid">
-          {nosotrosCards.map((card) => (
-            <a
-              key={card.title}
-              href={card.href}
-              target={card.external ? "_blank" : undefined}
-              rel={card.external ? "noreferrer" : undefined}
-              className="service-card"
-            >
-              <div className={`service-image ${card.imageClass}`}></div>
-              <div className="service-content">
-                <h3>{card.title}</h3>
-                <p>{card.description}</p>
-              </div>
-            </a>
-          ))}
+          <div className="services-grid fade-up">
+            {nosotrosCards.map((card) => (
+              <a
+                key={card.title}
+                href={card.href}
+                target={card.external ? "_blank" : undefined}
+                rel={card.external ? "noreferrer" : undefined}
+                className="service-card"
+              >
+                <div className={`service-image ${card.imageClass}`}></div>
+                <div className="service-content">
+                  <h3>{card.title}</h3>
+                  <p>{card.description}</p>
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
-      </main>
+      </section>
 
       <Footer logoImage={logoImage} />
     </div>

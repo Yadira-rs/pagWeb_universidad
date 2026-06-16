@@ -126,11 +126,10 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 <a href="#/servicios/servicios-escolares">Servicios escolares</a>
                 <a href="#/servicios/servicio-social">Servicio social</a>
                 <a href="#/servicios/practicas-profesionales">Prácticas profesionales</a>
-                <a href="/docs/LCPEI.pdf" target="_blank" rel="noreferrer">Coordinación de Planeación y Evaluación Institucional</a>
+                <a href="/docs/LCPEI.pdf" target="_blank" rel="noreferrer">CPEI</a>
                 <a href="#/servicios/contraloria-interna">Contraloría interna</a>
                 <a href="https://mat.ujed.mx/" target="_blank" rel="noreferrer">Tutorías</a>
                 <a href="#/biblioteca">Biblioteca</a>
-                <a href="https://sumafeca.ujed.mx/" target="_blank" rel="noreferrer">Registro de egresados</a>
               </div>
             </div>
 
@@ -307,9 +306,8 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
             <span className="mobile-menu-section-label">Servicios</span>
             <a href="#/servicios" className="mobile-nav-sub" onClick={closeMobile}>Todos los servicios</a>
             <a href="#/biblioteca" className="mobile-nav-sub" onClick={closeMobile}>Biblioteca</a>
-            <a href="/docs/LCPEI.pdf" className="mobile-nav-sub" target="_blank" rel="noreferrer" onClick={closeMobile}>Coord. Planeación y Evaluación Institucional</a>
+            <a href="/docs/LCPEI.pdf" className="mobile-nav-sub" target="_blank" rel="noreferrer" onClick={closeMobile}>CPEI</a>
             <a href="https://mat.ujed.mx/" className="mobile-nav-sub" target="_blank" rel="noreferrer" onClick={closeMobile}>Tutorías</a>
-            <a href="https://sumafeca.ujed.mx/" className="mobile-nav-sub" target="_blank" rel="noreferrer" onClick={closeMobile}>Registro de egresados</a>
           </div>
 
           {/* Nosotros */}

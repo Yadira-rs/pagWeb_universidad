@@ -42,7 +42,7 @@ function ContraloriaPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
               </p>
             </div>
 
-            <div className="contraloria-grid" style={{ marginTop: "48px" }}>
+            <div className="contraloria-grid fade-up" style={{ marginTop: "48px" }}>
               <div className="contraloria-info">
                 <div className="info-box">
                   <h2>Nuestra Misión</h2>

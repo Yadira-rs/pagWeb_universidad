@@ -51,12 +51,12 @@ function FeriaPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
 
       <main className="feria-content">
         <section id="dinamica" className="feria-section">
-          <div className="section-heading">
+          <div className="section-heading fade-up">
             <span>Programa de la Feria</span>
             <h2>Programa de la Feria del Servicio Social y Experiencia Recepcional (Prácticas Profesionales) 2025</h2>
           </div>
 
-          <ol className="feria-list">
+          <ol className="feria-list fade-up">
             <li>
               <h3>Inauguración y oferta de vacantes</h3>
               <p>
@@ -91,12 +91,12 @@ function FeriaPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
         </section>
 
         <section id="servicio-social" className="feria-section feria-light">
-          <div className="section-heading">
+          <div className="section-heading fade-up">
             <span>Área de Servicio Social</span>
             <h2>Entidades participantes</h2>
           </div>
 
-          <div className="feria-cards">
+          <div className="feria-cards fade-up">
             {servicioSocialPartners.map((item) => (
               <article key={item.name} className="feria-card">
                 <img src={item.image} alt={item.name} />
@@ -109,7 +109,7 @@ function FeriaPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
         </section>
 
         <section id="practicas-profesionales" className="feria-section">
-          <div className="section-heading">
+          <div className="section-heading fade-up">
             <span>Experiencia Recepcional</span>
             <h2>Prácticas Profesionales</h2>
           </div>
@@ -118,7 +118,7 @@ function FeriaPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
             Consulta las empresas participantes y los proyectos disponibles para realizar tu experiencia recepcional.
           </p>
 
-          <div className="feria-cards">
+          <div className="feria-cards fade-up">
             {practicasProfesionales.map((item) => (
               <article key={item.name} className="feria-card">
                 <img src={item.image} alt={item.name} />

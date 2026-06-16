@@ -541,6 +541,24 @@ export const servicePages = {
       },
     ],
   },
+  cpei: {
+    heroTag: "FECA · CPEI",
+    heroTitle: "Coordinación de Planeación y Evaluación Institucional",
+    intro:
+      "Área responsable de la planeación estratégica, la evaluación de programas académicos y el seguimiento de los planes de desarrollo de la facultad.",
+    items: [
+      {
+        title: "Plan de Desarrollo Universitario y Académico (PDUA)",
+        href: "/PDUA-SILD27.pdf",
+        label: "Abrir PDF →",
+      },
+      {
+        title: "Organigrama Institucional",
+        href: "/ORGANIGRAMA-FECA.pdf",
+        label: "Abrir PDF →",
+      },
+    ],
+  },
   "practicas-profesionales": {
     heroTag: "FECA · Prácticas Profesionales",
     heroTitle: "Prácticas Profesionales",
