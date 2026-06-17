@@ -1,6 +1,6 @@
 import Footer from "../sections/Footer";
 import Header from "../sections/Header";
-import DirectorsCarouselAlt from "../components/DirectorsCarouselAlt";
+import DirectorsCarousel from "../components/DirectorsCarousel";
 
 function SingleSectionPage({
   content,
@@ -49,6 +49,63 @@ function SingleSectionPage({
                 </div>
               </div>
             </article>
+          ) : slug === "ejes-rectores" ? (
+            <div className="ejes-rectores-container fade-up">
+              <div className="ejes-rectores-header" style={{ textAlign: "center", marginBottom: "48px" }}>
+                <span className="legacy-kicker">{content.eyebrow}</span>
+                <h2 className="mission-vision-title" style={{ marginTop: "12px" }}>{content.title}</h2>
+                <p className="mission-vision-body" style={{ margin: "0 auto", maxWidth: "800px" }}>{content.body}</p>
+              </div>
+              <div className="highlights-grid">
+                {content.points.map((point, index) => {
+                  let icon = null;
+                  let title = "";
+                  let description = "";
+
+                  if (index === 0) {
+                    title = "Excelencia Académica";
+                    description = point;
+                    icon = (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M22 10v6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M2 10l10-5 10 5-10 5z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M6 12v5c3 3 9 3 12 0v-5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    );
+                  } else if (index === 1) {
+                    title = "Innovación y Tecnología";
+                    description = point;
+                    icon = (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <rect x="2" y="3" width="20" height="14" rx="2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M8 21h8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M12 17v4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    );
+                  } else {
+                    title = "Vinculación y Proyección";
+                    description = point;
+                    icon = (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="12" cy="12" r="10" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M2 12h20" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    );
+                  }
+
+                  return (
+                    <article key={point} className="highlight-card" style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                      <div className="highlight-icon" style={{ background: "var(--navy)", color: "#fff" }}>
+                        {icon}
+                      </div>
+                      <h3 style={{ fontSize: "1.25rem", fontWeight: "700", color: "var(--navy)", marginBottom: "8px", fontFamily: "var(--font-display)" }}>{title}</h3>
+                      <p style={{ fontSize: "0.95rem", color: "var(--gray-dark)", lineHeight: "1.6", margin: 0 }}>{description}</p>
+                    </article>
+                  );
+                })}
+              </div>
+            </div>
           ) : (
             <article className="mission-vision-card single-section-card fade-up">
               <div className="mission-vision-eyebrow">{content.eyebrow}</div>
@@ -78,7 +135,7 @@ function SingleSectionPage({
               </p>
             </div>
           </div>
-          <DirectorsCarouselAlt />
+          <DirectorsCarousel />
         </section>
       )}
 

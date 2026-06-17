@@ -216,13 +216,13 @@ export const missionVisionContent = {
     eyebrow: 'MISIÓN',
     title: 'Misión',
     body:
-      'Ofrecer a la comunidad programas educativos en la lengua extranjera y servicios especializados de alta calidad que permitan sumar ventajas competitivas a nuestros alumnos y clientes dentro de un entorno global.',
+      'Formar profesionistas íntegros, innovadores y altamente competentes, socialmente responsables y con espíritu emprendedor, por medio de una educación y servicios de calidad.',
   },
   vision: {
     eyebrow: 'VISIÓN',
     title: 'Visión',
     body:
-      'Ser un centro de idiomas reconocido por la excelencia en la enseñanza de lenguas extranjeras, formando profesionales capaces de interactuar eficazmente en un entorno global y contribuyendo al desarrollo integral, intercultural y profesional de la comunidad y sociedad en general.',
+      'Somos una facultad de excelencia académica y humana, socialmente responsable, líder en la generación y aplicación del conocimiento, con reconocimiento a nivel nacional e internacional y que contribuye al desarrollo regional.',
   },
 }
 

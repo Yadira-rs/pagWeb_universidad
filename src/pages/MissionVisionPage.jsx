@@ -37,7 +37,6 @@ function MissionVisionPage({
                 <img src="/imagenes/feca-plaza-1.jpg" alt="Fachada principal de la FECA" />
               </div>
               <div className="mv-content">
-                <span className="mv-badge">{content.mission.eyebrow}</span>
                 <h2 className="mv-title">{content.mission.title}</h2>
                 <p className="mv-body">{content.mission.body}</p>
                 {content.mission.points?.length ? (
@@ -58,7 +57,6 @@ function MissionVisionPage({
                 <img src="/imagenes/aniversario.jpeg" alt="Comunidad universitaria FECA" />
               </div>
               <div className="mv-content">
-                <span className="mv-badge">{content.vision.eyebrow}</span>
                 <h2 className="mv-title">{content.vision.title}</h2>
                 <p className="mv-body">{content.vision.body}</p>
                 {content.vision.points?.length ? (
