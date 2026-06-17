@@ -341,12 +341,6 @@ export const legacyPages = {
     title: "Curso Propedéutico",
     intro:
       "Preparación académica para aspirantes a ingresar a la Facultad de Economía, Contaduría y Administración.",
-    tabs: [
-      { href: "historia", label: "Historia" },
-      { href: "mision", label: "Misión y visión" },
-      { href: "modalidades", label: "Modalidades" },
-      { href: "contacto", label: "Contacto" },
-    ],
     sections: [
       {
         id: "historia",

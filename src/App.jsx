@@ -13,6 +13,7 @@ import { legacyPages } from "./data/legacyPages";
 import HistoryPage from "./pages/HistoryPage";
 import LegacyAdmissionPage from "./pages/LegacyAdmissionPage";
 import LegacyContentPage from "./pages/LegacyContentPage";
+import PropedeuticoPage from "./pages/PropedeuticoPage";
 import HomePage from "./pages/HomePage";
 import MissionVisionPage from "./pages/MissionVisionPage";
 import ServiceDetailPage from "./pages/ServiceDetailPage";
@@ -266,6 +267,12 @@ function App() {
     
     ) : route.page === "biblioteca" ? (
       <Biblioteca
+        logoImage={logoImage}
+        newsPanelOpen={newsPanelOpen}
+        setNewsPanelOpen={setNewsPanelOpen}
+      />
+    ) : route.slug === "curso-propedeutico" ? (
+      <PropedeuticoPage
         logoImage={logoImage}
         newsPanelOpen={newsPanelOpen}
         setNewsPanelOpen={setNewsPanelOpen}
