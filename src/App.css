@@ -414,8 +414,7 @@
   border-left: 3px solid transparent;
 }
 
-.dropdown a:hover,
-.dropdown a.active-link {
+.dropdown a:hover {
   background: rgb(227 19 19 / 6%);
   color: #e31313;
   padding-left: 22px;
@@ -423,6 +422,7 @@
 }
 
 .dropdown a.active-link {
+  color: #e31313;
   font-weight: 600;
 }
 
