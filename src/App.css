@@ -414,6 +414,10 @@
   border-left: 3px solid transparent;
 }
 
+.dropdown a:visited {
+  color: #3a3030;
+}
+
 .dropdown a:hover {
   background: rgb(227 19 19 / 6%);
   color: #e31313;
