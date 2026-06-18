@@ -1,12 +1,18 @@
+import { useEffect, useRef } from "react";
 import Footer from "../sections/Footer";
 import Header from "../sections/Header";
 
-function MissionVisionPage({
-  content,
-  logoImage,
-  newsPanelOpen,
-  setNewsPanelOpen,
-}) {
+function MissionVisionPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen }) {
+  const observerRef = useRef(null);
+  useEffect(() => {
+    observerRef.current = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("visible")),
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll(".pf-fade").forEach((el) => observerRef.current.observe(el));
+    return () => observerRef.current?.disconnect();
+  }, []);
+
   return (
     <div className="site-shell">
       <Header
@@ -16,61 +22,79 @@ function MissionVisionPage({
         setNewsPanelOpen={setNewsPanelOpen}
       />
 
+      {/* ── HERO ── */}
       <section
-        className="legacy-hero"
-        style={{
-          backgroundImage: `linear-gradient(180deg, rgba(227,19,19,0.2), rgba(227,19,19,0.92)), url('${content.heroImage}')`,
-        }}
+        className="pf-hero"
+        style={{ backgroundImage: `url('${content.heroImage}')` }}
       >
-        <div className="legacy-hero-inner">
-          <div className="legacy-kicker">Nosotros</div>
-          <h1>{content.heroTitle}</h1>
-          <p>{content.intro}</p>
+        <div className="pf-hero-overlay" />
+        <div className="pf-hero-inner">
+          <div className="pf-hero-badge">Nosotros · FECA</div>
+          <h1 className="pf-hero-title">{content.heroTitle}</h1>
+          <p className="pf-hero-sub">{content.intro}</p>
+        </div>
+        <div className="pf-stats" style={{ "--pf-stats-cols": 2 }}>
+          <div className="pf-stat">
+            <span className="pf-stat-num">1973</span>
+            <span className="pf-stat-label">Año de fundación</span>
+          </div>
+          <div className="pf-stat">
+            <span className="pf-stat-num">UJED</span>
+            <span className="pf-stat-label">Universidad de referencia</span>
+          </div>
         </div>
       </section>
 
-      <section className="legacy-section">
-        <div className="container">
-          <div className="mission-vision-page-inner">
-            <section className="mv-section fade-up">
-              <div className="mv-image mv-image-mission">
-                <img src="/imagenes/feca-plaza-1.jpg" alt="Fachada principal de la FECA" />
+      {/* ── MISIÓN ── */}
+      <section className="pf-section pf-section-light pf-fade">
+        <div className="pf-container" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center" }}>
+          <div>
+            <div className="pf-label">{content.mission.eyebrow}</div>
+            <h2 className="pf-section-title">{content.mission.title}</h2>
+            <p className="pf-section-desc" style={{ marginBottom: content.mission.points?.length ? 28 : 0 }}>
+              {content.mission.body}
+            </p>
+            {content.mission.points?.length ? (
+              <div className="pf-chips">
+                {content.mission.points.map((p) => (
+                  <span key={p} className="pf-chip">{p}</span>
+                ))}
               </div>
-              <div className="mv-content">
-                <h2 className="mv-title">{content.mission.title}</h2>
-                <p className="mv-body">{content.mission.body}</p>
-                {content.mission.points?.length ? (
-                  <div className="mv-points">
-                    {content.mission.points.map((point) => (
-                      <div key={point} className="mv-point">
-                        <span className="mv-dot"></span>
-                        <span>{point}</span>
-                      </div>
-                    ))}
-                  </div>
-                ) : null}
-              </div>
-            </section>
+            ) : null}
+          </div>
+          <div>
+            <img
+              src="/imagenes/feca-plaza-1.jpg"
+              alt="Fachada principal de la FECA"
+              style={{ width: "100%", borderRadius: 20, boxShadow: "0 20px 56px rgba(0,0,0,0.14)" }}
+            />
+          </div>
+        </div>
+      </section>
 
-            <section className="mv-section mv-section-reverse fade-up">
-              <div className="mv-image">
-                <img src="/imagenes/aniversario.jpeg" alt="Comunidad universitaria FECA" />
+      {/* ── VISIÓN ── */}
+      <section className="pf-section pf-section-alt pf-fade">
+        <div className="pf-container" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center" }}>
+          <div>
+            <img
+              src="/imagenes/aniversario.jpeg"
+              alt="Comunidad universitaria FECA"
+              style={{ width: "100%", borderRadius: 20, boxShadow: "0 20px 56px rgba(0,0,0,0.12)" }}
+            />
+          </div>
+          <div>
+            <div className="pf-label">{content.vision.eyebrow}</div>
+            <h2 className="pf-section-title">{content.vision.title}</h2>
+            <p className="pf-section-desc" style={{ marginBottom: content.vision.points?.length ? 28 : 0 }}>
+              {content.vision.body}
+            </p>
+            {content.vision.points?.length ? (
+              <div className="pf-chips">
+                {content.vision.points.map((p) => (
+                  <span key={p} className="pf-chip">{p}</span>
+                ))}
               </div>
-              <div className="mv-content">
-                <h2 className="mv-title">{content.vision.title}</h2>
-                <p className="mv-body">{content.vision.body}</p>
-                {content.vision.points?.length ? (
-                  <div className="mv-points">
-                    {content.vision.points.map((point) => (
-                      <div key={point} className="mv-point">
-                        <span className="mv-dot"></span>
-                        <span>{point}</span>
-                      </div>
-                    ))}
-                  </div>
-                ) : null}
-              </div>
-            </section>
+            ) : null}
           </div>
         </div>
       </section>

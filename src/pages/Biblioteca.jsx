@@ -1,21 +1,36 @@
+import { useEffect, useRef } from "react";
 import Footer from "../sections/Footer";
 import Header from "../sections/Header";
 
 const identityCards = [
   {
     title: "Misión",
-    text:
-      "La misión del sistema bibliotecario de la universidad es apoyar a la docencia, la investigación y la difusión de la cultura, administrando los recursos informativos y brindando servicios bibliotecarios de excelencia.",
+    text: "La misión del sistema bibliotecario de la universidad es apoyar a la docencia, la investigación y la difusión de la cultura, administrando los recursos informativos y brindando servicios bibliotecarios de excelencia.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+        <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/>
+        <path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>
+      </svg>
+    ),
   },
   {
     title: "Visión",
-    text:
-      "El sistema bibliotecario será una organización líder capaz de atender todas las demandas de información de sus usuarios, ofreciendo asesorías permanentes para transformar la información en conocimiento.",
+    text: "El sistema bibliotecario será una organización líder capaz de atender todas las demandas de información de sus usuarios, ofreciendo asesorías permanentes para transformar la información en conocimiento.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+        <circle cx="12" cy="12" r="3"/>
+      </svg>
+    ),
   },
   {
     title: "Política de calidad",
-    text:
-      "La Universidad Juárez del Estado de Durango está comprometida en ofrecer servicios académicos, de investigación, administrativos y culturales de calidad, eficientes y transparentes, con un proceso de mejora continua basado en ISO 9001:2015.",
+    text: "La UJED está comprometida en ofrecer servicios académicos, de investigación, administrativos y culturales de calidad, eficientes y transparentes, con un proceso de mejora continua basado en ISO 9001:2015.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+    ),
   },
 ];
 
@@ -54,7 +69,24 @@ const digitalResources = [
   },
 ];
 
+const STATS = [
+  { num: "1973", label: "Año de apertura" },
+  { num: "5", label: "Colecciones" },
+  { num: "6", label: "Servicios disponibles" },
+  { num: "ISO", label: "Calidad 9001:2015" },
+];
+
 export default function Biblioteca({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
+  const observerRef = useRef(null);
+  useEffect(() => {
+    observerRef.current = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("visible")),
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll(".pf-fade").forEach((el) => observerRef.current.observe(el));
+    return () => observerRef.current?.disconnect();
+  }, []);
+
   return (
     <div className="site-shell">
       <Header
@@ -64,139 +96,154 @@ export default function Biblioteca({ logoImage, newsPanelOpen, setNewsPanelOpen 
         setNewsPanelOpen={setNewsPanelOpen}
       />
 
+      {/* ── HERO ── */}
       <section
-        className="hero small-hero biblioteca-hero"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.38)), url('/imagenes/imagen.jpeg')",
-        }}
+        className="pf-hero"
+        style={{ backgroundImage: `url('/imagenes/imagen.jpeg')` }}
       >
-        <div className="hero-content">
-          <div className="hero-tag">Biblioteca</div>
-          <h1>Biblioteca</h1>
-          <p>
-            Un espacio dedicado al conocimiento, la investigación y el acceso libre
-            a la información para estudiantes y académicos.
+        <div className="pf-hero-overlay" />
+        <div className="pf-hero-inner">
+          <div className="pf-hero-badge">Servicios · FECA</div>
+          <h1 className="pf-hero-title">Biblioteca</h1>
+          <p className="pf-hero-sub">
+            Un espacio dedicado al conocimiento, la investigación y el acceso libre a la información para estudiantes y académicos de la FECA.
           </p>
         </div>
+        <div className="pf-stats">
+          {STATS.map((s) => (
+            <div key={s.label} className="pf-stat">
+              <span className="pf-stat-num">{s.num}</span>
+              <span className="pf-stat-label">{s.label}</span>
+            </div>
+          ))}
+        </div>
       </section>
 
-      <section className="section">
-        <div className="container">
-          <div className="fade-up">
-            <div className="section-label">Biblioteca</div>
-            <h2 className="section-title">Servicios, colecciones y recursos digitales</h2>
-            <p className="section-desc">
-              Conoce la historia, misión, visión y los servicios que hacen de esta
-              biblioteca un apoyo fundamental para la comunidad universitaria.
+      {/* ── HISTORIA ── */}
+      <section className="pf-section pf-section-light pf-fade">
+        <div className="pf-container" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 56, alignItems: "center" }}>
+          <div>
+            <div className="pf-label">Origen</div>
+            <h2 className="pf-section-title">Historia</h2>
+            <p className="pf-section-desc" style={{ marginBottom: 20 }}>
+              En el año de 1972, el C.P. Guillermo Garza Calderón entrega la dirección de la Escuela
+              al C.P. Rubén Vargas Quiñones, llegando a un acto de gran importancia: la inauguración
+              del nuevo edificio el 12 de junio de 1973.
             </p>
+            <p className="pf-section-desc" style={{ marginBottom: 20 }}>
+              El programa inició con una emotiva despedida del antiguo edificio, ubicado en el caserón
+              de la UJED, después de la última clase impartida por el C.P. José Félix Rodríguez.
+            </p>
+            <p className="pf-section-desc">
+              El nuevo edificio fue inaugurado por el Gobernador Ing. Alejandro Páez Urquidi, con la
+              presencia del Rector Carlos Galindo y el Director Rubén Vargas Quiñones.
+            </p>
+          </div>
+          <div>
+            <img
+              src="/imagenes/biblioteca_historica.png"
+              alt="Biblioteca FECA histórica"
+              style={{ width: "100%", borderRadius: 20, boxShadow: "0 20px 56px rgba(0,0,0,0.15)" }}
+            />
           </div>
         </div>
       </section>
 
-      <div className="biblioteca-layout">
-        <section className="section biblioteca-section">
-          <div className="container">
-            <article className="wide-card biblioteca-history fade-up">
-              <div>
-                <div className="section-label">Origen</div>
-                <h3>Historia</h3>
+      {/* ── IDENTIDAD ── */}
+      <section className="pf-section pf-section-dark pf-fade">
+        <div className="pf-container">
+          <div className="pf-section-head pf-section-head-center">
+            <div className="pf-label pf-label-light">Identidad institucional</div>
+            <h2 className="pf-section-title pf-title-white">Misión, Visión y Calidad</h2>
+            <p className="pf-section-desc pf-desc-white">
+              Los principios que guían el servicio y la gestión de la Biblioteca FECA.
+            </p>
+          </div>
+          <div className="pf-cards-grid pf-fade">
+            {identityCards.map((card) => (
+              <div key={card.title} className="pf-card pf-card-dark">
+                <div className="pf-card-icon">{card.icon}</div>
+                <h3 className="pf-card-title">{card.title}</h3>
+                <p className="pf-card-desc">{card.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── COLECCIONES Y SERVICIOS ── */}
+      <section className="pf-section pf-section-alt pf-fade">
+        <div className="pf-container">
+          <div className="pf-section-head pf-section-head-center">
+            <div className="pf-label">Recursos disponibles</div>
+            <h2 className="pf-section-title">Colecciones y Servicios</h2>
+            <p className="pf-section-desc">
+              Aunque es una biblioteca compacta, cuenta con los recursos necesarios para apoyar el aprendizaje y la investigación académica.
+            </p>
+          </div>
+          <div className="pf-cards-grid-2 pf-fade">
+            {/* Colecciones */}
+            <div className="pf-card pf-card-top">
+              <div className="pf-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                </svg>
+              </div>
+              <div className="pf-label" style={{ marginBottom: 4 }}>Acervo</div>
+              <h3 className="pf-card-title">Colecciones</h3>
+              <div className="pf-chips" style={{ marginTop: 8 }}>
+                {collections.map((item) => (
+                  <span key={item} className="pf-chip">{item}</span>
+                ))}
+              </div>
+            </div>
+            {/* Servicios */}
+            <div className="pf-card pf-card-top">
+              <div className="pf-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              </div>
+              <div className="pf-label" style={{ marginBottom: 4 }}>Atención</div>
+              <h3 className="pf-card-title">Servicios disponibles</h3>
+              <div className="pf-chips" style={{ marginTop: 8 }}>
+                {services.map((item) => (
+                  <span key={item} className="pf-chip">{item}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── RECURSOS DIGITALES ── */}
+      <section className="pf-section pf-section-light pf-fade">
+        <div className="pf-container">
+          <div className="pf-section-head pf-section-head-center">
+            <div className="pf-label">Recursos</div>
+            <h2 className="pf-section-title">Biblioteca digital</h2>
+            <p className="pf-section-desc">
+              Accede a libros completos y material académico desde cualquier dispositivo escaneando los códigos QR.
+            </p>
+          </div>
+          <div className="pf-cards-grid pf-fade">
+            {digitalResources.map((resource) => (
+              <div key={resource.title} className="pf-card pf-card-top" style={{ alignItems: "center", textAlign: "center" }}>
+                <h3 className="pf-card-title" style={{ textAlign: "center" }}>{resource.title}</h3>
                 <img
-                  src="/imagenes/biblioteca_historica.png"
-                  alt="Biblioteca FECA Histórica"
-                  style={{ width: "100%", borderRadius: "8px", marginTop: "16px", boxShadow: "0 6px 16px rgba(0,0,0,0.12)", display: "block" }}
+                  src={resource.image}
+                  alt={resource.alt}
+                  style={{ width: 160, height: 160, objectFit: "contain", margin: "0 auto" }}
                 />
+                <p className="pf-card-desc" style={{ textAlign: "center" }}>Escanea el código QR para acceder al recurso digital.</p>
               </div>
-              <div>
-                <p>
-                  En el año de 1972, el Sr. C.P. Guillermo Garza Calderón entrega la
-                  dirección de la Escuela al Sr. C.P. Rubén Vargas Quiñones. Así se
-                  llegó a un acto de gran importancia: la inauguración del nuevo
-                  edificio de la Escuela el 12 de junio de 1973.
-                </p>
-                <p>
-                  El programa inició con una emotiva despedida del antiguo edificio
-                  de la Escuela, ubicado en el caserón de la Universidad Juárez del
-                  Estado de Durango, después de la última clase impartida por el
-                  C.P. José Félix Rodríguez.
-                </p>
-                <p>
-                  Posteriormente, el nuevo edificio se inauguró a cargo del
-                  Gobernador del Estado, Ing. Alejandro Páez Urquidi, con la presencia
-                  del Lic. Ángel Rodríguez Solórzano, el Rector Carlos Galindo, y el
-                  Director Rubén Vargas Quiñones.
-                </p>
-              </div>
-            </article>
+            ))}
           </div>
-        </section>
-
-        <section className="section section-alt biblioteca-section">
-          <div className="container">
-            <div className="grid fade-up">
-              {identityCards.map((card) => (
-                <article className="card biblioteca-card" key={card.title}>
-                  <h3>{card.title}</h3>
-                  <p>{card.text}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="section biblioteca-section">
-          <div className="container">
-            <div className="biblioteca-two-column fade-up">
-              <article className="card biblioteca-card">
-                <div className="section-label">Acervo</div>
-                <h3>Colecciones</h3>
-                <ul className="pill-list biblioteca-list">
-                  {collections.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </article>
-
-              <article className="card biblioteca-card">
-                <div className="section-label">Atención</div>
-                <h3>Servicios disponibles</h3>
-                <ul className="pill-list biblioteca-list">
-                  {services.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-                <p>
-                  Aunque es una biblioteca compacta, cuenta con los recursos
-                  necesarios para apoyar el aprendizaje, la investigación y el trabajo
-                  académico de nuestros estudiantes.
-                </p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section className="section section-alt biblioteca-section">
-          <div className="container">
-            <div className="fade-up">
-              <div className="section-label">Recursos</div>
-              <h2 className="section-title">Biblioteca digital</h2>
-              <p className="section-desc">
-                La Biblioteca ofrece recursos digitales accesibles mediante códigos
-                QR para descargar libros completos y material académico desde cualquier
-                dispositivo.
-              </p>
-            </div>
-            <div className="qr-grid fade-up">
-              {digitalResources.map((resource) => (
-                <article className="qr-card" key={resource.title}>
-                  <h3>{resource.title}</h3>
-                  <img src={resource.image} alt={resource.alt} />
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      </div>
+        </div>
+      </section>
 
       <Footer logoImage={logoImage} />
     </div>

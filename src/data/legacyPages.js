@@ -754,8 +754,8 @@ export const legacyPages = {
           "Atención en coordinación de vinculación y actividades académicas FECA.",
         variant: "contact",
         items: [
-          "📧 ciiedo.feca@ujed.mx",
-          "📞 618 154 4657",
+          "email:ciiedo.feca@ujed.mx",
+          "phone:618 154 4657",
         ],
       },
       {
