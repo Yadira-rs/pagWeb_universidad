@@ -421,11 +421,6 @@
   border-left-color: #e31313;
 }
 
-.dropdown a.active-link {
-  color: #e31313;
-  font-weight: 600;
-}
-
 .nav-search-wrapper {
   display: flex;
   align-items: center;
