@@ -295,7 +295,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
     }, 5200);
 
     return () => window.clearInterval(intervalId);
-  }, []);
+  }, [heroCurrentSlide]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -365,7 +365,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
       if (!pausedRef.current) moveTo(trackIdxRef.current + 1, true);
     }, 3000);
     return () => clearInterval(id);
-  }, []);
+  }, [trackIndex]);
 
   return (
     <div className="site-shell">

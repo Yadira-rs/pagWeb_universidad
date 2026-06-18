@@ -16,6 +16,14 @@ function HistoryCarousel({ slides }) {
   const prev = () => goTo(current === 0 ? slides.length - 1 : current - 1);
   const next = () => goTo(current === slides.length - 1 ? 0 : current + 1);
 
+  useEffect(() => {
+    if (!slides || slides.length < 2) return;
+    const timer = setInterval(() => {
+      goTo((current + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [current, slides.length, animating]);
+
   const slide = slides[current];
   const dotPercent = slides.length > 1 ? (current / (slides.length - 1)) * 100 : 0;
 
@@ -103,7 +111,7 @@ function LegacyContentPage({
       />
 
       <section
-        className="legacy-hero"
+        className={`legacy-hero ${content.title?.toLowerCase().includes("celci") ? "legacy-hero-centered" : ""}`}
         style={{
           backgroundImage: `linear-gradient(180deg, rgba(123,18,24,0.2), rgba(123,18,24,0.92)), url('${content.heroImage}')`,
         }}
