@@ -167,7 +167,7 @@ function DirectorsCarousel() {
       if (!pausedRef.current) advance(1);
     }, 3000);
     return () => clearInterval(id);
-  }, []);
+  }, [trackIndex]);
 
   return (
     <>

@@ -44,6 +44,15 @@ const programs = [
     mode: "Presencial / En línea",
     href: "#/ciiedo",
   },
+  {
+    title: "CONTRALORÍA INTERNA",
+    description:
+      "Órgano de control interno de la FECA encargado de vigilar la transparencia, el uso correcto de los recursos y el cumplimiento de la normatividad institucional.",
+    image: "/imagenes/contraloria_feca.png",
+    duration: "Atención continua",
+    mode: "Presencial",
+    href: "#/servicios/contraloria-interna",
+  },
 ];
 
 const careers = [
@@ -286,7 +295,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
     }, 5200);
 
     return () => window.clearInterval(intervalId);
-  }, []);
+  }, [heroCurrentSlide]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -356,7 +365,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
       if (!pausedRef.current) moveTo(trackIdxRef.current + 1, true);
     }, 3000);
     return () => clearInterval(id);
-  }, []);
+  }, [trackIndex]);
 
   return (
     <div className="site-shell">
