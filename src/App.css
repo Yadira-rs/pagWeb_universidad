@@ -410,8 +410,7 @@
   font-family: var(--font-ui);
   color: #555;
   letter-spacing: 0.02em;
-  transition: background 0.15s, color 0.15s, padding-left 0.15s;
-  border-left: 3px solid transparent;
+  transition: color 0.15s;
 }
 
 .dropdown a:link,
@@ -420,10 +419,8 @@
 }
 
 .dropdown a:hover {
-  background: rgba(0, 0, 0, 0.05);
-  color: #222;
-  padding-left: 22px;
-  border-left-color: #999;
+  background: transparent;
+  color: #888;
 }
 
 .nav-search-wrapper {
