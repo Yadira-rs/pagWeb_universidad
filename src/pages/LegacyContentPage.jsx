@@ -325,7 +325,49 @@ function LegacyContentPage({
           ) : null}
 
           {content.panels ? (
-            content.listStyle ? (
+            content.planStyle ? (
+              <div className="plan-style-section">
+                <div className="legacy-kicker plan-section-label">Planes de estudio</div>
+                {content.panels.filter(p => !p.actions).map(panel => (
+                  <p key={panel.title} className="plan-style-intro">{panel.body}</p>
+                ))}
+                <div className="plan-cards-grid">
+                  {content.panels.filter(p => p.actions).map(panel => (
+                    <article key={panel.title} className="plan-card">
+                      <div className="plan-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" width="32" height="32">
+                          <rect x="3" y="2" width="14" height="18" rx="2" fill="#951823" opacity="0.12"/>
+                          <path d="M6 2h8l4 4v14a2 2 0 01-2 2H6a2 2 0 01-2-2V4a2 2 0 012-2z" stroke="#951823" strokeWidth="1.5" fill="white"/>
+                          <path d="M14 2v4h4" stroke="#951823" strokeWidth="1.5" fill="none"/>
+                          <line x1="7" y1="10" x2="15" y2="10" stroke="#951823" strokeWidth="1.2"/>
+                          <line x1="7" y1="13" x2="15" y2="13" stroke="#951823" strokeWidth="1.2"/>
+                          <line x1="7" y1="16" x2="12" y2="16" stroke="#951823" strokeWidth="1.2"/>
+                        </svg>
+                      </div>
+                      <h2 className="plan-card-title">{panel.title}</h2>
+                      <p className="plan-card-body">{panel.body}</p>
+                      <div className="plan-card-actions">
+                        {panel.actions.map(action => (
+                          <a
+                            key={action.href}
+                            href={action.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="plan-card-btn"
+                          >
+                            <svg viewBox="0 0 24 24" fill="none" width="16" height="16" aria-hidden="true">
+                              <path d="M12 3v13M7 11l5 5 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                              <path d="M4 20h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                            </svg>
+                            {action.label}
+                          </a>
+                        ))}
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            ) : content.listStyle ? (
               <>
                 {content.panels.filter(p => !p.actions && !p.items).map(panel => (
                   <p key={panel.title} className="legacy-list-intro">{panel.body}</p>

@@ -233,6 +233,7 @@ export const legacyPages = {
     title: "Licenciaturas a Distancia",
     intro:
       "Programas diseñados para estudiar desde casa con apoyo académico y herramientas digitales.",
+    planStyle: true,
     panels: [
       {
         title: "Planes de estudio",

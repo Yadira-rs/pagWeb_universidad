@@ -1664,6 +1664,117 @@
   line-height: 1.6;
 }
 
+/* ── Plan style (Licenciaturas a Distancia) ── */
+.plan-style-section {
+  margin-top: 40px;
+}
+
+.plan-style-intro {
+  font-size: 16px;
+  color: var(--gray-mid);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+.plan-section-label {
+  color: var(--navy-mid) !important;
+  font-size: 15px !important;
+  margin-bottom: 20px;
+}
+
+.plan-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.plan-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.plan-card:hover {
+  box-shadow: 0 12px 40px rgb(0 0 0 / 0.1);
+  transform: translateY(-3px);
+}
+
+.plan-card-icon {
+  width: 52px;
+  height: 52px;
+  background: rgb(149 24 35 / 0.08);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plan-card-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: #951823;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.plan-card-body {
+  font-size: 14px;
+  color: var(--gray-mid);
+  line-height: 1.65;
+  margin: 0;
+  flex: 1;
+}
+
+.plan-card-actions {
+  margin-top: 8px;
+}
+
+.plan-card-btn,
+.plan-card-btn:link,
+.plan-card-btn:visited {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #951823;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 11px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgb(149 24 35 / 0.35);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  letter-spacing: 0.01em;
+}
+
+.plan-card-btn:hover {
+  background: #7b1218;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgb(149 24 35 / 0.45);
+}
+
+.plan-card-btn svg {
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+.plan-card-btn:hover svg {
+  transform: translateY(2px);
+}
+
+@media (max-width: 640px) {
+  .plan-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .legacy-panel-row {
   display: flex;
   align-items: center;
@@ -2583,7 +2694,7 @@
 }
 
 .programs-grid {
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 28px;
 }
 
@@ -2595,6 +2706,8 @@
   border-radius: 12px;
   overflow: hidden;
   transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+  display: flex;
+  flex-direction: column;
 }
 
 .program-card:hover,
@@ -2672,6 +2785,9 @@
 .program-card-body,
 .news-card-body {
   padding: 20px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .program-card-title,
@@ -2700,6 +2816,8 @@
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: 12px;
 }
 
 .program-meta-item {
@@ -2751,7 +2869,7 @@
 .careers-grid {
   display: grid;
   gap: 24px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .career-card {
@@ -2843,7 +2961,7 @@
 }
 
 .highlights-grid {
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .highlight-card {
@@ -7087,11 +7205,13 @@
   font-size: 11px;
 }
 
-.programs-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 24px;
-  margin-top: 8px;
+@media (min-width: 1025px) {
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 8px;
+  }
 }
 
 .program-card {
@@ -7409,7 +7529,7 @@
 /* ── Desktop estándar (1281px – 1499px): layout cómodo ── */
 @media (max-width: 1499px) and (min-width: 1281px) {
   .programs-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .careers-grid {
@@ -7432,18 +7552,18 @@
 /* ── Laptop mediano (1025px – 1280px): 2 columnas en grillas ── */
 @media (max-width: 1280px) and (min-width: 1025px) {
   .programs-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
   }
 
   .careers-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
   }
 
   .highlights-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
   }
 
   .services-grid {
@@ -7486,6 +7606,24 @@
 
   .contraloria-grid {
     gap: 24px;
+  }
+}
+
+/* ── Tablet (769px – 1024px): departamentos 2x2, licenciaturas 3 cols ── */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .programs-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .careers-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .highlights-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
   }
 }
 
