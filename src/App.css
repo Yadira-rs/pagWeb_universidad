@@ -408,17 +408,22 @@
   padding: 9px 18px;
   font-size: 13px;
   font-family: var(--font-ui);
-  color: #3a3030;
+  color: #555;
   letter-spacing: 0.02em;
   transition: background 0.15s, color 0.15s, padding-left 0.15s;
   border-left: 3px solid transparent;
 }
 
+.dropdown a:link,
+.dropdown a:visited {
+  color: #555;
+}
+
 .dropdown a:hover {
-  background: rgb(227 19 19 / 6%);
-  color: #e31313;
+  background: rgba(0, 0, 0, 0.05);
+  color: #222;
   padding-left: 22px;
-  border-left-color: #e31313;
+  border-left-color: #999;
 }
 
 .nav-search-wrapper {
