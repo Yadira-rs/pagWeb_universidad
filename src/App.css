@@ -414,15 +414,16 @@
   border-left: 3px solid transparent;
 }
 
-.dropdown a:visited {
-  color: #3a3030;
-}
-
-.dropdown a:hover {
+.dropdown a:hover,
+.dropdown a.active-link {
   background: rgb(227 19 19 / 6%);
   color: #e31313;
   padding-left: 22px;
   border-left-color: #e31313;
+}
+
+.dropdown a.active-link {
+  font-weight: 600;
 }
 
 .nav-search-wrapper {

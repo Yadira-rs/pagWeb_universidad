@@ -12,6 +12,15 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
   const [scrolled, setScrolled] = useState(false);
   const mobileMenuRef = useRef(null);
   const hamburgerRef = useRef(null);
+  const [currentHash, setCurrentHash] = useState(() => window.location.hash);
+
+  useEffect(() => {
+    const onHashChange = () => setCurrentHash(window.location.hash);
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
+  const isActive = (href) => currentHash === href || currentHash.startsWith(href + "/");
 
   const closeMobile = () => setMobileMenuOpen(false);
 
@@ -107,13 +116,13 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 <span className="nav-caret" aria-hidden="true"></span>
               </a>
               <div className="dropdown">
-                <a href="#/licenciaturas">Licenciaturas</a>
-                <a href="#/licenciaturas-distancia">Licenciaturas a distancia</a>
+                <a href="#/licenciaturas" className={isActive("#/licenciaturas") ? "active-link" : ""}>Licenciaturas</a>
+                <a href="#/licenciaturas-distancia" className={isActive("#/licenciaturas-distancia") ? "active-link" : ""}>Licenciaturas a distancia</a>
                 <a href="https://posgradofeca.ujed.mx/" target="_blank" rel="noreferrer">Posgrado</a>
-                <a href="#/curso-propedeutico">Cursos Propedéutico</a>
-                <a href="#/cursos-intersemestrales">Cursos Intersemestrales</a>
-                <a href="#/celci">CELCI</a>
-                <a href="#/ciiedo">CIIEDO</a>
+                <a href="#/curso-propedeutico" className={isActive("#/curso-propedeutico") ? "active-link" : ""}>Cursos Propedéutico</a>
+                <a href="#/cursos-intersemestrales" className={isActive("#/cursos-intersemestrales") ? "active-link" : ""}>Cursos Intersemestrales</a>
+                <a href="#/celci" className={isActive("#/celci") ? "active-link" : ""}>CELCI</a>
+                <a href="#/ciiedo" className={isActive("#/ciiedo") ? "active-link" : ""}>CIIEDO</a>
               </div>
             </div>
 
@@ -123,13 +132,13 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 <span className="nav-caret" aria-hidden="true"></span>
               </a>
               <div className="dropdown">
-                <a href="#/servicios/servicios-escolares">Servicios escolares</a>
-                <a href="#/servicios/servicio-social">Servicio social</a>
-                <a href="#/servicios/practicas-profesionales">Prácticas profesionales</a>
+                <a href="#/servicios/servicios-escolares" className={isActive("#/servicios/servicios-escolares") ? "active-link" : ""}>Servicios escolares</a>
+                <a href="#/servicios/servicio-social" className={isActive("#/servicios/servicio-social") ? "active-link" : ""}>Servicio social</a>
+                <a href="#/servicios/practicas-profesionales" className={isActive("#/servicios/practicas-profesionales") ? "active-link" : ""}>Prácticas profesionales</a>
                 <a href="/docs/LCPEI.pdf" target="_blank" rel="noreferrer">CPEI</a>
-                <a href="#/servicios/contraloria-interna">Contraloría interna</a>
+                <a href="#/servicios/contraloria-interna" className={isActive("#/servicios/contraloria-interna") ? "active-link" : ""}>Contraloría interna</a>
                 <a href="https://mat.ujed.mx/" target="_blank" rel="noreferrer">Tutorías</a>
-                <a href="#/biblioteca">Biblioteca</a>
+                <a href="#/biblioteca" className={isActive("#/biblioteca") ? "active-link" : ""}>Biblioteca</a>
               </div>
             </div>
 
@@ -139,14 +148,14 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 <span className="nav-caret" aria-hidden="true"></span>
               </a>
               <div className="dropdown">
-                <a href="#/historia">Historia</a>
+                <a href="#/historia" className={isActive("#/historia") ? "active-link" : ""}>Historia</a>
                 <a href="/ORGANIGRAMA-FECA.pdf" target="_blank" rel="noreferrer">Organigrama</a>
                 <a href="/PDUA-SILD27.pdf" target="_blank" rel="noreferrer">PDUA</a>
-                <a href="#/mision-vision">Misión y visión</a>
-                <a href="#/nosotros/valores">Valores</a>
-                <a href="#/nosotros/politicas">Políticas</a>
-                <a href="#/nosotros/ejes-rectores">Ejes rectores</a>
-                <a href="#/nosotros/marco-normativo">Marco normativo</a>
+                <a href="#/mision-vision" className={isActive("#/mision-vision") ? "active-link" : ""}>Misión y visión</a>
+                <a href="#/nosotros/valores" className={isActive("#/nosotros/valores") ? "active-link" : ""}>Valores</a>
+                <a href="#/nosotros/politicas" className={isActive("#/nosotros/politicas") ? "active-link" : ""}>Políticas</a>
+                <a href="#/nosotros/ejes-rectores" className={isActive("#/nosotros/ejes-rectores") ? "active-link" : ""}>Ejes rectores</a>
+                <a href="#/nosotros/marco-normativo" className={isActive("#/nosotros/marco-normativo") ? "active-link" : ""}>Marco normativo</a>
               </div>
             </div>
           </div>
