@@ -7,80 +7,53 @@ const ofertaCards = [
     title: "Licenciaturas",
     description: "Programas presenciales de Contaduría Pública, Administración y Economía y Negocios Internacionales.",
     href: "#/licenciaturas",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/>
-        <path d="M6 12v5c3 3 9 3 12 0v-5"/>
-      </svg>
-    ),
+    image: "/imagenes/lic.jpg",
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M22 10v6"/><path d="M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>,
   },
   {
     title: "Licenciaturas a distancia",
     description: "Estudia en modalidad en línea con la misma calidad académica y flexibilidad de horarios.",
     href: "#/licenciaturas-distancia",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <rect x="2" y="3" width="20" height="14" rx="2"/>
-        <path d="M8 21h8M12 17v4"/>
-      </svg>
-    ),
+    image: "/imagenes/distancia.jpg",
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M2 10h20"/></svg>,
   },
   {
     title: "Posgrado",
     description: "Maestrías y especializaciones para potenciar tu desarrollo profesional en el área.",
     href: "https://posgradofeca.ujed.mx/",
     external: true,
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-      </svg>
-    ),
+    image: "/imagenes/logo-posgrado.png",
+    imageFit: "contain",
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 2l9 4-9 4-9-4z"/><path d="M5 10v5l7 3 7-3v-5"/></svg>,
   },
   {
     title: "Curso Propedéutico",
     description: "Prepárate para el ingreso a la facultad con nuestro curso introductorio de dos modalidades.",
     href: "#/curso-propedeutico",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-        <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
-      </svg>
-    ),
+    image: "/imagenes/feca-entrada.jpg",
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>,
   },
   {
     title: "Cursos Intersemestrales",
     description: "Avanza en tu carrera durante los periodos entre semestres con cursos intensivos.",
     href: "#/cursos-intersemestrales",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-        <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/>
-        <line x1="3" y1="10" x2="21" y2="10"/>
-      </svg>
-    ),
+    image: "/imagenes/inicio.png",
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>,
   },
   {
     title: "CELCI",
     description: "Centro de Lenguas e Internacionalización: inglés, francés, italiano y japonés.",
     href: "#/lenguas",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <circle cx="12" cy="12" r="10"/>
-        <line x1="2" y1="12" x2="22" y2="12"/>
-        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-      </svg>
-    ),
+    image: "/imagenes/logo-celci.png",
+    imageFit: "contain",
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>,
   },
   {
     title: "CIIEDO",
     description: "Centro de innovación, emprendimiento y desarrollo organizacional de la FECA.",
     href: "#/ciiedo",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-      </svg>
-    ),
+    image: "/imagenes/CIIEDO.jpeg",
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>,
   },
 ];
 
@@ -144,18 +117,40 @@ export default function OfertaEducativaPage({ logoImage, newsPanelOpen, setNewsP
               Desde licenciaturas hasta idiomas y cursos de innovación, encuentra el programa que impulse tu futuro.
             </p>
           </div>
-          <div className="pf-cards-grid pf-fade">
+          <div className="highlights-grid fade-up" style={{ marginTop: 40 }}>
             {ofertaCards.map((card) => (
               <a
                 key={card.title}
                 href={card.href}
                 target={card.external ? "_blank" : undefined}
                 rel={card.external ? "noreferrer" : undefined}
-                className="pf-card pf-card-top"
+                className="highlight-card"
+                style={{ display: "flex", flexDirection: "column", alignItems: "stretch", textDecoration: "none", color: "inherit", padding: 0, overflow: "hidden" }}
               >
-                <div className="pf-card-icon">{card.icon}</div>
-                <h3 className="pf-card-title">{card.title}</h3>
-                <p className="pf-card-desc">{card.description}</p>
+                {/* Imagen */}
+                <div style={{ height: 160, overflow: "hidden", background: "#f0eded", flexShrink: 0 }}>
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    style={{ width: "100%", height: "100%", objectFit: card.imageFit ?? "cover", objectPosition: "center", transition: "transform 0.4s ease" }}
+                    onMouseEnter={e => e.currentTarget.style.transform = "scale(1.06)"}
+                    onMouseLeave={e => e.currentTarget.style.transform = ""}
+                  />
+                </div>
+                {/* Contenido */}
+                <div style={{ padding: "22px 24px 26px", display: "flex", flexDirection: "column", flex: 1 }}>
+                  <div className="highlight-icon" style={{ marginBottom: 14 }}>
+                    {card.icon}
+                  </div>
+                  <h3 style={{ fontSize: "1.05rem", fontWeight: 700, color: "var(--accent)", margin: "0 0 8px", fontFamily: "var(--font-display)", lineHeight: 1.3 }}>{card.title}</h3>
+                  <p style={{ fontSize: "0.9rem", color: "var(--gray-dark)", lineHeight: 1.65, margin: 0, flex: 1 }}>{card.description}</p>
+                  <div style={{ marginTop: 16, display: "inline-flex", alignItems: "center", gap: 5, color: "#e31313", fontFamily: "var(--font-ui)", fontSize: 13, fontWeight: 700 }}>
+                    Ver más
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="9 18 15 12 9 6" />
+                    </svg>
+                  </div>
+                </div>
               </a>
             ))}
           </div>

@@ -309,26 +309,32 @@ export const sectionPages = {
       {
         title: 'Valores de pertenencia',
         items: ['Responsabilidad social', 'sentido de pertenencia'],
+        image: '/imagenes/feca-plaza-1.jpg',
       },
       {
         title: 'Valores de compromiso',
         items: ['Compromiso social', 'integridad académica', 'liderazgo'],
+        image: '/imagenes/lic.jpg',
       },
       {
         title: 'Valores de excelencia y transformación',
         items: ['Innovación', 'calidad', 'cultura del emprendimiento'],
+        image: '/imagenes/CIIEDO.jpeg',
       },
       {
         title: 'Valores institucionales',
         items: ['Responsabilidad social', 'sentido de pertenencia'],
+        image: '/imagenes/feca-entrada.jpg',
       },
       {
         title: 'Valores sociales',
         items: ['Equidad', 'igualdad', 'interculturalidad', 'cultura de la paz'],
+        image: '/imagenes/cafeteria.jpeg',
       },
       {
         title: 'Valores fundamentales',
         items: ['Ética', 'honestidad', 'respeto a la dignidad humana'],
+        image: '/imagenes/aniversario.jpeg',
       },
     ],
   },

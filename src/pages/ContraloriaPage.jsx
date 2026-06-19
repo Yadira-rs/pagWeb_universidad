@@ -178,6 +178,200 @@ function ContraloriaPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
         </div>
       </section>
 
+      {/* ── DECLARACIÓN PATRIMONIAL ── */}
+      <section className="pf-section pf-section-light pf-fade">
+        <div className="pf-container">
+          <div className="pf-section-head pf-section-head-center">
+            <div className="pf-label">Obligaciones del servidor público</div>
+            <h2 className="pf-section-title">Declaración Patrimonial</h2>
+            <p className="pf-section-desc">
+              Consulta los avisos oficiales y el material informativo para cumplir con tu declaración patrimonial.
+            </p>
+          </div>
+
+          {/* Avisos en imagen */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 28, marginBottom: 28 }}>
+            {[
+              { label: "Declaración Patrimonial UJED", src: "/docs/Declaraci%C3%B3n%20Patrimonial%20UJED.jpg", alt: "Declaración Patrimonial UJED" },
+              { label: "Declaración Anual FECA", src: "/docs/Declaraci%C3%B3n%20Anual%20FECA%20.jpg", alt: "Declaración Anual FECA" },
+            ].map((item) => (
+              <div key={item.label} className="pf-card pf-card-top" style={{ overflow: "hidden", padding: 0 }}>
+                <div style={{ background: "#f5f0f0", padding: "12px 20px", borderBottom: "1px solid #e8e6e2" }}>
+                  <span style={{ fontFamily: "var(--font-ui)", fontWeight: 700, fontSize: 13, color: "#e31313", textTransform: "uppercase", letterSpacing: "0.08em" }}>{item.label}</span>
+                </div>
+                <a href={item.src} target="_blank" rel="noopener noreferrer" style={{ display: "block" }}>
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    style={{ width: "100%", display: "block", objectFit: "contain", maxHeight: 420 }}
+                    onError={e => { e.currentTarget.style.display = "none"; e.currentTarget.nextSibling.style.display = "flex"; }}
+                  />
+                  <div style={{ display: "none", height: 180, alignItems: "center", justifyContent: "center", color: "#aaa", fontSize: 14, fontFamily: "var(--font-body)", flexDirection: "column", gap: 8 }}>
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ccc" strokeWidth="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+                    Archivo pendiente de subir
+                  </div>
+                </a>
+                <div style={{ padding: "10px 20px 14px" }}>
+                  <a href={item.src} target="_blank" rel="noopener noreferrer" style={{ fontSize: 13, color: "#e31313", fontWeight: 700, fontFamily: "var(--font-ui)", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6 }}>
+                    Ver en tamaño completo
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Video informativo */}
+          <div className="pf-card pf-card-top" style={{ marginBottom: 28, padding: 0, overflow: "hidden" }}>
+            <div style={{ background: "#f5f0f0", padding: "12px 20px", borderBottom: "1px solid #e8e6e2" }}>
+              <span style={{ fontFamily: "var(--font-ui)", fontWeight: 700, fontSize: 13, color: "#e31313", textTransform: "uppercase", letterSpacing: "0.08em" }}>Video Informativo</span>
+            </div>
+            <div style={{ padding: "24px 28px", display: "flex", gap: 28, alignItems: "center", flexWrap: "wrap" }}>
+              <div style={{ flex: "1 1 320px" }}>
+                {/* Sustituye el src por la ruta del video cuando esté disponible */}
+                <video
+                  controls
+                  style={{ width: "100%", borderRadius: 10, background: "#111" }}
+                  poster="/imagenes/contraloria_feca.png"
+                >
+                  <source src="/docs/Video%20Informativo%20Declaraci%C3%B3n%20Patrimonial.mp4" type="video/mp4" />
+                  Tu navegador no soporta la reproducción de video.
+                </video>
+              </div>
+              <div style={{ flex: "1 1 260px" }}>
+                <h3 style={{ fontFamily: "var(--font-display)", fontSize: 18, fontWeight: 700, color: "#1a1a2e", marginBottom: 10 }}>
+                  ¿Cómo realizar tu Declaración Patrimonial?
+                </h3>
+                <p style={{ fontFamily: "var(--font-body)", fontSize: 14, color: "#7a6a64", lineHeight: 1.7 }}>
+                  Conoce el proceso paso a paso para cumplir con tu obligación de declaración patrimonial de forma correcta y oportuna.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── MARCO NORMATIVO ── */}
+      <section className="pf-section pf-section-dark pf-fade">
+        <div className="pf-container">
+          <div className="pf-section-head pf-section-head-center">
+            <div className="pf-label pf-label-light">Documentos oficiales</div>
+            <h2 className="pf-section-title pf-title-white">Marco Normativo</h2>
+            <p className="pf-section-desc pf-desc-white">
+              Reglamentos y contratos colectivos vigentes que rigen la vida institucional de la UJED y la FECA.
+            </p>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+            {[
+              { label: "Reglamento General UJED", href: "/docs/Reglamento%20General%20UJED.pdf", desc: "Normativa interna de la Universidad Juárez del Estado de Durango." },
+              { label: "Ley Orgánica de la UJED", href: "/docs/LEY%20ORGANICA%20DE%20LA%20UJED%20(1).pdf", desc: "Ley que establece la estructura y funcionamiento de la UJED." },
+              { label: "Contrato Colectivo SPAUJED 2025", href: "/docs/CONTRATO%20COLECTIVO%20SPAUJED%202025.pdf", desc: "Sindicato del Personal Académico de la UJED." },
+              { label: "CCT STEUJED 2025", href: "/docs/CCT%20STEUJED%202025%20(1).pdf", desc: "Contrato Colectivo de Trabajo del Sindicato de Trabajadores y Empleados de la UJED." },
+            ].map((doc) => (
+              <a
+                key={doc.label}
+                href={doc.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ display: "flex", alignItems: "center", gap: 18, background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 14, padding: "18px 24px", textDecoration: "none", transition: "background 0.2s" }}
+                onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.13)"}
+                onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,0.07)"}
+              >
+                <div style={{ flexShrink: 0, width: 44, height: 44, background: "rgba(255,255,255,0.15)", borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                  </svg>
+                </div>
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 15, color: "#fff", marginBottom: 2 }}>{doc.label}</div>
+                  <div style={{ fontFamily: "var(--font-body)", fontSize: 13, color: "rgba(255,255,255,0.6)" }}>{doc.desc}</div>
+                </div>
+                <div style={{ color: "rgba(255,255,255,0.5)", flexShrink: 0 }}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── AVISOS INFORMATIVOS ── */}
+      <section className="pf-section pf-section-light pf-fade">
+        <div className="pf-container">
+          <div className="pf-section-head pf-section-head-center" style={{ marginBottom: 36 }}>
+            <div className="pf-label">Comunicaciones oficiales</div>
+            <h2 className="pf-section-title">Avisos Informativos</h2>
+            <p className="pf-section-desc">
+              Circulares y avisos oficiales de la Contraloría Interna para la comunidad FECA.
+            </p>
+          </div>
+          <div style={{ background: "#f9f7f5", border: "2px dashed #e0dbd5", borderRadius: 16, padding: "48px 32px", textAlign: "center" }}>
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ccc" strokeWidth="1.4" style={{ marginBottom: 16 }}>
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+            <p style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "#aaa", margin: 0 }}>
+              Los avisos y circulares se publicarán en este espacio conforme vayan siendo emitidos.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ENLACES INSTITUCIONALES ── */}
+      <section className="pf-section pf-section-alt pf-fade">
+        <div className="pf-container">
+          <div className="pf-section-head pf-section-head-center" style={{ marginBottom: 36 }}>
+            <div className="pf-label">Portales oficiales</div>
+            <h2 className="pf-section-title">Enlaces Institucionales</h2>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+            {[
+              {
+                label: "Transparencia UJED",
+                desc: "Portal oficial de transparencia y acceso a la información de la Universidad Juárez del Estado de Durango.",
+                href: "http://transparencia.ujed.mx/",
+                icon: "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6z",
+              },
+              {
+                label: "Contraloría General UJED",
+                desc: "Órgano rector de control y fiscalización de la Universidad Juárez del Estado de Durango.",
+                href: "https://contraloria.ujed.mx/",
+                icon: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z",
+              },
+            ].map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ display: "flex", gap: 20, alignItems: "flex-start", background: "#fff", border: "1px solid #e8e6e2", borderRadius: 16, padding: "28px 28px", textDecoration: "none", boxShadow: "0 4px 20px rgba(0,0,0,0.06)", transition: "transform 0.2s, box-shadow 0.2s" }}
+                onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 12px 32px rgba(227,19,19,0.12)"; }}
+                onMouseLeave={e => { e.currentTarget.style.transform = ""; e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,0,0,0.06)"; }}
+              >
+                <div style={{ flexShrink: 0, width: 48, height: 48, background: "linear-gradient(135deg,#e31313,#9b0000)", borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8">
+                    <path d={link.icon}/>
+                  </svg>
+                </div>
+                <div>
+                  <div style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 16, color: "#1a1a2e", marginBottom: 6 }}>{link.label}</div>
+                  <div style={{ fontFamily: "var(--font-body)", fontSize: 13, color: "#7a6a64", lineHeight: 1.65, marginBottom: 12 }}>{link.desc}</div>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: 5, color: "#e31313", fontFamily: "var(--font-ui)", fontWeight: 700, fontSize: 13 }}>
+                    Visitar portal
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── QUEJAS Y SUGERENCIAS ── */}
       <section className="pf-section pf-section-alt pf-fade">
         <div className="pf-container">

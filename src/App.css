@@ -3332,6 +3332,111 @@
   color: #fff;
 }
 
+/* ── DirectorsList — Lista ejecutiva (Ejes Rectores) ─────────── */
+.dl-section {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.dl-header { text-align: center; margin-bottom: 56px; }
+.dl-eyebrow {
+  font-family: var(--font-ui);
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--navy); margin: 0 0 12px;
+}
+.dl-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 40px); font-weight: 700;
+  color: #1a1a2e; margin: 0 0 16px; line-height: 1.15;
+}
+.dl-rule {
+  width: 56px; height: 3px;
+  background: var(--navy); border-radius: 2px;
+  margin: 0 auto 20px;
+}
+.dl-subtitle {
+  font-family: var(--font-body); font-size: 15px;
+  color: #7a6a64; line-height: 1.7;
+  max-width: 520px; margin: 0 auto;
+}
+
+.dl-list { list-style: none; margin: 0; padding: 0; }
+
+.dl-item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 36px;
+  padding: 40px 0;
+  border-bottom: 1px solid #e8e6e2;
+  align-items: start;
+}
+.dl-item:last-child { border-bottom: none; }
+
+.dl-photo-wrap {
+  width: 100px; height: 100px;
+  border-radius: 12px; overflow: hidden; flex-shrink: 0;
+}
+.dl-photo {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+}
+
+.dl-role {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--navy); margin-bottom: 6px;
+}
+.dl-name {
+  font-family: var(--font-display);
+  font-size: 22px; font-weight: 700;
+  color: #1a1a2e; margin: 0 0 10px; line-height: 1.2;
+}
+
+.dl-degrees { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+.dl-badge {
+  font-family: var(--font-ui);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+  color: var(--navy-mid);
+  background: rgba(227,19,19,0.07);
+  border: 1px solid rgba(227,19,19,0.18);
+  padding: 3px 10px; border-radius: 999px;
+}
+
+.dl-quote {
+  margin: 0 0 14px;
+  padding-left: 16px;
+  border-left: 3px solid var(--navy);
+}
+.dl-quote p {
+  font-family: var(--font-display);
+  font-size: 15px; font-style: italic;
+  color: #4a4040; line-height: 1.75; margin: 0;
+}
+
+.dl-area {
+  font-family: var(--font-ui);
+  font-size: 12px; color: #aaa; letter-spacing: 0.04em; margin: 0;
+}
+
+@media (max-width: 600px) {
+  .dl-item {
+    grid-template-columns: 1fr;
+    gap: 20px; padding: 32px 0;
+  }
+  .dl-photo-wrap { width: 90px; height: 90px; margin: 0 auto; }
+  .dl-content { text-align: center; }
+  .dl-degrees { justify-content: center; }
+  .dl-quote {
+    border-left: none;
+    border-top: 3px solid var(--navy);
+    padding-left: 0; padding-top: 14px;
+    text-align: left;
+  }
+}
+
 /* ── DirectorsCarouselAlt (Ejes Rectores) ──────────────────── */
 .teacher-carousel-alt {
   --card-width-alt: 360px;

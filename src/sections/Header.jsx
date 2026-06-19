@@ -34,18 +34,57 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
   }, []);
 
   useEffect(() => {
-    const q = searchQuery.trim().toLowerCase();
+    // Quitar acentos y pasar a minúsculas
+    const normalize = (str) =>
+      str.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+
+    // Distancia de edición solo para palabras largas (evita falsos positivos)
+    const levenshtein = (a, b) => {
+      const diff = Math.abs(a.length - b.length);
+      if (diff > 2) return 99;
+      const dp = Array.from({ length: a.length + 1 }, (_, i) =>
+        Array.from({ length: b.length + 1 }, (_, j) => (i === 0 ? j : j === 0 ? i : 0))
+      );
+      for (let i = 1; i <= a.length; i++)
+        for (let j = 1; j <= b.length; j++)
+          dp[i][j] = a[i - 1] === b[j - 1]
+            ? dp[i - 1][j - 1]
+            : 1 + Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);
+      return dp[a.length][b.length];
+    };
+
+    const scoreItem = (item, words) => {
+      const title = normalize(item.title);
+      const haystack = normalize(`${item.title} ${item.description} ${item.keywords}`);
+      let score = 0;
+      for (const word of words) {
+        if (haystack.includes(word)) {
+          score += 2;
+          if (title.includes(word)) score += 3; // bonus si coincide en el título
+        } else if (word.length >= 6) {
+          // Fuzzy solo para palabras largas: evita "educa"≈"etica"
+          const maxDist = word.length >= 8 ? 2 : 1;
+          const hit = haystack.split(/\s+/).some(
+            (w) => w.length >= word.length - 2 && levenshtein(w, word) <= maxDist
+          );
+          if (hit) score += 1;
+        }
+      }
+      return score;
+    };
+
+    const q = normalize(searchQuery.trim());
     if (q.length < 2) {
       setSearchResults([]);
       setSearchOpen(false);
       return;
     }
-    const results = searchIndex.filter(
-      (item) =>
-        item.title.toLowerCase().includes(q) ||
-        item.description.toLowerCase().includes(q) ||
-        item.keywords.toLowerCase().includes(q)
-    );
+    const words = q.split(/\s+/).filter(Boolean);
+    const results = searchIndex
+      .map((item) => ({ item, score: scoreItem(item, words) }))
+      .filter(({ score }) => score > 0)
+      .sort((a, b) => b.score - a.score)
+      .map(({ item }) => item);
     setSearchResults(results.slice(0, 6));
     setSearchOpen(true);
   }, [searchQuery]);
