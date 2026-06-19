@@ -227,16 +227,14 @@ function ContraloriaPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
               <span style={{ fontFamily: "var(--font-ui)", fontWeight: 700, fontSize: 13, color: "#e31313", textTransform: "uppercase", letterSpacing: "0.08em" }}>Video Informativo</span>
             </div>
             <div style={{ padding: "24px 28px", display: "flex", gap: 28, alignItems: "center", flexWrap: "wrap" }}>
-              <div style={{ flex: "1 1 320px" }}>
-                {/* Sustituye el src por la ruta del video cuando esté disponible */}
-                <video
-                  controls
-                  style={{ width: "100%", borderRadius: 10, background: "#111" }}
-                  poster="/imagenes/contraloria_feca.png"
-                >
-                  <source src="/docs/Video%20Informativo%20Declaraci%C3%B3n%20Patrimonial.mp4" type="video/mp4" />
-                  Tu navegador no soporta la reproducción de video.
-                </video>
+              <div style={{ flex: "1 1 320px", borderRadius: 10, overflow: "hidden", aspectRatio: "16/9" }}>
+                <iframe
+                  src="https://www.youtube.com/embed/xhhvHKKI8k4"
+                  title="Video Informativo Declaración Patrimonial"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  style={{ width: "100%", height: "100%", border: "none", display: "block" }}
+                />
               </div>
               <div style={{ flex: "1 1 260px" }}>
                 <h3 style={{ fontFamily: "var(--font-display)", fontSize: 18, fontWeight: 700, color: "#1a1a2e", marginBottom: 10 }}>
