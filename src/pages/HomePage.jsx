@@ -334,7 +334,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
     trackRef.current.style.transition = animated
       ? "transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)"
       : "none";
-    trackRef.current.style.transform = `translateX(calc(50% - 120px - ${newIdx * 338}px - 155px))`;
+    trackRef.current.style.transform = `translateX(calc(50vw - 120px - ${newIdx * 338}px - 155px))`;
     trackIdxRef.current = newIdx;
     setTrackIndex(newIdx);
     if (!animated && carouselRef.current) {

@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import Footer from "../sections/Footer";
 import Header from "../sections/Header";
-import DirectorsCarousel from "../components/DirectorsCarousel";
 
 function SingleSectionPage({ content, slug, logoImage, newsPanelOpen, setNewsPanelOpen }) {
   const observerRef = useRef(null);
@@ -85,22 +84,6 @@ function SingleSectionPage({ content, slug, logoImage, newsPanelOpen, setNewsPan
               )}
             </div>
           </div>
-        </section>
-      )}
-
-      {/* ── DIRECTORES (solo ejes-rectores) ── */}
-      {slug === "ejes-rectores" && (
-        <section className="pf-section pf-section-dark pf-fade">
-          <div className="pf-container">
-            <div className="pf-section-head pf-section-head-center">
-              <div className="pf-label pf-label-light">Nuestro equipo</div>
-              <h3 className="pf-section-title pf-title-white">Directores</h3>
-              <p className="pf-section-desc pf-desc-white">
-                Conoce al equipo que guía la vida académica, administrativa y de vinculación de nuestra facultad.
-              </p>
-            </div>
-          </div>
-          <DirectorsCarousel />
         </section>
       )}
 
