@@ -52,7 +52,9 @@ const ofertaCards = [
     title: "CIIEDO",
     description: "Centro de innovación, emprendimiento y desarrollo organizacional de la FECA.",
     href: "#/ciiedo",
-    image: "/imagenes/CIIEDO.jpeg",
+    image: "/imagenes/logo-ciiedo.png",
+    imageFit: "contain",
+    imagePad: "24px 40px",
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>,
   },
 ];
@@ -128,11 +130,11 @@ export default function OfertaEducativaPage({ logoImage, newsPanelOpen, setNewsP
                 style={{ display: "flex", flexDirection: "column", alignItems: "stretch", textDecoration: "none", color: "inherit", padding: 0, overflow: "hidden" }}
               >
                 {/* Imagen */}
-                <div style={{ height: 160, overflow: "hidden", background: "#f0eded", flexShrink: 0 }}>
+                <div style={{ height: 160, overflow: "hidden", background: "#f0eded", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
                   <img
                     src={card.image}
                     alt={card.title}
-                    style={{ width: "100%", height: "100%", objectFit: card.imageFit ?? "cover", objectPosition: "center", transition: "transform 0.4s ease" }}
+                    style={{ width: "100%", height: "100%", objectFit: card.imageFit ?? "cover", objectPosition: "center", padding: card.imagePad ?? 0, transition: "transform 0.4s ease" }}
                     onMouseEnter={e => e.currentTarget.style.transform = "scale(1.06)"}
                     onMouseLeave={e => e.currentTarget.style.transform = ""}
                   />

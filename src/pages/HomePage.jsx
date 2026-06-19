@@ -40,6 +40,7 @@ const programs = [
     description:
       "Forma líderes empresariales con visión estratégica, finanzas, marketing y habilidades directivas.",
     image: "/imagenes/logo-ciiedo.png",
+    imageClass: "program-card-img--ciiedo",
     duration: "4 años",
     mode: "Presencial / En línea",
     href: "#/ciiedo",

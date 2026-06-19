@@ -1855,23 +1855,23 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #951823;
+  background: #e31313;
   color: #fff;
   font-size: 13px;
   font-weight: 600;
   padding: 11px 24px;
   border-radius: 999px;
   text-decoration: none;
-  box-shadow: 0 4px 14px rgb(149 24 35 / 0.35);
+  box-shadow: 0 4px 14px rgb(227 19 19 / 0.35);
   transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
   letter-spacing: 0.01em;
 }
 
 .plan-card-btn:hover {
-  background: #7b1218;
+  background: #c00f0f;
   color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgb(149 24 35 / 0.45);
+  box-shadow: 0 8px 22px rgb(227 19 19 / 0.45);
 }
 
 .plan-card-btn svg {
@@ -2892,13 +2892,17 @@
 
 .program-card-img img {
   object-fit: contain !important;
-  width: auto;
-  max-width: calc(100% - 32px);
-  max-height: 158px;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 24px;
 }
 
 .program-card-img--celci img {
-  padding: 32px;
+  padding: 28px 32px;
+}
+
+.program-card-img--ciiedo img {
+  padding: 28px 40px;
 }
 
 .program-card-img img,
