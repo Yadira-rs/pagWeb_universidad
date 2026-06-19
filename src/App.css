@@ -2993,129 +2993,114 @@
   stroke-width: 2;
 }
 
-.careers-section {
+/* ── Licenciaturas Showcase ── */
+.licenciaturas-showcase {
   background: #f5efe9;
-  padding-top: 86px;
+  padding: 80px 0;
 }
 
-.careers-heading {
-  max-width: 780px;
-  margin-bottom: 56px;
-}
-
-.careers-heading .section-label {
-  color: var(--gold);
-}
-
-.careers-heading .section-label::before {
-  background: var(--gold);
-}
-
-.careers-heading .section-title {
-  font-size: clamp(46px, 5.6vw, 68px);
-  line-height: 1.02;
-  margin-bottom: 18px;
-}
-
-.careers-heading .section-desc {
-  max-width: 760px;
-  font-size: 18px;
-  line-height: 1.9;
-  color: #1f1b18;
-}
-
-.careers-grid {
-  display: grid;
-  gap: 24px;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.career-card {
-  background: #ffffff;
-  border: 1px solid #e7ddd7;
+.licenciaturas-img-strip {
+  display: flex;
+  height: 300px;
+  gap: 3px;
   border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgb(54 34 28 / 8%);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  color: inherit;
 }
 
-.career-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgb(54 34 28 / 12%);
-}
-
-.career-img {
-  height: 215px;
-  overflow: hidden;
-  background: #d9cdc4;
-}
-
-.career-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.35s ease;
-}
-
-.career-card:hover .career-img img {
-  transform: scale(1.03);
-}
-
-.career-body {
-  padding: 30px 26px 28px;
-}
-
-.career-tag {
-  display: inline-block;
-  color: var(--gold);
-  font-size: 12px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-weight: 700;
-  margin-bottom: 18px;
-}
-
-.career-title {
-  color: var(--navy);
-  font-family: var(--font-display);
-  font-size: 26px;
-  line-height: 1.15;
-  margin: 0 0 18px;
-}
-
-.career-desc {
-  color: #7a6a64;
-  font-size: 16px;
-  line-height: 1.9;
-  margin: 0 0 18px;
-  font-family: var(--font-body);
-}
-
-.career-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 14px;
-}
-
-.career-list li {
+.licenciaturas-img-item {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
   position: relative;
-  padding-left: 18px;
-  color: #1f1b18;
-  line-height: 1.7;
+  overflow: hidden;
+  transition: flex 0.35s ease;
 }
 
-.career-list li::before {
+.licenciaturas-img-item:hover {
+  flex: 1.4;
+}
+
+.licenciaturas-img-item::after {
   content: "";
   position: absolute;
-  left: 0;
-  top: 0.72em;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--gold);
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.08) 55%, transparent 100%);
+}
+
+.licenciaturas-chip {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 1;
+  background: rgb(255 255 255 / 92%);
+  color: #951823;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.licenciaturas-img-label {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  right: 18px;
+  z-index: 1;
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+}
+
+.licenciaturas-content {
+  text-align: left;
+  padding: 0 0 24px;
+  max-width: 640px;
+}
+
+.licenciaturas-content .section-desc {
+  margin-bottom: 0;
+}
+
+.licenciaturas-cta-wrap {
+  text-align: center;
+  padding: 0 0 48px;
+}
+
+.licenciaturas-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #e31313;
+  color: #fff !important;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+  letter-spacing: 0.01em;
+}
+
+.licenciaturas-cta svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.2s ease;
+}
+
+.licenciaturas-cta:hover {
+  background: #951823;
+  transform: translateY(-2px);
+  color: #fff !important;
+}
+
+.licenciaturas-cta:hover svg {
+  transform: translateX(4px);
 }
 
 .highlights-grid {
@@ -5488,7 +5473,6 @@
 }
 
 .fade-up.visible .program-card,
-.fade-up.visible .career-card,
 .fade-up.visible .highlight-card,
 .fade-up.visible .news-card,
 .fade-up.visible .statsbar-item {
@@ -7294,7 +7278,8 @@
   /* Programas y noticias: 1 columna */
   .programs-grid { grid-template-columns: 1fr; gap: 16px; }
   .news-grid { grid-template-columns: 1fr; gap: 16px; }
-  .careers-grid { grid-template-columns: 1fr; gap: 16px; }
+  .licenciaturas-img-strip { height: 180px; }
+  .licenciaturas-img-label { font-size: 0.72rem; bottom: 12px; left: 12px; right: 12px; }
 
   /* Page hero (páginas internas) */
   .page-hero { min-height: 280px; border-radius: 16px; }
@@ -7423,7 +7408,6 @@
 
   /* Sección programs: imagen más pequeña */
   .program-card-img { height: 160px; }
-  .career-img { height: 180px; }
 
   /* Highlight card: layout horizontal en pantalla pequeña */
   .highlight-card {
@@ -7795,10 +7779,6 @@
     grid-template-columns: repeat(4, 1fr);
   }
 
-  .careers-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
   .highlights-grid {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -7816,11 +7796,6 @@
 @media (max-width: 1280px) and (min-width: 1025px) {
   .programs-grid {
     grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-  }
-
-  .careers-grid {
-    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
   }
 
@@ -7877,11 +7852,6 @@
   .programs-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-  }
-
-  .careers-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
   }
 
   .highlights-grid {

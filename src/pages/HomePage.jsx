@@ -55,47 +55,6 @@ const programs = [
   },
 ];
 
-const careers = [
-  {
-    tag: "Contaduría",
-    title: "Contador Público",
-    description:
-      "Formación en información financiera, fiscal, administrativa, auditoría, costos y finanzas para la toma de decisiones empresariales e institucionales.",
-    image: "/imagenes/aniversario.jpeg",
-    href: "#/licenciaturas",
-    points: [
-      "Duración aproximada: 4 años",
-      "Modalidad presencial",
-      "Campo laboral: auditoría, impuestos, finanzas, costos y contraloría",
-    ],
-  },
-  {
-    tag: "Administración",
-    title: "Licenciado en Administración",
-    description:
-      "Formación para planear, dirigir y evaluar organizaciones con visión estratégica, flexible y emprendedora orientada al liderazgo.",
-    image: "/imagenes/feca-entrada.jpg",
-    href: "#/licenciaturas",
-    points: [
-      "Duración aproximada: 4 años",
-      "Modalidad presencial",
-      "Campo laboral: dirección, recursos humanos, emprendimiento y gestión de proyectos",
-    ],
-  },
-  {
-    tag: "Economía",
-    title: "Lic. en Economía y Negocios Internacionales",
-    description:
-      "Formación en análisis económico, comercio exterior, finanzas, mercados y negocios internacionales con visión global.",
-    image: "/imagenes/feca-plaza-1.jpg",
-    href: "#/licenciaturas",
-    points: [
-      "Duración aproximada: 4 años",
-      "Modalidad presencial",
-      "Campo laboral: análisis económico, sector público, consultoría y finanzas",
-    ],
-  },
-];
 
 const highlights = [
   {
@@ -262,7 +221,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
   const carouselRef = useRef(null);
   const trackIdxRef = useRef(2);
   const pausedRef = useRef(false);
-  const hoverIntervalRef = useRef(null);
   const selectedTeacherRef = useRef(null);
 
   const openModal = (teacher) => {
@@ -334,6 +292,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
     trackRef.current.style.transition = animated
       ? "transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)"
       : "none";
+    if (!animated) trackRef.current.getBoundingClientRect();
     trackRef.current.style.transform = `translateX(calc(50vw - 120px - ${newIdx * 338}px - 155px))`;
     trackIdxRef.current = newIdx;
     setTrackIndex(newIdx);
@@ -349,7 +308,8 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
   const handleNext = () => moveTo(trackIdxRef.current + 1, true);
   const handlePrev = () => moveTo(trackIdxRef.current - 1, true);
 
-  const handleTransitionEnd = () => {
+  const handleTransitionEnd = (e) => {
+    if (e.target !== trackRef.current || e.propertyName !== "transform") return;
     const idx = trackIdxRef.current;
     if (idx >= 7) moveTo(idx - 5, false);
     else if (idx <= 1) moveTo(idx + 5, false);
@@ -507,36 +467,36 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
         </div>
       </section>
 
-      <section className="section careers-section" id="carreras">
+      <section className="licenciaturas-showcase" id="carreras">
         <div className="container">
-          <div className="fade-up careers-heading">
-            <div className="section-label">Carreras</div>
+          <div className="licenciaturas-content fade-up">
+            <div className="section-label">Oferta Educativa</div>
             <h2 className="section-title">Licenciaturas</h2>
             <p className="section-desc">
-              Conoce las carreras que forman profesionales preparados para
-              analizar, dirigir y transformar organizaciones públicas y
-              privadas.
+              Formamos profesionales en Contaduría, Administración y Economía con visión estratégica y compromiso social.
             </p>
           </div>
-
-          <div className="careers-grid fade-up">
-            {careers.map((career) => (
-              <a key={career.title} className="career-card" href={career.href}>
-                <div className="career-img">
-                  <img src={career.image} alt={career.title} />
-                </div>
-                <div className="career-body">
-                  <span className="career-tag">{career.tag}</span>
-                  <h3 className="career-title">{career.title}</h3>
-                  <p className="career-desc">{career.description}</p>
-                  <ul className="career-list">
-                    {career.points.map((point) => (
-                      <li key={point}>{point}</li>
-                    ))}
-                  </ul>
-                </div>
-              </a>
-            ))}
+          <div className="licenciaturas-cta-wrap fade-up">
+            <a href="#/licenciaturas" className="licenciaturas-cta">
+              Conoce nuestras licenciaturas
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+          <div className="licenciaturas-img-strip fade-up">
+            <div className="licenciaturas-img-item" style={{ backgroundImage: "url('/imagenes/aniversario.jpeg')" }}>
+              <span className="licenciaturas-chip">Licenciaturas</span>
+              <div className="licenciaturas-img-label">Contador Público</div>
+            </div>
+            <div className="licenciaturas-img-item" style={{ backgroundImage: "url('/imagenes/feca-entrada.jpg')" }}>
+              <span className="licenciaturas-chip">Licenciaturas</span>
+              <div className="licenciaturas-img-label">Licenciado en Administración</div>
+            </div>
+            <div className="licenciaturas-img-item" style={{ backgroundImage: "url('/imagenes/feca-plaza-1.jpg')" }}>
+              <span className="licenciaturas-chip">Licenciaturas</span>
+              <div className="licenciaturas-img-label">Lic. en Economía y Negocios Internacionales</div>
+            </div>
           </div>
         </div>
       </section>
@@ -575,8 +535,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
         <div
           ref={carouselRef}
           className="teacher-carousel fade-up"
-          onMouseEnter={() => { pausedRef.current = true; }}
-          onMouseLeave={() => { pausedRef.current = false; }}
         >
           <div className="teacher-carousel-wrapper">
             <div
@@ -624,8 +582,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
               className="teacher-arrow teacher-prev"
               aria-label="Anterior"
               onClick={(e) => { e.preventDefault(); e.stopPropagation(); handlePrev(); }}
-              onMouseEnter={() => { hoverIntervalRef.current = setInterval(handlePrev, 600); }}
-              onMouseLeave={() => { clearInterval(hoverIntervalRef.current); }}
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                 <path d="M15 19l-7-7 7-7" strokeLinecap="round" strokeLinejoin="round" />
@@ -636,8 +592,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
               className="teacher-arrow teacher-next"
               aria-label="Siguiente"
               onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleNext(); }}
-              onMouseEnter={() => { hoverIntervalRef.current = setInterval(handleNext, 600); }}
-              onMouseLeave={() => { clearInterval(hoverIntervalRef.current); }}
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                 <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
