@@ -131,7 +131,7 @@ const PASOS = [
 
 const LICENCIATURAS = [
   {
-    color: "#c0000c",
+    color: "#e31313",
     initial: "CP",
     name: "Contaduría Pública",
     desc: "Finanzas, auditoría y gestión fiscal",

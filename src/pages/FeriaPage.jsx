@@ -133,7 +133,7 @@ function FeriaPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
                   </div>
                   <p style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "#555", lineHeight: 1.75, margin: 0 }}>{p.desc}</p>
                   {p.note && (
-                    <p style={{ fontFamily: "var(--font-ui)", fontSize: 13, color: "#c0000c", margin: "10px 0 0", fontWeight: 600 }}>{p.note}</p>
+                    <p style={{ fontFamily: "var(--font-ui)", fontSize: 13, color: "#e31313", margin: "10px 0 0", fontWeight: 600 }}>{p.note}</p>
                   )}
                 </div>
               </div>

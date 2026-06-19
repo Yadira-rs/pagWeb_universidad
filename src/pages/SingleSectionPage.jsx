@@ -25,7 +25,7 @@ function SingleSectionPage({ content, slug, logoImage, newsPanelOpen, setNewsPan
       {/* ── HERO ── */}
       <section
         className="pf-hero pf-hero-sm"
-        style={{ background: "linear-gradient(135deg, #9b0000 0%, #c0000c 55%, #e31313 100%)" }}
+        style={{ background: "linear-gradient(135deg, #9b0000 0%, #e31313 55%, #e31313 100%)" }}
       >
         <div className="pf-hero-inner" style={{ paddingBottom: 72 }}>
           <div className="pf-hero-badge">FECA · UJED</div>
@@ -34,7 +34,7 @@ function SingleSectionPage({ content, slug, logoImage, newsPanelOpen, setNewsPan
         </div>
       </section>
 
-      {/* ── CONTENIDO: VALUE GROUPS ── */}
+      {/* ── CONTENIDO ── */}
       {content.valueGroups ? (
         <section className="pf-section pf-section-light pf-fade">
           <div className="pf-container">
@@ -62,27 +62,80 @@ function SingleSectionPage({ content, slug, logoImage, newsPanelOpen, setNewsPan
           </div>
         </section>
       ) : (
-        /* ── CONTENIDO: SINGLE CARD ── */
         <section className="pf-section pf-section-light pf-fade">
-          <div className="pf-container" style={{ maxWidth: 820 }}>
-            <div className="pf-info-box" style={{ padding: "44px 48px" }}>
-              {content.eyebrow && (
-                <div className="pf-label" style={{ marginBottom: 12 }}>{content.eyebrow}</div>
-              )}
-              <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(24px,4vw,36px)", color: "var(--navy)", margin: "0 0 20px", lineHeight: 1.2 }}>
-                {content.title}
-              </h2>
-              <p style={{ fontFamily: "var(--font-body)", fontSize: 16, color: "#555", lineHeight: 1.8, margin: "0 0 28px" }}>
-                {content.body}
-              </p>
-              {content.points && content.points.length > 0 && (
-                <div className="pf-chips">
+          <div className="pf-container">
+            {slug === "ejes-rectores" ? (
+              <div className="ejes-rectores-container fade-up">
+                <div className="ejes-rectores-header" style={{ textAlign: "center", marginBottom: "48px" }}>
+                  <span className="legacy-kicker">{content.eyebrow}</span>
+                  <h2 className="mission-vision-title" style={{ marginTop: "12px" }}>{content.title}</h2>
+                  <p className="mission-vision-body" style={{ margin: "0 auto", maxWidth: "800px" }}>{content.body}</p>
+                </div>
+                <div className="highlights-grid">
+                  {content.points.map((point, index) => {
+                    let icon = null;
+                    let title = "";
+                    let description = "";
+
+                    if (index === 0) {
+                      title = "Excelencia Académica";
+                      description = point;
+                      icon = (
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                          <path d="M22 10v6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                          <path d="M2 10l10-5 10 5-10 5z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                          <path d="M6 12v5c3 3 9 3 12 0v-5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      );
+                    } else if (index === 1) {
+                      title = "Innovación y Tecnología";
+                      description = point;
+                      icon = (
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                          <rect x="2" y="3" width="20" height="14" rx="2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                          <path d="M8 21h8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                          <path d="M12 17v4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      );
+                    } else {
+                      title = "Vinculación y Proyección";
+                      description = point;
+                      icon = (
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                          <circle cx="12" cy="12" r="10" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                          <path d="M2 12h20" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      );
+                    }
+
+                    return (
+                      <article key={point} className="highlight-card" style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                        <div className="highlight-icon" style={{ background: "var(--navy)", color: "#fff" }}>
+                          {icon}
+                        </div>
+                        <h3 style={{ fontSize: "1.25rem", fontWeight: "700", color: "var(--navy)", marginBottom: "8px", fontFamily: "var(--font-display)" }}>{title}</h3>
+                        <p style={{ fontSize: "0.95rem", color: "var(--gray-dark)", lineHeight: "1.6", margin: 0 }}>{description}</p>
+                      </article>
+                    );
+                  })}
+                </div>
+              </div>
+            ) : (
+              <article className="mission-vision-card single-section-card fade-up">
+                <div className="mission-vision-eyebrow">{content.eyebrow}</div>
+                <h2 className="mission-vision-title">{content.title}</h2>
+                <p className="mission-vision-body">{content.body}</p>
+                <div className="mission-vision-points">
                   {content.points.map((point) => (
-                    <span key={point} className="pf-chip">{point}</span>
+                    <div key={point} className="mission-vision-point">
+                      <span className="mission-vision-dot"></span>
+                      <span>{point}</span>
+                    </div>
                   ))}
                 </div>
-              )}
-            </div>
+              </article>
+            )}
           </div>
         </section>
       )}

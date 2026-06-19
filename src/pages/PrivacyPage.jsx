@@ -122,7 +122,7 @@ function PrivacyPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
       {/* ── HERO ── */}
       <section
         className="pf-hero pf-hero-sm"
-        style={{ background: "linear-gradient(135deg, #9b0000 0%, #c0000c 55%, #e31313 100%)" }}
+        style={{ background: "linear-gradient(135deg, #9b0000 0%, #e31313 55%, #e31313 100%)" }}
       >
         <div className="pf-hero-inner" style={{ paddingBottom: 64 }}>
           <div className="pf-hero-badge">Facultad de Economía, Contaduría y Administración — UJED</div>

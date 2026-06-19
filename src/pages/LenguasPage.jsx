@@ -70,8 +70,8 @@ const cursos = [
     age: "15 años en adelante",
     horarios: ["Lunes a viernes · 1 hr. diaria"],
     pdf: "/docs/horarios_japones.pdf",
-    color: "#c0000c",
-    gradient: "linear-gradient(135deg, #c0000c 0%, #f87171 100%)",
+    color: "#e31313",
+    gradient: "linear-gradient(135deg, #e31313 0%, #f87171 100%)",
     bg: "#fff1f2",
   },
 ];
@@ -128,14 +128,14 @@ function FaqItem({ faq }) {
       >
         <span style={{
           fontFamily: "var(--font-display)", fontSize: 17,
-          color: open ? "#c0000c" : "var(--text)", fontWeight: 700, lineHeight: 1.4,
+          color: open ? "#e31313" : "var(--text)", fontWeight: 700, lineHeight: 1.4,
           transition: "color 0.2s",
         }}>
           {faq.q}
         </span>
         <span style={{
           width: 32, height: 32, borderRadius: "50%", flexShrink: 0,
-          background: open ? "#c0000c" : "#f3f3f3",
+          background: open ? "#e31313" : "#f3f3f3",
           display: "flex", alignItems: "center", justifyContent: "center",
           transition: "background 0.25s, transform 0.3s",
           transform: open ? "rotate(45deg)" : "rotate(0deg)",

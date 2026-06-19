@@ -105,7 +105,7 @@ function PosgradoPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
             download
             className="pf-btn-primary"
             style={{
-              background: "linear-gradient(135deg, #c0000c, #e31313)",
+              background: "linear-gradient(135deg, #e31313, #e31313)",
               color: "#fff",
               justifyContent: "center",
               marginTop: 8,

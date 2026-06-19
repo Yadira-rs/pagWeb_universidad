@@ -12,7 +12,7 @@ function Footer() {
             <img src="/imagenes/LOGO_FECA PNG.png" alt="FECA" />
           </div>
         </div>
-        <span>Por una Cultura de Innovación y Emprendimiento</span>
+        <span style={{ textAlign: 'center', flex: 1, fontSize: '28px' }}>Por una Cultura de Innovación y Emprendimiento</span>
       </div>
 
       <div className="footer-grid footer-grid--two">

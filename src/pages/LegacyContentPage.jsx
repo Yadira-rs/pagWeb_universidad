@@ -30,7 +30,11 @@ function HistoryCarousel({ slides }) {
   return (
     <div className="hc-wrap">
       <div className="hc-topbar">
-        <button className="hc-arrow-btn" onClick={prev} aria-label="Anterior">‹</button>
+        <button className="hc-arrow-btn" onClick={prev} aria-label="Anterior">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
         <div className="hc-years-row">
           {slides.map((s, i) => (
             <button
@@ -42,7 +46,11 @@ function HistoryCarousel({ slides }) {
             </button>
           ))}
         </div>
-        <button className="hc-arrow-btn" onClick={next} aria-label="Siguiente">›</button>
+        <button className="hc-arrow-btn" onClick={next} aria-label="Siguiente">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </button>
       </div>
       <div className="hc-timeline-bar">
         <div className="hc-timeline-line" />
@@ -121,7 +129,7 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
               >
                 <div
                   className="pf-card-icon"
-                  style={{ background: card.color ?? "linear-gradient(135deg,#c0000c,#e31313)" }}
+                  style={{ background: card.color ?? "linear-gradient(135deg,#e31313,#e31313)" }}
                 >
                   <span style={{ fontFamily: "var(--font-display)", fontSize: 18, fontWeight: 800, color: "#fff" }}>
                     {card.abbr}
@@ -147,7 +155,7 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
                           color: "var(--navy)", textDecoration: "none",
                           border: "1.5px solid var(--navy)", borderRadius: 999,
                           padding: "10px 20px",
-                        } : { background: "linear-gradient(135deg,#c0000c,#e31313)", color: "#fff" }}
+                        } : { background: "linear-gradient(135deg,#e31313,#e31313)", color: "#fff" }}
                       >
                         {action.label}
                       </a>
@@ -212,7 +220,7 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
                           target="_blank"
                           rel="noopener noreferrer"
                           className="pf-btn-primary"
-                          style={{ background: "linear-gradient(135deg,#c0000c,#e31313)", color: "#fff", justifyContent: "center" }}
+                          style={{ background: "linear-gradient(135deg,#e31313,#e31313)", color: "#fff", justifyContent: "center" }}
                         >
                           {action.label}
                         </a>
@@ -240,7 +248,7 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
                   target="_blank"
                   rel="noopener noreferrer"
                   className="pf-btn-primary"
-                  style={{ background: "linear-gradient(135deg,#c0000c,#e31313)", color: "#fff", marginTop: 16, width: "fit-content" }}
+                  style={{ background: "linear-gradient(135deg,#e31313,#e31313)", color: "#fff", marginTop: 16, width: "fit-content" }}
                 >
                   {item.hrefLabel ?? "Abrir enlace"}
                 </a>
@@ -277,7 +285,7 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
                     target="_blank"
                     rel="noopener noreferrer"
                     className="pf-btn-primary"
-                    style={{ background: "linear-gradient(135deg,#c0000c,#e31313)", color: "#fff", justifyContent: "center" }}
+                    style={{ background: "linear-gradient(135deg,#e31313,#e31313)", color: "#fff", justifyContent: "center" }}
                   >
                     {action.label}
                   </a>
@@ -364,7 +372,7 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
                         target="_blank"
                         rel="noopener noreferrer"
                         className="pf-btn-primary"
-                        style={{ background: "linear-gradient(135deg,#c0000c,#e31313)", color: "#fff" }}
+                        style={{ background: "linear-gradient(135deg,#e31313,#e31313)", color: "#fff" }}
                       >
                         {action.label}
                       </a>
@@ -431,7 +439,7 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
                     target="_blank"
                     rel="noopener noreferrer"
                     className="pf-btn-primary"
-                    style={{ background: "linear-gradient(135deg,#c0000c,#e31313)", color: "#fff", justifyContent: "center" }}
+                    style={{ background: "linear-gradient(135deg,#e31313,#e31313)", color: "#fff", justifyContent: "center" }}
                   >
                     {action.label}
                   </a>
@@ -497,7 +505,7 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
       {content.tabs && (
         <div style={{ position: "sticky", top: 64, zIndex: 80, background: "rgba(255,255,255,0.96)", backdropFilter: "blur(12px)", borderBottom: "1px solid #e8e6e2" }}>
           <div className="pf-container" style={{ overflowX: "auto" }}>
-            <nav style={{ display: "flex" }} aria-label="Secciones de la página">
+            <nav style={{ display: "flex", justifyContent: "center" }} aria-label="Secciones de la página">
               {content.tabs.map((tab) => (
                 <button
                   key={tab.href}
@@ -514,10 +522,10 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
                     fontFamily: "var(--font-ui)",
                     fontSize: 13,
                     fontWeight: activeTab === tab.href ? 700 : 500,
-                    color: activeTab === tab.href ? "#c0000c" : "var(--gray-mid)",
+                    color: activeTab === tab.href ? "#e31313" : "var(--gray-mid)",
                     background: "transparent",
                     border: "none",
-                    borderBottom: activeTab === tab.href ? "3px solid #c0000c" : "3px solid transparent",
+                    borderBottom: activeTab === tab.href ? "3px solid #e31313" : "3px solid transparent",
                     cursor: "pointer",
                     transition: "color 0.2s, border-color 0.2s",
                     whiteSpace: "nowrap",
