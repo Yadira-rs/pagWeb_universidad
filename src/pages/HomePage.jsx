@@ -57,25 +57,12 @@ const programs = [
 
 const careers = [
   {
-    tag: "Economía",
-    title: "Licenciatura en Economía",
+    tag: "Contaduría",
+    title: "Contador Público",
     description:
-      "Forma especialistas capaces de estudiar mercados, políticas públicas, finanzas y desarrollo regional con análisis de datos y pensamiento crítico.",
-    image: "/imagenes/cafeteria.jpeg",
-    href: "#/economia",
-    points: [
-      "Duración aproximada: 4 años",
-      "Modalidad presencial",
-      "Campo laboral: análisis económico, sector público, consultoría y finanzas",
-    ],
-  },
-  {
-    tag: "Contabilidad",
-    title: "Licenciatura en Contabilidad",
-    description:
-      "Prepara profesionales para interpretar información financiera, realizar auditorías, cumplir obligaciones fiscales y apoyar decisiones empresariales.",
+      "Formación en información financiera, fiscal, administrativa, auditoría, costos y finanzas para la toma de decisiones empresariales e institucionales.",
     image: "/imagenes/aniversario.jpeg",
-    href: "#/contabilidad",
+    href: "#/licenciaturas",
     points: [
       "Duración aproximada: 4 años",
       "Modalidad presencial",
@@ -84,15 +71,28 @@ const careers = [
   },
   {
     tag: "Administración",
-    title: "Licenciatura en Administración",
+    title: "Licenciado en Administración",
     description:
-      "Desarrolla habilidades para planear, organizar y dirigir empresas, proyectos y equipos con enfoque estratégico, innovador y humano.",
-    image: "/imagenes/goffyymikimause.jpg",
-    href: "#/administracion",
+      "Formación para planear, dirigir y evaluar organizaciones con visión estratégica, flexible y emprendedora orientada al liderazgo.",
+    image: "/imagenes/feca-entrada.jpg",
+    href: "#/licenciaturas",
     points: [
       "Duración aproximada: 4 años",
       "Modalidad presencial",
       "Campo laboral: dirección, recursos humanos, emprendimiento y gestión de proyectos",
+    ],
+  },
+  {
+    tag: "Economía",
+    title: "Lic. en Economía y Negocios Internacionales",
+    description:
+      "Formación en análisis económico, comercio exterior, finanzas, mercados y negocios internacionales con visión global.",
+    image: "/imagenes/feca-plaza-1.jpg",
+    href: "#/licenciaturas",
+    points: [
+      "Duración aproximada: 4 años",
+      "Modalidad presencial",
+      "Campo laboral: análisis económico, sector público, consultoría y finanzas",
     ],
   },
 ];
