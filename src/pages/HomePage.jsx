@@ -479,16 +479,13 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
           </div>
           <div className="licenciaturas-img-strip fade-up">
             <div className="licenciaturas-img-item" style={{ backgroundImage: "url('/imagenes/aniversario.jpeg')" }}>
-              <span className="licenciaturas-chip">Licenciaturas</span>
-              <div className="licenciaturas-img-label">Contador Público</div>
+<div className="licenciaturas-img-label">Contador Público</div>
             </div>
             <div className="licenciaturas-img-item" style={{ backgroundImage: "url('/imagenes/feca-entrada.jpg')" }}>
-              <span className="licenciaturas-chip">Licenciaturas</span>
-              <div className="licenciaturas-img-label">Licenciado en Administración</div>
+<div className="licenciaturas-img-label">Licenciado en Administración</div>
             </div>
             <div className="licenciaturas-img-item" style={{ backgroundImage: "url('/imagenes/feca-plaza-1.jpg')" }}>
-              <span className="licenciaturas-chip">Licenciaturas</span>
-              <div className="licenciaturas-img-label">Lic. en Economía y Negocios Internacionales</div>
+<div className="licenciaturas-img-label">Lic. en Economía y Negocios Internacionales</div>
             </div>
           </div>
         </div>

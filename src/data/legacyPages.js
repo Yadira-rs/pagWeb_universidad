@@ -300,29 +300,26 @@ export const legacyPages = {
     kicker: "Oferta académica",
     title: "Cursos Intersemestrales",
     intro:
-      "Espacio académico para consultar la oferta de cursos intersemestrales de la Facultad de Economía, Contaduría y Administración.",
+      "Consulta la oferta de materias, horarios, docentes y requisitos de inscripción para los periodos intersemestrales de la FECA.",
+    listStyle: true,
     panels: [
       {
-        title: "Próximamente",
+        title: "Oferta Intersemestral",
         body:
-          "Esta página ya comparte el diseño institucional de FECA. Cuando tengas la información de cursos intersemestrales, la integramos aquí.",
-      },
-      {
-        title: "Oferta disponible",
-        body:
-          "Consulta posteriormente las materias, horarios, docentes y requisitos de inscripción.",
+          "Descarga el documento con las materias disponibles, horarios y docentes para el periodo intersemestral.",
         actions: [
           {
             href: "/docs/CUSRSOS INTERSEMESTRALES.pdf",
-            label: "Descargar plan",
+            label: "Descargar oferta",
           },
         ],
       },
       {
         title: "Contacto",
-        body:
-          "Facultad de Economía, Contaduría y Administración. Tel. (618) 827-13-65.",
         variant: "contact",
+        items: [
+          "phone:(618) 827-13-65",
+        ],
       },
     ],
   },
