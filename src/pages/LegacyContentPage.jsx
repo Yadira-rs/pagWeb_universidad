@@ -68,7 +68,6 @@ function HistoryCarousel({ slides }) {
           <span className="hc-tag">{slide.tag}</span>
           <div className="hc-big-year">{slide.year}</div>
           <h3 className="hc-title">{slide.title}</h3>
-          <p className="hc-text">{slide.text}</p>
         </div>
         <div className="hc-side">
           <div className="hc-side-img-wrap">
@@ -76,6 +75,7 @@ function HistoryCarousel({ slides }) {
           </div>
           <span className="hc-side-tag">{slide.tag}</span>
         </div>
+        <p className="hc-text">{slide.text}</p>
       </div>
     </div>
   );
@@ -535,7 +535,7 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
       {content.tabs && (
         <div style={{ position: "sticky", top: 64, zIndex: 80, background: "rgba(255,255,255,0.96)", backdropFilter: "blur(12px)", borderBottom: "1px solid #e8e6e2" }}>
           <div className="pf-container" style={{ overflowX: "auto" }}>
-            <nav style={{ display: "flex", justifyContent: "center" }} aria-label="Secciones de la página">
+            <nav style={{ display: "flex", justifyContent: "center", minWidth: "max-content" }} aria-label="Secciones de la página">
               {content.tabs.map((tab) => (
                 <button
                   key={tab.href}

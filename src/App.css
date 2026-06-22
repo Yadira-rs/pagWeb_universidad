@@ -7463,6 +7463,7 @@
   color: #555;
   line-height: 1.8;
   margin: 0;
+  grid-column: 2; /* columna central en desktop */
 }
 
 /* Right photo */
@@ -7498,12 +7499,88 @@
   .hc-body { grid-template-columns: 1fr; }
   .hc-collage { display: none; }
   .hc-side { display: none; }
+  .hc-text { grid-column: 1; }
   .hc-years-row { gap: 16px; }
   .hc-year-btn { font-size: 0.85rem; }
 }
 
+/* Móvil: layout de miniaturas igual que la línea de tiempo principal */
+@media (max-width: 640px) {
+  .hc-body {
+    display: grid;
+    grid-template-columns: 54px 1fr 54px;
+    grid-template-rows: auto auto;
+    column-gap: 10px;
+    row-gap: 0;
+    align-items: center;
+  }
+
+  /* Collage izquierdo: solo photo-1 como miniatura 54x54 */
+  .hc-collage {
+    display: block;
+    grid-column: 1;
+    grid-row: 1;
+    width: 54px;
+    height: 54px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+  }
+  .hc-photo { display: none; }
+  .hc-photo-1 {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transform: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  /* Centro: badge + año + título centrados */
+  .hc-center {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: center;
+    gap: 4px;
+    padding-top: 0;
+  }
+  .hc-big-year { font-size: 1.8rem; }
+  .hc-title { font-size: 0.75rem; line-height: 1.3; }
+
+  /* Imagen derecha: miniatura 54x54 */
+  .hc-side {
+    display: flex;
+    grid-column: 3;
+    grid-row: 1;
+    width: 54px;
+    height: 54px;
+    padding: 0;
+    gap: 0;
+  }
+  .hc-side-img-wrap {
+    width: 54px;
+    height: 54px;
+    border-radius: 8px;
+    box-shadow: none;
+  }
+  .hc-side-img-wrap img { height: 54px; }
+  .hc-side-tag { display: none; }
+
+  /* Texto: ancho completo en fila 2 */
+  .hc-text {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    padding-top: 12px;
+    margin-top: 10px;
+    border-top: 1px solid #f0ebe6;
+    font-size: 0.85rem;
+  }
+}
+
 @media (max-width: 500px) {
-  .hc-big-year { font-size: 3.5rem; }
   .hc-years-row { gap: 10px; }
 }
 
