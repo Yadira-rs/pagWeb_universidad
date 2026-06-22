@@ -10,6 +10,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
   const [searchOpen, setSearchOpen] = useState(false);
   const searchRef = useRef(null);
   const [scrolled, setScrolled] = useState(false);
+  const [currentHash, setCurrentHash] = useState(window.location.hash || "#/");
   const mobileMenuRef = useRef(null);
   const hamburgerRef = useRef(null);
   const closeMobile = () => setMobileMenuOpen(false);
@@ -97,6 +98,13 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
     };
     document.addEventListener("click", handleClick);
     return () => document.removeEventListener("click", handleClick);
+  }, []);
+
+  /* Rastrear ruta activa por hash */
+  useEffect(() => {
+    const onHash = () => setCurrentHash(window.location.hash || "#/");
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
   }, []);
 
   /* Bloquear scroll y marcar body cuando el menú está abierto */
@@ -321,7 +329,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
 
         <div className="mobile-menu-body">
           {/* Inicio */}
-          <a href="#/" className="mobile-nav-link" onClick={closeMobile}>
+          <a href="#/" className={`mobile-nav-link${currentHash === "#/" || currentHash === "" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="18" height="18">
               <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
               <polyline points="9 22 9 12 15 12 15 22" />
@@ -332,18 +340,18 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
           {/* Oferta Educativa */}
           <div className="mobile-menu-section">
             <span className="mobile-menu-section-label">Oferta educativa</span>
-            <a href="#/licenciaturas" className="mobile-nav-sub" onClick={closeMobile}>Licenciaturas</a>
-            <a href="#/licenciaturas-distancia" className="mobile-nav-sub" onClick={closeMobile}>Licenciaturas a distancia</a>
+            <a href="#/licenciaturas" className={`mobile-nav-sub${currentHash === "#/licenciaturas" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Licenciaturas</a>
+            <a href="#/licenciaturas-distancia" className={`mobile-nav-sub${currentHash === "#/licenciaturas-distancia" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Licenciaturas a distancia</a>
             <a href="https://posgradofeca.ujed.mx/" className="mobile-nav-sub" target="_blank" rel="noreferrer" onClick={closeMobile}>Posgrado</a>
-            <a href="#/celci" className="mobile-nav-sub" onClick={closeMobile}>CELCI</a>
-            <a href="#/ciiedo" className="mobile-nav-sub" onClick={closeMobile}>CIIEDO</a>
+            <a href="#/celci" className={`mobile-nav-sub${currentHash === "#/celci" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>CELCI</a>
+            <a href="#/ciiedo" className={`mobile-nav-sub${currentHash === "#/ciiedo" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>CIIEDO</a>
           </div>
 
           {/* Servicios */}
           <div className="mobile-menu-section">
             <span className="mobile-menu-section-label">Servicios</span>
-            <a href="#/servicios" className="mobile-nav-sub" onClick={closeMobile}>Todos los servicios</a>
-            <a href="#/biblioteca" className="mobile-nav-sub" onClick={closeMobile}>Biblioteca</a>
+            <a href="#/servicios" className={`mobile-nav-sub${currentHash === "#/servicios" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Todos los servicios</a>
+            <a href="#/biblioteca" className={`mobile-nav-sub${currentHash === "#/biblioteca" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Biblioteca</a>
             <a href="/docs/LCPEI.pdf" className="mobile-nav-sub" target="_blank" rel="noreferrer" onClick={closeMobile}>CPEI</a>
             <a href="https://mat.ujed.mx/" className="mobile-nav-sub" target="_blank" rel="noreferrer" onClick={closeMobile}>Tutorías</a>
           </div>
@@ -351,9 +359,9 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
           {/* Nosotros */}
           <div className="mobile-menu-section">
             <span className="mobile-menu-section-label">Nosotros</span>
-            <a href="#/historia" className="mobile-nav-sub" onClick={closeMobile}>Historia</a>
-            <a href="#/mision-vision" className="mobile-nav-sub" onClick={closeMobile}>Misión y visión</a>
-            <a href="#/nosotros/valores" className="mobile-nav-sub" onClick={closeMobile}>Valores</a>
+            <a href="#/historia" className={`mobile-nav-sub${currentHash === "#/historia" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Historia</a>
+            <a href="#/mision-vision" className={`mobile-nav-sub${currentHash === "#/mision-vision" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Misión y visión</a>
+            <a href="#/nosotros/valores" className={`mobile-nav-sub${currentHash === "#/nosotros/valores" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Valores</a>
             <a href="/ORGANIGRAMA-FECA.pdf" className="mobile-nav-sub" target="_blank" rel="noreferrer" onClick={closeMobile}>Organigrama</a>
           </div>
         </div>

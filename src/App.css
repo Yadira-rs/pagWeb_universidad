@@ -5513,11 +5513,11 @@
 
 .mobile-menu-section-label {
   font-family: var(--font-ui);
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 800;
-  letter-spacing: 0.13em;
+  letter-spacing: 0.10em;
   text-transform: uppercase;
-  color: var(--navy);
+  color: #951823;
   padding: 6px 14px 6px 12px;
   display: flex;
   align-items: center;
@@ -5529,7 +5529,7 @@
   display: block;
   width: 3px;
   height: 14px;
-  background: var(--navy);
+  background: #951823;
   border-radius: 2px;
   flex-shrink: 0;
 }
@@ -5565,6 +5565,16 @@
 .mobile-nav-sub:hover::after {
   color: var(--navy);
   transform: translateX(3px);
+}
+
+.mobile-nav-active.mobile-nav-link,
+.mobile-nav-active.mobile-nav-sub {
+  color: #e31313 !important;
+  font-weight: 700;
+}
+
+.mobile-nav-active.mobile-nav-sub::after {
+  color: #e31313;
 }
 
 /* Pie del drawer */
