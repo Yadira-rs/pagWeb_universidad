@@ -9,47 +9,35 @@ function HistorySection({ entries }) {
   const activeEntry = useMemo(() => entries[activeIndex] ?? entries[0], [activeIndex, entries])
   const collageEntries = useMemo(() => {
     if (!entries.length) return []
-
     return [0, 1, 2, 3].map((offset) => entries[(activeIndex + offset) % entries.length])
   }, [activeIndex, entries])
 
   useEffect(() => {
     const activeButton = yearButtonRefs.current[activeIndex]
-    activeButton?.scrollIntoView({
-      behavior: 'smooth',
-      inline: 'center',
-      block: 'nearest',
-    })
+    activeButton?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })
   }, [activeIndex])
 
   useEffect(() => {
     if (entries.length < 2) return undefined
-
     autoplayIntervalRef.current = window.setInterval(() => {
       setActiveIndex((current) => (current + 1) % entries.length)
     }, 3200)
-
     return () => {
       window.clearInterval(autoplayIntervalRef.current)
       autoplayIntervalRef.current = null
     }
   }, [entries.length])
 
-  const goToIndex = (index) => {
-    const nextIndex = (index + entries.length) % entries.length
-    setActiveIndex(nextIndex)
-  }
+  const goToIndex = (index) => setActiveIndex((index + entries.length) % entries.length)
 
   const pauseAutoplay = () => {
     if (!autoplayIntervalRef.current) return
-
     window.clearInterval(autoplayIntervalRef.current)
     autoplayIntervalRef.current = null
   }
 
   const resumeAutoplay = () => {
     if (autoplayIntervalRef.current || entries.length < 2) return
-
     autoplayIntervalRef.current = window.setInterval(() => {
       setActiveIndex((current) => (current + 1) % entries.length)
     }, 3200)
@@ -90,9 +78,7 @@ function HistorySection({ entries }) {
               <button
                 key={entry.year}
                 type="button"
-                ref={(element) => {
-                  yearButtonRefs.current[index] = element
-                }}
+                ref={(element) => { yearButtonRefs.current[index] = element }}
                 className={`history-year-pill ${index === activeIndex ? 'active' : ''}`}
                 onClick={() => setActiveIndex(index)}
               >
@@ -116,13 +102,12 @@ function HistorySection({ entries }) {
         <div className="history-progress fade-up">
           <div
             className="history-progress-indicator"
-            style={{
-              left: `${(activeIndex / Math.max(entries.length - 1, 1)) * 100}%`,
-            }}
-          ></div>
+            style={{ left: `${(activeIndex / Math.max(entries.length - 1, 1)) * 100}%` }}
+          />
         </div>
 
         <article className="history-feature fade-up">
+          {/* Izquierda: collage (desktop) / miniatura (móvil) */}
           <div className="history-collage" aria-hidden="true">
             {collageEntries.map((entry, index) => (
               <div key={`${entry.year}-${index}`} className={`history-collage-photo photo-${index + 1}`}>
@@ -131,29 +116,38 @@ function HistorySection({ entries }) {
             ))}
           </div>
 
+          {/* Centro: badge + año + título */}
           <div className="history-feature-body">
             <div className="history-feature-tag">{activeEntry.tag}</div>
             <div className="history-feature-year">{activeEntry.year}</div>
             <h3 className="history-feature-title">{activeEntry.title}</h3>
-            {activeEntry.body ? (
-              <p className="history-feature-copy">{activeEntry.body}</p>
-            ) : null}
-            {activeEntry.items ? (
-              <div className="history-feature-list">
-                {activeEntry.items.map((item) => (
-                  <div key={item} className="history-feature-item">
-                    <span className="history-feature-bullet"></span>
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
-            ) : null}
           </div>
 
+          {/* Derecha: foto principal (desktop) / miniatura (móvil) */}
           <figure className="history-visual history-visual-main">
             <img src={activeEntry.image} alt={activeEntry.title} />
             <figcaption>{activeEntry.tag}</figcaption>
           </figure>
+
+          {/* Descripción — ancho completo en móvil, columna central en desktop */}
+          {(activeEntry.body || activeEntry.items) && (
+            <div className="history-feature-desc">
+              {activeEntry.body && (
+                <p className="history-feature-copy">{activeEntry.body}</p>
+              )}
+              {activeEntry.items && (
+                <div className="history-feature-list">
+                  {activeEntry.items.map((item) => (
+                    <div key={item} className="history-feature-item">
+                      <span className="history-feature-bullet" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+
         </article>
       </div>
     </section>

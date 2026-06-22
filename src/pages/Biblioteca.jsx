@@ -121,7 +121,7 @@ export default function Biblioteca({ logoImage, newsPanelOpen, setNewsPanelOpen 
 
       {/* ── HISTORIA ── */}
       <section className="pf-section pf-section-light pf-fade">
-        <div className="pf-container" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 56, alignItems: "center" }}>
+        <div className="pf-container bib-historia-grid">
           <div>
             <div className="pf-label">Origen</div>
             <h2 className="pf-section-title">Historia</h2>
