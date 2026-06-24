@@ -32,6 +32,7 @@ import NosotrosPage from "./pages/NosotrosPage";
 import ContraloriaPage from "./pages/ContraloriaPage";
 import FinanzasPage from "./pages/FinanzasPage";
 import SecretariaAdministrativaPage from "./pages/SecretariaAdministrativaPage";
+import ServiciosEscolaresPage from "./pages/ServiciosEscolaresPage";
 import ValoresPage from "./pages/ValoresPage";
 
 function getCurrentRoute() {
@@ -50,6 +51,7 @@ function getCurrentRoute() {
   if (hash === "#/servicios/contraloria-interna") return { page: "contraloria-interna" };
   if (hash === "#/servicios/finanzas") return { page: "finanzas" };
   if (hash === "#/servicios/secretaria-administrativa") return { page: "secretaria-administrativa" };
+  if (hash === "#/servicios/servicios-escolares") return { page: "servicios-escolares" };
   if (hash === "#/feria") return { page: "feria" };
   if (hash === "#/biblioteca") return { page: "biblioteca" };
   if (hash === "#/lenguas") return { page: "lenguas" };
@@ -256,6 +258,12 @@ function App() {
       />
     ) : route.page === "secretaria-administrativa" ? (
       <SecretariaAdministrativaPage
+        logoImage={logoImage}
+        newsPanelOpen={newsPanelOpen}
+        setNewsPanelOpen={setNewsPanelOpen}
+      />
+    ) : route.page === "servicios-escolares" ? (
+      <ServiciosEscolaresPage
         logoImage={logoImage}
         newsPanelOpen={newsPanelOpen}
         setNewsPanelOpen={setNewsPanelOpen}
