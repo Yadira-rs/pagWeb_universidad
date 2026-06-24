@@ -323,6 +323,33 @@ export const legacyPages = {
       },
     ],
   },
+  cesa: {
+    routeGroup: "legacy-program",
+    heroImage: "/imagenes/feca-plaza-1.jpg",
+    kicker: "Vida universitaria",
+    title: "CESA · Sociedad de Alumnos",
+    intro:
+      "El Consejo Estudiantil de la Sociedad de Alumnos (CESA) de la FECA es el órgano de representación estudiantil que impulsa actividades culturales, deportivas y académicas para toda la comunidad universitaria.",
+    panels: [
+      {
+        title: "¿Qué es el CESA?",
+        body:
+          "El CESA representa a los estudiantes de la Facultad ante las autoridades institucionales, fomenta la participación activa y promueve el desarrollo integral de los alumnos de la FECA–UJED.",
+      },
+      {
+        title: "Actividades",
+        body:
+          "Organización de eventos culturales, deportivos, académicos y de integración para los estudiantes de la facultad a lo largo del año escolar.",
+      },
+      {
+        title: "Contacto",
+        variant: "contact",
+        items: [
+          "email:cesa@feca.ujed.mx",
+        ],
+      },
+    ],
+  },
   celci: {
     routeGroup: "legacy-program",
     heroImage: "/imagenes/lic.jpg",

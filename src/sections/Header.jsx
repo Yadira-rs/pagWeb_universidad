@@ -195,6 +195,10 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 <a href="#/nosotros/valores">Valores</a>
               </div>
             </div>
+
+            <div className="nav-item">
+              <a href="#/cesa">CESA</a>
+            </div>
           </div>
 
           <div className="nav-search-wrapper">
@@ -364,6 +368,17 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
             <a href="#/mision-vision" className={`mobile-nav-sub${currentHash === "#/mision-vision" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Misión y visión</a>
             <a href="#/nosotros/valores" className={`mobile-nav-sub${currentHash === "#/nosotros/valores" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Valores</a>
           </div>
+
+          {/* CESA */}
+          <a href="#/cesa" className={`mobile-nav-link${currentHash === "#/cesa" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="18" height="18">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+            CESA
+          </a>
         </div>
 
         {/* Pie del drawer: contacto + redes */}
