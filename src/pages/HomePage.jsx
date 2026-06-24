@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Header from "../sections/Header";
 import Footer from "../sections/Footer";
+import AnunciosCarousel from "../components/AnunciosCarousel";
 
 const heroSlides = [
   {
@@ -411,6 +412,8 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
           </div>
         </div>
       </div>
+
+      <AnunciosCarousel />
 
       <section className="section" id="departamentos">
         <div className="container">
