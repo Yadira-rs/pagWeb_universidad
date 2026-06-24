@@ -2,107 +2,83 @@ import { useEffect, useRef } from "react";
 import Header from "../sections/Header";
 import Footer from "../sections/Footer";
 
-const sections = [
-  {
-    title: "Responsable del tratamiento de datos",
-    content: (
-      <p>
-        La Facultad de Economía, Contaduría y Administración (FECA) de la Universidad Juárez del Estado
-        de Durango (UJED), con domicilio en Fanny Anitúa y Priv. Loza s/n, C.P. 34000, Durango, Dgo.,
-        México, es responsable del uso y protección de sus datos personales.
-      </p>
-    ),
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-        <polyline points="9 22 9 12 15 12 15 22"/>
-      </svg>
-    ),
-  },
-  {
-    title: "Datos personales que recabamos",
-    content: (
-      <ul>
-        <li>Nombre completo</li>
-        <li>Correo electrónico</li>
-        <li>Número telefónico</li>
-        <li>Matrícula o número de expediente</li>
-        <li>Información académica y laboral</li>
-      </ul>
-    ),
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-        <circle cx="12" cy="7" r="4"/>
-      </svg>
-    ),
-  },
-  {
-    title: "Finalidades del tratamiento",
-    content: (
-      <ul>
-        <li>Gestión de trámites escolares y académicos</li>
-        <li>Envío de información sobre programas, eventos y convocatorias</li>
-        <li>Atención de solicitudes y dudas</li>
-        <li>Cumplimiento de obligaciones legales y reglamentarias</li>
-      </ul>
-    ),
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M9 11l3 3L22 4"/>
-        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
-      </svg>
-    ),
-  },
-  {
-    title: "Transferencia de datos",
-    content: (
-      <p>
-        Sus datos no serán transferidos a terceros sin su consentimiento, salvo en los casos previstos
-        por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares y demás
-        normativa aplicable.
-      </p>
-    ),
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-      </svg>
-    ),
-  },
-  {
-    title: "Derechos ARCO",
-    content: (
-      <p>
-        Usted tiene derecho a Acceder, Rectificar, Cancelar u Oponerse al tratamiento de sus datos personales
-        (derechos ARCO). Para ejercerlos: <br />
-        <strong>Correo:</strong> <a href="mailto:informes@feca.ujed.mx">informes@feca.ujed.mx</a> |{" "}
-        <strong>Tel:</strong> (618) 827-13-65 |{" "}
-        <strong>Domicilio:</strong> Fanny Anitúa y Priv. Loza s/n, Durango, Dgo.
-      </p>
-    ),
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-        <polyline points="14 2 14 8 20 8"/>
-      </svg>
-    ),
-  },
-  {
-    title: "Cambios al aviso de privacidad",
-    content: (
-      <p>
-        Nos reservamos el derecho de efectuar modificaciones o actualizaciones al presente aviso en cualquier
-        momento. Los cambios serán publicados en este sitio web.
-      </p>
-    ),
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <polyline points="1 4 1 10 7 10"/>
-        <path d="M3.51 15a9 9 0 1 0 .49-3.47"/>
-      </svg>
-    ),
-  },
-];
+function PdfCard({ title, subtitle, href }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 20,
+        background: "#fff",
+        border: "1.5px solid #eee",
+        borderRadius: 16,
+        padding: "40px 32px",
+        textDecoration: "none",
+        boxShadow: "0 2px 16px rgba(0,0,0,0.06)",
+        transition: "box-shadow 0.2s, transform 0.2s, border-color 0.2s",
+        cursor: "pointer",
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.boxShadow = "0 8px 32px rgba(227,19,19,0.13)";
+        e.currentTarget.style.transform = "translateY(-4px)";
+        e.currentTarget.style.borderColor = "#e31313";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.boxShadow = "0 2px 16px rgba(0,0,0,0.06)";
+        e.currentTarget.style.transform = "translateY(0)";
+        e.currentTarget.style.borderColor = "#eee";
+      }}
+    >
+      {/* PDF icon */}
+      <div style={{
+        width: 64, height: 64, borderRadius: 14,
+        background: "linear-gradient(135deg, #9b0000, #e31313)",
+        display: "flex", alignItems: "center", justifyContent: "center",
+        flexShrink: 0,
+      }}>
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+          <polyline points="10 9 9 9 8 9"/>
+        </svg>
+      </div>
+
+      <div style={{ textAlign: "center" }}>
+        <p style={{
+          fontFamily: "var(--font-ui)", fontSize: 11, fontWeight: 700,
+          letterSpacing: "0.1em", textTransform: "uppercase",
+          color: "#e31313", margin: "0 0 8px",
+        }}>
+          {subtitle}
+        </p>
+        <h3 style={{
+          fontFamily: "var(--font-display)", fontSize: 18, fontWeight: 700,
+          color: "var(--navy)", margin: "0 0 16px", lineHeight: 1.3,
+        }}>
+          {title}
+        </h3>
+        <span style={{
+          display: "inline-flex", alignItems: "center", gap: 6,
+          fontFamily: "var(--font-ui)", fontSize: 13, fontWeight: 600,
+          color: "#e31313",
+        }}>
+          Ver PDF
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+        </span>
+      </div>
+    </a>
+  );
+}
 
 function PrivacyPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
   const observerRef = useRef(null);
@@ -128,39 +104,101 @@ function PrivacyPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
           <div className="pf-hero-badge">Facultad de Economía, Contaduría y Administración — UJED</div>
           <h1 className="pf-hero-title">Aviso de<br />Privacidad</h1>
           <p className="pf-hero-sub">
-            Conoce cómo protegemos y tratamos tus datos personales conforme a la legislación vigente.
+            Consulta los avisos de privacidad oficiales conforme a la legislación vigente en materia de protección de datos personales.
           </p>
         </div>
       </section>
 
-      {/* ── CONTENIDO ── */}
-      <section className="pf-section pf-section-light pf-fade">
+      {/* ── ALUMNOS Y EGRESADOS ── */}
+      <section className="pf-section pf-fade">
         <div className="pf-container" style={{ maxWidth: 860 }}>
-          <div className="pf-section-head pf-section-head-center">
-            <div className="pf-label">Información legal</div>
-            <h2 className="pf-section-title">Tratamiento de datos personales</h2>
-            <p className="pf-section-desc">
-              La FECA se compromete a proteger tu privacidad y a manejar tu información con responsabilidad.
-            </p>
+          <div className="pf-section-head pf-section-head-center" style={{ marginBottom: 40 }}>
+            <div className="pf-label">Avisos de privacidad</div>
+            <h2 className="pf-section-title">Alumnos y Egresados de la Facultad de<br />Economía, Contaduría y Administración</h2>
           </div>
-          <div className="pf-fade" style={{ display: "flex", flexDirection: "column", gap: 0 }}>
-            {sections.map((sec) => (
-              <div key={sec.title} className="pf-info-box" style={{ display: "flex", gap: 20, alignItems: "flex-start" }}>
-                <div className="pf-card-icon pf-card-icon-light" style={{ flexShrink: 0 }}>
-                  {sec.icon}
-                </div>
-                <div>
-                  <h3 style={{ fontFamily: "var(--font-display)", fontSize: 20, color: "var(--navy)", margin: "0 0 10px" }}>
-                    {sec.title}
-                  </h3>
-                  {sec.content}
-                </div>
-              </div>
-            ))}
+
+          <div
+            className="pf-fade"
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+              gap: 24,
+            }}
+          >
+            <PdfCard
+              subtitle="Aviso de privacidad"
+              title="Aviso de Privacidad Integral"
+              href="/docs/Aviso_de_privacidad_alumnos_y_egresados_integral_1623697828219.pdf"
+            />
+            <PdfCard
+              subtitle="Aviso de privacidad"
+              title="Aviso de Privacidad Simplificado"
+              href="/docs/Aviso_de_privacidad_alumnos_y_egresados_simplificado_1623698005147.pdf"
+            />
           </div>
-          <p style={{ fontFamily: "var(--font-ui)", fontSize: 12, color: "var(--gray-mid)", marginTop: 32, textAlign: "center" }}>
-            Última actualización: junio 2026
-          </p>
+
+        </div>
+      </section>
+
+      {/* ── EMPLEADORES ── */}
+      <section className="pf-section pf-fade">
+        <div className="pf-container" style={{ maxWidth: 860 }}>
+          <div className="pf-section-head pf-section-head-center" style={{ marginBottom: 40 }}>
+            <div className="pf-label">Avisos de privacidad</div>
+            <h2 className="pf-section-title">Empleadores de la Facultad de<br />Economía, Contaduría y Administración</h2>
+          </div>
+
+          <div
+            className="pf-fade"
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+              gap: 24,
+            }}
+          >
+            <PdfCard
+              subtitle="Aviso de privacidad"
+              title="Aviso de Privacidad Integral"
+              href="/docs/Aviso_de_privacidad_empleadores_integral_1623698083976.pdf"
+            />
+            <PdfCard
+              subtitle="Aviso de privacidad"
+              title="Aviso de Privacidad Simplificado"
+              href="/docs/Aviso_de_privacidad_empleadores_simplificado_1623698042433.pdf"
+            />
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── EMPLEADOS ── */}
+      <section className="pf-section pf-fade">
+        <div className="pf-container" style={{ maxWidth: 860 }}>
+          <div className="pf-section-head pf-section-head-center" style={{ marginBottom: 40 }}>
+            <div className="pf-label">Avisos de privacidad</div>
+            <h2 className="pf-section-title">Empleados de la Facultad de<br />Economía, Contaduría y Administración</h2>
+          </div>
+
+          <div
+            className="pf-fade"
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+              gap: 24,
+            }}
+          >
+            <PdfCard
+              subtitle="Aviso de privacidad"
+              title="Aviso de Privacidad Integral"
+              href="/docs/Aviso_de_privacidad_empleados_integral_1623698106722.pdf"
+            />
+            <PdfCard
+              subtitle="Aviso de privacidad"
+              title="Aviso de Privacidad Simplificado"
+              href="/docs/Aviso_de_privacidad_empleados_simplificado_1623698064371.pdf"
+            />
+          </div>
+
         </div>
       </section>
 

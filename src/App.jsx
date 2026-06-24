@@ -285,7 +285,8 @@ function App() {
         newsPanelOpen={newsPanelOpen}
         setNewsPanelOpen={setNewsPanelOpen}
       />
-    ) : route.page === "legacy-program" ||
+    ) : route.page === "cesa" ||
+      route.page === "legacy-program" ||
       route.page === "legacy-campus" ||
       route.page === "legacy-teacher" ? (
       <LegacyContentPage

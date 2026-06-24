@@ -196,7 +196,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
               </div>
             </div>
 
-            <div className="nav-item">
+            <div className={`nav-item ${currentRoute === "cesa" ? "active" : ""}`}>
               <a href="#/cesa">CESA</a>
             </div>
           </div>

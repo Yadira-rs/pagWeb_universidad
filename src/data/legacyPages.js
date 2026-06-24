@@ -324,7 +324,7 @@ export const legacyPages = {
     ],
   },
   cesa: {
-    routeGroup: "legacy-program",
+    routeGroup: "cesa",
     heroImage: "/imagenes/feca-plaza-1.jpg",
     kicker: "Vida universitaria",
     title: "CESA · Sociedad de Alumnos",
@@ -334,12 +334,27 @@ export const legacyPages = {
       {
         title: "¿Qué es el CESA?",
         body:
-          "El CESA representa a los estudiantes de la Facultad ante las autoridades institucionales, fomenta la participación activa y promueve el desarrollo integral de los alumnos de la FECA–UJED.",
+          "El CESA es el organismo oficial de representación estudiantil de la Facultad de Economía, Contaduría y Administración de la UJED. Su función principal es ser el enlace entre los alumnos y las autoridades académicas, velando por los derechos e intereses de la comunidad estudiantil.",
       },
       {
-        title: "Actividades",
+        title: "Misión",
         body:
-          "Organización de eventos culturales, deportivos, académicos y de integración para los estudiantes de la facultad a lo largo del año escolar.",
+          "Fomentar la participación activa de los estudiantes en la vida universitaria, promoviendo valores de liderazgo, trabajo en equipo y compromiso social, contribuyendo al desarrollo integral de cada alumno de la FECA.",
+      },
+      {
+        title: "Servicios al Alumno",
+        body:
+          "Gestión de trámites estudiantiles, orientación sobre becas y apoyos económicos, asesoría en procesos administrativos y canalización de inquietudes y propuestas ante las autoridades de la facultad.",
+      },
+      {
+        title: "Actividades Culturales",
+        body:
+          "Organización de semanas culturales, exposiciones artísticas, concursos de oratoria y debate, festivales temáticos y actividades de integración que enriquecen la experiencia universitaria.",
+      },
+      {
+        title: "Actividades Deportivas",
+        body:
+          "Coordinación de torneos internos, participación en competencias universitarias y actividades de bienestar físico para promover una vida saludable entre los estudiantes de la FECA.",
       },
       {
         title: "Contacto",
