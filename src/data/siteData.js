@@ -565,6 +565,30 @@ export const servicePages = {
       },
     ],
   },
+  "secretaria-administrativa": {
+    heroTag: "FECA · Secretaría Administrativa",
+    heroTitle: "Secretaría Administrativa",
+    intro:
+      "La Secretaría Administrativa coordina los recursos humanos, materiales y financieros de la facultad para garantizar el funcionamiento eficiente de sus actividades académicas y administrativas.",
+    items: [
+      {
+        title: "Funciones",
+        body: "Coordina los procesos administrativos internos, gestiona el presupuesto, supervisa el personal de apoyo y garantiza el uso eficiente de los recursos institucionales de la FECA.",
+      },
+      {
+        title: "Recursos Humanos",
+        body: "Gestión del personal docente y administrativo: contrataciones, incidencias, prestaciones y trámites laborales ante la UJED.",
+      },
+      {
+        title: "Recursos Materiales",
+        body: "Administración del patrimonio, adquisiciones, mantenimiento de instalaciones y control de inventarios de la facultad.",
+      },
+      {
+        title: "Contacto",
+        body: "Edificio principal de la FECA, planta baja. Lunes a viernes de 8:00 a 15:00 h.",
+      },
+    ],
+  },
   "practicas-profesionales": {
     heroTag: "FECA · Prácticas Profesionales",
     heroTitle: "Prácticas Profesionales",

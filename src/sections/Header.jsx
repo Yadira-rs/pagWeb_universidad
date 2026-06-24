@@ -174,6 +174,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 <a href="/docs/LCPEI.pdf" target="_blank" rel="noreferrer">CPEI</a>
                 <a href="#/servicios/finanzas">Finanzas</a>
                 <a href="#/servicios/practicas-profesionales">Prácticas profesionales</a>
+                <a href="#/servicios/secretaria-administrativa">Secretaría administrativa</a>
                 <a href="#/servicios/servicio-social">Servicio social</a>
                 <a href="#/servicios/servicios-escolares">Servicios escolares</a>
                 <a href="https://mat.ujed.mx/" target="_blank" rel="noreferrer">Tutorías</a>
@@ -358,6 +359,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
             <a href="#/biblioteca" className={`mobile-nav-sub${currentHash === "#/biblioteca" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Biblioteca</a>
             <a href="/docs/LCPEI.pdf" className="mobile-nav-sub" target="_blank" rel="noreferrer" onClick={closeMobile}>CPEI</a>
             <a href="#/servicios/finanzas" className={`mobile-nav-sub${currentHash === "#/servicios/finanzas" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Finanzas</a>
+            <a href="#/servicios/secretaria-administrativa" className={`mobile-nav-sub${currentHash === "#/servicios/secretaria-administrativa" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Secretaría administrativa</a>
             <a href="https://mat.ujed.mx/" className="mobile-nav-sub" target="_blank" rel="noreferrer" onClick={closeMobile}>Tutorías</a>
           </div>
 
