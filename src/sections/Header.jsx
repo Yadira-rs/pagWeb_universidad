@@ -153,13 +153,13 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 <span className="nav-caret" aria-hidden="true"></span>
               </a>
               <div className="dropdown">
+                <a href="#/lenguas">Centro de Idiomas</a>
+                <a href="#/ciiedo">CIIEDO</a>
+                <a href="#/cursos-intersemestrales">Cursos Intersemestrales</a>
+                <a href="#/curso-propedeutico">Cursos Propedéutico</a>
                 <a href="#/licenciaturas">Licenciaturas</a>
                 <a href="#/licenciaturas-distancia">Licenciaturas a distancia</a>
                 <a href="https://posgradofeca.ujed.mx/" target="_blank" rel="noreferrer">Posgrado</a>
-                <a href="#/curso-propedeutico">Cursos Propedéutico</a>
-                <a href="#/cursos-intersemestrales">Cursos Intersemestrales</a>
-                <a href="#/celci">CELCI</a>
-                <a href="#/ciiedo">CIIEDO</a>
               </div>
             </div>
 
@@ -169,13 +169,14 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 <span className="nav-caret" aria-hidden="true"></span>
               </a>
               <div className="dropdown">
-                <a href="#/servicios/servicios-escolares">Servicios escolares</a>
-                <a href="#/servicios/servicio-social">Servicio social</a>
-                <a href="#/servicios/practicas-profesionales">Prácticas profesionales</a>
-                <a href="/docs/LCPEI.pdf" target="_blank" rel="noreferrer">CPEI</a>
-                <a href="#/servicios/contraloria-interna">Contraloría interna</a>
-                <a href="https://mat.ujed.mx/" target="_blank" rel="noreferrer">Tutorías</a>
                 <a href="#/biblioteca">Biblioteca</a>
+                <a href="#/servicios/contraloria-interna">Contraloría interna</a>
+                <a href="/docs/LCPEI.pdf" target="_blank" rel="noreferrer">CPEI</a>
+                <a href="#/servicios/finanzas">Finanzas</a>
+                <a href="#/servicios/practicas-profesionales">Prácticas profesionales</a>
+                <a href="#/servicios/servicio-social">Servicio social</a>
+                <a href="#/servicios/servicios-escolares">Servicios escolares</a>
+                <a href="https://mat.ujed.mx/" target="_blank" rel="noreferrer">Tutorías</a>
               </div>
             </div>
 
@@ -185,14 +186,13 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 <span className="nav-caret" aria-hidden="true"></span>
               </a>
               <div className="dropdown">
-                <a href="#/historia">Historia</a>
-                <a href="/ORGANIGRAMA-FECA.pdf" target="_blank" rel="noreferrer">Organigrama</a>
-                <a href="/PDUA-SILD27.pdf" target="_blank" rel="noreferrer">PDUA</a>
-                <a href="#/mision-vision">Misión y visión</a>
-                <a href="#/nosotros/valores">Valores</a>
-                <a href="#/nosotros/politicas">Políticas</a>
                 <a href="#/nosotros/ejes-rectores">Ejes rectores</a>
+                <a href="#/historia">Historia</a>
                 <a href="#/nosotros/marco-normativo">Marco normativo</a>
+                <a href="#/mision-vision">Misión y visión</a>
+                <a href="/PDUA-SILD27.pdf" target="_blank" rel="noreferrer">PDUA</a>
+                <a href="#/nosotros/politicas">Políticas</a>
+                <a href="#/nosotros/valores">Valores</a>
               </div>
             </div>
           </div>
@@ -340,11 +340,11 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
           {/* Oferta Educativa */}
           <div className="mobile-menu-section">
             <span className="mobile-menu-section-label">Oferta educativa</span>
+            <a href="#/lenguas" className={`mobile-nav-sub${currentHash === "#/lenguas" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Centro de Idiomas</a>
+            <a href="#/ciiedo" className={`mobile-nav-sub${currentHash === "#/ciiedo" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>CIIEDO</a>
             <a href="#/licenciaturas" className={`mobile-nav-sub${currentHash === "#/licenciaturas" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Licenciaturas</a>
             <a href="#/licenciaturas-distancia" className={`mobile-nav-sub${currentHash === "#/licenciaturas-distancia" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Licenciaturas a distancia</a>
             <a href="https://posgradofeca.ujed.mx/" className="mobile-nav-sub" target="_blank" rel="noreferrer" onClick={closeMobile}>Posgrado</a>
-            <a href="#/celci" className={`mobile-nav-sub${currentHash === "#/celci" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>CELCI</a>
-            <a href="#/ciiedo" className={`mobile-nav-sub${currentHash === "#/ciiedo" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>CIIEDO</a>
           </div>
 
           {/* Servicios */}
@@ -353,6 +353,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
             <a href="#/servicios" className={`mobile-nav-sub${currentHash === "#/servicios" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Todos los servicios</a>
             <a href="#/biblioteca" className={`mobile-nav-sub${currentHash === "#/biblioteca" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Biblioteca</a>
             <a href="/docs/LCPEI.pdf" className="mobile-nav-sub" target="_blank" rel="noreferrer" onClick={closeMobile}>CPEI</a>
+            <a href="#/servicios/finanzas" className={`mobile-nav-sub${currentHash === "#/servicios/finanzas" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Finanzas</a>
             <a href="https://mat.ujed.mx/" className="mobile-nav-sub" target="_blank" rel="noreferrer" onClick={closeMobile}>Tutorías</a>
           </div>
 
@@ -362,7 +363,6 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
             <a href="#/historia" className={`mobile-nav-sub${currentHash === "#/historia" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Historia</a>
             <a href="#/mision-vision" className={`mobile-nav-sub${currentHash === "#/mision-vision" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Misión y visión</a>
             <a href="#/nosotros/valores" className={`mobile-nav-sub${currentHash === "#/nosotros/valores" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Valores</a>
-            <a href="/ORGANIGRAMA-FECA.pdf" className="mobile-nav-sub" target="_blank" rel="noreferrer" onClick={closeMobile}>Organigrama</a>
           </div>
         </div>
 

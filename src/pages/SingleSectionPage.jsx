@@ -78,6 +78,21 @@ function SingleSectionPage({ content, slug, logoImage, newsPanelOpen, setNewsPan
           <div className="pf-container">
             {slug === "ejes-rectores" ? (
               <>
+                {/* ── ORGANIGRAMA ── */}
+                <div className="pf-section-head pf-fade" style={{ marginBottom: 24 }}>
+                  <div className="pf-label">Estructura institucional</div>
+                  <h2 className="pf-section-title">Organigrama</h2>
+                </div>
+                <div className="ejes-org-wrap pf-fade">
+                  <div className="ejes-org-frame">
+                    <embed
+                      src="/ORGANIGRAMA-FECA.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=page-fit"
+                      type="application/pdf"
+                      className="ejes-org-embed"
+                    />
+                  </div>
+                </div>
+
                 {/* ── DIRECTIVOS lista ejecutiva ── */}
                 <DirectorsList />
 

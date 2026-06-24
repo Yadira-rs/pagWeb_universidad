@@ -4936,6 +4936,51 @@
   margin-bottom: 8px;
 }
 
+.mural-institucional {
+  width: 100%;
+  position: relative;
+  line-height: 0;
+}
+
+.mural-institucional-img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+}
+
+.mural-institucional-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 32px 40px;
+  background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 60%);
+}
+
+.mural-institucional-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.02em;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+@media (max-width: 768px) {
+  .mural-institucional-img {
+    height: 220px;
+  }
+
+  .mural-institucional-overlay {
+    padding: 20px 20px;
+  }
+
+  .mural-institucional-title {
+    font-size: 1.3rem;
+  }
+}
+
 .feca-store-wrapper {
   padding: 60px 24px;
 }
@@ -8050,6 +8095,128 @@
     url('/imagenes/distancia.jpg');
 }
 
+.img_finanzas {
+  background-image:
+    linear-gradient(rgba(125, 19, 32, 0.25), rgba(125, 19, 32, 0.45)),
+    url('/imagenes/feca-entrada.jpg');
+}
+
+/* ── Finanzas Page ── */
+.fin-table-wrap {
+  overflow-x: auto;
+  border-radius: 14px;
+  border: 1px solid #e8e6e2;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+.fin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-body);
+  font-size: 14px;
+}
+
+.fin-table thead tr {
+  background: #951823;
+  color: #fff;
+}
+
+.fin-table th {
+  padding: 14px 20px;
+  text-align: left;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.fin-table tbody tr {
+  border-bottom: 1px solid #f0ece8;
+  transition: background 0.15s;
+}
+
+.fin-table tbody tr:last-child { border-bottom: none; }
+.fin-table tbody tr:hover { background: #fdf8f8; }
+
+.fin-table td {
+  padding: 14px 20px;
+  color: #4a3f3a;
+}
+
+.fin-table-area {
+  font-weight: 700;
+  color: #1a1a2e !important;
+}
+
+.fin-table-na {
+  color: #bbb !important;
+}
+
+.fin-aranceles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.fin-arancel-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #fff;
+  border: 1px solid #e8e6e2;
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.fin-arancel-card:hover {
+  box-shadow: 0 8px 24px rgba(149,24,35,0.1);
+  transform: translateY(-2px);
+}
+
+.fin-arancel-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, #951823, #e31313);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.fin-arancel-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fin-arancel-concepto {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  color: #1a1a2e;
+}
+
+.fin-arancel-monto {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: #951823;
+  font-weight: 700;
+}
+
+.fin-disclaimer {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: #999;
+  margin-top: 20px;
+  font-style: italic;
+}
+
 .contraloria-grid {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
@@ -9689,4 +9856,201 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
   .pf-hero       { min-height: 75vh; }
   .pf-hero-title { font-size: clamp(38px, 11vw, 64px); }
 .pf-section    { padding: 52px 0; }
+}
+
+/* ── Lista Ejecutiva (DirectorsList) ── */
+.el-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 0 16px;
+}
+
+.el-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.el-eyebrow {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #951823;
+  margin: 0 0 12px;
+}
+
+.el-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 16px;
+  line-height: 1.15;
+}
+
+.el-rule {
+  width: 56px;
+  height: 3px;
+  background: linear-gradient(90deg, #e31313, #951823);
+  border-radius: 2px;
+  margin: 0 auto 20px;
+}
+
+.el-subtitle {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: #7a6a64;
+  line-height: 1.7;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.el-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.el-row {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  padding: 40px 0;
+  border-bottom: 1px solid #ede9e5;
+}
+
+.el-row:first-child {
+  border-top: 1px solid #ede9e5;
+}
+
+.el-photo-wrap {
+  flex-shrink: 0;
+  width: 108px;
+}
+
+.el-photo {
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 3px solid #e31313;
+  display: block;
+}
+
+.el-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.el-role {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: #951823;
+  margin-bottom: 6px;
+}
+
+.el-name {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 14px;
+  line-height: 1.25;
+}
+
+.el-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 18px;
+}
+
+.el-badge {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 600;
+  color: #951823;
+  background: #fff0f0;
+  border: 1px solid #f5c0c0;
+  border-radius: 20px;
+  padding: 3px 11px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.el-quote {
+  margin: 0;
+  padding: 0 0 0 16px;
+  border-left: 3px solid #e31313;
+}
+
+.el-quote p {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14.5px;
+  font-style: italic;
+  color: #5a4f4a;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* Móvil: foto centrada arriba */
+@media (max-width: 640px) {
+  .el-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 32px 0;
+    text-align: center;
+  }
+
+  .el-role {
+    text-align: center;
+  }
+
+  .el-badges {
+    justify-content: center;
+  }
+
+  .el-quote {
+    border-left: none;
+    border-top: 3px solid #e31313;
+    padding: 14px 0 0;
+    text-align: left;
+  }
+}
+
+/* ── Organigrama embed (Ejes Rectores) ── */
+.ejes-org-wrap {
+  margin-bottom: 72px;
+}
+
+.ejes-org-frame {
+  width: 100%;
+  height: 560px;
+  overflow: hidden;
+  background: #fff;
+  border: none;
+  position: relative;
+}
+
+.ejes-org-embed {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 30px);
+  height: calc(100% + 20px);
+  border: none;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .ejes-org-frame {
+    height: 320px;
+  }
 }

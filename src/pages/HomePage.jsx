@@ -658,6 +658,18 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
         </div>
       </section>
 
+      {/* Mural institucional — reemplazar src con la imagen real */}
+      <section className="mural-institucional fade-up">
+        <img
+          src="/imagenes/aniversario.jpeg"
+          alt="Mural institucional FECA"
+          className="mural-institucional-img"
+        />
+        <div className="mural-institucional-overlay">
+          <h2 className="mural-institucional-title">Mural Institucional</h2>
+        </div>
+      </section>
+
       <section className="section section-alt feca-store-wrapper fade-up">
         <div className="feca-store-section">
           <div className="feca-store-inner">

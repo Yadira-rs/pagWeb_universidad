@@ -30,6 +30,7 @@ import TutoriasPage from "./pages/TutoriasPage";
 import OfertaEducativaPage from "./pages/OfertaEducativaPage";
 import NosotrosPage from "./pages/NosotrosPage";
 import ContraloriaPage from "./pages/ContraloriaPage";
+import FinanzasPage from "./pages/FinanzasPage";
 import ValoresPage from "./pages/ValoresPage";
 
 function getCurrentRoute() {
@@ -46,6 +47,7 @@ function getCurrentRoute() {
   if (hash === "#/nosotros") return { page: "nosotros" };
   if (hash === "#/servicios") return { page: "services" };
   if (hash === "#/servicios/contraloria-interna") return { page: "contraloria-interna" };
+  if (hash === "#/servicios/finanzas") return { page: "finanzas" };
   if (hash === "#/feria") return { page: "feria" };
   if (hash === "#/biblioteca") return { page: "biblioteca" };
   if (hash === "#/lenguas") return { page: "lenguas" };
@@ -240,6 +242,12 @@ function App() {
       />
     ) : route.page === "contraloria-interna" ? (
       <ContraloriaPage
+        logoImage={logoImage}
+        newsPanelOpen={newsPanelOpen}
+        setNewsPanelOpen={setNewsPanelOpen}
+      />
+    ) : route.page === "finanzas" ? (
+      <FinanzasPage
         logoImage={logoImage}
         newsPanelOpen={newsPanelOpen}
         setNewsPanelOpen={setNewsPanelOpen}

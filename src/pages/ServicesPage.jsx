@@ -27,6 +27,12 @@ const serviceCards = [
     imageClass: "img_contraloria",
   },
   {
+    title: "Finanzas",
+    description: "Horarios de caja, formas de pago, aranceles y becas disponibles para la comunidad FECA.",
+    href: "#/servicios/finanzas",
+    imageClass: "img_finanzas",
+  },
+  {
     title: "Coordinación de Planeación y Evaluación Institucional",
     shortTitle: "CPEI",
     description: "Planeación estratégica, evaluación y seguimiento del desarrollo institucional.",
