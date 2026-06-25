@@ -3,10 +3,10 @@ import Header from "../sections/Header";
 import Footer from "../sections/Footer";
 
 const horarios = [
-  { area: "Caja General",          lv: "8:00 – 14:00 hrs",  sabado: "8:00 – 12:00 hrs" },
-  { area: "Atención a Alumnos",    lv: "8:00 – 15:00 hrs",  sabado: "—" },
-  { area: "Coordinación Finanzas", lv: "9:00 – 14:00 hrs",  sabado: "—" },
-  { area: "Pagos en Línea",        lv: "24 horas",           sabado: "24 horas" },
+  { area: "Posgrado",          lv: "8:00 – 14:00 hrs",  sabado: "8:00 – 12:00 hrs" },
+  { area: "Licenciaturas",    lv: "8:00 – 15:00 hrs",  sabado: "—" },
+  { area: "Celci",            lv: "9:00 – 14:00 hrs",  sabado: "—" },
+  { area: "Pagos en Línea",   lv: "24 horas",           sabado: "24 horas" },
 ];
 
 const formasPago = [
@@ -170,7 +170,7 @@ function FinanzasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
             <h3>Información importante</h3>
             <p>
               Los domingos y días festivos oficiales <strong>no hay servicio de caja</strong>.
-              Para pagos urgentes fuera de horario utiliza el portal SUMA+ o OXXO Pay con tu referencia de pago.
+              Para pagos urgentes fuera de horario utiliza el portal SUMA+ o Banamex con tu referencia de pago.
             </p>
           </div>
         </div>
