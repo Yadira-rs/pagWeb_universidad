@@ -9835,6 +9835,12 @@ a.prop2-contact-item:hover {
 .pf-cta-banner-actions { display: flex; gap: 12px; flex-shrink: 0; flex-wrap: wrap; }
 
 /* ── Contacto items ── */
+.fin-contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 1fr);
+  gap: 48px;
+  align-items: center;
+}
 .pf-contact-list { display: flex; flex-direction: column; gap: 14px; }
 .pf-contact-item {
   display: flex; align-items: center; gap: 16px; text-decoration: none; color: inherit;
@@ -11205,5 +11211,27 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
   }
   .procedure-content {
     padding: 0 20px 20px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .fin-contact-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 600px) {
+  .pf-container {
+    padding: 0 16px;
+  }
+
+  .pf-contact-item {
+    align-items: flex-start;
+    padding: 14px 12px;
+  }
+
+  .pf-contact-value {
+    overflow-wrap: anywhere;
   }
 }

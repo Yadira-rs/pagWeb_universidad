@@ -2,29 +2,20 @@ import { useEffect, useRef, useState } from "react";
 import Header from "../sections/Header";
 import Footer from "../sections/Footer";
 
+const cobrosCajaHref = "/docs/LISTADO_DE_COBROS_CAJA.pdf";
+
 const horarios = [
-  { area: "Posgrado",          lv: "8:00 – 14:00 hrs",  sabado: "8:00 – 12:00 hrs" },
-  { area: "Licenciaturas",    lv: "8:00 – 15:00 hrs",  sabado: "—" },
-  { area: "Celci",            lv: "9:00 – 14:00 hrs",  sabado: "—" },
-  { area: "Pagos en Línea",   lv: "24 horas",           sabado: "24 horas" },
+  { area: "Atencion Finanzas",          lv: "9:00 – 16:00 hrs",  sabado: "—" },
+  { area: "Licenciaturas",              lv: "8:00 – 17:30 hrs",  sabado: "9:00 – 14:00 hrs" },
+  { area: "Celci",                      lv: "9:00 – 13:00 hrs/17:00 – 20:00 hrs",  sabado: "9:00 – 14:00 hrs" },
+  { area: "Posgrado",                   lv: "8:00 – 21:00 hrs",  sabado: "9:00 – 14:00 hrs" },
+  { area: "Depositos",                  lv: "24 horas",           sabado: "24 horas" },
 ];
 
 const formasPago = [
   {
-    title: "Efectivo en Caja",
-    desc: "Pago directo en ventanilla de caja dentro de las instalaciones de la FECA.",
-    icon: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-4H9l3-3 3 3h-2v4z",
-    isSvgPath: false,
-    svgContent: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="28" height="28">
-        <rect x="2" y="6" width="20" height="13" rx="2"/>
-        <path d="M2 10h20"/>
-        <circle cx="12" cy="15" r="2"/>
-      </svg>
-    ),
-  },
-  {
-    title: "Transferencia Bancaria",
+    title: "Depósito Bancario",
+    href: "/docs/DATOS_CUENTA_BANCARIA.jpeg",
     desc: "Depósito o transferencia a la cuenta institucional de la UJED. Presenta tu comprobante en caja.",
     svgContent: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="28" height="28">
@@ -36,24 +27,31 @@ const formasPago = [
     ),
   },
   {
-    title: "Pago en Línea (SUMA+)",
-    desc: "Realiza tus pagos de forma segura desde el portal SUMA+ con tarjeta de crédito o débito.",
-    svgContent: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="28" height="28">
-        <rect x="2" y="3" width="20" height="14" rx="2"/>
-        <path d="M8 21h8M12 17v4"/>
-      </svg>
-    ),
-  },
-  {
-    title: "OXXO Pay",
-    desc: "Genera tu referencia en el portal institucional y realiza el pago en cualquier tienda OXXO.",
+    title: "Cobros de Caja",
+    desc: "Tipos de cobros de la FECA que se pueden realizar en caja.",
+    href: cobrosCajaHref,
     svgContent: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="28" height="28">
         <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.4 5h12.8M9 19a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
       </svg>
     ),
   },
+  {
+    title: "Coord. Finanzas FECA",
+    href: "https://docs.google.com/forms/d/e/1FAIpQLSf6AOOuTxN__qxKJVT2-aSqTYBA3pukObexocPS68ihz9POjg/viewform",
+    image: "/docs/QR_FINANZAS_FECA.jpeg",
+    desc: "Realice trámites y solicitudes de servicios. (Para mayor seguridad y protección de tus datos utiliza tu correo institucional.).",
+    icon: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-4H9l3-3 3 3h-2v4z",
+    isSvgPath: false,
+    svgContent: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="28" height="28">
+        <rect x="2" y="6" width="20" height="13" rx="2"/>
+        <path d="M2 10h20"/>
+        <circle cx="12" cy="15" r="2"/>
+      </svg>
+    ),
+  },
+
 ];
 
 const aranceles = [
@@ -153,6 +151,8 @@ const procedimientos = [
 function FinanzasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
   const observerRef = useRef(null);
   const [activeProc, setActiveProc] = useState(null);
+  const cobrosSectionRef = useRef(null);
+  const cobrosOpenedRef = useRef(false);
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -161,6 +161,25 @@ function FinanzasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
     );
     document.querySelectorAll(".pf-fade").forEach((el) => observerRef.current.observe(el));
     return () => observerRef.current?.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const section = cobrosSectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting || cobrosOpenedRef.current) return;
+
+        cobrosOpenedRef.current = true;
+        window.open(cobrosCajaHref, "_blank", "noopener,noreferrer");
+        observer.disconnect();
+      },
+      { threshold: 0.35 }
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -233,7 +252,7 @@ function FinanzasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
       </section>
 
       {/* FORMAS DE PAGO */}
-      <section className="pf-section pf-section-dark pf-fade">
+      <section ref={cobrosSectionRef} className="pf-section pf-section-dark pf-fade">
         <div className="pf-container">
           <div className="pf-section-head pf-section-head-center">
             <div className="pf-label pf-label-light">Opciones disponibles</div>
@@ -243,13 +262,39 @@ function FinanzasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
             </p>
           </div>
           <div className="pf-cards-grid pf-fade">
-            {formasPago.map((f) => (
-              <div key={f.title} className="pf-card pf-card-dark">
-                <div className="pf-card-icon">{f.svgContent}</div>
-                <h3 className="pf-card-title">{f.title}</h3>
-                <p className="pf-card-desc">{f.desc}</p>
-              </div>
-            ))}
+            {formasPago.map((f) => {
+              const CardTag = f.href ? "a" : "div";
+
+              return (
+                <CardTag
+                  key={f.title}
+                  href={f.href}
+                  target={f.href ? "_blank" : undefined}
+                  rel={f.href ? "noreferrer" : undefined}
+                  className="pf-card pf-card-dark"
+                  style={f.href ? { textDecoration: "none" } : undefined}
+                >
+                  <div className="pf-card-icon">{f.svgContent}</div>
+                  <h3 className="pf-card-title">{f.title}</h3>
+                  {f.image && (
+                    <img
+                      src={f.image}
+                      alt={f.title}
+                      style={{
+                        width: "100%",
+                        maxWidth: 180,
+                        aspectRatio: "1 / 1",
+                        objectFit: "contain",
+                        background: "#fff",
+                        borderRadius: 8,
+                        padding: 8,
+                      }}
+                    />
+                  )}
+                  <p className="pf-card-desc">{f.desc}</p>
+                </CardTag>
+              );
+            })}
           </div>
           <div style={{ textAlign: "center", marginTop: 36 }}>
             <a
@@ -388,7 +433,7 @@ function FinanzasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
       {/* CONTACTO */}
       <section className="pf-section pf-section-alt pf-fade">
         <div className="pf-container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center" }}>
+          <div className="fin-contact-grid">
             <div>
               <div className="pf-label">¿Tienes dudas?</div>
               <h2 className="pf-section-title">Contacto Finanzas</h2>
@@ -430,6 +475,18 @@ function FinanzasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
                   <div>
                     <span className="pf-contact-label">Correo</span>
                     <span className="pf-contact-value">finanzas@feca.ujed.mx</span>
+                  </div>
+                </a>
+                <a href="mailto:caja.feca@ujed.mx" className="pf-contact-item">
+                  <div className="pf-contact-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                      <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <span className="pf-contact-label">Correo Caja</span>
+                    <span className="pf-contact-value">caja.feca@ujed.mx</span>
                   </div>
                 </a>
               </div>
