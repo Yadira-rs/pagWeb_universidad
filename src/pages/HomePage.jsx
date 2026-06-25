@@ -661,15 +661,28 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
         </div>
       </section>
 
-      {/* Mural institucional — reemplazar src con la imagen real */}
-      <section className="mural-institucional fade-up">
-        <img
-          src="/imagenes/aniversario.jpeg"
-          alt="Mural institucional FECA"
-          className="mural-institucional-img"
-        />
-        <div className="mural-institucional-overlay">
-          <h2 className="mural-institucional-title">Mural Institucional</h2>
+      {/* Mural institucional */}
+      <section className="mural-section fade-up">
+        <div className="container">
+          <div className="mural-container">
+            <div className="mural-image-wrap">
+              <img
+                src="/imagenes/mural.jfif"
+                alt="Muro de la Calidad Institucional FECA"
+                className="mural-img"
+              />
+              <div className="mural-overlay">
+                <span className="mural-badge">Orgullo FECA</span>
+              </div>
+            </div>
+            <div className="mural-content">
+              <div className="section-label">Reconocimiento</div>
+              <h2 className="mural-title">Muro de la Calidad Institucional</h2>
+              <p className="mural-desc">
+                El Muro de la Calidad Institucional representa el compromiso permanente de la Facultad de Economía, Contaduría y Administración con la excelencia académica. Muestra las certificaciones y acreditaciones nacionales e internacionales otorgadas por organismos evaluadores de alto prestigio (como CIEES, CACECA y CONACYT) a lo largo de nuestra historia, garantizando la calidad educativa de nuestros programas.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 

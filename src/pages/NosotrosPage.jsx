@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Footer from "../sections/Footer";
 import Header from "../sections/Header";
 
@@ -101,8 +101,78 @@ const STATS = [
   { num: "UJED", label: "Universidad" },
 ];
 
+const ALUMNI_COLLAGES = [
+  [
+    {
+      url: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=80",
+      name: "Sofía Martínez",
+      career: "Lic. en Economía - Egresada 2018",
+      size: "large",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=400&q=80",
+      name: "Carlos Mendoza",
+      career: "Contador Público - Egresado 2015",
+      size: "medium-top",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80",
+      name: "Dra. Ana Rosa Ortiz",
+      career: "Docente y Egresada de Posgrado",
+      size: "medium-bottom",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
+      name: "Mtro. Javier Reyes",
+      career: "Lic. en Administración - Egresado 2012",
+      size: "small",
+    },
+  ],
+  [
+    {
+      url: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80",
+      name: "Gabriela Flores",
+      career: "Lic. en Administración - Egresada 2019",
+      size: "large",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80",
+      name: "Lic. Daniel Silva",
+      career: "Lic. en Economía - Egresado 2014",
+      size: "medium-top",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80",
+      name: "Mtra. Patricia Garza",
+      career: "Maestría en Finanzas - Egresada 2017",
+      size: "medium-bottom",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80",
+      name: "Ing. Roberto Esquivel",
+      career: "Contador Público - Egresado 2011",
+      size: "small",
+    },
+  ]
+];
+
 function NosotrosPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
   const observerRef = useRef(null);
+  const [collageIdx, setCollageIdx] = useState(0);
+  const [fadeState, setFadeState] = useState("fade-in");
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setFadeState("fade-out");
+      setTimeout(() => {
+        setCollageIdx((prev) => (prev + 1) % ALUMNI_COLLAGES.length);
+        setFadeState("fade-in");
+      }, 500);
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
       (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("visible")),
@@ -175,6 +245,31 @@ function NosotrosPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
         </div>
       </section>
 
+      {/* ── GALERÍA DE EXALUMNOS ── */}
+      <section className="pf-section pf-section-alt pf-fade">
+        <div className="pf-container">
+          <div className="pf-section-head pf-section-head-center">
+            <div className="pf-label">Nuestra comunidad</div>
+            <h2 className="pf-section-title">Galería de Exalumnos</h2>
+            <p className="pf-section-desc">
+              Nuestros egresados son el reflejo de la excelencia académica de la FECA. Conoce a algunos de nuestros destacados exalumnos en sus trayectorias profesionales.
+            </p>
+          </div>
+          <div className={`alumni-collage-wrapper ${fadeState}`}>
+            <div className="alumni-collage-grid">
+              {ALUMNI_COLLAGES[collageIdx].map((alumnus, idx) => (
+                <div key={idx} className={`alumni-collage-item alumni-size-${alumnus.size}`}>
+                  <img src={alumnus.url} alt={alumnus.name} className="alumni-image" />
+                  <div className="alumni-info-overlay">
+                    <span className="alumni-name">{alumnus.name}</span>
+                    <span className="alumni-career">{alumnus.career}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       <Footer logoImage={logoImage} />
     </div>

@@ -10272,3 +10272,395 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
     height: 320px;
   }
 }
+
+/* ==========================================
+   MURAL INSTITUCIONAL REDESIGN
+   ========================================== */
+.mural-section {
+  padding: 80px 0;
+  background-color: #fafafa;
+}
+
+.mural-container {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 50px;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.mural-image-wrap {
+  position: relative;
+  height: 380px;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
+.mural-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.mural-image-wrap:hover .mural-img {
+  transform: scale(1.04);
+}
+
+.mural-overlay {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 2;
+}
+
+.mural-badge {
+  background: #e31313;
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  box-shadow: 0 4px 12px rgba(227, 19, 19, 0.25);
+  display: inline-block;
+}
+
+.mural-content {
+  padding: 50px;
+}
+
+.mural-title {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #0b1a30;
+  margin: 10px 0 20px 0;
+  line-height: 1.25;
+}
+
+.mural-desc {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: #555555;
+  margin: 0;
+}
+
+@media (max-width: 991px) {
+  .mural-container {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .mural-image-wrap {
+    height: 300px;
+  }
+  .mural-content {
+    padding: 35px 30px;
+  }
+  .mural-title {
+    font-size: 1.8rem;
+  }
+}
+
+
+/* ==========================================
+   ALUMNI COLLAGE / GALLERY (NOSOTROS)
+   ========================================== */
+.alumni-collage-wrapper {
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  opacity: 0;
+  transform: scale(0.99);
+}
+
+.alumni-collage-wrapper.fade-in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.alumni-collage-wrapper.fade-out {
+  opacity: 0;
+  transform: scale(0.99);
+}
+
+.alumni-collage-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 170px);
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.alumni-collage-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  background-color: #eaeaea;
+}
+
+.alumni-collage-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.1) 50%, transparent 100%);
+  opacity: 0.85;
+  transition: opacity 0.3s;
+  z-index: 1;
+}
+
+.alumni-collage-item:hover::after {
+  opacity: 0.95;
+}
+
+.alumni-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  display: block;
+}
+
+.alumni-collage-item:hover .alumni-image {
+  transform: scale(1.06);
+}
+
+.alumni-info-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px 20px;
+  z-index: 2;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.alumni-name {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  letter-spacing: 0.01em;
+}
+
+.alumni-career {
+  font-size: 0.78rem;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+/* Grid sizes */
+.alumni-size-large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.alumni-size-medium-top {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.alumni-size-medium-bottom {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.alumni-size-small {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+@media (max-width: 900px) {
+  .alumni-collage-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 12px;
+  }
+  
+  .alumni-collage-item {
+    height: 200px;
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+}
+
+@media (max-width: 550px) {
+  .alumni-collage-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .alumni-collage-item {
+    height: 220px;
+  }
+}
+
+
+/* ==========================================
+   FINANCIAL PROCEDURES ACCORDION
+   ========================================== */
+.procedures-accordion {
+  max-width: 900px;
+  margin: 40px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.procedure-item {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.procedure-item:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  border-color: rgba(227, 19, 19, 0.15);
+}
+
+.procedure-item.is-open {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  border-color: rgba(227, 19, 19, 0.25);
+}
+
+.procedure-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s;
+}
+
+.procedure-header:hover {
+  background-color: #fafafa;
+}
+
+.procedure-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0b1a30;
+  letter-spacing: -0.01em;
+}
+
+.procedure-icon {
+  color: #e31313;
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(227, 19, 19, 0.05);
+}
+
+.procedure-item.is-open .procedure-icon {
+  transform: rotate(180deg);
+  background: #e31313;
+  color: #ffffff;
+}
+
+.procedure-content-wrap {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.procedure-item.is-open .procedure-content-wrap {
+  max-height: 1000px; /* Adjust dynamically */
+}
+
+.procedure-content {
+  padding: 0 28px 28px 28px;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+  background-color: #ffffff;
+}
+
+.procedure-desc {
+  font-size: 0.95rem;
+  color: #555555;
+  line-height: 1.6;
+  margin: 20px 0;
+}
+
+.procedure-steps-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0b1a30;
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.procedure-steps-list {
+  padding-left: 20px;
+  margin: 0 0 25px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.procedure-step-item {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #444444;
+}
+
+.procedure-step-item::marker {
+  color: #e31313;
+  font-weight: 700;
+}
+
+.procedure-action {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 15px;
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #e31313, #b80d0d);
+  color: #ffffff !important;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 12px rgba(227, 19, 19, 0.2);
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(227, 19, 19, 0.3);
+}
+
+.download-btn svg {
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .procedure-header {
+    padding: 18px 20px;
+  }
+  .procedure-title {
+    font-size: 1.05rem;
+  }
+  .procedure-content {
+    padding: 0 20px 20px 20px;
+  }
+}
