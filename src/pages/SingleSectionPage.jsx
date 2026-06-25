@@ -1,9 +1,10 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Footer from "../sections/Footer";
 import Header from "../sections/Header";
 import DirectorsList from "../components/DirectorsList";
 
 function SingleSectionPage({ content, slug, logoImage, newsPanelOpen, setNewsPanelOpen }) {
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const observerRef = useRef(null);
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -78,20 +79,100 @@ function SingleSectionPage({ content, slug, logoImage, newsPanelOpen, setNewsPan
           <div className="pf-container">
             {slug === "ejes-rectores" ? (
               <>
-                {/* ── ORGANIGRAMA ── */}
+                {/* ── ORGANIGRAMA Visor interactivo ── */}
                 <div className="pf-section-head pf-fade" style={{ marginBottom: 24 }}>
                   <div className="pf-label">Estructura institucional</div>
                   <h2 className="pf-section-title">Organigrama</h2>
                 </div>
-                <div className="ejes-org-wrap pf-fade">
-                  <div className="ejes-org-frame">
-                    <embed
-                      src="/ORGANIGRAMA-FECA.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=page-fit"
-                      type="application/pdf"
-                      className="ejes-org-embed"
+                
+                <div className="ejes-org-container pf-fade">
+                  <div className="ejes-org-card" onClick={() => setIsLightboxOpen(true)}>
+                    <img 
+                      src="/imagenes/organigrama.jfif" 
+                      alt="Organigrama FECA" 
+                      className="ejes-org-img"
                     />
+                    <div className="ejes-org-overlay">
+                      <div className="ejes-org-overlay-content">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <circle cx="11" cy="11" r="8" />
+                          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                          <line x1="11" y1="8" x2="11" y2="14" />
+                          <line x1="8" y1="11" x2="14" y2="11" />
+                        </svg>
+                        <span>Hacer clic para ampliar organigrama</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Fila de botones de acción */}
+                  <div className="ejes-org-actions">
+                    <button className="ejes-org-btn btn-secondary" onClick={() => setIsLightboxOpen(true)}>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        <line x1="11" y1="8" x2="11" y2="14" />
+                        <line x1="8" y1="11" x2="14" y2="11" />
+                      </svg>
+                      <span>Ampliar Imagen</span>
+                    </button>
+                    
+                    <a 
+                      href="/ORGANIGRAMA-FECA.pdf" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="ejes-org-btn btn-primary"
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                        <polyline points="15 3 21 3 21 9" />
+                        <line x1="10" y1="14" x2="21" y2="3" />
+                      </svg>
+                      <span>Ver PDF Oficial</span>
+                    </a>
+                    
+                    <a 
+                      href="/ORGANIGRAMA-FECA.pdf" 
+                      download="ORGANIGRAMA-FECA.pdf" 
+                      className="ejes-org-btn btn-outline"
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                      </svg>
+                      <span>Descargar PDF</span>
+                    </a>
                   </div>
                 </div>
+
+                {/* Lightbox Modal del Organigrama */}
+                {isLightboxOpen && (
+                  <div className="org-lightbox" onClick={() => setIsLightboxOpen(false)}>
+                    <button className="org-lightbox-close" onClick={() => setIsLightboxOpen(false)} aria-label="Cerrar vista">
+                      &times;
+                    </button>
+                    <div className="org-lightbox-content" onClick={(e) => e.stopPropagation()}>
+                      <img 
+                        src="/imagenes/organigrama.jfif" 
+                        alt="Organigrama Completo FECA" 
+                        className="org-lightbox-img"
+                      />
+                      <div className="org-lightbox-footer">
+                        <h4>Organigrama Institucional - FECA UJED</h4>
+                        <div className="org-lightbox-actions">
+                          <a href="/ORGANIGRAMA-FECA.pdf" target="_blank" rel="noopener noreferrer">
+                            Ver PDF Original
+                          </a>
+                          <span className="org-lightbox-separator">|</span>
+                          <a href="/ORGANIGRAMA-FECA.pdf" download="ORGANIGRAMA-FECA.pdf">
+                            Descargar
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
 
                 {/* ── DIRECTIVOS lista ejecutiva ── */}
                 <DirectorsList />

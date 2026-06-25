@@ -16,8 +16,8 @@ const nosotrosCards = [
   {
     title: "Organigrama",
     description: "Consulta la estructura organizacional de la Facultad de Economía, Contaduría y Administración.",
-    href: "/ORGANIGRAMA-FECA.pdf",
-    external: true,
+    href: "#/nosotros/ejes-rectores",
+    external: false,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="3" width="6" height="6" rx="1"/>

@@ -10036,28 +10036,571 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
   }
 }
 
-/* ── Organigrama embed (Ejes Rectores) ── */
-.ejes-org-wrap {
-  margin-bottom: 72px;
-}
-
-.ejes-org-frame {
+/* ── Organigrama Interactivo (Ejes Rectores) ── */
+.ejes-org-container {
+  margin-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
-  height: 560px;
-  overflow: hidden;
-  background: #fff;
-  border: none;
-  position: relative;
 }
 
-.ejes-org-embed {
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  width: calc(100% + 30px);
-  height: calc(100% + 20px);
-  border: none;
+.ejes-org-card {
+  width: 100%;
+  max-width: 900px;
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #e8e6e2;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
+}
+
+.ejes-org-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+}
+
+.ejes-org-img {
+  width: 100%;
+  height: auto;
   display: block;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+}
+
+.ejes-org-card:hover .ejes-org-img {
+  transform: scale(1.015);
+}
+
+.ejes-org-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 26, 46, 0.4);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ejes-org-card:hover .ejes-org-overlay {
+  opacity: 1;
+}
+
+.ejes-org-overlay-content {
+  background: #ffffff;
+  padding: 12px 24px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  color: #951823;
+  font-weight: 700;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  transform: translateY(10px);
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.ejes-org-card:hover .ejes-org-overlay-content {
+  transform: translateY(0);
+}
+
+/* Fila de botones de acción */
+.ejes-org-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 24px;
+  width: 100%;
+}
+
+.ejes-org-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 700;
+  font-family: var(--font-ui);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.ejes-org-btn.btn-primary {
+  background: #951823;
+  color: #ffffff;
+  border: 1px solid #951823;
+}
+
+.ejes-org-btn.btn-primary:hover {
+  background: #b51e2c;
+  border-color: #b51e2c;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(149, 24, 35, 0.2);
+}
+
+.ejes-org-btn.btn-secondary {
+  background: #1a1a2e;
+  color: #ffffff;
+  border: 1px solid #1a1a2e;
+}
+
+.ejes-org-btn.btn-secondary:hover {
+  background: #2a2a4e;
+  border-color: #2a2a4e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(26, 26, 46, 0.2);
+}
+
+.ejes-org-btn.btn-outline {
+  background: transparent;
+  color: #951823;
+  border: 1.5px solid #951823;
+}
+
+.ejes-org-btn.btn-outline:hover {
+  background: #fff0f0;
+  transform: translateY(-2px);
+}
+
+/* Lightbox Modal del Organigrama */
+.org-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(12px);
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.org-lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 40px;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+  z-index: 1210;
+}
+
+.org-lightbox-close:hover {
+  color: #e31313;
+  transform: scale(1.1);
+}
+
+.org-lightbox-content {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 12px;
+  max-width: 90%;
+  max-height: 90vh;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  animation: scaleUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.org-lightbox-img {
+  max-width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: 8px;
+  display: block;
+}
+
+.org-lightbox-footer {
+  width: 100%;
+  padding: 16px 12px 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #f0ede9;
+  margin-top: 12px;
+}
+
+.org-lightbox-footer h4 {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0;
+}
+
+.org-lightbox-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.org-lightbox-actions a {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 700;
+  color: #951823;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.org-lightbox-actions a:hover {
+  text-decoration: underline;
+}
+
+.org-lightbox-separator {
+  color: #c4b5b0;
+  font-size: 12px;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Estilos del Botón de Biografía */
+.el-bio-btn {
+  margin-top: 18px;
+  padding: 10px 22px;
+  background: transparent;
+  border: 1.5px solid #951823;
+  border-radius: 24px;
+  color: #951823;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: var(--font-ui);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.el-bio-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.el-bio-btn:hover {
+  background: #951823;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(149, 24, 35, 0.15);
+}
+
+.el-bio-btn:hover svg {
+  transform: scale(1.1);
+}
+
+/* Modal de Biografías */
+.dir-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 15, 0.6);
+  backdrop-filter: blur(8px);
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: fadeIn 0.35s ease forwards;
+}
+
+.dir-modal-container {
+  background: #ffffff;
+  width: 100%;
+  max-width: 900px;
+  border-radius: 20px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  position: relative;
+  overflow: hidden;
+  max-height: 90vh;
+  animation: scaleUp 0.35s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.dir-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  font-size: 32px;
+  color: #7a6a64;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+  z-index: 1210;
+  line-height: 1;
+}
+
+.dir-modal-close:hover {
+  color: #951823;
+  transform: scale(1.1);
+}
+
+.dir-modal-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  max-height: 90vh;
+}
+
+/* Columna Izquierda */
+.dir-modal-left {
+  background: #fdfcfb;
+  border-right: 1px solid #ede9e5;
+  padding: 48px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.dir-modal-photo-wrap {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #951823;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 24px rgba(149, 24, 35, 0.12);
+}
+
+.dir-modal-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.dir-modal-role {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #951823;
+  margin-bottom: 8px;
+}
+
+.dir-modal-name {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 32px;
+  line-height: 1.3;
+}
+
+.dir-modal-contact {
+  width: 100%;
+  border-top: 1px solid #ede9e5;
+  padding-top: 24px;
+  margin-top: auto;
+}
+
+.dir-modal-contact h4 {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #7a6a64;
+  margin: 0 0 10px;
+}
+
+.dir-modal-contact a {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: #951823;
+  text-decoration: none;
+  font-weight: 600;
+  word-break: break-all;
+  display: block;
+}
+
+.dir-modal-contact a:hover {
+  text-decoration: underline;
+}
+
+.dir-modal-contact p {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: #a39590;
+  margin: 6px 0 0;
+}
+
+/* Columna Derecha */
+.dir-modal-right {
+  padding: 48px 48px 36px;
+  overflow-y: auto;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.dir-modal-kicker {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #a39590;
+}
+
+.dir-modal-divider {
+  width: 48px;
+  height: 3px;
+  background: #951823;
+  margin: 12px 0 24px;
+  border-radius: 2px;
+}
+
+.dir-modal-quote {
+  margin: 0 0 32px;
+  padding: 0 0 0 20px;
+  border-left: 4px solid #951823;
+}
+
+.dir-modal-quote p {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  font-style: italic;
+  color: #5a4f4a;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.dir-modal-bio-content {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-bottom: 36px;
+}
+
+.dir-modal-bio-section h4 {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 10px;
+}
+
+.dir-modal-bio-section p {
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  color: #5a4f4a;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.dir-modal-degrees-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dir-modal-degrees-list li {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: #5a4f4a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dir-modal-bullet {
+  color: #951823;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.dir-modal-footer {
+  margin-top: auto;
+  border-top: 1px solid #ede9e5;
+  padding-top: 24px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dir-modal-close-btn {
+  background: #1a1a2e;
+  color: #ffffff;
+  border: 1px solid #1a1a2e;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-family: var(--font-ui);
+  font-size: 12.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dir-modal-close-btn:hover {
+  background: #2a2a4e;
+  border-color: #2a2a4e;
+  transform: translateY(-1px);
+}
+
+/* Responsividad para Modal de Biografía y Organigrama */
+@media (max-width: 768px) {
+  .dir-modal-grid {
+    grid-template-columns: 1fr;
+    max-height: 85vh;
+  }
+  
+  .dir-modal-left {
+    border-right: none;
+    border-bottom: 1px solid #ede9e5;
+    padding: 32px 24px;
+  }
+  
+  .dir-modal-right {
+    padding: 32px 24px;
+  }
+  
+  .ejes-org-btn {
+    width: 100%;
+  }
+
+  .org-lightbox {
+    padding: 12px;
+  }
+
+  .org-lightbox-footer {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    text-align: center;
+  }
 }
 
 /* ══════════ ANUNCIOS CAROUSEL (v2) ══════════ */
