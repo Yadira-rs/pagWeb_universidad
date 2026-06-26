@@ -15,12 +15,22 @@ function Footer() {
         <span style={{ textAlign: 'center', flex: 1, fontSize: '28px' }}>Por una Cultura de Innovación y Emprendimiento</span>
       </div>
 
-      <div className="footer-grid footer-grid--two">
+      <div className="footer-grid footer-grid--three">
         <div className="footer-brand">
           <p className="footer-about">
             Formando profesionales de excelencia desde 1958. Comprometidos con
             la innovación, la investigación y el desarrollo de Durango.
           </p>
+        </div>
+
+        <div className="footer-col">
+          <h4>Comunidad</h4>
+          <ul>
+            <li><a href="#/bolsa-de-trabajo">Bolsa de trabajo</a></li>
+            <li><a href="#/egresados">Seguimiento de egresados</a></li>
+            <li><a href="https://sumafeca.ujed.mx/" target="_blank" rel="noreferrer">SUMA+ FECA</a></li>
+            <li><a href="#/tutorias">Tutorías</a></li>
+          </ul>
         </div>
 
         <div className="footer-col">

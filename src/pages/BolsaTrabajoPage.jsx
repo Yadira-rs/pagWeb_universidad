@@ -169,6 +169,39 @@ function BolsaTrabajoPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
         </div>
       </section>
 
+      {/* ── EGRESADOS CTA ── */}
+      <section className="pf-section pf-section-alt pf-fade">
+        <div className="pf-container">
+          <div style={{ display: "flex", alignItems: "center", gap: 36, background: "#fff", borderRadius: 20, padding: "40px 44px", boxShadow: "0 8px 32px rgba(0,0,0,0.07)", flexWrap: "wrap" }}>
+            <div style={{ flex: 1, minWidth: 240 }}>
+              <div className="pf-label">Comunidad FECA</div>
+              <h2 className="pf-section-title" style={{ marginBottom: 10 }}>Seguimiento de Egresados</h2>
+              <p className="pf-section-desc" style={{ marginBottom: 24 }}>
+                ¿Ya te graduaste? Registra tu trayectoria profesional, forma parte del directorio
+                de egresados y mantente conectado con la comunidad FECA.
+              </p>
+              <a href="#/egresados" className="pf-btn-primary" style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
+                Ir a Egresados
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+            <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
+              {[
+                { num: "40,000+", label: "Egresados" },
+                { num: "95%", label: "Empleabilidad" },
+              ].map((s) => (
+                <div key={s.label} style={{ textAlign: "center" }}>
+                  <div style={{ fontFamily: "var(--font-display)", fontSize: 36, fontWeight: 700, color: "var(--navy)" }}>{s.num}</div>
+                  <div style={{ fontFamily: "var(--font-ui)", fontSize: 11, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--gray-mid)" }}>{s.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Footer logoImage={logoImage} />
     </div>
   );

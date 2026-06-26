@@ -1,204 +1,479 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 
-const slides = [
+/* ─── Slide data ─────────────────────────────────────────────────────────── */
+const DEFAULT_SLIDES = [
   {
-    tipo: "Evento",
-    numero: "01",
-    titulo: "Taller de Innovación y Emprendimiento",
-    desc: "Aprende metodologías ágiles para validar y lanzar tu idea de negocio. Cupo limitado a 30 participantes.",
-    fecha: "15 de julio, 2026 · 10:00 hrs · Sala CIIEDO",
-    ctaLabel: "Registrarme ahora",
-    ctaHref: "mailto:ciiedo.feca@ujed.mx",
-    grad: "linear-gradient(135deg, #7b0000 0%, #C0392B 50%, #e74c3c 100%)",
-    accentColor: "#ff8a80",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="52" height="52">
-        <rect x="3" y="4" width="18" height="18" rx="2"/>
-        <line x1="16" y1="2" x2="16" y2="6"/>
-        <line x1="8" y1="2" x2="8" y2="6"/>
-        <line x1="3" y1="10" x2="21" y2="10"/>
-        <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/>
-      </svg>
-    ),
+    id: "inscripcion",
+    badge: "⏰ URGENTE",
+    title: "Convocatoria Inscripción julio – agosto 2026",
+    subtitle:
+      "Abierta la inscripción para todos los programas de licenciatura y posgrado. Promedio mínimo 7.0. ¡No pierdas tu lugar!",
+    btnText: "Registrarme ahora",
+    btnHref: "#/solicitud",
+    emoji: "📋",
+    gradient: "linear-gradient(135deg,#3d0009 0%,#951823 55%,#5a0e15 100%)",
+    accent: "#e31313",
+    accentRgb: "227,19,19",
+    variant: "typewriter",
   },
   {
-    tipo: "Convocatoria",
-    numero: "02",
-    titulo: "Prácticas Profesionales y Servicio Social CIIEDO 2026",
-    desc: "Gana experiencia real trabajando en proyectos de innovación. Postúlate antes del cierre de inscripciones.",
-    fecha: "Cierre: 30 de julio, 2026",
-    ctaLabel: "Ver requisitos",
-    ctaHref: "mailto:ciiedo.feca@ujed.mx",
-    grad: "linear-gradient(135deg, #4a0080 0%, #8e24aa 50%, #ab47bc 100%)",
-    accentColor: "#ce93d8",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="52" height="52">
-        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-        <polyline points="14 2 14 8 20 8"/>
-        <line x1="16" y1="13" x2="8" y2="13"/>
-        <line x1="16" y1="17" x2="8" y2="17"/>
-        <polyline points="10 9 9 9 8 9"/>
-      </svg>
-    ),
+    id: "cultural",
+    badge: "🎉 EVENTO",
+    title: "Semana Cultural FECA 2026",
+    subtitle:
+      "Del 16 al 20 de junio · Arte, conferencias, música en vivo y concursos. ¡Entrada libre para toda la comunidad!",
+    btnText: "Ver programa completo",
+    btnHref: "mailto:informes@feca.ujed.mx",
+    emoji: "🎨",
+    extraEmojis: ["🎭", "🎵", "✨", "🎪", "🌟"],
+    gradient: "linear-gradient(135deg,#200010 0%,#951823 50%,#4a1000 100%)",
+    accent: "#b9c7c7",
+    accentRgb: "185,199,199",
+    variant: "emojis",
   },
   {
-    tipo: "Aviso Importante",
-    numero: "03",
-    titulo: "Nuevo horario de atención CIIEDO a partir de agosto",
-    desc: "El CIIEDO ajusta su horario presencial. Lunes a viernes de 9:00 a 14:00 hrs. Para citas fuera de horario escríbenos.",
-    fecha: "Vigente a partir del 1 de agosto, 2026",
-    ctaLabel: "Contactar",
-    ctaHref: "mailto:ciiedo.feca@ujed.mx",
-    grad: "linear-gradient(135deg, #004d40 0%, #00796b 50%, #26a69a 100%)",
-    accentColor: "#80cbc4",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="52" height="52">
-        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-        <line x1="12" y1="9" x2="12" y2="13"/>
-        <line x1="12" y1="17" x2="12.01" y2="17"/>
-      </svg>
-    ),
+    id: "becas",
+    badge: "⭐ BECAS",
+    title: "Becas universitarias disponibles este semestre",
+    subtitle:
+      "PRONABES, excelencia académica y movilidad estudiantil. Postúlate antes del cierre del 15 de julio.",
+    btnText: "Ver requisitos",
+    btnHref: "#/servicios",
+    emoji: "⭐",
+    gradient: "linear-gradient(135deg,#1a1000 0%,#3d2800 55%,#2a1a00 100%)",
+    accent: "#b79a63",
+    accentRgb: "183,154,99",
+    variant: "blobs",
   },
   {
-    tipo: "Noticia",
-    numero: "04",
-    titulo: "CIIEDO firma convenio con empresas líderes de Durango",
-    desc: "Nuevas alianzas para conectar a estudiantes con el ecosistema empresarial regional. Más oportunidades de vinculación.",
-    fecha: "Publicado: junio 2026",
-    ctaLabel: "Leer más",
-    ctaHref: "mailto:ciiedo.feca@ujed.mx",
-    grad: "linear-gradient(135deg, #1a237e 0%, #1565c0 50%, #1e88e5 100%)",
-    accentColor: "#90caf9",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="52" height="52">
-        <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 0-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/>
-        <path d="M18 14h-8M15 18h-5M10 6h8v4h-8z"/>
-      </svg>
-    ),
+    id: "empleo",
+    badge: "💼 EMPLEO",
+    title: "Bolsa de Trabajo FECA: +40 vacantes activas",
+    subtitle:
+      "Empresas de Durango buscan talento universitario. Tiempo parcial, prácticas profesionales y tiempo completo.",
+    btnText: "Ver vacantes",
+    btnHref: "#/bolsa-de-trabajo",
+    emoji: "🚀",
+    extraEmojis: ["💼", "🌟", "💡", "🎯", "🏆"],
+    gradient: "linear-gradient(135deg,#2d0000 0%,#951823 45%,#6b0f18 100%)",
+    accent: "#a87f3d",
+    accentRgb: "168,127,62",
+    variant: "particles",
   },
 ];
 
-const INTERVAL = 5500;
+/* ─── CSS keyframes (injected once) ─────────────────────────────────────── */
+const KF = `
+@keyframes acTwinkle{0%,100%{opacity:.08;transform:scale(.6)}50%{opacity:.9;transform:scale(1.35)}}
+@keyframes acFloat{0%,100%{transform:translateY(0px) rotate(-6deg)}50%{transform:translateY(-22px) rotate(6deg)}}
+@keyframes acBlob{
+  0%,100%{transform:translateY(0) scale(1);border-radius:60% 40% 70% 30%/50% 60% 40% 50%}
+  33%{transform:translateY(-30px) scale(1.08);border-radius:70% 30% 50% 50%/40% 60% 40% 60%}
+  66%{transform:translateY(12px) scale(.93);border-radius:40% 60% 40% 60%/60% 40% 60% 40%}
+}
+@keyframes acGlow{0%,100%{box-shadow:0 0 0 0 rgba(var(--ac-rgb),.65)}50%{box-shadow:0 0 0 8px rgba(var(--ac-rgb),0)}}
+@keyframes acRing{from{stroke-dashoffset:283}to{stroke-dashoffset:0}}
+@keyframes acProgress{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes acIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes acCursor{0%,49%{opacity:1}50%,100%{opacity:0}}
+`;
 
-export default function AnunciosCarousel() {
+const INTERVAL_MS = 4000;
+
+/* ─── Component ──────────────────────────────────────────────────────────── */
+export default function AnunciosCarousel({ slides = DEFAULT_SLIDES }) {
   const [current, setCurrent] = useState(0);
-  const [prev, setPrev] = useState(null);
-  const [animating, setAnimating] = useState(false);
-  const pausedRef = useRef(false);
-  const animatingRef = useRef(false);
+  const [displayed, setDisplayed] = useState(""); // typewriter text
+  const pauseRef  = useRef(false);
+  const timerRef  = useRef(null);
+  const twRef     = useRef(null);
 
-  const goTo = useCallback((idx) => {
-    if (animatingRef.current || idx === current) return;
-    animatingRef.current = true;
-    setAnimating(true);
-    setPrev(current);
-    setCurrent(idx);
-    setTimeout(() => {
-      setAnimating(false);
-      setPrev(null);
-      animatingRef.current = false;
-    }, 500);
-  }, [current]);
+  /* Stable random data (generated once per mount) */
+  const particles = useMemo(
+    () =>
+      Array.from({ length: 24 }, (_, i) => ({
+        id: i,
+        x: 4 + ((i * 4.1) % 90),
+        y: 6 + ((i * 7.3) % 80),
+        s: 2 + (i % 3),
+        delay: (i * 0.38) % 4,
+        dur: 1.4 + (i % 3) * 0.7,
+      })),
+    []
+  );
 
-  const next = useCallback(() => goTo((current + 1) % slides.length), [current, goTo]);
-  const prevSlide = useCallback(() => goTo((current - 1 + slides.length) % slides.length), [current, goTo]);
+  const emojiPos = useMemo(
+    () => [
+      { left: "7%",  top: "20%", delay: 0,   dur: 5.5 },
+      { left: "83%", top: "18%", delay: 1.8, dur: 4.8 },
+      { left: "13%", top: "65%", delay: 3.2, dur: 6   },
+      { left: "77%", top: "60%", delay: 0.9, dur: 5.2 },
+      { left: "47%", top: "8%",  delay: 2.4, dur: 6.5 },
+    ],
+    []
+  );
+
+  const blobs = useMemo(
+    () => [
+      { w: 340, h: 300, x: -100, y: -80,  color: "rgba(183,154,99,.20)", delay: 0, dur: 10 },
+      { w: 280, h: 260, x: "62%", y: "8%",  color: "rgba(168,127,62,.15)", delay: 3, dur: 12 },
+      { w: 220, h: 200, x: "26%", y: "56%", color: "rgba(149,24,36,.18)", delay: 6, dur:  9 },
+    ],
+    []
+  );
+
+  /* ── Timer ── */
+  const startTimer = useCallback(() => {
+    clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      if (!pauseRef.current)
+        setCurrent((c) => (c + 1) % slides.length);
+    }, INTERVAL_MS);
+  }, [slides.length]);
+
+  const goTo = useCallback(
+    (idx) => { setCurrent(idx); startTimer(); },
+    [startTimer]
+  );
+  const goPrev = useCallback(
+    () => goTo((current - 1 + slides.length) % slides.length),
+    [current, goTo, slides.length]
+  );
+  const goNext = useCallback(
+    () => goTo((current + 1) % slides.length),
+    [current, goTo, slides.length]
+  );
 
   useEffect(() => {
-    const id = setInterval(() => {
-      if (!pausedRef.current) next();
-    }, INTERVAL);
-    return () => clearInterval(id);
-  }, [next]);
+    startTimer();
+    return () => clearInterval(timerRef.current);
+  }, [startTimer]);
+
+  /* ── Typewriter (slide 0) ── */
+  useEffect(() => {
+    clearInterval(twRef.current);
+    if (current !== 0) return;
+    const text = slides[0].title;
+    let i = 0;
+    setDisplayed("");
+    twRef.current = setInterval(() => {
+      i++;
+      setDisplayed(text.slice(0, i));
+      if (i >= text.length) clearInterval(twRef.current);
+    }, 42);
+    return () => clearInterval(twRef.current);
+  }, [current, slides]);
 
   const slide = slides[current];
 
+  /* ─── Inline styles ─────────────────────────────────────────────────── */
+  const S = {
+    root: {
+      position: "relative",
+      height: 320,
+      overflow: "hidden",
+      fontFamily: "inherit",
+    },
+    slide: (active) => ({
+      position: "absolute",
+      inset: 0,
+      opacity: active ? 1 : 0,
+      pointerEvents: active ? "auto" : "none",
+      transition: "opacity .48s cubic-bezier(.25,.46,.45,.94), transform .48s cubic-bezier(.25,.46,.45,.94)",
+      transform: active ? "translateY(0)" : "translateY(10px)",
+    }),
+    content: (active, key) => ({
+      position: "relative",
+      zIndex: 2,
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      height: "100%",
+      padding: "0 80px 32px",
+      textAlign: "center",
+      animation: active ? `acIn .52s cubic-bezier(.25,.46,.45,.94) forwards` : "none",
+      /* key forces re-mount → re-triggers animation */
+    }),
+    badge: (accent, accentRgb) => ({
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 7,
+      background: `rgba(${accentRgb},.18)`,
+      border: `1.5px solid ${accent}`,
+      color: accent,
+      fontFamily: "var(--font-ui,sans-serif)",
+      fontSize: 10,
+      fontWeight: 800,
+      letterSpacing: ".15em",
+      textTransform: "uppercase",
+      padding: "5px 16px",
+      borderRadius: 999,
+      marginBottom: 14,
+      "--ac-rgb": accentRgb,
+      animation: "acGlow 2s ease-in-out infinite",
+    }),
+    title: {
+      fontFamily: "var(--font-display,sans-serif)",
+      fontSize: "clamp(17px,2.4vw,26px)",
+      fontWeight: 700,
+      color: "#fff",
+      textShadow: "0 2px 18px rgba(0,0,0,.45)",
+      margin: "0 0 10px",
+      lineHeight: 1.2,
+      maxWidth: 640,
+    },
+    subtitle: {
+      fontFamily: "var(--font-body,sans-serif)",
+      fontSize: "clamp(12px,1.5vw,14px)",
+      color: "rgba(255,255,255,.72)",
+      lineHeight: 1.7,
+      margin: "0 0 22px",
+      maxWidth: 560,
+    },
+    btn: (accent) => ({
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 8,
+      background: "#fff",
+      color: accent,
+      fontFamily: "var(--font-ui,sans-serif)",
+      fontSize: 13,
+      fontWeight: 800,
+      letterSpacing: ".04em",
+      padding: "10px 26px",
+      borderRadius: 999,
+      textDecoration: "none",
+      boxShadow: "0 6px 22px rgba(0,0,0,.35)",
+      transition: "transform .18s, box-shadow .18s",
+      flexShrink: 0,
+    }),
+    arrow: (side) => ({
+      position: "absolute",
+      top: "50%",
+      [side]: 16,
+      transform: "translateY(-50%)",
+      background: "rgba(255,255,255,.12)",
+      border: "1px solid rgba(255,255,255,.22)",
+      borderRadius: "50%",
+      width: 40, height: 40,
+      display: "flex", alignItems: "center", justifyContent: "center",
+      cursor: "pointer",
+      backdropFilter: "blur(8px)",
+      zIndex: 10,
+      color: "transparent",
+      padding: 0,
+    }),
+    dots: {
+      position: "absolute",
+      bottom: 14,
+      left: "50%",
+      transform: "translateX(-50%)",
+      display: "flex",
+      gap: 7,
+      zIndex: 10,
+    },
+    dot: (active, accent) => ({
+      width: active ? 28 : 7,
+      height: 7,
+      borderRadius: 999,
+      background: active ? accent : "rgba(255,255,255,.3)",
+      border: "none",
+      cursor: "pointer",
+      padding: 0,
+      transition: "width .3s, background .3s",
+    }),
+    bar: {
+      position: "absolute",
+      bottom: 0, left: 0, right: 0,
+      height: 3,
+      background: "rgba(255,255,255,.1)",
+      zIndex: 10,
+    },
+    barFill: (accent) => ({
+      height: "100%",
+      background: accent,
+      transformOrigin: "left",
+      animation: `acProgress ${INTERVAL_MS}ms linear forwards`,
+    }),
+  };
+
+  /* ─── Render ────────────────────────────────────────────────────────── */
   return (
     <div
-      className="anc-root"
-      onMouseEnter={() => { pausedRef.current = true; }}
-      onMouseLeave={() => { pausedRef.current = false; }}
+      style={S.root}
+      onMouseEnter={() => { pauseRef.current = true; }}
+      onMouseLeave={() => { pauseRef.current = false; }}
     >
-      {/* Slides */}
-      {slides.map((s, i) => (
-        <div
-          key={s.tipo}
-          className={`anc-slide ${i === current ? "anc-active" : ""} ${animating && i === prev ? "anc-exit" : ""}`}
-          style={{ background: s.grad }}
-          aria-hidden={i !== current}
-        >
-          {/* Decorative circles */}
-          <div className="anc-deco anc-deco-1" style={{ background: s.accentColor }} />
-          <div className="anc-deco anc-deco-2" style={{ background: s.accentColor }} />
-          <div className="anc-deco anc-deco-3" style={{ background: s.accentColor }} />
+      {/* Inject keyframes once */}
+      <style>{KF}</style>
 
-          <div className="anc-content">
-            {/* Left block */}
-            <div className="anc-left">
-              <div className="anc-icon-box" style={{ boxShadow: `0 0 40px ${s.accentColor}55` }}>
-                {s.icon}
-              </div>
-              <div className="anc-numero" style={{ color: s.accentColor }}>{s.numero}</div>
-            </div>
+      {slides.map((s, i) => {
+        const isActive = i === current;
 
-            {/* Right block */}
-            <div className="anc-right">
-              <span className="anc-tipo" style={{ background: `${s.accentColor}30`, color: s.accentColor, border: `1px solid ${s.accentColor}60` }}>
-                {s.tipo}
-              </span>
-              <h2 className="anc-title">{s.titulo}</h2>
-              <p className="anc-desc">{s.desc}</p>
-              <div className="anc-footer">
-                <span className="anc-fecha">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="13" height="13">
-                    <circle cx="12" cy="12" r="10"/>
-                    <polyline points="12 6 12 12 16 14"/>
-                  </svg>
-                  {s.fecha}
+        return (
+          <div key={s.id} style={{ ...S.slide(isActive), background: s.gradient }}>
+
+            {/* ── BG: Particles (typewriter + particles variants) ── */}
+            {(s.variant === "typewriter" || s.variant === "particles") &&
+              particles.map((p) => (
+                <span
+                  key={p.id}
+                  style={{
+                    position: "absolute",
+                    left: `${p.x}%`, top: `${p.y}%`,
+                    width: p.s, height: p.s,
+                    borderRadius: "50%",
+                    background: s.accent,
+                    animation: `acTwinkle ${p.dur}s ${p.delay}s ease-in-out infinite`,
+                  }}
+                />
+              ))}
+
+            {/* ── BG: Floating emojis (emojis + particles variants) ── */}
+            {(s.variant === "emojis" || s.variant === "particles") &&
+              (s.extraEmojis || []).map((em, ei) => (
+                <span
+                  key={`${s.id}-em-${ei}`}
+                  style={{
+                    position: "absolute",
+                    left: emojiPos[ei]?.left,
+                    top: emojiPos[ei]?.top,
+                    fontSize: 28,
+                    userSelect: "none",
+                    pointerEvents: "none",
+                    opacity: 0.65,
+                    animation: `acFloat ${emojiPos[ei]?.dur}s ${emojiPos[ei]?.delay}s ease-in-out infinite`,
+                  }}
+                >
+                  {em}
                 </span>
-                <a href={s.ctaHref} className="anc-cta" style={{ background: s.accentColor, color: "#111" }}>
-                  {s.ctaLabel}
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="14" height="14">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                  </svg>
-                </a>
-              </div>
+              ))}
+
+            {/* ── BG: Organic blobs (blobs variant) ── */}
+            {s.variant === "blobs" &&
+              blobs.map((b, bi) => (
+                <div
+                  key={bi}
+                  style={{
+                    position: "absolute",
+                    width: b.w, height: b.h,
+                    left: b.x, top: b.y,
+                    background: b.color,
+                    animation: `acBlob ${b.dur}s ${b.delay}s ease-in-out infinite`,
+                    pointerEvents: "none",
+                    willChange: "transform",
+                  }}
+                />
+              ))}
+
+            {/* ── Content ── */}
+            {/* key change on active forces re-mount → acIn replays */}
+            <div
+              key={isActive ? `c-${s.id}-on` : `c-${s.id}-off`}
+              className="anc-v4-content"
+              style={S.content(isActive)}
+            >
+              {/* Badge */}
+              <div style={S.badge(s.accent, s.accentRgb)}>{s.badge}</div>
+
+              {/* Title */}
+              <h2 style={S.title}>
+                {s.variant === "typewriter"
+                  ? (isActive ? displayed : s.title)
+                  : s.title}
+                {s.variant === "typewriter" && isActive && displayed.length < s.title.length && (
+                  <span
+                    style={{
+                      display: "inline-block",
+                      width: 2,
+                      height: "1em",
+                      background: s.accent,
+                      marginLeft: 3,
+                      verticalAlign: "middle",
+                      animation: "acCursor .65s step-start infinite",
+                    }}
+                  />
+                )}
+              </h2>
+
+              {/* Subtitle */}
+              <p style={S.subtitle}>{s.subtitle}</p>
+
+              {/* CTA */}
+              <a href={s.btnHref} style={S.btn(s.accent)}>
+                {s.btnText}
+                <svg
+                  viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" strokeWidth="2.5"
+                  width="13" height="13"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" />
+                </svg>
+              </a>
             </div>
+
+            {/* ── SVG Ring counter (emojis variant) ── */}
+            {s.variant === "emojis" && (
+              <svg
+                style={{ position: "absolute", top: 18, right: 22, zIndex: 3 }}
+                width={64} height={64} viewBox="0 0 100 100"
+              >
+                <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,255,255,.12)" strokeWidth="7" />
+                <circle
+                  key={isActive ? `ring-on-${current}` : `ring-off-${i}`}
+                  cx="50" cy="50" r="45"
+                  fill="none"
+                  stroke={s.accent}
+                  strokeWidth="7"
+                  strokeDasharray="283"
+                  strokeDashoffset="283"
+                  strokeLinecap="round"
+                  transform="rotate(-90 50 50)"
+                  style={{
+                    animation: isActive
+                      ? `acRing ${INTERVAL_MS}ms linear forwards`
+                      : "none",
+                  }}
+                />
+                <text x="50" y="58" textAnchor="middle" fill="#fff" fontSize="26">
+                  {s.emoji}
+                </text>
+              </svg>
+            )}
           </div>
-        </div>
-      ))}
+        );
+      })}
 
-      {/* Arrows */}
-      <button className="anc-arrow anc-arrow-l" onClick={prevSlide} aria-label="Anterior">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="20" height="20">
-          <path d="M15 19l-7-7 7-7"/>
-        </svg>
-      </button>
-      <button className="anc-arrow anc-arrow-r" onClick={next} aria-label="Siguiente">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="20" height="20">
-          <path d="M9 5l7 7-7 7"/>
+      {/* ── Left arrow ── */}
+      <button style={S.arrow("left")} onClick={goPrev} aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" width="18" height="18">
+          <path d="M15 19l-7-7 7-7" strokeLinecap="round" />
         </svg>
       </button>
 
-      {/* Dots */}
-      <div className="anc-dots">
+      {/* ── Right arrow ── */}
+      <button style={S.arrow("right")} onClick={goNext} aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" width="18" height="18">
+          <path d="M9 5l7 7-7 7" strokeLinecap="round" />
+        </svg>
+      </button>
+
+      {/* ── Navigation dots ── */}
+      <div style={S.dots}>
         {slides.map((s, i) => (
           <button
-            key={s.tipo}
-            className={`anc-dot ${i === current ? "anc-dot-on" : ""}`}
-            style={i === current ? { background: slide.accentColor, width: 28 } : {}}
+            key={s.id}
+            style={S.dot(i === current, slide.accent)}
             onClick={() => goTo(i)}
-            aria-label={s.tipo}
+            aria-label={s.badge}
           />
         ))}
       </div>
 
-      {/* Progress bar */}
-      <div className="anc-bar">
-        <div
-          key={current}
-          className="anc-bar-fill"
-          style={{ animationDuration: `${INTERVAL}ms`, background: slide.accentColor }}
-        />
+      {/* ── Progress bar ── */}
+      <div style={S.bar}>
+        <div key={`pb-${current}`} style={S.barFill(slide.accent)} />
       </div>
     </div>
   );

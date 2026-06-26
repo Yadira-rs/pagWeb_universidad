@@ -90,7 +90,6 @@ const STATS = [
   { num: "L–V",        label: "Días de atención" },
   { num: "8–15 hrs",   label: "Horario general" },
   { num: "4",          label: "Formas de pago" },
-  { num: "SUMA+",      label: "Portal de pagos" },
 ];
 
 const procedimientos = [
@@ -211,6 +210,75 @@ function FinanzasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
         </div>
       </section>
 
+      {/* CONTEXTO INSTITUCIONAL */}
+      <section className="pf-section pf-section-alt pf-fade">
+        <div className="pf-container">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40, alignItems: "center" }}>
+            <div>
+              <div className="pf-label">Estructura institucional</div>
+              <h2 className="pf-section-title">Coordinación de Finanzas</h2>
+              <p className="pf-section-desc" style={{ marginTop: 12 }}>
+                La Coordinación de Finanzas y Planeación depende directamente de la{" "}
+                <strong>Secretaría Administrativa</strong> de la Facultad de Economía, Contaduría
+                y Administración, siendo el área responsable de la gestión presupuestal, el control
+                de pagos institucionales y el apoyo económico a la comunidad FECA.
+              </p>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+              {[
+                { label: "Secretaría Administrativa", sub: "Dependencia superior", icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="22" height="22">
+                    <rect x="2" y="7" width="20" height="14" rx="2"/>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                  </svg>
+                )},
+                { label: "Coordinación de Finanzas y Planeación", sub: "Área de gestión financiera", icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="22" height="22">
+                    <line x1="12" y1="1" x2="12" y2="23"/>
+                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                  </svg>
+                )},
+                { label: "Caja General · Becas · Aranceles", sub: "Servicios al alumno", icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="22" height="22">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                )},
+              ].map((item, i) => (
+                <div
+                  key={item.label}
+                  style={{
+                    display: "flex", alignItems: "center", gap: 16,
+                    background: "#fff", border: "1px solid #e8e6e2",
+                    borderLeft: i === 1 ? "4px solid var(--navy)" : "1px solid #e8e6e2",
+                    borderRadius: 14, padding: "16px 20px",
+                    boxShadow: i === 1 ? "0 4px 16px rgba(149,24,36,0.1)" : "none",
+                  }}
+                >
+                  <div style={{
+                    width: 44, height: 44, flexShrink: 0, borderRadius: 12,
+                    background: i === 1 ? "linear-gradient(135deg,#951823,#e31313)" : "rgba(149,24,36,0.06)",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    color: i === 1 ? "#fff" : "var(--navy)",
+                  }}>
+                    {item.icon}
+                  </div>
+                  <div>
+                    <div style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 15, color: "var(--text)" }}>
+                      {item.label}
+                    </div>
+                    <div style={{ fontFamily: "var(--font-ui)", fontSize: 11, color: "var(--gray-mid)", letterSpacing: "0.06em", textTransform: "uppercase", marginTop: 2 }}>
+                      {item.sub}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* HORARIOS */}
       <section className="pf-section pf-section-light pf-fade">
         <div className="pf-container">
@@ -295,22 +363,6 @@ function FinanzasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
                 </CardTag>
               );
             })}
-          </div>
-          <div style={{ textAlign: "center", marginTop: 36 }}>
-            <a
-              href="https://sumafeca.ujed.mx/"
-              target="_blank"
-              rel="noreferrer"
-              className="pf-btn-primary"
-              style={{ background: "linear-gradient(135deg,#e31313,#9b0000)", color: "#fff" }}
-            >
-              Ir a SUMA+ · Portal de pagos
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                <polyline points="15 3 21 3 21 9"/>
-                <line x1="10" y1="14" x2="21" y2="3"/>
-              </svg>
-            </a>
           </div>
         </div>
       </section>

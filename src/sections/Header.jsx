@@ -189,7 +189,6 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
               <div className="dropdown">
                 <a href="#/nosotros/ejes-rectores">Ejes rectores</a>
                 <a href="#/historia">Historia</a>
-                <a href="#/nosotros/marco-normativo">Marco normativo</a>
                 <a href="#/mision-vision">Misión y visión</a>
                 <a href="/PDUA-SILD27.pdf" target="_blank" rel="noreferrer">PDUA</a>
                 <a href="#/nosotros/politicas">Políticas</a>

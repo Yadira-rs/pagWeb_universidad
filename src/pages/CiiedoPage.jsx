@@ -225,135 +225,72 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
         </div>
       </section>
 
-      {/* BLOQUE CIIEDO — nombre grande + galería */}
+      {/* ABOUT — logo + texto + imagen */}
       <section className="pf-section pf-section-light pf-fade">
         <div className="pf-container">
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1.1fr",
-              gap: 52,
-              alignItems: "center",
-            }}
-          >
-            {/* Nombre grande */}
-            <div style={{ textAlign: "center" }}>
+          <div className="ciiedo-about-grid">
+
+            {/* Columna izquierda: identidad + descripción + áreas */}
+            <div className="ciiedo-about-text">
               <img
                 src="/imagenes/logo-ciiedo.png"
                 alt="Logo CIIEDO"
-                style={{ height: 100, objectFit: "contain", marginBottom: 20 }}
+                className="ciiedo-about-logo"
               />
-            </div>
-
-            {/* Galería de fotos */}
-            <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-              <div
-                style={{
-                  borderRadius: 18,
-                  overflow: "hidden",
-                  height: 220,
-                  boxShadow: "0 12px 36px rgba(192,57,43,0.18)",
-                }}
-              >
-                <img
-                  src="/imagenes/feca-plaza-1.jpg"
-                  alt="Campus FECA"
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                />
-              </div>
-              <div
-                style={{
-                  borderRadius: 18,
-                  overflow: "hidden",
-                  height: 220,
-                  boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
-                }}
-              >
-                <img
-                  src="/imagenes/feca-entrada.jpg"
-                  alt="Entrada FECA"
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* POR QUÉ CIIEDO — foto + puntos clave */}
-      <section className="pf-section pf-section-alt pf-fade">
-        <div className="pf-container">
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: 52,
-              alignItems: "center",
-            }}
-          >
-            {/* Foto con overlay */}
-            <div
-              style={{
-                position: "relative",
-                borderRadius: 20,
-                overflow: "hidden",
-                height: 480,
-                boxShadow: "0 20px 56px rgba(192,57,43,0.2)",
-              }}
-            >
-              <img
-                src="/imagenes/feca-entrada.jpg"
-                alt="CIIEDO FECA"
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
-              />
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  padding: "28px 24px",
-                  background: "linear-gradient(to top, rgba(140,20,10,0.92) 0%, transparent 100%)",
-                }}
-              >
-                <p
-                  style={{
-                    margin: 0,
-                    fontFamily: "var(--font-display)",
-                    fontWeight: 800,
-                    fontSize: 22,
-                    color: "#fff",
-                    lineHeight: 1.3,
-                  }}
-                >
-                  Donde las ideas<br />cobran vida
-                </p>
-              </div>
-            </div>
-
-            {/* Texto */}
-            <div>
-              <div className="pf-label">¿Por qué elegirnos?</div>
-              <h2 className="pf-section-title">
-                El centro de innovación<br />de la{" "}
-                <span style={{ color: "#C0392B" }}>FECA</span>
+              <div className="pf-label" style={{ marginTop: 28 }}>¿Quiénes somos?</div>
+              <h2 className="pf-section-title" style={{ marginTop: 8 }}>
+                El centro de innovación<br />y emprendimiento de la{" "}
+                <span style={{ color: "var(--navy)" }}>FECA</span>
               </h2>
-              <p className="pf-section-desc" style={{ marginBottom: 28 }}>
+              <p className="pf-section-desc" style={{ marginTop: 12, marginBottom: 28 }}>
                 El CIIEDO es el espacio dentro de la facultad donde los estudiantes
                 encuentran dirección, metodología y conexión real con el ecosistema
                 de innovación. Si tienes una idea —por pequeña que sea— este es tu lugar.
               </p>
-              {porQueCiiedo.map((item) => (
-                <div
-                  key={item.title}
-                  className="pf-info-box"
-                  style={{ borderLeftColor: "#C0392B" }}
-                >
-                  <h3 style={{ color: "#C0392B" }}>{item.title}</h3>
-                  <p>{item.body}</p>
-                </div>
-              ))}
+              <div className="pf-chips" style={{ gap: 12 }}>
+                {areas.map((a) => (
+                  <span key={a.label} className="pf-chip" style={{ fontSize: 14, padding: "10px 20px" }}>
+                    {a.icon}{a.label}
+                  </span>
+                ))}
+              </div>
             </div>
+
+            {/* Columna derecha: foto grande + mini fotos */}
+            <div className="ciiedo-about-gallery">
+              <div className="ciiedo-about-img-main">
+                <img src="/imagenes/feca-plaza-1.jpg" alt="Campus FECA" />
+                <div className="ciiedo-about-img-caption">Donde las ideas cobran vida</div>
+              </div>
+              <div className="ciiedo-about-img-side">
+                <img src="/imagenes/feca-entrada.jpg" alt="Entrada FECA" />
+                <img src="/imagenes/aniversario.jpeg" alt="FECA UJED" />
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* POR QUÉ CIIEDO */}
+      <section className="pf-section pf-section-alt pf-fade">
+        <div className="pf-container">
+          <div className="pf-section-head">
+            <div className="pf-label">¿Por qué elegirnos?</div>
+            <h2 className="pf-section-title">Razones para confiar en el CIIEDO</h2>
+          </div>
+          <div className="pf-cards-grid">
+            {porQueCiiedo.map((item) => (
+              <div key={item.title} className="pf-card pf-card-top">
+                <div className="pf-card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="26" height="26">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                </div>
+                <h3 className="pf-card-title">{item.title}</h3>
+                <p className="pf-card-desc">{item.body}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -376,28 +313,6 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
                 <h3 className="pf-card-title">{s.title}</h3>
                 <p className="pf-card-desc">{s.desc}</p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ÁREAS DE APOYO */}
-      <section className="pf-section pf-section-light pf-fade">
-        <div className="pf-container">
-          <div className="pf-section-head">
-            <div className="pf-label">Enfoque multidisciplinar</div>
-            <h2 className="pf-section-title">Áreas de apoyo</h2>
-            <p className="pf-section-desc">
-              El <strong>CIIEDO</strong> integra cuatro ejes estratégicos para impulsar el desarrollo
-              estudiantil y la vinculación con el entorno profesional.
-            </p>
-          </div>
-          <div className="pf-chips pf-fade" style={{ marginTop: 8, gap: 14 }}>
-            {areas.map((a) => (
-              <span key={a.label} className="pf-chip" style={{ fontSize: 15, padding: "12px 24px" }}>
-                {a.icon}
-                {a.label}
-              </span>
             ))}
           </div>
         </div>

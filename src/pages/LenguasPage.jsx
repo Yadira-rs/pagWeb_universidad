@@ -2,14 +2,52 @@ import { useState, useEffect, useRef } from "react";
 import Footer from "../sections/Footer";
 import Header from "../sections/Header";
 
+const TAB_ICONS = {
+  cursos: (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+    </svg>
+  ),
+  costos: (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+    </svg>
+  ),
+  inscripcion: (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+    </svg>
+  ),
+  diagnostico: (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/>
+    </svg>
+  ),
+  preguntas: (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+    </svg>
+  ),
+  informacion: (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+    </svg>
+  ),
+  contacto: (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+    </svg>
+  ),
+};
+
 const tabs = [
-  { id: "cursos",      label: "Cursos",             icon: "📚" },
-  { id: "costos",      label: "Costos",              icon: "💳" },
-  { id: "inscripcion", label: "Inscripción",         icon: "✏️" },
-  { id: "diagnostico", label: "Diagnóstico",         icon: "🎯" },
-  { id: "preguntas",   label: "Preguntas frecuentes",icon: "❓" },
-  { id: "informacion", label: "Información general", icon: "ℹ️" },
-  { id: "contacto",    label: "Contacto",            icon: "📍" },
+  { id: "cursos",      label: "Cursos"              },
+  { id: "costos",      label: "Costos"               },
+  { id: "inscripcion", label: "Inscripción"          },
+  { id: "diagnostico", label: "Diagnóstico"          },
+  { id: "preguntas",   label: "Preguntas frecuentes" },
+  { id: "informacion", label: "Información general"  },
+  { id: "contacto",    label: "Contacto"             },
 ];
 
 const cursos = [
@@ -19,9 +57,9 @@ const cursos = [
     age: "Mayores de 15 años",
     horarios: ["Lunes a viernes · 1 hr. diaria", "Sabatinos · 9:00 a.m. – 2:00 p.m."],
     pdf: "/docs/horarios_ingles_adultos.pdf",
-    color: "#1a56db",
-    gradient: "linear-gradient(135deg, #1a56db 0%, #3b82f6 100%)",
-    bg: "#eff6ff",
+    color: "#951823",
+    gradient: "linear-gradient(135deg, #4a0810 0%, #951823 100%)",
+    bg: "#fff5f5",
   },
   {
     title: "Inglés para niños",
@@ -30,9 +68,9 @@ const cursos = [
     horarios: ["Sabatinos · 9:00 a.m. – 2:00 p.m."],
     note: "Solo reingreso en el periodo feb–jun.",
     pdf: "/docs/horarios_ingles_ninos.pdf",
-    color: "#059669",
-    gradient: "linear-gradient(135deg, #059669 0%, #34d399 100%)",
-    bg: "#ecfdf5",
+    color: "#a87f3d",
+    gradient: "linear-gradient(135deg, #6b4a1a 0%, #a87f3d 100%)",
+    bg: "#fdf8ee",
   },
   {
     title: "Inglés para jóvenes",
@@ -40,9 +78,9 @@ const cursos = [
     age: "12 a 15 años",
     horarios: ["Sabatinos · 9:00 a.m. – 2:00 p.m."],
     pdf: "/docs/horarios_ingles_jovenes.pdf",
-    color: "#7c3aed",
-    gradient: "linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%)",
-    bg: "#f5f3ff",
+    color: "#e31313",
+    gradient: "linear-gradient(135deg, #951823 0%, #e31313 100%)",
+    bg: "#fff5f5",
   },
   {
     title: "Francés",
@@ -50,9 +88,9 @@ const cursos = [
     age: "15 años en adelante",
     horarios: ["Lunes a viernes · 1 hr. diaria"],
     pdf: "/docs/horarios_frances.pdf",
-    color: "#0050a0",
-    gradient: "linear-gradient(135deg, #0050a0 0%, #4f8ef7 100%)",
-    bg: "#eff6ff",
+    color: "#6b0f18",
+    gradient: "linear-gradient(135deg, #3d0009 0%, #6b0f18 100%)",
+    bg: "#fff5f5",
   },
   {
     title: "Italiano",
@@ -60,9 +98,9 @@ const cursos = [
     age: "15 años en adelante",
     horarios: ["Lunes a viernes · 1 hr. diaria"],
     pdf: "/docs/horarios_italiano.pdf",
-    color: "#007a3d",
-    gradient: "linear-gradient(135deg, #007a3d 0%, #34d399 100%)",
-    bg: "#ecfdf5",
+    color: "#b79a63",
+    gradient: "linear-gradient(135deg, #3d2800 0%, #b79a63 100%)",
+    bg: "#fdf8ee",
   },
   {
     title: "Japonés",
@@ -96,10 +134,22 @@ const faqs = [
 ];
 
 const STATS = [
-  { num: "1975", label: "Año de fundación",      icon: "🏛️" },
-  { num: "+1,000", label: "Alumnos activos",     icon: "🎓" },
-  { num: "4",     label: "Idiomas disponibles",  icon: "🌐" },
-  { num: "FECA",  label: "Respaldo universitario",icon: "⭐" },
+  {
+    num: "1975", label: "Año de fundación",
+    icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 22V10l9-8 9 8v12"/><path d="M9 22V12h6v10"/></svg>,
+  },
+  {
+    num: "+1,000", label: "Alumnos activos",
+    icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6"/><path d="M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>,
+  },
+  {
+    num: "4", label: "Idiomas disponibles",
+    icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>,
+  },
+  {
+    num: "FECA", label: "Respaldo universitario",
+    icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>,
+  },
 ];
 
 const steps = [
@@ -241,7 +291,7 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
         <div className="pf-stats celci-stats">
           {STATS.map((s) => (
             <div key={s.label} className="pf-stat celci-stat">
-              <span className="celci-stat-icon">{s.icon}</span>
+              <span className="celci-stat-icon" style={{ color: "var(--navy)" }}>{s.icon}</span>
               <span className="pf-stat-num">{s.num}</span>
               <span className="pf-stat-label">{s.label}</span>
             </div>
@@ -262,7 +312,7 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
                 onClick={() => setActiveTab(tab.id)}
                 className={`celci-tab${activeTab === tab.id ? " celci-tab--active" : ""}`}
               >
-                <span className="celci-tab-icon">{tab.icon}</span>
+                <span className="celci-tab-icon">{TAB_ICONS[tab.id]}</span>
                 <span className="celci-tab-label">{tab.label}</span>
               </button>
             ))}

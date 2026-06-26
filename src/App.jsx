@@ -33,7 +33,9 @@ import ContraloriaPage from "./pages/ContraloriaPage";
 import FinanzasPage from "./pages/FinanzasPage";
 import SecretariaAdministrativaPage from "./pages/SecretariaAdministrativaPage";
 import ServiciosEscolaresPage from "./pages/ServiciosEscolaresPage";
+import CiiedoPage from "./pages/CiiedoPage";
 import ValoresPage from "./pages/ValoresPage";
+import EgresadosPage from "./pages/EgresadosPage";
 
 function getCurrentRoute() {
   const hash = window.location.hash || "#/";
@@ -55,6 +57,8 @@ function getCurrentRoute() {
   if (hash === "#/feria") return { page: "feria" };
   if (hash === "#/biblioteca") return { page: "biblioteca" };
   if (hash === "#/lenguas") return { page: "lenguas" };
+  if (hash === "#/ciiedo") return { page: "ciiedo" };
+  if (hash === "#/egresados") return { page: "egresados" };
 
   if (legacyPages[hash.replace("#/", "")]) {
     const slug = hash.replace("#/", "");
@@ -177,7 +181,9 @@ function App() {
                             ? `FECA - ${legacyPages[route.slug]?.title ?? "Solicitud"}`
                             : route.page === "service-detail"
                               ? `FECA - ${servicePages[route.slug]?.heroTitle ?? "Servicios"}`
-                              : route.page === "valores"
+                              : route.page === "egresados"
+                                  ? "FECA - Seguimiento de Egresados"
+                                  : route.page === "valores"
                                   ? "FECA - Valores Institucionales"
                                   : route.page === "single-section"
                                 ? `FECA - ${sectionPages[route.slug]?.heroTitle ?? "Nosotros"}`
@@ -281,6 +287,12 @@ function App() {
         newsPanelOpen={newsPanelOpen}
         setNewsPanelOpen={setNewsPanelOpen}
       />
+    ) : route.page === "ciiedo" ? (
+      <CiiedoPage
+        logoImage={logoImage}
+        newsPanelOpen={newsPanelOpen}
+        setNewsPanelOpen={setNewsPanelOpen}
+      />
     ) : route.page === "legacy-admission" ? (
       <LegacyAdmissionPage
         content={legacyPages[route.slug]}
@@ -320,6 +332,12 @@ function App() {
           setNewsPanelOpen={setNewsPanelOpen}
         />
       ) : null
+    ) : route.page === "egresados" ? (
+      <EgresadosPage
+        logoImage={logoImage}
+        newsPanelOpen={newsPanelOpen}
+        setNewsPanelOpen={setNewsPanelOpen}
+      />
     ) : route.page === "valores" ? (
       <ValoresPage
         logoImage={logoImage}

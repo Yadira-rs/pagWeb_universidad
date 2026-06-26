@@ -297,29 +297,6 @@ function ContraloriaPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
         </div>
       </section>
 
-      {/* ── AVISOS INFORMATIVOS ── */}
-      <section className="pf-section pf-section-light pf-fade">
-        <div className="pf-container">
-          <div className="pf-section-head pf-section-head-center" style={{ marginBottom: 36 }}>
-            <div className="pf-label">Comunicaciones oficiales</div>
-            <h2 className="pf-section-title">Avisos Informativos</h2>
-            <p className="pf-section-desc">
-              Circulares y avisos oficiales de la Contraloría Interna para la comunidad FECA.
-            </p>
-          </div>
-          <div style={{ background: "#f9f7f5", border: "2px dashed #e0dbd5", borderRadius: 16, padding: "48px 32px", textAlign: "center" }}>
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ccc" strokeWidth="1.4" style={{ marginBottom: 16 }}>
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-              <polyline points="14 2 14 8 20 8"/>
-              <line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
-            </svg>
-            <p style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "#aaa", margin: 0 }}>
-              Los avisos y circulares se publicarán en este espacio conforme vayan siendo emitidos.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* ── ENLACES INSTITUCIONALES ── */}
       <section className="pf-section pf-section-alt pf-fade">
         <div className="pf-container">
