@@ -48,6 +48,16 @@ const servicios = [
       </svg>
     ),
   },
+  {
+    title: "Certificación",
+    desc: "Obtén el respaldo oficial de tu participación y formación a través de los programas de certificación avalados por el CIIEDO y la FECA.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="28" height="28">
+        <circle cx="12" cy="8" r="6"/>
+        <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+      </svg>
+    ),
+  },
 ];
 
 const areas = [
@@ -136,8 +146,8 @@ const documentos = [
 
 const porQueCiiedo = [
   {
-    title: "100% gratuito para alumnos FECA",
-    body: "Todos nuestros servicios son accesibles sin costo para los estudiantes activos de la facultad. Tu único compromiso es querer crecer.",
+    title: "Costo accesible",
+    body: "Nuestros servicios tienen un costo pensado para los estudiantes activos de la facultad. Tu único compromiso es querer crecer.",
   },
   {
     title: "Acompañamiento personalizado",
@@ -150,8 +160,8 @@ const porQueCiiedo = [
 ];
 
 const STATS = [
-  { num: "4", label: "Servicios especializados" },
-  { num: "100%", label: "Gratuito para alumnos" },
+  { num: "5", label: "Servicios especializados" },
+  { num: "100%", label: "Accesible" },
   { num: "UJED", label: "Aval institucional" },
   { num: "FECA", label: "Centro de innovación" },
 ];
@@ -183,27 +193,22 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
 
       {/* HERO */}
       <section
-        className="pf-hero"
-        style={{ backgroundImage: "url('/imagenes/feca-plaza-1.jpg')" }}
+        className="pf-hero pf-hero-sm"
+        style={{ backgroundImage: "url('/imagenes/feca-plaza-1.jpg')", justifyContent: "center", minHeight: "30vh" }}
       >
         <div className="pf-hero-overlay" />
-        <div className="pf-hero-inner">
+        <div className="pf-hero-inner" style={{ padding: "36px 32px", textAlign: "center" }}>
           <div className="pf-hero-badge">CIIEDO · FECA · UJED</div>
           <h1 className="pf-hero-title" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
             Centro de Innovación,<br />Investigación, Emprendimiento<br />y Desarrollo Organizacional
           </h1>
-          <p className="pf-hero-sub">
+          <p className="pf-hero-sub" style={{ margin: "0 auto 36px" }}>
             En CIIEDO te asesoramos, acompañamos y conectamos con oportunidades
             de innovación y emprendimiento dentro de la FECA.
           </p>
-        </div>
-        <div className="pf-stats">
-          {STATS.map((s) => (
-            <div key={s.label} className="pf-stat">
-              <span className="pf-stat-num">{s.num}</span>
-              <span className="pf-stat-label">{s.label}</span>
-            </div>
-          ))}
+          <button className="pf-btn-primary" onClick={scrollToServicios}>
+            Conoce nuestros servicios
+          </button>
         </div>
       </section>
 
@@ -221,8 +226,7 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
               />
               <div className="pf-label" style={{ marginTop: 28 }}>¿Quiénes somos?</div>
               <h2 className="pf-section-title" style={{ marginTop: 8 }}>
-                El centro de innovación<br />y emprendimiento de la{" "}
-                <span style={{ color: "var(--navy)" }}>FECA</span>
+                Centro de Innovación,<br />Investigación, Emprendimiento<br />y Desarrollo Organizacional
               </h2>
               <p className="pf-section-desc" style={{ marginTop: 12, marginBottom: 28 }}>
                 El CIIEDO es el espacio dentro de la facultad donde los estudiantes
@@ -242,7 +246,6 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
             <div className="ciiedo-about-gallery">
               <div className="ciiedo-about-img-main">
                 <img src="/imagenes/feca-plaza-1.jpg" alt="Campus FECA" />
-                <div className="ciiedo-about-img-caption">Donde las ideas cobran vida</div>
               </div>
               <div className="ciiedo-about-img-side">
                 <img src="/imagenes/feca-entrada.jpg" alt="Entrada FECA" />
@@ -288,7 +291,7 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
               <strong>CIIEDO</strong> te acompaña en cada etapa.
             </p>
           </div>
-          <div className="pf-cards-grid-4 pf-fade">
+          <div className="pf-cards-grid-5 pf-fade">
             {servicios.map((s) => (
               <div key={s.title} className="pf-card pf-card-dark">
                 <div className="pf-card-icon">{s.icon}</div>
@@ -341,32 +344,24 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
               Consulta los calendarios de eventos, talleres y certificaciones del <strong>CIIEDO</strong>.
             </p>
           </div>
-          <div
-            className="pf-fade"
-            style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}
-          >
-            {[
-              { src: "/imagenes/CIIEDO_calendario.jpeg", alt: "Calendario CIIEDO" },
-              { src: "/calendario-ciiedo.jpeg",          alt: "Calendario de actividades" },
-              { src: "/calendario-ciiedo-2.jpeg",        alt: "Calendario 2" },
-            ].map((img) => (
-              <div
-                key={img.src}
-                style={{
-                  background: "#fff",
-                  borderRadius: 16,
-                  overflow: "hidden",
-                  boxShadow: "0 6px 24px rgba(0,0,0,0.10)",
-                  border: "1px solid #ece8e8",
-                }}
-              >
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  style={{ width: "100%", height: "auto", display: "block" }}
-                />
-              </div>
-            ))}
+          <div className="pf-fade" style={{ display: "flex", justifyContent: "center" }}>
+            <div
+              style={{
+                background: "#fff",
+                borderRadius: 20,
+                overflow: "hidden",
+                boxShadow: "0 8px 32px rgba(0,0,0,0.13)",
+                border: "1px solid #ece8e8",
+                maxWidth: 600,
+                width: "100%",
+              }}
+            >
+              <img
+                src="/imagenes/CIIEDO_calendario.jpeg"
+                alt="Calendario CIIEDO"
+                style={{ width: "100%", height: "auto", display: "block" }}
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -483,11 +478,23 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
             <div>
               <div className="pf-label">¿Tienes una idea?</div>
               <h2 className="pf-section-title">Contáctanos</h2>
-              <p className="pf-section-desc" style={{ marginBottom: 28 }}>
+              <p className="pf-section-desc" style={{ marginBottom: 8 }}>
                 El equipo del <strong>CIIEDO</strong> está disponible para resolver tus dudas,
                 escuchar tu proyecto o guiarte hacia los recursos que necesitas.
               </p>
               <div className="pf-contact-list">
+                <div className="pf-contact-item">
+                  <div className="pf-contact-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                      <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <span className="pf-contact-label">Coordinador</span>
+                    <span className="pf-contact-value">Dr. Israel Ivan Gutiérrez Muñoz</span>
+                  </div>
+                </div>
                 <a href="mailto:ciiedo.feca@ujed.mx" className="pf-contact-item">
                   <div className="pf-contact-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

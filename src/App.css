@@ -9772,6 +9772,7 @@ a.prop2-contact-item:hover {
 .pf-cards-grid   { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 .pf-cards-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
 .pf-cards-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.pf-cards-grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; }
 
 .pf-card {
   background: #fff; border: 1px solid #e8e6e2; border-radius: 18px;
@@ -9859,6 +9860,7 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
 @media (max-width: 1024px) {
   .pf-cards-grid   { grid-template-columns: repeat(2, 1fr); }
   .pf-cards-grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .pf-cards-grid-5 { grid-template-columns: repeat(3, 1fr); }
   .pf-cta-banner   { flex-direction: column; text-align: center; }
   .pf-cta-banner-actions { justify-content: center; }
 }
@@ -9870,7 +9872,7 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
   .pf-stat:last-child:nth-child(odd) { grid-column: 1 / -1; }
 }
 @media (max-width: 600px) {
-  .pf-cards-grid, .pf-cards-grid-2, .pf-cards-grid-4 { grid-template-columns: 1fr; }
+  .pf-cards-grid, .pf-cards-grid-2, .pf-cards-grid-4, .pf-cards-grid-5 { grid-template-columns: 1fr; }
   .pf-hero       { min-height: 75vh; }
   .pf-hero-title { font-size: clamp(38px, 11vw, 64px); }
 .pf-section    { padding: 52px 0; }
