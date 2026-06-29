@@ -36,6 +36,8 @@ import ServiciosEscolaresPage from "./pages/ServiciosEscolaresPage";
 import CiiedoPage from "./pages/CiiedoPage";
 import ValoresPage from "./pages/ValoresPage";
 import EgresadosPage from "./pages/EgresadosPage";
+import GruposPage from "./pages/GruposPage";
+import SatisfactionWidget from "./components/SatisfactionWidget";
 
 function getCurrentRoute() {
   const hash = window.location.hash || "#/";
@@ -59,6 +61,7 @@ function getCurrentRoute() {
   if (hash === "#/lenguas") return { page: "lenguas" };
   if (hash === "#/ciiedo") return { page: "ciiedo" };
   if (hash === "#/egresados") return { page: "egresados" };
+  if (hash === "#/grupos-representativos") return { page: "grupos" };
 
   if (legacyPages[hash.replace("#/", "")]) {
     const slug = hash.replace("#/", "");
@@ -141,6 +144,18 @@ function App() {
   }, []);
 
   useEffect(() => {
+    function handleMailto(e) {
+      const link = e.target.closest('a[href^="mailto:"]');
+      if (!link) return;
+      e.preventDefault();
+      const email = link.getAttribute("href").replace("mailto:", "");
+      window.open(`https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(email)}`, "_blank");
+    }
+    document.addEventListener("click", handleMailto);
+    return () => document.removeEventListener("click", handleMailto);
+  }, []);
+
+  useEffect(() => {
     const handleRouteChange = () => {
       setRoute(getCurrentRoute());
       setNewsPanelOpen(false);
@@ -198,7 +213,7 @@ function App() {
   }, [newsPanelOpen, buzonOpen]);
 
   useEffect(() => {
-    const elements = document.querySelectorAll(".fade-up");
+    const elements = document.querySelectorAll(".fade-up, .fade-left, .fade-right, .zoom-in");
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry, index) => {
@@ -338,6 +353,12 @@ function App() {
         newsPanelOpen={newsPanelOpen}
         setNewsPanelOpen={setNewsPanelOpen}
       />
+    ) : route.page === "grupos" ? (
+      <GruposPage
+        logoImage={logoImage}
+        newsPanelOpen={newsPanelOpen}
+        setNewsPanelOpen={setNewsPanelOpen}
+      />
     ) : route.page === "valores" ? (
       <ValoresPage
         logoImage={logoImage}
@@ -366,8 +387,9 @@ function App() {
     <>
       {pageContent}
 
+      <SatisfactionWidget />
 
-<a
+      <a
         className="whatsapp-fab"
         href="https://wa.me/526188271365"
         target="_blank"

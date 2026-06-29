@@ -301,12 +301,21 @@ function FaqSection() {
   );
 }
 
+const STATS_CFG = [
+  { target: 2000, fmt: (n) => n.toLocaleString("es-MX") + "+", label: "Alumnos activos" },
+  { target: 5,    fmt: (n) => "+" + n,                          label: "Programas" },
+  { target: 95,   fmt: (n) => n + "%",                          label: "Empleabilidad" },
+  { target: 68,   fmt: (n) => String(n),                        label: "Años de excelencia" },
+];
+
 function HomePage({ logoImage, setNewsPanelOpen }) {
   const [heroCurrentSlide, setHeroCurrentSlide] = useState(0);
   const [trackIndex, setTrackIndex] = useState(2);
   const [selectedTeacher, setSelectedTeacher] = useState(null);
+  const [counters, setCounters] = useState(STATS_CFG.map(() => 0));
   const trackRef = useRef(null);
   const carouselRef = useRef(null);
+  const statsRef = useRef(null);
   const trackIdxRef = useRef(2);
   const pausedRef = useRef(false);
   const selectedTeacherRef = useRef(null);
@@ -358,7 +367,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
     );
 
     document
-      .querySelectorAll(".fade-up")
+      .querySelectorAll(".fade-up, .fade-left, .fade-right, .zoom-in")
       .forEach((element) => observer.observe(element));
     return () => observer.disconnect();
   }, []);
@@ -406,6 +415,29 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
   useEffect(() => {
     moveTo(2, false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    const el = statsRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        obs.disconnect();
+        const duration = 1800;
+        const start = performance.now();
+        const tick = (now) => {
+          const t = Math.min((now - start) / duration, 1);
+          const ease = 1 - Math.pow(1 - t, 3);
+          setCounters(STATS_CFG.map((s) => Math.floor(s.target * ease)));
+          if (t < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      },
+      { threshold: 0.4 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
   }, []);
 
   useEffect(() => {
@@ -478,24 +510,14 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
         </div>
       </section>
 
-      <div className="statsbar fade-up">
+      <div className="statsbar" ref={statsRef}>
         <div className="statsbar-inner">
-          <div className="statsbar-item">
-            <div className="statsbar-num">2,000+</div>
-            <div className="statsbar-label">Alumnos activos</div>
-          </div>
-          <div className="statsbar-item">
-            <div className="statsbar-num">+5</div>
-            <div className="statsbar-label">Programas</div>
-          </div>
-          <div className="statsbar-item">
-            <div className="statsbar-num">95%</div>
-            <div className="statsbar-label">Empleabilidad</div>
-          </div>
-          <div className="statsbar-item">
-            <div className="statsbar-num">68</div>
-            <div className="statsbar-label">Años de excelencia</div>
-          </div>
+          {STATS_CFG.map((s, i) => (
+            <div key={s.label} className="statsbar-item">
+              <div className="statsbar-num">{s.fmt(counters[i])}</div>
+              <div className="statsbar-label">{s.label}</div>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -551,14 +573,14 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
 
       <section className="licenciaturas-showcase" id="carreras">
         <div className="container">
-          <div className="licenciaturas-content fade-up">
+          <div className="licenciaturas-content fade-left">
             <div className="section-label">Oferta Educativa</div>
             <h2 className="section-title">Licenciaturas</h2>
             <p className="section-desc">
               Formamos profesionales en Contaduría, Administración y Economía con visión estratégica y compromiso social.
             </p>
           </div>
-          <div className="licenciaturas-cta-wrap fade-up">
+          <div className="licenciaturas-cta-wrap fade-right">
             <a href="#/licenciaturas" className="licenciaturas-cta">
               Conoce nuestras licenciaturas
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -566,7 +588,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
               </svg>
             </a>
           </div>
-          <div className="licenciaturas-img-strip fade-up">
+          <div className="licenciaturas-img-strip zoom-in">
             <div className="licenciaturas-img-item" style={{ backgroundImage: "url('/imagenes/aniversario.jpeg')" }}>
 <div className="licenciaturas-img-label">Contador Público</div>
             </div>
@@ -601,7 +623,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
             ))}
           </div>
 
-          <div className="fade-up teacher-carousel-heading" id="maestros">
+          <div className="fade-left teacher-carousel-heading" id="maestros">
             <div className="section-label">Nuestro equipo</div>
             <h3 className="section-title">Directores</h3>
             <p className="section-desc">
@@ -722,7 +744,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
             </a>
           </div>
 
-          <div className="admissions-banner fade-up">
+          <div className="admissions-banner zoom-in">
             <div>
               <h2>¿Listo para dar el siguiente paso?</h2>
               <p>
@@ -749,26 +771,27 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
 
       {/* Mural institucional */}
       <section className="mural-section fade-up">
-        <div className="container">
-          <div className="mural-container">
-            <div className="mural-image-wrap">
-              <img
-                src="/imagenes/mural.jfif"
-                alt="Muro de la Calidad Institucional FECA"
-                className="mural-img"
-              />
-              <div className="mural-overlay">
-                <span className="mural-badge">Orgullo FECA</span>
-              </div>
-            </div>
-            <div className="mural-content">
-              <div className="section-label">Reconocimiento</div>
-              <h2 className="mural-title">Muro de la Calidad Institucional</h2>
-              <p className="mural-desc">
-                El Muro de la Calidad Institucional representa el compromiso permanente de la Facultad de Economía, Contaduría y Administración con la excelencia académica. Muestra las certificaciones y acreditaciones nacionales e internacionales otorgadas por organismos evaluadores de alto prestigio (como CIEES, CACECA y CONACYT) a lo largo de nuestra historia, garantizando la calidad educativa de nuestros programas.
-              </p>
-            </div>
+        {/* Columna texto */}
+        <div className="mural-content">
+          <div className="mural-eyebrow">
+            <span className="mural-badge-dot" />
+            Orgullo FECA &nbsp;·&nbsp; Reconocimiento
           </div>
+          <h2 className="mural-title">Muro de la<br />Calidad Institucional</h2>
+          <p className="mural-desc">
+            Representa el compromiso permanente de la FECA con la excelencia académica.
+            Muestra las certificaciones y acreditaciones nacionales e internacionales
+            otorgadas por organismos de alto prestigio a lo largo de nuestra historia.
+          </p>
+          <div className="mural-chips">
+            <span className="mural-chip">CIEES</span>
+            <span className="mural-chip">CACECA</span>
+            <span className="mural-chip">CONACYT</span>
+          </div>
+        </div>
+        {/* Columna imagen */}
+        <div className="mural-image-col">
+          <img src="/imagenes/mural.jfif" alt="Muro de la Calidad Institucional FECA" className="mural-img" />
         </div>
       </section>
 

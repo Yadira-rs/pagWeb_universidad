@@ -1,0 +1,359 @@
+import { useState, useEffect, useRef } from "react";
+import Header from "../sections/Header";
+import Footer from "../sections/Footer";
+
+const CATEGORIAS = ["Todos", "Deportes", "Arte y Cultura", "Académico"];
+
+const GRUPOS = [
+  {
+    id: 1, categoria: "Deportes",
+    nombre: "Fútbol Varonil", apodo: "Lobos FECA",
+    descripcion: "Equipo representativo masculino de fútbol soccer. Participamos en los Juegos Universitarios UJED y torneos regionales.",
+    icono: "⚽", color: "#1a7a3c",
+    gradient: "linear-gradient(135deg,#0d4a24 0%,#1a7a3c 100%)",
+    miembros: 22, logros: "2.° lugar Juegos UJED 2026",
+    contacto: "futbol.varonil@feca.ujed.mx", destacado: true,
+  },
+  {
+    id: 2, categoria: "Deportes",
+    nombre: "Fútbol Femenil", apodo: "Lobas FECA",
+    descripcion: "Equipo femenil de fútbol soccer con participación activa en torneos interfacultades y campeonatos estatales.",
+    icono: "⚽", color: "#951823",
+    gradient: "linear-gradient(135deg,#4a0810 0%,#951823 100%)",
+    miembros: 18, logros: "Semifinalistas UJED 2025",
+    contacto: "futbol.femenil@feca.ujed.mx",
+  },
+  {
+    id: 3, categoria: "Deportes",
+    nombre: "Basquetbol", apodo: "Águilas FECA",
+    descripcion: "Equipo mixto de baloncesto. Entrenamos tres veces por semana y competimos en la liga interfacultades de la UJED.",
+    icono: "🏀", color: "#c05c00",
+    gradient: "linear-gradient(135deg,#7a2e00 0%,#c05c00 100%)",
+    miembros: 24, logros: "1.er lugar femenil UJED 2026",
+    contacto: "basquetbol@feca.ujed.mx", destacado: true,
+  },
+  {
+    id: 4, categoria: "Deportes",
+    nombre: "Voleibol", apodo: "Rayo FECA",
+    descripcion: "Equipo de voleibol varonil y femenil. Participamos en torneos universitarios y abiertos del estado de Durango.",
+    icono: "🏐", color: "#1a5fa8",
+    gradient: "linear-gradient(135deg,#0a3060 0%,#1a5fa8 100%)",
+    miembros: 20, logros: "Participación Juegos UJED 2026",
+    contacto: "voleibol@feca.ujed.mx",
+  },
+  {
+    id: 5, categoria: "Deportes",
+    nombre: "Ajedrez", apodo: "Club Estrategia FECA",
+    descripcion: "Club de ajedrez para todos los niveles. Realizamos torneos internos, talleres de apertura y participamos en torneos abiertos.",
+    icono: "♟️", color: "#4a3a8a",
+    gradient: "linear-gradient(135deg,#1e1040 0%,#4a3a8a 100%)",
+    miembros: 14, logros: "3.er lugar Torneo Estatal 2025",
+    contacto: "ajedrez@feca.ujed.mx", nuevo: true,
+  },
+  {
+    id: 6, categoria: "Arte y Cultura",
+    nombre: "Danza Folklórica", apodo: "Ballet Folklórico FECA",
+    descripcion: "Grupo de danza folklórica mexicana que representa a la facultad en festivales universitarios, culturales y eventos institucionales.",
+    icono: "💃", color: "#a8007a",
+    gradient: "linear-gradient(135deg,#5a003e 0%,#a8007a 100%)",
+    miembros: 28, logros: "1.er lugar Festival UJED 2025",
+    contacto: "danza@feca.ujed.mx", destacado: true,
+  },
+  {
+    id: 7, categoria: "Arte y Cultura",
+    nombre: "Teatro Universitario", apodo: "Compañía FECA Teatro",
+    descripcion: "Grupo de teatro con obras de autores mexicanos e internacionales. Presentamos temporadas semestrales abiertas a toda la comunidad.",
+    icono: "🎭", color: "#7a1fa8",
+    gradient: "linear-gradient(135deg,#3a0860 0%,#7a1fa8 100%)",
+    miembros: 16, logros: "Mejor obra Muestra UJED 2025",
+    contacto: "teatro@feca.ujed.mx",
+  },
+  {
+    id: 8, categoria: "Arte y Cultura",
+    nombre: "Coro FECA", apodo: "Voces FECA",
+    descripcion: "Coro universitario mixto con repertorio que incluye música folclórica, clásica y contemporánea. No se requiere experiencia previa.",
+    icono: "🎵", color: "#1a6a6a",
+    gradient: "linear-gradient(135deg,#0a3c3c 0%,#1a6a6a 100%)",
+    miembros: 32, logros: "Presentación Gala UJED 2026",
+    contacto: "coro@feca.ujed.mx", nuevo: true,
+  },
+  {
+    id: 9, categoria: "Académico",
+    nombre: "Club de Emprendimiento", apodo: "StartUp FECA",
+    descripcion: "Espacio para desarrollar ideas de negocio, participar en concursos de emprendimiento y conectar con mentores del sector empresarial.",
+    icono: "🚀", color: "#e31313",
+    gradient: "linear-gradient(135deg,#6b0f18 0%,#e31313 100%)",
+    miembros: 45, logros: "2 proyectos financiados en 2025",
+    contacto: "startup@feca.ujed.mx", destacado: true,
+  },
+  {
+    id: 10, categoria: "Académico",
+    nombre: "Club de Debate", apodo: "Debate FECA",
+    descripcion: "Practicamos técnicas de oratoria y debate competitivo. Participamos en torneos nacionales de debate universitario.",
+    icono: "🎤", color: "#1a4fa8",
+    gradient: "linear-gradient(135deg,#0a2060 0%,#1a4fa8 100%)",
+    miembros: 20, logros: "Finalistas Torneo Nacional 2025",
+    contacto: "debate@feca.ujed.mx", destacado: true,
+  },
+  {
+    id: 11, categoria: "Académico",
+    nombre: "Club de Finanzas", apodo: "Finance Club FECA",
+    descripcion: "Análisis de mercados financieros, simulaciones de bolsa de valores y talleres de inversión personal para estudiantes de economía y administración.",
+    icono: "📈", color: "#1a7a4a",
+    gradient: "linear-gradient(135deg,#0a3c22 0%,#1a7a4a 100%)",
+    miembros: 38, logros: "Mejor Club Académico FECA 2025",
+    contacto: "finanzas.club@feca.ujed.mx",
+  },
+  {
+    id: 12, categoria: "Académico",
+    nombre: "Club de Idiomas", apodo: "Languages FECA",
+    descripcion: "Complementa al CELCI practicando inglés, francés y japonés de manera informal mediante conversaciones, películas y actividades culturales.",
+    icono: "🌐", color: "#b07a00",
+    gradient: "linear-gradient(135deg,#5a3a00 0%,#b07a00 100%)",
+    miembros: 27, logros: "Intercambio cultural con Japón 2025",
+    contacto: "idiomas.club@feca.ujed.mx",
+  },
+];
+
+const STATS = [
+  { num: "12", label: "Grupos activos" },
+  { num: "+280", label: "Estudiantes" },
+  { num: "15+", label: "Torneos al año" },
+  { num: "1958", label: "Tradición FECA" },
+];
+
+const BENEFICIOS = [
+  {
+    icon: "🏆",
+    titulo: "Representa a la FECA",
+    desc: "Compite a nombre de la facultad en torneos universitarios, estatales y nacionales.",
+    grad: "linear-gradient(135deg,#b30000,#e31313)",
+    bg: "rgba(227,19,19,0.07)",
+  },
+  {
+    icon: "🤝",
+    titulo: "Haz comunidad",
+    desc: "Conoce personas con tus mismos intereses y forma lazos que van más allá del salón de clases.",
+    grad: "linear-gradient(135deg,#0a2060,#1a5fa8)",
+    bg: "rgba(26,95,168,0.07)",
+  },
+  {
+    icon: "⚡",
+    titulo: "Desarrolla habilidades",
+    desc: "Liderazgo, trabajo en equipo, disciplina y creatividad que complementan tu formación profesional.",
+    grad: "linear-gradient(135deg,#0a4a24,#1a7a4a)",
+    bg: "rgba(26,122,74,0.07)",
+  },
+];
+
+function GrupoCard({ grupo }) {
+  return (
+    <div className="gr-card pf-fade" style={{ "--gr-glow": grupo.color }}>
+      {grupo.destacado && (
+        <div className="gr-badge gr-badge--star">⭐ Destacado</div>
+      )}
+      {grupo.nuevo && !grupo.destacado && (
+        <div className="gr-badge gr-badge--nuevo">✨ Nuevos cupos</div>
+      )}
+
+      <div className="gr-card-header" style={{ background: grupo.gradient }}>
+        <div className="gr-card-emoji-ring">
+          <span className="gr-card-emoji">{grupo.icono}</span>
+        </div>
+        <span className="gr-card-cat">{grupo.categoria}</span>
+        <div className="gr-member-row">
+          {Array.from({ length: Math.min(4, Math.floor(grupo.miembros / 6)) }).map((_, i) => (
+            <div key={i} className="gr-avatar-dot" style={{ marginLeft: i === 0 ? 0 : -8 }} />
+          ))}
+          <span className="gr-member-count">{grupo.miembros} miembros</span>
+        </div>
+      </div>
+
+      <div className="gr-card-body">
+        <h3 className="gr-card-nombre">{grupo.nombre}</h3>
+        <p className="gr-card-apodo" style={{ color: grupo.color }}>{grupo.apodo}</p>
+        <p className="gr-card-desc">{grupo.descripcion}</p>
+        <div className="gr-logro">
+          <span className="gr-logro-ico">🏅</span>
+          <span className="gr-logro-txt">{grupo.logros}</span>
+        </div>
+        <a
+          href={`mailto:${grupo.contacto}`}
+          className="gr-card-btn"
+          style={{ "--gr-color": grupo.color }}
+        >
+          ¡Quiero unirme!
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  );
+}
+
+function GruposPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
+  const [catActiva, setCatActiva] = useState("Todos");
+  const observerRef = useRef(null);
+
+  const gruposFiltrados = catActiva === "Todos"
+    ? GRUPOS
+    : GRUPOS.filter((g) => g.categoria === catActiva);
+
+  useEffect(() => {
+    observerRef.current = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("visible")),
+      { threshold: 0.08 }
+    );
+    document.querySelectorAll(".pf-fade").forEach((el) => observerRef.current.observe(el));
+    return () => observerRef.current?.disconnect();
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      document.querySelectorAll(".pf-fade:not(.visible)").forEach((el) => {
+        observerRef.current?.observe(el);
+      });
+    }, 50);
+  }, [catActiva]);
+
+  return (
+    <div className="site-shell">
+      <Header
+        logoImage={logoImage}
+        currentRoute=""
+        newsPanelOpen={newsPanelOpen}
+        setNewsPanelOpen={setNewsPanelOpen}
+      />
+
+      {/* ── HERO ── */}
+      <section className="pf-hero gr-hero">
+        <div className="gr-hero-mesh" aria-hidden="true" />
+        <div className="pf-hero-overlay gr-hero-overlay" />
+
+        <div className="gr-hero-deco" aria-hidden="true">
+          {["⚽","🎭","🏀","💃","🚀","🎵","♟️","📈","🏐","🎤","🌐","🏆"].map((e, i) => (
+            <span key={i} className="gr-deco-icon" style={{ animationDelay: `${i * 0.55}s` }}>{e}</span>
+          ))}
+        </div>
+
+        <div className="pf-hero-inner" style={{ position: "relative", zIndex: 3 }}>
+          <div className="gr-hero-pill">🎓 Vida universitaria · FECA UJED</div>
+          <h1 className="pf-hero-title gr-hero-title">
+            Únete a algo<br />
+            <span className="gr-title-gradient">extraordinario</span>
+          </h1>
+          <p className="pf-hero-sub gr-hero-sub">
+            Deporte, arte, cultura y academia. Más de{" "}
+            <strong>280 estudiantes</strong> ya forman parte de los grupos representativos.
+          </p>
+          <div className="pf-hero-ctas">
+            <a href="mailto:informes@feca.ujed.mx" className="pf-btn-primary gr-cta-main">
+              Quiero participar ahora
+            </a>
+            <a href="#grupos-lista" className="pf-btn-outline">
+              Ver grupos →
+            </a>
+          </div>
+        </div>
+
+        <div className="pf-stats gr-stats-bar">
+          {STATS.map((s) => (
+            <div key={s.label} className="pf-stat gr-stat">
+              <span className="pf-stat-num">{s.num}</span>
+              <span className="pf-stat-label">{s.label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── POR QUÉ UNIRSE ── */}
+      <section className="pf-section pf-section-light pf-fade">
+        <div className="pf-container">
+          <div className="pf-section-head pf-section-head-center">
+            <div className="pf-label">¿Por qué unirte?</div>
+            <h2 className="pf-section-title">Más que estudiar,<br />vive la universidad</h2>
+            <p className="pf-section-desc">
+              Los grupos representativos son el corazón de la vida universitaria. Cada estudiante puede unirse, competir y crear recuerdos que duran toda la vida.
+            </p>
+          </div>
+          <div className="gr-beneficios">
+            {BENEFICIOS.map((b) => (
+              <div
+                key={b.titulo}
+                className="gr-beneficio-card"
+                style={{ "--gr-ben-grad": b.grad, "--gr-ben-bg": b.bg }}
+              >
+                <div className="gr-ben-icon-wrap">
+                  <span className="gr-beneficio-icon">{b.icon}</span>
+                </div>
+                <h3>{b.titulo}</h3>
+                <p>{b.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── GRUPOS ── */}
+      <section id="grupos-lista" className="pf-section pf-section-alt">
+        <div className="pf-container">
+          <div className="pf-section-head pf-section-head-center">
+            <div className="pf-label">Directorio completo</div>
+            <h2 className="pf-section-title">Encuentra tu grupo</h2>
+            <p className="pf-section-desc">Filtra por categoría y encuentra el espacio perfecto para ti.</p>
+          </div>
+
+          <div className="gr-filtros">
+            {CATEGORIAS.map((cat) => (
+              <button
+                key={cat}
+                className={`gr-filtro${catActiva === cat ? " gr-filtro--activo" : ""}`}
+                onClick={() => setCatActiva(cat)}
+              >
+                {cat === "Deportes" && "⚽ "}
+                {cat === "Arte y Cultura" && "🎭 "}
+                {cat === "Académico" && "📚 "}
+                {cat}
+                <span className="gr-filtro-count">
+                  {cat === "Todos" ? GRUPOS.length : GRUPOS.filter(g => g.categoria === cat).length}
+                </span>
+              </button>
+            ))}
+          </div>
+
+          <div className="gr-grid">
+            {gruposFiltrados.map((grupo) => (
+              <GrupoCard key={grupo.id} grupo={grupo} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="pf-section pf-section-dark gr-cta-section pf-fade">
+        <div className="pf-container">
+          <div className="gr-cta-banner">
+            <div className="gr-cta-emojis" aria-hidden="true">🎓 ✨ 🏅</div>
+            <h2 className="pf-section-title pf-title-white">¿No encuentras tu grupo?</h2>
+            <p className="pf-section-desc pf-desc-white">
+              Si tienes una idea para un nuevo grupo representativo o quieres proponer una actividad, contáctanos. La FECA apoya la iniciativa estudiantil.
+            </p>
+            <div className="gr-cta-btns">
+              <a href="mailto:informes@feca.ujed.mx" className="pf-btn-primary">
+                Proponer un grupo nuevo
+              </a>
+              <a href="tel:6188271365" className="pf-btn-outline">
+                Llamar a informes
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer logoImage={logoImage} />
+    </div>
+  );
+}
+
+export default GruposPage;
