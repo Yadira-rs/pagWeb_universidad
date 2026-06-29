@@ -99,46 +99,27 @@ const documentos = [
     href: "/FOLLETO-GENERAL-CERTIFICACIONES.pdf",
     download: "Folleto-General-Certificaciones-CIIEDO.pdf",
     label: "Folleto general de certificaciones",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="18" height="18">
-        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-        <polyline points="14 2 14 8 20 8"/>
-        <line x1="12" y1="18" x2="12" y2="12"/>
-        <line x1="9" y1="15" x2="15" y2="15"/>
-      </svg>
-    ),
   },
   {
     href: "/calendario-ciiedo.html",
     download: "Certificado-SEP-CONOCER-STPS-CIIEDO.html",
     label: "Certificado con validez nacional SEP-CONOCER-STPS",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="18" height="18">
-        <circle cx="12" cy="8" r="6"/>
-        <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
-      </svg>
-    ),
   },
   {
     href: "/diagrama-coordinacion.jpeg",
     download: "Diagrama-Coordinacion-CIIEDO.jpeg",
     label: "Diagrama de coordinación",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="18" height="18">
-        <rect x="3" y="3" width="7" height="7" rx="1"/>
-        <rect x="14" y="3" width="7" height="7" rx="1"/>
-        <rect x="14" y="14" width="7" height="7" rx="1"/>
-        <rect x="3" y="14" width="7" height="7" rx="1"/>
-      </svg>
-    ),
+  },
+  {
+    href: "https://conocer.gob.mx/",
+    external: true,
+    label: "Sitio oficial CONOCER",
+    sublabel: "Consejo Nacional de Normalización y Certificación de Competencias Laborales",
+    logo: "/imagenes/logoconocer.png",
   },
 ];
 
 const porQueCiiedo = [
-  {
-    title: "100% gratuito para alumnos FECA",
-    body: "Todos nuestros servicios son accesibles sin costo para los estudiantes activos de la facultad. Tu único compromiso es querer crecer.",
-  },
   {
     title: "Acompañamiento personalizado",
     body: "No eres un número. Cada proyecto recibe atención directa del equipo del CIIEDO: desde la primera idea hasta los siguientes pasos.",
@@ -151,7 +132,6 @@ const porQueCiiedo = [
 
 const STATS = [
   { num: "4", label: "Servicios especializados" },
-  { num: "100%", label: "Gratuito para alumnos" },
   { num: "UJED", label: "Aval institucional" },
   { num: "FECA", label: "Centro de innovación" },
 ];
@@ -197,6 +177,14 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
           <h1 className="pf-hero-title">
             Tu idea puede<br />convertirse en<br />un proyecto real
           </h1>
+          <p className="ciiedo-acronym">
+            <span>C</span>entro de{" "}
+            <span>I</span>nnovación,{" "}
+            <span>I</span>nvestigación,{" "}
+            <span>E</span>mprendimiento y{" "}
+            <span>D</span>esarrollo{" "}
+            <span>O</span>rganizacional
+          </p>
           <p className="pf-hero-sub">
             En CIIEDO te asesoramos, acompañamos y conectamos con oportunidades
             de innovación y emprendimiento dentro de la FECA.
@@ -318,73 +306,64 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
         </div>
       </section>
 
-      {/* INFORMACIÓN INSTITUCIONAL — flyer CIIEDO */}
+      {/* INFORMACIÓN INSTITUCIONAL + CALENDARIOS */}
       <section className="pf-section pf-section-alt pf-fade">
         <div className="pf-container">
-          <div className="pf-section-head pf-section-head-center">
-            <div className="pf-label">Conócenos</div>
-            <h2 className="pf-section-title">Información institucional</h2>
-            <p className="pf-section-desc">
-              Material oficial del <strong>CIIEDO</strong> para estudiantes de la FECA.
-            </p>
-          </div>
           <div
-            className="pf-fade"
             style={{
-              maxWidth: 680,
-              margin: "0 auto",
-              background: "#fff",
-              borderRadius: 20,
-              overflow: "hidden",
-              boxShadow: "0 12px 40px rgba(192,57,43,0.15)",
-              border: "1px solid #f0e0e0",
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: 32,
+              alignItems: "start",
             }}
           >
-            <img
-              src="/imagenes/CIIEDO.jpg"
-              alt="Prácticas Profesionales y Servicio Social CIIEDO"
-              style={{ width: "100%", height: "auto", display: "block" }}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* CALENDARIOS DE ACTIVIDADES */}
-      <section className="pf-section pf-section-light pf-fade">
-        <div className="pf-container">
-          <div className="pf-section-head pf-section-head-center">
-            <div className="pf-label">Agenda</div>
-            <h2 className="pf-section-title">Calendarios y actividades</h2>
-            <p className="pf-section-desc">
-              Consulta los calendarios de eventos, talleres y certificaciones del <strong>CIIEDO</strong>.
-            </p>
-          </div>
-          <div
-            className="pf-fade"
-            style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}
-          >
-            {[
-              { src: "/imagenes/CIIEDO_calendario.jpeg", alt: "Calendario CIIEDO" },
-              { src: "/calendario-ciiedo.jpeg",          alt: "Calendario de actividades" },
-              { src: "/calendario-ciiedo-2.jpeg",        alt: "Calendario 2" },
-            ].map((img) => (
+            {/* Columna izquierda: Información institucional */}
+            <div>
+              <div className="pf-label" style={{ marginBottom: 6 }}>Conócenos</div>
+              <h2 className="pf-section-title" style={{ marginBottom: 16 }}>Información institucional</h2>
+              <p className="pf-section-desc" style={{ marginBottom: 20 }}>
+                Material oficial del <strong>CIIEDO</strong> para estudiantes de la FECA.
+              </p>
               <div
-                key={img.src}
                 style={{
                   background: "#fff",
                   borderRadius: 16,
                   overflow: "hidden",
-                  boxShadow: "0 6px 24px rgba(0,0,0,0.10)",
+                  boxShadow: "0 8px 32px rgba(192,57,43,0.13)",
+                  border: "1px solid #f0e0e0",
+                }}
+              >
+                <img
+                  src="/imagenes/CIIEDO.jpg"
+                  alt="Información institucional CIIEDO"
+                  style={{ width: "100%", height: "auto", display: "block" }}
+                />
+              </div>
+            </div>
+
+            {/* Columna derecha: Calendarios */}
+            <div>
+              <div className="pf-label" style={{ marginBottom: 6 }}>Agenda</div>
+              <h2 className="pf-section-title" style={{ marginBottom: 16 }}>Calendarios y actividades</h2>
+              <p className="pf-section-desc" style={{ marginBottom: 20 }}>
+                Consulta los calendarios de eventos, talleres y certificaciones del <strong>CIIEDO</strong>.
+              </p>
+              <div
+                style={{
+                  background: "#fff",
+                  borderRadius: 16,
+                  overflow: "hidden",
+                  boxShadow: "0 8px 32px rgba(0,0,0,0.09)",
                   border: "1px solid #ece8e8",
                 }}
               >
                 <img
-                  src={img.src}
-                  alt={img.alt}
+                  src="/imagenes/CIIEDO_calendario.jpeg"
+                  alt="Calendario CIIEDO"
                   style={{ width: "100%", height: "auto", display: "block" }}
                 />
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
@@ -570,9 +549,9 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
             className="pf-fade"
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(3, 1fr)",
+              gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
               gap: 20,
-              maxWidth: 900,
+              maxWidth: 1000,
               margin: "0 auto",
             }}
           >
@@ -580,7 +559,10 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
               <a
                 key={doc.href}
                 href={doc.href}
-                download={doc.download}
+                {...(doc.external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : { download: doc.download }
+                )}
                 style={{
                   display: "flex",
                   flexDirection: "column",
@@ -607,24 +589,32 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
                 }}
               >
                 {/* Ícono grande */}
-                <div
-                  style={{
-                    width: 56,
-                    height: 56,
-                    borderRadius: 14,
-                    background: "linear-gradient(135deg,#C0392B,#e31313)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexShrink: 0,
-                  }}
-                >
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" width="26" height="26">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                    <polyline points="7 10 12 15 17 10"/>
-                    <line x1="12" y1="15" x2="12" y2="3"/>
-                  </svg>
-                </div>
+                {doc.logo ? (
+                  <img
+                    src={doc.logo}
+                    alt={doc.label}
+                    style={{ width: 64, height: 64, objectFit: "contain", flexShrink: 0 }}
+                  />
+                ) : (
+                  <div
+                    style={{
+                      width: 56,
+                      height: 56,
+                      borderRadius: 14,
+                      background: "linear-gradient(135deg,#C0392B,#e31313)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                    }}
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" width="26" height="26">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                      <polyline points="7 10 12 15 17 10"/>
+                      <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                  </div>
+                )}
                 {/* Texto */}
                 <span
                   style={{
@@ -638,7 +628,20 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
                 >
                   {doc.label}
                 </span>
-                {/* Badge descarga */}
+                {doc.sublabel && (
+                  <span
+                    style={{
+                      fontFamily: "var(--font-body)",
+                      fontSize: 12,
+                      color: "#777",
+                      textAlign: "center",
+                      lineHeight: 1.4,
+                    }}
+                  >
+                    {doc.sublabel}
+                  </span>
+                )}
+                {/* Badge */}
                 <span
                   style={{
                     marginTop: "auto",
@@ -653,7 +656,7 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
                     borderRadius: 999,
                   }}
                 >
-                  Descargar
+                  {doc.external ? "Visitar sitio" : "Descargar"}
                 </span>
               </a>
             ))}

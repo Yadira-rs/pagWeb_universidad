@@ -10,7 +10,9 @@ const TAB_ICONS = {
   ),
   costos: (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+      <rect x="1" y="5" width="22" height="14" rx="3"/>
+      <path d="M1 10h22"/>
+      <path d="M7 15h2M11 15h4"/>
     </svg>
   ),
   inscripcion: (
@@ -248,16 +250,13 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
       >
         <div className="celci-hero-overlay" />
 
-        {/* Floating language pills */}
-        <div className="celci-lang-pills" aria-hidden="true">
-          {["English", "Français", "Italiano", "日本語"].map((lang, i) => (
-            <span key={lang} className="celci-lang-pill" style={{ animationDelay: `${i * 0.8}s` }}>
-              {lang}
-            </span>
-          ))}
-        </div>
 
         <div className="pf-hero-inner celci-hero-inner">
+          <img
+            src="/imagenes/logo-celci.png"
+            alt="Logo CELCI"
+            className="celci-hero-logo"
+          />
           <div className="celci-hero-badge">
             <span className="celci-badge-dot" />
             Ciclo A-2025 · Modalidad presencial
@@ -270,21 +269,6 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
           <p className="pf-hero-sub">
             Cursos de idiomas para adultos, niños y jóvenes en la Facultad de Economía, Contaduría y Administración.
           </p>
-          <div className="pf-hero-ctas">
-            <a href="mailto:cli.feca@ujed.mx" className="pf-btn-primary celci-btn-glow">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                <polyline points="22,6 12,13 2,6"/>
-              </svg>
-              Solicitar informes
-            </a>
-            <a href="tel:8271365" className="pf-btn-outline">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.93-.93a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-              </svg>
-              827-13-65 ext. 5725
-            </a>
-          </div>
         </div>
 
         {/* Stats bar */}
@@ -296,6 +280,40 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
               <span className="pf-stat-label">{s.label}</span>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ── VIDEO DE BIENVENIDA ── */}
+      <section className="celci-bienvenida pf-fade">
+        <div className="pf-container">
+          <div className="pf-section-head pf-section-head-center">
+            <div className="pf-label">CELCI · FECA UJED</div>
+            <h2 className="pf-section-title">Video de Bienvenida</h2>
+            <p className="pf-section-desc">Conoce nuestro centro de lenguas y todo lo que tenemos para ofrecerte.</p>
+          </div>
+          <div className="celci-video-wrap">
+            {/*
+              Para agregar el video de YouTube:
+              1. Abre el video en YouTube
+              2. Copia el ID del video (los caracteres después de "?v=", ej: ?v=ABC123)
+              3. Reemplaza el bloque de abajo con:
+                 <iframe
+                   title="Video de Bienvenida CELCI"
+                   src="https://www.youtube.com/embed/TU_ID_AQUI"
+                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                   allowFullScreen
+                 />
+            */}
+            <div className="celci-video-placeholder">
+              <div className="celci-video-play-ring">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="#e31313">
+                  <polygon points="5 3 19 12 5 21 5 3" />
+                </svg>
+              </div>
+              <p className="celci-video-ph-title">Video de Bienvenida</p>
+              <span className="celci-video-ph-sub">Próximamente · Centro de Lenguas CELCI</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -660,18 +678,6 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
               </a>
             </div>
 
-            {/* Mapa embebido */}
-            <div className="celci-map-wrap">
-              <iframe
-                title="Ubicación CELCI FECA UJED"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3645.0!2d-104.6620!3d24.0267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDAxJzM2LjIiTiAxMDTCsDM5JzQzLjIiVw!5e0!3m2!1ses!2smx!4v1623456789"
-                width="100%"
-                height="280"
-                style={{ border: 0, display: "block" }}
-                allowFullScreen=""
-                loading="lazy"
-              />
-            </div>
           </div>
         </section>
       )}
