@@ -20,7 +20,7 @@ const programs = [
   {
     title: "POSGRADO",
     description:
-      "Programa con vinculación académica, proyectos aplicados y desarrollo de investigación para perfiles de alto nivel.",
+      "Formación académica de especialización, maestría y doctorado posterior a la licenciatura.",
     image: "/imagenes/logo-posgrado.png",
     duration: "6 años",
     mode: "Presencial",
@@ -29,7 +29,7 @@ const programs = [
   {
     title: "CELCI",
     description:
-      "Desarrolla soluciones tecnológicas de alto impacto con enfoque en inteligencia artificial y ciberseguridad.",
+      "Cursos de idiomas para adultos, niños y jóvenes en la Facultad de Economía, Contaduría y Administración.",
     image: "/imagenes/logo-celci.png",
     imageClass: "program-card-img--celci",
     duration: "4 años",
@@ -39,7 +39,7 @@ const programs = [
   {
     title: "CIIEDO",
     description:
-      "Forma líderes empresariales con visión estratégica, finanzas, marketing y habilidades directivas.",
+      "En CIIEDO te asesoramos, acompañamos y conectamos con oportunidades de innovación y emprendimiento.",
     image: "/imagenes/logo-ciiedo.png",
     imageClass: "program-card-img--ciiedo",
     duration: "4 años",

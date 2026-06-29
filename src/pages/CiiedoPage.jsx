@@ -168,14 +168,9 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
       >
         <div className="pf-hero-overlay" />
         <div className="pf-hero-inner">
-          <img
-            src="/imagenes/logo-ciiedo.png"
-            alt="Logo CIIEDO"
-            style={{ height: 72, marginBottom: 18, objectFit: "contain", filter: "brightness(0) invert(1)" }}
-          />
-          <div className="pf-hero-badge">Centro de innovación · FECA · UJED</div>
-          <h1 className="pf-hero-title">
-            Tu idea puede<br />convertirse en<br />un proyecto real
+          <div className="pf-hero-badge">CIIEDO · FECA · UJED</div>
+          <h1 className="pf-hero-title" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
+            Centro de Innovación,<br />Investigación, Emprendimiento<br />y Desarrollo Organizacional
           </h1>
           <p className="ciiedo-acronym">
             <span>C</span>entro de{" "}
@@ -189,19 +184,6 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
             En CIIEDO te asesoramos, acompañamos y conectamos con oportunidades
             de innovación y emprendimiento dentro de la FECA.
           </p>
-          <div className="pf-hero-ctas">
-            <button
-              type="button"
-              className="pf-btn-primary"
-              onClick={scrollToServicios}
-            >
-              Conoce nuestros servicios
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="16" height="16">
-                <line x1="12" y1="5" x2="12" y2="19"/>
-                <polyline points="19 12 12 19 5 12"/>
-              </svg>
-            </button>
-          </div>
         </div>
         <div className="pf-stats">
           {STATS.map((s) => (

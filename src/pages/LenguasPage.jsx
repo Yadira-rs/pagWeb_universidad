@@ -246,9 +246,8 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
       {/* ── HERO ── */}
       <section
         className="pf-hero celci-hero"
-        style={{ backgroundImage: `url('/imagenes/lic.jpg')` }}
+        style={{ background: "linear-gradient(135deg, #3d0009 0%, #951823 55%, #5a0e15 100%)" }}
       >
-        <div className="celci-hero-overlay" />
 
 
         <div className="pf-hero-inner celci-hero-inner">
