@@ -10816,6 +10816,29 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
   margin: 0;
 }
 
+.el-bio-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 20px;
+  padding: 9px 20px;
+  background: transparent;
+  border: 1.5px solid #951823;
+  border-radius: 6px;
+  color: #951823;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+
+.el-bio-btn:hover {
+  background: #951823;
+  color: #fff;
+}
+
 /* Móvil: foto centrada arriba */
 @media (max-width: 640px) {
   .el-row {
@@ -10845,6 +10868,116 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
 /* ── Organigrama embed (Ejes Rectores) ── */
 .ejes-org-wrap {
   margin-bottom: 72px;
+}
+
+/* ── Organigrama interactivo ── */
+.ejes-org-container {
+  max-width: 860px;
+  margin: 0 auto;
+}
+.ejes-org-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: zoom-in;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+  border: 1px solid #e8e0dc;
+}
+.ejes-org-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.ejes-org-card:hover .ejes-org-img {
+  transform: scale(1.02);
+}
+.ejes-org-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 16px 20px;
+  transition: background 0.25s;
+}
+.ejes-org-card:hover .ejes-org-overlay {
+  background: rgba(0,0,0,0.25);
+}
+.ejes-org-overlay-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.92);
+  color: #1a1a1a;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 7px 14px;
+  border-radius: 999px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.25s, transform 0.25s;
+  backdrop-filter: blur(6px);
+}
+.ejes-org-card:hover .ejes-org-overlay-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Barra de acciones */
+.ejes-org-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.ejes-org-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  transition: background 0.18s, color 0.18s, transform 0.15s, box-shadow 0.18s;
+}
+.ejes-org-btn.btn-secondary {
+  background: #f5f0ee;
+  color: #3a2e2b;
+  border: 1.5px solid #e0d8d4;
+}
+.ejes-org-btn.btn-secondary:hover {
+  background: #ede5e1;
+  transform: translateY(-1px);
+}
+.ejes-org-btn.btn-primary {
+  background: #C0392B;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(192,57,43,0.3);
+}
+.ejes-org-btn.btn-primary:hover {
+  background: #9b2e22;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(192,57,43,0.4);
+}
+.ejes-org-btn.btn-outline {
+  background: transparent;
+  color: #C0392B;
+  border: 1.5px solid #C0392B;
+}
+.ejes-org-btn.btn-outline:hover {
+  background: rgba(192,57,43,0.06);
+  transform: translateY(-1px);
 }
 
 .ejes-org-frame {
@@ -12397,4 +12530,320 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
   .gr-hero-title { font-size: 40px !important; }
   .gr-deco-icon:nth-child(n+9) { display: none; }
   .gr-deco-icon { font-size: 26px !important; }
+}
+
+/* ════════════════════════════════════════════
+   DIRECTOR PROFILE PAGE
+   ════════════════════════════════════════════ */
+
+.dp-main {
+  padding-top: 0;
+}
+
+/* ── Hero ── */
+.dp-hero {
+  position: relative;
+  height: 420px;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  overflow: hidden;
+  border: none;
+  border-radius: 0;
+}
+
+.dp-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(20, 10, 10, 0.45) 0%,
+    rgba(20, 10, 10, 0.72) 100%
+  );
+}
+
+.dp-hero-content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 40px 48px;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dp-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.75);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-bottom: 16px;
+  transition: color 0.18s;
+}
+
+.dp-back-link:hover {
+  color: #fff;
+}
+
+.dp-hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 12px;
+  line-height: 1.1;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+}
+
+.dp-hero-role {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 20px;
+  padding: 5px 16px;
+  backdrop-filter: blur(4px);
+}
+
+/* ── Body ── */
+.dp-body {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 56px 24px 80px;
+}
+
+.dp-fade {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.dp-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Cita ── */
+.dp-quote-section {
+  position: relative;
+  margin-bottom: 52px;
+}
+
+.dp-quote-deco {
+  position: absolute;
+  top: -12px;
+  right: 0;
+  font-family: Georgia, serif;
+  font-size: 80px;
+  line-height: 1;
+  color: #f5c0c0;
+  user-select: none;
+  pointer-events: none;
+}
+
+.dp-blockquote {
+  margin: 0;
+  padding: 0 0 0 20px;
+  border-left: 3px solid #e31313;
+}
+
+.dp-blockquote p {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  font-style: italic;
+  color: #4a3f3f;
+  line-height: 1.85;
+  margin: 0;
+}
+
+/* ── Sección genérica ── */
+.dp-section {
+  margin-bottom: 44px;
+}
+
+.dp-section-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #951823;
+  margin-bottom: 20px;
+}
+
+.dp-section-rule {
+  display: inline-block;
+  width: 28px;
+  height: 2px;
+  background: #e31313;
+  flex-shrink: 0;
+}
+
+/* ── Grados académicos ── */
+.dp-degree-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dp-degree-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #faf8f7;
+  border: 1px solid #ede9e5;
+  border-radius: 8px;
+  padding: 14px 18px;
+}
+
+.dp-degree-bullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e31313;
+  flex-shrink: 0;
+}
+
+.dp-degree-title {
+  flex: 1;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 600;
+  color: #951823;
+}
+
+.dp-degree-inst {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #7a6a6a;
+  background: #ede9e5;
+  border-radius: 4px;
+  padding: 3px 9px;
+}
+
+/* ── Tarjetas área / enfoque ── */
+.dp-cards-section {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 44px;
+  flex-wrap: wrap;
+}
+
+.dp-info-card {
+  flex: 1;
+  min-width: 160px;
+  background: #faf8f7;
+  border: 1px solid #ede9e5;
+  border-radius: 10px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dp-info-label {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #951823;
+  text-transform: uppercase;
+}
+
+.dp-info-value {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+/* ── Texto de bio ── */
+.dp-bio-text {
+  font-family: var(--font-body, Georgia, serif);
+  font-size: 15.5px;
+  color: #4a3f3f;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ── Contacto ── */
+.dp-contact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 24px 28px;
+  background: #fff0f0;
+  border: 1px solid #f5c0c0;
+  border-radius: 10px;
+  margin-bottom: 0;
+}
+
+.dp-contact-label {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #951823;
+}
+
+.dp-contact-email {
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 600;
+  color: #e31313;
+  text-decoration: none;
+}
+
+.dp-contact-email:hover {
+  text-decoration: underline;
+}
+
+.dp-contact-inst {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: #7a6a6a;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .dp-hero {
+    height: 320px;
+  }
+
+  .dp-hero-content {
+    padding: 28px 20px;
+  }
+
+  .dp-body {
+    padding: 36px 16px 60px;
+  }
+
+  .dp-cards-section {
+    flex-direction: column;
+  }
 }

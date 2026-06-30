@@ -19,6 +19,7 @@ import MissionVisionPage from "./pages/MissionVisionPage";
 import ServiceDetailPage from "./pages/ServiceDetailPage";
 import ServicesPage from "./pages/ServicesPage";
 import SingleSectionPage from "./pages/SingleSectionPage";
+import DirectorProfilePage from "./pages/DirectorProfilePage";
 
 import FeriaPage from "./pages/FeriaPage";
 import Biblioteca from "./pages/Biblioteca";
@@ -75,6 +76,11 @@ function getCurrentRoute() {
   }
 
   if (hash === "#/nosotros/valores") return { page: "valores" };
+
+  if (hash.startsWith("#/directivos/")) {
+    const slug = hash.replace("#/directivos/", "");
+    return { page: "director-profile", slug };
+  }
 
   if (hash.startsWith("#/nosotros/")) {
     const slug = hash.replace("#/nosotros/", "");
@@ -361,6 +367,13 @@ function App() {
       />
     ) : route.page === "valores" ? (
       <ValoresPage
+        logoImage={logoImage}
+        newsPanelOpen={newsPanelOpen}
+        setNewsPanelOpen={setNewsPanelOpen}
+      />
+    ) : route.page === "director-profile" ? (
+      <DirectorProfilePage
+        slug={route.slug}
         logoImage={logoImage}
         newsPanelOpen={newsPanelOpen}
         setNewsPanelOpen={setNewsPanelOpen}
