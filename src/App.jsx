@@ -25,8 +25,6 @@ import Biblioteca from "./pages/Biblioteca";
 import LenguasPage from "./pages/LenguasPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import TermsPage from "./pages/TermsPage";
-import BolsaTrabajoPage from "./pages/BolsaTrabajoPage";
-import TutoriasPage from "./pages/TutoriasPage";
 import OfertaEducativaPage from "./pages/OfertaEducativaPage";
 import NosotrosPage from "./pages/NosotrosPage";
 import ContraloriaPage from "./pages/ContraloriaPage";
@@ -35,7 +33,6 @@ import SecretariaAdministrativaPage from "./pages/SecretariaAdministrativaPage";
 import ServiciosEscolaresPage from "./pages/ServiciosEscolaresPage";
 import CiiedoPage from "./pages/CiiedoPage";
 import ValoresPage from "./pages/ValoresPage";
-import EgresadosPage from "./pages/EgresadosPage";
 import GruposPage from "./pages/GruposPage";
 import SatisfactionWidget from "./components/SatisfactionWidget";
 
@@ -196,9 +193,7 @@ function App() {
                             ? `FECA - ${legacyPages[route.slug]?.title ?? "Solicitud"}`
                             : route.page === "service-detail"
                               ? `FECA - ${servicePages[route.slug]?.heroTitle ?? "Servicios"}`
-                              : route.page === "egresados"
-                                  ? "FECA - Seguimiento de Egresados"
-                                  : route.page === "valores"
+                              : route.page === "valores"
                                   ? "FECA - Valores Institucionales"
                                   : route.page === "single-section"
                                 ? `FECA - ${sectionPages[route.slug]?.heroTitle ?? "Nosotros"}`
@@ -236,10 +231,6 @@ function App() {
       <PrivacyPage logoImage={logoImage} newsPanelOpen={newsPanelOpen} setNewsPanelOpen={setNewsPanelOpen} />
     ) : route.page === "terms" ? (
       <TermsPage logoImage={logoImage} newsPanelOpen={newsPanelOpen} setNewsPanelOpen={setNewsPanelOpen} />
-    ) : route.page === "bolsa-trabajo" ? (
-      <BolsaTrabajoPage logoImage={logoImage} newsPanelOpen={newsPanelOpen} setNewsPanelOpen={setNewsPanelOpen} />
-    ) : route.page === "tutorias" ? (
-      <TutoriasPage logoImage={logoImage} newsPanelOpen={newsPanelOpen} setNewsPanelOpen={setNewsPanelOpen} />
     ) : route.page === "oferta-educativa" ? (
       <OfertaEducativaPage logoImage={logoImage} newsPanelOpen={newsPanelOpen} setNewsPanelOpen={setNewsPanelOpen} />
     ) : route.page === "nosotros" ? (
@@ -347,12 +338,6 @@ function App() {
           setNewsPanelOpen={setNewsPanelOpen}
         />
       ) : null
-    ) : route.page === "egresados" ? (
-      <EgresadosPage
-        logoImage={logoImage}
-        newsPanelOpen={newsPanelOpen}
-        setNewsPanelOpen={setNewsPanelOpen}
-      />
     ) : route.page === "grupos" ? (
       <GruposPage
         logoImage={logoImage}

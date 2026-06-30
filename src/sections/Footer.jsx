@@ -26,10 +26,10 @@ function Footer() {
         <div className="footer-col">
           <h4>Comunidad</h4>
           <ul>
-            <li><a href="#/bolsa-de-trabajo">Bolsa de trabajo</a></li>
-            <li><a href="#/egresados">Seguimiento de egresados</a></li>
+            <li><a href="#/biblioteca">Biblioteca</a></li>
+            <li><a href="#/feria">Feria de Emprendimiento</a></li>
+            <li><a href="#/grupos">Grupos estudiantiles</a></li>
             <li><a href="https://sumafeca.ujed.mx/" target="_blank" rel="noreferrer">SUMA+ FECA</a></li>
-            <li><a href="#/tutorias">Tutorías</a></li>
           </ul>
         </div>
 

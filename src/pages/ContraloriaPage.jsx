@@ -46,7 +46,7 @@ const funciones = [
 
 const STATS = [
   { num: "100%", label: "Transparencia" },
-  { num: "8-15hrs", label: "Horario de atención" },
+  { num: "8-14 / 17-20hrs", label: "Horario de atención" },
   { num: "UJED", label: "Normativa aplicable" },
   { num: "FECA", label: "Órgano interno" },
 ];
@@ -128,7 +128,7 @@ function ContraloriaPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
                 <p className="pf-card-desc">La Contraloría Interna está a tu servicio para resolver cualquier inquietud sobre la gestión de trámites y la transparencia institucional.</p>
                 <div className="pf-chips">
                   <span className="pf-chip">Lun–Vie</span>
-                  <span className="pf-chip">8:00–15:00 hrs</span>
+                  <span className="pf-chip">8:00-14:00 y 17:00-20:00hrs</span>
                 </div>
               </div>
               <div className="pf-contact-list">
@@ -141,14 +141,14 @@ function ContraloriaPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
                   </div>
                   <div><span className="pf-contact-label">Ubicación</span><span className="pf-contact-value">Edificio Administrativo FECA</span></div>
                 </div>
-                <a href="mailto:contraloria@feca.ujed.mx" className="pf-contact-item">
+                <a href="mailto:contraloria.feca@ujed.mx" className="pf-contact-item">
                   <div className="pf-contact-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                       <polyline points="22,6 12,13 2,6"/>
                     </svg>
                   </div>
-                  <div><span className="pf-contact-label">Correo</span><span className="pf-contact-value">contraloria@feca.ujed.mx</span></div>
+                  <div><span className="pf-contact-label">Correo</span><span className="pf-contact-value">contraloria.feca@ujed.mx</span></div>
                 </a>
               </div>
             </div>
@@ -166,7 +166,7 @@ function ContraloriaPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
               Cuatro áreas de acción que garantizan la transparencia y el buen funcionamiento de la FECA.
             </p>
           </div>
-          <div className="pf-cards-grid pf-fade">
+          <div className="pf-cards-grid-4 pf-fade">
             {funciones.map((f) => (
               <div key={f.title} className="pf-card pf-card-dark">
                 <div className="pf-card-icon">{f.icon}</div>
@@ -262,8 +262,8 @@ function ContraloriaPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
             {[
-              { label: "Reglamento General UJED", href: "/docs/Reglamento%20General%20UJED.pdf", desc: "Normativa interna de la Universidad Juárez del Estado de Durango." },
               { label: "Ley Orgánica de la UJED", href: "/docs/LEY%20ORGANICA%20DE%20LA%20UJED%20(1).pdf", desc: "Ley que establece la estructura y funcionamiento de la UJED." },
+              { label: "Reglamento General UJED", href: "/docs/Reglamento%20General%20UJED.pdf", desc: "Normativa interna de la Universidad Juárez del Estado de Durango." },
               { label: "Contrato Colectivo SPAUJED 2025", href: "/docs/CONTRATO%20COLECTIVO%20SPAUJED%202025.pdf", desc: "Sindicato del Personal Académico de la UJED." },
               { label: "CCT STEUJED 2025", href: "/docs/CCT%20STEUJED%202025%20(1).pdf", desc: "Contrato Colectivo de Trabajo del Sindicato de Trabajadores y Empleados de la UJED." },
             ].map((doc) => (
