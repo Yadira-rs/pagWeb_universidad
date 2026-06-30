@@ -771,7 +771,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
 
       {/* Mural institucional */}
       <section className="mural-section fade-up">
-        {/* Columna texto */}
         <div className="mural-content">
           <div className="mural-eyebrow">
             <span className="mural-badge-dot" />
@@ -783,13 +782,24 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
             Muestra las certificaciones y acreditaciones nacionales e internacionales
             otorgadas por organismos de alto prestigio a lo largo de nuestra historia.
           </p>
-          <div className="mural-chips">
-            <span className="mural-chip">CIEES</span>
-            <span className="mural-chip">CACECA</span>
-            <span className="mural-chip">CONACYT</span>
+          <div className="mural-info-grid">
+            <article className="mural-info-card">
+              <span className="mural-org-mark">CIEES</span>
+              <h3>Evaluación académica</h3>
+              <p>
+                Los Comités Interinstitucionales para la Evaluación de la Educación Superior reconocen programas que cumplen criterios de calidad, pertinencia y mejora continua.
+              </p>
+            </article>
+            <article className="mural-info-card">
+              <span className="mural-org-mark">CACECA</span>
+              <h3>Acreditación especializada</h3>
+              <p>
+                El Consejo de Acreditación en Ciencias Administrativas, Contables y Afines avala la calidad de programas en las áreas económico-administrativas.
+              </p>
+            </article>
           </div>
         </div>
-        {/* Columna imagen */}
+
         <div className="mural-image-col">
           <img src="/imagenes/mural.jfif" alt="Muro de la Calidad Institucional FECA" className="mural-img" />
         </div>

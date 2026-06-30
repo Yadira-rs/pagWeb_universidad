@@ -350,7 +350,7 @@ function ContraloriaPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
       {/* ── QUEJAS Y SUGERENCIAS ── */}
       <section className="pf-section pf-section-alt pf-fade">
         <div className="pf-container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 56, alignItems: "center" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1.2fr 0.8fr", gap: 56, alignItems: "center" }}>
             <div>
               <div className="pf-label">Tu voz importa</div>
               <h2 className="pf-section-title">Quejas y Sugerencias</h2>
@@ -359,33 +359,61 @@ function ContraloriaPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
                 sugerencia o comentario respecto al servicio académico o administrativo, puedes
                 hacerlo llegar de manera confidencial y segura.
               </p>
-              <a
-                href="https://www.youtube.com/watch?v=w7w59Zp8bEM"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="pf-btn-primary"
-                style={{ background: "linear-gradient(135deg,#e31313,#e31313)", color: "#fff", fontSize: "17px", padding: "18px 40px" }}
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                </svg>
-                Buzón de Quejas y Sugerencias
-              </a>
+              
+              {/* Características del buzón */}
+              <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 20, marginBottom: 36 }}>
+                {[
+                  { 
+                    title: "Garantía de Confidencialidad", 
+                    desc: "Toda la información es tratada de manera anónima y protegida para tu tranquilidad.", 
+                    icon: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" 
+                  },
+                  { 
+                    title: "Respuesta en 5 Días Hábiles", 
+                    desc: "Nos comprometemos a revisar y dar puntual seguimiento a tu caso a la brevedad.", 
+                    icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" 
+                  },
+                  { 
+                    title: "Impacto en la Mejora Continua", 
+                    desc: "Tus comentarios llegan directamente a la Contraloría Interna para optimizar nuestros procesos.", 
+                    icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" 
+                  }
+                ].map((item, idx) => (
+                  <div key={idx} style={{ display: "flex", gap: 16, alignItems: "start" }}>
+                    <div style={{ flexShrink: 0, width: 38, height: 38, borderRadius: "10px", background: "rgba(227,19,19,0.08)", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid rgba(227,19,19,0.15)" }}>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e31313" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d={item.icon}/>
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 style={{ margin: "0 0 4px", fontSize: "15px", fontWeight: 700, color: "#1a1a2e", fontFamily: "var(--font-display)" }}>{item.title}</h4>
+                      <p style={{ margin: 0, fontSize: "13.5px", color: "#5c5c6d", lineHeight: 1.5, fontFamily: "var(--font-body)" }}>{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="pf-card pf-card-top" style={{ padding: "44px 36px", textAlign: "center" }}>
-              <div className="pf-card-icon" style={{ margin: "0 auto 20px" }}>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                </svg>
+
+            {/* QR Card Container */}
+            <div className="pf-card pf-card-top" style={{ padding: "36px 28px", textAlign: "center", borderTopColor: "#e31313", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", boxShadow: "0 10px 30px rgba(0,0,0,0.05)" }}>
+              <div style={{ width: "100%", maxWidth: "260px", background: "#fff", padding: "16px", borderRadius: "16px", boxShadow: "0 8px 24px rgba(0,0,0,0.04)", border: "1px solid #eae7e2", marginBottom: 20, position: "relative" }}>
+                {/* Visual corners of camera focus */}
+                <div style={{ position: "absolute", top: 8, left: 8, width: 12, height: 12, borderTop: "2px solid #e31313", borderLeft: "2px solid #e31313" }}></div>
+                <div style={{ position: "absolute", top: 8, right: 8, width: 12, height: 12, borderTop: "2px solid #e31313", borderRight: "2px solid #e31313" }}></div>
+                <div style={{ position: "absolute", bottom: 8, left: 8, width: 12, height: 12, borderBottom: "2px solid #e31313", borderLeft: "2px solid #e31313" }}></div>
+                <div style={{ position: "absolute", bottom: 8, right: 8, width: 12, height: 12, borderBottom: "2px solid #e31313", borderRight: "2px solid #e31313" }}></div>
+                
+                <img
+                  src="/imagenes/buzon_quejas_qr.png"
+                  alt="Código QR Buzón de Quejas"
+                  style={{ width: "100%", height: "auto", display: "block", borderRadius: "8px" }}
+                />
               </div>
-              <h3 className="pf-card-title">Canal de comunicación directo</h3>
-              <p className="pf-card-desc" style={{ marginBottom: 20 }}>
-                Todas las comunicaciones son tratadas con total confidencialidad y son atendidas en un plazo máximo de 5 días hábiles.
+
+              <h3 className="pf-card-title" style={{ fontSize: "18px", marginBottom: 8 }}>QR para Quejas y Sugerencias</h3>
+              <p className="pf-card-desc" style={{ fontSize: "13px", color: "#6a6a7c", marginBottom: 18, lineHeight: 1.5 }}>
+                Escanea con la cámara de tu teléfono para enviar tu queja, sugerencia o comentario de forma directa.
               </p>
-              <div className="pf-chips" style={{ justifyContent: "center" }}>
-                <span className="pf-chip">Confidencial</span>
-                <span className="pf-chip">5 días hábiles</span>
-              </div>
             </div>
           </div>
         </div>

@@ -617,33 +617,27 @@ function App() {
             </div>
 
             <div className="buzon-modal-body">
-              <div className="buzon-placeholder">
-                <svg viewBox="0 0 64 64" fill="none" width="56" height="56">
-                  <rect x="4" y="12" width="56" height="40" rx="6" stroke="#e31313" strokeWidth="2.5" fill="#fff0f0"/>
-                  <path d="M4 20l28 18 28-18" stroke="#e31313" strokeWidth="2.5" strokeLinecap="round"/>
-                </svg>
-                <p className="buzon-placeholder-title">Formulario próximamente</p>
+              <div className="buzon-qr-panel">
+                <div className="buzon-qr-frame">
+                  <img
+                    src="/imagenes/buzon_quejas_qr.png"
+                    alt="Código QR para ir al Buzón Digital"
+                    className="buzon-qr-img"
+                  />
+                </div>
+                <p className="buzon-placeholder-title">Ir al Buzón Digital</p>
                 <p className="buzon-placeholder-text">
-                  El formulario se habilitará en cuanto se vincule el correo institucional.<br/>
-                  Por ahora puedes escribirnos directamente a:
+                  Escanea el código QR con la cámara de tu teléfono o entra directamente al formulario.
                 </p>
-                <a href="mailto:informes@feca.ujed.mx" className="buzon-placeholder-email">
-                  informes@feca.ujed.mx
+                <a
+                  href="https://docs.google.com/forms/d/12tIL7xltY53SGuAgLSBYthOg0HNjFUwnFmXF5wGZ9mU/edit?ts=6a30599f"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="buzon-placeholder-email"
+                >
+                  Abrir Buzón Digital
                 </a>
               </div>
-              {/*
-                CUANDO TENGAS TU GOOGLE FORM, REEMPLAZA EL DIV DE ARRIBA POR ESTO:
-                <iframe
-                  src="PEGA_AQUI_TU_URL_DE_GOOGLE_FORMS"
-                  className="buzon-iframe"
-                  title="Buzón de quejas y sugerencias"
-                  frameBorder="0"
-                  marginHeight="0"
-                  marginWidth="0"
-                >
-                  Cargando…
-                </iframe>
-              */}
             </div>
           </div>
         </div>
