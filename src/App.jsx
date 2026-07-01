@@ -35,6 +35,7 @@ import ServiciosEscolaresPage from "./pages/ServiciosEscolaresPage";
 import CiiedoPage from "./pages/CiiedoPage";
 import ValoresPage from "./pages/ValoresPage";
 import GruposPage from "./pages/GruposPage";
+import CafecaPage from "./pages/CafecaPage";
 import SatisfactionWidget from "./components/SatisfactionWidget";
 
 function getCurrentRoute() {
@@ -60,6 +61,8 @@ function getCurrentRoute() {
   if (hash === "#/ciiedo") return { page: "ciiedo" };
   if (hash === "#/egresados") return { page: "egresados" };
   if (hash === "#/grupos-representativos") return { page: "grupos" };
+
+  if (hash === "#/cafeteria") return { page: "cafeteria" };
 
   if (legacyPages[hash.replace("#/", "")]) {
     const slug = hash.replace("#/", "");
@@ -232,6 +235,26 @@ function App() {
     return () => observer.disconnect();
   }, [route]);
 
+  // Oculta los botones flotantes (WhatsApp, encuesta de satisfacción) justo
+  // antes de que el pie de página entre en pantalla, para que no se encimen.
+  useEffect(() => {
+    const footerEl = document.querySelector("footer.footer");
+    if (!footerEl) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        document.body.classList.toggle("footer-in-view", entry.isIntersecting);
+      },
+      { rootMargin: "0px 0px -10% 0px", threshold: 0 },
+    );
+
+    observer.observe(footerEl);
+    return () => {
+      observer.disconnect();
+      document.body.classList.remove("footer-in-view");
+    };
+  }, [route]);
+
   const pageContent =
     route.page === "privacy" ? (
       <PrivacyPage logoImage={logoImage} newsPanelOpen={newsPanelOpen} setNewsPanelOpen={setNewsPanelOpen} />
@@ -315,6 +338,13 @@ function App() {
     
     ) : route.page === "biblioteca" ? (
       <Biblioteca
+        logoImage={logoImage}
+        newsPanelOpen={newsPanelOpen}
+        setNewsPanelOpen={setNewsPanelOpen}
+      />
+    ) : route.page === "cafeteria" ? (
+      <CafecaPage
+        content={legacyPages["cafeteria"]}
         logoImage={logoImage}
         newsPanelOpen={newsPanelOpen}
         setNewsPanelOpen={setNewsPanelOpen}
