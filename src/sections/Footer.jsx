@@ -31,6 +31,7 @@ function Footer() {
             <li><a href="#/grupos">Grupos estudiantiles</a></li>
             <li><a href="https://sumafeca.ujed.mx/" target="_blank" rel="noreferrer">SUMA+ FECA</a></li>
             <li><a href="#/grupos-representativos">Grupos representativos</a></li>
+            <li><a href="#/egresados">Egresados</a></li>
           </ul>
         </div>
 
