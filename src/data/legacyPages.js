@@ -896,6 +896,56 @@ export const legacyPages = {
       { label: "Servicio", value: "Alimentos y bebidas" },
       { label: "Uso", value: "Descanso entre clases" },
     ],
+    gallery: [
+      {
+        image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=700&q=80",
+        title: "Café recién hecho",
+      },
+      {
+        image: "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=700&q=80",
+        title: "Comida fresca cada día",
+      },
+      {
+        image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=700&q=80",
+        title: "Snacks y antojos",
+      },
+      {
+        image: "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=700&q=80",
+        title: "Un espacio para convivir",
+      },
+    ],
+    menuNote: "Menú de ejemplo, precios sujetos a cambio.",
+    menu: [
+      {
+        categoria: "Bebidas",
+        items: [
+          { nombre: "Café americano", precio: 20 },
+          { nombre: "Café con leche", precio: 25 },
+          { nombre: "Té / infusión", precio: 18 },
+          { nombre: "Jugo natural", precio: 25 },
+          { nombre: "Agua fresca", precio: 15 },
+          { nombre: "Refresco", precio: 20 },
+        ],
+      },
+      {
+        categoria: "Comida",
+        items: [
+          { nombre: "Torta", precio: 35 },
+          { nombre: "Sándwich", precio: 30 },
+          { nombre: "Plato del día", precio: 55 },
+          { nombre: "Ensalada", precio: 40 },
+        ],
+      },
+      {
+        categoria: "Snacks",
+        items: [
+          { nombre: "Papas fritas", precio: 18 },
+          { nombre: "Galletas", precio: 12 },
+          { nombre: "Fruta picada", precio: 20 },
+          { nombre: "Barra de granola", precio: 15 },
+        ],
+      },
+    ],
     panels: [
       {
         title: "Información general",
