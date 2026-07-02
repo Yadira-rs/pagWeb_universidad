@@ -115,11 +115,6 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
     if (section.variant === "programs") {
       return (
         <>
-          {section.note && (
-            <p style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "#555", marginBottom: 28, lineHeight: 1.75 }}>
-              {section.note}
-            </p>
-          )}
           <div className="pf-cards-grid">
             {section.cards?.map((card) => (
               <div
@@ -172,9 +167,36 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
     if (section.variant === "wide") {
       return (
         <div className="pf-info-box">
+          {section.image && (
+            <img
+              src={section.image}
+              alt={section.imageAlt || section.title}
+              style={{
+                width: "100%",
+                maxWidth: section.imageMaxWidth || "100%",
+                display: "block",
+                margin: section.imageMaxWidth ? "0 auto 24px" : "0 0 24px",
+                borderRadius: 14,
+              }}
+            />
+          )}
           {section.paragraphs?.map((p) => (
             <p key={p} style={{ marginBottom: 12 }}>{p}</p>
           ))}
+          {section.quote && (
+            <p
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: "clamp(24px, 4vw, 36px)",
+                color: "#2b2b2b",
+                textAlign: "center",
+                lineHeight: 1.3,
+                margin: 0,
+              }}
+            >
+              {section.quote}
+            </p>
+          )}
           {section.contacts && (
             <div className="pf-contact-list" style={{ marginTop: 20 }}>
               {section.contacts.map((contact) => (
@@ -235,6 +257,45 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
       );
     }
 
+    if (section.variant === "team") {
+      return (
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 40, maxWidth: 640, margin: "0 auto" }}>
+          {section.cards?.map((card) => (
+            <div key={card.title} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 16 }}>
+              {card.image && (
+                <img
+                  src={card.image}
+                  alt={card.title}
+                  style={{
+                    width: 130, height: 130, borderRadius: "50%",
+                    objectFit: "cover", objectPosition: "center 15%",
+                    flexShrink: 0,
+                    border: "3px solid rgba(192,0,12,0.12)",
+                  }}
+                />
+              )}
+              <div style={{ textAlign: "center" }}>
+                <h3
+                  style={{
+                    fontFamily: "var(--font-display)", fontSize: 24, color: "var(--text)",
+                    margin: "0 0 12px", display: "inline-block",
+                    borderBottom: "2px solid var(--navy)", paddingBottom: 4,
+                  }}
+                >
+                  {card.title}
+                </h3>
+                {card.body && (
+                  <p style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "#555", margin: 0, lineHeight: 1.6 }}>
+                    {card.body}
+                  </p>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      );
+    }
+
     if (section.faq) {
       return (
         <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
@@ -261,16 +322,37 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
 
     /* Default: cards grid */
     return (
-      <div className="pf-cards-grid">
+      <div className={section.columns === 2 ? "pf-cards-grid-2" : "pf-cards-grid"}>
         {section.cards?.map((card) => (
-          <div key={card.title} className="pf-card pf-card-top">
-            <h3 className="pf-card-title">{card.title}</h3>
+          <div key={card.title} className="pf-card pf-card-top" style={card.wide ? { gridColumn: "1 / -1" } : undefined}>
+            {card.image && (
+              <img
+                src={card.image}
+                alt={card.title}
+                style={{
+                  width: 108, height: 108, borderRadius: "50%",
+                  objectFit: "cover", objectPosition: "center 15%",
+                  margin: "0 auto", display: "block",
+                  border: "3px solid rgba(192,0,12,0.12)",
+                }}
+              />
+            )}
+            <h3 className="pf-card-title" style={card.image ? { textAlign: "center" } : undefined}>{card.title}</h3>
             {card.price && (
               <div style={{ fontFamily: "var(--font-display)", fontSize: 40, fontWeight: 700, color: "var(--navy)", lineHeight: 1 }}>
                 {card.price}
               </div>
             )}
-            <p className="pf-card-desc">{card.body}</p>
+            {card.body && <p className="pf-card-desc" style={card.image ? { textAlign: "center" } : undefined}>{card.body}</p>}
+            {card.list && (
+              <ul style={{ margin: 0, paddingLeft: 20, display: "flex", flexDirection: "column", gap: 8 }}>
+                {card.list.map((item) => (
+                  <li key={item} style={{ fontFamily: "var(--font-body)", fontSize: 14, color: "var(--gray-mid)", lineHeight: 1.65 }}>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            )}
             {card.items && (
               <div className="pf-chips">
                 {card.items.map((item) => <span key={item} className="pf-chip">{item}</span>)}
@@ -583,6 +665,11 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
                   <div className="pf-label">{section.label}</div>
                   <h2 className="pf-section-title">{section.title}</h2>
                 </div>
+                {section.note && (
+                  <p style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "#555", marginBottom: 28, lineHeight: 1.75, fontStyle: "italic" }}>
+                    {section.note}
+                  </p>
+                )}
                 {renderSection(section)}
               </div>
             </section>
