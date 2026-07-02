@@ -10943,8 +10943,18 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
 
 /* ── Organigrama interactivo ── */
 .ejes-org-container {
-  max-width: 100%;
-  margin: 0 auto;
+  width: 100vw;
+  max-width: 1400px;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+@media (min-width: 1450px) {
+  .ejes-org-container {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 .ejes-org-card {
   position: relative;
