@@ -1,6 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import Header from "../sections/Header";
 import Footer from "../sections/Footer";
+import {
+  IconSoccer, IconBasketball, IconVolleyball, IconChess, IconDance,
+  IconTheatre, IconMusic, IconRocket, IconMic, IconTrendingUp, IconGlobe,
+  IconTrophy, IconUsers, IconZap, IconStar, IconSparkles, IconMedal,
+  IconGraduationCap, IconBook,
+} from "../components/Icons";
 
 const CATEGORIAS = ["Todos", "Deportes", "Arte y Cultura", "Académico"];
 
@@ -9,7 +15,7 @@ const GRUPOS = [
     id: 1, categoria: "Deportes",
     nombre: "Fútbol Varonil", apodo: "Lobos FECA",
     descripcion: "Equipo representativo masculino de fútbol soccer. Participamos en los Juegos Universitarios UJED y torneos regionales.",
-    icono: "⚽", color: "#1a7a3c",
+    icono: <IconSoccer size={34} />, color: "#1a7a3c",
     gradient: "linear-gradient(135deg,#0d4a24 0%,#1a7a3c 100%)",
     miembros: 22, logros: "2.° lugar Juegos UJED 2026",
     contacto: "futbol.varonil@feca.ujed.mx", destacado: true,
@@ -18,7 +24,7 @@ const GRUPOS = [
     id: 2, categoria: "Deportes",
     nombre: "Fútbol Femenil", apodo: "Lobas FECA",
     descripcion: "Equipo femenil de fútbol soccer con participación activa en torneos interfacultades y campeonatos estatales.",
-    icono: "⚽", color: "#951823",
+    icono: <IconSoccer size={34} />, color: "#951823",
     gradient: "linear-gradient(135deg,#4a0810 0%,#951823 100%)",
     miembros: 18, logros: "Semifinalistas UJED 2025",
     contacto: "futbol.femenil@feca.ujed.mx",
@@ -27,7 +33,7 @@ const GRUPOS = [
     id: 3, categoria: "Deportes",
     nombre: "Basquetbol", apodo: "Águilas FECA",
     descripcion: "Equipo mixto de baloncesto. Entrenamos tres veces por semana y competimos en la liga interfacultades de la UJED.",
-    icono: "🏀", color: "#c05c00",
+    icono: <IconBasketball size={34} />, color: "#c05c00",
     gradient: "linear-gradient(135deg,#7a2e00 0%,#c05c00 100%)",
     miembros: 24, logros: "1.er lugar femenil UJED 2026",
     contacto: "basquetbol@feca.ujed.mx", destacado: true,
@@ -36,7 +42,7 @@ const GRUPOS = [
     id: 4, categoria: "Deportes",
     nombre: "Voleibol", apodo: "Rayo FECA",
     descripcion: "Equipo de voleibol varonil y femenil. Participamos en torneos universitarios y abiertos del estado de Durango.",
-    icono: "🏐", color: "#1a5fa8",
+    icono: <IconVolleyball size={34} />, color: "#1a5fa8",
     gradient: "linear-gradient(135deg,#0a3060 0%,#1a5fa8 100%)",
     miembros: 20, logros: "Participación Juegos UJED 2026",
     contacto: "voleibol@feca.ujed.mx",
@@ -45,7 +51,7 @@ const GRUPOS = [
     id: 5, categoria: "Deportes",
     nombre: "Ajedrez", apodo: "Club Estrategia FECA",
     descripcion: "Club de ajedrez para todos los niveles. Realizamos torneos internos, talleres de apertura y participamos en torneos abiertos.",
-    icono: "♟️", color: "#4a3a8a",
+    icono: <IconChess size={34} />, color: "#4a3a8a",
     gradient: "linear-gradient(135deg,#1e1040 0%,#4a3a8a 100%)",
     miembros: 14, logros: "3.er lugar Torneo Estatal 2025",
     contacto: "ajedrez@feca.ujed.mx", nuevo: true,
@@ -54,7 +60,7 @@ const GRUPOS = [
     id: 6, categoria: "Arte y Cultura",
     nombre: "Danza Folklórica", apodo: "Ballet Folklórico FECA",
     descripcion: "Grupo de danza folklórica mexicana que representa a la facultad en festivales universitarios, culturales y eventos institucionales.",
-    icono: "💃", color: "#a8007a",
+    icono: <IconDance size={34} />, color: "#a8007a",
     gradient: "linear-gradient(135deg,#5a003e 0%,#a8007a 100%)",
     miembros: 28, logros: "1.er lugar Festival UJED 2025",
     contacto: "danza@feca.ujed.mx", destacado: true,
@@ -63,7 +69,7 @@ const GRUPOS = [
     id: 7, categoria: "Arte y Cultura",
     nombre: "Teatro Universitario", apodo: "Compañía FECA Teatro",
     descripcion: "Grupo de teatro con obras de autores mexicanos e internacionales. Presentamos temporadas semestrales abiertas a toda la comunidad.",
-    icono: "🎭", color: "#7a1fa8",
+    icono: <IconTheatre size={34} />, color: "#7a1fa8",
     gradient: "linear-gradient(135deg,#3a0860 0%,#7a1fa8 100%)",
     miembros: 16, logros: "Mejor obra Muestra UJED 2025",
     contacto: "teatro@feca.ujed.mx",
@@ -72,7 +78,7 @@ const GRUPOS = [
     id: 8, categoria: "Arte y Cultura",
     nombre: "Coro FECA", apodo: "Voces FECA",
     descripcion: "Coro universitario mixto con repertorio que incluye música folclórica, clásica y contemporánea. No se requiere experiencia previa.",
-    icono: "🎵", color: "#1a6a6a",
+    icono: <IconMusic size={34} />, color: "#1a6a6a",
     gradient: "linear-gradient(135deg,#0a3c3c 0%,#1a6a6a 100%)",
     miembros: 32, logros: "Presentación Gala UJED 2026",
     contacto: "coro@feca.ujed.mx", nuevo: true,
@@ -81,7 +87,7 @@ const GRUPOS = [
     id: 9, categoria: "Académico",
     nombre: "Club de Emprendimiento", apodo: "StartUp FECA",
     descripcion: "Espacio para desarrollar ideas de negocio, participar en concursos de emprendimiento y conectar con mentores del sector empresarial.",
-    icono: "🚀", color: "#e31313",
+    icono: <IconRocket size={34} />, color: "#e31313",
     gradient: "linear-gradient(135deg,#6b0f18 0%,#e31313 100%)",
     miembros: 45, logros: "2 proyectos financiados en 2025",
     contacto: "startup@feca.ujed.mx", destacado: true,
@@ -90,7 +96,7 @@ const GRUPOS = [
     id: 10, categoria: "Académico",
     nombre: "Club de Debate", apodo: "Debate FECA",
     descripcion: "Practicamos técnicas de oratoria y debate competitivo. Participamos en torneos nacionales de debate universitario.",
-    icono: "🎤", color: "#1a4fa8",
+    icono: <IconMic size={34} />, color: "#1a4fa8",
     gradient: "linear-gradient(135deg,#0a2060 0%,#1a4fa8 100%)",
     miembros: 20, logros: "Finalistas Torneo Nacional 2025",
     contacto: "debate@feca.ujed.mx", destacado: true,
@@ -99,7 +105,7 @@ const GRUPOS = [
     id: 11, categoria: "Académico",
     nombre: "Club de Finanzas", apodo: "Finance Club FECA",
     descripcion: "Análisis de mercados financieros, simulaciones de bolsa de valores y talleres de inversión personal para estudiantes de economía y administración.",
-    icono: "📈", color: "#1a7a4a",
+    icono: <IconTrendingUp size={34} />, color: "#1a7a4a",
     gradient: "linear-gradient(135deg,#0a3c22 0%,#1a7a4a 100%)",
     miembros: 38, logros: "Mejor Club Académico FECA 2025",
     contacto: "finanzas.club@feca.ujed.mx",
@@ -108,7 +114,7 @@ const GRUPOS = [
     id: 12, categoria: "Académico",
     nombre: "Club de Idiomas", apodo: "Languages FECA",
     descripcion: "Complementa al CELCI practicando inglés, francés y japonés de manera informal mediante conversaciones, películas y actividades culturales.",
-    icono: "🌐", color: "#b07a00",
+    icono: <IconGlobe size={34} />, color: "#b07a00",
     gradient: "linear-gradient(135deg,#5a3a00 0%,#b07a00 100%)",
     miembros: 27, logros: "Intercambio cultural con Japón 2025",
     contacto: "idiomas.club@feca.ujed.mx",
@@ -124,21 +130,21 @@ const STATS = [
 
 const BENEFICIOS = [
   {
-    icon: "🏆",
+    icon: <IconTrophy size={32} />,
     titulo: "Representa a la FECA",
     desc: "Compite a nombre de la facultad en torneos universitarios, estatales y nacionales.",
     grad: "linear-gradient(135deg,#b30000,#e31313)",
     bg: "rgba(227,19,19,0.07)",
   },
   {
-    icon: "🤝",
+    icon: <IconUsers size={32} />,
     titulo: "Haz comunidad",
     desc: "Conoce personas con tus mismos intereses y forma lazos que van más allá del salón de clases.",
     grad: "linear-gradient(135deg,#0a2060,#1a5fa8)",
     bg: "rgba(26,95,168,0.07)",
   },
   {
-    icon: "⚡",
+    icon: <IconZap size={32} />,
     titulo: "Desarrolla habilidades",
     desc: "Liderazgo, trabajo en equipo, disciplina y creatividad que complementan tu formación profesional.",
     grad: "linear-gradient(135deg,#0a4a24,#1a7a4a)",
@@ -150,10 +156,10 @@ function GrupoCard({ grupo }) {
   return (
     <div className="gr-card pf-fade" style={{ "--gr-glow": grupo.color }}>
       {grupo.destacado && (
-        <div className="gr-badge gr-badge--star">⭐ Destacado</div>
+        <div className="gr-badge gr-badge--star"><IconStar size={11} /> Destacado</div>
       )}
       {grupo.nuevo && !grupo.destacado && (
-        <div className="gr-badge gr-badge--nuevo">✨ Nuevos cupos</div>
+        <div className="gr-badge gr-badge--nuevo"><IconSparkles size={11} /> Nuevos cupos</div>
       )}
 
       <div className="gr-card-header" style={{ background: grupo.gradient }}>
@@ -174,7 +180,7 @@ function GrupoCard({ grupo }) {
         <p className="gr-card-apodo" style={{ color: grupo.color }}>{grupo.apodo}</p>
         <p className="gr-card-desc">{grupo.descripcion}</p>
         <div className="gr-logro">
-          <span className="gr-logro-ico">🏅</span>
+          <span className="gr-logro-ico"><IconMedal size={14} /></span>
           <span className="gr-logro-txt">{grupo.logros}</span>
         </div>
         <a
@@ -232,13 +238,13 @@ function GruposPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
         <div className="pf-hero-overlay gr-hero-overlay" />
 
         <div className="gr-hero-deco" aria-hidden="true">
-          {["⚽","🎭","🏀","💃","🚀","🎵","♟️","📈","🏐","🎤","🌐","🏆"].map((e, i) => (
-            <span key={i} className="gr-deco-icon" style={{ animationDelay: `${i * 0.55}s` }}>{e}</span>
+          {[IconSoccer, IconTheatre, IconBasketball, IconDance, IconRocket, IconMusic, IconChess, IconTrendingUp, IconVolleyball, IconMic, IconGlobe, IconTrophy].map((Icon, i) => (
+            <span key={i} className="gr-deco-icon" style={{ animationDelay: `${i * 0.55}s` }}><Icon size="1em" strokeWidth={1.5} /></span>
           ))}
         </div>
 
         <div className="pf-hero-inner" style={{ position: "relative", zIndex: 3 }}>
-          <div className="gr-hero-pill">🎓 Vida universitaria · FECA UJED</div>
+          <div className="gr-hero-pill"><IconGraduationCap size={14} /> Vida universitaria · FECA UJED</div>
           <h1 className="pf-hero-title gr-hero-title">
             Únete a algo<br />
             <span className="gr-title-gradient">extraordinario</span>
@@ -311,9 +317,9 @@ function GruposPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
                 className={`gr-filtro${catActiva === cat ? " gr-filtro--activo" : ""}`}
                 onClick={() => setCatActiva(cat)}
               >
-                {cat === "Deportes" && "⚽ "}
-                {cat === "Arte y Cultura" && "🎭 "}
-                {cat === "Académico" && "📚 "}
+                {cat === "Deportes" && <IconSoccer size={14} />}
+                {cat === "Arte y Cultura" && <IconTheatre size={14} />}
+                {cat === "Académico" && <IconBook size={14} />}
                 {cat}
                 <span className="gr-filtro-count">
                   {cat === "Todos" ? GRUPOS.length : GRUPOS.filter(g => g.categoria === cat).length}
@@ -334,7 +340,11 @@ function GruposPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
       <section className="pf-section pf-section-dark gr-cta-section pf-fade">
         <div className="pf-container">
           <div className="gr-cta-banner">
-            <div className="gr-cta-emojis" aria-hidden="true">🎓 ✨ 🏅</div>
+            <div className="gr-cta-emojis" aria-hidden="true">
+              <IconGraduationCap size={32} />
+              <IconSparkles size={32} />
+              <IconMedal size={32} />
+            </div>
             <h2 className="pf-section-title pf-title-white">¿No encuentras tu grupo?</h2>
             <p className="pf-section-desc pf-desc-white">
               Si tienes una idea para un nuevo grupo representativo o quieres proponer una actividad, contáctanos. La FECA apoya la iniciativa estudiantil.

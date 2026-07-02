@@ -115,6 +115,86 @@ function ContraloriaPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
                   que brinde certeza a estudiantes, personal académico y administrativo.
                 </p>
               </div>
+
+              {/* Quejas y Sugerencias */}
+              <div className="pf-info-box" style={{ borderLeftColor: "#e31313" }}>
+                <h3 style={{ color: "#e31313" }}>Quejas y Sugerencias</h3>
+                <p style={{ marginBottom: 24 }}>
+                  Tu opinión es indispensable para mejorar nuestra facultad. Si tienes alguna queja,
+                  sugerencia o comentario respecto al servicio académico o administrativo, puedes
+                  hacerlo llegar de manera confidencial y segura.
+                </p>
+
+                <div style={{ display: "flex", flexDirection: "column", gap: 18, marginBottom: 28 }}>
+                  {[
+                    {
+                      title: "Garantía de Confidencialidad",
+                      desc: "Toda la información es tratada de manera anónima y protegida para tu tranquilidad.",
+                      icon: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z",
+                    },
+                    {
+                      title: "Respuesta en 5 Días Hábiles",
+                      desc: "Nos comprometemos a revisar y dar puntual seguimiento a tu caso a la brevedad.",
+                      icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
+                    },
+                    {
+                      title: "Impacto en la Mejora Continua",
+                      desc: "Tus comentarios llegan directamente a la Contraloría Interna para optimizar nuestros procesos.",
+                      icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                    },
+                  ].map((item, idx) => (
+                    <div key={idx} style={{ display: "flex", gap: 14, alignItems: "start" }}>
+                      <div style={{ flexShrink: 0, width: 34, height: 34, borderRadius: "9px", background: "rgba(227,19,19,0.08)", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid rgba(227,19,19,0.15)" }}>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e31313" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d={item.icon} />
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 style={{ margin: "0 0 4px", fontSize: "14px", fontWeight: 700, color: "#1a1a2e", fontFamily: "var(--font-display)" }}>{item.title}</h4>
+                        <p style={{ margin: 0, fontSize: "13px", color: "#5c5c6d", lineHeight: 1.5, fontFamily: "var(--font-body)" }}>{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div style={{ display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap", background: "#faf7f5", borderRadius: 14, padding: 18 }}>
+                  <div style={{ flexShrink: 0, width: 110, background: "#fff", padding: 8, borderRadius: 10, border: "1px solid #eae7e2" }}>
+                    <img
+                      src="/imagenes/buzon_quejas_qr.png"
+                      alt="Código QR Buzón de Quejas"
+                      style={{ width: "100%", height: "auto", display: "block", borderRadius: 6 }}
+                    />
+                  </div>
+                  <div style={{ flex: "1 1 160px" }}>
+                    <div style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 14, color: "#1a1a2e", marginBottom: 4 }}>QR para Quejas y Sugerencias</div>
+                    <div style={{ fontFamily: "var(--font-body)", fontSize: 12.5, color: "#6a6a7c", lineHeight: 1.5 }}>
+                      Escanea con la cámara de tu teléfono para enviar tu queja, sugerencia o comentario de forma directa.
+                    </div>
+                  </div>
+                </div>
+
+                <a
+                  href="https://docs.google.com/forms/d/12tIL7xltY53SGuAgLSBYthOg0HNjFUwnFmXF5wGZ9mU/viewform"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+                    marginTop: 16, width: "100%", boxSizing: "border-box",
+                    background: "#e31313", color: "#fff",
+                    fontFamily: "var(--font-ui)", fontWeight: 800, fontSize: 14,
+                    padding: "14px 20px", borderRadius: 12, textDecoration: "none",
+                    boxShadow: "0 6px 18px rgba(227,19,19,0.28)",
+                    transition: "transform 0.18s, box-shadow 0.18s",
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 10px 26px rgba(227,19,19,0.4)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.transform = ""; e.currentTarget.style.boxShadow = "0 6px 18px rgba(227,19,19,0.28)"; }}
+                >
+                  Enviar queja o sugerencia
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
             </div>
             {/* Sidebar */}
             <div>
@@ -166,9 +246,9 @@ function ContraloriaPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
               Cuatro áreas de acción que garantizan la transparencia y el buen funcionamiento de la FECA.
             </p>
           </div>
-          <div className="pf-cards-grid-4 pf-fade">
+          <div className="pf-cards-grid-4">
             {funciones.map((f) => (
-              <div key={f.title} className="pf-card pf-card-dark">
+              <div key={f.title} className="pf-card pf-card-dark pf-fade">
                 <div className="pf-card-icon">{f.icon}</div>
                 <h3 className="pf-card-title">{f.title}</h3>
                 <p className="pf-card-desc">{f.desc}</p>
@@ -343,78 +423,6 @@ function ContraloriaPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
                 </div>
               </a>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── QUEJAS Y SUGERENCIAS ── */}
-      <section className="pf-section pf-section-alt pf-fade">
-        <div className="pf-container">
-          <div style={{ display: "grid", gridTemplateColumns: "1.2fr 0.8fr", gap: 56, alignItems: "center" }}>
-            <div>
-              <div className="pf-label">Tu voz importa</div>
-              <h2 className="pf-section-title">Quejas y Sugerencias</h2>
-              <p className="pf-section-desc" style={{ marginBottom: 28 }}>
-                Tu opinión es indispensable para mejorar nuestra facultad. Si tienes alguna queja,
-                sugerencia o comentario respecto al servicio académico o administrativo, puedes
-                hacerlo llegar de manera confidencial y segura.
-              </p>
-              
-              {/* Características del buzón */}
-              <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 20, marginBottom: 36 }}>
-                {[
-                  { 
-                    title: "Garantía de Confidencialidad", 
-                    desc: "Toda la información es tratada de manera anónima y protegida para tu tranquilidad.", 
-                    icon: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" 
-                  },
-                  { 
-                    title: "Respuesta en 5 Días Hábiles", 
-                    desc: "Nos comprometemos a revisar y dar puntual seguimiento a tu caso a la brevedad.", 
-                    icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" 
-                  },
-                  { 
-                    title: "Impacto en la Mejora Continua", 
-                    desc: "Tus comentarios llegan directamente a la Contraloría Interna para optimizar nuestros procesos.", 
-                    icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" 
-                  }
-                ].map((item, idx) => (
-                  <div key={idx} style={{ display: "flex", gap: 16, alignItems: "start" }}>
-                    <div style={{ flexShrink: 0, width: 38, height: 38, borderRadius: "10px", background: "rgba(227,19,19,0.08)", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid rgba(227,19,19,0.15)" }}>
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e31313" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d={item.icon}/>
-                      </svg>
-                    </div>
-                    <div>
-                      <h4 style={{ margin: "0 0 4px", fontSize: "15px", fontWeight: 700, color: "#1a1a2e", fontFamily: "var(--font-display)" }}>{item.title}</h4>
-                      <p style={{ margin: 0, fontSize: "13.5px", color: "#5c5c6d", lineHeight: 1.5, fontFamily: "var(--font-body)" }}>{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* QR Card Container */}
-            <div className="pf-card pf-card-top" style={{ padding: "36px 28px", textAlign: "center", borderTopColor: "#e31313", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", boxShadow: "0 10px 30px rgba(0,0,0,0.05)" }}>
-              <div style={{ width: "100%", maxWidth: "260px", background: "#fff", padding: "16px", borderRadius: "16px", boxShadow: "0 8px 24px rgba(0,0,0,0.04)", border: "1px solid #eae7e2", marginBottom: 20, position: "relative" }}>
-                {/* Visual corners of camera focus */}
-                <div style={{ position: "absolute", top: 8, left: 8, width: 12, height: 12, borderTop: "2px solid #e31313", borderLeft: "2px solid #e31313" }}></div>
-                <div style={{ position: "absolute", top: 8, right: 8, width: 12, height: 12, borderTop: "2px solid #e31313", borderRight: "2px solid #e31313" }}></div>
-                <div style={{ position: "absolute", bottom: 8, left: 8, width: 12, height: 12, borderBottom: "2px solid #e31313", borderLeft: "2px solid #e31313" }}></div>
-                <div style={{ position: "absolute", bottom: 8, right: 8, width: 12, height: 12, borderBottom: "2px solid #e31313", borderRight: "2px solid #e31313" }}></div>
-                
-                <img
-                  src="/imagenes/buzon_quejas_qr.png"
-                  alt="Código QR Buzón de Quejas"
-                  style={{ width: "100%", height: "auto", display: "block", borderRadius: "8px" }}
-                />
-              </div>
-
-              <h3 className="pf-card-title" style={{ fontSize: "18px", marginBottom: 8 }}>QR para Quejas y Sugerencias</h3>
-              <p className="pf-card-desc" style={{ fontSize: "13px", color: "#6a6a7c", marginBottom: 18, lineHeight: 1.5 }}>
-                Escanea con la cámara de tu teléfono para enviar tu queja, sugerencia o comentario de forma directa.
-              </p>
-            </div>
           </div>
         </div>
       </section>

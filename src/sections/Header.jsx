@@ -181,7 +181,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
               </div>
             </div>
 
-            <div className={`nav-item ${currentRoute === "history" || currentRoute === "mission-vision" || currentRoute === "single-section" ? "active" : ""}`}>
+            <div className={`nav-item ${currentRoute === "history" || currentRoute === "mission-vision" || currentRoute === "single-section" || currentRoute === "grupos" ? "active" : ""}`}>
               <a href="#/nosotros">
                 Nosotros
                 <span className="nav-caret" aria-hidden="true"></span>

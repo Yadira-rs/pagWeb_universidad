@@ -326,41 +326,178 @@ export const legacyPages = {
   cesa: {
     routeGroup: "cesa",
     heroImage: "/imagenes/feca-plaza-1.jpg",
-    kicker: "Vida universitaria",
-    title: "CESA · Sociedad de Alumnos",
+    kicker: "Vida universitaria · Gestión 2025-2027",
+    title: "CESA · UNE FECA",
     intro:
-      "El Consejo Estudiantil de la Sociedad de Alumnos (CESA) de la FECA es el órgano de representación estudiantil que impulsa actividades culturales, deportivas y académicas para toda la comunidad universitaria.",
-    panels: [
+      "El Comité Ejecutivo de la Sociedad de Alumnos (CESA) es el equipo de estudiantes que representa a la comunidad estudiantil y trabaja para impulsar iniciativas que beneficien el desarrollo académico, cultural, deportivo y social de nuestra facultad.",
+    tabMode: "switch",
+    tabs: [
+      { href: "quienes-somos", label: "Nosotros" },
+      { href: "integrantes", label: "Integrantes" },
+      { href: "logros", label: "Logros de la gestión" },
+      { href: "proyectos", label: "Proyectos destacados" },
+      { href: "identidad", label: "Logo y lema" },
+      { href: "contacto", label: "Contacto" },
+    ],
+    sections: [
       {
-        title: "¿Qué es el CESA?",
-        body:
-          "El CESA es el organismo oficial de representación estudiantil de la Facultad de Economía, Contaduría y Administración de la UJED. Su función principal es ser el enlace entre los alumnos y las autoridades académicas, velando por los derechos e intereses de la comunidad estudiantil.",
+        id: "quienes-somos",
+        label: "Nuestra identidad",
+        title: "¿Quiénes somos?",
+        variant: "wide",
+        image: "/imagenes/cesa-equipo.png",
+        imageAlt: "Comité Ejecutivo de la Sociedad de Alumnos CESA UNE FECA 2025-2027",
+        paragraphs: [
+          "El Comité Ejecutivo de la Sociedad de Alumnos (CESA) es el equipo de estudiantes que representa a la comunidad estudiantil y trabaja para impulsar iniciativas que beneficien el desarrollo académico, cultural, deportivo y social de nuestra facultad.",
+          "Bajo el lema UNE, creemos que las mejores ideas nacen cuando trabajamos juntos. Nuestro compromiso es unir a los estudiantes, fortalecer el sentido de pertenencia y construir un espacio donde cada voz sea escuchada y cada alumno tenga la oportunidad de participar.",
+          "A través de la gestión, el trabajo en equipo y la cercanía con la comunidad universitaria, buscamos generar proyectos, actividades y oportunidades que contribuyan al crecimiento de todos, porque estamos convencidos de que cuando nos unimos, logramos más.",
+        ],
       },
       {
-        title: "Misión",
-        body:
-          "Fomentar la participación activa de los estudiantes en la vida universitaria, promoviendo valores de liderazgo, trabajo en equipo y compromiso social, contribuyendo al desarrollo integral de cada alumno de la FECA.",
+        id: "integrantes",
+        label: "Cartera",
+        title: "Integrantes",
+        variant: "team",
+        cards: [
+          {
+            title: "Francisco Javier Estrada García",
+            body: "Presidente",
+            image: "/imagenes/cesa-presidente.png",
+          },
+          {
+            title: "Dulce Sofía Barrios Saucedo",
+            body: "Vicepresidenta",
+            image: "/imagenes/cesa-vicepresidenta.png",
+          },
+          {
+            title: "Ana Luisa Cervantes González",
+            body: "Secretaria General",
+            image: "/imagenes/cesa-secretaria.png",
+          },
+          {
+            title: "Alondra Valenzuela Alvarado",
+            body: "Tesorera",
+            image: "/imagenes/cesa-tesorera.png",
+          },
+          {
+            title: "Gerardo Gámiz Pérez",
+            body: "Oficial Mayor",
+            image: "/imagenes/cesa-oficial-mayor.png",
+          },
+        ],
       },
       {
-        title: "Servicios al Alumno",
-        body:
-          "Gestión de trámites estudiantiles, orientación sobre becas y apoyos económicos, asesoría en procesos administrativos y canalización de inquietudes y propuestas ante las autoridades de la facultad.",
+        id: "logros",
+        label: "Resultados",
+        title: "¿Qué hemos realizado durante la gestión?",
+        note:
+          "\"Desde el inicio de nuestra administración nos propusimos reactivar proyectos importantes y crear nuevas iniciativas para beneficio de las y los estudiantes. Entre las principales acciones destacan:\"",
+        columns: 2,
+        cards: [
+          {
+            title: "Representación estudiantil",
+            list: [
+              "Reactivación de la entrega de descuentos de cuota interna.",
+              "Nombramiento de jefes de grupo.",
+              "Mesas de diálogo con la Dirección.",
+              "Mesas de diálogo con jefes de grupo y grupos representativos.",
+              "Creación del buzón físico y digital para recibir propuestas e inquietudes.",
+            ],
+          },
+          {
+            title: "Eventos y vida estudiantil",
+            list: [
+              "Gala Yaka.",
+              "Reactivación del Rally Yaka.",
+              "Bienvenida a estudiantes de nuevo ingreso.",
+              "Yakavalentín.",
+              "Torneo interno.",
+              "Participación en la Carrera Neón.",
+              "Participación en la Semana del Economista.",
+              "Participación en el Desfile de la Identidad.",
+              "Mural YAKA por el 68 aniversario de la Facultad.",
+            ],
+          },
+          {
+            title: "Salud, inclusión y responsabilidad social",
+            list: [
+              "Campaña de pruebas gratuitas de VIH.",
+              "Actividades por el Día Internacional de la Mujer.",
+              "Primera y segunda edición de ECOFECA.",
+              "Realización de ECOFAMEN.",
+              "Campaña DESAYUNE.",
+              "Curso de primeros auxilios.",
+              "Programa Sendero Seguro.",
+            ],
+          },
+          {
+            title: "Gestión institucional",
+            list: [
+              "Primera Macro Toma de Protesta.",
+              "Nombramientos CESA.",
+              "Más de 10 convenios en beneficio de los estudiantes.",
+              "Lanzamiento de la Tarjeta UNE.",
+              "Recorridos con Servicios Generales para detectar y gestionar necesidades de infraestructura.",
+            ],
+          },
+        ],
       },
       {
-        title: "Actividades Culturales",
-        body:
-          "Organización de semanas culturales, exposiciones artísticas, concursos de oratoria y debate, festivales temáticos y actividades de integración que enriquecen la experiencia universitaria.",
+        id: "proyectos",
+        label: "Lo más significativo",
+        title: "Proyectos más destacados",
+        columns: 2,
+        cards: [
+          {
+            title: "Mural YAKA (68.º Aniversario)",
+            body:
+              "Uno de los proyectos más significativos fue la realización del Mural YAKA con motivo del 68.º aniversario de la Facultad. Más que una obra artística, representa la identidad, la historia y el sentido de pertenencia de toda la comunidad FECA.",
+          },
+          {
+            title: "Sendero Seguro",
+            body:
+              "También implementamos el programa Sendero Seguro, una iniciativa enfocada en brindar mayor seguridad a los estudiantes en los alrededores de la Facultad, trabajando en coordinación con las autoridades correspondientes.",
+          },
+          {
+            title: "ECOFECA",
+            body:
+              "Otro proyecto muy importante fue ECOFECA, nuestra campaña de reciclaje, que incluso tuvo una segunda edición y dio paso a ECOFAMEN. Con estas acciones buscamos fomentar una cultura de responsabilidad ambiental entre los estudiantes.",
+          },
+          {
+            title: "Primera Macro Toma de Protesta",
+            body:
+              "Uno de los eventos más representativos de nuestra gestión fue la Primera Macro Toma de Protesta, realizada en colaboración con las sociedades de alumnos de FAMEN y FADER. Fue un evento sin precedentes que reunió a autoridades universitarias y gubernamentales, entre ellas el Gobernador del Estado y el Presidente Municipal. Más que una ceremonia, representó la unión entre facultades y el fortalecimiento de la representación estudiantil.",
+          },
+          {
+            title: "Nombramiento de Jefes de Grupo",
+            body:
+              "Además, fortalecimos la representación estudiantil mediante el primer nombramiento de jefes de grupo y la creación de espacios permanentes de diálogo entre ellos, la Dirección y la Sociedad de Alumnos, permitiendo que las necesidades de los estudiantes lleguen de forma más directa.",
+            wide: true,
+          },
+        ],
       },
       {
-        title: "Actividades Deportivas",
-        body:
-          "Coordinación de torneos internos, participación en competencias universitarias y actividades de bienestar físico para promover una vida saludable entre los estudiantes de la FECA.",
+        id: "identidad",
+        label: "Nuestra marca",
+        title: "Logo y lema",
+        variant: "wide",
+        image: "/imagenes/cesa-logo.png",
+        imageAlt: "Logo CESA UNE FECA 2025-2027",
+        imageMaxWidth: 380,
+        quote: "“No hay fuerza más grande que la que nos UNE”",
       },
       {
+        id: "contacto",
+        label: "Informes",
         title: "Contacto",
-        variant: "contact",
-        items: [
-          "email:cesa@feca.ujed.mx",
+        variant: "wide",
+        contacts: [
+          {
+            label: "Correo",
+            value: "cesa@feca.ujed.mx",
+            href: "mailto:cesa@feca.ujed.mx",
+          },
+          { label: "Oficinas", value: "Instalaciones de la Facultad" },
         ],
       },
     ],

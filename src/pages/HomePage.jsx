@@ -613,9 +613,9 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
             </h2>
           </div>
 
-          <div className="highlights-grid fade-up">
+          <div className="highlights-grid">
             {highlights.map((highlight) => (
-              <article key={highlight.title} className="highlight-card">
+              <article key={highlight.title} className="highlight-card fade-up">
                 <div className="highlight-icon">{highlight.icon}</div>
                 <div className="highlight-title">{highlight.title}</div>
                 <div className="highlight-desc">{highlight.description}</div>
@@ -795,6 +795,27 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
               <h3>Acreditación especializada</h3>
               <p>
                 El Consejo de Acreditación en Ciencias Administrativas, Contables y Afines avala la calidad de programas en las áreas económico-administrativas.
+              </p>
+            </article>
+            <article className="mural-info-card">
+              <span className="mural-org-mark">CACSLA</span>
+              <h3>Acreditación internacional</h3>
+              <p>
+                El Consejo de Acreditación en Ciencias Sociales Latinoamericano certifica programas con estándares de calidad reconocidos en la región.
+              </p>
+            </article>
+            <article className="mural-info-card">
+              <span className="mural-org-mark">ANFECA RSU</span>
+              <h3>Responsabilidad social universitaria</h3>
+              <p>
+                La Asociación Nacional de Facultades y Escuelas de Contaduría y Administración distingue a la facultad por su compromiso con la comunidad y el entorno.
+              </p>
+            </article>
+            <article className="mural-info-card">
+              <span className="mural-org-mark">CONACYT</span>
+              <h3>Calidad en posgrado</h3>
+              <p>
+                El Consejo Nacional de Ciencia y Tecnología reconoce a nuestros posgrados dentro del Programa Nacional de Posgrados de Calidad.
               </p>
             </article>
           </div>

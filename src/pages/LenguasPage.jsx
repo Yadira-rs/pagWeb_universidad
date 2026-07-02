@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Footer from "../sections/Footer";
 import Header from "../sections/Header";
+import { IconGlobe, IconGraduationCap, IconSchool, IconTarget } from "../components/Icons";
 
 const TAB_ICONS = {
   cursos: (
@@ -55,7 +56,7 @@ const tabs = [
 const cursos = [
   {
     title: "Inglés para adultos",
-    flag: "🇺🇸",
+    flag: <IconGlobe size={32} />,
     age: "Mayores de 15 años",
     horarios: ["Lunes a viernes · 1 hr. diaria", "Sabatinos · 9:00 a.m. – 2:00 p.m."],
     pdf: "/docs/horarios_ingles_adultos.pdf",
@@ -65,7 +66,7 @@ const cursos = [
   },
   {
     title: "Inglés para niños",
-    flag: "🇺🇸",
+    flag: <IconGlobe size={32} />,
     age: "8 a 11 años",
     horarios: ["Sabatinos · 9:00 a.m. – 2:00 p.m."],
     note: "Solo reingreso en el periodo feb–jun.",
@@ -76,7 +77,7 @@ const cursos = [
   },
   {
     title: "Inglés para jóvenes",
-    flag: "🇺🇸",
+    flag: <IconGlobe size={32} />,
     age: "12 a 15 años",
     horarios: ["Sabatinos · 9:00 a.m. – 2:00 p.m."],
     pdf: "/docs/horarios_ingles_jovenes.pdf",
@@ -86,7 +87,7 @@ const cursos = [
   },
   {
     title: "Francés",
-    flag: "🇫🇷",
+    flag: <IconGlobe size={32} />,
     age: "15 años en adelante",
     horarios: ["Lunes a viernes · 1 hr. diaria"],
     pdf: "/docs/horarios_frances.pdf",
@@ -96,7 +97,7 @@ const cursos = [
   },
   {
     title: "Italiano",
-    flag: "🇮🇹",
+    flag: <IconGlobe size={32} />,
     age: "15 años en adelante",
     horarios: ["Lunes a viernes · 1 hr. diaria"],
     pdf: "/docs/horarios_italiano.pdf",
@@ -106,7 +107,7 @@ const cursos = [
   },
   {
     title: "Japonés",
-    flag: "🇯🇵",
+    flag: <IconGlobe size={32} />,
     age: "15 años en adelante",
     horarios: ["Lunes a viernes · 1 hr. diaria"],
     pdf: "/docs/horarios_japones.pdf",
@@ -409,7 +410,7 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
               <div className="celci-pricing-card celci-pricing-featured">
                 <div className="celci-pricing-badge">Más popular</div>
                 <div className="celci-pricing-lang">
-                  <span style={{ fontSize: 32 }}>🇺🇸</span>
+                  <span style={{ color: "#e31313" }}><IconGlobe size={32} /></span>
                   <h3>Inglés</h3>
                 </div>
                 <div className="celci-pricing-amount">
@@ -419,11 +420,11 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
                 </div>
                 <div className="celci-pricing-discounts">
                   <div className="celci-discount-row">
-                    <span className="celci-discount-who">🎓 Alumnos FECA</span>
+                    <span className="celci-discount-who"><IconGraduationCap size={15} /> Alumnos FECA</span>
                     <span className="celci-discount-pct celci-discount-big">−25%</span>
                   </div>
                   <div className="celci-discount-row">
-                    <span className="celci-discount-who">🏫 Alumnos UJED</span>
+                    <span className="celci-discount-who"><IconSchool size={15} /> Alumnos UJED</span>
                     <span className="celci-discount-pct">−10%</span>
                   </div>
                 </div>
@@ -435,8 +436,8 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
               {/* Card Otros idiomas */}
               <div className="celci-pricing-card">
                 <div className="celci-pricing-lang celci-pricing-lang--multi">
-                  <div className="celci-flags-row">
-                    <span>🇫🇷</span><span>🇮🇹</span><span>🇯🇵</span>
+                  <div className="celci-flags-row" style={{ color: "var(--text)" }}>
+                    <IconGlobe size={28} />
                   </div>
                   <h3>Francés, Italiano y Japonés</h3>
                 </div>
@@ -531,7 +532,7 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
             </div>
 
             <div className="celci-diag-card">
-              <div className="celci-diag-icon">🎯</div>
+              <div className="celci-diag-icon" style={{ color: "#e31313" }}><IconTarget size={48} /></div>
               <h3>¿Tienes conocimientos previos del idioma?</h3>
               <p>El examen de diagnóstico para ubicarte en el nivel correcto está disponible en el módulo de inscripciones del SUMA. Si ya tienes conocimientos del idioma, realiza el examen <strong>antes</strong> de inscribirte para ingresar al nivel que corresponde a tu nivel real.</p>
               <div className="pf-chips" style={{ marginTop: 20, justifyContent: "center" }}>
