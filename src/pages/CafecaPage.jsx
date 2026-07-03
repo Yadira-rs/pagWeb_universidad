@@ -190,11 +190,6 @@ function CafecaPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen }) {
             ))}
           </div>
         )}
-
-        {/* Scroll indicator */}
-        <div className="cafeca-hero-scroll">
-          <span />
-        </div>
       </section>
 
       {/* ══════════ GALERÍA ══════════ */}

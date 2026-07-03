@@ -188,6 +188,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
               </a>
               <div className="dropdown">
                 <a href="#/nosotros/ejes-rectores">Ejes rectores</a>
+                <a href="#/egresados">Egresados</a>
                 <a href="#/grupos-representativos">Grupos representativos</a>
                 <a href="#/historia">Historia</a>
                 <a href="#/mision-vision">Misión y visión</a>
@@ -366,6 +367,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
           {/* Nosotros */}
           <div className="mobile-menu-section">
             <span className="mobile-menu-section-label">Nosotros</span>
+            <a href="#/egresados" className={`mobile-nav-sub${currentHash === "#/egresados" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Egresados</a>
             <a href="#/grupos-representativos" className={`mobile-nav-sub${currentHash === "#/grupos-representativos" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Grupos representativos</a>
             <a href="#/historia" className={`mobile-nav-sub${currentHash === "#/historia" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Historia</a>
             <a href="#/mision-vision" className={`mobile-nav-sub${currentHash === "#/mision-vision" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Misión y visión</a>

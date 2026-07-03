@@ -47,9 +47,9 @@ export const directors = [
   },
   {
     slug: "posgrado",
-    name: "Dr. Luis",
+    name: "Dr. Eliú Jahaziel Reyes Reyes",
     role: "División de Estudios de Posgrado",
-    roleLabel: "Director de Posgrado",
+    roleLabel: "Jefe de la División de Estudios de Posgrado",
     area: "Investigación y posgrado",
     enfoque: "Internacionalización académica",
     degrees: [
@@ -62,7 +62,7 @@ export const directors = [
     image: "/imagenes/aniversario.jpeg",
     bio: {
       trajectory:
-        "El Dr. Luis es un reconocido profesor e investigador del área contable y financiera. Con más de una década de experiencia docente en posgrados, ha dirigido múltiples tesis de maestría y doctorado, participando en foros internacionales de investigación financiera.",
+        "El Dr. Eliú Jahaziel Reyes Reyes es un reconocido profesor e investigador del área contable y financiera. Con más de una década de experiencia docente en posgrados, ha dirigido múltiples tesis de maestría y doctorado, participando en foros internacionales de investigación financiera.",
       focus:
         "Su visión para la División de Estudios de Posgrado de la FECA es la internacionalización de sus programas y la consolidación de los posgrados en el Sistema Nacional de Posgrados (SNP), promoviendo la investigación que incida en el desarrollo económico regional.",
       contact: "posgrado.feca@ujed.mx",

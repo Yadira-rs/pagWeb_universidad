@@ -36,6 +36,7 @@ import CiiedoPage from "./pages/CiiedoPage";
 import ValoresPage from "./pages/ValoresPage";
 import GruposPage from "./pages/GruposPage";
 import CafecaPage from "./pages/CafecaPage";
+import EgresadosPage from "./pages/EgresadosPage";
 import SatisfactionWidget from "./components/SatisfactionWidget";
 
 function getCurrentRoute() {
@@ -190,6 +191,8 @@ function App() {
                 ? "FECA - Feria"
                  : route.page === "biblioteca"
                  ? "FECA - Biblioteca"
+                : route.page === "egresados"
+                    ? "FECA - Egresados"
                 : route.page === "lenguas"
                     ? "FECA - Centro de Lenguas e Internacionalización"
                     : route.page === "legacy-program"
@@ -345,6 +348,12 @@ function App() {
     ) : route.page === "cafeteria" ? (
       <CafecaPage
         content={legacyPages["cafeteria"]}
+        logoImage={logoImage}
+        newsPanelOpen={newsPanelOpen}
+        setNewsPanelOpen={setNewsPanelOpen}
+      />
+    ) : route.page === "egresados" ? (
+      <EgresadosPage
         logoImage={logoImage}
         newsPanelOpen={newsPanelOpen}
         setNewsPanelOpen={setNewsPanelOpen}
