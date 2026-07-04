@@ -326,7 +326,7 @@ function NosotrosPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
       {/* ── PLAN DE DESARROLLO (PDUA) ── */}
       <section className="pf-section pf-section-alt pf-fade" style={{ background: "linear-gradient(180deg, #fbfaf8 0%, #f5f0eb 100%)" }}>
         <div className="pf-container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 56, alignItems: "center" }}>
+          <div className="pf-two-col" style={{ gap: 56, alignItems: "center" }}>
             <div>
               <div className="pf-label">Planeación institucional</div>
               <h2 className="pf-section-title">PDUA (Plan de Desarrollo Universitario y Académico)</h2>

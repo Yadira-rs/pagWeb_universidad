@@ -133,7 +133,7 @@ function SingleSectionPage({ content, slug, logoImage, newsPanelOpen, setNewsPan
                     <h2 className="mission-vision-title" style={{ marginTop: "12px" }}>{content.title}</h2>
                     <p className="mission-vision-body" style={{ margin: "0 auto", maxWidth: "800px" }}>{content.body}</p>
                   </div>
-                  <div className="highlights-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)", justifyContent: "center" }}>
+                  <div className="highlights-grid highlights-grid--3col">
                     {content.points.map((point, index) => {
                       let icon = null;
                       let title = "";

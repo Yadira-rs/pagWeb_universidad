@@ -97,7 +97,7 @@ function ContraloriaPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
       {/* ── ¿QUÉ ES? ── */}
       <section className="pf-section pf-section-light pf-fade">
         <div className="pf-container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 380px", gap: 56, alignItems: "start" }}>
+          <div className="pf-content-sidebar" style={{ gap: 56, alignItems: "start" }}>
             <div>
               <div className="pf-label">Transparencia y Legalidad</div>
               <h2 className="pf-section-title">¿Qué es la Contraloría Interna?</h2>
@@ -270,7 +270,7 @@ function ContraloriaPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
           </div>
 
           {/* Avisos en imagen */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 28, marginBottom: 28 }}>
+          <div className="pf-two-col" style={{ gap: 28, marginBottom: 28 }}>
             {[
               { label: "Declaración Patrimonial UJED", src: "/docs/Declaraci%C3%B3n%20Patrimonial%20UJED.jpg", alt: "Declaración Patrimonial UJED" },
               { label: "Declaración Anual FECA", src: "/docs/Declaraci%C3%B3n%20Anual%20FECA%20.jpg", alt: "Declaración Anual FECA" },
@@ -384,7 +384,7 @@ function ContraloriaPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
             <div className="pf-label">Portales oficiales</div>
             <h2 className="pf-section-title">Enlaces Institucionales</h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+          <div className="pf-two-col" style={{ gap: 24 }}>
             {[
               {
                 label: "Transparencia UJED",

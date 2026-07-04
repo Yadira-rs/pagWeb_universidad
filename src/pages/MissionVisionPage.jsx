@@ -47,7 +47,7 @@ function MissionVisionPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
 
       {/* ── MISIÓN ── */}
       <section className="pf-section pf-section-light pf-fade">
-        <div className="pf-container" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center" }}>
+        <div className="pf-container pf-two-col" style={{ gap: 60, alignItems: "center" }}>
           <div>
             <div className="pf-label">{content.mission.eyebrow}</div>
             <h2 className="pf-section-title">{content.mission.title}</h2>
@@ -74,7 +74,7 @@ function MissionVisionPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
 
       {/* ── VISIÓN ── */}
       <section className="pf-section pf-section-alt pf-fade">
-        <div className="pf-container" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center" }}>
+        <div className="pf-container pf-two-col" style={{ gap: 60, alignItems: "center" }}>
           <div>
             <img
               src="/imagenes/aniversario.jpeg"

@@ -149,7 +149,7 @@ function SecretariaAdministrativaPage({ logoImage, newsPanelOpen, setNewsPanelOp
       {/* CONTACTO */}
       <section className="pf-section pf-section-alt pf-fade">
         <div className="pf-container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center" }}>
+          <div className="pf-two-col" style={{ gap: 48, alignItems: "center" }}>
             <div>
               <div className="pf-label">¿Necesitas ayuda?</div>
               <h2 className="pf-section-title">Contacto directo</h2>

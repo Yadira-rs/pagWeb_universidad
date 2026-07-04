@@ -35,17 +35,21 @@ export default function DirectorProfilePage({ slug, logoImage, newsPanelOpen, se
 
       <main className="dp-main">
         {/* ── HERO ── */}
-        <div className="dp-hero" style={{ backgroundImage: `url(${director.image})` }}>
-          <div className="dp-hero-overlay" />
-          <div className="dp-hero-content">
-            <a href="#/nosotros/ejes-rectores" className="dp-back-link">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="15 18 9 12 15 6" />
-              </svg>
-              Directivos
-            </a>
-            <h1 className="dp-hero-name">{director.name}</h1>
-            <span className="dp-hero-role">{director.roleLabel}</span>
+        <div className="dp-hero">
+          <div className="dp-hero-inner">
+            <div className="dp-hero-photo-wrap">
+              <img src={director.image} alt={director.name} className="dp-hero-photo" />
+            </div>
+            <div className="dp-hero-content">
+              <a href="#/nosotros/ejes-rectores" className="dp-back-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="15 18 9 12 15 6" />
+                </svg>
+                Directivos
+              </a>
+              <h1 className="dp-hero-name">{director.name}</h1>
+              <span className="dp-hero-role">{director.roleLabel}</span>
+            </div>
           </div>
         </div>
 

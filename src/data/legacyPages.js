@@ -891,11 +891,6 @@ export const legacyPages = {
     title: "CAFECA",
     intro:
       "Un espacio para descansar, conversar y recargar energía durante la jornada universitaria.",
-    stats: [
-      { label: "Ambiente", value: "Convivencia entre estudiantes" },
-      { label: "Servicio", value: "Alimentos y bebidas" },
-      { label: "Uso", value: "Descanso entre clases" },
-    ],
     gallery: [
       {
         image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=700&q=80",

@@ -162,9 +162,7 @@ export default function OfertaEducativaPage({ logoImage, newsPanelOpen, setNewsP
       {/* ── CTA ── */}
       <section className="pf-section pf-section-light pf-fade">
         <div className="pf-container">
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
+          <div className="pf-two-col" style={{
             gap: 48,
             alignItems: "center",
             background: "#fff",
