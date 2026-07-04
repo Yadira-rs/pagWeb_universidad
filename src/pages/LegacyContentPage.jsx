@@ -258,40 +258,31 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
     }
 
     if (section.variant === "team") {
+      const [lead, ...rest] = section.cards ?? [];
       return (
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 40, maxWidth: 640, margin: "0 auto" }}>
-          {section.cards?.map((card) => (
-            <div key={card.title} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 16 }}>
-              {card.image && (
-                <img
-                  src={card.image}
-                  alt={card.title}
-                  style={{
-                    width: 130, height: 130, borderRadius: "50%",
-                    objectFit: "cover", objectPosition: "center 15%",
-                    flexShrink: 0,
-                    border: "3px solid rgba(192,0,12,0.12)",
-                  }}
-                />
-              )}
-              <div style={{ textAlign: "center" }}>
-                <h3
-                  style={{
-                    fontFamily: "var(--font-display)", fontSize: 24, color: "var(--text)",
-                    margin: "0 0 12px", display: "inline-block",
-                    borderBottom: "2px solid var(--navy)", paddingBottom: 4,
-                  }}
-                >
-                  {card.title}
-                </h3>
-                {card.body && (
-                  <p style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "#555", margin: 0, lineHeight: 1.6 }}>
-                    {card.body}
-                  </p>
-                )}
+        <div className="cesa-team">
+          {lead && (
+            <div className="cesa-team-lead">
+              <div className="cesa-team-lead-avatar">
+                {lead.image && <img src={lead.image} alt={lead.title} />}
               </div>
+              <h3 className="cesa-team-name">{lead.title}</h3>
+              {lead.body && <span className="cesa-team-role cesa-team-role-lead">{lead.body}</span>}
             </div>
-          ))}
+          )}
+          {rest.length > 0 && (
+            <div className="cesa-team-grid">
+              {rest.map((card) => (
+                <div key={card.title} className="cesa-team-card">
+                  <div className="cesa-team-avatar">
+                    {card.image && <img src={card.image} alt={card.title} />}
+                  </div>
+                  <h3 className="cesa-team-name">{card.title}</h3>
+                  {card.body && <span className="cesa-team-role">{card.body}</span>}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       );
     }
@@ -661,15 +652,15 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
               className={`pf-section pf-fade ${idx % 2 === 0 ? "pf-section-light" : "pf-section-alt"}`}
             >
               <div className="pf-container">
-                <div className="pf-section-head">
+                <div className={section.headCenter ? "pf-section-head pf-section-head-center" : "pf-section-head"}>
                   <div className="pf-label">{section.label}</div>
                   <h2 className="pf-section-title">{section.title}</h2>
+                  {section.note && (
+                    <p style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "#555", margin: 0, lineHeight: 1.75, fontStyle: "italic" }}>
+                      {section.note}
+                    </p>
+                  )}
                 </div>
-                {section.note && (
-                  <p style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "#555", marginBottom: 28, lineHeight: 1.75, fontStyle: "italic" }}>
-                    {section.note}
-                  </p>
-                )}
                 {renderSection(section)}
               </div>
             </section>

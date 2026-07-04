@@ -345,7 +345,7 @@ export const legacyPages = {
         label: "Nuestra identidad",
         title: "¿Quiénes somos?",
         variant: "wide",
-        image: "/imagenes/cesa-equipo.png",
+        image: "/imagenes/cesa-equipo.jpeg",
         imageAlt: "Comité Ejecutivo de la Sociedad de Alumnos CESA UNE FECA 2025-2027",
         paragraphs: [
           "El Comité Ejecutivo de la Sociedad de Alumnos (CESA) es el equipo de estudiantes que representa a la comunidad estudiantil y trabaja para impulsar iniciativas que beneficien el desarrollo académico, cultural, deportivo y social de nuestra facultad.",
@@ -357,27 +357,29 @@ export const legacyPages = {
         id: "integrantes",
         label: "Cartera",
         title: "Integrantes",
+        note:
+          "Conoce a las y los estudiantes que conforman la mesa directiva del CESA durante la gestión 2025-2027.",
         variant: "team",
         cards: [
           {
             title: "Francisco Javier Estrada García",
             body: "Presidente",
-            image: "/imagenes/cesa-presidente.png",
+            image: "/imagenes/cesa-presidente.jpeg",
           },
           {
             title: "Dulce Sofía Barrios Saucedo",
             body: "Vicepresidenta",
-            image: "/imagenes/cesa-vicepresidenta.png",
+            image: "/imagenes/cesa-vicepresidenta.jpeg",
           },
           {
             title: "Ana Luisa Cervantes González",
             body: "Secretaria General",
-            image: "/imagenes/cesa-secretaria.png",
+            image: "/imagenes/cesa-secretaria.jpeg",
           },
           {
             title: "Alondra Valenzuela Alvarado",
             body: "Tesorera",
-            image: "/imagenes/cesa-tesorera.png",
+            image: "/imagenes/cesa-tesorera.jpeg",
           },
           {
             title: "Gerardo Gámiz Pérez",
@@ -493,9 +495,14 @@ export const legacyPages = {
         variant: "wide",
         contacts: [
           {
+            label: "Instagram",
+            value: "@cesa.unefeca",
+            href: "https://www.instagram.com/cesa.unefeca",
+          },
+          {
             label: "Correo",
-            value: "cesa@feca.ujed.mx",
-            href: "mailto:cesa@feca.ujed.mx",
+            value: "cesaunefeca@gmail.com",
+            href: "mailto:cesaunefeca@gmail.com",
           },
           { label: "Oficinas", value: "Instalaciones de la Facultad" },
         ],
