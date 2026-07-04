@@ -333,6 +333,88 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
           </button>
         </div>
 
+        {/* Búsqueda */}
+        <div className="mobile-search-wrap">
+          <form
+            className="mobile-search-form"
+            onSubmit={(event) => {
+              event.preventDefault();
+              if (searchResults.length > 0) {
+                const first = searchResults[0];
+                closeMobile();
+                if (first.href.startsWith("http")) {
+                  window.open(first.href, "_blank", "noreferrer");
+                } else {
+                  window.location.hash = first.href.replace("#", "");
+                }
+                setSearchQuery("");
+              }
+            }}
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="16" height="16">
+              <circle cx="11" cy="11" r="7" />
+              <line x1="16.5" y1="16.5" x2="22" y2="22" />
+            </svg>
+            <input
+              type="text"
+              placeholder="Buscar programas, carreras o servicio"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              autoComplete="off"
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                className="mobile-search-clear"
+                aria-label="Limpiar búsqueda"
+                onClick={() => setSearchQuery("")}
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="14" height="14">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </button>
+            )}
+          </form>
+          {searchQuery.trim().length >= 2 && (
+            <ul className="mobile-search-results">
+              {searchResults.length > 0 ? (
+                searchResults.map((item, i) => (
+                  <li key={i}>
+                    <a
+                      href={item.href}
+                      target={item.href.startsWith("http") || item.href.startsWith("/docs/") ? "_blank" : undefined}
+                      rel={item.href.startsWith("http") || item.href.startsWith("/docs/") ? "noreferrer" : undefined}
+                      onClick={() => { closeMobile(); setSearchQuery(""); }}
+                    >
+                      <span className="mobile-search-result-title">{item.title}</span>
+                      <span className="mobile-search-result-desc">{item.description}</span>
+                    </a>
+                  </li>
+                ))
+              ) : (
+                <li className="mobile-search-empty">Sin resultados para "{searchQuery}"</li>
+              )}
+            </ul>
+          )}
+        </div>
+
+        {/* Noticias */}
+        <button
+          type="button"
+          className="mobile-news-btn"
+          onClick={() => { closeMobile(); setNewsPanelOpen((current) => !current); }}
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="18" height="18">
+            <path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4" />
+            <polyline points="14 2 14 8 20 8" />
+            <path d="M2 15h8" />
+            <path d="M2 12h6" />
+            <path d="M2 18h8" />
+          </svg>
+          Últimas noticias
+        </button>
+
         <div className="mobile-menu-body">
           {/* Inicio */}
           <a href="#/" className={`mobile-nav-link${currentHash === "#/" || currentHash === "" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>
