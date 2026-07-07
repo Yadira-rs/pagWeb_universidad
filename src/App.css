@@ -12529,7 +12529,9 @@ body.footer-in-view .sw-root {
 
 /* ── Responsive ── */
 @media (max-width: 480px) {
-  .sw-root { bottom: 80px; right: 14px; }
+  .sw-root { bottom: 70px; right: 14px; }
+  .sw-trigger { width: 40px; height: 40px; }
+  .sw-trigger svg { width: 16px; height: 16px; }
   .sw-panel { width: calc(100vw - 28px); }
 }
 
