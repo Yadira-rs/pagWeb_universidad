@@ -360,6 +360,8 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
         </div>
       </div>
 
+      <AnunciosCarousel />
+
       <section className="section" id="departamentos">
         <div className="container">
           <div className="fade-up">
@@ -462,8 +464,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
 
         </div>
       </section>
-
-      <AnunciosCarousel />
 
       <section className="section">
         <div className="container">
