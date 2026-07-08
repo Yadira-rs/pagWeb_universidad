@@ -2783,7 +2783,7 @@
 }
 
 .statsbar {
-  background: linear-gradient(135deg, #9b1520 0%, #c0182a 40%, #e31313 100%);
+  background: linear-gradient(135deg, #951823 0%, #e31313 100%);
   padding: 0;
   position: relative;
   overflow: hidden;
@@ -11505,7 +11505,7 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
   padding: 72px 0 88px;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #9b0000 0%, #e31313 55%, #e31313 100%);
+  background: linear-gradient(135deg, #951823 0%, #e31313 100%);
 }
 .anc2-header {
   max-width: 1160px;
