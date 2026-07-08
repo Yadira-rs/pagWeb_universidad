@@ -31,20 +31,6 @@ const IconStar = () => (
   </svg>
 );
 
-const IconBriefcase = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="24" height="24">
-    <rect x="2" y="7" width="20" height="14" rx="2" />
-    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-  </svg>
-);
-
-const IconGlobe = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="24" height="24">
-    <circle cx="12" cy="12" r="10" />
-    <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-  </svg>
-);
-
 const IconQuote = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
     <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" />
@@ -330,25 +316,6 @@ function EgresadosPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════ CTA FINAL ══════════ */}
-      <section className="egr-cta egr-fade">
-        <div className="egr-container">
-          <div className="egr-cta-inner">
-            <div className="egr-cta-icon"><IconBriefcase /></div>
-            <h2 className="egr-cta-title">¿Eres egresado de la FECA?</h2>
-            <p className="egr-cta-sub">
-              Comparte tu foto, tu historia y mantente conectado con la comunidad que te formó.
-            </p>
-            <div className="egr-cta-btns">
-              <a href="mailto:informes@feca.ujed.mx?subject=Soy%20egresado%20FECA" className="egr-btn-primary">
-                <IconGlobe />
-                Enviar mi información
-              </a>
-            </div>
           </div>
         </div>
       </section>
