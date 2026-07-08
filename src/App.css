@@ -11600,10 +11600,35 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
   box-shadow: 0 28px 64px rgba(0,0,0,0.48);
 }
 
-.anc2-card-top {
-  padding: 20px 22px 0;
+.anc2-card-img {
+  position: relative;
+  height: 160px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #f0ece8;
+}
+.anc2-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.anc2-card.is-center:hover .anc2-card-img img {
+  transform: scale(1.06);
+}
+.anc2-card-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.28) 0%, transparent 45%);
+  pointer-events: none;
 }
 .anc2-tipo {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
   display: inline-block;
   font-family: var(--font-ui);
   font-size: 10px;
@@ -11614,9 +11639,10 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
   background: linear-gradient(90deg, #e31313, #951823);
   border-radius: 999px;
   padding: 5px 14px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
 }
 .anc2-card-body {
-  padding: 16px 22px 22px;
+  padding: 18px 22px 22px;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -11745,6 +11771,7 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
   .anc2-header { padding: 0 20px; margin-bottom: 28px; }
   .anc2-viewport { padding: 12px 20px 16px; }
   .anc2-card { width: 250px; }
+  .anc2-card-img { height: 130px; }
   .anc2-arrow { width: 40px; height: 40px; }
   .anc2-arrow svg { width: 16px; height: 16px; }
 }

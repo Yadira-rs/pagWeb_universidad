@@ -8,6 +8,7 @@ const slides = [
     fecha: "15 de julio, 2026 · 10:00 hrs · Sala CIIEDO",
     ctaLabel: "Registrarme",
     ctaHref: "mailto:ciiedo.feca@ujed.mx",
+    imagen: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=700&q=80",
   },
   {
     tipo: "Convocatoria",
@@ -16,6 +17,7 @@ const slides = [
     fecha: "Cierre: 30 de julio, 2026",
     ctaLabel: "Ver requisitos",
     ctaHref: "mailto:ciiedo.feca@ujed.mx",
+    imagen: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=700&q=80",
   },
   {
     tipo: "Aviso",
@@ -24,6 +26,7 @@ const slides = [
     fecha: "Vigente a partir del 1 de agosto, 2026",
     ctaLabel: "Contactar",
     ctaHref: "mailto:ciiedo.feca@ujed.mx",
+    imagen: "https://images.unsplash.com/photo-1495364141860-b0d03eccd065?auto=format&fit=crop&w=700&q=80",
   },
   {
     tipo: "Noticia",
@@ -32,6 +35,7 @@ const slides = [
     fecha: "Publicado: junio 2026",
     ctaLabel: "Leer más",
     ctaHref: "mailto:ciiedo.feca@ujed.mx",
+    imagen: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=700&q=80",
   },
 ];
 
@@ -125,7 +129,8 @@ export default function AnunciosCarousel() {
                   className={`anc2-card ${statusClass}`}
                   onClick={() => { if (dist !== 0) moveTo(idx, true); }}
                 >
-                  <div className="anc2-card-top">
+                  <div className="anc2-card-img">
+                    <img src={s.imagen} alt={s.titulo} loading="lazy" />
                     <span className="anc2-tipo">{s.tipo}</span>
                   </div>
                   <div className="anc2-card-body">
