@@ -58,7 +58,10 @@ export default function AnunciosCarousel() {
     if (!wrapper || !track || !card) return;
 
     const wrapperWidth = wrapper.offsetWidth;
-    const cardWidth = card.getBoundingClientRect().width;
+    // offsetWidth (no getBoundingClientRect) porque las tarjetas laterales
+    // están escaladas por el efecto coverflow y su tamaño visual no sirve
+    // para calcular el espaciado real entre tarjetas.
+    const cardWidth = card.offsetWidth;
     const gap = parseFloat(getComputedStyle(track).columnGap) || 24;
     const centerOffset = (wrapperWidth - cardWidth) / 2;
     const translate = newIdx * (cardWidth + gap) - centerOffset;
