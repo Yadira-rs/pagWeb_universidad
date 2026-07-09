@@ -37,6 +37,7 @@ import ValoresPage from "./pages/ValoresPage";
 import GruposPage from "./pages/GruposPage";
 import CafecaPage from "./pages/CafecaPage";
 import EgresadosPage from "./pages/EgresadosPage";
+import AdminEgresadosDocsPage from "./pages/AdminEgresadosDocsPage";
 import SatisfactionWidget from "./components/SatisfactionWidget";
 
 function getCurrentRoute() {
@@ -61,6 +62,7 @@ function getCurrentRoute() {
   if (hash === "#/lenguas") return { page: "lenguas" };
   if (hash === "#/ciiedo") return { page: "ciiedo" };
   if (hash === "#/egresados") return { page: "egresados" };
+  if (hash === "#/admin/egresados-docs") return { page: "admin-egresados-docs" };
   if (hash === "#/grupos-representativos") return { page: "grupos" };
 
   if (hash === "#/cafeteria") return { page: "cafeteria" };
@@ -358,6 +360,8 @@ function App() {
         newsPanelOpen={newsPanelOpen}
         setNewsPanelOpen={setNewsPanelOpen}
       />
+    ) : route.page === "admin-egresados-docs" ? (
+      <AdminEgresadosDocsPage />
     ) : route.slug === "curso-propedeutico" ? (
       <PropedeuticoPage
         logoImage={logoImage}

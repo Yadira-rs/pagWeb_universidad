@@ -14059,13 +14059,108 @@ body.footer-in-view .sw-root {
 
 .egr-upload-btn {
   display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-ui); font-size: 13.5px; font-weight: 700;
-  color: var(--gray-mid); background: #fff; border: 1.5px dashed #d8d2cc; border-radius: 999px;
-  padding: 11px 20px; margin-top: 22px; cursor: not-allowed; opacity: 0.85;
+  color: #fff; background: linear-gradient(135deg,#9b0000,#e31313); border: none; border-radius: 999px;
+  padding: 13px 26px; margin-top: 22px; cursor: pointer; box-shadow: 0 8px 24px rgba(192,0,12,0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
-.egr-upload-badge {
-  font-family: var(--font-ui); font-size: 10px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
-  color: #e31313; background: rgba(227,19,19,0.08); border-radius: 999px; padding: 3px 10px;
+.egr-upload-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(192,0,12,0.4); }
+
+/* ── Modal: Subir mis documentos ── */
+.egr-upload-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 12, 10, 0.55);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 2100;
 }
+.egr-upload-modal {
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+  animation: slideUp 0.25s ease;
+}
+.egr-upload-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 26px;
+  border-bottom: 1px solid #f0ece8;
+}
+.egr-upload-modal-title {
+  font-family: var(--font-display);
+  font-size: 19px;
+  color: #1a0608;
+  margin: 0;
+}
+.egr-upload-modal-close {
+  width: 32px; height: 32px; border-radius: 50%; border: none;
+  background: #f5f0f0; color: #6b6461; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; flex-shrink: 0; transition: background 0.15s;
+}
+.egr-upload-modal-close:hover { background: #ece4e4; }
+.egr-upload-modal-sub {
+  font-family: var(--font-body); font-size: 13.5px; color: #6b6461; line-height: 1.6;
+  margin: 0 0 20px;
+}
+
+.egr-upload-form { padding: 22px 26px 26px; }
+.egr-upload-field {
+  display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px;
+}
+.egr-upload-field span {
+  font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+  color: #951823;
+}
+.egr-upload-field input[type="text"],
+.egr-upload-field select {
+  font-family: var(--font-body); font-size: 14px; color: var(--text);
+  border: 1.5px solid #e8e0dc; border-radius: 10px; padding: 10px 14px; background: #fff;
+  transition: border-color 0.2s;
+}
+.egr-upload-field input[type="text"]:focus,
+.egr-upload-field select:focus {
+  outline: none; border-color: #e31313;
+}
+.egr-upload-field-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+}
+.egr-upload-file-field input[type="file"] {
+  font-family: var(--font-ui); font-size: 12.5px; color: var(--gray-mid);
+  border: 1.5px dashed #d8d2cc; border-radius: 10px; padding: 12px;
+  background: #faf8f5; cursor: pointer;
+}
+.egr-upload-file-name {
+  font-family: var(--font-ui); font-size: 12px; color: #951823; font-weight: 600;
+}
+.egr-upload-error {
+  font-family: var(--font-body); font-size: 13px; color: #c0182a; background: rgba(192,0,12,0.08);
+  border-radius: 8px; padding: 10px 14px; margin: 0 0 16px;
+}
+.egr-upload-submit {
+  width: 100%; justify-content: center; margin-top: 4px;
+}
+.egr-upload-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.egr-upload-success {
+  padding: 40px 30px 34px;
+  text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+.egr-upload-success-icon {
+  width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg,#9b0000,#e31313);
+  display: flex; align-items: center; justify-content: center; margin-bottom: 6px;
+  box-shadow: 0 8px 24px rgba(192,0,12,0.35);
+}
+.egr-upload-success h3 { font-family: var(--font-display); font-size: 19px; color: #1a0608; margin: 0; }
+.egr-upload-success p { font-family: var(--font-body); font-size: 14px; color: #6b6461; line-height: 1.6; margin: 0 0 10px; max-width: 340px; }
 
 /* ══════════ CTA FINAL ══════════ */
 .egr-cta { background: linear-gradient(135deg,#faf8f5 0%,#fff5ef 100%); padding: 88px 0; }
@@ -14097,4 +14192,89 @@ body.footer-in-view .sw-root {
   .egr-gallery-grid { grid-template-columns: 1fr; }
   .egr-doc-grid { grid-template-columns: 1fr; }
   .egr-hero-title { font-size: 46px; }
+  .egr-upload-field-row { grid-template-columns: 1fr; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   ADMIN — Documentos de egresados (admin-egr-)
+   ══════════════════════════════════════════════════════════ */
+.admin-egr-gate {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: linear-gradient(135deg, #1a0608 0%, #3a0c10 100%);
+}
+.admin-egr-gate-card {
+  width: 100%;
+  max-width: 360px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 36px 30px;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.4);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.admin-egr-gate-title { font-family: var(--font-display); font-size: 22px; color: #1a0608; margin: 0; }
+.admin-egr-gate-sub { font-family: var(--font-body); font-size: 13.5px; color: #6b6461; line-height: 1.6; margin: 0 0 6px; }
+.admin-egr-gate-input {
+  font-family: var(--font-body); font-size: 14px; color: var(--text);
+  border: 1.5px solid #e8e0dc; border-radius: 10px; padding: 11px 14px; text-align: center;
+}
+.admin-egr-gate-input:focus { outline: none; border-color: #e31313; }
+.admin-egr-gate-error {
+  font-family: var(--font-body); font-size: 12.5px; color: #c0182a; background: rgba(192,0,12,0.08);
+  border-radius: 8px; padding: 8px 12px; margin: 0;
+}
+.admin-egr-gate-btn {
+  font-family: var(--font-ui); font-size: 13.5px; font-weight: 700; color: #fff;
+  background: linear-gradient(135deg,#9b0000,#e31313); border: none; border-radius: 999px;
+  padding: 12px 20px; cursor: pointer; margin-top: 4px; transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 8px 24px rgba(192,0,12,0.3);
+}
+.admin-egr-gate-btn:hover { transform: translateY(-2px); }
+.admin-egr-gate-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+.admin-egr-page {
+  min-height: 100vh;
+  background: #faf8f5;
+  padding: 40px clamp(20px, 4vw, 56px) 80px;
+}
+.admin-egr-header {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  margin-bottom: 24px; flex-wrap: wrap;
+}
+.admin-egr-header h1 { font-family: var(--font-display); font-size: 26px; color: #1a0608; margin: 0; }
+.admin-egr-count {
+  font-family: var(--font-ui); font-size: 12px; font-weight: 700; color: #951823;
+  background: rgba(227,19,19,0.08); border-radius: 999px; padding: 5px 14px;
+}
+.admin-egr-empty { font-family: var(--font-body); font-size: 15px; color: #6b6461; }
+.admin-egr-table-wrap {
+  overflow-x: auto;
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #ece4e4;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+.admin-egr-table { width: 100%; border-collapse: collapse; font-family: var(--font-body); font-size: 13.5px; }
+.admin-egr-table th {
+  text-align: left; font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.05em;
+  text-transform: uppercase; color: #951823; padding: 14px 16px; border-bottom: 2px solid #f0ece8; white-space: nowrap;
+}
+.admin-egr-table td {
+  padding: 14px 16px; border-bottom: 1px solid #f5f0ee; color: var(--text); white-space: nowrap;
+}
+.admin-egr-table tr:last-child td { border-bottom: none; }
+.admin-egr-filename { max-width: 220px; overflow: hidden; text-overflow: ellipsis; }
+.admin-egr-download {
+  font-family: var(--font-ui); font-size: 12.5px; font-weight: 700; color: #e31313; text-decoration: none;
+}
+.admin-egr-download:hover { text-decoration: underline; }
+
+@media (max-width: 640px) {
+  .admin-egr-header { flex-direction: column; align-items: flex-start; }
 }

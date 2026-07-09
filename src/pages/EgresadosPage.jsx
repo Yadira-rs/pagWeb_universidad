@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Header from "../sections/Header";
 import Footer from "../sections/Footer";
+import EgresadoUploadModal from "../components/EgresadoUploadModal";
 
 /* ── Iconos SVG inline ── */
 const IconCap = () => (
@@ -124,6 +125,7 @@ const TESTIMONIALS = [
 function EgresadosPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
   const [scrolled, setScrolled] = useState(false);
   const [docCategory, setDocCategory] = useState("Todos");
+  const [uploadModalOpen, setUploadModalOpen] = useState(false);
   const observerRef = useRef(null);
 
   const docsFiltrados = docCategory === "Todos"
@@ -244,12 +246,10 @@ function EgresadosPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
             <button
               type="button"
               className="egr-upload-btn"
-              disabled
-              title="Próximamente"
+              onClick={() => setUploadModalOpen(true)}
             >
               <IconFile />
               Subir mis documentos
-              <span className="egr-upload-badge">Próximamente</span>
             </button>
           </div>
 
@@ -321,6 +321,10 @@ function EgresadosPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
       </section>
 
       <Footer logoImage={logoImage} />
+
+      {uploadModalOpen && (
+        <EgresadoUploadModal onClose={() => setUploadModalOpen(false)} />
+      )}
     </div>
   );
 }
