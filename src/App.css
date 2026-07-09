@@ -2783,11 +2783,11 @@
 }
 
 .statsbar {
-  background: linear-gradient(135deg, #a3b3b3 0%, #b9c7c7 100%);
+  background: linear-gradient(135deg, #951823 0%, #e31313 100%);
   padding: 0;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 32px rgb(47 58 58 / 18%);
+  box-shadow: 0 4px 32px rgb(227 19 19 / 30%);
 }
 
 .statsbar::before {
@@ -2795,8 +2795,8 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 0% 50%, rgb(255 255 255 / 18%) 0%, transparent 55%),
-    radial-gradient(ellipse at 100% 50%, rgb(0 0 0 / 8%) 0%, transparent 55%);
+    radial-gradient(ellipse at 0% 50%, rgb(255 255 255 / 8%) 0%, transparent 55%),
+    radial-gradient(ellipse at 100% 50%, rgb(0 0 0 / 12%) 0%, transparent 55%);
   pointer-events: none;
 }
 
@@ -2824,20 +2824,20 @@
   top: 20%;
   height: 60%;
   width: 1px;
-  background: rgb(47 58 58 / 22%);
+  background: rgb(255 255 255 / 25%);
 }
 
 .statsbar-num {
   font-size: 42px;
   font-weight: 700;
-  color: #2f3a3a;
+  color: #fff;
   line-height: 1;
-  text-shadow: none;
+  text-shadow: 0 2px 12px rgb(0 0 0 / 20%);
 }
 
 .statsbar-label {
   font-size: 12px;
-  color: rgb(47 58 58 / 75%);
+  color: rgb(255 255 255 / 82%);
   margin-top: 6px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
