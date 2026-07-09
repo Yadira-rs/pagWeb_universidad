@@ -8,7 +8,9 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [compactSearchOpen, setCompactSearchOpen] = useState(false);
   const searchRef = useRef(null);
+  const compactSearchRef = useRef(null);
   const [scrolled, setScrolled] = useState(false);
   const [currentHash, setCurrentHash] = useState(window.location.hash || "#/");
   const mobileMenuRef = useRef(null);
@@ -94,6 +96,9 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
     const handleClick = (e) => {
       if (searchRef.current && !searchRef.current.contains(e.target)) {
         setSearchOpen(false);
+      }
+      if (compactSearchRef.current && !compactSearchRef.current.contains(e.target)) {
+        setCompactSearchOpen(false);
       }
     };
     document.addEventListener("click", handleClick);
@@ -275,6 +280,92 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 </ul>
               )}
             </div>
+          </div>
+
+          {/* Buscador compacto — solo visible en tablet/laptop angosta (1025-1180px),
+              donde el buscador completo no cabe pero el menú hamburguesa aún no aparece. */}
+          <div className="nav-search-compact" ref={compactSearchRef}>
+            <button
+              type="button"
+              className="nav-search-compact-toggle"
+              aria-label={compactSearchOpen ? "Cerrar búsqueda" : "Buscar"}
+              onClick={() => setCompactSearchOpen((current) => !current)}
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="17" height="17">
+                <circle cx="11" cy="11" r="7" />
+                <line x1="16.5" y1="16.5" x2="22" y2="22" />
+              </svg>
+            </button>
+            {compactSearchOpen && (
+              <div className="nav-search-compact-flyout">
+                <form
+                  className="nav-search"
+                  onSubmit={(event) => {
+                    event.preventDefault();
+                    if (searchResults.length > 0) {
+                      const first = searchResults[0];
+                      setCompactSearchOpen(false);
+                      if (first.href.startsWith("http")) {
+                        window.open(first.href, "_blank", "noreferrer");
+                      } else {
+                        window.location.hash = first.href.replace("#", "");
+                      }
+                      setSearchQuery("");
+                    }
+                  }}
+                >
+                  <input
+                    type="text"
+                    name="q"
+                    placeholder="Buscar programas, carreras o servicio"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    autoComplete="off"
+                    autoFocus
+                  />
+                  {searchQuery && (
+                    <button
+                      type="button"
+                      className="nav-search-clear"
+                      aria-label="Limpiar búsqueda"
+                      onClick={() => { setSearchQuery(""); setSearchResults([]); }}
+                    >
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="16" height="16">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                      </svg>
+                    </button>
+                  )}
+                  <button type="submit" className="nav-search-submit" aria-label="Buscar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="17" height="17">
+                      <circle cx="11" cy="11" r="7" />
+                      <line x1="16.5" y1="16.5" x2="22" y2="22" />
+                    </svg>
+                  </button>
+                </form>
+                {searchQuery.trim().length >= 2 && (
+                  <ul className="search-dropdown">
+                    {searchResults.length > 0 ? (
+                      searchResults.map((item, i) => (
+                        <li key={i}>
+                          <a
+                            href={item.href}
+                            target={item.href.startsWith("http") || item.href.startsWith("/docs/") ? "_blank" : undefined}
+                            rel={item.href.startsWith("http") || item.href.startsWith("/docs/") ? "noreferrer" : undefined}
+                            onClick={() => { setCompactSearchOpen(false); setSearchQuery(""); }}
+                          >
+                            <span className="search-dropdown-title">{item.title}</span>
+                            <span className="search-dropdown-desc">{item.description}</span>
+                          </a>
+                        </li>
+                      ))
+                    ) : (
+                      <li className="search-dropdown-empty">Sin resultados para "{searchQuery}"</li>
+                    )}
+                  </ul>
+                )}
+              </div>
+            )}
           </div>
 
           <button

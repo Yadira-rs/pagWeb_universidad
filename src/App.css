@@ -451,6 +451,47 @@
   margin-left: auto;
 }
 
+/* Buscador compacto (ver breakpoint 1025-1180px) — oculto por defecto */
+.nav-search-compact {
+  display: none;
+  position: relative;
+  margin-left: auto;
+}
+.nav-search-compact-toggle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid #e8d8d8;
+  background: #faf6f6;
+  color: #951823;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: border-color 0.2s, background 0.2s;
+}
+.nav-search-compact-toggle:hover {
+  border-color: #e31313;
+  background: #fff;
+}
+.nav-search-compact-flyout {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: min(320px, 90vw);
+  z-index: 300;
+  animation: dropdownFadeIn 0.18s ease both;
+}
+.nav-search-compact-flyout .nav-search {
+  width: 100%;
+}
+.nav-search-compact-flyout .search-dropdown {
+  position: static;
+  margin-top: 8px;
+  min-width: 0;
+}
+
 .nav-search-container {
   position: relative;
 }
@@ -6039,6 +6080,12 @@
   .nav-search,
   .nav-search-wrapper {
     display: none;
+  }
+
+  /* El buscador completo no cabe aquí, pero el hamburger tampoco aparece
+     todavía (eso pasa hasta 1024px) — sin esto no habría forma de buscar. */
+  .nav-search-compact {
+    display: flex;
   }
 
   .nav-links {
