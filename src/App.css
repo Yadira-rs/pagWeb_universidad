@@ -2783,11 +2783,11 @@
 }
 
 .statsbar {
-  background: linear-gradient(135deg, #951823 0%, #e31313 100%);
+  background: linear-gradient(135deg, #a3b3b3 0%, #b9c7c7 100%);
   padding: 0;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 32px rgb(227 19 19 / 30%);
+  box-shadow: 0 4px 32px rgb(47 58 58 / 18%);
 }
 
 .statsbar::before {
@@ -2795,8 +2795,8 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 0% 50%, rgb(255 255 255 / 8%) 0%, transparent 55%),
-    radial-gradient(ellipse at 100% 50%, rgb(0 0 0 / 12%) 0%, transparent 55%);
+    radial-gradient(ellipse at 0% 50%, rgb(255 255 255 / 18%) 0%, transparent 55%),
+    radial-gradient(ellipse at 100% 50%, rgb(0 0 0 / 8%) 0%, transparent 55%);
   pointer-events: none;
 }
 
@@ -2824,20 +2824,20 @@
   top: 20%;
   height: 60%;
   width: 1px;
-  background: rgb(255 255 255 / 25%);
+  background: rgb(47 58 58 / 22%);
 }
 
 .statsbar-num {
   font-size: 42px;
   font-weight: 700;
-  color: #fff;
+  color: #2f3a3a;
   line-height: 1;
-  text-shadow: 0 2px 12px rgb(0 0 0 / 20%);
+  text-shadow: none;
 }
 
 .statsbar-label {
   font-size: 12px;
-  color: rgb(255 255 255 / 82%);
+  color: rgb(47 58 58 / 75%);
   margin-top: 6px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -11505,9 +11505,9 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
   padding: 72px 0 88px;
   position: relative;
   overflow: hidden;
-  /* Arranca en el mismo rojo brillante donde termina el statsbar,
+  /* Arranca en el mismo tono claro donde termina el statsbar,
      para que la transición entre ambas secciones sea continua. */
-  background: linear-gradient(135deg, #e31313 0%, #951823 100%);
+  background: linear-gradient(135deg, #b9c7c7 0%, #a3b3b3 100%);
 }
 .anc2-header {
   max-width: 1160px;
@@ -11521,14 +11521,14 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #ff9b9b;
+  color: #e31313;
   margin-bottom: 8px;
 }
 .anc2-title {
   font-family: var(--font-display);
   font-size: clamp(26px, 3vw, 40px);
   font-weight: 900;
-  color: #fff;
+  color: #223131;
   margin: 0;
   line-height: 1.1;
 }
@@ -11750,7 +11750,7 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
 .anc2-dot {
   width: 8px; height: 8px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.32);
+  background: rgba(47,58,58,0.28);
   border: none;
   cursor: pointer;
   padding: 0;
@@ -11758,7 +11758,7 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
 }
 .anc2-dot-on {
   width: 28px;
-  background: #fff;
+  background: #951823;
 }
 
 @media (max-width: 900px) {
