@@ -11505,9 +11505,20 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
   padding: 72px 0 88px;
   position: relative;
   overflow: hidden;
-  /* Arranca en el mismo tono claro donde termina el statsbar,
-     para que la transición entre ambas secciones sea continua. */
   background: linear-gradient(135deg, #b9c7c7 0%, #a3b3b3 100%);
+}
+/* Sombra suave en el borde superior: como el rojo del statsbar y el
+   gris azulado de aquí son colores muy distintos, mezclarlos directo
+   se ve sucio — en vez de eso se suaviza el corte con una sombra que
+   se desvanece, para que el cambio de color se sienta menos brusco. */
+.anc2-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 70px;
+  background: linear-gradient(to bottom, rgba(20, 20, 20, 0.28) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
 }
 .anc2-header {
   max-width: 1160px;
