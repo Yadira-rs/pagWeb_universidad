@@ -1,132 +1,180 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { supabase } from "../lib/supabaseClient";
 
-const slides = [
-  {
-    tipo: "Evento",
-    titulo: "Taller de Innovación y Emprendimiento",
-    desc: "Aprende metodologías ágiles para validar y lanzar tu idea de negocio. Cupo limitado a 30 participantes.",
-    fecha: "15 de julio, 2026 · 10:00 hrs · Sala CIIEDO",
-    ctaLabel: "Registrarme",
-    ctaHref: "mailto:ciiedo.feca@ujed.mx",
-  },
-  {
-    tipo: "Convocatoria",
-    titulo: "Prácticas Profesionales y Servicio Social CIIEDO 2026",
-    desc: "Gana experiencia real trabajando en proyectos de innovación. Postúlate antes del cierre de inscripciones.",
-    fecha: "Cierre: 30 de julio, 2026",
-    ctaLabel: "Ver requisitos",
-    ctaHref: "mailto:ciiedo.feca@ujed.mx",
-  },
-  {
-    tipo: "Aviso",
-    titulo: "Nuevo horario de atención CIIEDO a partir de agosto",
-    desc: "El CIIEDO ajusta su horario presencial. Lunes a viernes de 9:00 a 14:00 hrs.",
-    fecha: "Vigente a partir del 1 de agosto, 2026",
-    ctaLabel: "Contactar",
-    ctaHref: "mailto:ciiedo.feca@ujed.mx",
-  },
-  {
-    tipo: "Noticia",
-    titulo: "CIIEDO firma convenio con empresas líderes de Durango",
-    desc: "Nuevas alianzas para conectar a estudiantes con el ecosistema empresarial regional.",
-    fecha: "Publicado: junio 2026",
-    ctaLabel: "Leer más",
-    ctaHref: "mailto:ciiedo.feca@ujed.mx",
-  },
-];
-
-const STEP = 320;
-const N = slides.length;
-const extended = [...slides, ...slides, ...slides];
+const STEP = 366; // --card-width (340) + --card-gap (26)
+const HALF_CARD = 170;
+const TRACK_PAD = 140;
 
 export default function AnunciosCarousel() {
+  const [slides, setSlides] = useState([]);
   const trackRef = useRef(null);
-  const idxRef = useRef(N);
-  const [dotIdx, setDotIdx] = useState(0);
+  const carouselRef = useRef(null);
+  const trackIdxRef = useRef(2);
+  const [trackIndex, setTrackIndex] = useState(2);
 
-  const moveFn = useRef(null);
-  moveFn.current = (idx, animated = true) => {
-    const track = trackRef.current;
-    if (!track) return;
-    idxRef.current = idx;
-    track.style.transition = animated
-      ? "transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94)"
+  useEffect(() => {
+    let active = true;
+    supabase
+      .from("anuncios_noticias")
+      .select("tipo, titulo, resumen, fecha_texto, cta_label, cta_href")
+      .eq("publicado", true)
+      .order("orden", { ascending: true })
+      .then(({ data, error }) => {
+        if (!active) return;
+        if (error) {
+          console.error("Error cargando anuncios:", error);
+          return;
+        }
+        setSlides(
+          (data || []).map((row) => ({
+            tipo: row.tipo,
+            titulo: row.titulo,
+            desc: row.resumen,
+            fecha: row.fecha_texto,
+            ctaLabel: row.cta_label,
+            ctaHref: row.cta_href,
+          })),
+        );
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  const N = slides.length;
+  // 2 clones al inicio + N reales + 2 clones al final, igual que el carrusel de directores
+  const clonedSlides = useMemo(() => {
+    if (N < 2) return [];
+    return [slides[N - 2], slides[N - 1], ...slides, slides[0], slides[1]];
+  }, [slides, N]);
+
+  const moveTo = (newIdx, animated) => {
+    if (!trackRef.current) return;
+    if (!animated && carouselRef.current) {
+      carouselRef.current.classList.add("no-card-transition");
+    }
+    trackRef.current.style.transition = animated
+      ? "transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)"
       : "none";
-    if (!animated) track.getBoundingClientRect();
-    track.style.transform = `translateX(-${idx * STEP}px)`;
-    if (animated) setDotIdx(((idx % N) + N) % N);
+    if (!animated) trackRef.current.getBoundingClientRect();
+    trackRef.current.style.transform = `translateX(calc(50vw - ${TRACK_PAD}px - ${newIdx * STEP}px - ${HALF_CARD}px))`;
+    trackIdxRef.current = newIdx;
+    setTrackIndex(newIdx);
+    if (!animated && carouselRef.current) {
+      requestAnimationFrame(() =>
+        requestAnimationFrame(() =>
+          carouselRef.current?.classList.remove("no-card-transition"),
+        ),
+      );
+    }
+  };
+
+  const handleNext = () => moveTo(trackIdxRef.current + 1, true);
+  const handlePrev = () => moveTo(trackIdxRef.current - 1, true);
+
+  const handleTransitionEnd = (e) => {
+    if (e.target !== trackRef.current || e.propertyName !== "transform") return;
+    const idx = trackIdxRef.current;
+    if (idx >= N + 2) moveTo(idx - N, false);
+    else if (idx <= 1) moveTo(idx + N, false);
   };
 
   useEffect(() => {
-    moveFn.current(N, false);
-    const id = setInterval(() => {
-      moveFn.current(idxRef.current + 1);
-    }, 3000);
-    return () => clearInterval(id);
-  }, []);
+    if (N < 2) return;
+    moveTo(2, false);
+    const id = window.setInterval(() => moveTo(trackIdxRef.current + 1, true), 4500);
+    return () => window.clearInterval(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [N]);
 
-  const onTransitionEnd = (e) => {
-    if (e.target !== trackRef.current || e.propertyName !== "transform") return;
-    const idx = idxRef.current;
-    if (idx >= N * 2) moveFn.current(idx - N, false);
-    else if (idx < N) moveFn.current(idx + N, false);
-  };
+  if (N < 2) return null;
 
   return (
-    <section className="anc2-section">
-      <div className="anc2-bg-circle" aria-hidden="true" />
-
-      <div className="anc2-header">
-        <div>
-          <span className="anc2-label">Tablero de anuncios</span>
-          <h2 className="anc2-title">Avisos y Eventos</h2>
+    <section className="anuncios-carousel-section">
+      <div className="container">
+        <div className="fade-up">
+          <div className="section-label">Tablero de anuncios</div>
+          <h2 className="section-title">Avisos y Eventos</h2>
         </div>
-        <div className="anc2-arrows">
-          <button className="anc2-arrow" onClick={() => moveFn.current(idxRef.current - 1)} aria-label="Anterior">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="18" height="18">
-              <path d="M15 19l-7-7 7-7"/>
+      </div>
+
+      <div ref={carouselRef} className="anuncios-carousel">
+        <div className="anuncios-carousel-wrapper">
+          <div
+            ref={trackRef}
+            className="anuncios-carousel-track"
+            onTransitionEnd={handleTransitionEnd}
+          >
+            {clonedSlides.map((s, idx) => {
+              const dist = idx - trackIndex;
+              let statusClass = "";
+              if (dist === 0) statusClass = "is-center";
+              else if (dist === -1) statusClass = "is-prev";
+              else if (dist === 1) statusClass = "is-next";
+              else if (dist === -2) statusClass = "is-far-prev";
+              else if (dist === 2) statusClass = "is-far-next";
+
+              return (
+                <article
+                  key={`${s.titulo}-${idx}`}
+                  className={`anuncio-card ${statusClass}`}
+                  onClick={() => dist !== 0 && moveTo(idx, true)}
+                >
+                  <span className="anuncio-tipo">{s.tipo}</span>
+                  <h3 className="anuncio-title">{s.titulo}</h3>
+                  <p className="anuncio-desc">{s.desc}</p>
+                  <div className="anuncio-footer">
+                    <span className="anuncio-fecha">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="12" height="12">
+                        <circle cx="12" cy="12" r="10" />
+                        <polyline points="12 6 12 12 16 14" />
+                      </svg>
+                      {s.fecha}
+                    </span>
+                    <a
+                      href={s.ctaHref}
+                      className="anuncio-cta"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      {s.ctaLabel} →
+                    </a>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="teacher-carousel-controls">
+          <button
+            type="button"
+            className="teacher-arrow teacher-prev"
+            aria-label="Anterior"
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); handlePrev(); }}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+              <path d="M15 19l-7-7 7-7" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
-          <button className="anc2-arrow" onClick={() => moveFn.current(idxRef.current + 1)} aria-label="Siguiente">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="18" height="18">
-              <path d="M9 5l7 7-7 7"/>
+          <button
+            type="button"
+            className="teacher-arrow teacher-next"
+            aria-label="Siguiente"
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleNext(); }}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+              <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
         </div>
       </div>
 
-      <div className="anc2-viewport">
-        <div ref={trackRef} className="anc2-track" onTransitionEnd={onTransitionEnd}>
-          {extended.map((s, i) => (
-            <div key={i} className="anc2-card">
-              <div className="anc2-card-top">
-                <span className="anc2-tipo">{s.tipo}</span>
-              </div>
-              <div className="anc2-card-body">
-                <h3 className="anc2-card-title">{s.titulo}</h3>
-                <p className="anc2-card-desc">{s.desc}</p>
-                <div className="anc2-card-footer">
-                  <span className="anc2-fecha">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="12" height="12">
-                      <circle cx="12" cy="12" r="10"/>
-                      <polyline points="12 6 12 12 16 14"/>
-                    </svg>
-                    {s.fecha}
-                  </span>
-                  <a href={s.ctaHref} className="anc2-cta">{s.ctaLabel} →</a>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="anc2-dots">
+      <div className="anuncio-dots">
         {slides.map((_, i) => (
           <button
             key={i}
-            className={`anc2-dot ${i === dotIdx ? "anc2-dot-on" : ""}`}
-            onClick={() => moveFn.current(N + i)}
+            className={`anuncio-dot ${((trackIndex - 2) % N + N) % N === i ? "anuncio-dot-on" : ""}`}
+            onClick={() => moveTo(i + 2, true)}
             aria-label={`Ir al anuncio ${i + 1}`}
           />
         ))}
