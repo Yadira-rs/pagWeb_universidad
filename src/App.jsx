@@ -32,6 +32,7 @@ import ContraloriaPage from "./pages/ContraloriaPage";
 import FinanzasPage from "./pages/FinanzasPage";
 import SecretariaAdministrativaPage from "./pages/SecretariaAdministrativaPage";
 import ServiciosEscolaresPage from "./pages/ServiciosEscolaresPage";
+import TutoriasPage from "./pages/TutoriasPage";
 import CiiedoPage from "./pages/CiiedoPage";
 import ValoresPage from "./pages/ValoresPage";
 import GruposPage from "./pages/GruposPage";
@@ -195,6 +196,8 @@ function App() {
                  ? "FECA - Biblioteca"
                 : route.page === "egresados"
                     ? "FECA - Egresados"
+                : route.page === "tutorias"
+                    ? "FECA - Tutorías"
                 : route.page === "lenguas"
                     ? "FECA - Centro de Lenguas e Internacionalización"
                     : route.page === "legacy-program"
@@ -310,6 +313,12 @@ function App() {
       />
     ) : route.page === "servicios-escolares" ? (
       <ServiciosEscolaresPage
+        logoImage={logoImage}
+        newsPanelOpen={newsPanelOpen}
+        setNewsPanelOpen={setNewsPanelOpen}
+      />
+    ) : route.page === "tutorias" ? (
+      <TutoriasPage
         logoImage={logoImage}
         newsPanelOpen={newsPanelOpen}
         setNewsPanelOpen={setNewsPanelOpen}

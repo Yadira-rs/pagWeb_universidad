@@ -168,7 +168,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
               </div>
             </div>
 
-            <div className={`nav-item ${currentRoute === "services" || currentRoute === "service-detail" ? "active" : ""}`}>
+            <div className={`nav-item ${currentRoute === "services" || currentRoute === "service-detail" || currentRoute === "tutorias" ? "active" : ""}`}>
               <a href="#/servicios">
                 Servicios
                 <span className="nav-caret" aria-hidden="true"></span>
@@ -182,7 +182,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 <a href="#/servicios/secretaria-administrativa">Secretaría administrativa</a>
                 <a href="#/servicios/servicio-social">Servicio social</a>
                 <a href="#/servicios/servicios-escolares">Servicios escolares</a>
-                <a href="https://mat.ujed.mx/" target="_blank" rel="noreferrer">Tutorías</a>
+                <a href="#/tutorias">Tutorías</a>
               </div>
             </div>
 
@@ -534,7 +534,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
             <a href="/docs/LCPEI.pdf" className="mobile-nav-sub" target="_blank" rel="noreferrer" onClick={closeMobile}>CPEI</a>
             <a href="#/servicios/finanzas" className={`mobile-nav-sub${currentHash === "#/servicios/finanzas" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Finanzas</a>
             <a href="#/servicios/secretaria-administrativa" className={`mobile-nav-sub${currentHash === "#/servicios/secretaria-administrativa" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Secretaría administrativa</a>
-            <a href="https://mat.ujed.mx/" className="mobile-nav-sub" target="_blank" rel="noreferrer" onClick={closeMobile}>Tutorías</a>
+            <a href="#/tutorias" className={`mobile-nav-sub${currentHash === "#/tutorias" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Tutorías</a>
           </div>
 
           {/* Nosotros */}
