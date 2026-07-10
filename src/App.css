@@ -5992,8 +5992,11 @@
   box-shadow: 0 4px 10px rgb(0 0 0 / 16%);
 }
 
-/* Ocultar WhatsApp FAB cuando el menú móvil está abierto */
-.mobile-nav-open .whatsapp-fab { display: none; }
+/* Ocultar botones flotantes cuando el menú móvil está abierto:
+   si no, quedan encima del drawer y tapan los links (no se puede
+   tocar lo que está debajo). */
+.mobile-nav-open .whatsapp-fab,
+.mobile-nav-open .sw-root { display: none; }
 
 .fade-up {
   opacity: 0;
