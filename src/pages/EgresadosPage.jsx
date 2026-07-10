@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Header from "../sections/Header";
 import Footer from "../sections/Footer";
+import EgresadoUploadModal from "../components/EgresadoUploadModal";
 
 /* ── Iconos SVG inline ── */
 const IconCap = () => (
@@ -28,20 +29,6 @@ const IconCertificate = () => (
 const IconStar = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="24" height="24">
     <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-  </svg>
-);
-
-const IconBriefcase = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="24" height="24">
-    <rect x="2" y="7" width="20" height="14" rx="2" />
-    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-  </svg>
-);
-
-const IconGlobe = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="24" height="24">
-    <circle cx="12" cy="12" r="10" />
-    <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
   </svg>
 );
 
@@ -138,6 +125,7 @@ const TESTIMONIALS = [
 function EgresadosPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
   const [scrolled, setScrolled] = useState(false);
   const [docCategory, setDocCategory] = useState("Todos");
+  const [uploadModalOpen, setUploadModalOpen] = useState(false);
   const observerRef = useRef(null);
 
   const docsFiltrados = docCategory === "Todos"
@@ -258,12 +246,10 @@ function EgresadosPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
             <button
               type="button"
               className="egr-upload-btn"
-              disabled
-              title="Próximamente"
+              onClick={() => setUploadModalOpen(true)}
             >
               <IconFile />
               Subir mis documentos
-              <span className="egr-upload-badge">Próximamente</span>
             </button>
           </div>
 
@@ -334,26 +320,11 @@ function EgresadosPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
         </div>
       </section>
 
-      {/* ══════════ CTA FINAL ══════════ */}
-      <section className="egr-cta egr-fade">
-        <div className="egr-container">
-          <div className="egr-cta-inner">
-            <div className="egr-cta-icon"><IconBriefcase /></div>
-            <h2 className="egr-cta-title">¿Eres egresado de la FECA?</h2>
-            <p className="egr-cta-sub">
-              Comparte tu foto, tu historia y mantente conectado con la comunidad que te formó.
-            </p>
-            <div className="egr-cta-btns">
-              <a href="mailto:informes@feca.ujed.mx?subject=Soy%20egresado%20FECA" className="egr-btn-primary">
-                <IconGlobe />
-                Enviar mi información
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <Footer logoImage={logoImage} />
+
+      {uploadModalOpen && (
+        <EgresadoUploadModal onClose={() => setUploadModalOpen(false)} />
+      )}
     </div>
   );
 }

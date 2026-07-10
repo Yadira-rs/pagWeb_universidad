@@ -84,7 +84,7 @@ function ValoresPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
           className={`pf-section pf-fade ${i % 2 === 0 ? "pf-section-light" : "pf-section-alt"}`}
         >
           <div className="pf-container">
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 56, alignItems: "center" }}>
+            <div className="pf-two-col" style={{ gap: 56, alignItems: "center" }}>
               {/* texto */}
               <div style={{ order: i % 2 === 0 ? 0 : 1 }}>
                 <div className="pf-label">{sec.eyebrow}</div>

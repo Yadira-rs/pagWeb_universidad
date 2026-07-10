@@ -213,7 +213,7 @@ function FinanzasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
       {/* CONTEXTO INSTITUCIONAL */}
       <section className="pf-section pf-section-alt pf-fade">
         <div className="pf-container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40, alignItems: "center" }}>
+          <div className="pf-two-col" style={{ gap: 40, alignItems: "center" }}>
             <div>
               <div className="pf-label">Estructura institucional</div>
               <h2 className="pf-section-title">Coordinación de Finanzas</h2>

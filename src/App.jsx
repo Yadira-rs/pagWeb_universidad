@@ -32,11 +32,13 @@ import ContraloriaPage from "./pages/ContraloriaPage";
 import FinanzasPage from "./pages/FinanzasPage";
 import SecretariaAdministrativaPage from "./pages/SecretariaAdministrativaPage";
 import ServiciosEscolaresPage from "./pages/ServiciosEscolaresPage";
+import TutoriasPage from "./pages/TutoriasPage";
 import CiiedoPage from "./pages/CiiedoPage";
 import ValoresPage from "./pages/ValoresPage";
 import GruposPage from "./pages/GruposPage";
 import CafecaPage from "./pages/CafecaPage";
 import EgresadosPage from "./pages/EgresadosPage";
+import AdminEgresadosDocsPage from "./pages/AdminEgresadosDocsPage";
 import SatisfactionWidget from "./components/SatisfactionWidget";
 
 function getCurrentRoute() {
@@ -61,6 +63,7 @@ function getCurrentRoute() {
   if (hash === "#/lenguas") return { page: "lenguas" };
   if (hash === "#/ciiedo") return { page: "ciiedo" };
   if (hash === "#/egresados") return { page: "egresados" };
+  if (hash === "#/admin/egresados-docs") return { page: "admin-egresados-docs" };
   if (hash === "#/grupos-representativos") return { page: "grupos" };
 
   if (hash === "#/cafeteria") return { page: "cafeteria" };
@@ -193,6 +196,8 @@ function App() {
                  ? "FECA - Biblioteca"
                 : route.page === "egresados"
                     ? "FECA - Egresados"
+                : route.page === "tutorias"
+                    ? "FECA - Tutorías"
                 : route.page === "lenguas"
                     ? "FECA - Centro de Lenguas e Internacionalización"
                     : route.page === "legacy-program"
@@ -312,6 +317,12 @@ function App() {
         newsPanelOpen={newsPanelOpen}
         setNewsPanelOpen={setNewsPanelOpen}
       />
+    ) : route.page === "tutorias" ? (
+      <TutoriasPage
+        logoImage={logoImage}
+        newsPanelOpen={newsPanelOpen}
+        setNewsPanelOpen={setNewsPanelOpen}
+      />
     ) : route.page === "feria" ? (
       <FeriaPage
         logoImage={logoImage}
@@ -358,6 +369,8 @@ function App() {
         newsPanelOpen={newsPanelOpen}
         setNewsPanelOpen={setNewsPanelOpen}
       />
+    ) : route.page === "admin-egresados-docs" ? (
+      <AdminEgresadosDocsPage />
     ) : route.slug === "curso-propedeutico" ? (
       <PropedeuticoPage
         logoImage={logoImage}

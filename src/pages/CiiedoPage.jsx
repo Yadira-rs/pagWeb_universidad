@@ -300,9 +300,8 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
       <section className="pf-section pf-section-alt pf-fade">
         <div className="pf-container">
           <div
+            className="pf-two-col"
             style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
               gap: 32,
               alignItems: "start",
             }}
@@ -460,9 +459,8 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
       <section className="pf-section pf-section-light pf-fade">
         <div className="pf-container">
           <div
+            className="pf-two-col"
             style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
               gap: 48,
               alignItems: "center",
             }}

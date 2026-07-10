@@ -8,7 +8,9 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [compactSearchOpen, setCompactSearchOpen] = useState(false);
   const searchRef = useRef(null);
+  const compactSearchRef = useRef(null);
   const [scrolled, setScrolled] = useState(false);
   const [currentHash, setCurrentHash] = useState(window.location.hash || "#/");
   const mobileMenuRef = useRef(null);
@@ -95,6 +97,9 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
       if (searchRef.current && !searchRef.current.contains(e.target)) {
         setSearchOpen(false);
       }
+      if (compactSearchRef.current && !compactSearchRef.current.contains(e.target)) {
+        setCompactSearchOpen(false);
+      }
     };
     document.addEventListener("click", handleClick);
     return () => document.removeEventListener("click", handleClick);
@@ -163,7 +168,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
               </div>
             </div>
 
-            <div className={`nav-item ${currentRoute === "services" || currentRoute === "service-detail" ? "active" : ""}`}>
+            <div className={`nav-item ${currentRoute === "services" || currentRoute === "service-detail" || currentRoute === "tutorias" ? "active" : ""}`}>
               <a href="#/servicios">
                 Servicios
                 <span className="nav-caret" aria-hidden="true"></span>
@@ -177,7 +182,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 <a href="#/servicios/secretaria-administrativa">Secretaría administrativa</a>
                 <a href="#/servicios/servicio-social">Servicio social</a>
                 <a href="#/servicios/servicios-escolares">Servicios escolares</a>
-                <a href="https://mat.ujed.mx/" target="_blank" rel="noreferrer">Tutorías</a>
+                <a href="#/tutorias">Tutorías</a>
               </div>
             </div>
 
@@ -277,6 +282,92 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
             </div>
           </div>
 
+          {/* Buscador compacto — solo visible en tablet/laptop angosta (1025-1180px),
+              donde el buscador completo no cabe pero el menú hamburguesa aún no aparece. */}
+          <div className="nav-search-compact" ref={compactSearchRef}>
+            <button
+              type="button"
+              className="nav-search-compact-toggle"
+              aria-label={compactSearchOpen ? "Cerrar búsqueda" : "Buscar"}
+              onClick={() => setCompactSearchOpen((current) => !current)}
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="17" height="17">
+                <circle cx="11" cy="11" r="7" />
+                <line x1="16.5" y1="16.5" x2="22" y2="22" />
+              </svg>
+            </button>
+            {compactSearchOpen && (
+              <div className="nav-search-compact-flyout">
+                <form
+                  className="nav-search"
+                  onSubmit={(event) => {
+                    event.preventDefault();
+                    if (searchResults.length > 0) {
+                      const first = searchResults[0];
+                      setCompactSearchOpen(false);
+                      if (first.href.startsWith("http")) {
+                        window.open(first.href, "_blank", "noreferrer");
+                      } else {
+                        window.location.hash = first.href.replace("#", "");
+                      }
+                      setSearchQuery("");
+                    }
+                  }}
+                >
+                  <input
+                    type="text"
+                    name="q"
+                    placeholder="Buscar programas, carreras o servicio"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    autoComplete="off"
+                    autoFocus
+                  />
+                  {searchQuery && (
+                    <button
+                      type="button"
+                      className="nav-search-clear"
+                      aria-label="Limpiar búsqueda"
+                      onClick={() => { setSearchQuery(""); setSearchResults([]); }}
+                    >
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="16" height="16">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                      </svg>
+                    </button>
+                  )}
+                  <button type="submit" className="nav-search-submit" aria-label="Buscar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="17" height="17">
+                      <circle cx="11" cy="11" r="7" />
+                      <line x1="16.5" y1="16.5" x2="22" y2="22" />
+                    </svg>
+                  </button>
+                </form>
+                {searchQuery.trim().length >= 2 && (
+                  <ul className="search-dropdown">
+                    {searchResults.length > 0 ? (
+                      searchResults.map((item, i) => (
+                        <li key={i}>
+                          <a
+                            href={item.href}
+                            target={item.href.startsWith("http") || item.href.startsWith("/docs/") ? "_blank" : undefined}
+                            rel={item.href.startsWith("http") || item.href.startsWith("/docs/") ? "noreferrer" : undefined}
+                            onClick={() => { setCompactSearchOpen(false); setSearchQuery(""); }}
+                          >
+                            <span className="search-dropdown-title">{item.title}</span>
+                            <span className="search-dropdown-desc">{item.description}</span>
+                          </a>
+                        </li>
+                      ))
+                    ) : (
+                      <li className="search-dropdown-empty">Sin resultados para "{searchQuery}"</li>
+                    )}
+                  </ul>
+                )}
+              </div>
+            )}
+          </div>
+
           <button
             type="button"
             className="nav-panel-button"
@@ -333,6 +424,88 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
           </button>
         </div>
 
+        {/* Búsqueda */}
+        <div className="mobile-search-wrap">
+          <form
+            className="mobile-search-form"
+            onSubmit={(event) => {
+              event.preventDefault();
+              if (searchResults.length > 0) {
+                const first = searchResults[0];
+                closeMobile();
+                if (first.href.startsWith("http")) {
+                  window.open(first.href, "_blank", "noreferrer");
+                } else {
+                  window.location.hash = first.href.replace("#", "");
+                }
+                setSearchQuery("");
+              }
+            }}
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="16" height="16">
+              <circle cx="11" cy="11" r="7" />
+              <line x1="16.5" y1="16.5" x2="22" y2="22" />
+            </svg>
+            <input
+              type="text"
+              placeholder="Buscar programas, carreras o servicio"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              autoComplete="off"
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                className="mobile-search-clear"
+                aria-label="Limpiar búsqueda"
+                onClick={() => setSearchQuery("")}
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="14" height="14">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </button>
+            )}
+          </form>
+          {searchQuery.trim().length >= 2 && (
+            <ul className="mobile-search-results">
+              {searchResults.length > 0 ? (
+                searchResults.map((item, i) => (
+                  <li key={i}>
+                    <a
+                      href={item.href}
+                      target={item.href.startsWith("http") || item.href.startsWith("/docs/") ? "_blank" : undefined}
+                      rel={item.href.startsWith("http") || item.href.startsWith("/docs/") ? "noreferrer" : undefined}
+                      onClick={() => { closeMobile(); setSearchQuery(""); }}
+                    >
+                      <span className="mobile-search-result-title">{item.title}</span>
+                      <span className="mobile-search-result-desc">{item.description}</span>
+                    </a>
+                  </li>
+                ))
+              ) : (
+                <li className="mobile-search-empty">Sin resultados para "{searchQuery}"</li>
+              )}
+            </ul>
+          )}
+        </div>
+
+        {/* Noticias */}
+        <button
+          type="button"
+          className="mobile-news-btn"
+          onClick={() => { closeMobile(); setNewsPanelOpen((current) => !current); }}
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="18" height="18">
+            <path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4" />
+            <polyline points="14 2 14 8 20 8" />
+            <path d="M2 15h8" />
+            <path d="M2 12h6" />
+            <path d="M2 18h8" />
+          </svg>
+          Últimas noticias
+        </button>
+
         <div className="mobile-menu-body">
           {/* Inicio */}
           <a href="#/" className={`mobile-nav-link${currentHash === "#/" || currentHash === "" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>
@@ -361,7 +534,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
             <a href="/docs/LCPEI.pdf" className="mobile-nav-sub" target="_blank" rel="noreferrer" onClick={closeMobile}>CPEI</a>
             <a href="#/servicios/finanzas" className={`mobile-nav-sub${currentHash === "#/servicios/finanzas" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Finanzas</a>
             <a href="#/servicios/secretaria-administrativa" className={`mobile-nav-sub${currentHash === "#/servicios/secretaria-administrativa" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Secretaría administrativa</a>
-            <a href="https://mat.ujed.mx/" className="mobile-nav-sub" target="_blank" rel="noreferrer" onClick={closeMobile}>Tutorías</a>
+            <a href="#/tutorias" className={`mobile-nav-sub${currentHash === "#/tutorias" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Tutorías</a>
           </div>
 
           {/* Nosotros */}

@@ -461,6 +461,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
               </article>
             ))}
           </div>
+
         </div>
       </section>
 
