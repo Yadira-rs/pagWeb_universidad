@@ -444,6 +444,103 @@
   color: #e31313 !important;
 }
 
+.dropdown-accordion {
+  width: 280px;
+  padding: 10px 0;
+  overflow: hidden;
+}
+
+.acc-row {
+  border-top: 1px solid #f1e6e6;
+  transition: background 0.45s ease;
+}
+
+.acc-row:first-child {
+  border-top: none;
+}
+
+.acc-row:hover {
+  background: linear-gradient(to right, rgba(227, 19, 19, 0.05), rgba(227, 19, 19, 0) 55%);
+}
+
+.acc-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 20px;
+  font-family: var(--font-ui);
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: #2a2a2a !important;
+  cursor: default;
+  transition: color 0.4s ease;
+}
+
+.acc-row:hover .acc-title {
+  color: #951823 !important;
+}
+
+a.acc-title-link {
+  cursor: pointer;
+}
+
+.acc-row:hover a.acc-title-link,
+a.acc-title-link:hover {
+  color: #e31313 !important;
+}
+
+.acc-caret {
+  flex-shrink: 0;
+  color: #d3c6c6;
+  transition: transform 0.5s ease, color 0.4s ease;
+}
+
+.acc-row:hover .acc-caret {
+  transform: rotate(90deg);
+  color: #e31313;
+}
+
+.acc-panel {
+  max-height: 0;
+  overflow: hidden;
+  background: #fbf6f6;
+  transition: max-height 0.55s ease;
+}
+
+.acc-row:hover .acc-panel {
+  max-height: 240px;
+}
+
+.dropdown-accordion .dropdown-sub {
+  position: relative;
+  padding: 10px 20px 10px 40px;
+  font-weight: 500;
+}
+
+.dropdown-accordion .dropdown-sub::before {
+  content: '';
+  position: absolute;
+  left: 22px;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #ddd0d0;
+  transform: translateY(-50%);
+  transition: background 0.15s ease;
+}
+
+.dropdown-accordion .dropdown-sub:hover::before {
+  background: #e31313;
+}
+
+.acc-row-flat .acc-title {
+  padding: 14px 20px;
+}
+
 .nav-search-wrapper {
   display: flex;
   align-items: center;
@@ -5940,6 +6037,27 @@
   color: #e31313;
 }
 
+.mobile-nav-subgroup {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px 4px 25px;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #951823;
+  text-decoration: none;
+}
+
+a.mobile-nav-subgroup:hover {
+  color: #e31313;
+}
+
+.mobile-nav-sub.mobile-nav-subsub {
+  padding-left: 38px;
+}
+
 /* Pie del drawer */
 .mobile-menu-footer {
   border-top: 1px solid #e5e7eb;
@@ -8496,6 +8614,18 @@
   background-image:
     linear-gradient(rgba(125, 19, 32, 0.25), rgba(125, 19, 32, 0.45)),
     url('/imagenes/feca-entrada.jpg');
+}
+
+.img_tutorias {
+  background-image:
+    linear-gradient(rgba(125, 19, 32, 0.25), rgba(125, 19, 32, 0.45)),
+    url('/imagenes/lic.jpg');
+}
+
+.img_secretaria {
+  background-image:
+    linear-gradient(rgba(125, 19, 32, 0.25), rgba(125, 19, 32, 0.45)),
+    url('/imagenes/feca-plaza-1.jpg');
 }
 
 /* ── Finanzas Page ── */

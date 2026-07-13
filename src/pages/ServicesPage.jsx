@@ -3,12 +3,6 @@ import Header from "../sections/Header";
 
 const serviceCards = [
   {
-    title: "Servicios Escolares",
-    description: "Consulta mapas curriculares y planes académicos.",
-    href: "#/servicios/servicios-escolares",
-    imageClass: "img1",
-  },
-  {
     title: "Servicio Social",
     description: "Información, reglamentos y formatos necesarios.",
     href: "#/servicios/servicio-social",
@@ -21,16 +15,34 @@ const serviceCards = [
     imageClass: "img3",
   },
   {
-    title: "Contraloría Interna FECA",
-    description: "Espacio de transparencia, auditoría y atención de quejas y sugerencias.",
-    href: "#/servicios/contraloria-interna",
-    imageClass: "img_contraloria",
+    title: "Tutorías",
+    description: "Acompañamiento académico personalizado para estudiantes.",
+    href: "#/tutorias",
+    imageClass: "img_tutorias",
+  },
+  {
+    title: "Servicios Escolares",
+    description: "Consulta mapas curriculares y planes académicos.",
+    href: "#/servicios/servicios-escolares",
+    imageClass: "img1",
   },
   {
     title: "Finanzas",
     description: "Horarios de caja, formas de pago, aranceles y becas disponibles para la comunidad FECA.",
     href: "#/servicios/finanzas",
     imageClass: "img_finanzas",
+  },
+  {
+    title: "Secretaría Administrativa",
+    description: "Recursos financieros, materiales y humanos de la facultad.",
+    href: "#/servicios/secretaria-administrativa",
+    imageClass: "img_secretaria",
+  },
+  {
+    title: "Biblioteca",
+    description: "Accede a los servicios y recursos disponibles en la Biblioteca.",
+    href: "#/biblioteca",
+    imageClass: "img6",
   },
   {
     title: "Coordinación de Planeación y Evaluación Institucional",
@@ -40,10 +52,10 @@ const serviceCards = [
     imageClass: "img_cpei",
   },
   {
-    title: "Biblioteca",
-    description: "Accede a los servicios y recursos disponibles en la Biblioteca.",
-    href: "#/biblioteca",
-    imageClass: "img6",
+    title: "Contraloría Interna FECA",
+    description: "Espacio de transparencia, auditoría y atención de quejas y sugerencias.",
+    href: "#/servicios/contraloria-interna",
+    imageClass: "img_contraloria",
   },
 ];
 

@@ -54,58 +54,7 @@ const formasPago = [
 
 ];
 
-const aranceles = [
-  { concepto: "Inscripción semestral",        monto: "Consultar caja" },
-  { concepto: "Reinscripción semestral",      monto: "Consultar caja" },
-  { concepto: "Cuota de titulación",          monto: "Consultar caja" },
-  { concepto: "Certificado de estudios",      monto: "Consultar caja" },
-  { concepto: "Constancia de calificaciones", monto: "Consultar caja" },
-  { concepto: "Credencial universitaria",     monto: "Consultar caja" },
-];
-
-const becas = [
-  {
-    title: "Beca de Excelencia Académica",
-    desc: "Para alumnos con promedio mínimo de 9.0 sin materias reprobadas. Se renueva cada semestre.",
-    chip: "Semestral",
-  },
-  {
-    title: "Beca Socioeconómica",
-    desc: "Apoyo dirigido a estudiantes en situación de vulnerabilidad económica. Se requiere estudio socioeconómico.",
-    chip: "Por solicitud",
-  },
-  {
-    title: "Beca Pronabes / Benito Juárez",
-    desc: "Programa federal de becas para educación superior. Trámite en línea a través del portal nacional.",
-    chip: "Federal",
-  },
-  {
-    title: "Beca Deportiva / Cultural",
-    desc: "Apoyo para alumnos que representan a la FECA o UJED en actividades deportivas o culturales.",
-    chip: "Por convocatoria",
-  },
-];
-
-const STATS = [
-  { num: "L–V",        label: "Días de atención" },
-  { num: "8–15 hrs",   label: "Horario general" },
-  { num: "4",          label: "Formas de pago" },
-];
-
 const procedimientos = [
-  {
-    title: "Solicitud de Facturación",
-    desc: "Procedimiento para solicitar factura fiscal de cualquier pago realizado en ventanilla o en línea.",
-    steps: [
-      "Realiza tu pago en Caja o en la plataforma SUMA+.",
-      "Conserva tu comprobante de pago en formato digital (PDF o foto clara).",
-      "Envía un correo a facturacion.feca@ujed.mx con tu comprobante de pago y tu Constancia de Situación Fiscal actualizada.",
-      "Especifica el Uso del CFDI y el método de pago.",
-      "Recibirás tu factura en un plazo de 24 a 72 horas hábiles."
-    ],
-    formatUrl: "/ORGANIGRAMA-FECA.pdf",
-    formatName: "Formato de Solicitud de Factura (PDF)",
-  },
   {
     title: "Pago de Inscripción Referenciado",
     desc: "Instrucciones para generar tu referencia y pagar en sucursales bancarias autorizadas.",
@@ -131,19 +80,6 @@ const procedimientos = [
     ],
     formatUrl: "/FOLLETO-GENERAL-CERTIFICACIONES.pdf",
     formatName: "Formato de Reembolso (PDF)",
-  },
-  {
-    title: "Solicitud de Apoyo Financiero / Beca Interna",
-    desc: "Procedimiento para estudiantes que desean aplicar a becas socioeconómicas o exenciones de pago.",
-    steps: [
-      "Descarga y completa el Formato de Solicitud de Beca Interna.",
-      "Reúne los requisitos (comprobante de ingresos, promedio, carta de exposición de motivos).",
-      "Entrega la solicitud en la oficina de Trabajo Social en las fechas marcadas por la convocatoria.",
-      "Realiza el estudio socioeconómico si es requerido.",
-      "Revisa la publicación de resultados en el tablero oficial de la facultad."
-    ],
-    formatUrl: "/ORGANIGRAMA-FECA.pdf",
-    formatName: "Formato de Solicitud de Beca (PDF)",
   }
 ];
 
@@ -197,16 +133,8 @@ function FinanzasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
           <div className="pf-hero-badge">Servicios · FECA</div>
           <h1 className="pf-hero-title">Finanzas<br />y Caja</h1>
           <p className="pf-hero-sub">
-            Información sobre horarios, pagos, aranceles y apoyos económicos para la comunidad FECA‑UJED.
+            Información sobre horarios y pagos para la comunidad FECA‑UJED.
           </p>
-        </div>
-        <div className="pf-stats">
-          {STATS.map((s) => (
-            <div key={s.label} className="pf-stat">
-              <span className="pf-stat-num">{s.num}</span>
-              <span className="pf-stat-label">{s.label}</span>
-            </div>
-          ))}
         </div>
       </section>
 
@@ -238,7 +166,7 @@ function FinanzasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
                     <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
                   </svg>
                 )},
-                { label: "Caja General · Becas · Aranceles", sub: "Servicios al alumno", icon: (
+                { label: "Caja General", sub: "Servicios al alumno", icon: (
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="22" height="22">
                     <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
                     <circle cx="9" cy="7" r="4"/>
@@ -309,13 +237,6 @@ function FinanzasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
               </tbody>
             </table>
           </div>
-          <div className="pf-info-box pf-fade" style={{ marginTop: 24 }}>
-            <h3>Información importante</h3>
-            <p>
-              Los domingos y días festivos oficiales <strong>no hay servicio de caja</strong>.
-              Para pagos urgentes fuera de horario utiliza el portal SUMA+ o Banamex con tu referencia de pago.
-            </p>
-          </div>
         </div>
       </section>
 
@@ -363,65 +284,6 @@ function FinanzasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
                 </CardTag>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* ARANCELES */}
-      <section className="pf-section pf-section-light pf-fade">
-        <div className="pf-container">
-          <div className="pf-section-head">
-            <div className="pf-label">Costos institucionales</div>
-            <h2 className="pf-section-title">Aranceles y Cuotas</h2>
-            <p className="pf-section-desc">
-              Conceptos más frecuentes de pago. Los montos exactos se consultan directamente en caja o en el portal SUMA+.
-            </p>
-          </div>
-          <div className="fin-aranceles-grid pf-fade">
-            {aranceles.map((a) => (
-              <div key={a.concepto} className="fin-arancel-card">
-                <div className="fin-arancel-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="22" height="22">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                    <polyline points="14 2 14 8 20 8"/>
-                    <line x1="12" y1="18" x2="12" y2="12"/>
-                    <line x1="9" y1="15" x2="15" y2="15"/>
-                  </svg>
-                </div>
-                <div className="fin-arancel-body">
-                  <span className="fin-arancel-concepto">{a.concepto}</span>
-                  <span className="fin-arancel-monto">{a.monto}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-          <p className="fin-disclaimer pf-fade">
-            * Los aranceles están sujetos a actualización semestral por parte de la administración de la UJED.
-            Consulta el monto vigente en caja antes de realizar tu pago.
-          </p>
-        </div>
-      </section>
-
-      {/* BECAS */}
-      <section className="pf-section pf-section-dark pf-fade">
-        <div className="pf-container">
-          <div className="pf-section-head pf-section-head-center">
-            <div className="pf-label pf-label-light">Apoyos económicos</div>
-            <h2 className="pf-section-title pf-title-white">Becas y Apoyos</h2>
-            <p className="pf-section-desc pf-desc-white">
-              Programas de apoyo económico disponibles para estudiantes de la FECA‑UJED.
-            </p>
-          </div>
-          <div className="pf-cards-grid pf-fade">
-            {becas.map((b) => (
-              <div key={b.title} className="pf-card pf-card-dark">
-                <div className="pf-chips" style={{ marginBottom: 14 }}>
-                  <span className="pf-chip">{b.chip}</span>
-                </div>
-                <h3 className="pf-card-title">{b.title}</h3>
-                <p className="pf-card-desc">{b.desc}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -541,24 +403,6 @@ function FinanzasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
                     <span className="pf-contact-value">caja.feca@ujed.mx</span>
                   </div>
                 </a>
-              </div>
-            </div>
-            <div className="pf-card pf-card-top" style={{ padding: "40px 32px" }}>
-              <div className="pf-card-icon" style={{ margin: "0 auto 20px" }}>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                  <rect x="2" y="6" width="20" height="13" rx="2"/>
-                  <path d="M2 10h20"/>
-                  <circle cx="12" cy="15" r="2"/>
-                </svg>
-              </div>
-              <h3 className="pf-card-title" style={{ textAlign: "center" }}>Ventanilla de Caja</h3>
-              <p className="pf-card-desc" style={{ textAlign: "center", marginBottom: 20 }}>
-                Para pagos en efectivo acude directamente a caja en los horarios indicados.
-                Lleva siempre tu número de matrícula.
-              </p>
-              <div className="pf-chips" style={{ justifyContent: "center" }}>
-                <span className="pf-chip">Lun–Vie · 8–14 hrs</span>
-                <span className="pf-chip">Sáb · 8–12 hrs</span>
               </div>
             </div>
           </div>
