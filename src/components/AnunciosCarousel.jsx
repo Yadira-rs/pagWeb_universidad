@@ -1,55 +1,51 @@
-import { useEffect, useRef, useState } from "react";
-
-const slides = [
-  {
-    tipo: "Evento",
-    titulo: "Taller de Innovación y Emprendimiento",
-    desc: "Aprende metodologías ágiles para validar y lanzar tu idea de negocio. Cupo limitado a 30 participantes.",
-    fecha: "15 de julio, 2026 · 10:00 hrs · Sala CIIEDO",
-    ctaLabel: "Registrarme",
-    ctaHref: "mailto:ciiedo.feca@ujed.mx",
-    imagen: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=700&q=80",
-  },
-  {
-    tipo: "Convocatoria",
-    titulo: "Prácticas Profesionales y Servicio Social CIIEDO 2026",
-    desc: "Gana experiencia real trabajando en proyectos de innovación. Postúlate antes del cierre de inscripciones.",
-    fecha: "Cierre: 30 de julio, 2026",
-    ctaLabel: "Ver requisitos",
-    ctaHref: "mailto:ciiedo.feca@ujed.mx",
-    imagen: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=700&q=80",
-  },
-  {
-    tipo: "Aviso",
-    titulo: "Nuevo horario de atención CIIEDO a partir de agosto",
-    desc: "El CIIEDO ajusta su horario presencial. Lunes a viernes de 9:00 a 14:00 hrs.",
-    fecha: "Vigente a partir del 1 de agosto, 2026",
-    ctaLabel: "Contactar",
-    ctaHref: "mailto:ciiedo.feca@ujed.mx",
-    imagen: "https://images.unsplash.com/photo-1495364141860-b0d03eccd065?auto=format&fit=crop&w=700&q=80",
-  },
-  {
-    tipo: "Noticia",
-    titulo: "CIIEDO firma convenio con empresas líderes de Durango",
-    desc: "Nuevas alianzas para conectar a estudiantes con el ecosistema empresarial regional.",
-    fecha: "Publicado: junio 2026",
-    ctaLabel: "Leer más",
-    ctaHref: "mailto:ciiedo.feca@ujed.mx",
-    imagen: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=700&q=80",
-  },
-];
-
-const N = slides.length;
-// 2 clones al inicio + reales + 2 clones al final, para el loop infinito
-const extended = [slides[N - 2], slides[N - 1], ...slides, slides[0], slides[1]];
+import { useEffect, useMemo, useRef, useState } from "react";
+import { supabase } from "../lib/supabaseClient";
 
 export default function AnunciosCarousel() {
+  const [slides, setSlides] = useState([]);
   const [activeIndex, setActiveIndex] = useState(2);
   const wrapperRef = useRef(null);
   const trackRef = useRef(null);
   const cardRefs = useRef([]);
   const activeIndexRef = useRef(2);
   const pausedRef = useRef(false);
+
+  useEffect(() => {
+    let active = true;
+    supabase
+      .from("anuncios_noticias")
+      .select("tipo, titulo, resumen, fecha_texto, imagen_url, cta_label, cta_href")
+      .eq("publicado", true)
+      .order("orden", { ascending: true })
+      .then(({ data, error }) => {
+        if (!active) return;
+        if (error) {
+          console.error("Error cargando anuncios:", error);
+          return;
+        }
+        setSlides(
+          (data || []).map((row) => ({
+            tipo: row.tipo,
+            titulo: row.titulo,
+            desc: row.resumen,
+            fecha: row.fecha_texto,
+            imagen: row.imagen_url,
+            ctaLabel: row.cta_label,
+            ctaHref: row.cta_href,
+          })),
+        );
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  const N = slides.length;
+  // 2 clones al inicio + reales + 2 clones al final, para el loop infinito
+  const extended = useMemo(() => {
+    if (N < 2) return [];
+    return [slides[N - 2], slides[N - 1], ...slides, slides[0], slides[1]];
+  }, [slides, N]);
 
   const moveTo = (newIdx, animated = true) => {
     const wrapper = wrapperRef.current;
@@ -87,18 +83,24 @@ export default function AnunciosCarousel() {
   };
 
   useEffect(() => {
+    if (N < 2) return;
     moveTo(2, false);
     const onResize = () => moveTo(activeIndexRef.current, false);
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [N]);
 
   useEffect(() => {
+    if (N < 2) return;
     const id = setInterval(() => {
       if (!pausedRef.current) moveTo(activeIndexRef.current + 1);
     }, 3200);
     return () => clearInterval(id);
-  }, [activeIndex]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeIndex, N]);
+
+  if (N < 2) return null;
 
   const dotIndex = (((activeIndex - 2) % N) + N) % N;
 

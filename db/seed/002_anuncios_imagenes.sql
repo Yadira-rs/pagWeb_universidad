@@ -1,0 +1,4 @@
+UPDATE anuncios_noticias SET imagen_url = 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=700&q=80' WHERE titulo = 'Taller de Innovación y Emprendimiento';
+UPDATE anuncios_noticias SET imagen_url = 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=700&q=80' WHERE titulo = 'Prácticas Profesionales y Servicio Social CIIEDO 2026';
+UPDATE anuncios_noticias SET imagen_url = 'https://images.unsplash.com/photo-1495364141860-b0d03eccd065?auto=format&fit=crop&w=700&q=80' WHERE titulo = 'Nuevo horario de atención CIIEDO a partir de agosto';
+UPDATE anuncios_noticias SET imagen_url = 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=700&q=80' WHERE titulo = 'CIIEDO firma convenio con empresas líderes de Durango';
