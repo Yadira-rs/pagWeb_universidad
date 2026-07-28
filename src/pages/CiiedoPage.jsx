@@ -318,7 +318,7 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
                   background: "#fff",
                   borderRadius: 16,
                   overflow: "hidden",
-                  boxShadow: "0 8px 32px rgba(192,57,43,0.13)",
+                  boxShadow: "0 8px 32px rgba(227,19,19,0.13)",
                   border: "1px solid #f0e0e0",
                 }}
               >
@@ -374,7 +374,7 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
               background: "#fff",
               borderRadius: 20,
               overflow: "hidden",
-              boxShadow: "0 12px 40px rgba(192,57,43,0.14)",
+              boxShadow: "0 12px 40px rgba(227,19,19,0.14)",
               border: "1px solid #f0e0e0",
               maxWidth: 900,
               margin: "0 auto",
@@ -514,7 +514,7 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
             {/* Tarjeta con logo real */}
             <div
               className="pf-card"
-              style={{ padding: "40px 32px", borderTop: "4px solid #C0392B", textAlign: "center" }}
+              style={{ padding: "40px 32px", borderTop: "4px solid #e31313", textAlign: "center" }}
             >
               <img
                 src="/imagenes/logo-ciiedo.png"
@@ -571,9 +571,9 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
                   padding: "32px 20px",
                   background: "#fff",
                   border: "1.5px solid #f0e0e0",
-                  borderTop: "4px solid #C0392B",
+                  borderTop: "4px solid #e31313",
                   borderRadius: 16,
-                  boxShadow: "0 4px 20px rgba(192,57,43,0.09)",
+                  boxShadow: "0 4px 20px rgba(227,19,19,0.09)",
                   textDecoration: "none",
                   color: "inherit",
                   transition: "transform 0.2s, box-shadow 0.2s",
@@ -581,11 +581,11 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
                 }}
                 onMouseEnter={e => {
                   e.currentTarget.style.transform = "translateY(-4px)";
-                  e.currentTarget.style.boxShadow = "0 12px 32px rgba(192,57,43,0.18)";
+                  e.currentTarget.style.boxShadow = "0 12px 32px rgba(227,19,19,0.18)";
                 }}
                 onMouseLeave={e => {
                   e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "0 4px 20px rgba(192,57,43,0.09)";
+                  e.currentTarget.style.boxShadow = "0 4px 20px rgba(227,19,19,0.09)";
                 }}
               >
                 {/* Ícono grande */}
@@ -601,7 +601,7 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
                       width: 56,
                       height: 56,
                       borderRadius: 14,
-                      background: "linear-gradient(135deg,#C0392B,#e31313)",
+                      background: "linear-gradient(135deg,#e31313,#e31313)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -650,8 +650,8 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
                     fontWeight: 700,
                     letterSpacing: "0.1em",
                     textTransform: "uppercase",
-                    color: "#C0392B",
-                    background: "rgba(192,57,43,0.07)",
+                    color: "#e31313",
+                    background: "rgba(227,19,19,0.07)",
                     padding: "5px 14px",
                     borderRadius: 999,
                   }}
