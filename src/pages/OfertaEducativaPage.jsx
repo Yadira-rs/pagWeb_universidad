@@ -208,7 +208,7 @@ export default function OfertaEducativaPage({ logoImage, newsPanelOpen, setNewsP
             </div>
             {/* Lado derecho — tarjetas de contacto */}
             <div style={{
-              background: "linear-gradient(135deg, #9b0000 0%, #e31313 100%)",
+              background: "linear-gradient(135deg, #c0050f 0%, #e31313 45%, #9b1020 100%)",
               padding: "52px 40px",
               display: "flex",
               flexDirection: "column",

@@ -6,7 +6,7 @@ function Footer() {
       <div className="footer-tagline">
         <div className="footer-tagline-logos">
           <div className="footer-tagline-logo">
-            <img src="/imagenes/logo_ujed.png" alt="UJED" />
+            <img src="/imagenes/logo-ujed-blanco.png" alt="UJED" />
           </div>
           <div className="footer-tagline-logo footer-tagline-logo--feca">
             <img src="/imagenes/LOGO_FECA PNG.png" alt="FECA" />

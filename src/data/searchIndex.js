@@ -180,6 +180,12 @@ export const searchIndex = [
     keywords: "marco normativo reglamento disposiciones reglas normativa jurídico nosotros",
   },
   {
+    title: "CESA",
+    description: "Comité Ejecutivo de la Sociedad de Alumnos, gestión 2025-2027",
+    href: "#/cesa",
+    keywords: "cesa comité ejecutivo sociedad de alumnos une feca estudiantes mesa directiva",
+  },
+  {
     title: "SUMA+",
     description: "Sistema universitario de gestión académica",
     href: "https://sumafeca.ujed.mx/",

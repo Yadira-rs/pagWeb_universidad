@@ -31,7 +31,6 @@ const programs = [
     description:
       "Cursos de idiomas para adultos, niños y jóvenes en la Facultad de Economía, Contaduría y Administración.",
     image: "/imagenes/logo-celci.png",
-    imageClass: "program-card-img--celci",
     duration: "4 años",
     mode: "Presencial",
     href: "#/lenguas",
@@ -41,7 +40,6 @@ const programs = [
     description:
       "En CIIEDO te asesoramos, acompañamos y conectamos con oportunidades de innovación y emprendimiento.",
     image: "/imagenes/logo-ciiedo.png",
-    imageClass: "program-card-img--ciiedo",
     duration: "4 años",
     mode: "Presencial / En línea",
     href: "#/ciiedo",
@@ -51,6 +49,7 @@ const programs = [
     description:
       "Órgano de control interno de la FECA encargado de vigilar la transparencia, el uso correcto de los recursos y el cumplimiento de la normatividad institucional.",
     image: "/imagenes/contraloria_feca.png",
+    imageClass: "program-card-img--photo",
     duration: "Atención continua",
     mode: "Presencial",
     href: "#/servicios/contraloria-interna",
@@ -201,7 +200,9 @@ function FaqSection() {
                 >
                   <span className="faq-fila-q">{item.q}</span>
                   <span className="faq-fila-icono" aria-hidden="true">
-                    {open ? "×" : "+"}
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                      <path d="M12 5v14M5 12h14" strokeLinecap="round" />
+                    </svg>
                   </span>
                 </button>
                 <div className="faq-fila-body">

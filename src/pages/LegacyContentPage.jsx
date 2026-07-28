@@ -124,7 +124,7 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
               >
                 <div
                   className="pf-card-icon"
-                  style={{ background: card.color ?? "linear-gradient(135deg,#e31313,#e31313)" }}
+                  style={{ background: card.color ?? "linear-gradient(135deg, #c0050f 0%, #e31313 45%, #9b1020 100%)" }}
                 >
                   <span style={{ fontFamily: "var(--font-display)", fontSize: 18, fontWeight: 800, color: "#fff" }}>
                     {card.abbr}
@@ -150,7 +150,7 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
                           color: "var(--navy)", textDecoration: "none",
                           border: "1.5px solid var(--navy)", borderRadius: 999,
                           padding: "10px 20px",
-                        } : { background: "linear-gradient(135deg,#e31313,#e31313)", color: "#fff" }}
+                        } : { background: "linear-gradient(135deg, #c0050f 0%, #e31313 45%, #9b1020 100%)", color: "#fff" }}
                       >
                         {action.label}
                       </a>
@@ -242,7 +242,7 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
                           target="_blank"
                           rel="noopener noreferrer"
                           className="pf-btn-primary"
-                          style={{ background: "linear-gradient(135deg,#e31313,#e31313)", color: "#fff", justifyContent: "center" }}
+                          style={{ background: "linear-gradient(135deg, #c0050f 0%, #e31313 45%, #9b1020 100%)", color: "#fff", justifyContent: "center" }}
                         >
                           {action.label}
                         </a>
@@ -300,7 +300,7 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
                   target="_blank"
                   rel="noopener noreferrer"
                   className="pf-btn-primary"
-                  style={{ background: "linear-gradient(135deg,#e31313,#e31313)", color: "#fff", marginTop: 16, width: "fit-content" }}
+                  style={{ background: "linear-gradient(135deg, #c0050f 0%, #e31313 45%, #9b1020 100%)", color: "#fff", marginTop: 16, width: "fit-content" }}
                 >
                   {item.hrefLabel ?? "Abrir enlace"}
                 </a>
@@ -358,7 +358,7 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
                     target="_blank"
                     rel="noopener noreferrer"
                     className="pf-btn-primary"
-                    style={{ background: "linear-gradient(135deg,#e31313,#e31313)", color: "#fff", justifyContent: "center" }}
+                    style={{ background: "linear-gradient(135deg, #c0050f 0%, #e31313 45%, #9b1020 100%)", color: "#fff", justifyContent: "center" }}
                   >
                     {action.label}
                   </a>
@@ -445,7 +445,7 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
                         target="_blank"
                         rel="noopener noreferrer"
                         className="pf-btn-primary"
-                        style={{ background: "linear-gradient(135deg,#e31313,#e31313)", color: "#fff" }}
+                        style={{ background: "linear-gradient(135deg, #c0050f 0%, #e31313 45%, #9b1020 100%)", color: "#fff" }}
                       >
                         {action.label}
                       </a>
@@ -542,7 +542,7 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
                     target="_blank"
                     rel="noopener noreferrer"
                     className="pf-btn-primary"
-                    style={{ background: "linear-gradient(135deg,#e31313,#e31313)", color: "#fff", justifyContent: "center" }}
+                    style={{ background: "linear-gradient(135deg, #c0050f 0%, #e31313 45%, #9b1020 100%)", color: "#fff", justifyContent: "center" }}
                   >
                     {action.label}
                   </a>

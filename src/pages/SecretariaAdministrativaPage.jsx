@@ -79,7 +79,7 @@ function SecretariaAdministrativaPage({ logoImage, newsPanelOpen, setNewsPanelOp
       />
 
       {/* HERO */}
-      <section className="pf-hero pf-hero-sm" style={{ background: "linear-gradient(135deg, #9b0000 0%, #e31313 55%, #e31313 100%)" }}>
+      <section className="pf-hero pf-hero-sm" style={{ background: "linear-gradient(135deg, #c0050f 0%, #e31313 45%, #9b1020 100%)" }}>
         <div className="pf-hero-inner" style={{ paddingBottom: 64 }}>
           <div className="pf-hero-badge">Servicios · FECA</div>
           <h1 className="pf-hero-title">Secretaría<br />Administrativa</h1>

@@ -29,7 +29,7 @@ function SingleSectionPage({ content, slug, logoImage, newsPanelOpen, setNewsPan
         style={
           slug === "ejes-rectores"
             ? { backgroundImage: `url('/imagenes/feca-entrada.jpg')` }
-            : { background: "linear-gradient(135deg, #9b0000 0%, #e31313 55%, #e31313 100%)" }
+            : { background: "linear-gradient(135deg, #c0050f 0%, #e31313 45%, #9b1020 100%)" }
         }
       >
         {slug === "ejes-rectores" && <div className="pf-hero-overlay" />}

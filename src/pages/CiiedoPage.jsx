@@ -395,7 +395,7 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
         style={{
           width: "100%",
           padding: "64px 24px",
-          background: "linear-gradient(135deg, #9b0000 0%, #C0392B 55%, #e31313 100%)",
+          background: "linear-gradient(135deg, #c0050f 0%, #e31313 45%, #9b1020 100%)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",

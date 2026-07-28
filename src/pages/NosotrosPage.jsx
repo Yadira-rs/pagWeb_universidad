@@ -339,7 +339,7 @@ function NosotrosPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="pf-btn-primary"
-                  style={{ background: "linear-gradient(135deg,#e31313,#9b0000)", color: "#fff", fontSize: "15px", padding: "14px 30px", borderRadius: 10, display: "inline-flex", alignItems: "center", gap: 10, textDecoration: "none", fontWeight: 600, transition: "transform 0.2s, box-shadow 0.2s" }}
+                  style={{ background: "linear-gradient(135deg, #c0050f 0%, #e31313 45%, #9b1020 100%)", color: "#fff", fontSize: "15px", padding: "14px 30px", borderRadius: 10, display: "inline-flex", alignItems: "center", gap: 10, textDecoration: "none", fontWeight: 600, transition: "transform 0.2s, box-shadow 0.2s" }}
                   onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 6px 18px rgba(227,19,19,0.3)"; }}
                   onMouseLeave={e => { e.currentTarget.style.transform = ""; e.currentTarget.style.boxShadow = ""; }}
                 >
