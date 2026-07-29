@@ -191,7 +191,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
 
                 <div className="acc-row">
                   <a className="acc-title acc-title-link" href="#/servicios/secretaria-administrativa">
-                    Secretaría Admva
+                    Secretaría Administrativa
                     <svg className="acc-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="11" height="11" aria-hidden="true">
                       <polyline points="9 6 15 12 9 18" />
                     </svg>
@@ -574,7 +574,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
             <a href="#/tutorias" className={`mobile-nav-sub mobile-nav-subsub${currentHash === "#/tutorias" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Tutorías</a>
             <a href="#/servicios/servicios-escolares" className={`mobile-nav-sub mobile-nav-subsub${currentHash === "#/servicios/servicios-escolares" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Servicios escolares</a>
 
-            <a href="#/servicios/secretaria-administrativa" className={`mobile-nav-subgroup${currentHash === "#/servicios/secretaria-administrativa" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Secretaría Admva</a>
+            <a href="#/servicios/secretaria-administrativa" className={`mobile-nav-subgroup${currentHash === "#/servicios/secretaria-administrativa" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Secretaría Administrativa</a>
             <a href="#/servicios/finanzas" className={`mobile-nav-sub mobile-nav-subsub${currentHash === "#/servicios/finanzas" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Finanzas</a>
             <a href="#/servicios/secretaria-administrativa" className="mobile-nav-sub mobile-nav-subsub" onClick={closeMobile}>Servicios Generales</a>
             <a href="#/biblioteca" className={`mobile-nav-sub mobile-nav-subsub${currentHash === "#/biblioteca" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Biblioteca</a>

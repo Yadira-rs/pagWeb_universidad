@@ -212,13 +212,6 @@ function FaqSection() {
             );
           })}
         </div>
-
-        <div className="faq-pie">
-          <span>¿No encontraste lo que buscabas?</span>
-          <a href="mailto:informes@feca.ujed.mx" className="faq-pie-link">Escríbenos</a>
-          <span className="faq-pie-sep">·</span>
-          <a href="tel:6188271365" className="faq-pie-link">(618) 827-13-65</a>
-        </div>
       </div>
     </section>
   );

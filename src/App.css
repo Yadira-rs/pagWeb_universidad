@@ -3175,7 +3175,7 @@ a.acc-title-link:hover {
 
 .program-card-img img {
   object-fit: contain !important;
-  width: auto !important;
+  width: 100% !important;
   height: 100% !important;
   max-width: 100%;
 }
@@ -5680,12 +5680,12 @@ a.acc-title-link:hover {
 }
 
 .footer-tagline > span {
-  font-family: var(--font-secondary);
+  font-family: var(--font-display);
   font-size: 22px;
-  font-style: italic;
+  font-style: normal;
   font-weight: 700;
   color: #ffffff;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
   text-align: center;
   flex: 1;
   text-shadow: 0 1px 8px rgb(0 0 0 / 20%);
@@ -12186,27 +12186,6 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
   margin: 0;
   user-select: text;
 }
-
-/* ── Pie ── */
-.faq-pie {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 40px;
-  font-family: var(--font-body);
-  font-size: 14px;
-  color: var(--gray-mid);
-  flex-wrap: wrap;
-}
-.faq-pie-link {
-  color: var(--navy);
-  font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: opacity 0.15s;
-}
-.faq-pie-link:hover { opacity: 0.75; }
-.faq-pie-sep { color: var(--gray-light); }
 
 /* ── Responsive ── */
 @media (max-width: 640px) {
