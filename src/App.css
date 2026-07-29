@@ -2599,7 +2599,8 @@ a.acc-title-link:hover {
 }
 
 .carousel-slide--anniversary::before {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.35) 100%);
+  /* Usar overlay más oscuro para mejorar contraste sobre la imagen de aniversario */
+  background: linear-gradient(160deg, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.48) 55%, rgba(0,0,0,0.6) 100%);
 }
 
 /* franja de luz deslizante al entrar */
@@ -2985,21 +2986,21 @@ a.acc-title-link:hover {
 .panel-social .si-instagram:hover,
 .panel-social .si-twitter:hover,
 .panel-social .si-tiktok:hover {
-  color: #e31313;
+  color: #9b1020;
   opacity: 1;
 }
 
 .si-location {
   color: #fff !important;
-  background: #e31313 !important;
+  background: #9b1020 !important;
   width: 40px !important;
   height: 40px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   flex-shrink: 0;
-  box-shadow: 0 0 0 3px rgb(227 19 19 / 25%) !important;
-  animation: pulse-location 2s ease-in-out infinite;
+  box-shadow: 0 0 0 3px rgb(155 16 32 / 18%) !important;
+  animation: pulse-location 2.6s ease-in-out infinite;
 }
 .si-location:hover {
   background: #b00 !important;
@@ -10568,11 +10569,12 @@ a.prop2-contact-item:hover {
 .pf-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(192,0,12,0.13); }
 .pf-card-top { border-top: 4px solid var(--navy); }
 .pf-card-icon {
-  width: 52px; height: 52px; border-radius: 14px;
-  background: linear-gradient(135deg, #e31313 0%, #e31313 100%);
+  width: 58px; height: 58px; border-radius: 12px;
+  background: linear-gradient(135deg, rgba(227,19,19,0.14) 0%, rgba(148,24,35,0.06) 100%);
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
 .pf-card-icon svg { width: 26px; height: 26px; stroke: #fff; }
+.pf-card-icon img { width: 42px; height: 42px; object-fit: contain; display: block; }
 .pf-card-icon-light { background: rgba(192,0,12,0.08); }
 .pf-card-icon-light svg { stroke: #e31313; }
 .pf-card-title { font-family: var(--font-display); font-size: 20px; color: var(--text); margin: 0; line-height: 1.2; }
@@ -10838,10 +10840,10 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
 
 /* ── Hero ── */
 .celci-hero-logo {
-  width: 108px;
+  width: 140px;
   height: auto;
-  margin-bottom: 22px;
-  filter: brightness(0) invert(1) drop-shadow(0 3px 12px rgba(0,0,0,0.4));
+  margin-bottom: 18px;
+  filter: brightness(0) invert(1) drop-shadow(0 4px 18px rgba(0,0,0,0.42));
   animation: celciLogoIn 0.9s cubic-bezier(.2,.8,.2,1) both;
 }
 @keyframes celciLogoIn {
@@ -12008,7 +12010,7 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
   justify-content: space-between;
   padding: 0 8px;
   pointer-events: none;
-  z-index: 10;
+  z-index: 40;
 }
 .anc2-arrow {
   pointer-events: all;
@@ -12025,6 +12027,7 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
   box-shadow: 0 8px 22px rgba(0,0,0,0.35);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   flex-shrink: 0;
+  z-index: 41;
 }
 .anc2-arrow:hover {
   transform: scale(1.1);
@@ -12097,6 +12100,22 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
   color: var(--text);
   text-align: center;
   margin: 0 0 56px;
+}
+
+/* Uniformizar preguntas FAQ: fuente display y negrita, botón consistente */
+.faq-lista .faq-item .faq-btn span,
+.celci-faq-btn span,
+.pf-faq .pf-faq-btn span {
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.faq-lista .faq-item .faq-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
 }
 
 /* ── Lista de filas ── */
