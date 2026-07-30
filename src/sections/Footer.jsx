@@ -50,7 +50,7 @@ function Footer() {
               <a href="#">informes@universidad.edu.mx</a>
             </li>
             <li>
-              <a href="#">Preguntas frecuentes</a>
+              <a href="#/preguntas-frecuentes">Preguntas frecuentes</a>
             </li>
           </ul>
           <div className="footer-social">

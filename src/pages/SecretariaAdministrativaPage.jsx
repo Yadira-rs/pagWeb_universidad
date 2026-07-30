@@ -48,10 +48,6 @@ const tramites = [
     desc: "Trámite de reembolsos y comprobantes de gastos generados en actividades académicas institucionales.",
   },
   {
-    title: "Reporte de fallas / mantenimiento en instalaciones",
-    desc: "Solicitud de reparaciones, mantenimiento preventivo y correctivo en aulas, laboratorios y oficinas.",
-  },
-  {
     title: "Requisiciones de material para profesores",
     desc: "Solicitud de insumos, papelería y materiales didácticos para el desarrollo de actividades académicas.",
   },
@@ -82,7 +78,7 @@ function SecretariaAdministrativaPage({ logoImage, newsPanelOpen, setNewsPanelOp
       <section className="pf-hero pf-hero-sm" style={{ background: "linear-gradient(135deg, #c0050f 0%, #e31313 45%, #9b1020 100%)" }}>
         <div className="pf-hero-inner" style={{ paddingBottom: 64 }}>
           <div className="pf-hero-badge">Servicios · FECA</div>
-          <h1 className="pf-hero-title">Secretaría<br />Administrativa</h1>
+          <h1 className="pf-hero-title">Servicios<br />Generales</h1>
           <p className="pf-hero-sub">
             Brindar soporte administrativo eficiente y transparente para garantizar la operación académica de la FECA.
           </p>
@@ -94,7 +90,7 @@ function SecretariaAdministrativaPage({ logoImage, newsPanelOpen, setNewsPanelOp
         <div className="pf-container">
           <div className="pf-section-head">
             <div className="pf-label">Nuestra función</div>
-            <h2 className="pf-section-title">¿Qué hacemos?</h2>
+            <h2 className="pf-section-title">Servicios Generales</h2>
             <p className="pf-section-desc">
               Coordinamos los recursos de la facultad para garantizar el funcionamiento eficiente de todas sus actividades.
             </p>
@@ -123,25 +119,32 @@ function SecretariaAdministrativaPage({ logoImage, newsPanelOpen, setNewsPanelOp
           </div>
           <div className="pf-cards-grid pf-fade">
             {tramites.map((t) => (
-              <div key={t.title} className="pf-card pf-card-dark" style={{ display: "flex", flexDirection: "column" }}>
-                <div style={{ flexGrow: 1 }}>
-                  <h3 className="pf-card-title">{t.title}</h3>
-                  <p className="pf-card-desc">{t.desc}</p>
-                </div>
-                <div style={{ marginTop: 20 }}>
-                  <a
-                    href="mailto:secadmin.feca@ujed.mx"
-                    className="pf-chip"
-                    style={{ display: "inline-flex", alignItems: "center", gap: 6, textDecoration: "none", color: "inherit" }}
-                  >
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/>
-                    </svg>
-                    Más info
-                  </a>
-                </div>
+              <div key={t.title} className="pf-card pf-card-dark">
+                <h3 className="pf-card-title">{t.title}</h3>
+                <p className="pf-card-desc">{t.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CUESTIONARIO DE SATISFACCIÓN (PRÓXIMAMENTE) */}
+      <section className="pf-section pf-fade">
+        <div className="pf-container" style={{ maxWidth: 720 }}>
+          <div className="pf-info-box" style={{ textAlign: "center" }}>
+            <div className="pf-card-icon pf-card-icon-light" style={{ margin: "0 auto 18px" }}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="28" height="28">
+                <path d="M9 11l3 3L22 4" />
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+              </svg>
+            </div>
+            <h2 style={{ margin: "0 0 10px" }}>Cuestionario de satisfacción y recomendaciones</h2>
+            <p style={{ margin: "0 0 18px" }}>
+              Reporta fallas o necesidades de mantenimiento en las instalaciones, además de dejarnos tus recomendaciones, a través de un formulario en línea.
+            </p>
+            <span className="pf-chip" style={{ opacity: 0.7, cursor: "default" }}>
+              Formulario en preparación
+            </span>
           </div>
         </div>
       </section>

@@ -26,6 +26,7 @@ import Biblioteca from "./pages/Biblioteca";
 import LenguasPage from "./pages/LenguasPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import TermsPage from "./pages/TermsPage";
+import FaqPage from "./pages/FaqPage";
 import OfertaEducativaPage from "./pages/OfertaEducativaPage";
 import NosotrosPage from "./pages/NosotrosPage";
 import ContraloriaPage from "./pages/ContraloriaPage";
@@ -46,6 +47,7 @@ function getCurrentRoute() {
 
   if (hash === "#/aviso-de-privacidad") return { page: "privacy" };
   if (hash === "#/terminos-de-uso") return { page: "terms" };
+  if (hash === "#/preguntas-frecuentes") return { page: "faq" };
   if (hash === "#/bolsa-de-trabajo") return { page: "bolsa-trabajo" };
   if (hash === "#/historia") return { page: "history" };
   if (hash === "#/mision-vision") return { page: "mission-vision" };
@@ -268,6 +270,8 @@ function App() {
       <PrivacyPage logoImage={logoImage} newsPanelOpen={newsPanelOpen} setNewsPanelOpen={setNewsPanelOpen} />
     ) : route.page === "terms" ? (
       <TermsPage logoImage={logoImage} newsPanelOpen={newsPanelOpen} setNewsPanelOpen={setNewsPanelOpen} />
+    ) : route.page === "faq" ? (
+      <FaqPage logoImage={logoImage} newsPanelOpen={newsPanelOpen} setNewsPanelOpen={setNewsPanelOpen} />
     ) : route.page === "oferta-educativa" ? (
       <OfertaEducativaPage logoImage={logoImage} newsPanelOpen={newsPanelOpen} setNewsPanelOpen={setNewsPanelOpen} />
     ) : route.page === "nosotros" ? (

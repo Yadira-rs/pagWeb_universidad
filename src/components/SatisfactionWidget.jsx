@@ -1,19 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const LABELS = ["Muy malo", "Malo", "Regular", "Bueno", "Muy bueno"];
 
 function SatisfactionWidget() {
-  const [visible, setVisible]     = useState(false);
   const [open, setOpen]           = useState(false);
   const [rating, setRating]       = useState(0);
   const [hover, setHover]         = useState(0);
   const [comment, setComment]     = useState("");
   const [submitted, setSubmitted] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setVisible(true), 28000);
-    return () => clearTimeout(t);
-  }, []);
 
   const active = hover || rating;
 
@@ -30,8 +24,6 @@ function SatisfactionWidget() {
       }, 400);
     }, 2800);
   }
-
-  if (!visible) return null;
 
   return (
     <div className="sw-root">

@@ -7,9 +7,9 @@ const cobrosCajaHref = "/docs/LISTADO_DE_COBROS_CAJA.pdf";
 const horarios = [
   { area: "Atencion Finanzas",          lv: "9:00 – 16:00 hrs",  sabado: "—" },
   { area: "Licenciaturas",              lv: "8:00 – 17:30 hrs",  sabado: "9:00 – 14:00 hrs" },
-  { area: "Celci",                      lv: "9:00 – 13:00 hrs/17:00 – 20:00 hrs",  sabado: "9:00 – 14:00 hrs" },
+  { area: "CELCI",                      lv: "9:00 – 13:00 hrs/17:00 – 20:00 hrs",  sabado: "9:00 – 14:00 hrs" },
   { area: "Posgrado",                   lv: "8:00 – 21:00 hrs",  sabado: "9:00 – 14:00 hrs" },
-  { area: "Depositos",                  lv: "24 horas",           sabado: "24 horas" },
+  { area: "Transferencias bancarias",   lv: "24 horas",           sabado: "24 horas" },
 ];
 
 const formasPago = [
@@ -40,7 +40,7 @@ const formasPago = [
     title: "Coord. Finanzas FECA",
     href: "https://docs.google.com/forms/d/e/1FAIpQLSf6AOOuTxN__qxKJVT2-aSqTYBA3pukObexocPS68ihz9POjg/viewform",
     image: "/docs/QR_FINANZAS_FECA.jpeg",
-    desc: "Realice trámites y solicitudes de servicios. (Para mayor seguridad y protección de tus datos utiliza tu correo institucional.).",
+    desc: "Realice trámites y solicitudes de servicios. (Para mayor seguridad y protección de tus datos utiliza tu correo institucional).",
     icon: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-4H9l3-3 3 3h-2v4z",
     isSvgPath: false,
     svgContent: (
@@ -55,19 +55,6 @@ const formasPago = [
 ];
 
 const procedimientos = [
-  {
-    title: "Pago de Inscripción Referenciado",
-    desc: "Instrucciones para generar tu referencia y pagar en sucursales bancarias autorizadas.",
-    steps: [
-      "Ingresa al portal institucional SUMA+ con tu matrícula y contraseña.",
-      "Ve a la sección de 'Pagos' y selecciona el concepto de inscripción.",
-      "Elige la opción 'Pago Referenciado en Sucursal Bancaria' y genera la ficha de pago.",
-      "Acude a cualquier sucursal de Banamex u OXXO y proporciona la línea de captura.",
-      "Sube tu comprobante al portal SUMA+ para validar tu inscripción académica."
-    ],
-    formatUrl: "/PDUA-SILD27.pdf",
-    formatName: "Guía de Pago Referenciado (PDF)",
-  },
   {
     title: "Trámite de Devolución / Reembolso",
     desc: "Procedimiento administrativo para solicitar el reembolso de pagos duplicados o incorrectos.",
@@ -261,7 +248,10 @@ function FinanzasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
                   target={f.href ? "_blank" : undefined}
                   rel={f.href ? "noreferrer" : undefined}
                   className="pf-card pf-card-dark"
-                  style={f.href ? { textDecoration: "none" } : undefined}
+                  style={{
+                    ...(f.href ? { textDecoration: "none" } : null),
+                    ...(f.image ? { alignItems: "center", textAlign: "center" } : null),
+                  }}
                 >
                   <div className="pf-card-icon">{f.svgContent}</div>
                   <h3 className="pf-card-title">{f.title}</h3>
@@ -388,19 +378,7 @@ function FinanzasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
                   </div>
                   <div>
                     <span className="pf-contact-label">Correo</span>
-                    <span className="pf-contact-value">finanzas@feca.ujed.mx</span>
-                  </div>
-                </a>
-                <a href="mailto:caja.feca@ujed.mx" className="pf-contact-item">
-                  <div className="pf-contact-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                      <polyline points="22,6 12,13 2,6"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <span className="pf-contact-label">Correo Caja</span>
-                    <span className="pf-contact-value">caja.feca@ujed.mx</span>
+                    <span className="pf-contact-value">finanzas.feca@ujed.mx</span>
                   </div>
                 </a>
               </div>

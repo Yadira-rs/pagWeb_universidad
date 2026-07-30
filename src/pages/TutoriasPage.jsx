@@ -78,7 +78,7 @@ function TutoriasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
             <div className="pf-label">Coordinación</div>
             <h2 className="pf-section-title">Responsable del programa</h2>
             <p className="pf-section-desc">
-              Coordinadora de Tutorías: <strong>Mtra. Ana Karen Salas Name  </strong>. Docente con 10 años de antigüedad
+              Coordinadora de Tutorías: <strong>Mtra. Ana Karen Salas</strong>
             </p>
           </div>
 
@@ -159,12 +159,18 @@ function TutoriasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
             </p>
           </div>
           <div className="pf-cards-grid pf-fade">
-            {objetivos.map((objetivo, index) => (
-              <div key={objetivo} className="pf-card pf-card-dark">
-                <div className="pf-card-icon">{String(index + 1).padStart(2, "0")}</div>
-                <p className="pf-card-desc" style={{ color: "rgba(255,255,255,0.78)" }}>{objetivo}</p>
-              </div>
-            ))}
+            {objetivos.map((objetivo, index) => {
+              const [titulo, descripcion] = objetivo.split(/:\s(.+)/);
+              return (
+                <div key={objetivo} className="pf-card pf-card-dark">
+                  <div className="pf-card-header-row">
+                    <div className="pf-card-icon">{String(index + 1).padStart(2, "0")}</div>
+                    <h3 className="pf-card-title">{titulo}</h3>
+                  </div>
+                  <p className="pf-card-desc" style={{ color: "rgba(255,255,255,0.78)" }}>{descripcion}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
