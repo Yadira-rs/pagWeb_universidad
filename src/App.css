@@ -553,11 +553,12 @@
 .dropdown-accordion {
   width: 280px;
   padding: 10px 0;
-  overflow: hidden;
+  overflow: visible;
   transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
 }
 
 .acc-row {
+  position: relative;
   border-top: 1px solid #f1e6e6;
   transition: background 0.45s ease;
 }
@@ -577,17 +578,17 @@
   gap: 10px;
   padding: 14px 20px;
   font-family: var(--font-ui);
-  font-size: 13.5px;
-  font-weight: 700;
-  letter-spacing: 0.01em;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
   text-transform: none;
-  color: #2a2a2a !important;
+  color: #333 !important;
   cursor: default;
   transition: color 0.4s ease;
 }
 
 .acc-row:hover .acc-title {
-  color: #951823 !important;
+  color: #e31313 !important;
 }
 
 span.acc-title {
@@ -610,19 +611,33 @@ a.acc-title-link:hover {
 }
 
 .acc-row:hover .acc-caret {
-  transform: rotate(90deg);
   color: #e31313;
 }
 
 .acc-panel {
-  max-height: 0;
-  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 240px;
+  max-height: none;
+  overflow: visible;
   background: #fbf6f6;
-  transition: max-height 0.55s ease;
+  border: 1px solid #ecdada;
+  border-radius: 10px;
+  box-shadow: 0 12px 36px rgb(0 0 0 / 14%), 0 2px 8px rgb(0 0 0 / 6%);
+  padding: 6px 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(-6px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
 }
 
 .acc-row:hover .acc-panel {
-  max-height: 240px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(0);
 }
 
 .dropdown-accordion .dropdown-sub {
@@ -650,6 +665,10 @@ a.acc-title-link:hover {
 
 .acc-row-flat .acc-title {
   padding: 14px 20px;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: #333 !important;
 }
 
 .nav-search-wrapper {
@@ -10645,6 +10664,10 @@ a.prop2-contact-item:hover {
 .pf-card-dark .pf-card-icon  { background: rgba(255,255,255,0.15); }
 .pf-card-dark .pf-card-icon svg { stroke: #fff; }
 
+.pf-card-header-row { display: flex; align-items: center; gap: 16px; }
+.pf-card-header-row .pf-card-icon { margin: 0; }
+.pf-card-header-row .pf-card-title { font-size: 17px; }
+
 /* ══════════ CESA · EQUIPO ══════════ */
 .cesa-team { display: flex; flex-direction: column; align-items: center; gap: 48px; }
 
@@ -11867,6 +11890,11 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
 .anc2-carousel {
   position: relative;
 }
+.anc2-carousel-solo {
+  display: flex;
+  justify-content: center;
+  padding: 16px 40px 20px;
+}
 
 /* Viewport — clip-x only so el escalado no se corte verticalmente */
 .anc2-viewport {
@@ -12642,6 +12670,7 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
   flex-direction: column;
   align-items: flex-end;
   gap: 10px;
+  pointer-events: none;
 }
 
 /* Evita que los botones flotantes se encimen con el pie de página:
@@ -12894,6 +12923,7 @@ body.footer-in-view .sw-root {
   box-shadow: 0 4px 18px rgba(227,19,19,0.38);
   transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
   animation: swSlideIn 0.5s cubic-bezier(.2,.8,.2,1);
+  pointer-events: auto;
 }
 .sw-trigger-label { display: none; }
 @keyframes swSlideIn {

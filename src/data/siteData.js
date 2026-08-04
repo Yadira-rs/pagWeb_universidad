@@ -554,6 +554,11 @@ export const servicePages = {
       "Área responsable de la planeación estratégica, la evaluación de programas académicos y el seguimiento de los planes de desarrollo de la facultad.",
     items: [
       {
+        title: "Funciones de la Coordinación de Planeación y Evaluación Institucional",
+        href: "/docs/LCPEI.pdf",
+        label: "Abrir PDF →",
+      },
+      {
         title: "Plan de Desarrollo Universitario y Académico (PDUA)",
         href: "/PDUA-SILD27.pdf",
         label: "Abrir PDF →",

@@ -98,8 +98,8 @@ export const searchIndex = [
   {
     title: "Coordinación de Planeación y Evaluación Institucional",
     description: "Coordinación de Planeación y Evaluación Institucional",
-    href: "/docs/LCPEI.pdf",
-    keywords: "lcpei coordinación planeación evaluación institucional",
+    href: "#/servicios/cpei",
+    keywords: "lcpei cpei coordinación planeación evaluación institucional",
   },
   {
     title: "Contraloría Interna FECA",

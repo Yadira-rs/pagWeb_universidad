@@ -100,9 +100,38 @@ export default function AnunciosCarousel() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeIndex, N]);
 
-  if (N < 2) return null;
+  if (N < 1) return null;
 
-  const dotIndex = (((activeIndex - 2) % N) + N) % N;
+  const dotIndex = N > 1 ? (((activeIndex - 2) % N) + N) % N : 0;
+
+  const renderCardBody = (s) => (
+    <>
+      <div className="anc2-card-img">
+        <img src={s.imagen} alt={s.titulo} loading="lazy" />
+        <span className="anc2-tipo">{s.tipo}</span>
+      </div>
+      <div className="anc2-card-body">
+        <h3 className="anc2-card-title">{s.titulo}</h3>
+        <p className="anc2-card-desc">{s.desc}</p>
+        <div className="anc2-card-footer">
+          <span className="anc2-fecha">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="12" height="12">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            {s.fecha}
+          </span>
+          <a
+            href={s.ctaHref}
+            className="anc2-cta"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {s.ctaLabel} →
+          </a>
+        </div>
+      </div>
+    </>
+  );
 
   return (
     <section className="anc2-section">
@@ -111,83 +140,68 @@ export default function AnunciosCarousel() {
         <h2 className="anc2-title">Avisos y Eventos</h2>
       </div>
 
-      <div
-        className="anc2-carousel"
-        onMouseEnter={() => { pausedRef.current = true; }}
-        onMouseLeave={() => { pausedRef.current = false; }}
-      >
-        <div className="anc2-viewport" ref={wrapperRef}>
-          <div ref={trackRef} className="anc2-track" onTransitionEnd={handleTransitionEnd}>
-            {extended.map((s, idx) => {
-              const dist = idx - activeIndex;
-              let statusClass = "";
-              if (dist === 0) statusClass = "is-center";
-              else if (dist === -1) statusClass = "is-prev";
-              else if (dist === 1) statusClass = "is-next";
-              else if (dist === -2) statusClass = "is-far-prev";
-              else if (dist === 2) statusClass = "is-far-next";
+      {N === 1 ? (
+        <div className="anc2-carousel anc2-carousel-solo">
+          <div className="anc2-card is-center">{renderCardBody(slides[0])}</div>
+        </div>
+      ) : (
+        <div
+          className="anc2-carousel"
+          onMouseEnter={() => { pausedRef.current = true; }}
+          onMouseLeave={() => { pausedRef.current = false; }}
+        >
+          <div className="anc2-viewport" ref={wrapperRef}>
+            <div ref={trackRef} className="anc2-track" onTransitionEnd={handleTransitionEnd}>
+              {extended.map((s, idx) => {
+                const dist = idx - activeIndex;
+                let statusClass = "";
+                if (dist === 0) statusClass = "is-center";
+                else if (dist === -1) statusClass = "is-prev";
+                else if (dist === 1) statusClass = "is-next";
+                else if (dist === -2) statusClass = "is-far-prev";
+                else if (dist === 2) statusClass = "is-far-next";
 
-              return (
-                <div
-                  key={idx}
-                  ref={(el) => { cardRefs.current[idx] = el; }}
-                  className={`anc2-card ${statusClass}`}
-                  onClick={() => { if (dist !== 0) moveTo(idx, true); }}
-                >
-                  <div className="anc2-card-img">
-                    <img src={s.imagen} alt={s.titulo} loading="lazy" />
-                    <span className="anc2-tipo">{s.tipo}</span>
+                return (
+                  <div
+                    key={idx}
+                    ref={(el) => { cardRefs.current[idx] = el; }}
+                    className={`anc2-card ${statusClass}`}
+                    onClick={() => { if (dist !== 0) moveTo(idx, true); }}
+                  >
+                    {renderCardBody(s)}
                   </div>
-                  <div className="anc2-card-body">
-                    <h3 className="anc2-card-title">{s.titulo}</h3>
-                    <p className="anc2-card-desc">{s.desc}</p>
-                    <div className="anc2-card-footer">
-                      <span className="anc2-fecha">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="12" height="12">
-                          <circle cx="12" cy="12" r="10"/>
-                          <polyline points="12 6 12 12 16 14"/>
-                        </svg>
-                        {s.fecha}
-                      </span>
-                      <a
-                        href={s.ctaHref}
-                        className="anc2-cta"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        {s.ctaLabel} →
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="anc2-controls">
+            <button className="anc2-arrow anc2-prev" onClick={handlePrev} aria-label="Anterior">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                <path d="M15 19l-7-7 7-7" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            <button className="anc2-arrow anc2-next" onClick={handleNext} aria-label="Siguiente">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
           </div>
         </div>
+      )}
 
-        <div className="anc2-controls">
-          <button className="anc2-arrow anc2-prev" onClick={handlePrev} aria-label="Anterior">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-              <path d="M15 19l-7-7 7-7" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-          <button className="anc2-arrow anc2-next" onClick={handleNext} aria-label="Siguiente">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-              <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
+      {N > 1 && (
+        <div className="anc2-dots">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              className={`anc2-dot ${i === dotIndex ? "anc2-dot-on" : ""}`}
+              onClick={() => moveTo(2 + i)}
+              aria-label={`Ir al anuncio ${i + 1}`}
+            />
+          ))}
         </div>
-      </div>
-
-      <div className="anc2-dots">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            className={`anc2-dot ${i === dotIndex ? "anc2-dot-on" : ""}`}
-            onClick={() => moveTo(2 + i)}
-            aria-label={`Ir al anuncio ${i + 1}`}
-          />
-        ))}
-      </div>
+      )}
     </section>
   );
 }

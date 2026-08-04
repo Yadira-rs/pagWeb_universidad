@@ -190,12 +190,12 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 </div>
 
                 <div className="acc-row">
-                  <a className="acc-title acc-title-link" href="#/servicios/secretaria-administrativa">
+                  <span className="acc-title">
                     Secretaría Administrativa
                     <svg className="acc-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="11" height="11" aria-hidden="true">
                       <polyline points="9 6 15 12 9 18" />
                     </svg>
-                  </a>
+                  </span>
                   <div className="acc-panel">
                     <a className="dropdown-sub" href="#/servicios/finanzas">Finanzas</a>
                     <a className="dropdown-sub" href="#/servicios/secretaria-administrativa">Servicios Generales</a>
@@ -204,7 +204,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 </div>
 
                 <div className="acc-row acc-row-flat">
-                  <a className="acc-title acc-title-link" href="/docs/LCPEI.pdf" target="_blank" rel="noreferrer">CPEI</a>
+                  <a className="acc-title acc-title-link" href="#/servicios/cpei">Coordinación de Planeación y Evaluación Institucional</a>
                 </div>
 
                 <div className="acc-row acc-row-flat">
@@ -564,12 +564,12 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
             <a href="#/tutorias" className={`mobile-nav-sub mobile-nav-subsub${currentHash === "#/tutorias" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Tutorías</a>
             <a href="#/servicios/servicios-escolares" className={`mobile-nav-sub mobile-nav-subsub${currentHash === "#/servicios/servicios-escolares" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Servicios escolares</a>
 
-            <a href="#/servicios/secretaria-administrativa" className={`mobile-nav-subgroup${currentHash === "#/servicios/secretaria-administrativa" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Secretaría Administrativa</a>
+            <span className="mobile-nav-subgroup">Secretaría Administrativa</span>
             <a href="#/servicios/finanzas" className={`mobile-nav-sub mobile-nav-subsub${currentHash === "#/servicios/finanzas" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Finanzas</a>
             <a href="#/servicios/secretaria-administrativa" className="mobile-nav-sub mobile-nav-subsub" onClick={closeMobile}>Servicios Generales</a>
             <a href="#/biblioteca" className={`mobile-nav-sub mobile-nav-subsub${currentHash === "#/biblioteca" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Biblioteca</a>
 
-            <a href="/docs/LCPEI.pdf" className="mobile-nav-subgroup" target="_blank" rel="noreferrer" onClick={closeMobile}>CPEI</a>
+            <a href="#/servicios/cpei" className={`mobile-nav-subgroup${currentHash === "#/servicios/cpei" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Coordinación de Planeación y Evaluación Institucional</a>
 
             <a href="#/servicios/contraloria-interna" className={`mobile-nav-subgroup${currentHash === "#/servicios/contraloria-interna" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Contraloría Interna</a>
           </div>

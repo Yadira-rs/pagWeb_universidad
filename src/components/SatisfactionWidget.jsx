@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { supabase } from "../lib/supabaseClient";
 
 const LABELS = ["Muy malo", "Malo", "Regular", "Bueno", "Muy bueno"];
 
 function SatisfactionWidget() {
-  const [visible, setVisible]     = useState(false);
   const [open, setOpen]           = useState(false);
   const [rating, setRating]       = useState(0);
   const [hover, setHover]         = useState(0);
@@ -12,11 +11,6 @@ function SatisfactionWidget() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending]     = useState(false);
   const [errorMsg, setErrorMsg]   = useState("");
-
-  useEffect(() => {
-    const t = setTimeout(() => setVisible(true), 28000);
-    return () => clearTimeout(t);
-  }, []);
 
   const active = hover || rating;
 
@@ -49,8 +43,6 @@ function SatisfactionWidget() {
       }, 400);
     }, 2800);
   }
-
-  if (!visible) return null;
 
   return (
     <div className="sw-root">
