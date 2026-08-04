@@ -2,12 +2,16 @@ import { useEffect, useRef, useState } from "react";
 import Header from "../sections/Header";
 import Footer from "../sections/Footer";
 import AnunciosCarousel from "../components/AnunciosCarousel";
+import { supabase } from "../lib/supabaseClient";
 
-const heroSlides = [
+// Se usa solo si todavía no hay diapositivas en la tabla hero_slides de
+// Supabase (o si falla la consulta), para que el Inicio nunca se quede vacío.
+const FALLBACK_HERO_SLIDES = [
   {
     image: "/imagenes/inicio.png",
     logo: "/imagenes/LOGO_FECA PNG.png",
     logoAlt: "Logo FECA",
+    logoLightBg: true,
   },
   {
     image: "/imagenes/aniversario.jpeg",
@@ -225,9 +229,38 @@ const STATS_CFG = [
 ];
 
 function HomePage({ logoImage, setNewsPanelOpen }) {
+  const [heroSlides, setHeroSlides] = useState(FALLBACK_HERO_SLIDES);
   const [heroCurrentSlide, setHeroCurrentSlide] = useState(0);
   const [counters, setCounters] = useState(STATS_CFG.map(() => 0));
   const statsRef = useRef(null);
+
+  useEffect(() => {
+    let active = true;
+    supabase
+      .from("hero_slides")
+      .select("image_url, logo_url, logo_alt, logo_light_bg")
+      .eq("is_active", true)
+      .order("sort_order", { ascending: true })
+      .then(({ data, error }) => {
+        if (!active) return;
+        if (error || !data || data.length === 0) {
+          if (error) console.error("Error cargando carrusel de inicio:", error);
+          return;
+        }
+        setHeroSlides(
+          data.map((row) => ({
+            image: row.image_url,
+            logo: row.logo_url,
+            logoAlt: row.logo_alt,
+            logoLightBg: row.logo_light_bg,
+          })),
+        );
+        setHeroCurrentSlide(0);
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
@@ -235,7 +268,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
     }, 5200);
 
     return () => window.clearInterval(intervalId);
-  }, [heroCurrentSlide]);
+  }, [heroCurrentSlide, heroSlides.length]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -297,6 +330,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
                 className={`carousel-slide ${index === heroCurrentSlide ? "is-active" : ""}${slide.logo ? " carousel-slide--anniversary" : ""}`}
                 style={{ backgroundImage: `url('${slide.image}')` }}
               >
+                {slide.logoLightBg ? <div className="hero-logo-light-wrap" /> : null}
                 <div className="carousel-slide-content">
                   {slide.logo ? (
                     <img

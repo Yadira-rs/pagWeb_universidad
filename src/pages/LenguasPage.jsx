@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Footer from "../sections/Footer";
 import Header from "../sections/Header";
-import { IconGlobe, IconGraduationCap, IconSchool, IconTarget } from "../components/Icons";
+import { IconGlobe } from "../components/Icons";
 
 const TAB_ICONS = {
   cursos: (
@@ -31,11 +31,6 @@ const TAB_ICONS = {
       <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>
     </svg>
   ),
-  informacion: (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
-    </svg>
-  ),
   contacto: (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
@@ -49,7 +44,6 @@ const tabs = [
   { id: "inscripcion", label: "Inscripción"          },
   { id: "diagnostico", label: "Diagnóstico"          },
   { id: "preguntas",   label: "Preguntas frecuentes" },
-  { id: "informacion", label: "Información general"  },
   { id: "contacto",    label: "Contacto"             },
 ];
 
@@ -161,53 +155,25 @@ const steps = [
   { n: "03", title: "Confirma tu lugar", desc: "Una vez validado el pago, queda registrada tu inscripción en el grupo elegido." },
 ];
 
-// Accordeon FAQ item component
+// Accordeon FAQ item component — mismo estilo y comportamiento que el FAQ de inicio
 function FaqItem({ faq }) {
   const [open, setOpen] = useState(false);
   return (
-    <div
-      className="celci-faq-item"
-      style={{ borderBottom: "1px solid #e8e6e2", overflow: "hidden" }}
-    >
+    <div className={`faq-fila${open ? " faq-fila--open" : ""}`}>
       <button
-        className="celci-faq-btn"
+        className="faq-fila-btn"
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
-        style={{
-          width: "100%", display: "flex", justifyContent: "space-between",
-          alignItems: "center", background: "none", border: "none",
-          padding: "22px 0", cursor: "pointer", textAlign: "left", gap: 16,
-        }}
       >
-        <span style={{
-          fontFamily: "var(--font-display)", fontSize: 17,
-          color: open ? "#e31313" : "var(--text)", fontWeight: 700, lineHeight: 1.4,
-          transition: "color 0.2s",
-        }}>
-          {faq.q}
-        </span>
-        <span style={{
-          width: 32, height: 32, borderRadius: "50%", flexShrink: 0,
-          background: open ? "#e31313" : "#f3f3f3",
-          display: "flex", alignItems: "center", justifyContent: "center",
-          transition: "background 0.25s, transform 0.3s",
-          transform: open ? "rotate(45deg)" : "rotate(0deg)",
-        }}>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={open ? "#fff" : "#888"} strokeWidth="3">
+        <span className="faq-fila-q">{faq.q}</span>
+        <span className="faq-fila-icono" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
             <path d="M12 5v14M5 12h14" strokeLinecap="round" />
           </svg>
         </span>
       </button>
-      <div style={{
-        maxHeight: open ? 300 : 0, overflow: "hidden",
-        transition: "max-height 0.35s cubic-bezier(0.4,0,0.2,1)",
-      }}>
-        <p style={{
-          fontFamily: "var(--font-body)", fontSize: 15, color: "#666",
-          lineHeight: 1.8, margin: 0, paddingBottom: 22,
-        }}>
-          {faq.a}
-        </p>
+      <div className="faq-fila-body">
+        <p className="faq-fila-a">{faq.a}</p>
       </div>
     </div>
   );
@@ -257,10 +223,6 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
             alt="Logo CELCI"
             className="celci-hero-logo"
           />
-          <div className="celci-hero-badge">
-            <span className="celci-badge-dot" />
-            Ciclo A-2025 · Modalidad presencial
-          </div>
           <h1 className="pf-hero-title celci-hero-title">
             Centro de<br />
             <span className="celci-title-accent">Lenguas</span>{" "}
@@ -408,29 +370,10 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
             <div className="celci-pricing-grid">
               {/* Card Inglés */}
               <div className="celci-pricing-card celci-pricing-featured">
-                <div className="celci-pricing-badge">Más popular</div>
                 <div className="celci-pricing-lang">
                   <span style={{ color: "#e31313" }}><IconGlobe size={32} /></span>
                   <h3>Inglés</h3>
                 </div>
-                <div className="celci-pricing-amount">
-                  <span className="celci-price-currency">$</span>
-                  <span className="celci-price-num">1,100</span>
-                  <span className="celci-price-period">/ ciclo</span>
-                </div>
-                <div className="celci-pricing-discounts">
-                  <div className="celci-discount-row">
-                    <span className="celci-discount-who"><IconGraduationCap size={15} /> Alumnos FECA</span>
-                    <span className="celci-discount-pct celci-discount-big">−25%</span>
-                  </div>
-                  <div className="celci-discount-row">
-                    <span className="celci-discount-who"><IconSchool size={15} /> Alumnos UJED</span>
-                    <span className="celci-discount-pct">−10%</span>
-                  </div>
-                </div>
-                <a href="mailto:cli.feca@ujed.mx" className="celci-pricing-btn celci-pricing-btn--primary">
-                  Inscribirme al inglés
-                </a>
               </div>
 
               {/* Card Otros idiomas */}
@@ -441,24 +384,6 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
                   </div>
                   <h3>Francés, Italiano y Japonés</h3>
                 </div>
-                <div className="celci-pricing-amount celci-pricing-amount--alt">
-                  <span className="celci-price-currency">$</span>
-                  <span className="celci-price-num">700</span>
-                  <span className="celci-price-period">/ ciclo</span>
-                </div>
-                <div className="celci-pricing-tags">
-                  <span className="celci-pricing-tag">Precio único</span>
-                  <span className="celci-pricing-tag">Sin descuentos adicionales</span>
-                </div>
-                <div className="celci-pricing-note">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/>
-                  </svg>
-                  Tarifa plana para todos los perfiles
-                </div>
-                <a href="mailto:cli.feca@ujed.mx" className="celci-pricing-btn celci-pricing-btn--outline">
-                  Inscribirme
-                </a>
               </div>
             </div>
           </div>
@@ -530,27 +455,6 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
               <div className="pf-label">Ubicación de nivel</div>
               <h2 className="pf-section-title">Examen de diagnóstico</h2>
             </div>
-
-            <div className="celci-diag-card">
-              <div className="celci-diag-icon" style={{ color: "#e31313" }}><IconTarget size={48} /></div>
-              <h3>¿Tienes conocimientos previos del idioma?</h3>
-              <p>El examen de diagnóstico para ubicarte en el nivel correcto está disponible en el módulo de inscripciones del SUMA. Si ya tienes conocimientos del idioma, realiza el examen <strong>antes</strong> de inscribirte para ingresar al nivel que corresponde a tu nivel real.</p>
-              <div className="pf-chips" style={{ marginTop: 20, justifyContent: "center" }}>
-                <span className="pf-chip">Disponible en SUMA+</span>
-                <span className="pf-chip">Módulo de inscripciones</span>
-              </div>
-              <a
-                href="https://suma.ujed.mx"
-                target="_blank"
-                rel="noreferrer"
-                className="celci-diag-btn"
-              >
-                Ir a SUMA+
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
           </div>
         </section>
       )}
@@ -564,67 +468,10 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
               <h2 className="pf-section-title">Preguntas frecuentes</h2>
               <p className="pf-section-desc">Respuestas rápidas a las dudas más comunes del Centro de Lenguas.</p>
             </div>
-            <div className="celci-faq-list">
+            <div className="faq-lista">
               {faqs.map((faq, i) => (
                 <FaqItem key={i} faq={faq} />
               ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* ── TAB: INFORMACIÓN ── */}
-      {activeTab === "informacion" && (
-        <section className="pf-section pf-section-light pf-fade">
-          <div className="pf-container" style={{ maxWidth: 960 }}>
-            <div className="pf-section-head pf-section-head-center">
-              <div className="pf-label">Identidad</div>
-              <h2 className="pf-section-title">Información general</h2>
-            </div>
-
-            {/* Historia highlight */}
-            <div className="celci-history-banner">
-              <div className="celci-history-year">1975</div>
-              <div className="celci-history-text">
-                <h3>Nuestra historia</h3>
-                <p>El Centro de Idiomas de la FECA fue fundado formalmente en <strong>1975</strong> bajo la dirección del C.P. Mtro. Rubén Vargas Quiñones. Desde sus inicios ha desempeñado un papel fundamental en la enseñanza de lenguas extranjeras.</p>
-                <p>Actualmente atiende a <strong>más de mil alumnos</strong>, ofreciendo formación de calidad en inglés, italiano, francés y japonés para estudiantes universitarios y público en general.</p>
-              </div>
-            </div>
-
-            <div className="pf-cards-grid" style={{ marginTop: 36 }}>
-              <div className="pf-card pf-card-top">
-                <div className="pf-card-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                    <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/>
-                  </svg>
-                </div>
-                <h3 className="pf-card-title">Misión</h3>
-                <p className="pf-card-desc">Ofrecer programas educativos en lengua extranjera y servicios especializados de alta calidad que sumen ventajas competitivas en un entorno global.</p>
-              </div>
-              <div className="pf-card pf-card-top">
-                <div className="pf-card-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                    <circle cx="12" cy="12" r="3"/>
-                  </svg>
-                </div>
-                <h3 className="pf-card-title">Visión</h3>
-                <p className="pf-card-desc">Ser un centro reconocido por la excelencia en la enseñanza de lenguas extranjeras y por contribuir al desarrollo integral e intercultural.</p>
-              </div>
-              <div className="pf-card pf-card-top">
-                <div className="pf-card-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                    <polyline points="14 2 14 8 20 8"/>
-                  </svg>
-                </div>
-                <h3 className="pf-card-title">Normativa</h3>
-                <div className="pf-chips" style={{ marginTop: 4 }}>
-                  <span className="pf-chip">Reglamento de niños</span>
-                  <span className="pf-chip">Reglamento de jóvenes</span>
-                </div>
-              </div>
             </div>
           </div>
         </section>

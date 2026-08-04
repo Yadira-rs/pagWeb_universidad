@@ -22,11 +22,10 @@ const compromisos = [
 ];
 
 const pasos = [
-  "Todos los alumnos desde primer hasta noveno semestre y en ambas modalidades (presencial y virtual); tienen un tutor asignado, para conocer su identidad debes consultar tu cuenta en la Plataforma “SUMA”  https://sumafeca.ujed.mx/ de igual manera el tutor asignado establecerá contacto contigo al iniciar cada semestre.",
+  "Todos los alumnos desde primer hasta noveno semestre y en ambas modalidades (presencial y virtual); tienen un tutor asignado, y el tutor asignado establecerá contacto contigo al iniciar cada semestre.",
   "Les recordamos que el programa de tutorías constituye un derecho y un apoyo institucional fundamental, donde obtienen beneficios formativos, personales y sociales.",
 ];
 
-const sumaUrl = "https://sumafeca.ujed.mx/";
 const miPortalUrl = "https://miportal.ujed.mx/";
 
 function TutorIcon({ children }) {
@@ -184,18 +183,7 @@ function TutoriasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
                 <div className="pf-contact-icon">{index + 1}</div>
                 <div>
                   <span className="pf-contact-label">Paso {index + 1}</span>
-                  <span className="pf-contact-value">
-                    {index === 0 ? paso.split(sumaUrl)[0] : paso}
-                    {index === 0 && (
-                      <>
-                        {" "}
-                        <a href={sumaUrl} target="_blank" rel="noreferrer" style={{ color: "#c0000c", fontWeight: 700, textDecoration: "underline" }}>
-                          {sumaUrl}
-                        </a>
-                        {paso.split(sumaUrl)[1]}
-                      </>
-                    )}
-                  </span>
+                  <span className="pf-contact-value">{paso}</span>
                 </div>
               </div>
             ))}

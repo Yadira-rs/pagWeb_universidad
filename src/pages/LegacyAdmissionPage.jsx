@@ -1,5 +1,7 @@
+import { useState } from "react";
 import Footer from "../sections/Footer";
 import Header from "../sections/Header";
+import { supabase } from "../lib/supabaseClient";
 
 function LegacyAdmissionPage({
   content,
@@ -7,7 +9,36 @@ function LegacyAdmissionPage({
   newsPanelOpen,
   setNewsPanelOpen,
 }) {
+  const [status, setStatus] = useState("idle"); // idle | sending | done | error
+  const [errorMsg, setErrorMsg] = useState("");
+
   if (!content) return null;
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (status === "sending") return;
+
+    setStatus("sending");
+    setErrorMsg("");
+
+    const data = new FormData(e.target);
+    const { error } = await supabase.from("solicitudes_admision").insert({
+      nombre: data.get("nombre")?.toString().trim() || "",
+      telefono: data.get("telefono")?.toString().trim() || null,
+      correo: data.get("correo")?.toString().trim() || null,
+      programa: data.get("programa")?.toString() || null,
+      mensaje: data.get("mensaje")?.toString().trim() || null,
+    });
+
+    if (error) {
+      setStatus("error");
+      setErrorMsg("No se pudo enviar tu solicitud. Intenta de nuevo o llama al (618) 827-13-65.");
+      return;
+    }
+
+    setStatus("done");
+    e.target.reset();
+  };
 
   return (
     <div className="site-shell">
@@ -54,45 +85,73 @@ function LegacyAdmissionPage({
 
           <section className="legacy-panel">
             <h2>Datos de solicitud</h2>
-            <p>
-              Este formulario es una maqueta visual por ahora; después puede
-              conectarse a correo, base de datos o sistema de admisiones.
-            </p>
 
-            <form className="legacy-form">
-              <div className="legacy-form-grid">
-                {content.formFields.map((field) => (
-                  <label key={field.name} className="legacy-field">
-                    {field.label}
-                    {field.type === "select" ? (
-                      <select name={field.name} defaultValue={field.options[0]}>
-                        {field.options.map((option) => (
-                          <option key={option}>{option}</option>
-                        ))}
-                      </select>
-                    ) : field.type === "textarea" ? (
-                      <textarea
-                        name={field.name}
-                        placeholder={field.placeholder}
-                      />
-                    ) : (
-                      <input
-                        type={field.type}
-                        name={field.name}
-                        placeholder={field.placeholder}
-                      />
-                    )}
-                  </label>
-                ))}
+            {status === "done" ? (
+              <div className="legacy-form-success">
+                <p>
+                  <strong>¡Listo, recibimos tu solicitud!</strong> Un asesor de
+                  admisiones se pondrá en contacto contigo pronto.
+                </p>
+                <button
+                  type="button"
+                  className="legacy-btn"
+                  onClick={() => setStatus("idle")}
+                >
+                  Enviar otra solicitud
+                </button>
               </div>
+            ) : (
+              <>
+                <p>
+                  Completa tus datos y un asesor de admisiones te contactará
+                  para continuar tu proceso.
+                </p>
 
-              <button className="legacy-btn" type="button">
-                Enviar solicitud
-              </button>
-              <p className="legacy-note">
-                También puedes solicitar informes al (618) 827-13-65.
-              </p>
-            </form>
+                <form className="legacy-form" onSubmit={handleSubmit}>
+                  <div className="legacy-form-grid">
+                    {content.formFields.map((field) => (
+                      <label key={field.name} className="legacy-field">
+                        {field.label}
+                        {field.type === "select" ? (
+                          <select name={field.name} defaultValue={field.options[0]}>
+                            {field.options.map((option) => (
+                              <option key={option}>{option}</option>
+                            ))}
+                          </select>
+                        ) : field.type === "textarea" ? (
+                          <textarea
+                            name={field.name}
+                            placeholder={field.placeholder}
+                          />
+                        ) : (
+                          <input
+                            type={field.type}
+                            name={field.name}
+                            required={field.name === "nombre"}
+                            placeholder={field.placeholder}
+                          />
+                        )}
+                      </label>
+                    ))}
+                  </div>
+
+                  {status === "error" && (
+                    <p className="legacy-note legacy-note-error">{errorMsg}</p>
+                  )}
+
+                  <button
+                    className="legacy-btn"
+                    type="submit"
+                    disabled={status === "sending"}
+                  >
+                    {status === "sending" ? "Enviando…" : "Enviar solicitud"}
+                  </button>
+                  <p className="legacy-note">
+                    También puedes solicitar informes al (618) 827-13-65.
+                  </p>
+                </form>
+              </>
+            )}
           </section>
         </div>
       </section>

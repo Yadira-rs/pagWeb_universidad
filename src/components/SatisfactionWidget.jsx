@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { supabase } from "../lib/supabaseClient";
 
 const LABELS = ["Muy malo", "Malo", "Regular", "Bueno", "Muy bueno"];
 
@@ -9,6 +10,8 @@ function SatisfactionWidget() {
   const [hover, setHover]         = useState(0);
   const [comment, setComment]     = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending]     = useState(false);
+  const [errorMsg, setErrorMsg]   = useState("");
 
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 28000);
@@ -17,9 +20,25 @@ function SatisfactionWidget() {
 
   const active = hover || rating;
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    if (!rating) return;
+    if (!rating || sending) return;
+
+    setSending(true);
+    setErrorMsg("");
+
+    const { error } = await supabase.from("calificaciones").insert({
+      puntuacion: rating,
+      comentario: comment.trim() || null,
+    });
+
+    setSending(false);
+
+    if (error) {
+      setErrorMsg("No se pudo enviar tu opinión. Intenta de nuevo.");
+      return;
+    }
+
     setSubmitted(true);
     setTimeout(() => {
       setOpen(false);
@@ -97,12 +116,14 @@ function SatisfactionWidget() {
               maxLength={400}
             />
 
+            {errorMsg && <p className="sw-error">{errorMsg}</p>}
+
             <button
               type="submit"
               className={`sw-submit${rating > 0 ? " sw-submit--ready" : ""}`}
-              disabled={rating === 0}
+              disabled={rating === 0 || sending}
             >
-              Enviar opinión
+              {sending ? "Enviando…" : "Enviar opinión"}
             </button>
           </form>
         ) : (

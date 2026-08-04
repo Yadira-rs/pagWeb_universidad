@@ -203,18 +203,8 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                   </div>
                 </div>
 
-                <div className="acc-row">
-                  <a className="acc-title acc-title-link" href="/docs/LCPEI.pdf" target="_blank" rel="noreferrer">
-                    CPEI
-                    <svg className="acc-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="11" height="11" aria-hidden="true">
-                      <polyline points="9 6 15 12 9 18" />
-                    </svg>
-                  </a>
-                  <div className="acc-panel">
-                    <a className="dropdown-sub" href="#/servicios/finanzas">Finanzas</a>
-                    <a className="dropdown-sub" href="#/servicios/secretaria-administrativa">Servicios Generales</a>
-                    <a className="dropdown-sub" href="#/biblioteca">Biblioteca</a>
-                  </div>
+                <div className="acc-row acc-row-flat">
+                  <a className="acc-title acc-title-link" href="/docs/LCPEI.pdf" target="_blank" rel="noreferrer">CPEI</a>
                 </div>
 
                 <div className="acc-row acc-row-flat">
@@ -229,14 +219,14 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 <span className="nav-caret" aria-hidden="true"></span>
               </a>
               <div className="dropdown">
-                <a href="#/nosotros/ejes-rectores">Ejes rectores</a>
-                <a href="#/egresados">Egresados</a>
-                <a href="#/grupos-representativos">Grupos representativos</a>
-                <a href="#/historia">Historia</a>
-                <a href="#/mision-vision">Misión y visión</a>
+                <a href="#/nosotros/ejes-rectores" className={currentHash === "#/nosotros/ejes-rectores" ? "active" : ""}>Ejes rectores</a>
+                <a href="#/egresados" className={currentHash === "#/egresados" ? "active" : ""}>Egresados</a>
+                <a href="#/grupos-representativos" className={currentHash === "#/grupos-representativos" ? "active" : ""}>Grupos representativos</a>
+                <a href="#/historia" className={currentHash === "#/historia" ? "active" : ""}>Historia</a>
+                <a href="#/mision-vision" className={currentHash === "#/mision-vision" ? "active" : ""}>Misión y visión</a>
                 <a href="/PDUA-SILD27.pdf" target="_blank" rel="noreferrer">PDUA</a>
-                <a href="#/nosotros/politicas">Políticas</a>
-                <a href="#/nosotros/valores">Valores</a>
+                <a href="#/nosotros/politicas" className={currentHash === "#/nosotros/politicas" ? "active" : ""}>Políticas</a>
+                <a href="#/nosotros/valores" className={currentHash === "#/nosotros/valores" ? "active" : ""}>Valores</a>
               </div>
             </div>
 
@@ -580,9 +570,6 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
             <a href="#/biblioteca" className={`mobile-nav-sub mobile-nav-subsub${currentHash === "#/biblioteca" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Biblioteca</a>
 
             <a href="/docs/LCPEI.pdf" className="mobile-nav-subgroup" target="_blank" rel="noreferrer" onClick={closeMobile}>CPEI</a>
-            <a href="#/servicios/finanzas" className={`mobile-nav-sub mobile-nav-subsub${currentHash === "#/servicios/finanzas" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Finanzas</a>
-            <a href="#/servicios/secretaria-administrativa" className="mobile-nav-sub mobile-nav-subsub" onClick={closeMobile}>Servicios Generales</a>
-            <a href="#/biblioteca" className={`mobile-nav-sub mobile-nav-subsub${currentHash === "#/biblioteca" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Biblioteca</a>
 
             <a href="#/servicios/contraloria-interna" className={`mobile-nav-subgroup${currentHash === "#/servicios/contraloria-interna" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Contraloría Interna</a>
           </div>

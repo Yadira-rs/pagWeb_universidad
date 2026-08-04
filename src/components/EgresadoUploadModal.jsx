@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { upload } from "@vercel/blob/client";
+import { supabase } from "../lib/supabaseClient";
+
+const BUCKET = "egresados-docs";
+
+function randomSuffix() {
+  return `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+}
 
 const TIPOS_DOCUMENTO = [
   "Currículum (CV)",
@@ -26,25 +32,20 @@ function EgresadoUploadModal({ onClose }) {
     setErrorMsg("");
 
     try {
-      const blob = await upload(file.name, file, {
-        access: "public",
-        handleUploadUrl: "/api/blob-upload",
+      const path = `${randomSuffix()}-${file.name}`;
+      const { error: uploadError } = await supabase.storage.from(BUCKET).upload(path, file);
+      if (uploadError) throw uploadError;
+
+      const { error: metaError } = await supabase.from("egresados_docs").insert({
+        nombre: nombre.trim(),
+        carrera: carrera.trim() || null,
+        generacion: generacion.trim() || null,
+        tipo,
+        file_path: path,
+        file_name: file.name,
       });
 
-      const metaRes = await fetch("/api/save-doc-meta", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          nombre: nombre.trim(),
-          carrera: carrera.trim(),
-          generacion: generacion.trim(),
-          tipo,
-          fileUrl: blob.url,
-          fileName: file.name,
-        }),
-      });
-
-      if (!metaRes.ok) {
+      if (metaError) {
         throw new Error("El archivo se subió, pero no se pudo guardar tu información. Intenta de nuevo.");
       }
 

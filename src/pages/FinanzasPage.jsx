@@ -68,19 +68,6 @@ const procedimientos = [
     formatUrl: "/PDUA-SILD27.pdf",
     formatName: "Guía de Pago Referenciado (PDF)",
   },
-  {
-    title: "Trámite de Devolución / Reembolso",
-    desc: "Procedimiento administrativo para solicitar el reembolso de pagos duplicados o incorrectos.",
-    steps: [
-      "Descarga e imprime el Formato de Solicitud de Reembolso.",
-      "Anexa el comprobante de pago original y una copia de tu identificación oficial.",
-      "Presenta la documentación en la Dirección de la facultad para firma de autorización.",
-      "Entrega el expediente autorizado en el área de Recursos Financieros.",
-      "El reembolso se procesará vía transferencia interbancaria en los siguientes 15 días hábiles."
-    ],
-    formatUrl: "/FOLLETO-GENERAL-CERTIFICACIONES.pdf",
-    formatName: "Formato de Reembolso (PDF)",
-  }
 ];
 
 function FinanzasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {

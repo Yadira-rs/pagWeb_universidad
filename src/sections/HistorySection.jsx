@@ -126,7 +126,6 @@ function HistorySection({ entries }) {
           {/* Derecha: foto principal (desktop) / miniatura (móvil) */}
           <figure className="history-visual history-visual-main">
             <img src={activeEntry.image} alt={activeEntry.title} />
-            <figcaption>{activeEntry.tag}</figcaption>
           </figure>
 
           {/* Descripción — ancho completo en móvil, columna central en desktop */}

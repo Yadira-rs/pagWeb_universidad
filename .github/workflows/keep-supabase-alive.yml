@@ -1,0 +1,29 @@
+name: Keep Supabase alive
+
+# Supabase pausa los proyectos del plan gratis tras ~7 días sin actividad.
+# Este workflow hace una consulta liviana cada 3 días para que el proyecto
+# nunca llegue a ese límite y nadie tenga que acordarse de reactivarlo.
+on:
+  schedule:
+    - cron: "0 12 */3 * *"
+  workflow_dispatch: {}
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      # La URL y la anon key son las mismas de .env.example: es la clave
+      # "publishable" de Supabase, pensada para exponerse en el navegador de
+      # cualquier visitante del sitio (la protege el RLS de cada tabla), así
+      # que no hay problema en que también esté aquí. Si cambian de
+      # proyecto de Supabase, actualiza estos dos valores.
+      - name: Consultar Supabase (mantener el proyecto activo)
+        env:
+          SUPABASE_URL: https://zyxmpbgcwlrncsecpzjb.supabase.co
+          SUPABASE_ANON_KEY: sb_publishable_1StvApr7bAEmQPlk7LiZWw_Aoejuj9t
+        run: |
+          curl -sf "$SUPABASE_URL/rest/v1/hero_slides?select=id&limit=1" \
+            -H "apikey: $SUPABASE_ANON_KEY" \
+            -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
+            -o /dev/null
+          echo "OK: Supabase respondió correctamente."

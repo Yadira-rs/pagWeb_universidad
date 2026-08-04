@@ -163,10 +163,6 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
     return () => observerRef.current?.disconnect();
   }, []);
 
-  const scrollToServicios = () => {
-    document.getElementById("servicios")?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <div className="site-shell">
       <Header
@@ -184,9 +180,6 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
         <div className="pf-hero-overlay" />
         <div className="pf-hero-inner" style={{ padding: "36px 32px", textAlign: "center" }}>
           <div className="pf-hero-badge">CIIEDO · FECA · UJED</div>
-          <h1 className="pf-hero-title" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
-            Centro de Innovación,<br />Investigación, Emprendimiento<br />y Desarrollo Organizacional
-          </h1>
           <p className="ciiedo-acronym">
             <span>C</span>entro de{" "}
             <span>I</span>nnovación,{" "}
@@ -199,9 +192,6 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
             En CIIEDO te asesoramos, acompañamos y conectamos con oportunidades
             de innovación y emprendimiento dentro de la FECA.
           </p>
-          <button className="pf-btn-primary" onClick={scrollToServicios}>
-            Conoce nuestros servicios
-          </button>
         </div>
       </section>
 

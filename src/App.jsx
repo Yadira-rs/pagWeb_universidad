@@ -38,7 +38,7 @@ import ValoresPage from "./pages/ValoresPage";
 import GruposPage from "./pages/GruposPage";
 import CafecaPage from "./pages/CafecaPage";
 import EgresadosPage from "./pages/EgresadosPage";
-import AdminEgresadosDocsPage from "./pages/AdminEgresadosDocsPage";
+import AdminPanelPage from "./pages/AdminPanelPage";
 import SatisfactionWidget from "./components/SatisfactionWidget";
 
 function getCurrentRoute() {
@@ -63,7 +63,7 @@ function getCurrentRoute() {
   if (hash === "#/lenguas") return { page: "lenguas" };
   if (hash === "#/ciiedo") return { page: "ciiedo" };
   if (hash === "#/egresados") return { page: "egresados" };
-  if (hash === "#/admin/egresados-docs") return { page: "admin-egresados-docs" };
+  if (hash === "#/admin" || hash === "#/admin/login" || hash === "#/admin/egresados-docs") return { page: "admin-panel" };
   if (hash === "#/grupos-representativos") return { page: "grupos" };
 
   if (hash === "#/cafeteria") return { page: "cafeteria" };
@@ -200,7 +200,9 @@ function App() {
                     ? "FECA - Tutorías"
                 : route.page === "lenguas"
                     ? "FECA - Centro de Lenguas e Internacionalización"
-                    : route.page === "legacy-program"
+                    : route.page === "admin-panel"
+                    ? "FECA - Administración"
+                : route.page === "legacy-program"
                       ? `FECA - ${legacyPages[route.slug]?.title ?? "Oferta Educativa"}`
                       : route.page === "legacy-campus"
                         ? `FECA - ${legacyPages[route.slug]?.title ?? "Vida universitaria"}`
@@ -369,8 +371,8 @@ function App() {
         newsPanelOpen={newsPanelOpen}
         setNewsPanelOpen={setNewsPanelOpen}
       />
-    ) : route.page === "admin-egresados-docs" ? (
-      <AdminEgresadosDocsPage />
+    ) : route.page === "admin-panel" ? (
+      <AdminPanelPage />
     ) : route.slug === "curso-propedeutico" ? (
       <PropedeuticoPage
         logoImage={logoImage}

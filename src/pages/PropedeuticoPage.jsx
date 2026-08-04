@@ -273,51 +273,6 @@ function PropedeuticoPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
       </section>
 
       {/* ── MISIÓN Y VISIÓN ── */}
-      <section className="prop2-section prop2-section-alt prop2-fade">
-        <div className="prop2-container">
-          <div className="prop2-section-head prop2-section-head-center">
-            <div className="prop2-label">Identidad institucional</div>
-            <h2 className="prop2-section-title">Misión y Visión</h2>
-            <p className="prop2-section-desc">Los principios que guían cada ciclo escolar del Curso Propedéutico.</p>
-          </div>
-          <div className="prop2-mv-grid">
-            <div className="prop2-mv-card">
-              <div className="prop2-mv-header">
-                <div className="prop2-mv-icon-wrap">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                  </svg>
-                </div>
-                <h3>Misión</h3>
-              </div>
-              <p>
-                Formamos a nuestros alumnos para ingresar en la Facultad de Economía, Contaduría y Administración,
-                con el compromiso de proporcionarles las herramientas necesarias para mejorar su desempeño académico
-                en el transcurso de su licenciatura, así como también los orientamos sobre su definición profesional
-                a través de la calidad de nuestros programas y en cada una de nuestras actividades.
-              </p>
-            </div>
-            <div className="prop2-mv-card">
-              <div className="prop2-mv-header">
-                <div className="prop2-mv-icon-wrap">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                    <circle cx="12" cy="12" r="10"/>
-                    <circle cx="12" cy="12" r="3"/>
-                    <path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>
-                  </svg>
-                </div>
-                <h3>Visión</h3>
-              </div>
-              <p>
-                Posicionarnos como un propedéutico de licenciatura de las carreras de Contaduría, Economía y
-                Administración reconocido por su calidad, a través de desarrollar programas académicos que orienten
-                al aspirante a una elección adecuada de su carrera y una culminación exitosa de sus estudios.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ── MODALIDADES ── */}
       <section className="prop2-section prop2-section-light prop2-fade">
         <div className="prop2-container">

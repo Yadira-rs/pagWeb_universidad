@@ -2,38 +2,6 @@ import { useEffect, useRef } from "react";
 import Footer from "../sections/Footer";
 import Header from "../sections/Header";
 
-const identityCards = [
-  {
-    title: "Misión",
-    text: "La misión del sistema bibliotecario de la universidad es apoyar a la docencia, la investigación y la difusión de la cultura, administrando los recursos informativos y brindando servicios bibliotecarios de excelencia.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/>
-        <path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>
-      </svg>
-    ),
-  },
-  {
-    title: "Visión",
-    text: "El sistema bibliotecario será una organización líder capaz de atender todas las demandas de información de sus usuarios, ofreciendo asesorías permanentes para transformar la información en conocimiento.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-        <circle cx="12" cy="12" r="3"/>
-      </svg>
-    ),
-  },
-  {
-    title: "Política de calidad",
-    text: "La UJED está comprometida en ofrecer servicios académicos, de investigación, administrativos y culturales de calidad, eficientes y transparentes, con un proceso de mejora continua basado en ISO 9001:2015.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-      </svg>
-    ),
-  },
-];
-
 const collections = [
   "Colección de consulta",
   "Colección de consulta general",
@@ -108,6 +76,24 @@ export default function Biblioteca({ logoImage, newsPanelOpen, setNewsPanelOpen 
           <p className="pf-hero-sub">
             Un espacio dedicado al conocimiento, la investigación y el acceso libre a la información para estudiantes y académicos de la FECA.
           </p>
+          <p className="pf-hero-sub" style={{ marginTop: 4 }}>
+            Este botón te conduce al <strong>Repositorio Institucional de la UJED</strong>, donde
+            podrás consultar tesis, artículos y demás material académico digitalizado por la universidad.
+          </p>
+          <div className="pf-hero-ctas">
+            <a
+              href="https://repositorio.ujed.mx/jspui/"
+              target="_blank"
+              rel="noreferrer"
+              className="biblio-repo-btn"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <path d="M15 3h6v6" /><path d="M10 14 21 3" />
+              </svg>
+              Ir al Repositorio Institucional UJED
+            </a>
+          </div>
         </div>
         <div className="pf-stats">
           {STATS.map((s) => (
@@ -145,28 +131,6 @@ export default function Biblioteca({ logoImage, newsPanelOpen, setNewsPanelOpen 
               alt="Biblioteca FECA histórica"
               style={{ width: "100%", borderRadius: 20, boxShadow: "0 20px 56px rgba(0,0,0,0.15)" }}
             />
-          </div>
-        </div>
-      </section>
-
-      {/* ── IDENTIDAD ── */}
-      <section className="pf-section pf-section-dark pf-fade">
-        <div className="pf-container">
-          <div className="pf-section-head pf-section-head-center">
-            <div className="pf-label pf-label-light">Identidad institucional</div>
-            <h2 className="pf-section-title pf-title-white">Misión, Visión y Calidad</h2>
-            <p className="pf-section-desc pf-desc-white">
-              Los principios que guían el servicio y la gestión de la Biblioteca FECA.
-            </p>
-          </div>
-          <div className="pf-cards-grid pf-fade">
-            {identityCards.map((card) => (
-              <div key={card.title} className="pf-card pf-card-dark">
-                <div className="pf-card-icon">{card.icon}</div>
-                <h3 className="pf-card-title">{card.title}</h3>
-                <p className="pf-card-desc">{card.text}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>

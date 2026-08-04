@@ -23,3 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 public/docs/Video Informativo Declaración Patrimonial.mp4
+
+# Fotos originales sin comprimir (fuente para recortar/optimizar antes de
+# subir a public/imagenes) — no se usan directo en el sitio, muy pesadas
+# para versionar.
+fotos_directivos/
