@@ -24,7 +24,9 @@ dist-ssr
 *.sw?
 public/docs/Video Informativo Declaración Patrimonial.mp4
 
-# Fotos originales sin comprimir (fuente para recortar/optimizar antes de
-# subir a public/imagenes) — no se usan directo en el sitio, muy pesadas
-# para versionar.
-fotos_directivos/
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
