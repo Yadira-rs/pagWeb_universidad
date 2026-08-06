@@ -3551,6 +3551,26 @@ a.acc-title-link:hover {
   transform: translateY(10px);
 }
 
+@media (max-width: 640px) {
+  .df-card {
+    flex-direction: column;
+    min-height: 0;
+  }
+  .df-img-col {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 280px;
+  }
+  .df-img-overlay {
+    background: linear-gradient(to top, #fff 0%, transparent 35%);
+  }
+  .df-info-col {
+    padding: 24px 24px 30px;
+  }
+  .df-role-badge { align-self: center; }
+  .df-name, .df-desc { text-align: center; }
+}
+
 .df-img-col {
   position: relative;
   flex: 0 0 42%;
@@ -11014,7 +11034,8 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  padding: 10px 22px 12px;
+  width: 148px;
+  padding: 10px 8px 12px;
   background: none;
   border: none;
   border-bottom: 3px solid transparent;
@@ -11057,7 +11078,7 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
   box-shadow: 0 4px 14px rgba(227,19,19,0.35);
 }
 .celci-tab--active .celci-tab-icon svg { stroke: #fff; }
-.celci-tab-label { font-size: 10px; }
+.celci-tab-label { font-size: 10px; white-space: normal; text-align: center; line-height: 1.3; }
 
 /* ── Course cards ── */
 .celci-courses-grid {

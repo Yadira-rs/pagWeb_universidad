@@ -76,24 +76,6 @@ export default function Biblioteca({ logoImage, newsPanelOpen, setNewsPanelOpen 
           <p className="pf-hero-sub">
             Un espacio dedicado al conocimiento, la investigación y el acceso libre a la información para estudiantes y académicos de la FECA.
           </p>
-          <p className="pf-hero-sub" style={{ marginTop: 4 }}>
-            Este botón te conduce al <strong>Repositorio Institucional de la UJED</strong>, donde
-            podrás consultar tesis, artículos y demás material académico digitalizado por la universidad.
-          </p>
-          <div className="pf-hero-ctas">
-            <a
-              href="https://repositorio.ujed.mx/jspui/"
-              target="_blank"
-              rel="noreferrer"
-              className="biblio-repo-btn"
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                <path d="M15 3h6v6" /><path d="M10 14 21 3" />
-              </svg>
-              Ir al Repositorio Institucional UJED
-            </a>
-          </div>
         </div>
         <div className="pf-stats">
           {STATS.map((s) => (
@@ -102,6 +84,38 @@ export default function Biblioteca({ logoImage, newsPanelOpen, setNewsPanelOpen 
               <span className="pf-stat-label">{s.label}</span>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ── RESPONSABLE ── */}
+      <section className="pf-section pf-fade">
+        <div className="pf-container">
+          <div className="pf-section-head pf-section-head-center">
+            <div className="pf-label">Te damos la bienvenida</div>
+            <h2 className="pf-section-title">Responsable de la Biblioteca</h2>
+          </div>
+          <div className="df-wrap" style={{ padding: 0 }}>
+            <div className="df-card df-card--in">
+              <div className="df-img-col">
+                <img
+                  src="/imagenes/guillermo_garza_biblioteca.jpg"
+                  alt="Guillermo Garza Calderón"
+                  className="df-img"
+                />
+                <div className="df-img-overlay" />
+              </div>
+              <div className="df-info-col">
+                <span className="df-role-badge">Encargado de Biblioteca</span>
+                <h3 className="df-name">Guillermo Garza Calderón</h3>
+                <p className="df-desc">
+                  "Bienvenidos a la Biblioteca de la FECA. Este es un espacio pensado para
+                  acompañarlos en su formación académica: aquí encontrarán los materiales, el
+                  apoyo y la atención necesarios para que su paso por la investigación y el
+                  estudio sea siempre provechoso."
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -205,6 +219,35 @@ export default function Biblioteca({ logoImage, newsPanelOpen, setNewsPanelOpen 
                 <p className="pf-card-desc" style={{ textAlign: "center" }}>Escanea el código QR para acceder al recurso digital.</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── REPOSITORIO INSTITUCIONAL ── */}
+      <section className="pf-section pf-section-alt pf-fade">
+        <div className="pf-container">
+          <div className="pf-section-head pf-section-head-center">
+            <div className="pf-label">Consulta digital</div>
+            <h2 className="pf-section-title">Repositorio Institucional UJED</h2>
+            <p className="pf-section-desc">
+              Este botón te dirige al sitio del <strong>Repositorio Institucional de la UJED</strong>{" "}
+              (repositorio.ujed.mx), fuera de la página de la FECA. Ahí podrás consultar y descargar
+              tesis, artículos y demás material académico digitalizado por la universidad.
+            </p>
+          </div>
+          <div className="pf-hero-ctas" style={{ justifyContent: "center" }}>
+            <a
+              href="https://repositorio.ujed.mx/jspui/"
+              target="_blank"
+              rel="noreferrer"
+              className="biblio-repo-btn"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <path d="M15 3h6v6" /><path d="M10 14 21 3" />
+              </svg>
+              Ir al Repositorio Institucional UJED
+            </a>
           </div>
         </div>
       </section>
