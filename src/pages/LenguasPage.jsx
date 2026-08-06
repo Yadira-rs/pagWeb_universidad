@@ -36,6 +36,13 @@ const TAB_ICONS = {
       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
     </svg>
   ),
+  equipo: (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+      <circle cx="9" cy="7" r="4"/>
+      <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+    </svg>
+  ),
 };
 
 const tabs = [
@@ -45,6 +52,7 @@ const tabs = [
   { id: "diagnostico", label: "Diagnóstico"          },
   { id: "preguntas",   label: "Preguntas frecuentes" },
   { id: "contacto",    label: "Contacto"             },
+  { id: "equipo",      label: "Equipo"               },
 ];
 
 const cursos = [
@@ -213,7 +221,7 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
       {/* ── HERO ── */}
       <section
         className="pf-hero celci-hero"
-        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1800&q=80')" }}
+        style={{ backgroundImage: "url('/imagenes/celci_hero_equipo.jpg')" }}
       >
         <div className="pf-hero-overlay celci-hero-overlay" />
 
@@ -245,35 +253,33 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
         </div>
       </section>
 
-      {/* ── VIDEO DE BIENVENIDA ── */}
-      <section className="celci-bienvenida pf-fade">
+      {/* ── COORDINADOR ── */}
+      <section className="pf-section pf-fade">
         <div className="pf-container">
           <div className="pf-section-head pf-section-head-center">
-            <div className="pf-label">CELCI · FECA UJED</div>
-            <h2 className="pf-section-title">Video de Bienvenida</h2>
-            <p className="pf-section-desc">Conoce nuestro centro de lenguas y todo lo que tenemos para ofrecerte.</p>
+            <div className="pf-label">Te damos la bienvenida</div>
+            <h2 className="pf-section-title">Coordinador del CELCI</h2>
           </div>
-          <div className="celci-video-wrap">
-            {/*
-              Para agregar el video de YouTube:
-              1. Abre el video en YouTube
-              2. Copia el ID del video (los caracteres después de "?v=", ej: ?v=ABC123)
-              3. Reemplaza el bloque de abajo con:
-                 <iframe
-                   title="Video de Bienvenida CELCI"
-                   src="https://www.youtube.com/embed/TU_ID_AQUI"
-                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                   allowFullScreen
-                 />
-            */}
-            <div className="celci-video-placeholder">
-              <div className="celci-video-play-ring">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="#e31313">
-                  <polygon points="5 3 19 12 5 21 5 3" />
-                </svg>
+          <div className="df-wrap" style={{ padding: 0 }}>
+            <div className="df-card df-card--in">
+              <div className="df-img-col">
+                <img
+                  src="/imagenes/celci_coordinador.jpg"
+                  alt="Dr. Juan"
+                  className="df-img"
+                />
+                <div className="df-img-overlay" />
               </div>
-              <p className="celci-video-ph-title">Video de Bienvenida</p>
-              <span className="celci-video-ph-sub">Próximamente · Centro de Lenguas CELCI</span>
+              <div className="df-info-col">
+                <span className="df-role-badge">Coordinador del CELCI</span>
+                <h3 className="df-name">Dr. Juan</h3>
+                <p className="df-desc">
+                  "El CELCI les abre las puertas a un mundo sin fronteras. Aquí aprenderán inglés
+                  con un enfoque práctico y vivencial, preparándose para participar en
+                  intercambios, colaboraciones internacionales y oportunidades globales que
+                  ampliarán su horizonte profesional y personal."
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -525,6 +531,43 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
               </a>
             </div>
 
+          </div>
+        </section>
+      )}
+
+      {activeTab === "equipo" && (
+        <section className="pf-section pf-section-light pf-fade">
+          <div className="pf-container">
+            <div className="pf-section-head pf-section-head-center">
+              <div className="pf-label">Nuestra gente</div>
+              <h2 className="pf-section-title">Equipo del CELCI</h2>
+              <p className="pf-section-desc">
+                El equipo docente y administrativo que hace posible la formación en lenguas de la FECA.
+              </p>
+            </div>
+            <div className="cesa-team-grid" style={{ maxWidth: 780, margin: "0 auto" }}>
+              <div className="cesa-team-card">
+                <div className="cesa-team-avatar">
+                  <img src="/imagenes/celci_coordinador.jpg" alt="Dr. Juan" />
+                </div>
+                <h3 className="cesa-team-name">Dr. Juan</h3>
+                <span className="cesa-team-role cesa-team-role-lead">Coordinador del CELCI</span>
+              </div>
+              <div className="cesa-team-card">
+                <div className="cesa-team-avatar">
+                  <img src="/imagenes/celci_equipo_1.jpg" alt="Mtra. Fernanda López" />
+                </div>
+                <h3 className="cesa-team-name">Mtra. Fernanda López</h3>
+                <span className="cesa-team-role">Instructora de Inglés</span>
+              </div>
+              <div className="cesa-team-card">
+                <div className="cesa-team-avatar">
+                  <img src="/imagenes/celci_equipo_2.jpg" alt="Mtra. Rosa Elena Vargas" />
+                </div>
+                <h3 className="cesa-team-name">Mtra. Rosa Elena Vargas</h3>
+                <span className="cesa-team-role">Coordinadora Administrativa</span>
+              </div>
+            </div>
           </div>
         </section>
       )}

@@ -37,8 +37,10 @@ export default function DirectorProfilePage({ slug, logoImage, newsPanelOpen, se
         {/* ── HERO ── */}
         <div className="dp-hero">
           <div className="dp-hero-inner">
-            <div className="dp-hero-photo-wrap">
-              <img src={director.image} alt={director.name} className="dp-hero-photo" />
+            <div className={`dp-hero-photo-wrap${director.images?.length > 1 ? " dp-hero-photo-wrap--multi" : ""}`}>
+              {(director.images?.length ? director.images : [director.image]).map((image) => (
+                <img key={image} src={image} alt={director.name} className="dp-hero-photo" />
+              ))}
             </div>
             <div className="dp-hero-content">
               <a href="#/nosotros/ejes-rectores" className="dp-back-link">
