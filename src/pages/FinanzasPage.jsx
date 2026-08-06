@@ -59,28 +59,15 @@ const procedimientos = [
     title: "Pago de Inscripción Referenciado",
     desc: "Instrucciones para generar tu referencia y pagar en sucursales bancarias autorizadas.",
     steps: [
-      "Ingresa al portal institucional SUMA+ con tu matrícula y contraseña.",
+      "Ingresa al portal institucional con tu matrícula y contraseña.",
       "Ve a la sección de 'Pagos' y selecciona el concepto de inscripción.",
       "Elige la opción 'Pago Referenciado en Sucursal Bancaria' y genera la ficha de pago.",
       "Acude a cualquier sucursal de Banamex u OXXO y proporciona la línea de captura.",
-      "Sube tu comprobante al portal SUMA+ para validar tu inscripción académica."
+      "Sube tu comprobante al portal institucional para validar tu inscripción académica."
     ],
     formatUrl: "/PDUA-SILD27.pdf",
     formatName: "Guía de Pago Referenciado (PDF)",
   },
-  {
-    title: "Trámite de Devolución / Reembolso",
-    desc: "Procedimiento administrativo para solicitar el reembolso de pagos duplicados o incorrectos.",
-    steps: [
-      "Descarga e imprime el Formato de Solicitud de Reembolso.",
-      "Anexa el comprobante de pago original y una copia de tu identificación oficial.",
-      "Presenta la documentación en la Dirección de la facultad para firma de autorización.",
-      "Entrega el expediente autorizado en el área de Recursos Financieros.",
-      "El reembolso se procesará vía transferencia interbancaria en los siguientes 15 días hábiles."
-    ],
-    formatUrl: "/FOLLETO-GENERAL-CERTIFICACIONES.pdf",
-    formatName: "Formato de Reembolso (PDF)",
-  }
 ];
 
 function FinanzasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {

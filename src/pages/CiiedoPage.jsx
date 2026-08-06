@@ -175,7 +175,7 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
       {/* HERO */}
       <section
         className="pf-hero pf-hero-sm"
-        style={{ backgroundImage: "url('/imagenes/feca-plaza-1.jpg')", justifyContent: "center", minHeight: "30vh" }}
+        style={{ backgroundImage: "url('/imagenes/ciiedo_equipo.jpg')", backgroundPosition: "center 20%", justifyContent: "center", minHeight: "30vh" }}
       >
         <div className="pf-hero-overlay" />
         <div className="pf-hero-inner" style={{ padding: "36px 32px", textAlign: "center" }}>
