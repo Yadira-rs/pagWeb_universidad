@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import Footer from "../sections/Footer";
 import Header from "../sections/Header";
+import DirectorPhotoShowcase from "../components/DirectorPhotoShowcase";
 
 /* ────────── datos ────────── */
 const STATS = [
@@ -199,6 +200,18 @@ function PropedeuticoPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
           ))}
         </div>
       </section>
+
+      <DirectorPhotoShowcase
+        eyebrow="Curso Propedéutico"
+        title="Curso Propedéutico"
+        name="Área de Propedéutico"
+        quote="Preparamos a los aspirantes para iniciar su vida universitaria con bases académicas sólidas, orientación cercana y confianza en su elección profesional."
+        images={[
+          "/imagenes/directivos/propedeutico/DSC_5284.JPG",
+          "/imagenes/directivos/propedeutico/DSC_5285.JPG",
+          "/imagenes/directivos/propedeutico/DSC_5287.JPG",
+        ]}
+      />
 
       {/* ── LICENCIATURAS ── */}
       <section className="prop2-section prop2-section-light prop2-fade">

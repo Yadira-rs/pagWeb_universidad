@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Footer from "../sections/Footer";
 import Header from "../sections/Header";
+import DirectorPhotoShowcase from "../components/DirectorPhotoShowcase";
 
 /* ── Carrusel de historia ── */
 function HistoryCarousel({ slides }) {
@@ -640,6 +641,19 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
             </nav>
           </div>
         </div>
+      )}
+
+      {content.title === "Cursos Intersemestrales" && (
+        <DirectorPhotoShowcase
+          eyebrow="Cursos Intersemestrales"
+          title="Cursos Intersemestrales"
+          name="Área de Intersemestrales"
+          quote="Acompañamos a la comunidad estudiantil con opciones académicas para avanzar, regularizar y fortalecer su trayectoria dentro de la FECA."
+          images={[
+            "/imagenes/directivos/intersemestrales/DSC_5203.JPG",
+            "/imagenes/directivos/intersemestrales/DSC_5205.JPG",
+          ]}
+        />
       )}
 
       {/* ── SECTIONS ── */}
