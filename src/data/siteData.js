@@ -416,6 +416,10 @@ export const servicePages = {
     heroTitle: "Servicio Social",
     intro:
       "Información importante, reglamentos, formatos y documentos oficiales.",
+    coordinator: {
+      image: "/imagenes/servicio-social.jpg",
+      badge: "Coordinación de Servicio Social",
+    },
     grouped: true,
     items: [
       {

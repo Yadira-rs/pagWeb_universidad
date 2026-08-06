@@ -36,7 +36,7 @@ export const directors = [
     ],
     quote:
       "La Secretaría Técnica trabaja día a día para que cada proceso institucional fluya con eficiencia, transparencia y orientación al servicio de la comunidad.",
-    image: "/imagenes/inicio.png",
+    image: "/imagenes/secretaria-tecnica.jpg",
     bio: {
       trajectory:
         "El Dr. Miguel cuenta con una amplia experiencia en la administración académica, el diseño institucional y el desarrollo de proyectos de gestión gubernamental. A lo largo de su carrera en la UJED, ha coordinado procesos de planeación y evaluación institucional.",

@@ -122,6 +122,23 @@ function ServiciosEscolaresPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) 
         </div>
       </section>
 
+      {/* COORDINACIÓN */}
+      <section className="pf-section pf-fade" style={{ paddingBottom: 0 }}>
+        <div className="pf-container">
+          <div className="coord-card">
+            <div className="coord-card-photo">
+              <img src="/imagenes/servicios-escolares.jpg" alt="Coordinación de Servicios Escolares" />
+            </div>
+            <div className="coord-card-body">
+              <span className="coord-card-badge">Coordinación de Servicios Escolares</span>
+              <p className="coord-card-quote">
+                Consulta mapas curriculares, realiza trámites académicos y accede a documentos oficiales de la FECA‑UJED.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* MAPAS CURRICULARES */}
       <section className="pf-section pf-fade">
         <div className="pf-container">
