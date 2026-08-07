@@ -10688,6 +10688,63 @@ a.prop2-contact-item:hover {
 .pf-card-header-row .pf-card-icon { margin: 0; }
 .pf-card-header-row .pf-card-title { font-size: 17px; }
 
+/* ══════════ TARJETA DE COORDINACIÓN (foto + pastilla + cita) ══════════ */
+.coord-card {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 40px;
+  align-items: center;
+  background: #fff;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+  border: 1px solid #ece8e4;
+  margin-bottom: 56px;
+}
+.coord-card-photo {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #f4f0eb;
+}
+.coord-card-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+.coord-card-body { display: flex; flex-direction: column; }
+.coord-card-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(135deg, #c0050f 0%, #e31313 60%);
+  border-radius: 999px;
+  padding: 8px 18px;
+  margin-bottom: 14px;
+}
+.coord-card-name {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--navy);
+  margin: 0 0 12px;
+  line-height: 1.2;
+}
+.coord-card-quote {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--gray-mid);
+  margin: 0;
+}
+@media (max-width: 640px) {
+  .coord-card { grid-template-columns: 1fr; text-align: center; padding: 28px 22px; }
+  .coord-card-photo { max-width: 240px; margin: 0 auto; }
+  .coord-card-badge { align-self: center; }
+}
+
 /* ══════════ CESA · EQUIPO ══════════ */
 .cesa-team { display: flex; flex-direction: column; align-items: center; gap: 48px; }
 
@@ -11439,6 +11496,146 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
 
 /* ══════════ FIN CELCI ══════════ */
 
+/* Directivos / responsables por sección */
+.director-photo-section {
+  background: #f3efe9;
+  padding: 56px 20px 64px;
+}
+
+.director-photo-container {
+  width: min(1150px, 100%);
+  margin: 0 auto;
+}
+
+.director-photo-heading {
+  margin: 0 0 30px;
+  color: #201b1a;
+  font-family: var(--font-display);
+  font-size: clamp(34px, 5vw, 62px);
+  font-weight: 800;
+  line-height: 0.95;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.director-photo-card {
+  display: grid;
+  grid-template-columns: minmax(280px, 44%) 1fr;
+  min-height: 520px;
+  overflow: hidden;
+  border-radius: 26px;
+  background: #fff;
+  box-shadow: 0 22px 60px rgba(33, 28, 21, 0.14);
+}
+
+.director-photo-media {
+  position: relative;
+  min-height: 520px;
+  background: #fff;
+}
+
+.director-photo-media::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 58%, rgba(255, 255, 255, 0.92) 100%);
+  pointer-events: none;
+}
+
+.director-photo-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center 16%;
+}
+
+.director-photo-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(32px, 6vw, 72px);
+}
+
+.director-photo-badge {
+  width: fit-content;
+  margin-bottom: 18px;
+  border-radius: 999px;
+  background: #e31313;
+  color: #fff;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  padding: 10px 18px;
+  text-transform: uppercase;
+}
+
+.director-photo-name {
+  margin: 0 0 18px;
+  color: #8f1725;
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 800;
+  line-height: 1.08;
+}
+
+.director-photo-quote {
+  max-width: 610px;
+  margin: 0;
+  color: #6b6460;
+  font-family: var(--font-body);
+  font-size: clamp(16px, 1.6vw, 19px);
+  font-weight: 600;
+  line-height: 1.75;
+}
+
+.director-photo-thumbs {
+  display: flex;
+  gap: 12px;
+  margin-top: 26px;
+  flex-wrap: wrap;
+}
+
+.director-photo-thumbs img {
+  width: 76px;
+  height: 76px;
+  border: 3px solid rgba(227, 19, 19, 0.16);
+  border-radius: 14px;
+  object-fit: cover;
+  object-position: center 16%;
+}
+
+@media (max-width: 780px) {
+  .director-photo-section {
+    padding: 38px 16px 46px;
+  }
+
+  .director-photo-card {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    border-radius: 18px;
+  }
+
+  .director-photo-media {
+    min-height: 360px;
+  }
+
+  .director-photo-media::after {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 62%, rgba(255, 255, 255, 0.88) 100%);
+  }
+
+  .director-photo-content {
+    padding: 26px 22px 32px;
+  }
+
+  .director-photo-heading {
+    margin-bottom: 22px;
+    font-size: clamp(30px, 10vw, 44px);
+  }
+}
+
 /* ══════════════════════════════════════════════════════════
    CIIEDO — About grid layout
    ══════════════════════════════════════════════════════════ */
@@ -11540,9 +11737,9 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
 
 /* ── Lista Ejecutiva (DirectorsList) ── */
 .el-section {
-  max-width: 900px;
+  max-width: 1040px;
   margin: 0 auto;
-  padding: 0 0 16px;
+  padding: 0 0 28px;
 }
 
 .el-header {
@@ -11590,32 +11787,34 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
   list-style: none;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
 }
 
 .el-row {
   display: flex;
-  gap: 40px;
+  gap: 34px;
   align-items: flex-start;
-  padding: 40px 0;
-  border-bottom: 1px solid #ede9e5;
-}
-
-.el-row:first-child {
-  border-top: 1px solid #ede9e5;
+  padding: 30px;
+  border: 1px solid #eee5df;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 14px 36px rgba(33, 28, 21, 0.08);
 }
 
 .el-photo-wrap {
   flex-shrink: 0;
-  width: 108px;
+  width: 132px;
 }
 
 .el-photo {
-  width: 108px;
-  height: 108px;
-  border-radius: 50%;
+  width: 132px;
+  height: 132px;
+  border-radius: 18px;
   object-fit: cover;
   object-position: center top;
-  border: 3px solid #e31313;
+  border: 3px solid rgba(227, 19, 19, 0.18);
   display: block;
 }
 
@@ -11632,16 +11831,16 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color: #951823;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .el-name {
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
   font-weight: 700;
   color: #1a1a2e;
   margin: 0 0 14px;
-  line-height: 1.25;
+  line-height: 1.18;
 }
 
 .el-badges {
@@ -11708,7 +11907,7 @@ a.pf-contact-item:hover { border-color: rgba(192,0,12,0.3); box-shadow: 0 8px 24
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    padding: 32px 0;
+    padding: 24px 18px;
     text-align: center;
   }
 
@@ -13518,6 +13717,19 @@ body.footer-in-view .sw-root {
   height: 100%;
   object-fit: contain;
   display: block;
+}
+
+.dp-hero-photo-wrap--multi {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  aspect-ratio: 8 / 5;
+  padding: 8px;
+}
+
+.dp-hero-photo-wrap--multi .dp-hero-photo {
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .dp-hero-content {

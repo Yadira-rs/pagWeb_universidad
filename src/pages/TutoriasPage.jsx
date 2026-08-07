@@ -76,9 +76,19 @@ function TutoriasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
           <div className="pf-section-head pf-section-head-center">
             <div className="pf-label">Coordinación</div>
             <h2 className="pf-section-title">Responsable del programa</h2>
-            <p className="pf-section-desc">
-              Coordinadora de Tutorías: <strong>Mtra. Ana Karen Salas</strong>
-            </p>
+          </div>
+
+          <div className="coord-card">
+            <div className="coord-card-photo">
+              <img src="/imagenes/tutorias.jpg" alt="Coordinación de Tutorías" />
+            </div>
+            <div className="coord-card-body">
+              <span className="coord-card-badge">Coordinación de Tutorías</span>
+              <h3 className="coord-card-name">Mtra. Ana Karen Salas</h3>
+              <p className="coord-card-quote">
+                Acompañamiento académico para fortalecer tu trayectoria universitaria, resolver dudas y orientar decisiones durante tu formación.
+              </p>
+            </div>
           </div>
 
           <div className="pf-cards-grid pf-fade">

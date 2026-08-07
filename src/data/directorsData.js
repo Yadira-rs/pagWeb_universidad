@@ -1,116 +1,166 @@
 export const directors = [
   {
-    slug: "director-general",
-    name: "Dr. Jesús Guillermo Sotelo Asef",
+    slug: "direccion",
+    name: "Dirección",
     role: "Dirección",
-    roleLabel: "Director FECA",
+    roleLabel: "Dirección",
     area: "Gestión institucional",
     enfoque: "Liderazgo académico",
     degrees: [
-      { title: "Doctorado en Administración", institution: "UJED" },
-      { title: "Maestría en Gestión Pública", institution: "UNAM" },
-      { title: "Licenciatura en Administración", institution: "UJED" },
+      { title: "Planeación institucional", institution: "FECA" },
+      { title: "Gestión académica", institution: "UJED" },
+      { title: "Vinculación universitaria", institution: "FECA" },
     ],
     quote:
-      "Comprometidos con la excelencia académica y el desarrollo integral de nuestra comunidad universitaria, guiamos a la FECA hacia un futuro de innovación y pertinencia regional.",
-    image: "/imagenes/director.jpeg",
+      "La Dirección guía el desarrollo académico, administrativo y humano de la facultad, fortaleciendo el rumbo institucional de la FECA.",
+    image: "/imagenes/directivos/direccion/director.jpeg",
     bio: {
       trajectory:
-        "El Dr. Jesús Guillermo Sotelo Asef cuenta con una destacada trayectoria de más de 15 años en el ámbito de la educación superior y la administración pública. Ha ocupado diversos cargos directivos y de docencia dentro de la Universidad Juárez del Estado de Durango (UJED), impulsando proyectos de reforma curricular y acreditaciones de calidad nacional.",
+        "La Dirección coordina las acciones estratégicas de la facultad y da seguimiento a los proyectos institucionales que fortalecen la vida académica, administrativa y de vinculación.",
       focus:
-        "Su gestión al frente de la FECA está orientada al fortalecimiento académico de los programas educativos, el fomento a la investigación científica con pertinencia regional, y la vinculación estratégica con los sectores empresarial y público.",
+        "Su enfoque se centra en la mejora continua, la calidad educativa, la atención a la comunidad universitaria y la consolidación de la FECA como referente académico.",
       contact: "direccion.feca@ujed.mx",
     },
   },
   {
     slug: "secretaria-tecnica",
-    name: "Dr. Miguel",
+    name: "Secretaría Técnica",
     role: "Secretaría Técnica",
-    roleLabel: "Secretario Técnico",
-    area: "Administración académica",
-    enfoque: "Planeación institucional",
+    roleLabel: "Secretaría Técnica",
+    area: "Planeación y seguimiento",
+    enfoque: "Coordinación institucional",
     degrees: [
-      { title: "Doctorado en Administración Pública", institution: "UJED" },
-      { title: "Maestría en Gestión Organizacional", institution: "UJED" },
-      { title: "Licenciatura en Administración", institution: "UJED" },
+      { title: "Seguimiento académico", institution: "FECA" },
+      { title: "Procesos institucionales", institution: "UJED" },
+      { title: "Atención directiva", institution: "FECA" },
     ],
     quote:
-      "La Secretaría Técnica trabaja día a día para que cada proceso institucional fluya con eficiencia, transparencia y orientación al servicio de la comunidad.",
-    image: "/imagenes/inicio.png",
+      "La Secretaría Técnica acompaña la operación institucional para que los procesos internos avancen con orden, claridad y servicio.",
+    image: "/imagenes/directivos/secretaria-tecnica/DSC_5246.JPG",
     bio: {
       trajectory:
-        "El Dr. Miguel cuenta con una amplia experiencia en la administración académica, el diseño institucional y el desarrollo de proyectos de gestión gubernamental. A lo largo de su carrera en la UJED, ha coordinado procesos de planeación y evaluación institucional.",
+        "La Secretaría Técnica apoya la planeación, coordinación y seguimiento de las actividades estratégicas de la facultad.",
       focus:
-        "Como Secretario Técnico, se encarga de la planeación y del seguimiento de metas de las jefaturas de carrera, garantizando un servicio administrativo ágil, eficiente y centrado en la atención a alumnos y académicos.",
+        "Su trabajo fortalece la comunicación interna, la organización de procesos y la atención a las necesidades académicas e institucionales.",
       contact: "sec.tecnica.feca@ujed.mx",
     },
   },
   {
-    slug: "posgrado",
-    name: "Dr. Eliú Jahaziel Reyes Reyes",
-    role: "División de Estudios de Posgrado",
-    roleLabel: "Jefe de la División de Estudios de Posgrado",
-    area: "Investigación y posgrado",
-    enfoque: "Internacionalización académica",
+    slug: "secretaria-academica",
+    name: "Secretaría Académica",
+    role: "Secretaría Académica",
+    roleLabel: "Secretaría Académica",
+    area: "Desarrollo académico",
+    enfoque: "Calidad educativa",
     degrees: [
-      { title: "Doctorado en Ciencias Contables", institution: "UJED" },
-      { title: "Maestría en Finanzas", institution: "UNAM" },
-      { title: "Licenciatura en Contabilidad", institution: "UJED" },
+      { title: "Programas educativos", institution: "FECA" },
+      { title: "Trayectoria escolar", institution: "UJED" },
+      { title: "Acompañamiento docente", institution: "FECA" },
     ],
     quote:
-      "El posgrado de la FECA es el espacio donde la investigación y la práctica convergen para formar los líderes académicos y empresariales del mañana.",
-    image: "/imagenes/aniversario.jpeg",
+      "La Secretaría Académica impulsa la calidad de los programas, el acompañamiento docente y la formación integral de los estudiantes.",
+    image: "/imagenes/directivos/secretaria-academica/DSC_5303.JPG",
     bio: {
       trajectory:
-        "El Dr. Eliú Jahaziel Reyes Reyes es un reconocido profesor e investigador del área contable y financiera. Con más de una década de experiencia docente en posgrados, ha dirigido múltiples tesis de maestría y doctorado, participando en foros internacionales de investigación financiera.",
+        "La Secretaría Académica coordina procesos relacionados con programas educativos, docentes, estudiantes y seguimiento académico.",
       focus:
-        "Su visión para la División de Estudios de Posgrado de la FECA es la internacionalización de sus programas y la consolidación de los posgrados en el Sistema Nacional de Posgrados (SNP), promoviendo la investigación que incida en el desarrollo económico regional.",
+        "Su enfoque es fortalecer la calidad educativa, la actualización académica y la atención a las necesidades de formación profesional.",
+      contact: "academica.feca@ujed.mx",
+    },
+  },
+  {
+    slug: "secretaria-administrativa",
+    name: "Secretaría Administrativa",
+    role: "Secretaría Administrativa",
+    roleLabel: "Secretaría Administrativa",
+    area: "Administración y recursos",
+    enfoque: "Gestión operativa",
+    degrees: [
+      { title: "Recursos humanos", institution: "FECA" },
+      { title: "Recursos materiales", institution: "UJED" },
+      { title: "Servicios generales", institution: "FECA" },
+    ],
+    quote:
+      "La Secretaría Administrativa coordina los recursos y servicios necesarios para el funcionamiento eficiente de la facultad.",
+    image: "/imagenes/directivos/secretaria-administrativa/DSC_5334.JPG",
+    bio: {
+      trajectory:
+        "La Secretaría Administrativa gestiona recursos humanos, materiales y servicios generales para apoyar las actividades de la comunidad FECA.",
+      focus:
+        "Su enfoque está en la eficiencia operativa, la atención institucional y el uso responsable de los recursos.",
+      contact: "administrativa.feca@ujed.mx",
+    },
+  },
+  {
+    slug: "posgrado",
+    name: "División de Estudios de Posgrado",
+    role: "División de Estudios de Posgrado",
+    roleLabel: "División de Estudios de Posgrado",
+    area: "Investigación y posgrado",
+    enfoque: "Formación avanzada",
+    degrees: [
+      { title: "Especialidades", institution: "FECA" },
+      { title: "Maestrías", institution: "UJED" },
+      { title: "Doctorado", institution: "FECA" },
+    ],
+    quote:
+      "La División de Estudios de Posgrado fortalece la investigación, la actualización profesional y la formación académica avanzada.",
+    image: "/imagenes/directivos/posgrado/DSC_5267.JPG",
+    images: [
+      "/imagenes/directivos/posgrado/DSC_5267.JPG",
+      "/imagenes/directivos/posgrado/DSC_5264.JPG",
+    ],
+    bio: {
+      trajectory:
+        "La División de Estudios de Posgrado coordina la oferta académica posterior a la licenciatura y promueve espacios de investigación y especialización.",
+      focus:
+        "Su enfoque se centra en programas pertinentes, investigación aplicada y formación profesional de alto nivel.",
       contact: "posgrado.feca@ujed.mx",
     },
   },
   {
     slug: "ciiedo",
-    name: "Dr. Iván",
-    role: "CIIEDO",
-    roleLabel: "Director CIIEDO",
-    area: "Innovación empresarial",
+    name: "Centro de Innovación, Investigación, Emprendimiento y Desarrollo Organizacional",
+    role: "Centro de Innovación, Investigación, Emprendimiento y Desarrollo Organizacional",
+    roleLabel: "CIIEDO",
+    area: "Innovación y emprendimiento",
     enfoque: "Vinculación con el sector productivo",
     degrees: [
-      { title: "Doctorado en Ciencias Económicas", institution: "UJED" },
-      { title: "Maestría en Administración de Empresas", institution: "UNAM" },
-      { title: "Licenciatura en Economía", institution: "UJED" },
+      { title: "Innovación", institution: "FECA" },
+      { title: "Investigación", institution: "UJED" },
+      { title: "Emprendimiento", institution: "FECA" },
     ],
     quote:
-      "El CIIEDO es un espacio de formación continua donde el conocimiento se conecta directamente con el mundo empresarial.",
-    image: "/imagenes/imagen.jpeg",
+      "El Centro impulsa proyectos de innovación, emprendimiento e investigación con impacto en las organizaciones y la sociedad.",
+    image: "/imagenes/directivos/ciiedo/DSC_5202.JPG",
     bio: {
       trajectory:
-        "El Dr. Iván posee una sólida experiencia en consultoría de negocios, formulación de proyectos de inversión y desarrollo local. Ha diseñado diversos programas de capacitación continua para mandos medios y directivos de organizaciones locales.",
+        "El Centro articula iniciativas de innovación, investigación, emprendimiento y desarrollo organizacional desde la facultad.",
       focus:
-        "Al frente del Centro de Innovación, Incubación y Desarrollo Empresarial y Organizacional (CIIEDO), promueve la vinculación directa entre la academia y el sector productivo, impulsando incubadoras de empresas para estudiantes y egresados.",
+        "Su enfoque es vincular el conocimiento académico con proyectos aplicados, empresas, organizaciones y necesidades del entorno.",
       contact: "ciiedo.feca@ujed.mx",
     },
   },
   {
     slug: "celci",
-    name: "Dr. Juan",
-    role: "Centro de Idiomas (CELCI)",
-    roleLabel: "Coordinador CELCI",
-    area: "Lenguas y comunicación",
-    enfoque: "Certificaciones internacionales",
+    name: "Centro de Lenguas y Competitividad Internacional",
+    role: "Centro de Lenguas y Competitividad Internacional",
+    roleLabel: "CELCI",
+    area: "Lenguas e internacionalización",
+    enfoque: "Competitividad internacional",
     degrees: [
-      { title: "Doctorado en Lingüística Aplicada", institution: "UNAM" },
-      { title: "Maestría en Enseñanza del Inglés", institution: "UJED" },
-      { title: "Licenciatura en Letras Inglesas", institution: "UJED" },
+      { title: "Idiomas", institution: "FECA" },
+      { title: "Certificaciones", institution: "UJED" },
+      { title: "Internacionalización", institution: "FECA" },
     ],
     quote:
-      "En el Centro de Idiomas creemos que el dominio de lenguas es la llave que abre las puertas al mundo. Formamos ciudadanos globales desde la FECA.",
-    image: "/imagenes/cafeteria.jpeg",
+      "El Centro de Lenguas y Competitividad Internacional fortalece las habilidades lingüísticas y la proyección global de la comunidad FECA.",
+    image: "/imagenes/directivos/celci/DSC_5323.JPG",
     bio: {
       trajectory:
-        "El Dr. Juan se ha especializado en la enseñanza comunicativa del inglés y en programas de certificación de dominio de idiomas. Cuenta con amplia trayectoria en capacitación docente y diseño curricular de lenguas extranjeras.",
+        "El Centro coordina la formación en lenguas y acciones que impulsan la competitividad internacional de estudiantes y comunidad universitaria.",
       focus:
-        "Su compromiso al frente de la Coordinación del Centro de Idiomas (CELCI) es expandir la oferta lingüística y facilitar certificaciones internacionales de lenguas que añadan valor curricular a los perfiles académicos de los egresados.",
+        "Su enfoque es promover el aprendizaje de idiomas, la certificación y las oportunidades de participación internacional.",
       contact: "celci.feca@ujed.mx",
     },
   },

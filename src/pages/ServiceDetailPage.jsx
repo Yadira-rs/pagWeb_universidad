@@ -75,6 +75,20 @@ function ServiceDetailPage({
       </section>
 
       <main className="details-page doc-list-page">
+        {content.coordinator && (
+          <div className="coord-card">
+            <div className="coord-card-photo">
+              <img src={content.coordinator.image} alt={content.coordinator.badge} />
+            </div>
+            <div className="coord-card-body">
+              <span className="coord-card-badge">{content.coordinator.badge}</span>
+              {content.coordinator.name && (
+                <h3 className="coord-card-name">{content.coordinator.name}</h3>
+              )}
+              <p className="coord-card-quote">{content.intro}</p>
+            </div>
+          </div>
+        )}
         {content.grouped ? (
           groupItems(content.items).map((group, gi) => (
             <div key={gi} className="doc-group">
