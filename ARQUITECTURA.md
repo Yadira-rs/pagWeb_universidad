@@ -46,7 +46,45 @@ construyó el equipo — Admisiones API y Notificaciones API — no comparten
 código ni proceso entre sí; solo se hablan por HTTP con un contrato
 documentado (ver los `README.md` de cada carpeta en `services/`).
 
-## 3. Cómo se cumple cada criterio
+## 3. Quién administra el sitio y dónde se edita el contenido
+
+**Quién entra.** El panel (`#/admin`) usa Supabase Auth: solo entra quien
+tiene una cuenta creada ahí. Hoy esas cuentas se dan de alta a mano en
+Supabase → Authentication → Users. Un maestro o directivo puede pedir
+acceso desde la misma pantalla de login (`AdminLoginPage.jsx`), lo que
+guarda una fila en `solicitudes_acceso_panel`; alguien con acceso la
+revisa en la pestaña "Solicitudes de acceso" del panel, pero aprobarla
+ahí **no crea la cuenta automáticamente** — sigue siendo un paso manual
+en Supabase. No hay señal de que la aprobaron: quien las revisa avisa
+por fuera (WhatsApp, correo) cuando ya la dio de alta.
+
+**Dos lugares distintos para editar contenido, y por qué importa para la
+rúbrica:**
+
+1. **Panel propio del sitio** (`#/admin`, `src/pages/AdminPanelPage.jsx`)
+   — pantallas hechas a medida para lo que cambia más seguido: Anuncios
+   y noticias, Últimas noticias, Carrusel de Inicio, Documentos de
+   egresados, Testimonios, Solicitudes de admisión, Opiniones del sitio,
+   Solicitudes de acceso. De esas ocho, **solo "Solicitudes de admisión"
+   pasa por un microservicio propio** (Admisiones API); las otras siete
+   hablan directo con Supabase desde el navegador (`anon`/`authenticated`
+   + RLS), igual que el resto del sitio público.
+2. **Supabase Table Editor** (fuera del sitio, en supabase.com/dashboard)
+   — para lo que todavía no tiene pantalla propia en el panel. Es edición
+   manual directa sobre Postgres: no pasa por ningún servicio ni por el
+   frontend, la usa directamente la persona que administra el sitio.
+
+**Por qué se los mencionamos si van a preguntar "¿todo pasa por sus
+servicios?"**: no. Solo el dominio de solicitudes de admisión tiene un
+microservicio propio de por medio. El resto del contenido — incluida la
+edición manual vía Table Editor — se apoya en Supabase directo,
+protegido por políticas RLS en vez de por un contrato HTTP propio. Es
+honesto decirlo así en la defensa: separar en microservicios el dominio
+que de verdad lo necesitaba (solicitudes, con su flujo de notificación)
+en vez de forzar los ocho dominios del panel a pasar por servicios
+propios sin una razón real para cada uno.
+
+## 4. Cómo se cumple cada criterio
 
 **Autonomía del servicio.** Cada microservicio en `services/` tiene su
 propio `package.json`, sus propias dependencias (`node_modules` no se
@@ -81,7 +119,7 @@ arriba. Para la demo en vivo: levantar los 3 procesos (frontend + los
 dos servicios), enviar una solicitud real desde `#/solicitud`, y
 mostrarla apareciendo en `#/admin` → pestaña Solicitudes.
 
-## 4. Guion sugerido para la demo en vivo
+## 5. Guion sugerido para la demo en vivo
 
 1. Levantar los tres procesos (ver `README.md` raíz y los de
    `services/*`).
@@ -101,7 +139,7 @@ mostrarla apareciendo en `#/admin` → pestaña Solicitudes.
    sitio (login, anuncios, etc.) sigue funcionando porque no depende de
    este servicio.
 
-## 5. Preguntas esperadas en la defensa técnica
+## 6. Preguntas esperadas en la defensa técnica
 
 **¿Por qué dos servicios y no uno solo con dos rutas?**
 Porque son dos responsabilidades independientes con ciclos de vida
@@ -111,7 +149,7 @@ distintos hace que esa independencia sea real (se puede caer uno sin
 tumbar el otro), no solo una separación lógica dentro del mismo proceso.
 
 **¿Qué pasa si Notificaciones API está caída?**
-Ver sección 4, paso 4: Admisiones API detecta el fallo (timeout de 3s),
+Ver sección 5, paso 4: Admisiones API detecta el fallo (timeout de 3s),
 lo registra, y responde igual `201` al usuario — la solicitud ya estaba
 guardada antes de intentar notificar. Degradación controlada, no un
 error en cascada.
