@@ -13,5 +13,5 @@ test('CP-001 - Búsqueda de programas y servicios (CELCI)', async ({ page }) => 
   await expect(result).toBeVisible();
 
   await result.click();
-  await expect(page).toHaveURL(/#\/celci/);
+  await expect(page).toHaveURL(/#\/lenguas/);
 });

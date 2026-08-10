@@ -513,7 +513,7 @@ export const legacyPages = {
     routeGroup: "legacy-program",
     heroImage: "/imagenes/lic.jpg",
     kicker: "Modalidad presencial",
-    title: "CELCI - Centro de Lenguas e Internacionalización",
+    title: "CELCI - Centro de Lenguas y Competitividad Internacional",
     intro:
       "Cursos de idiomas para adultos, niños y jóvenes en la Facultad de Economía, Contaduría y Administración.",
     tabMode: "switch",
@@ -712,7 +712,7 @@ export const legacyPages = {
         title: "Proceso inscripción",
         variant: "wide",
         paragraphs: [
-          "Para realizar tu inscripción, comunícate al Centro de Lenguas e Internacionalización o acude a las instalaciones de la Facultad. Ahí podrán orientarte sobre horarios disponibles, costos, requisitos y grupos abiertos.",
+          "Para realizar tu inscripción, comunícate al Centro de Lenguas y Competitividad Internacional o acude a las instalaciones de la Facultad. Ahí podrán orientarte sobre horarios disponibles, costos, requisitos y grupos abiertos.",
         ],
         contacts: [
           { label: "Modalidad", value: "Presencial" },
@@ -738,7 +738,7 @@ export const legacyPages = {
             question:
               "1. Soy alumno de reingreso y no sé cuál es mi matrícula. ¿Cómo puedo conseguirla?",
             answer:
-              "Puedes solicitarla enviando tu nombre completo a cli.feca@ujed.mx, por Facebook en facebook/CLI.FECA.UJED o por teléfono al 827-13-65 ext. 5725, lunes, miércoles y viernes de 10:00 a.m. a 2:00 p.m.",
+              "Puedes solicitarla enviando tu nombre completo a celci.feca@ujed.mx, por Facebook en facebook/CLI.FECA.UJED o por teléfono al 827-13-65 ext. 5725, lunes, miércoles y viernes de 10:00 a.m. a 2:00 p.m.",
           },
           {
             question:
@@ -774,8 +774,8 @@ export const legacyPages = {
           { label: "Teléfono", value: "827-13-65 ext. 5725" },
           {
             label: "Correo",
-            value: "cli.feca@ujed.mx",
-            href: "mailto:cli.feca@ujed.mx",
+            value: "celci.feca@ujed.mx",
+            href: "mailto:celci.feca@ujed.mx",
           },
         ],
       },

@@ -111,16 +111,6 @@ const documentos = [
     label: "Folleto general de certificaciones",
   },
   {
-    href: "/calendario-ciiedo.html",
-    download: "Certificado-SEP-CONOCER-STPS-CIIEDO.html",
-    label: "Certificado con validez nacional SEP-CONOCER-STPS",
-  },
-  {
-    href: "/diagrama-coordinacion.jpeg",
-    download: "Diagrama-Coordinacion-CIIEDO.jpeg",
-    label: "Diagrama de coordinación",
-  },
-  {
     href: "https://conocer.gob.mx/",
     external: true,
     label: "Sitio oficial CONOCER",
@@ -174,13 +164,23 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
 
       {/* HERO */}
       <section
-        className="pf-hero pf-hero-sm"
-        style={{ backgroundImage: "url('/imagenes/ciiedo_equipo.jpg')", backgroundPosition: "center 20%", justifyContent: "center", minHeight: "30vh" }}
+        className="pf-hero pf-hero-sm ciiedo-hero"
+        style={{
+          backgroundImage: "url('/imagenes/ciiedo_equipo.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center 38%",
+          justifyContent: "center",
+          minHeight: "72vh",
+        }}
       >
-        <div className="pf-hero-overlay" />
-        <div className="pf-hero-inner" style={{ padding: "36px 32px", textAlign: "center" }}>
-          <div className="pf-hero-badge">CIIEDO · FECA · UJED</div>
-          <p className="ciiedo-acronym">
+        <div className="pf-hero-overlay ciiedo-hero-overlay" />
+        <div className="pf-hero-inner" style={{ padding: "36px 32px" }}>
+          <img
+            src="/imagenes/logo-ciiedo.png"
+            alt="Logo CIIEDO"
+            className="ciiedo-hero-logo"
+          />
+          <p className="ciiedo-acronym" style={{ margin: "0 0 28px" }}>
             <span>C</span>entro de{" "}
             <span>I</span>nnovación,{" "}
             <span>I</span>nvestigación,{" "}
@@ -188,7 +188,7 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
             <span>D</span>esarrollo{" "}
             <span>O</span>rganizacional
           </p>
-          <p className="pf-hero-sub" style={{ margin: "0 auto 36px" }}>
+          <p className="pf-hero-sub" style={{ margin: "0 0 36px" }}>
             En CIIEDO te asesoramos, acompañamos y conectamos con oportunidades
             de innovación y emprendimiento dentro de la FECA.
           </p>
@@ -202,14 +202,9 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
 
             {/* Columna izquierda: identidad + descripción + áreas */}
             <div className="ciiedo-about-text">
-              <img
-                src="/imagenes/logo-ciiedo.png"
-                alt="Logo CIIEDO"
-                className="ciiedo-about-logo"
-              />
-              <div className="pf-label" style={{ marginTop: 28 }}>¿Quiénes somos?</div>
-              <h2 className="pf-section-title" style={{ marginTop: 8 }}>
-                Centro de Innovación,<br />Investigación, Emprendimiento<br />y Desarrollo Organizacional
+              <div className="pf-label">¿Quiénes somos?</div>
+              <h2 className="pf-section-title" style={{ marginTop: 8, fontSize: "clamp(26px, 2.8vw, 36px)" }}>
+                Centro de Innovación, Investigación, Emprendimiento y Desarrollo Organizacional
               </h2>
               <p className="pf-section-desc" style={{ marginTop: 12, marginBottom: 28 }}>
                 El CIIEDO es el espacio dentro de la facultad donde los estudiantes
@@ -228,10 +223,18 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
             {/* Columna derecha: foto grande + mini fotos */}
             <div className="ciiedo-about-gallery">
               <div className="ciiedo-about-img-main">
-                <img src="/imagenes/feca-plaza-1.jpg" alt="Campus FECA" />
+                <img src="/imagenes/feca-entrada.jpg" alt="Entrada FECA" />
+                <div className="ciiedo-about-img-caption">Facultad de Economía, Contaduría y Administración</div>
               </div>
               <div className="ciiedo-about-img-side">
-                <img src="/imagenes/feca-entrada.jpg" alt="Entrada FECA" />
+                <div className="ciiedo-about-logo-badge">
+                  <img
+                    src="/imagenes/logo-ciiedo.png"
+                    alt="Logo CIIEDO"
+                    className="ciiedo-about-logo"
+                  />
+                </div>
+                <img src="/imagenes/feca-plaza-1.jpg" alt="Campus FECA" />
                 <img src="/imagenes/aniversario.jpeg" alt="FECA UJED" />
               </div>
             </div>
@@ -342,104 +345,6 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
                   style={{ width: "100%", height: "auto", display: "block" }}
                 />
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* DIAGRAMA DE COORDINACIÓN */}
-      <section className="pf-section pf-section-alt pf-fade">
-        <div className="pf-container">
-          <div className="pf-section-head pf-section-head-center">
-            <div className="pf-label">Estructura</div>
-            <h2 className="pf-section-title">Diagrama de coordinación</h2>
-            <p className="pf-section-desc">
-              Organización interna del <strong>CIIEDO</strong> dentro de la Facultad de Economía,
-              Contaduría y Administración.
-            </p>
-          </div>
-          <div
-            className="pf-fade"
-            style={{
-              background: "#fff",
-              borderRadius: 20,
-              overflow: "hidden",
-              boxShadow: "0 12px 40px rgba(227,19,19,0.14)",
-              border: "1px solid #f0e0e0",
-              maxWidth: 900,
-              margin: "0 auto",
-            }}
-          >
-            <img
-              src="/diagrama-coordinacion.jpeg"
-              alt="Diagrama de coordinación CIIEDO"
-              style={{ width: "100%", height: "auto", display: "block" }}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* FRANJA CIIEDO — degradado puro, sin imagen de fondo */}
-      <div
-        className="pf-fade"
-        style={{
-          width: "100%",
-          padding: "64px 24px",
-          background: "linear-gradient(135deg, #c0050f 0%, #e31313 45%, #9b1020 100%)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          flexDirection: "column",
-          textAlign: "center",
-        }}
-      >
-        <div
-          style={{
-            fontFamily: "var(--font-display)",
-            fontSize: "clamp(56px, 10vw, 110px)",
-            fontWeight: 900,
-            color: "#fff",
-            letterSpacing: "-3px",
-            lineHeight: 1,
-            textShadow: "0 6px 32px rgba(0,0,0,0.25)",
-          }}
-        >
-          CIIEDO
-        </div>
-        <p
-          style={{
-            margin: "14px 0 0",
-            fontFamily: "var(--font-ui)",
-            fontSize: 13,
-            fontWeight: 700,
-            color: "rgba(255,255,255,0.8)",
-            letterSpacing: "0.22em",
-            textTransform: "uppercase",
-          }}
-        >
-          FECA · UJED · Durango
-        </p>
-      </div>
-
-      {/* CTA BANNER */}
-      <section className="pf-section pf-section-alt pf-fade">
-        <div className="pf-container">
-          <div className="pf-cta-banner">
-            <div className="pf-cta-banner-text">
-              <h2>¿Tienes un proyecto en mente?</h2>
-              <p>
-                El primer paso es el más fácil: acércate al <strong>CIIEDO</strong>, cuéntanos tu idea
-                y nosotros te guiamos desde ahí.
-              </p>
-            </div>
-            <div className="pf-cta-banner-actions">
-              <a href="mailto:ciiedo.feca@ujed.mx" className="pf-btn-outline">
-                Escríbenos ahora
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="16" height="16">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
-                </svg>
-              </a>
             </div>
           </div>
         </div>

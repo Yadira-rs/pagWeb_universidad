@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Footer from "../sections/Footer";
 import Header from "../sections/Header";
-import { supabase } from "../lib/supabaseClient";
+import { crearSolicitud } from "../lib/admisionesApiClient";
 
 function LegacyAdmissionPage({
   content,
@@ -22,15 +22,16 @@ function LegacyAdmissionPage({
     setErrorMsg("");
 
     const data = new FormData(e.target);
-    const { error } = await supabase.from("solicitudes_admision").insert({
-      nombre: data.get("nombre")?.toString().trim() || "",
-      telefono: data.get("telefono")?.toString().trim() || null,
-      correo: data.get("correo")?.toString().trim() || null,
-      programa: data.get("programa")?.toString() || null,
-      mensaje: data.get("mensaje")?.toString().trim() || null,
-    });
 
-    if (error) {
+    try {
+      await crearSolicitud({
+        nombre: data.get("nombre")?.toString().trim() || "",
+        telefono: data.get("telefono")?.toString().trim() || null,
+        correo: data.get("correo")?.toString().trim() || null,
+        programa: data.get("programa")?.toString() || null,
+        mensaje: data.get("mensaje")?.toString().trim() || null,
+      });
+    } catch {
       setStatus("error");
       setErrorMsg("No se pudo enviar tu solicitud. Intenta de nuevo o llama al (618) 827-13-65.");
       return;

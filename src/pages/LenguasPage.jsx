@@ -21,11 +21,6 @@ const TAB_ICONS = {
       <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
     </svg>
   ),
-  diagnostico: (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/>
-    </svg>
-  ),
   preguntas: (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>
@@ -49,7 +44,6 @@ const tabs = [
   { id: "cursos",      label: "Cursos"              },
   { id: "costos",      label: "Costos"               },
   { id: "inscripcion", label: "Inscripción"          },
-  { id: "diagnostico", label: "Diagnóstico"          },
   { id: "preguntas",   label: "Preguntas frecuentes" },
   { id: "contacto",    label: "Contacto"             },
   { id: "equipo",      label: "Equipo"               },
@@ -122,7 +116,7 @@ const cursos = [
 const faqs = [
   {
     q: "Soy alumno de reingreso y no sé cuál es mi matrícula. ¿Cómo puedo conseguirla?",
-    a: "Puedes solicitarla enviando tu nombre completo a cli.feca@ujed.mx, por Facebook (facebook/CLI.FECA.UJED) o por teléfono al 827-13-65 ext. 5725, lunes, miércoles y viernes de 10:00 a.m. a 2:00 p.m.",
+    a: "Puedes solicitarla enviando tu nombre completo a celci.feca@ujed.mx, por Facebook (facebook/CLI.FECA.UJED) o por teléfono al 827-13-65 ext. 5725, lunes, miércoles y viernes de 10:00 a.m. a 2:00 p.m.",
   },
   {
     q: "Ya tengo mi matrícula pero no sé mi contraseña. ¿Cómo puedo conseguirla?",
@@ -343,18 +337,6 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
                         {c.note}
                       </div>
                     )}
-                    <a
-                      href={c.pdf}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="celci-course-cta"
-                      style={{ color: c.color }}
-                    >
-                      Ver horarios
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                      </svg>
-                    </a>
                   </div>
                 </div>
               ))}
@@ -380,6 +362,10 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
                   <span style={{ color: "#e31313" }}><IconGlobe size={32} /></span>
                   <h3>Inglés</h3>
                 </div>
+                <div className="celci-pricing-amount">
+                  <span className="celci-price-currency">$</span>
+                  <span className="celci-price-num">1,700</span>
+                </div>
               </div>
 
               {/* Card Otros idiomas */}
@@ -389,6 +375,10 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
                     <IconGlobe size={28} />
                   </div>
                   <h3>Francés, Italiano y Japonés</h3>
+                </div>
+                <div className="celci-pricing-amount celci-pricing-amount--alt">
+                  <span className="celci-price-currency">$</span>
+                  <span className="celci-price-num">1,700</span>
                 </div>
               </div>
             </div>
@@ -422,7 +412,7 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
 
             <div className="pf-info-box" style={{ marginTop: 40 }}>
               <h3>¿Tienes dudas sobre tu inscripción?</h3>
-              <p>Comunícate al Centro de Lenguas e Internacionalización o acude directamente a las instalaciones de la Facultad. Nuestro equipo te orientará sobre horarios disponibles, costos, requisitos y grupos abiertos.</p>
+              <p>Comunícate al Centro de Lenguas y Competitividad Internacional o acude directamente a las instalaciones de la Facultad. Nuestro equipo te orientará sobre horarios disponibles, costos, requisitos y grupos abiertos.</p>
               <div className="pf-chips" style={{ marginTop: 16 }}>
                 <span className="pf-chip">Modalidad presencial</span>
                 <span className="pf-chip">Ciclo A-2025</span>
@@ -439,27 +429,15 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
                 </div>
                 <div><span className="pf-contact-label">Teléfono</span><span className="pf-contact-value">827-13-65 ext. 5725</span></div>
               </a>
-              <a href="mailto:cli.feca@ujed.mx" className="pf-contact-item">
+              <a href="mailto:celci.feca@ujed.mx" className="pf-contact-item">
                 <div className="pf-contact-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                     <polyline points="22,6 12,13 2,6"/>
                   </svg>
                 </div>
-                <div><span className="pf-contact-label">Correo</span><span className="pf-contact-value">cli.feca@ujed.mx</span></div>
+                <div><span className="pf-contact-label">Correo</span><span className="pf-contact-value">celci.feca@ujed.mx</span></div>
               </a>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* ── TAB: DIAGNÓSTICO ── */}
-      {activeTab === "diagnostico" && (
-        <section className="pf-section pf-section-light pf-fade">
-          <div className="pf-container" style={{ maxWidth: 720 }}>
-            <div className="pf-section-head pf-section-head-center">
-              <div className="pf-label">Ubicación de nivel</div>
-              <h2 className="pf-section-title">Examen de diagnóstico</h2>
             </div>
           </div>
         </section>
@@ -512,14 +490,14 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
                 </div>
                 <div><span className="pf-contact-label">Teléfono</span><span className="pf-contact-value">827-13-65 ext. 5725</span></div>
               </a>
-              <a href="mailto:cli.feca@ujed.mx" className="pf-contact-item">
+              <a href="mailto:celci.feca@ujed.mx" className="pf-contact-item">
                 <div className="pf-contact-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                     <polyline points="22,6 12,13 2,6"/>
                   </svg>
                 </div>
-                <div><span className="pf-contact-label">Correo</span><span className="pf-contact-value">cli.feca@ujed.mx</span></div>
+                <div><span className="pf-contact-label">Correo</span><span className="pf-contact-value">celci.feca@ujed.mx</span></div>
               </a>
               <a href="https://facebook.com/CLI.FECA.UJED" target="_blank" rel="noreferrer" className="pf-contact-item">
                 <div className="pf-contact-icon">

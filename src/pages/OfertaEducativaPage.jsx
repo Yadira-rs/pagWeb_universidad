@@ -42,7 +42,7 @@ const ofertaCards = [
   },
   {
     title: "CELCI",
-    description: "Centro de Lenguas e Internacionalización: inglés, francés, italiano y japonés.",
+    description: "Centro de Lenguas y Competitividad Internacional: inglés, francés, italiano y japonés.",
     href: "#/lenguas",
     image: "/imagenes/logo-celci.png",
     imageFit: "contain",

@@ -34,6 +34,39 @@ npm run preview
 
 ---
 
+## Microservicios (`services/`)
+
+El flujo de **solicitudes de admisión** (`#/solicitud` y la pestaña
+"Solicitudes" de `#/admin`) ya no le habla directo a Supabase: pasa por
+dos microservicios propios, pensados para la exposición de arquitectura
+orientada a servicios (ver [ARQUITECTURA.md](ARQUITECTURA.md) para el
+diagrama completo y la justificación de cada decisión):
+
+- [`services/admisiones-api`](services/admisiones-api) — dueño de la
+  tabla `solicitudes_admision`.
+- [`services/notificaciones-api`](services/notificaciones-api) — envía
+  el correo de aviso cuando llega una solicitud nueva.
+
+Para desarrollo local completo (frontend + los dos servicios):
+
+```
+# Terminal 1
+cd services/notificaciones-api && cp .env.example .env && npm install && npm start
+
+# Terminal 2
+cd services/admisiones-api && cp .env.example .env && npm install && npm start
+
+# Terminal 3
+npm install && npm run dev
+```
+
+Cada servicio tiene su propio `README.md` con el contrato (endpoints,
+auth, formato de request/response). El resto del sitio (anuncios, login
+del panel, egresados, etc.) sigue hablando directo con Supabase, sin
+cambios.
+
+---
+
 ## Cómo publicar el sitio en el servidor institucional
 
 Este sitio es **100% estático**: no tiene backend activo, no necesita PHP

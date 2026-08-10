@@ -40,10 +40,18 @@ import GruposPage from "./pages/GruposPage";
 import CafecaPage from "./pages/CafecaPage";
 import EgresadosPage from "./pages/EgresadosPage";
 import AdminPanelPage from "./pages/AdminPanelPage";
+import AdminResetPasswordPage from "./pages/AdminResetPasswordPage";
 import SatisfactionWidget from "./components/SatisfactionWidget";
 
 function getCurrentRoute() {
   const hash = window.location.hash || "#/";
+
+  // Enlace de recuperación de contraseña de Supabase: agrega
+  // #access_token=...&type=recovery al final de la URL. Se revisa antes que
+  // las demás rutas porque no es un path fijo, sino un fragmento variable.
+  if (hash.startsWith("#access_token=") && hash.includes("type=recovery")) {
+    return { page: "admin-reset-password" };
+  }
 
   if (hash === "#/aviso-de-privacidad") return { page: "privacy" };
   if (hash === "#/terminos-de-uso") return { page: "terms" };
@@ -201,7 +209,7 @@ function App() {
                 : route.page === "tutorias"
                     ? "FECA - Tutorías"
                 : route.page === "lenguas"
-                    ? "FECA - Centro de Lenguas e Internacionalización"
+                    ? "FECA - Centro de Lenguas y Competitividad Internacional"
                     : route.page === "admin-panel"
                     ? "FECA - Administración"
                 : route.page === "legacy-program"
@@ -377,6 +385,8 @@ function App() {
       />
     ) : route.page === "admin-panel" ? (
       <AdminPanelPage />
+    ) : route.page === "admin-reset-password" ? (
+      <AdminResetPasswordPage />
     ) : route.slug === "curso-propedeutico" ? (
       <PropedeuticoPage
         logoImage={logoImage}

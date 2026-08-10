@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Secretos de los microservicios (services/admisiones-api, services/notificaciones-api).
+# Cada uno se configura copiando su .env.example a .env; ese .env real nunca se sube.
+.env
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

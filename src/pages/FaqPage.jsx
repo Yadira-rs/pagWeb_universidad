@@ -25,7 +25,7 @@ const FAQ_DATA = [
   },
   {
     q: "¿Hay programas de intercambio internacional?",
-    a: "Sí. La FECA tiene convenios con más de 80 universidades en 25 países. A través del Centro de Lenguas e Internacionalización (CELCI) puedes aplicar a intercambios académicos con nivel intermedio-avanzado de inglés y promedio mínimo de 8.5.",
+    a: "Sí. La FECA tiene convenios con más de 80 universidades en 25 países. A través del Centro de Lenguas y Competitividad Internacional (CELCI) puedes aplicar a intercambios académicos con nivel intermedio-avanzado de inglés y promedio mínimo de 8.5.",
   },
   {
     q: "¿Existen becas o apoyos económicos?",

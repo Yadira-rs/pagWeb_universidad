@@ -26,19 +26,6 @@ const nosotrosCards = [
     ),
   },
   {
-    title: "PDUA",
-    description: "Plan de Desarrollo Universitario y Académico de la FECA.",
-    href: "/PDUA-SILD27.pdf",
-    external: true,
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-        <polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/>
-        <line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
-      </svg>
-    ),
-  },
-  {
     title: "Misión y Visión",
     description: "Nuestra razón de ser y hacia dónde nos dirigimos como institución educativa.",
     href: "#/mision-vision",
@@ -60,19 +47,9 @@ const nosotrosCards = [
     ),
   },
   {
-    title: "Políticas",
-    description: "Marco de políticas institucionales que rigen la vida académica de la facultad.",
-    href: "#/nosotros/politicas",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
-      </svg>
-    ),
-  },
-  {
     title: "Ejes Rectores",
     description: "Los ejes estratégicos que orientan el desarrollo y crecimiento de la FECA.",
-    href: "#/nosotros/ejes-rectores",
+    href: "#/nosotros/ejes-institucionales",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/>

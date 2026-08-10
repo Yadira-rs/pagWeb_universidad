@@ -60,10 +60,10 @@ export const searchIndex = [
     keywords: "intersemestrales cursos verano intensivos semestre",
   },
   {
-    title: "CELCI - Centro de Lenguas",
-    description: "Centro de Lenguas e Internacionalización",
-    href: "#/celci",
-    keywords: "celci lenguas idiomas inglés francés internacionalización centro idiomas cli",
+    title: "CELCI - Centro de Lenguas y Competitividad Internacional",
+    description: "Centro de Lenguas y Competitividad Internacional",
+    href: "#/lenguas",
+    keywords: "celci lenguas idiomas inglés francés internacionalización centro idiomas cli competitividad",
   },
   {
     title: "CIIEDO",

@@ -26,8 +26,6 @@ const programs = [
     description:
       "Formación académica de especialización, maestría y doctorado posterior a la licenciatura.",
     image: "/imagenes/logo-posgrado.png",
-    duration: "6 años",
-    mode: "Presencial",
     href: "https://posgradofeca.ujed.mx/",
   },
   {
@@ -35,8 +33,6 @@ const programs = [
     description:
       "Cursos de idiomas para adultos, niños y jóvenes en la Facultad de Economía, Contaduría y Administración.",
     image: "/imagenes/logo-celci.png",
-    duration: "4 años",
-    mode: "Presencial",
     href: "#/lenguas",
   },
   {
@@ -44,8 +40,6 @@ const programs = [
     description:
       "En CIIEDO te asesoramos, acompañamos y conectamos con oportunidades de innovación y emprendimiento.",
     image: "/imagenes/logo-ciiedo.png",
-    duration: "4 años",
-    mode: "Presencial / En línea",
     href: "#/ciiedo",
   },
   {
@@ -54,8 +48,6 @@ const programs = [
       "Órgano de control interno de la FECA encargado de vigilar la transparencia, el uso correcto de los recursos y el cumplimiento de la normatividad institucional.",
     image: "/imagenes/contraloria_feca.png",
     imageClass: "program-card-img--photo",
-    duration: "Atención continua",
-    mode: "Presencial",
     href: "#/servicios/contraloria-interna",
   },
 ];
@@ -334,22 +326,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
                 <div className="program-card-body">
                   <div className="program-card-title">{program.title}</div>
                   <div className="program-card-desc">{program.description}</div>
-                  <div className="program-card-meta">
-                    <span className="program-meta-item">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <circle cx="12" cy="12" r="10" />
-                        <path d="M12 6v6l4 2" />
-                      </svg>
-                      {program.duration}
-                    </span>
-                    <span className="program-meta-item">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                        <circle cx="9" cy="7" r="4" />
-                      </svg>
-                      {program.mode}
-                    </span>
-                  </div>
                 </div>
               </a>
             ))}

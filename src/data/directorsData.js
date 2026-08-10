@@ -143,24 +143,24 @@ export const directors = [
   },
   {
     slug: "celci",
-    name: "Centro de Lenguas y Competitividad Internacional",
-    role: "Centro de Lenguas y Competitividad Internacional",
-    roleLabel: "CELCI",
-    area: "Lenguas e internacionalización",
-    enfoque: "Competitividad internacional",
+    name: "Dr. Juan",
+    role: "Centro de Lenguas y Competitividad Internacional (CELCI)",
+    roleLabel: "Coordinador CELCI",
+    area: "Lenguas y comunicación",
+    enfoque: "Certificaciones internacionales",
     degrees: [
       { title: "Idiomas", institution: "FECA" },
       { title: "Certificaciones", institution: "UJED" },
       { title: "Internacionalización", institution: "FECA" },
     ],
     quote:
-      "El Centro de Lenguas y Competitividad Internacional fortalece las habilidades lingüísticas y la proyección global de la comunidad FECA.",
+      "En el Centro de Lenguas y Competitividad Internacional creemos que el dominio de lenguas es la llave que abre las puertas al mundo. Formamos ciudadanos globales desde la FECA.",
     image: "/imagenes/directivos/celci/DSC_5323.JPG",
     bio: {
       trajectory:
         "El Centro coordina la formación en lenguas y acciones que impulsan la competitividad internacional de estudiantes y comunidad universitaria.",
       focus:
-        "Su enfoque es promover el aprendizaje de idiomas, la certificación y las oportunidades de participación internacional.",
+        "Su compromiso al frente de la Coordinación del Centro de Lenguas y Competitividad Internacional (CELCI) es expandir la oferta lingüística y facilitar certificaciones internacionales de lenguas que añadan valor curricular a los perfiles académicos de los egresados.",
       contact: "celci.feca@ujed.mx",
     },
   },

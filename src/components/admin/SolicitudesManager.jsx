@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../../lib/supabaseClient";
+import { actualizarSolicitud, borrarSolicitud, listarSolicitudes } from "../../lib/admisionesApiClient";
 
-const TABLE = "solicitudes_admision";
+async function getToken() {
+  const { data } = await supabase.auth.getSession();
+  return data.session?.access_token;
+}
 
 function formatFecha(iso) {
   try {
@@ -25,12 +29,13 @@ function SolicitudesManager() {
   const load = async () => {
     setLoading(true);
     setError("");
-    const { data, error: err } = await supabase
-      .from(TABLE)
-      .select("*")
-      .order("created_at", { ascending: false });
-    if (err) setError(err.message);
-    else setItems(data || []);
+    try {
+      const token = await getToken();
+      const data = await listarSolicitudes(token);
+      setItems(data || []);
+    } catch (err) {
+      setError(err.message);
+    }
     setLoading(false);
   };
 
@@ -40,19 +45,24 @@ function SolicitudesManager() {
   }, []);
 
   const toggleAtendida = async (item) => {
-    const { error: err } = await supabase
-      .from(TABLE)
-      .update({ atendida: !item.atendida })
-      .eq("id", item.id);
-    if (err) setError(err.message);
-    else load();
+    try {
+      const token = await getToken();
+      await actualizarSolicitud(item.id, { atendida: !item.atendida }, token);
+      load();
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
   const handleDelete = async (item) => {
     if (!window.confirm(`¿Borrar la solicitud de "${item.nombre}"? No se puede deshacer.`)) return;
-    const { error: err } = await supabase.from(TABLE).delete().eq("id", item.id);
-    if (err) setError(err.message);
-    else load();
+    try {
+      const token = await getToken();
+      await borrarSolicitud(item.id, token);
+      load();
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
   const pendientes = items.filter((it) => !it.atendida).length;

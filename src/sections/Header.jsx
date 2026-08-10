@@ -158,7 +158,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 <span className="nav-caret" aria-hidden="true"></span>
               </a>
               <div className="dropdown">
-                <a href="#/lenguas">Centro de Idiomas</a>
+                <a href="#/lenguas">CELCI</a>
                 <a href="#/ciiedo">CIIEDO</a>
                 <a href="#/cursos-intersemestrales">Cursos Intersemestrales</a>
                 <a href="#/curso-propedeutico">Cursos Propedéutico</a>
@@ -219,13 +219,11 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 <span className="nav-caret" aria-hidden="true"></span>
               </a>
               <div className="dropdown">
-                <a href="#/nosotros/ejes-rectores" className={currentHash === "#/nosotros/ejes-rectores" ? "active" : ""}>Ejes rectores</a>
-                <a href="#/egresados" className={currentHash === "#/egresados" ? "active" : ""}>Egresados</a>
+                <a href="#/nosotros/ejes-rectores" className={currentHash === "#/nosotros/ejes-rectores" ? "active" : ""}>Organigrama</a>
+                <a href="#/nosotros/ejes-institucionales" className={currentHash === "#/nosotros/ejes-institucionales" ? "active" : ""}>Ejes rectores</a>
                 <a href="#/grupos-representativos" className={currentHash === "#/grupos-representativos" ? "active" : ""}>Grupos representativos</a>
                 <a href="#/historia" className={currentHash === "#/historia" ? "active" : ""}>Historia</a>
                 <a href="#/mision-vision" className={currentHash === "#/mision-vision" ? "active" : ""}>Misión y visión</a>
-                <a href="/PDUA-SILD27.pdf" target="_blank" rel="noreferrer">PDUA</a>
-                <a href="#/nosotros/politicas" className={currentHash === "#/nosotros/politicas" ? "active" : ""}>Políticas</a>
                 <a href="#/nosotros/valores" className={currentHash === "#/nosotros/valores" ? "active" : ""}>Valores</a>
               </div>
             </div>
@@ -546,7 +544,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
           {/* Oferta Educativa */}
           <div className="mobile-menu-section">
             <span className="mobile-menu-section-label">Oferta educativa</span>
-            <a href="#/lenguas" className={`mobile-nav-sub${currentHash === "#/lenguas" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Centro de Idiomas</a>
+            <a href="#/lenguas" className={`mobile-nav-sub${currentHash === "#/lenguas" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>CELCI</a>
             <a href="#/ciiedo" className={`mobile-nav-sub${currentHash === "#/ciiedo" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>CIIEDO</a>
             <a href="#/licenciaturas" className={`mobile-nav-sub${currentHash === "#/licenciaturas" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Licenciaturas</a>
             <a href="#/licenciaturas-distancia" className={`mobile-nav-sub${currentHash === "#/licenciaturas-distancia" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Licenciaturas a distancia</a>
@@ -577,7 +575,8 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
           {/* Nosotros */}
           <div className="mobile-menu-section">
             <span className="mobile-menu-section-label">Nosotros</span>
-            <a href="#/egresados" className={`mobile-nav-sub${currentHash === "#/egresados" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Egresados</a>
+            <a href="#/nosotros/ejes-rectores" className={`mobile-nav-sub${currentHash === "#/nosotros/ejes-rectores" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Organigrama</a>
+            <a href="#/nosotros/ejes-institucionales" className={`mobile-nav-sub${currentHash === "#/nosotros/ejes-institucionales" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Ejes rectores</a>
             <a href="#/grupos-representativos" className={`mobile-nav-sub${currentHash === "#/grupos-representativos" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Grupos representativos</a>
             <a href="#/historia" className={`mobile-nav-sub${currentHash === "#/historia" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Historia</a>
             <a href="#/mision-vision" className={`mobile-nav-sub${currentHash === "#/mision-vision" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Misión y visión</a>

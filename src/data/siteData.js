@@ -353,6 +353,11 @@ export const sectionPages = {
     ],
   },
   'ejes-rectores': {
+    heroTitle: 'Organigrama',
+    intro:
+      'La estructura organizacional de la facultad define responsabilidades claras y coordinación efectiva para el desarrollo académico e institucional.',
+  },
+  'ejes-institucionales': {
     heroTitle: 'Ejes rectores',
     intro:
       'Los ejes rectores marcan las prioridades estratégicas que orientan la evolución de la facultad.',
