@@ -7,14 +7,18 @@ import EgresadosDocsManager from "../components/admin/EgresadosDocsManager";
 import TestimoniosManager from "../components/admin/TestimoniosManager";
 import SolicitudesManager from "../components/admin/SolicitudesManager";
 import OpinionesManager from "../components/admin/OpinionesManager";
+import AccesoManager from "../components/admin/AccesoManager";
+import NoticiasManager from "../components/admin/NoticiasManager";
 
 const TABS = [
   { key: "anuncios", label: "Anuncios y noticias" },
+  { key: "noticias", label: "Últimas noticias" },
   { key: "hero", label: "Carrusel de Inicio" },
   { key: "egresados", label: "Documentos de egresados" },
   { key: "testimonios", label: "Testimonios" },
   { key: "solicitudes", label: "Solicitudes de admisión" },
   { key: "opiniones", label: "Opiniones del sitio" },
+  { key: "acceso", label: "Solicitudes de acceso" },
 ];
 
 function AdminPanelPage() {
@@ -33,6 +37,13 @@ function AdminPanelPage() {
     <div className="admpanel-page">
       <header className="admpanel-header">
         <div>
+          <a className="admpanel-btn-back" href="#/">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="16" height="16" aria-hidden="true">
+              <path d="M19 12H5" />
+              <path d="M12 19l-7-7 7-7" />
+            </svg>
+            Volver al sitio
+          </a>
           <h1>Panel de administración FECA</h1>
           <p>Sesión iniciada como {session.user.email}</p>
         </div>
@@ -58,6 +69,8 @@ function AdminPanelPage() {
 
       {tab === "anuncios" ? (
         <AnunciosManager />
+      ) : tab === "noticias" ? (
+        <NoticiasManager />
       ) : tab === "hero" ? (
         <HeroSlidesManager />
       ) : tab === "egresados" ? (
@@ -66,8 +79,10 @@ function AdminPanelPage() {
         <TestimoniosManager />
       ) : tab === "solicitudes" ? (
         <SolicitudesManager />
-      ) : (
+      ) : tab === "opiniones" ? (
         <OpinionesManager />
+      ) : (
+        <AccesoManager />
       )}
     </div>
   );

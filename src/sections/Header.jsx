@@ -175,17 +175,18 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
               </a>
               <div className="dropdown dropdown-accordion">
                 <div className="acc-row">
-                  <span className="acc-title">
+                  <a className="acc-title acc-title-link" href="#/servicios/secretaria-academica">
                     Secretaría Académica
                     <svg className="acc-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="11" height="11" aria-hidden="true">
                       <polyline points="9 6 15 12 9 18" />
                     </svg>
-                  </span>
+                  </a>
                   <div className="acc-panel">
                     <a className="dropdown-sub" href="#/servicios/servicio-social">Servicio social</a>
                     <a className="dropdown-sub" href="#/servicios/practicas-profesionales">Prácticas profesionales</a>
                     <a className="dropdown-sub" href="#/tutorias">Tutorías</a>
                     <a className="dropdown-sub" href="#/servicios/servicios-escolares">Servicios escolares</a>
+                    <a className="dropdown-sub" href="#/academicos">Académicos</a>
                   </div>
                 </div>
 
@@ -200,6 +201,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                     <a className="dropdown-sub" href="#/servicios/finanzas">Finanzas</a>
                     <a className="dropdown-sub" href="#/servicios/secretaria-administrativa">Servicios Generales</a>
                     <a className="dropdown-sub" href="#/biblioteca">Biblioteca</a>
+                    <a className="dropdown-sub" href="#/administrativos">Administrativos</a>
                   </div>
                 </div>
 
@@ -219,8 +221,8 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 <span className="nav-caret" aria-hidden="true"></span>
               </a>
               <div className="dropdown">
-                <a href="#/nosotros/ejes-rectores" className={currentHash === "#/nosotros/ejes-rectores" ? "active" : ""}>Organigrama</a>
-                <a href="#/nosotros/ejes-institucionales" className={currentHash === "#/nosotros/ejes-institucionales" ? "active" : ""}>Ejes rectores</a>
+                <a href="#/nosotros/ejes-rectores" className={currentHash === "#/nosotros/ejes-rectores" ? "active" : ""}>Ejes rectores</a>
+                <a href="#/egresados" className={currentHash === "#/egresados" ? "active" : ""}>Egresados</a>
                 <a href="#/grupos-representativos" className={currentHash === "#/grupos-representativos" ? "active" : ""}>Grupos representativos</a>
                 <a href="#/historia" className={currentHash === "#/historia" ? "active" : ""}>Historia</a>
                 <a href="#/mision-vision" className={currentHash === "#/mision-vision" ? "active" : ""}>Misión y visión</a>
@@ -556,16 +558,18 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
             <span className="mobile-menu-section-label">Servicios</span>
             <a href="#/servicios" className={`mobile-nav-sub${currentHash === "#/servicios" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Todos los servicios</a>
 
-            <span className="mobile-nav-subgroup">Secretaría Académica</span>
+            <a href="#/servicios/secretaria-academica" className={`mobile-nav-subgroup${currentHash === "#/servicios/secretaria-academica" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Secretaría Académica</a>
             <a href="#/servicios/servicio-social" className={`mobile-nav-sub mobile-nav-subsub${currentHash === "#/servicios/servicio-social" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Servicio social</a>
             <a href="#/servicios/practicas-profesionales" className={`mobile-nav-sub mobile-nav-subsub${currentHash === "#/servicios/practicas-profesionales" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Prácticas profesionales</a>
             <a href="#/tutorias" className={`mobile-nav-sub mobile-nav-subsub${currentHash === "#/tutorias" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Tutorías</a>
             <a href="#/servicios/servicios-escolares" className={`mobile-nav-sub mobile-nav-subsub${currentHash === "#/servicios/servicios-escolares" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Servicios escolares</a>
+            <a href="#/academicos" className={`mobile-nav-sub mobile-nav-subsub${currentHash === "#/academicos" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Académicos</a>
 
             <span className="mobile-nav-subgroup">Secretaría Administrativa</span>
             <a href="#/servicios/finanzas" className={`mobile-nav-sub mobile-nav-subsub${currentHash === "#/servicios/finanzas" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Finanzas</a>
             <a href="#/servicios/secretaria-administrativa" className="mobile-nav-sub mobile-nav-subsub" onClick={closeMobile}>Servicios Generales</a>
             <a href="#/biblioteca" className={`mobile-nav-sub mobile-nav-subsub${currentHash === "#/biblioteca" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Biblioteca</a>
+            <a href="#/administrativos" className={`mobile-nav-sub mobile-nav-subsub${currentHash === "#/administrativos" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Administrativos</a>
 
             <a href="#/servicios/cpei" className={`mobile-nav-subgroup${currentHash === "#/servicios/cpei" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Coordinación de Planeación y Evaluación Institucional</a>
 
@@ -575,8 +579,8 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
           {/* Nosotros */}
           <div className="mobile-menu-section">
             <span className="mobile-menu-section-label">Nosotros</span>
-            <a href="#/nosotros/ejes-rectores" className={`mobile-nav-sub${currentHash === "#/nosotros/ejes-rectores" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Organigrama</a>
-            <a href="#/nosotros/ejes-institucionales" className={`mobile-nav-sub${currentHash === "#/nosotros/ejes-institucionales" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Ejes rectores</a>
+            <a href="#/nosotros/ejes-rectores" className={`mobile-nav-sub${currentHash === "#/nosotros/ejes-rectores" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Ejes rectores</a>
+            <a href="#/egresados" className={`mobile-nav-sub${currentHash === "#/egresados" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Egresados</a>
             <a href="#/grupos-representativos" className={`mobile-nav-sub${currentHash === "#/grupos-representativos" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Grupos representativos</a>
             <a href="#/historia" className={`mobile-nav-sub${currentHash === "#/historia" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Historia</a>
             <a href="#/mision-vision" className={`mobile-nav-sub${currentHash === "#/mision-vision" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Misión y visión</a>

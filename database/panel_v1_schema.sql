@@ -106,6 +106,22 @@ create policy hero_slides_admin_all on hero_slides
     using (auth.role() = 'authenticated')
     with check (auth.role() = 'authenticated');
 
+-- "Automatically expose new tables" está desactivado a propósito en el
+-- proyecto (más seguro), así que las políticas de RLS de arriba nunca se
+-- llegan a evaluar sin este GRANT explícito: sin él, ni el rol "anon" (un
+-- visitante sin sesión) ni "authenticated" (el panel) tienen ni siquiera
+-- permiso de tocar la tabla, y las consultas fallan con "permission denied
+-- for table" aunque la política ya lo permita.
+grant usage on schema public to anon, authenticated;
+
+grant select on anuncios_noticias to anon, authenticated;
+grant insert, update, delete on anuncios_noticias to authenticated;
+grant usage, select on anuncios_noticias_id_seq to authenticated;
+
+grant select on hero_slides to anon, authenticated;
+grant insert, update, delete on hero_slides to authenticated;
+grant usage, select on hero_slides_id_seq to authenticated;
+
 -- ─────────────────────────────────────────────
 -- Datos iniciales (los dos slides que hoy están escritos a mano en
 -- HomePage.jsx), para que el sitio no se quede vacío en cuanto se conecte

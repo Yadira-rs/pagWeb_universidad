@@ -14,7 +14,7 @@ export default function AnunciosCarousel() {
     let active = true;
     supabase
       .from("anuncios_noticias")
-      .select("tipo, titulo, resumen, fecha_texto, imagen_url, cta_label, cta_href")
+      .select("id, tipo, titulo, resumen, fecha_texto, imagen_url, cta_label, cta_href")
       .eq("publicado", true)
       .order("orden", { ascending: true })
       .then(({ data, error }) => {
@@ -25,6 +25,7 @@ export default function AnunciosCarousel() {
         }
         setSlides(
           (data || []).map((row) => ({
+            id: row.id,
             tipo: row.tipo,
             titulo: row.titulo,
             desc: row.resumen,
@@ -104,6 +105,10 @@ export default function AnunciosCarousel() {
 
   const dotIndex = N > 1 ? (((activeIndex - 2) % N) + N) % N : 0;
 
+  const goToDetail = (s) => {
+    if (s.id != null) window.location.hash = `#/aviso/${s.id}`;
+  };
+
   const renderCardBody = (s) => (
     <>
       <div className="anc2-card-img">
@@ -142,7 +147,9 @@ export default function AnunciosCarousel() {
 
       {N === 1 ? (
         <div className="anc2-carousel anc2-carousel-solo">
-          <div className="anc2-card is-center">{renderCardBody(slides[0])}</div>
+          <div className="anc2-card is-center" onClick={() => goToDetail(slides[0])}>
+            {renderCardBody(slides[0])}
+          </div>
         </div>
       ) : (
         <div
@@ -166,7 +173,7 @@ export default function AnunciosCarousel() {
                     key={idx}
                     ref={(el) => { cardRefs.current[idx] = el; }}
                     className={`anc2-card ${statusClass}`}
-                    onClick={() => { if (dist !== 0) moveTo(idx, true); }}
+                    onClick={() => { dist !== 0 ? moveTo(idx, true) : goToDetail(s); }}
                   >
                     {renderCardBody(s)}
                   </div>

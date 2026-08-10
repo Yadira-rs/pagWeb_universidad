@@ -101,3 +101,12 @@ create policy egresados_docs_admin_all on egresados_docs
 
 create index if not exists idx_egresados_docs_created_at
     on egresados_docs (created_at desc);
+
+-- "Automatically expose new tables" está desactivado a propósito en el
+-- proyecto (más seguro), así que las políticas de RLS de arriba nunca se
+-- llegan a evaluar sin este GRANT explícito: sin él, ni "anon" ni
+-- "authenticated" tienen ni siquiera permiso de tocar la tabla.
+grant usage on schema public to anon, authenticated;
+grant insert on egresados_docs to anon, authenticated;
+grant select, update, delete on egresados_docs to authenticated;
+grant usage, select on egresados_docs_id_seq to anon, authenticated;

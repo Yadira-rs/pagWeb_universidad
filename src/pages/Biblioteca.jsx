@@ -98,7 +98,7 @@ export default function Biblioteca({ logoImage, newsPanelOpen, setNewsPanelOpen 
             <div className="df-card df-card--in">
               <div className="df-img-col">
                 <img
-                  src="/imagenes/guillermo_garza_biblioteca.jpg"
+                  src="/imagenes/directivos/biblioteca/DSC_5057.JPG"
                   alt="Guillermo Garza Calderón"
                   className="df-img"
                 />

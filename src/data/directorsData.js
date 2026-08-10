@@ -60,6 +60,25 @@ export const directors = [
     quote:
       "La Secretaría Académica impulsa la calidad de los programas, el acompañamiento docente y la formación integral de los estudiantes.",
     image: "/imagenes/directivos/secretaria-academica/DSC_5303.JPG",
+    images: [
+      "/imagenes/directivos/secretaria-academica/DSC_5303.JPG",
+      "/imagenes/directivos/secretaria-academica/DSC_5054.JPG",
+    ],
+    // Nombres temporales — falta capturarlos con el área, se muestran como
+    // marcador de posición mientras tanto.
+    teamMembers: [
+      { photo: "/imagenes/directivos/secretaria-academica/DSC_5054.JPG", name: "Integrante 1" },
+      { photo: "/imagenes/directivos/secretaria-academica/DSC_5095.JPG", name: "Integrante 3" },
+      { photo: "/imagenes/directivos/secretaria-academica/DSC_5113.JPG", name: "Integrante 4" },
+      { photo: "/imagenes/directivos/secretaria-academica/DSC_5134.JPG", name: "Integrante 5" },
+      { photo: "/imagenes/directivos/secretaria-academica/DSC_5318.JPG", name: "Integrante 6" },
+    ],
+    teamGroupPhotos: [
+      "/imagenes/directivos/secretaria-academica/DSC_5267.JPG",
+      "/imagenes/directivos/secretaria-academica/DSC_5273.JPG",
+      "/imagenes/directivos/secretaria-academica/DSC_5291.JPG",
+      "/imagenes/directivos/secretaria-academica/DSC_5294.JPG",
+    ],
     bio: {
       trajectory:
         "La Secretaría Académica coordina procesos relacionados con programas educativos, docentes, estudiantes y seguimiento académico.",
@@ -83,6 +102,23 @@ export const directors = [
     quote:
       "La Secretaría Administrativa coordina los recursos y servicios necesarios para el funcionamiento eficiente de la facultad.",
     image: "/imagenes/directivos/secretaria-administrativa/DSC_5334.JPG",
+    // Nombres temporales — falta capturarlos con el área, se muestran como
+    // marcador de posición mientras tanto.
+    teamMembers: [
+      { photo: "/imagenes/directivos/secretaria-administrativa/DSC_4991.JPG", name: "Integrante 1" },
+      { photo: "/imagenes/directivos/secretaria-administrativa/DSC_5002.JPG", name: "Integrante 2" },
+      { photo: "/imagenes/directivos/secretaria-administrativa/DSC_5004.JPG", name: "Integrante 3" },
+      { photo: "/imagenes/directivos/secretaria-administrativa/DSC_5024.JPG", name: "Integrante 4" },
+      { photo: "/imagenes/directivos/secretaria-administrativa/DSC_5029.JPG", name: "Integrante 5" },
+      { photo: "/imagenes/directivos/secretaria-administrativa/DSC_5189.JPG", name: "Integrante 6" },
+      { photo: "/imagenes/directivos/secretaria-administrativa/DSC_5356.JPG", name: "Integrante 7" },
+    ],
+    teamGroupPhotos: [
+      "/imagenes/directivos/secretaria-administrativa/DSC_5006.JPG",
+      "/imagenes/directivos/secretaria-administrativa/DSC_5018.JPG",
+      "/imagenes/directivos/secretaria-administrativa/DSC_5267.JPG",
+      "/imagenes/directivos/secretaria-administrativa/DSC_5334.JPG",
+    ],
     bio: {
       trajectory:
         "La Secretaría Administrativa gestiona recursos humanos, materiales y servicios generales para apoyar las actividades de la comunidad FECA.",

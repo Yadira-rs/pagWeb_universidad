@@ -353,23 +353,9 @@ export const sectionPages = {
     ],
   },
   'ejes-rectores': {
-    heroTitle: 'Organigrama',
-    intro:
-      'La estructura organizacional de la facultad define responsabilidades claras y coordinación efectiva para el desarrollo académico e institucional.',
-  },
-  'ejes-institucionales': {
     heroTitle: 'Ejes rectores',
     intro:
-      'Los ejes rectores marcan las prioridades estratégicas que orientan la evolución de la facultad.',
-    eyebrow: 'Ejes rectores',
-    title: 'Rumbo institucional con enfoque estratégico',
-    body:
-      'Estos ejes articulan el crecimiento académico, la innovación, la vinculación y la proyección de la facultad para consolidar su pertinencia en el entorno regional y nacional.',
-    points: [
-      'Excelencia académica y fortalecimiento curricular.',
-      'Innovación, investigación aplicada y transformación digital.',
-      'Vinculación social, empresarial e internacionalización.',
-    ],
+      'La estructura organizacional de la facultad define responsabilidades claras y coordinación efectiva para el desarrollo académico e institucional.',
   },
   'marco-normativo': {
     heroTitle: 'Marco normativo',

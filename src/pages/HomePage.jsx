@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../sections/Header";
 import Footer from "../sections/Footer";
 import AnunciosCarousel from "../components/AnunciosCarousel";
@@ -132,18 +132,9 @@ const news = [
   },
 ];
 
-const STATS_CFG = [
-  { target: 2000, fmt: (n) => n.toLocaleString("es-MX") + "+", label: "Alumnos activos" },
-  { target: 5,    fmt: (n) => "+" + n,                          label: "Programas" },
-  { target: 95,   fmt: (n) => n + "%",                          label: "Empleabilidad" },
-  { target: 68,   fmt: (n) => String(n),                        label: "Años de excelencia" },
-];
-
 function HomePage({ logoImage, setNewsPanelOpen }) {
   const [heroSlides, setHeroSlides] = useState(FALLBACK_HERO_SLIDES);
   const [heroCurrentSlide, setHeroCurrentSlide] = useState(0);
-  const [counters, setCounters] = useState(STATS_CFG.map(() => 0));
-  const statsRef = useRef(null);
 
   useEffect(() => {
     let active = true;
@@ -199,29 +190,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
       .querySelectorAll(".fade-up, .fade-left, .fade-right, .zoom-in")
       .forEach((element) => observer.observe(element));
     return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const el = statsRef.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) return;
-        obs.disconnect();
-        const duration = 1800;
-        const start = performance.now();
-        const tick = (now) => {
-          const t = Math.min((now - start) / duration, 1);
-          const ease = 1 - Math.pow(1 - t, 3);
-          setCounters(STATS_CFG.map((s) => Math.floor(s.target * ease)));
-          if (t < 1) requestAnimationFrame(tick);
-        };
-        requestAnimationFrame(tick);
-      },
-      { threshold: 0.4 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
   }, []);
 
   return (
@@ -288,16 +256,78 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
         </div>
       </section>
 
-      <div className="statsbar" ref={statsRef}>
-        <div className="statsbar-inner">
-          {STATS_CFG.map((s, i) => (
-            <div key={s.label} className="statsbar-item">
-              <div className="statsbar-num">{s.fmt(counters[i])}</div>
-              <div className="statsbar-label">{s.label}</div>
-            </div>
-          ))}
+      {/* ── Sección Bienvenida Director ─────────────────────────── */}
+      <section className="welcome-director-section" id="bienvenida">
+        {/* Partículas decorativas de fondo */}
+        <div className="wds-bg-particles" aria-hidden="true">
+          <span className="wds-particle wds-particle--1" />
+          <span className="wds-particle wds-particle--2" />
+          <span className="wds-particle wds-particle--3" />
+          <span className="wds-particle wds-particle--4" />
+          <span className="wds-particle wds-particle--5" />
         </div>
-      </div>
+
+        <div className="wds-inner">
+          {/* Columna izquierda: foto + marco decorativo */}
+          <div className="wds-photo-col fade-left">
+            <div className="wds-photo-frame">
+              <div className="wds-photo-accent wds-photo-accent--tl" aria-hidden="true" />
+              <div className="wds-photo-accent wds-photo-accent--br" aria-hidden="true" />
+              <img
+                src="/imagenes/director.jpeg"
+                alt="Director de la Facultad FECA"
+                className="wds-photo"
+              />
+            </div>
+          </div>
+
+          {/* Columna derecha: mensaje */}
+          <div className="wds-content-col fade-right">
+            <div className="wds-eyebrow">
+              <span className="wds-eyebrow-line" aria-hidden="true" />
+              <span className="wds-eyebrow-text">Bienvenida</span>
+            </div>
+
+            <h2 className="wds-heading">
+              Un mensaje de <br />
+              <em className="wds-heading-em">nuestra Dirección</em>
+            </h2>
+
+            <div className="wds-quote-block">
+              <span className="wds-quote-mark" aria-hidden="true">"</span>
+              <p className="wds-quote-text">
+                La Dirección guía el desarrollo académico, administrativo y humano de la facultad,
+                fortaleciendo el rumbo institucional de la FECA y el futuro profesional de cada uno de nuestros estudiantes.
+              </p>
+            </div>
+
+            <p className="wds-sub-text">
+              Con orgullo y compromiso, trabajamos día a día para que la Facultad de Economía,
+              Contaduría y Administración sea un espacio de excelencia, innovación y oportunidades
+              para toda la comunidad universitaria.
+            </p>
+
+            <div className="wds-divider" aria-hidden="true" />
+
+            <div className="wds-actions">
+              <div className="wds-badge-row">
+                <span className="wds-badge">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                  Excelencia académica
+                </span>
+                <span className="wds-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="14" height="14" aria-hidden="true">
+                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
+                  </svg>
+                  Comunidad universitaria
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <AnunciosCarousel />
 

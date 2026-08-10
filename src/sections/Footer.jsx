@@ -75,7 +75,7 @@ function Footer() {
         <div className="footer-bottom-links">
           <a href="#/aviso-de-privacidad">Aviso de privacidad</a>
           <a href="#/terminos-de-uso">Términos de uso</a>
-          <a href="#/admin">Administración</a>
+          <a href="#/admin" className="footer-admin-link">Administración</a>
         </div>
       </div>
     </footer>

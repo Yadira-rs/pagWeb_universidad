@@ -14,7 +14,7 @@ const nosotrosCards = [
     ),
   },
   {
-    title: "Organigrama",
+    title: "Ejes rectores",
     description: "Consulta la estructura organizacional de la Facultad de Economía, Contaduría y Administración.",
     href: "#/nosotros/ejes-rectores",
     external: false,
@@ -43,18 +43,6 @@ const nosotrosCards = [
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-      </svg>
-    ),
-  },
-  {
-    title: "Ejes Rectores",
-    description: "Los ejes estratégicos que orientan el desarrollo y crecimiento de la FECA.",
-    href: "#/nosotros/ejes-institucionales",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/>
-        <line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/>
-        <line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
       </svg>
     ),
   },

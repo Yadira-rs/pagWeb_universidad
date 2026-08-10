@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { IconFacebook, IconInstagram, IconXTwitter, IconTikTok } from './components/SocialIcons';
+import { supabase } from "./lib/supabaseClient";
 import "./App.css";
 import {
   historyEntries,
@@ -20,6 +21,7 @@ import ServiceDetailPage from "./pages/ServiceDetailPage";
 import ServicesPage from "./pages/ServicesPage";
 import SingleSectionPage from "./pages/SingleSectionPage";
 import DirectorProfilePage from "./pages/DirectorProfilePage";
+import AvisoDetailPage from "./pages/AvisoDetailPage";
 
 import FeriaPage from "./pages/FeriaPage";
 import Biblioteca from "./pages/Biblioteca";
@@ -32,6 +34,7 @@ import NosotrosPage from "./pages/NosotrosPage";
 import ContraloriaPage from "./pages/ContraloriaPage";
 import FinanzasPage from "./pages/FinanzasPage";
 import SecretariaAdministrativaPage from "./pages/SecretariaAdministrativaPage";
+import SecretariaAcademicaPage from "./pages/SecretariaAcademicaPage";
 import ServiciosEscolaresPage from "./pages/ServiciosEscolaresPage";
 import TutoriasPage from "./pages/TutoriasPage";
 import CiiedoPage from "./pages/CiiedoPage";
@@ -41,6 +44,8 @@ import CafecaPage from "./pages/CafecaPage";
 import EgresadosPage from "./pages/EgresadosPage";
 import AdminPanelPage from "./pages/AdminPanelPage";
 import AdminResetPasswordPage from "./pages/AdminResetPasswordPage";
+import AcademicosPage from "./pages/AcademicosPage";
+import AdministrativosPage from "./pages/AdministrativosPage";
 import SatisfactionWidget from "./components/SatisfactionWidget";
 
 function getCurrentRoute() {
@@ -67,12 +72,15 @@ function getCurrentRoute() {
   if (hash === "#/servicios/contraloria-interna") return { page: "contraloria-interna" };
   if (hash === "#/servicios/finanzas") return { page: "finanzas" };
   if (hash === "#/servicios/secretaria-administrativa") return { page: "secretaria-administrativa" };
+  if (hash === "#/servicios/secretaria-academica") return { page: "secretaria-academica" };
   if (hash === "#/servicios/servicios-escolares") return { page: "servicios-escolares" };
   if (hash === "#/feria") return { page: "feria" };
   if (hash === "#/biblioteca") return { page: "biblioteca" };
   if (hash === "#/lenguas") return { page: "lenguas" };
   if (hash === "#/ciiedo") return { page: "ciiedo" };
   if (hash === "#/egresados") return { page: "egresados" };
+  if (hash === "#/academicos") return { page: "academicos" };
+  if (hash === "#/administrativos") return { page: "administrativos" };
   if (hash === "#/admin" || hash === "#/admin/login" || hash === "#/admin/egresados-docs") return { page: "admin-panel" };
   if (hash === "#/grupos-representativos") return { page: "grupos" };
 
@@ -96,6 +104,11 @@ function getCurrentRoute() {
     return { page: "director-profile", slug };
   }
 
+  if (hash.startsWith("#/aviso/")) {
+    const slug = hash.replace("#/aviso/", "");
+    return { page: "aviso-detail", slug };
+  }
+
   if (hash.startsWith("#/nosotros/")) {
     const slug = hash.replace("#/nosotros/", "");
     return { page: "single-section", slug };
@@ -104,7 +117,9 @@ function getCurrentRoute() {
   return { page: "home" };
 }
 
-const NEWS_ITEMS = [
+// Se usa solo si todavía no hay noticias en la tabla noticias_recientes de
+// Supabase (o si falla la consulta), para que el panel nunca se quede vacío.
+const FALLBACK_NEWS_ITEMS = [
   {
     id: 1,
     badge: "NUEVO",
@@ -156,6 +171,39 @@ function App() {
   const [newsPanelOpen, setNewsPanelOpen] = useState(false);
   const [buzonOpen, setBuzonOpen] = useState(false);
   const [selectedNews, setSelectedNews] = useState(null);
+  const [newsItems, setNewsItems] = useState(FALLBACK_NEWS_ITEMS);
+
+  useEffect(() => {
+    let active = true;
+    supabase
+      .from("noticias_recientes")
+      .select("id, badge, fecha_texto, categoria, titulo, resumen, tipo, cuerpo, documento_url")
+      .eq("publicado", true)
+      .order("orden", { ascending: true })
+      .then(({ data, error }) => {
+        if (!active) return;
+        if (error || !data || data.length === 0) {
+          if (error) console.error("Error cargando noticias recientes:", error);
+          return;
+        }
+        setNewsItems(
+          data.map((row) => ({
+            id: row.id,
+            badge: row.badge,
+            date: row.fecha_texto,
+            cat: row.categoria,
+            title: row.titulo,
+            summary: row.resumen,
+            type: row.tipo,
+            body: row.cuerpo,
+            doc: row.documento_url,
+          })),
+        );
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
 
   useEffect(() => {
     if (!window.location.hash || window.location.hash === "#") {
@@ -325,6 +373,12 @@ function App() {
         newsPanelOpen={newsPanelOpen}
         setNewsPanelOpen={setNewsPanelOpen}
       />
+    ) : route.page === "secretaria-academica" ? (
+      <SecretariaAcademicaPage
+        logoImage={logoImage}
+        newsPanelOpen={newsPanelOpen}
+        setNewsPanelOpen={setNewsPanelOpen}
+      />
     ) : route.page === "servicios-escolares" ? (
       <ServiciosEscolaresPage
         logoImage={logoImage}
@@ -387,6 +441,18 @@ function App() {
       <AdminPanelPage />
     ) : route.page === "admin-reset-password" ? (
       <AdminResetPasswordPage />
+    ) : route.page === "academicos" ? (
+      <AcademicosPage
+        logoImage={logoImage}
+        newsPanelOpen={newsPanelOpen}
+        setNewsPanelOpen={setNewsPanelOpen}
+      />
+    ) : route.page === "administrativos" ? (
+      <AdministrativosPage
+        logoImage={logoImage}
+        newsPanelOpen={newsPanelOpen}
+        setNewsPanelOpen={setNewsPanelOpen}
+      />
     ) : route.slug === "curso-propedeutico" ? (
       <PropedeuticoPage
         logoImage={logoImage}
@@ -431,6 +497,13 @@ function App() {
         newsPanelOpen={newsPanelOpen}
         setNewsPanelOpen={setNewsPanelOpen}
       />
+    ) : route.page === "aviso-detail" ? (
+      <AvisoDetailPage
+        id={route.slug}
+        logoImage={logoImage}
+        newsPanelOpen={newsPanelOpen}
+        setNewsPanelOpen={setNewsPanelOpen}
+      />
     ) : route.page === "single-section" ? (
       sectionPages[route.slug] ? (
         <SingleSectionPage
@@ -453,20 +526,24 @@ function App() {
     <>
       {pageContent}
 
-      <SatisfactionWidget />
+      {route.page !== "admin-panel" && (
+        <>
+          <SatisfactionWidget />
 
-      <a
-        className="whatsapp-fab"
-        href="https://wa.me/526188271365"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Contactar por WhatsApp"
-      >
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-        </svg>
-        <span className="whatsapp-fab-label">¿Tienes dudas? Escríbenos</span>
-      </a>
+          <a
+            className="whatsapp-fab"
+            href="https://wa.me/526188271365"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Contactar por WhatsApp"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+            <span className="whatsapp-fab-label">¿Tienes dudas? Escríbenos</span>
+          </a>
+        </>
+      )}
 
       <div
         className={`panel-overlay ${newsPanelOpen ? "open" : ""}`}
@@ -504,7 +581,7 @@ function App() {
           <section className="panel-section panel-news">
             <h3>Noticias recientes</h3>
             <ul className="panel-list">
-              {NEWS_ITEMS.map((item) => (
+              {newsItems.map((item) => (
                 <li key={item.id} className="panel-item panel-item--news panel-item--clickable" onClick={() => setSelectedNews(item)}>
                   <div className="panel-news-meta">
                     {item.badge && <span className="panel-news-badge">{item.badge}</span>}

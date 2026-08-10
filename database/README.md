@@ -289,6 +289,43 @@ alguna vez necesitas volver a correrlo, borra antes las políticas
 Policies) o agrégales un `DROP POLICY IF EXISTS` antes de cada `CREATE
 POLICY`.
 
+## Fase 7 — Solicitudes de acceso al panel (ya construido)
+
+La pantalla de login del panel (`#/admin`) ahora tiene un enlace "¿Eres
+maestro o directivo? Solicitar acceso" que abre un formulario (nombre,
+correo, cargo, área y un mensaje opcional). Se guarda en la tabla nueva
+`solicitudes_acceso_panel` (creada por
+`database/solicitudes_acceso_panel.sql`).
+
+**Esto NO crea una cuenta ni da acceso automáticamente.** No hay forma de
+verificar desde un formulario público que quien lo llenó de verdad es
+personal de la facultad, así que llenar el formulario solo dice "aquí
+estoy, quiero acceso" — queda pendiente en la pestaña **"Solicitudes de
+acceso"** dentro de `#/admin` (`src/components/admin/AccesoManager.jsx`),
+donde alguien que ya tiene acceso al panel la revisa y la marca como
+aprobada o rechazada. Aprobarla es solo para llevar el control de quién
+fue revisado — la cuenta real todavía hay que crearla a mano en
+**Authentication → Users → Add user** del dashboard de Supabase, con el
+correo capturado en la solicitud, siguiendo el mismo procedimiento de la
+sección "Cómo dar de alta al administrador que va a usar el panel" más
+arriba. (Crear la cuenta automáticamente desde el formulario requeriría la
+service_role key de Supabase, que nunca debe vivir en el navegador.)
+
+Dos filtros más, para que no sea tan fácil de abusar (ninguno reemplaza la
+revisión humana, solo reducen el ruido):
+- **Correo institucional obligatorio (`@ujed.mx`)** — se valida tanto en el
+  formulario como con un `CHECK` en la tabla. No es infalible (cualquiera
+  puede escribir un correo `@ujed.mx` que no le pertenece), pero saca de
+  la jugada a quien no tenga acceso a ese dominio.
+- **Campo trampa (honeypot)** — un campo invisible para personas que los
+  bots de spam automático sí llenan; si llega lleno, la solicitud se
+  descarta sin guardarse ni avisarle al bot.
+
+### Cómo aplicar `solicitudes_acceso_panel.sql`
+
+Igual que los demás: pégalo completo en el **SQL Editor** de Supabase y
+ejecútalo. Es seguro correrlo más de una vez.
+
 ### Nota sobre desplegar en un servidor Node propio (no Vercel)
 
 Como ya no depende de `/api` ni de Vercel Blob, el sitio ahora es un caso

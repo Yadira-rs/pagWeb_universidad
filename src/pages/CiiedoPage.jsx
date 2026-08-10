@@ -303,7 +303,7 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
             <div>
               <div className="pf-label" style={{ marginBottom: 6 }}>Conócenos</div>
               <h2 className="pf-section-title" style={{ marginBottom: 16 }}>Información institucional</h2>
-              <p className="pf-section-desc" style={{ marginBottom: 20 }}>
+              <p className="pf-section-desc" style={{ marginBottom: 20, minHeight: 60 }}>
                 Material oficial del <strong>CIIEDO</strong> para estudiantes de la FECA.
               </p>
               <div
@@ -327,7 +327,7 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
             <div>
               <div className="pf-label" style={{ marginBottom: 6 }}>Agenda</div>
               <h2 className="pf-section-title" style={{ marginBottom: 16 }}>Calendarios y actividades</h2>
-              <p className="pf-section-desc" style={{ marginBottom: 20 }}>
+              <p className="pf-section-desc" style={{ marginBottom: 20, minHeight: 60 }}>
                 Consulta los calendarios de eventos, talleres y certificaciones del <strong>CIIEDO</strong>.
               </p>
               <div

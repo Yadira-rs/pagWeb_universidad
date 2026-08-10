@@ -62,19 +62,6 @@ const tramites = [
     desc: "Gestión de cambios en tu carga académica durante el período habilitado. Consulta fechas en el calendario escolar vigente.",
     items: ["Alta de materias", "Baja de materias", "Baja temporal de semestre", "Cambio de grupo"],
   },
-  {
-    key: "otros",
-    title: "Otros Trámites Escolares",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="28" height="28">
-        <circle cx="12" cy="12" r="10"/>
-        <line x1="12" y1="8" x2="12" y2="12"/>
-        <line x1="12" y1="16" x2="12.01" y2="16"/>
-      </svg>
-    ),
-    desc: "Trámites adicionales para estudiantes activos y egresados de la FECA.",
-    items: ["Credencial universitaria", "Duplicado de documentos", "Certificado de estudios parcial", "Cambio de carrera"],
-  },
 ];
 
 function DocIcon() {

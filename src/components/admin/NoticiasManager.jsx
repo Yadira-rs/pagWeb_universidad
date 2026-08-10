@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../../lib/supabaseClient";
-import ImageUploadField from "./ImageUploadField";
 
-const TABLE = "anuncios_noticias";
+const TABLE = "noticias_recientes";
 
 const EMPTY_FORM = {
-  tipo: "Aviso",
+  badge: "",
+  fecha_texto: "",
+  categoria: "",
   titulo: "",
   resumen: "",
-  fecha_texto: "",
-  imagen_url: "",
-  cta_label: "",
-  cta_href: "",
+  tipo: "article",
+  cuerpo: "",
+  documento_url: "",
   publicado: true,
 };
 
-function AnunciosManager() {
+function NoticiasManager() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -50,18 +50,19 @@ function AnunciosManager() {
 
   const handleSave = async (e) => {
     e.preventDefault();
-    if (!form.titulo.trim() || !form.imagen_url.trim()) return;
+    if (!form.titulo.trim() || !form.fecha_texto.trim() || !form.categoria.trim() || !form.resumen.trim() || !form.cuerpo.trim()) return;
     setSaving(true);
     setError("");
 
     const payload = {
-      tipo: form.tipo,
+      badge: form.badge?.trim() || null,
+      fecha_texto: form.fecha_texto.trim(),
+      categoria: form.categoria.trim(),
       titulo: form.titulo.trim(),
-      resumen: form.resumen?.trim() || null,
-      fecha_texto: form.fecha_texto?.trim() || null,
-      imagen_url: form.imagen_url.trim(),
-      cta_label: form.cta_label?.trim() || null,
-      cta_href: form.cta_href?.trim() || null,
+      resumen: form.resumen.trim(),
+      tipo: form.tipo,
+      cuerpo: form.cuerpo.trim(),
+      documento_url: form.documento_url?.trim() || null,
       publicado: !!form.publicado,
       orden: form.orden ?? 0,
     };
@@ -81,7 +82,7 @@ function AnunciosManager() {
   };
 
   const handleDelete = async (item) => {
-    if (!window.confirm(`¿Borrar el anuncio "${item.titulo}"? No se puede deshacer.`)) return;
+    if (!window.confirm(`¿Borrar la noticia "${item.titulo}"? No se puede deshacer.`)) return;
     const { error: err } = await supabase.from(TABLE).delete().eq("id", item.id);
     if (err) setError(err.message);
     else load();
@@ -110,44 +111,56 @@ function AnunciosManager() {
     load();
   };
 
-  if (loading) return <p className="admpanel-loading">Cargando anuncios…</p>;
+  if (loading) return <p className="admpanel-loading">Cargando noticias…</p>;
 
   return (
     <div className="admpanel-section">
       <div className="admpanel-section-header">
         <div>
-          <h2>Anuncios y noticias</h2>
-          <p>Aparecen en el carrusel "Avisos y Eventos" de Inicio y en su pantalla de información completa al hacer clic.</p>
+          <h2>Últimas noticias</h2>
+          <p>Aparecen en la ventana emergente "Últimas noticias" del botón de notificaciones (distinta del carrusel "Avisos y Eventos").</p>
         </div>
-        <button className="admpanel-btn-primary" onClick={openNew}>+ Nuevo anuncio</button>
+        <button className="admpanel-btn-primary" onClick={openNew}>+ Nueva noticia</button>
       </div>
 
       {error && <p className="admpanel-error">{error}</p>}
 
       {form && (
         <form className="admpanel-form" onSubmit={handleSave}>
-          <h3>{form.id ? "Editar anuncio" : "Nuevo anuncio"}</h3>
+          <h3>{form.id ? "Editar noticia" : "Nueva noticia"}</h3>
 
           <div className="admpanel-field-row">
             <label className="admpanel-field">
-              <span>Tipo</span>
-              <select value={form.tipo} onChange={(e) => setForm({ ...form, tipo: e.target.value })}>
-                <option>Aviso</option>
-                <option>Evento</option>
-                <option>Convocatoria</option>
-                <option>Logro</option>
-              </select>
-            </label>
-            <label className="admpanel-field">
-              <span>Fecha (texto libre)</span>
+              <span>Categoría *</span>
               <input
                 type="text"
-                value={form.fecha_texto || ""}
+                required
+                value={form.categoria}
+                onChange={(e) => setForm({ ...form, categoria: e.target.value })}
+                placeholder="Ej. Admisión, Eventos, Académico"
+              />
+            </label>
+            <label className="admpanel-field">
+              <span>Fecha (texto libre) *</span>
+              <input
+                type="text"
+                required
+                value={form.fecha_texto}
                 onChange={(e) => setForm({ ...form, fecha_texto: e.target.value })}
-                placeholder="Ej. 15 de julio, 2026 · 10:00 hrs"
+                placeholder="Ej. 9 jun 2026"
               />
             </label>
           </div>
+
+          <label className="admpanel-field">
+            <span>Etiqueta (opcional)</span>
+            <input
+              type="text"
+              value={form.badge || ""}
+              onChange={(e) => setForm({ ...form, badge: e.target.value })}
+              placeholder="Ej. NUEVO"
+            />
+          </label>
 
           <label className="admpanel-field">
             <span>Título *</span>
@@ -160,40 +173,45 @@ function AnunciosManager() {
           </label>
 
           <label className="admpanel-field">
-            <span>Información (se muestra completa en la pantalla de detalle)</span>
+            <span>Resumen * (se muestra en la lista)</span>
             <textarea
-              rows={3}
-              value={form.resumen || ""}
+              rows={2}
+              required
+              value={form.resumen}
               onChange={(e) => setForm({ ...form, resumen: e.target.value })}
             />
           </label>
 
-          <ImageUploadField
-            label="Imagen *"
-            value={form.imagen_url}
-            onChange={(url) => setForm({ ...form, imagen_url: url })}
-          />
+          <label className="admpanel-field">
+            <span>Tipo</span>
+            <select value={form.tipo} onChange={(e) => setForm({ ...form, tipo: e.target.value })}>
+              <option value="article">Artículo (texto completo)</option>
+              <option value="document">Documento (PDF)</option>
+            </select>
+          </label>
 
-          <div className="admpanel-field-row">
+          <label className="admpanel-field">
+            <span>{form.tipo === "document" ? "Descripción del documento *" : "Contenido completo *"}</span>
+            <textarea
+              rows={6}
+              required
+              value={form.cuerpo}
+              onChange={(e) => setForm({ ...form, cuerpo: e.target.value })}
+              placeholder={form.tipo === "document" ? "" : "Usa líneas en blanco para separar párrafos."}
+            />
+          </label>
+
+          {form.tipo === "document" && (
             <label className="admpanel-field">
-              <span>Texto del botón</span>
+              <span>Ruta del PDF</span>
               <input
                 type="text"
-                value={form.cta_label || ""}
-                onChange={(e) => setForm({ ...form, cta_label: e.target.value })}
-                placeholder="Ej. Registrarme"
+                value={form.documento_url || ""}
+                onChange={(e) => setForm({ ...form, documento_url: e.target.value })}
+                placeholder="/nombre-del-archivo.pdf"
               />
             </label>
-            <label className="admpanel-field">
-              <span>Link del botón</span>
-              <input
-                type="text"
-                value={form.cta_href || ""}
-                onChange={(e) => setForm({ ...form, cta_href: e.target.value })}
-                placeholder="#/servicios o https://..."
-              />
-            </label>
-          </div>
+          )}
 
           <label className="admpanel-checkbox">
             <input
@@ -214,16 +232,16 @@ function AnunciosManager() {
       )}
 
       {items.length === 0 ? (
-        <p className="admpanel-empty">Todavía no hay anuncios. Crea el primero con "+ Nuevo anuncio".</p>
+        <p className="admpanel-empty">Todavía no hay noticias. Crea la primera con "+ Nueva noticia".</p>
       ) : (
         <div className="admpanel-table-wrap">
           <table className="admpanel-table">
             <thead>
               <tr>
                 <th></th>
-                <th>Imagen</th>
                 <th>Título</th>
-                <th>Tipo</th>
+                <th>Categoría</th>
+                <th>Fecha</th>
                 <th>Estado</th>
                 <th></th>
               </tr>
@@ -235,9 +253,9 @@ function AnunciosManager() {
                     <button type="button" onClick={() => move(index, -1)} disabled={index === 0} aria-label="Subir">↑</button>
                     <button type="button" onClick={() => move(index, 1)} disabled={index === items.length - 1} aria-label="Bajar">↓</button>
                   </td>
-                  <td><img src={item.imagen_url} alt="" className="admpanel-thumb" /></td>
                   <td>{item.titulo}</td>
-                  <td>{item.tipo}</td>
+                  <td>{item.categoria}</td>
+                  <td>{item.fecha_texto}</td>
                   <td>
                     <button
                       type="button"
@@ -261,4 +279,4 @@ function AnunciosManager() {
   );
 }
 
-export default AnunciosManager;
+export default NoticiasManager;

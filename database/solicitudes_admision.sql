@@ -65,3 +65,12 @@ drop policy if exists solicitudes_admision_admin_delete on solicitudes_admision;
 create policy solicitudes_admision_admin_delete on solicitudes_admision
     for delete
     using (auth.role() = 'authenticated');
+
+-- "Automatically expose new tables" está desactivado a propósito en el
+-- proyecto (más seguro), así que las políticas de RLS de arriba nunca se
+-- llegan a evaluar sin este GRANT explícito: sin él, ni "anon" ni
+-- "authenticated" tienen ni siquiera permiso de tocar la tabla.
+grant usage on schema public to anon, authenticated;
+grant insert on solicitudes_admision to anon, authenticated;
+grant select, update, delete on solicitudes_admision to authenticated;
+grant usage, select on solicitudes_admision_id_seq to anon, authenticated;
