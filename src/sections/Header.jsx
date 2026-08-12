@@ -212,16 +212,21 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 <div className="acc-row acc-row-flat">
                   <a className="acc-title acc-title-link" href="#/servicios/contraloria-interna">Contraloría Interna</a>
                 </div>
+
+                <div className="acc-row acc-row-flat">
+                  <a className="acc-title acc-title-link" href="#/servicios/educacion-a-distancia">Educación a Distancia</a>
+                </div>
               </div>
             </div>
 
-            <div className={`nav-item ${currentRoute === "history" || currentRoute === "mission-vision" || currentRoute === "single-section" || currentRoute === "grupos" ? "active" : ""}`}>
+            <div className={`nav-item ${currentRoute === "history" || currentRoute === "mission-vision" || currentRoute === "single-section" || currentRoute === "grupos" || currentHash === "#/servicios/cuerpos-academicos" ? "active" : ""}`}>
               <a href="#/nosotros">
                 Nosotros
                 <span className="nav-caret" aria-hidden="true"></span>
               </a>
               <div className="dropdown">
                 <a href="#/nosotros/ejes-rectores" className={currentHash === "#/nosotros/ejes-rectores" ? "active" : ""}>Ejes rectores</a>
+                <a href="#/servicios/cuerpos-academicos" className={currentHash === "#/servicios/cuerpos-academicos" ? "active" : ""}>Cuerpos Académicos</a>
                 <a href="#/egresados" className={currentHash === "#/egresados" ? "active" : ""}>Egresados</a>
                 <a href="#/grupos-representativos" className={currentHash === "#/grupos-representativos" ? "active" : ""}>Grupos representativos</a>
                 <a href="#/historia" className={currentHash === "#/historia" ? "active" : ""}>Historia</a>
@@ -574,12 +579,15 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
             <a href="#/servicios/cpei" className={`mobile-nav-subgroup${currentHash === "#/servicios/cpei" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Coordinación de Planeación y Evaluación Institucional</a>
 
             <a href="#/servicios/contraloria-interna" className={`mobile-nav-subgroup${currentHash === "#/servicios/contraloria-interna" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Contraloría Interna</a>
+
+            <a href="#/servicios/educacion-a-distancia" className={`mobile-nav-subgroup${currentHash === "#/servicios/educacion-a-distancia" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Educación a Distancia</a>
           </div>
 
           {/* Nosotros */}
           <div className="mobile-menu-section">
             <span className="mobile-menu-section-label">Nosotros</span>
             <a href="#/nosotros/ejes-rectores" className={`mobile-nav-sub${currentHash === "#/nosotros/ejes-rectores" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Ejes rectores</a>
+            <a href="#/servicios/cuerpos-academicos" className={`mobile-nav-sub${currentHash === "#/servicios/cuerpos-academicos" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Cuerpos Académicos</a>
             <a href="#/egresados" className={`mobile-nav-sub${currentHash === "#/egresados" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Egresados</a>
             <a href="#/grupos-representativos" className={`mobile-nav-sub${currentHash === "#/grupos-representativos" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Grupos representativos</a>
             <a href="#/historia" className={`mobile-nav-sub${currentHash === "#/historia" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Historia</a>

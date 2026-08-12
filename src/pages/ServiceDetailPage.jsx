@@ -74,6 +74,51 @@ function ServiceDetailPage({
         </div>
       </section>
 
+      {content.encargado && (
+        <section className="pf-section pf-section-alt">
+          <div className="pf-container">
+            <div className="pf-section-head pf-section-head-center">
+              <div className="pf-label">Quién nos atiende</div>
+              <h2 className="pf-section-title">{content.encargado.role}</h2>
+            </div>
+            <div className="encargado-card">
+              <div className="encargado-card-photo">
+                <img src={content.encargado.image} alt={content.encargado.role} />
+              </div>
+              <div className="encargado-card-body">
+                <span className="encargado-card-badge">{content.encargado.role}</span>
+                <h3 className="encargado-card-name">{content.encargado.name}</h3>
+                {content.encargado.quote && (
+                  <p className="encargado-card-quote">"{content.encargado.quote}"</p>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {content.gallery && content.gallery.length > 0 && (
+        <section className="pf-section pf-section-light">
+          <div className="pf-container">
+            <div className="pf-section-head pf-section-head-center">
+              <div className="pf-label">Nuestro equipo</div>
+              <h2 className="pf-section-title">Galería</h2>
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 16 }}>
+              {content.gallery.map((src) => (
+                <div key={src} style={{ borderRadius: 14, overflow: "hidden", aspectRatio: "3/4" }}>
+                  <img
+                    src={src}
+                    alt={content.heroTitle}
+                    style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       <main className="details-page doc-list-page">
         {content.coordinator && (
           <div className="coord-card">
@@ -89,7 +134,7 @@ function ServiceDetailPage({
             </div>
           </div>
         )}
-        {content.grouped ? (
+        {content.items.length === 0 ? null : content.grouped ? (
           groupItems(content.items).map((group, gi) => (
             <div key={gi} className="doc-group">
               {group.title && <h2 className="doc-group-title">{group.title}</h2>}

@@ -284,6 +284,24 @@ function App() {
     };
   }, [newsPanelOpen, buzonOpen]);
 
+  // Accesibilidad: permite cerrar paneles y modales con la tecla Escape
+  // (WCAG 2.1.2 - Sin trampa de teclado). Cierra primero el overlay que
+  // esté más arriba visualmente: detalle de noticia > buzón > panel de noticias.
+  useEffect(() => {
+    function handleKeyDown(e) {
+      if (e.key !== "Escape") return;
+      if (selectedNews) {
+        setSelectedNews(null);
+      } else if (buzonOpen) {
+        setBuzonOpen(false);
+      } else if (newsPanelOpen) {
+        setNewsPanelOpen(false);
+      }
+    }
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [selectedNews, buzonOpen, newsPanelOpen]);
+
   useEffect(() => {
     const elements = document.querySelectorAll(".fade-up, .fade-left, .fade-right, .zoom-in");
     const observer = new IntersectionObserver(

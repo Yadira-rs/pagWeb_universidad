@@ -107,6 +107,18 @@
   box-sizing: border-box;
 }
 
+/* ── Accesibilidad: foco visible para navegación por teclado (WCAG 2.4.7) ──
+   Varios componentes quitan el outline nativo (outline: none) para su propio
+   estilo de :focus, pero varios inputs/botones se quedaban sin ningún
+   indicador visible al navegar con Tab. Esta regla de respaldo solo se activa
+   cuando el foco viene del teclado (no al hacer clic con el mouse), así que
+   no cambia el look para el usuario de mouse. */
+:focus-visible {
+  outline: 3px solid #e31313;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
 .site-shell {
   --navy: #e31313;
   --navy-mid: #951823;
@@ -9123,6 +9135,20 @@ a.mobile-nav-subgroup:hover {
     url('/imagenes/feca-entrada.jpg');
 }
 
+.img_cuerpos_academicos {
+  background-image:
+    linear-gradient(rgba(125, 19, 32, 0.25), rgba(125, 19, 32, 0.45)),
+    url('/imagenes/cuerpos-academicos/equipo-encargado.jpg');
+  background-position: top center;
+}
+
+.img_educacion_distancia {
+  background-image:
+    linear-gradient(rgba(125, 19, 32, 0.25), rgba(125, 19, 32, 0.45)),
+    url('/imagenes/educacion-a-distancia/equipo-encargado.jpg');
+  background-position: top center;
+}
+
 .img_tutorias {
   background-image:
     linear-gradient(rgba(125, 19, 32, 0.25), rgba(125, 19, 32, 0.45)),
@@ -10814,6 +10840,68 @@ a.prop2-contact-item:hover {
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 .pf-fade.visible { opacity: 1; transform: translateY(0); }
+
+/* ── Tarjeta de encargado(a) ── */
+.encargado-card {
+  display: flex;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.13);
+  max-width: 900px;
+  margin: 0 auto;
+}
+.encargado-card-photo {
+  flex: 0 0 42%;
+  min-height: 340px;
+}
+.encargado-card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.encargado-card-body {
+  flex: 1;
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+.encargado-card-badge {
+  display: inline-block;
+  background: #e31313;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 100px;
+  align-self: flex-start;
+  font-family: var(--font-ui);
+}
+.encargado-card-name {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 800;
+  color: #951823;
+  margin: 0;
+  line-height: 1.25;
+}
+.encargado-card-quote {
+  font-style: italic;
+  color: #5c5c6d;
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0;
+  font-family: var(--font-body);
+}
+@media (max-width: 640px) {
+  .encargado-card { flex-direction: column; }
+  .encargado-card-photo { min-height: 280px; }
+}
 
 /* ── Container ── */
 .pf-container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
