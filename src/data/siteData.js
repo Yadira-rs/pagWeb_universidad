@@ -598,6 +598,54 @@ export const servicePages = {
         label: "Abrir PDF →",
       },
     ],
+    encargado: {
+      name: "Mtra. Sofía Delgado",
+      role: "Coordinadora de Planeación y Evaluación Institucional",
+      image: "/imagenes/cpei/equipo-encargado.jpg",
+      quote: "La planeación estratégica es la brújula que guía el crecimiento y la mejora continua de nuestra facultad.",
+    },
+    gallery: [
+      "/imagenes/cpei/equipo-1.jpg",
+      "/imagenes/cpei/equipo-2.jpg",
+      "/imagenes/cpei/equipo-3.jpg",
+      "/imagenes/cpei/equipo-4.jpg",
+    ],
+  },
+  "cuerpos-academicos": {
+    heroTag: "FECA · Cuerpos Académicos",
+    heroTitle: "Cuerpos Académicos",
+    intro:
+      "Grupos de profesores investigadores que trabajan en torno a líneas de generación y aplicación del conocimiento, fortaleciendo la investigación y el posgrado de la facultad.",
+    items: [],
+    encargado: {
+      name: "Dr. Alberto Quiñones",
+      role: "Coordinador de Cuerpos Académicos",
+      image: "/imagenes/cuerpos-academicos/equipo-encargado.jpg",
+      quote: "La investigación colaborativa fortalece la calidad académica y consolida el prestigio de la FECA a nivel nacional.",
+    },
+    gallery: [
+      "/imagenes/cuerpos-academicos/equipo-1.jpg",
+      "/imagenes/cuerpos-academicos/equipo-2.jpg",
+    ],
+  },
+  "educacion-a-distancia": {
+    heroTag: "FECA · Educación a Distancia",
+    heroTitle: "Educación a Distancia",
+    intro:
+      "Área encargada de la operación y el acompañamiento de los programas educativos en modalidad a distancia de la FECA.",
+    items: [],
+    encargado: {
+      name: "Mtra. Renata Villalobos",
+      role: "Coordinadora de Educación a Distancia",
+      image: "/imagenes/educacion-a-distancia/equipo-encargado.jpg",
+      quote: "La educación a distancia rompe barreras de tiempo y espacio para que más personas puedan formarse con la calidad de la FECA.",
+    },
+    gallery: [
+      "/imagenes/educacion-a-distancia/equipo-1.jpg",
+      "/imagenes/educacion-a-distancia/equipo-2.jpg",
+      "/imagenes/educacion-a-distancia/equipo-3.jpg",
+      "/imagenes/educacion-a-distancia/equipo-4.jpg",
+    ],
   },
   "secretaria-administrativa": {
     heroTag: "FECA · Secretaría Administrativa",

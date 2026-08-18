@@ -94,6 +94,29 @@ function ContraloriaPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
         </div>
       </section>
 
+      {/* ── ENCARGADO ── */}
+      <section className="pf-section pf-section-alt">
+        <div className="pf-container">
+          <div className="pf-section-head pf-section-head-center">
+            <div className="pf-label">Quién nos atiende</div>
+            <h2 className="pf-section-title">Contralor Interno</h2>
+          </div>
+          <div className="encargado-card">
+            <div className="encargado-card-photo">
+              <img src="/imagenes/contraloria/equipo-encargado.jpg" alt="Contralor Interno FECA" />
+            </div>
+            <div className="encargado-card-body">
+              <span className="encargado-card-badge">Contralor Interno</span>
+              <h3 className="encargado-card-name">Lic. Ricardo Herrera</h3>
+              <p className="encargado-card-quote">
+                "Trabajamos día a día para que la transparencia y la rendición de cuentas sean un
+                compromiso real con toda la comunidad FECA."
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── ¿QUÉ ES? ── */}
       <section className="pf-section pf-section-light pf-fade">
         <div className="pf-container">

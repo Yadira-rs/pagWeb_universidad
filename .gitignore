@@ -31,9 +31,15 @@ scripts/deploy_function.ps1
 *.sw?
 public/docs/Video Informativo Declaración Patrimonial.mp4
 
-# Playwright
+# Fotos originales sin comprimir (fuente para recortar/optimizar antes de
+# subir a public/imagenes) — no se usan directo en el sitio, muy pesadas
+# para versionar.
+fotos_directivos/
+
+# Playwright — artefactos de depuración (no son la evidencia final).
+# playwright-report/ SÍ se versiona: es la evidencia de ejecución citada
+# en INFORME_CALIDAD.md.
 /test-results/
-/playwright-report/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/

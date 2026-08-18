@@ -57,6 +57,18 @@ const serviceCards = [
     href: "#/servicios/contraloria-interna",
     imageClass: "img_contraloria",
   },
+  {
+    title: "Cuerpos Académicos",
+    description: "Grupos de profesores investigadores y líneas de generación del conocimiento.",
+    href: "#/servicios/cuerpos-academicos",
+    imageClass: "img_cuerpos_academicos",
+  },
+  {
+    title: "Educación a Distancia",
+    description: "Operación y acompañamiento de los programas educativos en modalidad a distancia.",
+    href: "#/servicios/educacion-a-distancia",
+    imageClass: "img_educacion_distancia",
+  },
 ];
 
 function ServicesPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {

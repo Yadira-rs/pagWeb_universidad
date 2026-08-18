@@ -108,6 +108,18 @@ export const searchIndex = [
     keywords: "contraloría interna feca control fiscalización auditóría transparencia quejas sugerencias buzón",
   },
   {
+    title: "Cuerpos Académicos",
+    description: "Grupos de profesores investigadores y líneas de generación del conocimiento",
+    href: "#/servicios/cuerpos-academicos",
+    keywords: "cuerpos académicos investigación profesores investigadores líneas generación aplicación conocimiento",
+  },
+  {
+    title: "Educación a Distancia",
+    description: "Operación y acompañamiento de los programas educativos en modalidad a distancia",
+    href: "#/servicios/educacion-a-distancia",
+    keywords: "educación a distancia en línea online virtual coordinación",
+  },
+  {
     title: "Tutorías",
     description: "Programa Institucional de Tutorías FECA",
     href: "#/tutorias",
