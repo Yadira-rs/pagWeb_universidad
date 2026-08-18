@@ -8,7 +8,7 @@ const TABLE = "solicitudes_acceso_panel";
 // solicitudes_acceso_panel (database/acceso_panel_admin_principal.sql) —
 // solo esta cuenta puede aprobar/rechazar/borrar solicitudes. Si cambias
 // de administrador principal, actualiza los dos lugares.
-const MAIN_ADMIN_EMAIL = "iris23rs2006@gmail.com";
+const MAIN_ADMIN_EMAIL = "comunicacionsocial.feca@ujed.mx";
 
 function formatFecha(iso) {
   try {
@@ -36,6 +36,7 @@ function AccesoManager() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [invitingId, setInvitingId] = useState(null);
 
   const load = async () => {
     setLoading(true);
@@ -60,6 +61,23 @@ function AccesoManager() {
     else load();
   };
 
+  const handleAprobar = async (item) => {
+    setInvitingId(item.id);
+    setError("");
+    try {
+      const { data, error: fnError } = await supabase.functions.invoke("invitar-acceso-panel", {
+        body: { correo: item.correo, nombre: item.nombre },
+      });
+      if (fnError) throw fnError;
+      if (data?.error) throw new Error(data.error);
+      await setEstado(item, "aprobada");
+    } catch (err) {
+      setError(err.message || "No se pudo invitar a la cuenta.");
+    } finally {
+      setInvitingId(null);
+    }
+  };
+
   const handleDelete = async (item) => {
     if (!window.confirm(`¿Borrar la solicitud de "${item.nombre}"? No se puede deshacer.`)) return;
     const { error: err } = await supabase.from(TABLE).delete().eq("id", item.id);
@@ -78,8 +96,8 @@ function AccesoManager() {
           <h2>Solicitudes de acceso</h2>
           <p>
             Maestros o directivos que pidieron acceso al panel desde la pantalla de login.
-            Aprobar aquí no crea la cuenta: sigue siendo necesario darla de alta a mano en
-            Supabase → Authentication → Users con el correo de la solicitud.
+            Aprobar aquí crea la cuenta y le manda un correo de invitación para que elija
+            su propia contraseña — no hace falta darla de alta a mano en el sistema.
             {!isMainAdmin && " Solo el administrador principal puede aprobar, rechazar o borrar solicitudes; tú puedes verlas."}
           </p>
         </div>
@@ -125,7 +143,9 @@ function AccesoManager() {
                   {isMainAdmin && (
                     <td className="admpanel-row-actions">
                       {item.estado !== "aprobada" && (
-                        <button type="button" onClick={() => setEstado(item, "aprobada")}>Aprobar</button>
+                        <button type="button" onClick={() => handleAprobar(item)} disabled={invitingId === item.id}>
+                          {invitingId === item.id ? "Invitando…" : "Aprobar"}
+                        </button>
                       )}
                       {item.estado !== "rechazada" && (
                         <button type="button" onClick={() => setEstado(item, "rechazada")}>Rechazar</button>

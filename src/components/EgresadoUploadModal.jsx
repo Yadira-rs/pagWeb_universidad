@@ -7,6 +7,21 @@ function randomSuffix() {
   return `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 }
 
+// Supabase Storage rechaza claves con espacios, acentos u otros caracteres
+// fuera de [a-zA-Z0-9._-], así que el nombre de archivo se limpia antes de
+// usarlo en la ruta (el nombre original se conserva en file_name).
+function sanitizeFileName(name) {
+  const dot = name.lastIndexOf(".");
+  const base = dot > 0 ? name.slice(0, dot) : name;
+  const ext = dot > 0 ? name.slice(dot) : "";
+  const clean = base
+    .normalize("NFD").replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-zA-Z0-9._-]+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
+  return `${clean || "archivo"}${ext}`;
+}
+
 const TIPOS_DOCUMENTO = [
   "Currículum (CV)",
   "Constancia laboral",
@@ -32,7 +47,7 @@ function EgresadoUploadModal({ onClose }) {
     setErrorMsg("");
 
     try {
-      const path = `${randomSuffix()}-${file.name}`;
+      const path = `${randomSuffix()}-${sanitizeFileName(file.name)}`;
       const { error: uploadError } = await supabase.storage.from(BUCKET).upload(path, file);
       if (uploadError) throw uploadError;
 

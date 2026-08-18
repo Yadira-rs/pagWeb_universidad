@@ -107,6 +107,15 @@
   box-sizing: border-box;
 }
 
+/* Reemplazo visual de foco para todo elemento que le quite el contorno
+   nativo con outline:none (ver los ~11 usos en este archivo) — sin esta
+   regla, navegar con teclado deja de mostrar dónde está el foco. Se aplica
+   globalmente, no por selector, para no depender de arreglar cada caso. */
+:focus-visible {
+  outline: 2px solid #e31313;
+  outline-offset: 2px;
+}
+
 .site-shell {
   --navy: #e31313;
   --navy-mid: #951823;
@@ -1527,6 +1536,24 @@ a.acc-title-link:hover {
   margin-top: 0;
 }
 
+.doc-section-body {
+  color: var(--gray-dark);
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0 0 4px;
+}
+
+.doc-section-list {
+  margin: 6px 0 4px;
+  padding-left: 20px;
+  color: var(--gray-dark);
+  font-size: 15px;
+  line-height: 1.7;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
 .doc-row {
   display: flex;
   align-items: center;
@@ -2584,6 +2611,13 @@ a.acc-title-link:hover {
   opacity: 0.65;
   cursor: not-allowed;
   transform: none;
+}
+
+.legacy-form-note {
+  font-size: 13px;
+  color: var(--gray-mid);
+  line-height: 1.6;
+  margin: -8px 0 4px;
 }
 
 .legacy-form-success {
@@ -5564,6 +5598,14 @@ a.acc-title-link:hover {
   font-size: 15px;
   margin: 0;
   line-height: 1.7;
+}
+
+.admissions-banner-note {
+  color: rgb(255 255 255 / 62%);
+  font-size: 12.5px;
+  margin: 8px 0 0;
+  line-height: 1.6;
+  max-width: 480px;
 }
 
 .admissions-banner .btn-primary {
@@ -15069,6 +15111,11 @@ body.footer-in-view .sw-root {
 .egr-testimonial-quote { font-family: var(--font-body); font-size: 15px; color: #4a4441; line-height: 1.7; font-style: italic; margin: 0; flex: 1; }
 .egr-testimonial-person { display: flex; align-items: center; gap: 12px; }
 .egr-testimonial-avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.egr-testimonial-avatar--placeholder {
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg,#9b0000,#e31313); color: #fff;
+  font-family: var(--font-display); font-size: 16px; font-weight: 700;
+}
 .egr-testimonial-role { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--text); }
 .egr-testimonial-meta { font-family: var(--font-ui); font-size: 12px; color: var(--gray-mid); }
 
@@ -15423,6 +15470,8 @@ body.footer-in-view .sw-root {
   background: rgba(227,19,19,0.08); border-radius: 999px; padding: 5px 14px; white-space: nowrap;
 }
 
+.admpanel-egr-header-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
 .admpanel-error {
   font-family: var(--font-body); font-size: 13px; color: #c0182a; background: rgba(192,0,12,0.08);
   border-radius: 8px; padding: 10px 14px; margin: 0 0 16px;
@@ -15469,6 +15518,10 @@ body.footer-in-view .sw-root {
 .admpanel-image-preview {
   margin-top: 8px; max-width: 220px; max-height: 120px; border-radius: 10px; object-fit: cover;
   border: 1px solid #ece4e4;
+}
+.admpanel-file-link {
+  margin-top: 8px; display: inline-block; font-family: var(--font-body); font-size: 12.5px;
+  color: #951823; text-decoration: underline; width: fit-content;
 }
 .admpanel-field-error { font-family: var(--font-body); font-size: 12px; color: #c0182a; }
 

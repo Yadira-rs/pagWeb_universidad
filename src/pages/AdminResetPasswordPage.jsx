@@ -76,7 +76,7 @@ function AdminResetPasswordPage() {
   return (
     <div className="admin-egr-gate">
       <form className="admin-egr-gate-card" onSubmit={handleSubmit}>
-        <h1 className="admin-egr-gate-title">Elige una nueva contraseña</h1>
+        <h1 className="admin-egr-gate-title">Elige tu contraseña</h1>
         <p className="admin-egr-gate-sub">Sesión verificada como {session.user.email}.</p>
 
         <input

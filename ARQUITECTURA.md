@@ -7,20 +7,32 @@ qué se diseñaron así, y qué pasa cuando uno de ellos falla.
 ## 1. Diagrama
 
 ```mermaid
-flowchart TB
-    Visitante(("Visitante /\nAdmin (navegador)"))
-    Frontend["Frontend SPA\n(React + Vite, estático)"]
-    Admisiones["Admisiones API\n(Node/Express · :4001)"]
-    Notif["Notificaciones API\n(Node/Express · :4002)"]
-    Supabase[("Supabase\nPostgres + Auth + Storage")]
-    Resend[["Resend\n(envío de correo)"]]
+flowchart LR
+    Visitante(("Visitante / Admin<br/>navegador"))
+    Frontend["<b>Frontend SPA</b><br/>React + Vite · estático<br/><i>SERVICIO PROPIO</i>"]
+    Admisiones["<b>Admisiones API</b><br/>Node / Express · :4001<br/><i>SERVICIO PROPIO</i>"]
+    Notif["<b>Notificaciones API</b><br/>Node / Express · :4002<br/><i>SERVICIO PROPIO</i>"]
+    Supabase[("<b>Supabase</b><br/>Postgres + Auth + Storage<br/><i>INFRAESTRUCTURA EXTERNA</i>")]
+    Resend[["<b>Resend</b><br/>envío de correo<br/><i>INFRAESTRUCTURA EXTERNA</i>"]]
+    Falla["Punto de falla para la demo en vivo:<br/>si se apaga Notificaciones API,<br/>Admisiones responde 201 igual,<br/>solo cambia notified: false (timeout 3s)"]
 
     Visitante --> Frontend
-    Frontend -- "REST · JSON\nPOST público / Bearer JWT admin" --> Admisiones
-    Frontend -- "Auth, Storage,\nresto del CMS" --> Supabase
-    Admisiones -- "service_role key\n(solo esta tabla)" --> Supabase
-    Admisiones -- "POST /notificar\nX-Service-Token" --> Notif
-    Notif -- "API key" --> Resend
+    Frontend -- "POST /api/solicitudes<br/>público · sin JWT" --> Admisiones
+    Frontend -- "GET · PATCH · DELETE<br/>Bearer JWT admin" --> Admisiones
+    Frontend -- "Auth, Storage,<br/>resto del CMS" --> Supabase
+    Admisiones -- "service_role key" --> Supabase
+    Admisiones -. "POST /notificar<br/>X-Service-Token" .-> Notif
+    Notif --> Resend
+    Admisiones -.- Falla
+
+    classDef servicio fill:#4a1420,stroke:#e8a0ae,color:#fff
+    classDef externo fill:#3a3020,stroke:#c9a94a,color:#fff
+    classDef falla fill:#241414,stroke:#e8a0ae,color:#e8a0ae,stroke-dasharray: 5 5
+    classDef actor fill:#1a1a1a,stroke:#ccc,color:#fff
+    class Frontend,Admisiones,Notif servicio
+    class Supabase,Resend externo
+    class Falla falla
+    class Visitante actor
 ```
 
 **Dirección real de la comunicación**: siempre de arriba hacia abajo en
@@ -49,14 +61,16 @@ documentado (ver los `README.md` de cada carpeta en `services/`).
 ## 3. Quién administra el sitio y dónde se edita el contenido
 
 **Quién entra.** El panel (`#/admin`) usa Supabase Auth: solo entra quien
-tiene una cuenta creada ahí. Hoy esas cuentas se dan de alta a mano en
-Supabase → Authentication → Users. Un maestro o directivo puede pedir
-acceso desde la misma pantalla de login (`AdminLoginPage.jsx`), lo que
-guarda una fila en `solicitudes_acceso_panel`; alguien con acceso la
-revisa en la pestaña "Solicitudes de acceso" del panel, pero aprobarla
-ahí **no crea la cuenta automáticamente** — sigue siendo un paso manual
-en Supabase. No hay señal de que la aprobaron: quien las revisa avisa
-por fuera (WhatsApp, correo) cuando ya la dio de alta.
+tiene una cuenta creada ahí. Un maestro o directivo puede pedir acceso
+desde la misma pantalla de login (`AdminLoginPage.jsx`), lo que guarda
+una fila en `solicitudes_acceso_panel`; el administrador principal la
+revisa en la pestaña "Solicitudes de acceso" del panel. Al darle
+"Aprobar", el panel llama a la Edge Function
+`supabase/functions/invitar-acceso-panel` (con la sesión del admin como
+credencial), que crea la cuenta con `auth.admin.inviteUserByEmail` y le
+manda a la persona un correo con un enlace para elegir su propia
+contraseña — ya no hace falta darla de alta a mano en Supabase ni
+compartir una contraseña por fuera del sistema.
 
 **Dos lugares distintos para editar contenido, y por qué importa para la
 rúbrica:**

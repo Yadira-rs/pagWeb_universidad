@@ -427,10 +427,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
               <br />
               inspira cada día
             </h2>
-            <p className="section-desc">
-              Más de 40 hectáreas de espacios diseñados para el aprendizaje, la
-              convivencia y el deporte.
-            </p>
           </div>
 
           <div className="campus-grid fade-up">
@@ -466,6 +462,11 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
               <p>
                 Proceso de admisión sencillo y en línea. Resultados en menos de
                 72 horas.
+              </p>
+              <p className="admissions-banner-note">
+                Tus datos llegan directamente al sistema interno de Admisiones
+                de la FECA, donde Secretaría Académica los valida antes de
+                contactarte.
               </p>
             </div>
             <a href="#/solicitud" className="btn-primary">

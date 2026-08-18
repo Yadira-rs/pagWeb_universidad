@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../../lib/supabaseClient";
+import DocumentUploadField from "./DocumentUploadField";
 
 const TABLE = "noticias_recientes";
 
@@ -202,15 +203,13 @@ function NoticiasManager() {
           </label>
 
           {form.tipo === "document" && (
-            <label className="admpanel-field">
-              <span>Ruta del PDF</span>
-              <input
-                type="text"
-                value={form.documento_url || ""}
-                onChange={(e) => setForm({ ...form, documento_url: e.target.value })}
-                placeholder="/nombre-del-archivo.pdf"
-              />
-            </label>
+            <DocumentUploadField
+              label="Documento (PDF, Word, etc.)"
+              value={form.documento_url}
+              onChange={(url) => setForm({ ...form, documento_url: url })}
+              placeholder="https://... o sube un archivo →"
+              accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx"
+            />
           )}
 
           <label className="admpanel-checkbox">

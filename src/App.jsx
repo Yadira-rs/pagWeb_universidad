@@ -51,10 +51,11 @@ import SatisfactionWidget from "./components/SatisfactionWidget";
 function getCurrentRoute() {
   const hash = window.location.hash || "#/";
 
-  // Enlace de recuperación de contraseña de Supabase: agrega
-  // #access_token=...&type=recovery al final de la URL. Se revisa antes que
-  // las demás rutas porque no es un path fijo, sino un fragmento variable.
-  if (hash.startsWith("#access_token=") && hash.includes("type=recovery")) {
+  // Enlace de recuperación de contraseña o de invitación de Supabase: agrega
+  // #access_token=...&type=recovery (o type=invite) al final de la URL. Se
+  // revisa antes que las demás rutas porque no es un path fijo, sino un
+  // fragmento variable.
+  if (hash.startsWith("#access_token=") && (hash.includes("type=recovery") || hash.includes("type=invite"))) {
     return { page: "admin-reset-password" };
   }
 
@@ -283,6 +284,20 @@ function App() {
       document.body.style.overflow = "";
     };
   }, [newsPanelOpen, buzonOpen]);
+
+  // Cierra con Escape la superposición que esté abierta en ese momento
+  // (modal de detalle de noticia > buzón de quejas > panel de noticias),
+  // para quien navega solo con teclado.
+  useEffect(() => {
+    function handleEscape(e) {
+      if (e.key !== "Escape") return;
+      if (selectedNews) setSelectedNews(null);
+      else if (buzonOpen) setBuzonOpen(false);
+      else if (newsPanelOpen) setNewsPanelOpen(false);
+    }
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, [selectedNews, buzonOpen, newsPanelOpen]);
 
   useEffect(() => {
     const elements = document.querySelectorAll(".fade-up, .fade-left, .fade-right, .zoom-in");

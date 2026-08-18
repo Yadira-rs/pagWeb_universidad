@@ -74,13 +74,13 @@ create policy solicitudes_acceso_panel_admin_select on solicitudes_acceso_panel
 drop policy if exists solicitudes_acceso_panel_admin_update on solicitudes_acceso_panel;
 create policy solicitudes_acceso_panel_admin_update on solicitudes_acceso_panel
     for update
-    using (auth.jwt() ->> 'email' = 'iris23rs2006@gmail.com')
-    with check (auth.jwt() ->> 'email' = 'iris23rs2006@gmail.com');
+    using (auth.jwt() ->> 'email' = 'comunicacionsocial.feca@ujed.mx')
+    with check (auth.jwt() ->> 'email' = 'comunicacionsocial.feca@ujed.mx');
 
 drop policy if exists solicitudes_acceso_panel_admin_delete on solicitudes_acceso_panel;
 create policy solicitudes_acceso_panel_admin_delete on solicitudes_acceso_panel
     for delete
-    using (auth.jwt() ->> 'email' = 'iris23rs2006@gmail.com');
+    using (auth.jwt() ->> 'email' = 'comunicacionsocial.feca@ujed.mx');
 
 -- "Automatically expose new tables" está desactivado a propósito en el
 -- proyecto (más seguro), así que las políticas de RLS de arriba nunca se

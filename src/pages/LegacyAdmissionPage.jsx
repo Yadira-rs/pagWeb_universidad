@@ -107,6 +107,11 @@ function LegacyAdmissionPage({
                   Completa tus datos y un asesor de admisiones te contactará
                   para continuar tu proceso.
                 </p>
+                <p className="legacy-form-note">
+                  Tu información se envía directamente al sistema interno de
+                  Admisiones de la FECA — no pasa por terceros — y es
+                  validada por Secretaría Académica antes de contactarte.
+                </p>
 
                 <form className="legacy-form" onSubmit={handleSubmit}>
                   <div className="legacy-form-grid">

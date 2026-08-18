@@ -9,11 +9,13 @@ import SolicitudesManager from "../components/admin/SolicitudesManager";
 import OpinionesManager from "../components/admin/OpinionesManager";
 import AccesoManager from "../components/admin/AccesoManager";
 import NoticiasManager from "../components/admin/NoticiasManager";
+import GaleriaManager from "../components/admin/GaleriaManager";
 
 const TABS = [
   { key: "anuncios", label: "Anuncios y noticias" },
   { key: "noticias", label: "Últimas noticias" },
   { key: "hero", label: "Carrusel de Inicio" },
+  { key: "galeria", label: "Galería de egresados" },
   { key: "egresados", label: "Documentos de egresados" },
   { key: "testimonios", label: "Testimonios" },
   { key: "solicitudes", label: "Solicitudes de admisión" },
@@ -63,8 +65,8 @@ function AdminPanelPage() {
       </nav>
 
       <p className="admpanel-note">
-        El resto de las páginas del sitio se sigue editando desde el panel de
-        Supabase (Table Editor). Este panel cubre lo que más cambia seguido.
+        El resto de las páginas del sitio se sigue editando desde el panel
+        técnico del sistema. Este panel cubre lo que más cambia seguido.
       </p>
 
       {tab === "anuncios" ? (
@@ -73,6 +75,8 @@ function AdminPanelPage() {
         <NoticiasManager />
       ) : tab === "hero" ? (
         <HeroSlidesManager />
+      ) : tab === "galeria" ? (
+        <GaleriaManager />
       ) : tab === "egresados" ? (
         <EgresadosDocsManager />
       ) : tab === "testimonios" ? (

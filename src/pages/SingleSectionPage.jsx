@@ -28,12 +28,12 @@ function SingleSectionPage({ content, slug, logoImage, newsPanelOpen, setNewsPan
       <section
         className="pf-hero pf-hero-sm"
         style={
-          slug === "ejes-rectores"
+          slug === "organigrama"
             ? { backgroundImage: `url('/imagenes/feca-entrada.jpg')` }
             : { background: "linear-gradient(135deg, #c0050f 0%, #e31313 45%, #9b1020 100%)" }
         }
       >
-        {slug === "ejes-rectores" && <div className="pf-hero-overlay" />}
+        {slug === "organigrama" && <div className="pf-hero-overlay" />}
         <div className="pf-hero-inner" style={{ paddingBottom: 72 }}>
           <div className="pf-hero-badge">FECA · UJED</div>
           <h1 className="pf-hero-title">{content.heroTitle}</h1>
@@ -75,9 +75,9 @@ function SingleSectionPage({ content, slug, logoImage, newsPanelOpen, setNewsPan
           </div>
         </section>
       ) : (
-        <section className="pf-section pf-section-light pf-fade" style={slug === "ejes-rectores" ? { paddingTop: 48 } : {}}>
+        <section className="pf-section pf-section-light pf-fade" style={slug === "organigrama" ? { paddingTop: 48 } : {}}>
           <div className="pf-container">
-            {slug === "ejes-rectores" ? (
+            {slug === "organigrama" ? (
               <>
                 <DirectorPhotoShowcase
                   eyebrow="Jefes de Carrera"

@@ -13,9 +13,9 @@
 -- "drop policy if exists" y "on conflict do nothing" en todo, así que no
 -- rompe nada que ya esté bien configurado.
 --
--- Cubre las 8 tablas que usa el panel (#/admin):
---   anuncios_noticias, noticias_recientes, hero_slides, egresados_docs,
---   testimonios, solicitudes_admision, calificaciones,
+-- Cubre las 9 tablas que usa el panel (#/admin):
+--   anuncios_noticias, noticias_recientes, hero_slides, galeria_fotos,
+--   egresados_docs, testimonios, solicitudes_admision, calificaciones,
 --   solicitudes_acceso_panel
 -- más los buckets de Storage (site-media, egresados-docs).
 
@@ -54,6 +54,23 @@ create policy hero_slides_admin_all on hero_slides
 grant select on hero_slides to anon, authenticated;
 grant insert, update, delete on hero_slides to authenticated;
 grant usage, select on hero_slides_id_seq to authenticated;
+
+-- ─────────────────────────────────────────────
+-- galeria_fotos (pestaña "Galería de egresados")
+-- ─────────────────────────────────────────────
+alter table galeria_fotos enable row level security;
+
+drop policy if exists galeria_fotos_public_read on galeria_fotos;
+create policy galeria_fotos_public_read on galeria_fotos
+    for select using (is_active = true);
+
+drop policy if exists galeria_fotos_admin_all on galeria_fotos;
+create policy galeria_fotos_admin_all on galeria_fotos
+    for all using (auth.role() = 'authenticated') with check (auth.role() = 'authenticated');
+
+grant select on galeria_fotos to anon, authenticated;
+grant insert, update, delete on galeria_fotos to authenticated;
+grant usage, select on galeria_fotos_id_seq to authenticated;
 
 -- ─────────────────────────────────────────────
 -- egresados_docs (pestaña "Documentos de egresados") + Storage

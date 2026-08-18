@@ -326,6 +326,33 @@ revisión humana, solo reducen el ruido):
 Igual que los demás: pégalo completo en el **SQL Editor** de Supabase y
 ejecútalo. Es seguro correrlo más de una vez.
 
+## Fase 8 — Galería de la página de Egresados (ya construido)
+
+La sección "Así se vive → Momentos que enorgullecen" de `#/egresados` (el
+grid de fotos entre el hero y "Títulos y reconocimientos") tenía sus 8 fotos
+escritas a mano en `EgresadosPage.jsx` (constante `GALLERY`). Ahora se
+pueden subir/editar/reordenar/ocultar desde una pestaña nueva del panel:
+**"Galería de egresados"** (`src/components/admin/GaleriaManager.jsx`, tabla
+`galeria_fotos`, creada por `database/galeria_fotos.sql`).
+
+Mismo patrón que "Carrusel de Inicio": cada foto tiene `imagen_url`,
+`titulo`, `sort_order` (para las flechas ↑/↓) e `is_active` (para
+ocultarla sin borrarla). Las imágenes se suben al bucket `site-media`
+(el mismo que ya usa el carrusel), a través del campo reutilizable
+`ImageUploadField` — no hace falta ningún bucket nuevo.
+
+La página pública (`EgresadosPage.jsx`) lee `galeria_fotos` por
+Supabase al cargar; si la tabla todavía está vacía (antes de correr la
+migración), sigue mostrando el arreglo `GALLERY` escrito a mano como
+respaldo, igual que ya hacía la sección de Testimonios.
+
+### Cómo aplicar `galeria_fotos.sql`
+
+Igual que los demás: pégalo completo en el **SQL Editor** de Supabase y
+ejecútalo. Es seguro correrlo más de una vez, e incluye como datos
+iniciales las 8 fotos que ya estaban escritas a mano, para que la galería
+no se quede vacía en cuanto el sitio empiece a leer de la base de datos.
+
 ### Nota sobre desplegar en un servidor Node propio (no Vercel)
 
 Como ya no depende de `/api` ni de Vercel Blob, el sitio ahora es un caso

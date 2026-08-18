@@ -221,8 +221,11 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 <span className="nav-caret" aria-hidden="true"></span>
               </a>
               <div className="dropdown">
+                <a href="#/nosotros/organigrama" className={currentHash === "#/nosotros/organigrama" ? "active" : ""}>Organigrama</a>
                 <a href="#/nosotros/ejes-rectores" className={currentHash === "#/nosotros/ejes-rectores" ? "active" : ""}>Ejes rectores</a>
-                <a href="#/egresados" className={currentHash === "#/egresados" ? "active" : ""}>Egresados</a>
+                {/* TODO(retroalimentación FECA): pestaña "Egresados" oculta a propósito mientras se define
+                    el fin de esta sección. La ruta #/egresados sigue activa y funcional — solo se quitó del
+                    menú. Reactivar agregando de nuevo el <a href="#/egresados">Egresados</a> aquí. */}
                 <a href="#/grupos-representativos" className={currentHash === "#/grupos-representativos" ? "active" : ""}>Grupos representativos</a>
                 <a href="#/historia" className={currentHash === "#/historia" ? "active" : ""}>Historia</a>
                 <a href="#/mision-vision" className={currentHash === "#/mision-vision" ? "active" : ""}>Misión y visión</a>
@@ -579,8 +582,9 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
           {/* Nosotros */}
           <div className="mobile-menu-section">
             <span className="mobile-menu-section-label">Nosotros</span>
+            <a href="#/nosotros/organigrama" className={`mobile-nav-sub${currentHash === "#/nosotros/organigrama" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Organigrama</a>
             <a href="#/nosotros/ejes-rectores" className={`mobile-nav-sub${currentHash === "#/nosotros/ejes-rectores" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Ejes rectores</a>
-            <a href="#/egresados" className={`mobile-nav-sub${currentHash === "#/egresados" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Egresados</a>
+            {/* Egresados oculto del menú a propósito, ver nota en el dropdown de escritorio arriba */}
             <a href="#/grupos-representativos" className={`mobile-nav-sub${currentHash === "#/grupos-representativos" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Grupos representativos</a>
             <a href="#/historia" className={`mobile-nav-sub${currentHash === "#/historia" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Historia</a>
             <a href="#/mision-vision" className={`mobile-nav-sub${currentHash === "#/mision-vision" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Misión y visión</a>

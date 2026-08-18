@@ -183,6 +183,8 @@ function GrupoCard({ grupo }) {
           <span className="gr-logro-ico"><IconMedal size={14} /></span>
           <span className="gr-logro-txt">{grupo.logros}</span>
         </div>
+        {/* TODO(retroalimentación FECA): reemplazar este mailto por un link a Google Forms
+            (solicitar la URL a Extensión Universitaria) cuando se tenga. */}
         <a
           href={`mailto:${grupo.contacto}`}
           className="gr-card-btn"
@@ -253,6 +255,8 @@ function GruposPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
             Deporte, arte, cultura y academia. Más de{" "}
             <strong>280 estudiantes</strong> ya forman parte de los grupos representativos.
           </p>
+          {/* TODO(retroalimentación FECA): reemplazar estos mailto por un link a Google Forms
+              (solicitar la URL a Extensión Universitaria) cuando se tenga. */}
           <div className="pf-hero-ctas">
             <a href="mailto:informes@feca.ujed.mx" className="pf-btn-primary gr-cta-main">
               Quiero participar ahora

@@ -16,6 +16,9 @@ dist-ssr
 # Cada uno se configura copiando su .env.example a .env; ese .env real nunca se sube.
 .env
 
+# Contiene un token de acceso personal de Supabase en texto plano.
+scripts/deploy_function.ps1
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

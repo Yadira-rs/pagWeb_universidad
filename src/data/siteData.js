@@ -136,6 +136,9 @@ export const teachers = [
   },
 ]
 
+// TODO(retroalimentación FECA): este contenido narra la historia del Centro de Idiomas/CELCI,
+// no la historia de la Facultad de Economía, Contaduría y Administración. Reemplazar las 5
+// entradas de abajo por la historia real de la FECA en cuanto se tenga el texto correcto.
 export const historyEntries = [
   {
     year: 1975,
@@ -295,6 +298,20 @@ export const sectionPages = {
       'Dirección y coordinaciones con funciones delimitadas.',
       'Articulación entre académicos, gestión escolar y apoyo institucional.',
       'Procesos claros para decisión, supervisión y mejora continua.',
+    ],
+  },
+  'ejes-rectores': {
+    heroTitle: 'Ejes Rectores',
+    intro:
+      'Los ejes rectores articulan la planeación institucional y definen las prioridades para consolidar la innovación, pertinencia académica y vinculación de la FECA con el entorno.',
+    eyebrow: 'Rumbo estratégico',
+    title: 'Prioridades que guían nuestro desarrollo institucional',
+    body:
+      'La planeación de la facultad se sostiene en tres ejes estratégicos que orientan las decisiones académicas, tecnológicas y de vinculación de la FECA.',
+    points: [
+      'Excelencia Académica — Fortalecimiento curricular, mejora constante en la práctica docente y programas acreditados que aseguran la máxima calidad formativa.',
+      'Innovación y Tecnología — Investigación aplicada de alto impacto, modernización de espacios educativos y transformación digital para enfrentar los retos del entorno actual.',
+      'Vinculación y Proyección — Estrecha relación con sectores sociales, empresariales y gubernamentales a nivel nacional e internacional para potenciar el egreso exitoso.',
     ],
   },
   valores: {
@@ -550,6 +567,23 @@ export const servicePages = {
     items: [
       {
         title: "Funciones de la Coordinación de Planeación y Evaluación Institucional",
+        body:
+          "La Coordinación de Planeación y Evaluación Institucional desempeña un papel clave en la consolidación de una gestión universitaria moderna, eficiente y orientada a resultados. Su labor permite:",
+        list: [
+          "Asegurar la coherencia entre la planeación y la operación institucional.",
+          "Garantizar la transparencia en el uso de recursos y el cumplimiento de metas.",
+          "Fortalecer la calidad académica y administrativa.",
+          "Contribuir a la toma de decisiones estratégicas basadas en evidencia.",
+          "Posicionar a la Facultad como una institución comprometida con la excelencia y la rendición de cuentas.",
+          "Ejecutar los procesos de acreditación nacional e internacional de los programas de estudio.",
+        ],
+      },
+      {
+        body:
+          "Esta coordinación se constituye como un eje técnico y estratégico que impulsa la mejora continua, la transparencia y la rendición de cuentas, mediante el uso sistemático de indicadores, instrumentos de evaluación y mecanismos de seguimiento que permiten sustentar la toma de decisiones en evidencia.",
+      },
+      {
+        title: "Documento oficial (PDF)",
         href: "/docs/LCPEI.pdf",
         label: "Abrir PDF →",
       },

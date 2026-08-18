@@ -102,14 +102,23 @@ function ServiceDetailPage({
           ))
         ) : (
           content.items.map((item, index) => {
-            const isSection = item.title && !item.href;
-            const label = item.title ?? item.body;
-            const subtitle = item.title && item.body ? item.body : null;
-            if (isSection) {
-              return <h2 key={index} className="doc-section-heading">{item.title}</h2>;
+            if (item.href) {
+              const label = item.title ?? item.body;
+              const subtitle = item.title && item.body ? item.body : null;
+              return (
+                <DocRow key={index} href={item.href} label={label} subtitle={subtitle} />
+              );
             }
             return (
-              <DocRow key={index} href={item.href} label={label} subtitle={subtitle} />
+              <div key={index} className="doc-text-block">
+                {item.title && <h2 className="doc-section-heading">{item.title}</h2>}
+                {item.body && <p className="doc-section-body">{item.body}</p>}
+                {item.list && (
+                  <ul className="doc-section-list">
+                    {item.list.map((li, li_i) => <li key={li_i}>{li}</li>)}
+                  </ul>
+                )}
+              </div>
             );
           })
         )}

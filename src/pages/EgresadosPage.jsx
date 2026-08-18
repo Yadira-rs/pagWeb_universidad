@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import Header from "../sections/Header";
 import Footer from "../sections/Footer";
 import EgresadoUploadModal from "../components/EgresadoUploadModal";
+import { supabase } from "../lib/supabaseClient";
 
 /* ── Iconos SVG inline ── */
 const IconCap = () => (
@@ -126,7 +127,39 @@ function EgresadosPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
   const [scrolled, setScrolled] = useState(false);
   const [docCategory, setDocCategory] = useState("Todos");
   const [uploadModalOpen, setUploadModalOpen] = useState(false);
+  const [testimonios, setTestimonios] = useState([]);
+  const [galeria, setGaleria] = useState([]);
   const observerRef = useRef(null);
+
+  useEffect(() => {
+    supabase
+      .from("testimonios")
+      .select("*")
+      .eq("publicado", true)
+      .order("id", { ascending: false })
+      .then(({ data }) => data?.length && setTestimonios(data));
+
+    supabase
+      .from("galeria_fotos")
+      .select("*")
+      .eq("is_active", true)
+      .order("sort_order", { ascending: true })
+      .then(({ data }) => data?.length && setGaleria(data));
+  }, []);
+
+  const testimonialCards = (testimonios.length > 0 ? testimonios : TESTIMONIALS).map((t, i) => ({
+    key: t.id ?? i,
+    quote: t.testimonio ?? t.quote,
+    image: t.foto_url || t.image || null,
+    title: t.nombre ?? t.puesto,
+    meta: [t.carrera, t.generacion].filter(Boolean).join(" · "),
+  }));
+
+  const galleryPhotos = (galeria.length > 0 ? galeria : GALLERY).map((g, i) => ({
+    key: g.id ?? i,
+    image: g.imagen_url || g.image,
+    title: g.titulo ?? g.title,
+  }));
 
   const docsFiltrados = docCategory === "Todos"
     ? DOCUMENTS
@@ -199,8 +232,8 @@ function EgresadosPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
           </div>
 
           <div className="egr-gallery-grid egr-fade">
-            {GALLERY.map((photo) => (
-              <div key={photo.title} className="egr-gallery-item">
+            {galleryPhotos.map((photo) => (
+              <div key={photo.key} className="egr-gallery-item">
                 <img src={photo.image} alt={photo.title} loading="lazy" />
                 <div className="egr-gallery-overlay">
                   <span className="egr-gallery-label">{photo.title}</span>
@@ -298,20 +331,28 @@ function EgresadosPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
             <span className="egr-kicker">Voces FECA</span>
             <h2 className="egr-section-title">Historias que inspiran</h2>
             <p className="egr-section-sub">
-              Perfiles de ejemplo — súmate y comparte tu propia historia como egresado.
+              {testimonios.length > 0
+                ? "Voces reales de nuestra comunidad de egresados."
+                : "Perfiles de ejemplo — súmate y comparte tu propia historia como egresado."}
             </p>
           </div>
 
           <div className="egr-testimonials-grid egr-fade">
-            {TESTIMONIALS.map((person) => (
-              <div key={person.quote} className="egr-testimonial-card">
+            {testimonialCards.map((person) => (
+              <div key={person.key} className="egr-testimonial-card">
                 <IconQuote />
                 <p className="egr-testimonial-quote">&ldquo;{person.quote}&rdquo;</p>
                 <div className="egr-testimonial-person">
-                  <img src={person.image} alt="" className="egr-testimonial-avatar" />
+                  {person.image ? (
+                    <img src={person.image} alt="" className="egr-testimonial-avatar" />
+                  ) : (
+                    <div className="egr-testimonial-avatar egr-testimonial-avatar--placeholder">
+                      {person.title?.[0]?.toUpperCase() || "?"}
+                    </div>
+                  )}
                   <div>
-                    <div className="egr-testimonial-role">{person.puesto}</div>
-                    <div className="egr-testimonial-meta">{person.carrera} · {person.generacion}</div>
+                    <div className="egr-testimonial-role">{person.title}</div>
+                    <div className="egr-testimonial-meta">{person.meta}</div>
                   </div>
                 </div>
               </div>

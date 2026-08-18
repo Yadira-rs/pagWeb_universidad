@@ -417,6 +417,10 @@ function PropedeuticoPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
                 </div>
                 <h3>¿Listo para inscribirte?</h3>
                 <p>Inicia tu solicitud en línea o visítanos directamente en la Facultad.</p>
+                <p className="prop2-cta-note">
+                  Tus datos llegan al sistema interno de Admisiones de la FECA
+                  y son validados por Secretaría Académica antes de contactarte.
+                </p>
                 <a href="#/solicitud" className="prop2-cta-primary prop2-cta-full">
                   Iniciar mi solicitud
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">

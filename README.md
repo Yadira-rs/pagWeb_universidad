@@ -149,10 +149,22 @@ Cada vez que se haga un cambio de contenido o diseño en el código:
 
 ---
 
-## Base de datos (trabajo a futuro)
+## Base de datos y panel de administración
 
-En la carpeta [`database/`](database/) hay un esquema de base de datos
-(PostgreSQL, compatible con Supabase) ya diseñado y probado para cuando
-se retome el proyecto del panel de administración, que permitirá editar
-el contenido del sitio sin tocar código. Ese panel todavía no existe —
-por ahora el sitio sigue siendo estático, como se describe arriba.
+El sitio ya no es puramente estático en cuanto a contenido: la mayoría
+de las secciones que cambian seguido (anuncios, noticias, carrusel de
+inicio, documentos de egresados, testimonios, opiniones del sitio) se
+editan desde un panel propio en `#/admin` (`src/pages/AdminPanelPage.jsx`),
+con autenticación de Supabase Auth. El esquema de base de datos
+(PostgreSQL vía Supabase) está en [`database/`](database/).
+
+El acceso a ese panel también está automatizado: alguien pide acceso
+desde la pantalla de login, el administrador principal lo aprueba desde
+la pestaña "Solicitudes de acceso", y una Edge Function
+(`supabase/functions/invitar-acceso-panel`) crea la cuenta y manda el
+correo de invitación — no hace falta darla de alta a mano en Supabase.
+
+El *build* (`npm run build`) sigue siendo HTML/CSS/JS estático y se
+publica igual que se describe arriba; lo dinámico (contenido, admisiones,
+autenticación) lo resuelven Supabase y los microservicios propios en
+tiempo de ejecución, no el servidor que sirve los archivos.

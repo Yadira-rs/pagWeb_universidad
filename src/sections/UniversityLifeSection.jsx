@@ -5,10 +5,6 @@ function UniversityLifeSection() {
         <div className="fade-up">
           <div className="section-label">Vida universitaria</div>
           <h2 className="section-title">Un campus que inspira cada día</h2>
-          <p className="section-desc">
-            Más de 40 hectáreas de espacios diseñados para el aprendizaje, la
-            convivencia y el deporte.
-          </p>
         </div>
 
         <div className="campus-grid fade-up">

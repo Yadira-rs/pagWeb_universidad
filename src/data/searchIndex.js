@@ -152,7 +152,7 @@ export const searchIndex = [
   {
     title: "Organigrama",
     description: "Estructura organizacional de la facultad",
-    href: "#/nosotros/pdua",
+    href: "#/nosotros/organigrama",
     keywords: "organigrama estructura directivos coordinadores administración nosotros",
   },
   {

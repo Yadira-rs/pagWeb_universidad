@@ -49,6 +49,9 @@ const tabs = [
   { id: "equipo",      label: "Equipo"               },
 ];
 
+// TODO(retroalimentación FECA): faltan los cursos de Alemán y Chino — hoy solo hay
+// Inglés, Francés, Italiano y Japonés (4 de los 6 idiomas pedidos). Agregar aquí con
+// el mismo formato (horarios, costo $1,700, etc.) en cuanto se tenga la información real.
 const cursos = [
   {
     title: "Inglés para adultos",
@@ -226,14 +229,18 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
             className="celci-hero-logo"
           />
           <h1 className="pf-hero-title celci-hero-title">
-            Centro de<br />
-            <span className="celci-title-accent">Lenguas</span>{" "}
+            Centro de <span className="celci-title-accent">Lenguas</span> y{" "}
+            <span className="celci-title-accent">Competitividad Internacional</span>{" "}
             <span className="celci-title-light">CELCI</span>
           </h1>
           <p className="pf-hero-sub">
             Cursos de idiomas para adultos, niños y jóvenes en la Facultad de Economía, Contaduría y Administración.
           </p>
         </div>
+
+        {/* TODO(retroalimentación FECA): falta el video de bienvenida del CELCI en toda
+            la página. En cuanto se tenga el link (YouTube/Vimeo) o archivo, agregar aquí
+            un <iframe>/<video> dentro de esta sección hero o justo debajo. */}
 
         {/* Stats bar */}
         <div className="pf-stats celci-stats">

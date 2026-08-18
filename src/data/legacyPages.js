@@ -898,6 +898,8 @@ export const legacyPages = {
     title: "CAFECA",
     intro:
       "Un espacio para descansar, conversar y recargar energía durante la jornada universitaria.",
+    // TODO(retroalimentación FECA): estas 4 fotos son de stock (Unsplash), no fotos
+    // reales de la CAFECA. Reemplazar por fotos propias en cuanto se tengan.
     gallery: [
       {
         image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=700&q=80",
