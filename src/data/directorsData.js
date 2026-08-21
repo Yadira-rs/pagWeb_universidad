@@ -59,11 +59,6 @@ export const directors = [
     ],
     quote:
       "La Secretaría Académica impulsa la calidad de los programas, el acompañamiento docente y la formación integral de los estudiantes.",
-    image: "/imagenes/directivos/secretaria-academica/DSC_5303.JPG",
-    images: [
-      "/imagenes/directivos/secretaria-academica/DSC_5303.JPG",
-      "/imagenes/directivos/secretaria-academica/DSC_5054.JPG",
-    ],
     // Nombres temporales — falta capturarlos con el área, se muestran como
     // marcador de posición mientras tanto.
     teamMembers: [
@@ -101,7 +96,6 @@ export const directors = [
     ],
     quote:
       "La Secretaría Administrativa coordina los recursos y servicios necesarios para el funcionamiento eficiente de la facultad.",
-    image: "/imagenes/directivos/secretaria-administrativa/DSC_5334.JPG",
     // Nombres temporales — falta capturarlos con el área, se muestran como
     // marcador de posición mientras tanto.
     teamMembers: [

@@ -101,6 +101,94 @@ export const legacyPages = {
     title: "Licenciaturas a Distancia",
     intro:
       "Programas diseñados para estudiar desde casa con apoyo académico y herramientas digitales.",
+    sections: [
+      {
+        id: "info-coordinacion",
+        label: "Modalidad a distancia",
+        title: "Información de la Coordinación de Educación a Distancia",
+        variant: "wide",
+        paragraphs: [
+          "La Coordinación de Educación a Distancia es el enlace entre la Facultad y el Sistema Universidad Virtual.",
+          "Ambas licenciaturas tienen una duración de 9 semestres, que se pueden cursar completamente en línea.",
+          "Los requisitos de inscripción son los mismos que para la modalidad presencial. Los calendarios de inscripción son muy similares a los de la modalidad presencial; puedes consultarlos en las redes sociales de la Facultad y en la página de Servicios Escolares de la Universidad.",
+        ],
+        contacts: [
+          {
+            label: "Correo electrónico",
+            value: "licenciaturasdistanciafeca@ujed.mx",
+            href: "mailto:licenciaturasdistanciafeca@ujed.mx",
+          },
+          {
+            label: "WhatsApp",
+            value: "618 292 1436",
+            href: "https://wa.me/526182921436",
+          },
+          {
+            label: "Teléfono",
+            value: "(618) 827-13-65 Ext. 5708",
+            href: "tel:6188271365",
+          },
+        ],
+      },
+      {
+        id: "apoyo",
+        label: "¿Cómo te apoyamos?",
+        title: "Servicios de la coordinación",
+        cards: [
+          {
+            title: "¿Necesitas mayor información de las licenciaturas?",
+            list: [
+              "Descarga el folleto informativo (próximamente).",
+              "Conoce el programa completo de cada licenciatura (mapa curricular próximamente).",
+              "Envía tus preguntas al correo de la coordinación.",
+            ],
+          },
+          {
+            title: "Desde esta coordinación podemos apoyarte con",
+            list: [
+              "La revisión de tu carga académica en la modalidad a distancia.",
+              "Vinculación con otras áreas de la Facultad.",
+              "Atención a tus dudas de trámites académicos y administrativos.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "faq",
+        label: "Dudas frecuentes",
+        title: "Preguntas frecuentes",
+        faq: [
+          {
+            question: "¿Tienes problemas con tu contraseña en plataforma?",
+            answer:
+              "Comunícate a los medios de ayuda adecuados: usa la opción \"¿Olvidaste tu contraseña?\" desde virtual.ujed.mx y sigue las indicaciones de auto-recuperación de contraseña, o llama al teléfono de apoyo del Sistema Universidad Virtual: 618 827 1260.",
+          },
+          {
+            question: "¿Tienes dificultades técnicas en plataforma?",
+            answer:
+              "Comunícate directamente a la coordinación y envía tu reporte por correo electrónico con la siguiente información: nombre y matrícula, clase y actividad que presenta el problema, y una captura de pantalla del problema (desde PC, no celular).",
+          },
+          {
+            question:
+              "¿Eres alumno de la modalidad presencial y tienes problemas con el acceso a plataforma y/o tus clases de curso sello?",
+            answer:
+              "Es necesario que te comuniques directamente con tus maestros y/o busques ayuda en Secretaría Académica. Desde la Coordinación de Educación a Distancia no se supervisa a alumnos inscritos en la modalidad presencial.",
+          },
+          {
+            question:
+              "¿Eres alumno de la modalidad a distancia y necesitas información de otras áreas de la Facultad?",
+            answer:
+              "Consulta la información disponible en el Aula E dentro de la plataforma; ahí encontrarás los medios de contacto.",
+          },
+          {
+            question:
+              "¿Eres alumno de la modalidad a distancia y necesitas solicitar alguna constancia o documento?",
+            answer:
+              "Consulta el proceso, costos y medios de solicitud dentro del Aula E en plataforma.",
+          },
+        ],
+      },
+    ],
     planStyle: true,
     panels: [
       {

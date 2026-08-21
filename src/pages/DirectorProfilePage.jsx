@@ -37,11 +37,13 @@ export default function DirectorProfilePage({ slug, logoImage, newsPanelOpen, se
         {/* ── HERO ── */}
         <div className="dp-hero">
           <div className="dp-hero-inner">
-            <div className={`dp-hero-photo-wrap${director.images?.length > 1 ? " dp-hero-photo-wrap--multi" : ""}`}>
-              {(director.images?.length ? director.images : [director.image]).map((image) => (
-                <img key={image} src={image} alt={director.name} className="dp-hero-photo" />
-              ))}
-            </div>
+            {(director.images?.length || director.image) && (
+              <div className={`dp-hero-photo-wrap${director.images?.length > 1 ? " dp-hero-photo-wrap--multi" : ""}`}>
+                {(director.images?.length ? director.images : [director.image]).map((image) => (
+                  <img key={image} src={image} alt={director.name} className="dp-hero-photo" />
+                ))}
+              </div>
+            )}
             <div className="dp-hero-content">
               <a href="#/nosotros/ejes-rectores" className="dp-back-link">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

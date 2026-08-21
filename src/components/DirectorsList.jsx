@@ -21,9 +21,11 @@ export default function DirectorsList() {
       <ol className="el-list">
         {directors.map((d, i) => (
           <li key={i} className="el-row">
-            <div className="el-photo-wrap">
-              <img src={d.image} alt={d.name} className="el-photo" />
-            </div>
+            {d.image && (
+              <div className="el-photo-wrap">
+                <img src={d.image} alt={d.name} className="el-photo" />
+              </div>
+            )}
 
             <div className="el-body">
               <span className="el-role">{d.role}</span>
@@ -64,9 +66,11 @@ export default function DirectorsList() {
 
             <div className="dir-modal-grid">
               <div className="dir-modal-left">
-                <div className="dir-modal-photo-wrap">
-                  <img src={selectedDirector.image} alt={selectedDirector.name} className="dir-modal-photo" />
-                </div>
+                {selectedDirector.image && (
+                  <div className="dir-modal-photo-wrap">
+                    <img src={selectedDirector.image} alt={selectedDirector.name} className="dir-modal-photo" />
+                  </div>
+                )}
                 <span className="dir-modal-role">{selectedDirector.role}</span>
                 <h3 className="dir-modal-name">{selectedDirector.name}</h3>
 

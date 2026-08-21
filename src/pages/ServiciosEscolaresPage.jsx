@@ -118,6 +118,7 @@ function ServiciosEscolaresPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) 
             </div>
             <div className="coord-card-body">
               <span className="coord-card-badge">Coordinación de Servicios Escolares</span>
+              <h3 className="coord-card-name">Mtra. Norma Diaz Navar</h3>
               <p className="coord-card-quote">
                 Consulta mapas curriculares, realiza trámites académicos y accede a documentos oficiales de la FECA‑UJED.
               </p>

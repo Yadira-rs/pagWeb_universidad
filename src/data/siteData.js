@@ -424,10 +424,6 @@ export const servicePages = {
     heroTitle: "Servicio Social",
     intro:
       "Información importante, reglamentos, formatos y documentos oficiales.",
-    coordinator: {
-      image: "/imagenes/servicio-social.jpg",
-      badge: "Coordinación de Servicio Social",
-    },
     grouped: true,
     items: [
       {
@@ -633,18 +629,98 @@ export const servicePages = {
     heroTitle: "Educación a Distancia",
     intro:
       "Área encargada de la operación y el acompañamiento de los programas educativos en modalidad a distancia de la FECA.",
-    items: [],
+    items: [
+      {
+        body:
+          "La Coordinación de Educación a Distancia es el enlace entre la Facultad y el Sistema Universidad Virtual.",
+      },
+      {
+        title: "Medios de contacto",
+        list: [
+          "Correo electrónico: licenciaturasdistanciafeca@ujed.mx",
+          "WhatsApp: 6182921436",
+          "Teléfono: 6188271365 Ext. 5708",
+        ],
+      },
+      {
+        title: "Licenciaturas en modalidad a distancia",
+        body: "Actualmente se ofertan las licenciaturas:",
+        list: [
+          "Contador Público (programa de estudios próximamente)",
+          "Administración (programa de estudios próximamente)",
+        ],
+      },
+      {
+        body:
+          "Ambas con una duración de 9 semestres, que se pueden cursar completamente en línea.",
+      },
+      {
+        title: "Requisitos e inscripción",
+        body:
+          "Los requisitos de inscripción son los mismos que para la modalidad presencial. Los calendarios de inscripción son muy similares a los de la modalidad presencial. Puedes consultarlos en redes sociales de la Facultad y en la página de servicios escolares de la Universidad.",
+      },
+      {
+        title: "¿Necesitas mayor información de las licenciaturas?",
+        list: [
+          "Descarga el folleto informativo (próximamente).",
+          "Conoce el programa completo de cada licenciatura (mapa curricular próximamente).",
+          "Envía tus preguntas al correo de la coordinación.",
+        ],
+      },
+      {
+        title: "Desde esta coordinación podemos apoyarte con",
+        list: [
+          "La revisión de tu carga académica en la modalidad a distancia.",
+          "Vinculación con otras áreas de la Facultad.",
+          "Atención a tus dudas de trámites académicos y administrativos.",
+        ],
+      },
+      {
+        title: "¿Tienes problemas con tu contraseña en plataforma?",
+        body: "Comunícate a los medios de ayuda adecuados:",
+        list: [
+          "Opción \"¿Olvidaste tu contraseña?\" desde virtual.ujed.mx: sigue las indicaciones de auto-recuperación de contraseña.",
+          "Teléfono de apoyo del Sistema Universidad Virtual: 6188271260.",
+        ],
+      },
+      {
+        title: "¿Tienes dificultades técnicas en plataforma?",
+        body:
+          "Comunícate directamente a la coordinación y envía tu reporte por correo electrónico con la siguiente información:",
+        list: [
+          "Nombre y matrícula.",
+          "Clase y actividad que presenta el problema.",
+          "Captura de pantalla del problema (desde PC, no celular).",
+        ],
+      },
+      {
+        title:
+          "¿Eres alumno de la modalidad presencial y tienes problemas con el acceso a plataforma y/o tus clases de curso sello?",
+        body:
+          "Es necesario que te comuniques directamente con tus maestros y/o busques ayuda en Secretaría Académica. Desde la Coordinación de Educación a Distancia no se supervisa a alumnos inscritos en la modalidad presencial.",
+      },
+      {
+        title:
+          "¿Eres alumno de la modalidad a distancia y necesitas información de otras áreas de la Facultad?",
+        body:
+          "Consulta la información disponible en el Aula E dentro de la plataforma; ahí encontrarás los medios de contacto.",
+      },
+      {
+        title:
+          "¿Eres alumno de la modalidad a distancia y necesitas solicitar alguna constancia o documento?",
+        body:
+          "Consulta el proceso, costos y medios de solicitud dentro del Aula E en plataforma.",
+      },
+    ],
     encargado: {
-      name: "Mtra. Renata Villalobos",
-      role: "Coordinadora de Educación a Distancia",
+      name: "Dr. Jesus Espinoza Flores",
+      role: "Coordinador de Educación a Distancia",
       image: "/imagenes/educacion-a-distancia/equipo-encargado.jpg",
       quote: "La educación a distancia rompe barreras de tiempo y espacio para que más personas puedan formarse con la calidad de la FECA.",
     },
     gallery: [
       "/imagenes/educacion-a-distancia/equipo-1.jpg",
-      "/imagenes/educacion-a-distancia/equipo-2.jpg",
       "/imagenes/educacion-a-distancia/equipo-3.jpg",
-      "/imagenes/educacion-a-distancia/equipo-4.jpg",
     ],
   },
   "secretaria-administrativa": {
