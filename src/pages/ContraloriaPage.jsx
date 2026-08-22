@@ -44,13 +44,6 @@ const funciones = [
   },
 ];
 
-const STATS = [
-  { num: "100%", label: "Transparencia" },
-  { num: "8-14 / 17-20hrs", label: "Horario de atención" },
-  { num: "UJED", label: "Normativa aplicable" },
-  { num: "FECA", label: "Órgano interno" },
-];
-
 function ContraloriaPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
   const observerRef = useRef(null);
   useEffect(() => {
@@ -84,35 +77,18 @@ function ContraloriaPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
             Órgano de control, fiscalización y transparencia de la Facultad de Economía, Contaduría y Administración de la UJED.
           </p>
         </div>
-        <div className="pf-stats">
-          {STATS.map((s) => (
-            <div key={s.label} className="pf-stat">
-              <span className="pf-stat-num">{s.num}</span>
-              <span className="pf-stat-label">{s.label}</span>
-            </div>
-          ))}
-        </div>
       </section>
 
       {/* ── ENCARGADO ── */}
       <section className="pf-section pf-section-alt">
         <div className="pf-container">
-          <div className="pf-section-head pf-section-head-center">
-            <div className="pf-label">Quién nos atiende</div>
-            <h2 className="pf-section-title">Contralor Interno</h2>
-          </div>
-          <div className="encargado-card">
-            <div className="encargado-card-photo">
-              <img src="/imagenes/contraloria/equipo-encargado.jpg" alt="Contralor Interno FECA" />
-            </div>
-            <div className="encargado-card-body">
-              <span className="encargado-card-badge">Contralor Interno</span>
-              <h3 className="encargado-card-name">Lic. Ricardo Herrera</h3>
-              <p className="encargado-card-quote">
-                "Trabajamos día a día para que la transparencia y la rendición de cuentas sean un
-                compromiso real con toda la comunidad FECA."
-              </p>
-            </div>
+          <div className="encargado-welcome-card">
+            <div className="encargado-welcome-pattern" aria-hidden="true" />
+            <span className="encargado-welcome-greeting">Te damos la bienvenida</span>
+            <div className="encargado-welcome-divider" aria-hidden="true" />
+            <span className="encargado-welcome-badge">Contralor Interno</span>
+            <h2 className="encargado-welcome-name">M.G.P. Iván Alfredo González de la Cruz</h2>
+            <p className="encargado-welcome-sub">Facultad de Economía, Contaduría y Administración · UJED</p>
           </div>
         </div>
       </section>
@@ -130,15 +106,6 @@ function ContraloriaPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
                 eficiente y honesto de los recursos, impulsando el cumplimiento normativo y abriendo canales
                 de comunicación directa con nuestra comunidad.
               </p>
-              <div className="pf-info-box">
-                <h3>Nuestra Misión</h3>
-                <p>
-                  Garantizar la correcta aplicación de los lineamientos administrativos y normativos vigentes
-                  de la UJED dentro de nuestra facultad. Fomentamos una cultura de legalidad, ética y honestidad
-                  que brinde certeza a estudiantes, personal académico y administrativo.
-                </p>
-              </div>
-
               {/* Quejas y Sugerencias */}
               <div className="pf-info-box" style={{ borderLeftColor: "#e31313" }}>
                 <h3 style={{ color: "#e31313" }}>Quejas y Sugerencias</h3>
@@ -229,10 +196,6 @@ function ContraloriaPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
                 />
                 <h3 className="pf-card-title">Atención al Usuario</h3>
                 <p className="pf-card-desc">La Contraloría Interna está a tu servicio para resolver cualquier inquietud sobre la gestión de trámites y la transparencia institucional.</p>
-                <div className="pf-chips">
-                  <span className="pf-chip">Lun–Vie</span>
-                  <span className="pf-chip">8:00-14:00 y 17:00-20:00hrs</span>
-                </div>
               </div>
               <div className="pf-contact-list">
                 <div className="pf-contact-item">

@@ -158,7 +158,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 <span className="nav-caret" aria-hidden="true"></span>
               </a>
               <div className="dropdown">
-                <a href="#/lenguas">CELCI</a>
+                <a href="#/lenguas">Centro de Lenguas</a>
                 <a href="#/ciiedo">CIIEDO</a>
                 <a href="#/cursos-intersemestrales">Cursos Intersemestrales</a>
                 <a href="#/curso-propedeutico">Cursos Propedéutico</a>
@@ -211,10 +211,6 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
 
                 <div className="acc-row acc-row-flat">
                   <a className="acc-title acc-title-link" href="#/servicios/contraloria-interna">Contraloría Interna</a>
-                </div>
-
-                <div className="acc-row acc-row-flat">
-                  <a className="acc-title acc-title-link" href="#/servicios/educacion-a-distancia">Educación a Distancia</a>
                 </div>
               </div>
             </div>
@@ -554,7 +550,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
           {/* Oferta Educativa */}
           <div className="mobile-menu-section">
             <span className="mobile-menu-section-label">Oferta educativa</span>
-            <a href="#/lenguas" className={`mobile-nav-sub${currentHash === "#/lenguas" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>CELCI</a>
+            <a href="#/lenguas" className={`mobile-nav-sub${currentHash === "#/lenguas" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Centro de Lenguas</a>
             <a href="#/ciiedo" className={`mobile-nav-sub${currentHash === "#/ciiedo" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>CIIEDO</a>
             <a href="#/licenciaturas" className={`mobile-nav-sub${currentHash === "#/licenciaturas" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Licenciaturas</a>
             <a href="#/licenciaturas-distancia" className={`mobile-nav-sub${currentHash === "#/licenciaturas-distancia" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Licenciaturas a distancia</a>
@@ -582,8 +578,6 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
             <a href="#/servicios/cpei" className={`mobile-nav-subgroup${currentHash === "#/servicios/cpei" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Coordinación de Planeación y Evaluación Institucional</a>
 
             <a href="#/servicios/contraloria-interna" className={`mobile-nav-subgroup${currentHash === "#/servicios/contraloria-interna" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Contraloría Interna</a>
-
-            <a href="#/servicios/educacion-a-distancia" className={`mobile-nav-subgroup${currentHash === "#/servicios/educacion-a-distancia" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Educación a Distancia</a>
           </div>
 
           {/* Nosotros */}

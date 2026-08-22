@@ -428,6 +428,12 @@ export const servicePages = {
       image: "/imagenes/servicio-social.jpg",
       badge: "Coordinación de Servicio Social",
     },
+    gallery: [
+      "/imagenes/cpei/equipo-1.jpg",
+      "/imagenes/cpei/equipo-2.jpg",
+      "/imagenes/cpei/equipo-3.jpg",
+      "/imagenes/cpei/equipo-4.jpg",
+    ],
     grouped: true,
     items: [
       {
@@ -599,17 +605,11 @@ export const servicePages = {
       },
     ],
     encargado: {
-      name: "Mtra. Sofía Delgado",
-      role: "Coordinadora de Planeación y Evaluación Institucional",
-      image: "/imagenes/cpei/equipo-encargado.jpg",
+      name: "Dr. Sergio Iván López Domínguez",
+      role: "Coordinador de Planeación y Evaluación Institucional",
+      image: "/imagenes/cpei/equipo-1.jpg",
       quote: "La planeación estratégica es la brújula que guía el crecimiento y la mejora continua de nuestra facultad.",
     },
-    gallery: [
-      "/imagenes/cpei/equipo-1.jpg",
-      "/imagenes/cpei/equipo-2.jpg",
-      "/imagenes/cpei/equipo-3.jpg",
-      "/imagenes/cpei/equipo-4.jpg",
-    ],
   },
   "cuerpos-academicos": {
     heroTag: "FECA · Cuerpos Académicos",

@@ -621,25 +621,6 @@ function App() {
           </section>
 
           <section className="panel-section">
-            <h3>Fechas de inscripción</h3>
-            <ul className="panel-list">
-              <li className="panel-item">
-                <strong>Inicio de clases</strong>
-                <span>Agosto 2026</span>
-              </li>
-              <li className="panel-item">
-                <strong>Modalidad</strong>
-                <span>Presencial · En línea</span>
-              </li>
-              <li className="panel-item">
-                <strong>Cierre de registro</strong>
-                <span>31 de julio 2026</span>
-              </li>
-              <li className="panel-item">
-                <strong>Informes</strong>
-                <span>(618) 827-13-65</span>
-              </li>
-            </ul>
             <button
               className="panel-buzon-btn"
               onClick={() => { setNewsPanelOpen(false); setBuzonOpen(true); }}

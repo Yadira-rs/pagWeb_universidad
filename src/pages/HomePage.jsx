@@ -29,7 +29,7 @@ const programs = [
     href: "https://posgradofeca.ujed.mx/",
   },
   {
-    title: "CELCI",
+    title: "Centro de Lenguas",
     description:
       "Cursos de idiomas para adultos, niños y jóvenes en la Facultad de Economía, Contaduría y Administración.",
     image: "/imagenes/logo-celci.png",
@@ -453,34 +453,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
                   personal para toda la comunidad
                 </p>
               </div>
-            </a>
-          </div>
-
-          <div className="admissions-banner zoom-in">
-            <div>
-              <h2>¿Listo para dar el siguiente paso?</h2>
-              <p>
-                Proceso de admisión sencillo y en línea. Resultados en menos de
-                72 horas.
-              </p>
-              <p className="admissions-banner-note">
-                Tus datos llegan directamente al sistema interno de Admisiones
-                de la FECA, donde Secretaría Académica los valida antes de
-                contactarte.
-              </p>
-            </div>
-            <a href="#/solicitud" className="btn-primary">
-              Iniciar mi solicitud
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-              >
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
             </a>
           </div>
         </div>

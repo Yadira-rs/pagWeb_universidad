@@ -44,14 +44,23 @@ const STATS = [
   { num: "ISO", label: "Calidad 9001:2015" },
 ];
 
-export default function Biblioteca({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
+export default function Biblioteca({
+  logoImage,
+  newsPanelOpen,
+  setNewsPanelOpen,
+}) {
   const observerRef = useRef(null);
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
-      (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("visible")),
-      { threshold: 0.1 }
+      (entries) =>
+        entries.forEach(
+          (e) => e.isIntersecting && e.target.classList.add("visible"),
+        ),
+      { threshold: 0.1 },
     );
-    document.querySelectorAll(".pf-fade").forEach((el) => observerRef.current.observe(el));
+    document
+      .querySelectorAll(".pf-fade")
+      .forEach((el) => observerRef.current.observe(el));
     return () => observerRef.current?.disconnect();
   }, []);
 
@@ -74,7 +83,8 @@ export default function Biblioteca({ logoImage, newsPanelOpen, setNewsPanelOpen 
           <div className="pf-hero-badge">Servicios · FECA</div>
           <h1 className="pf-hero-title">Biblioteca</h1>
           <p className="pf-hero-sub">
-            Un espacio dedicado al conocimiento, la investigación y el acceso libre a la información para estudiantes y académicos de la FECA.
+            Un espacio dedicado al conocimiento, la investigación y el acceso
+            libre a la información para estudiantes y académicos de la FECA.
           </p>
         </div>
         <div className="pf-stats">
@@ -98,20 +108,21 @@ export default function Biblioteca({ logoImage, newsPanelOpen, setNewsPanelOpen 
             <div className="df-card df-card--in">
               <div className="df-img-col">
                 <img
-                  src="/imagenes/directivos/biblioteca/DSC_5057.JPG"
-                  alt="Guillermo Garza Calderón"
+                  src="/imagenes/guillermo_garza_biblioteca.jpg"
+                  alt="Mtro. Fermín Gutiérrez del Muro"
                   className="df-img"
                 />
                 <div className="df-img-overlay" />
               </div>
               <div className="df-info-col">
                 <span className="df-role-badge">Encargado de Biblioteca</span>
-                <h3 className="df-name">Guillermo Garza Calderón</h3>
+                <h3 className="df-name">Mtro. Fermín Gutiérrez del Muro</h3>
                 <p className="df-desc">
-                  "Bienvenidos a la Biblioteca de la FECA. Este es un espacio pensado para
-                  acompañarlos en su formación académica: aquí encontrarán los materiales, el
-                  apoyo y la atención necesarios para que su paso por la investigación y el
-                  estudio sea siempre provechoso."
+                  "Bienvenidos a la Biblioteca de la FECA. Este es un espacio
+                  pensado para acompañarlos en su formación académica: aquí
+                  encontrarán los materiales, el apoyo y la atención necesarios
+                  para que su paso por la investigación y el estudio sea siempre
+                  provechoso."
                 </p>
               </div>
             </div>
@@ -126,24 +137,31 @@ export default function Biblioteca({ logoImage, newsPanelOpen, setNewsPanelOpen 
             <div className="pf-label">Origen</div>
             <h2 className="pf-section-title">Historia</h2>
             <p className="pf-section-desc" style={{ marginBottom: 20 }}>
-              En el año de 1972, el C.P. Guillermo Garza Calderón entrega la dirección de la Escuela
-              al C.P. Rubén Vargas Quiñones, llegando a un acto de gran importancia: la inauguración
-              del nuevo edificio el 12 de junio de 1973.
+              En el año de 1972, el C.P. Guillermo Garza Calderón entrega la
+              dirección de la Escuela al C.P. Rubén Vargas Quiñones, llegando a
+              un acto de gran importancia: la inauguración del nuevo edificio el
+              12 de junio de 1973.
             </p>
             <p className="pf-section-desc" style={{ marginBottom: 20 }}>
-              El programa inició con una emotiva despedida del antiguo edificio, ubicado en el caserón
-              de la UJED, después de la última clase impartida por el C.P. José Félix Rodríguez.
+              El programa inició con una emotiva despedida del antiguo edificio,
+              ubicado en el caserón de la UJED, después de la última clase
+              impartida por el C.P. José Félix Rodríguez.
             </p>
             <p className="pf-section-desc">
-              El nuevo edificio fue inaugurado por el Gobernador Ing. Alejandro Páez Urquidi, con la
-              presencia del Rector Carlos Galindo y el Director Rubén Vargas Quiñones.
+              El nuevo edificio fue inaugurado por el Gobernador Ing. Alejandro
+              Páez Urquidi, con la presencia del Rector Carlos Galindo y el
+              Director Rubén Vargas Quiñones.
             </p>
           </div>
           <div>
             <img
               src="/imagenes/biblioteca_historica.png"
               alt="Biblioteca FECA histórica"
-              style={{ width: "100%", borderRadius: 20, boxShadow: "0 20px 56px rgba(0,0,0,0.15)" }}
+              style={{
+                width: "100%",
+                borderRadius: 20,
+                boxShadow: "0 20px 56px rgba(0,0,0,0.15)",
+              }}
             />
           </div>
         </div>
@@ -156,40 +174,61 @@ export default function Biblioteca({ logoImage, newsPanelOpen, setNewsPanelOpen 
             <div className="pf-label">Recursos disponibles</div>
             <h2 className="pf-section-title">Colecciones y Servicios</h2>
             <p className="pf-section-desc">
-              Aunque es una biblioteca compacta, cuenta con los recursos necesarios para apoyar el aprendizaje y la investigación académica.
+              Aunque es una biblioteca compacta, cuenta con los recursos
+              necesarios para apoyar el aprendizaje y la investigación
+              académica.
             </p>
           </div>
           <div className="pf-cards-grid-2 pf-fade">
             {/* Colecciones */}
             <div className="pf-card pf-card-top">
               <div className="pf-card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                >
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
                 </svg>
               </div>
-              <div className="pf-label" style={{ marginBottom: 4 }}>Acervo</div>
+              <div className="pf-label" style={{ marginBottom: 4 }}>
+                Acervo
+              </div>
               <h3 className="pf-card-title">Colecciones</h3>
               <div className="pf-chips" style={{ marginTop: 8 }}>
                 {collections.map((item) => (
-                  <span key={item} className="pf-chip">{item}</span>
+                  <span key={item} className="pf-chip">
+                    {item}
+                  </span>
                 ))}
               </div>
             </div>
             {/* Servicios */}
             <div className="pf-card pf-card-top">
               <div className="pf-card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                  <circle cx="9" cy="7" r="4"/>
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                >
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                 </svg>
               </div>
-              <div className="pf-label" style={{ marginBottom: 4 }}>Atención</div>
+              <div className="pf-label" style={{ marginBottom: 4 }}>
+                Atención
+              </div>
               <h3 className="pf-card-title">Servicios disponibles</h3>
               <div className="pf-chips" style={{ marginTop: 8 }}>
                 {services.map((item) => (
-                  <span key={item} className="pf-chip">{item}</span>
+                  <span key={item} className="pf-chip">
+                    {item}
+                  </span>
                 ))}
               </div>
             </div>
@@ -204,19 +243,33 @@ export default function Biblioteca({ logoImage, newsPanelOpen, setNewsPanelOpen 
             <div className="pf-label">Recursos</div>
             <h2 className="pf-section-title">Biblioteca digital</h2>
             <p className="pf-section-desc">
-              Accede a libros completos y material académico desde cualquier dispositivo escaneando los códigos QR.
+              Accede a libros completos y material académico desde cualquier
+              dispositivo escaneando los códigos QR.
             </p>
           </div>
           <div className="pf-cards-grid pf-fade">
             {digitalResources.map((resource) => (
-              <div key={resource.title} className="pf-card pf-card-top" style={{ alignItems: "center", textAlign: "center" }}>
-                <h3 className="pf-card-title" style={{ textAlign: "center" }}>{resource.title}</h3>
+              <div
+                key={resource.title}
+                className="pf-card pf-card-top"
+                style={{ alignItems: "center", textAlign: "center" }}
+              >
+                <h3 className="pf-card-title" style={{ textAlign: "center" }}>
+                  {resource.title}
+                </h3>
                 <img
                   src={resource.image}
                   alt={resource.alt}
-                  style={{ width: 160, height: 160, objectFit: "contain", margin: "0 auto" }}
+                  style={{
+                    width: 160,
+                    height: 160,
+                    objectFit: "contain",
+                    margin: "0 auto",
+                  }}
                 />
-                <p className="pf-card-desc" style={{ textAlign: "center" }}>Escanea el código QR para acceder al recurso digital.</p>
+                <p className="pf-card-desc" style={{ textAlign: "center" }}>
+                  Escanea el código QR para acceder al recurso digital.
+                </p>
               </div>
             ))}
           </div>
@@ -230,9 +283,11 @@ export default function Biblioteca({ logoImage, newsPanelOpen, setNewsPanelOpen 
             <div className="pf-label">Consulta digital</div>
             <h2 className="pf-section-title">Repositorio Institucional UJED</h2>
             <p className="pf-section-desc">
-              Este botón te dirige al sitio del <strong>Repositorio Institucional de la UJED</strong>{" "}
-              (repositorio.ujed.mx), fuera de la página de la FECA. Ahí podrás consultar y descargar
-              tesis, artículos y demás material académico digitalizado por la universidad.
+              Este botón te dirige al sitio del{" "}
+              <strong>Repositorio Institucional de la UJED</strong>{" "}
+              (repositorio.ujed.mx), fuera de la página de la FECA. Ahí podrás
+              consultar y descargar tesis, artículos y demás material académico
+              digitalizado por la universidad.
             </p>
           </div>
           <div className="pf-hero-ctas" style={{ justifyContent: "center" }}>
@@ -242,9 +297,15 @@ export default function Biblioteca({ logoImage, newsPanelOpen, setNewsPanelOpen 
               rel="noreferrer"
               className="biblio-repo-btn"
             >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                <path d="M15 3h6v6" /><path d="M10 14 21 3" />
+                <path d="M15 3h6v6" />
+                <path d="M10 14 21 3" />
               </svg>
               Ir al Repositorio Institucional UJED
             </a>

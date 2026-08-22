@@ -10936,6 +10936,124 @@ a.prop2-contact-item:hover {
   .encargado-card-photo { min-height: 280px; }
 }
 
+/* ── Encargado sin foto: tarjeta de bienvenida ── */
+.encargado-welcome-card {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #c0050f 0%, #e31313 45%, #9b1020 100%);
+  border-radius: 32px;
+  box-shadow:
+    0 30px 70px rgba(148,24,35,0.38),
+    0 6px 18px rgba(0,0,0,0.16);
+  padding: 88px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 60vh;
+}
+
+/* Patrón de puntos decorativo */
+.encargado-welcome-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.16) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+  -webkit-mask-image: radial-gradient(circle at 50% 20%, #000 0%, transparent 70%);
+  mask-image: radial-gradient(circle at 50% 20%, #000 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Sin ::before / ::after dorados */
+.encargado-welcome-card::before,
+.encargado-welcome-card::after {
+  display: none;
+}
+
+/* Saludo */
+.encargado-welcome-greeting {
+  position: relative;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #ffd7a0;
+  margin-bottom: 20px;
+}
+
+/* Separador dorado */
+.encargado-welcome-divider {
+  position: relative;
+  width: 56px;
+  height: 4px;
+  background: linear-gradient(90deg, #ffd7a0, #e31313);
+  border-radius: 999px;
+  margin: 0 auto 26px;
+}
+
+/* Badge de cargo */
+.encargado-welcome-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: none;
+  color: #951823;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 10px 24px;
+  margin-bottom: 28px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+}
+.encargado-welcome-badge::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #e31313;
+  flex-shrink: 0;
+}
+
+/* Nombre */
+.encargado-welcome-name {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 22px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  max-width: 900px;
+  text-shadow: 0 6px 28px rgba(0,0,0,0.25);
+}
+
+/* Subtítulo / institución */
+.encargado-welcome-sub {
+  position: relative;
+  font-family: var(--font-ui);
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.82);
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 600px) {
+  .encargado-welcome-card { padding: 64px 24px; border-radius: 24px; min-height: 50vh; }
+  .encargado-welcome-name { font-size: clamp(26px, 8vw, 34px); }
+}
+
+
 /* ── Container ── */
 .pf-container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
 
@@ -15556,6 +15674,10 @@ body.footer-in-view .sw-root {
   border-radius: 8px; padding: 10px 14px; margin: 0 0 16px;
 }
 .admpanel-empty { font-family: var(--font-body); font-size: 14px; color: #6b6461; }
+.admpanel-success {
+  font-family: var(--font-body); font-size: 13px; color: #1a7a3c; background: rgba(26,122,60,0.08);
+  border-radius: 8px; padding: 10px 14px; margin: 0 0 16px;
+}
 
 .admpanel-form {
   background: #fff; border: 1px solid #ece4e4; border-radius: 16px; padding: 24px;
@@ -15603,6 +15725,15 @@ body.footer-in-view .sw-root {
   color: #951823; text-decoration: underline; width: fit-content;
 }
 .admpanel-field-error { font-family: var(--font-body); font-size: 12px; color: #c0182a; }
+
+.admpanel-clear-btn {
+  font-family: var(--font-ui); font-size: 12.5px; font-weight: 700; color: #c0182a;
+  background: rgba(192,24,42,0.06); border: 1.5px solid rgba(192,24,42,0.2); border-radius: 10px;
+  padding: 10px 14px; cursor: pointer; white-space: nowrap;
+}
+.admpanel-clear-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.admpanel-hint { font-family: var(--font-body); font-size: 12.5px; color: #8a827e; margin: -4px 0 4px; }
 
 .admpanel-table-wrap {
   overflow-x: auto; background: #fff; border-radius: 16px; border: 1px solid #ece4e4;
