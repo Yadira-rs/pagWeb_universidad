@@ -204,7 +204,7 @@ function PropedeuticoPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
       <DirectorPhotoShowcase
         eyebrow="Curso Propedéutico"
         title="Curso Propedéutico"
-        name="Área de Propedéutico"
+        name="Dra. Luz Maria Rico Perez"
         quote="Preparamos a los aspirantes para iniciar su vida universitaria con bases académicas sólidas, orientación cercana y confianza en su elección profesional."
         images={[
           "/imagenes/directivos/propedeutico/DSC_5284.JPG",
