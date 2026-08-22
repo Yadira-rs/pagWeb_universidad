@@ -340,31 +340,6 @@ function GruposPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section className="pf-section pf-section-dark gr-cta-section pf-fade">
-        <div className="pf-container">
-          <div className="gr-cta-banner">
-            <div className="gr-cta-emojis" aria-hidden="true">
-              <IconGraduationCap size={32} />
-              <IconSparkles size={32} />
-              <IconMedal size={32} />
-            </div>
-            <h2 className="pf-section-title pf-title-white">¿No encuentras tu grupo?</h2>
-            <p className="pf-section-desc pf-desc-white">
-              Si tienes una idea para un nuevo grupo representativo o quieres proponer una actividad, contáctanos. La FECA apoya la iniciativa estudiantil.
-            </p>
-            <div className="gr-cta-btns">
-              <a href="mailto:informes@feca.ujed.mx" className="pf-btn-primary">
-                Proponer un grupo nuevo
-              </a>
-              <a href="tel:6188271365" className="pf-btn-outline">
-                Llamar a informes
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <Footer logoImage={logoImage} />
     </div>
   );

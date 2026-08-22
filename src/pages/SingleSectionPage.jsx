@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import Footer from "../sections/Footer";
 import Header from "../sections/Header";
 import DirectorsList from "../components/DirectorsList";
-import DirectorPhotoShowcase from "../components/DirectorPhotoShowcase";
 
 function SingleSectionPage({ content, slug, logoImage, newsPanelOpen, setNewsPanelOpen }) {
   const observerRef = useRef(null);
@@ -79,17 +78,6 @@ function SingleSectionPage({ content, slug, logoImage, newsPanelOpen, setNewsPan
           <div className="pf-container">
             {slug === "organigrama" ? (
               <>
-                <DirectorPhotoShowcase
-                  eyebrow="Jefes de Carrera"
-                  title="Jefes de Carrera"
-                  name="Coordinación de Jefaturas de Carrera"
-                  quote="Las jefaturas de carrera orientan, acompañan y dan seguimiento a los procesos académicos que sostienen la formación profesional de nuestros estudiantes."
-                  images={[
-                    "/imagenes/directivos/jefes-carrera/DSC_5108.JPG",
-                    "/imagenes/directivos/jefes-carrera/DSC_5110.JPG",
-                  ]}
-                />
-
                 {/* ── ORGANIGRAMA Visor interactivo ── */}
                 <div className="pf-section-head" style={{ marginTop: 48, marginBottom: 24 }}>
                   <div className="pf-label">Estructura institucional</div>

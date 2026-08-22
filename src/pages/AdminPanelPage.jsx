@@ -3,20 +3,14 @@ import { useAuth, signOut } from "../lib/useAuth";
 import AdminLoginPage from "./AdminLoginPage";
 import AnunciosManager from "../components/admin/AnunciosManager";
 import HeroSlidesManager from "../components/admin/HeroSlidesManager";
-import EgresadosDocsManager from "../components/admin/EgresadosDocsManager";
-import TestimoniosManager from "../components/admin/TestimoniosManager";
 import OpinionesManager from "../components/admin/OpinionesManager";
 import AccesoManager from "../components/admin/AccesoManager";
 import NoticiasManager from "../components/admin/NoticiasManager";
-import GaleriaManager from "../components/admin/GaleriaManager";
 
 const TABS = [
   { key: "anuncios", label: "Anuncios y noticias" },
   { key: "noticias", label: "Últimas noticias" },
   { key: "hero", label: "Carrusel de Inicio" },
-  { key: "galeria", label: "Galería de egresados" },
-  { key: "egresados", label: "Documentos de egresados" },
-  { key: "testimonios", label: "Testimonios" },
   { key: "opiniones", label: "Opiniones del sitio" },
   { key: "acceso", label: "Solicitudes de acceso" },
 ];
@@ -73,12 +67,6 @@ function AdminPanelPage() {
         <NoticiasManager />
       ) : tab === "hero" ? (
         <HeroSlidesManager />
-      ) : tab === "galeria" ? (
-        <GaleriaManager />
-      ) : tab === "egresados" ? (
-        <EgresadosDocsManager />
-      ) : tab === "testimonios" ? (
-        <TestimoniosManager />
       ) : tab === "opiniones" ? (
         <OpinionesManager />
       ) : (
