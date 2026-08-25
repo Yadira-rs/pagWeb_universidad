@@ -2,28 +2,41 @@ import { useEffect, useRef } from "react";
 import Header from "../sections/Header";
 import Footer from "../sections/Footer";
 
-const mapas = [
+const planesEstudio = [
   {
     title: "Contador Público P2021",
-    subtitle: "Mapa curricular y documentos oficiales de Contador Público.",
-    href: "/docs/Mapas curriculares plan 2021-CP.pdf",
+    subtitle: "Plan de estudios oficial de Contador Público.",
+    href: "/docs/plan-de-estudios_cp_2021.pdf",
   },
   {
     title: "Administración de Empresas P2021",
-    subtitle: "Mapa curricular y documentos oficiales de Administración de Empresas.",
-    href: "/docs/Mapas curriculares plan 2021-LA.pdf",
+    subtitle: "Plan de estudios oficial de Administración de Empresas.",
+    href: "/docs/plan_de_estudios_la_2021.pdf",
   },
   {
     title: "Economía y Negocios Internacionales P2021",
-    subtitle: "Mapa curricular y documentos oficiales de Economía y Negocios Internacionales.",
-    href: "/docs/Mapas curriculares plan 2021-LENI.pdf",
+    subtitle: "Plan de estudios oficial de Economía y Negocios Internacionales.",
+    href: "/docs/plan_de_estudios_leni_2021.pdf",
   },
 ];
 
 const tramites = [
   {
+    key: "examen-profesional",
+    title: "Proceso de Examen Profesional",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="28" height="28">
+        <path d="M22 10L12 5 2 10l10 5 10-5z"/>
+        <path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/>
+        <path d="M22 10v6"/>
+      </svg>
+    ),
+    desc: "Licenciatura y posgrado.",
+    items: [],
+  },
+  {
     key: "kardex",
-    title: "Kardex",
+    title: "Impresión de Kardex",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="28" height="28">
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
@@ -33,34 +46,64 @@ const tramites = [
         <polyline points="10 9 9 9 8 9"/>
       </svg>
     ),
-    desc: "Historial académico oficial con calificaciones y créditos cursados por semestre. Indispensable para trámites de titulación, becas y acreditaciones.",
-    items: ["Kardex no oficial (para uso personal)", "Kardex oficial con sello y firma", "Kardex en inglés (por solicitud)"],
+    desc: "Licenciatura y posgrado.",
+    items: [],
   },
   {
-    key: "constancias",
-    title: "Constancias",
+    key: "boletas",
+    title: "Impresión de Boletas de Calificaciones",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="28" height="28">
-        <path d="M9 11l3 3L22 4"/>
-        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+        <polyline points="14 2 14 8 20 8"/>
+        <path d="M9 15l2 2 4-4"/>
       </svg>
     ),
-    desc: "Documentos oficiales que acreditan tu situación académica ante instituciones externas, empleadores o trámites gubernamentales.",
-    items: ["Constancia de estudios", "Constancia de calificaciones", "Constancia de no adeudo", "Constancia de término de materias"],
+    desc: "Licenciatura y posgrado.",
+    items: [],
   },
   {
-    key: "altas-bajas",
-    title: "Altas y Bajas",
+    key: "cargas-horarias",
+    title: "Impresión de Cargas Horarias",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="28" height="28">
-        <polyline points="17 1 21 5 17 9"/>
-        <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
-        <polyline points="7 23 3 19 7 15"/>
-        <path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+        <rect x="3" y="4" width="18" height="18" rx="2"/>
+        <line x1="16" y1="2" x2="16" y2="6"/>
+        <line x1="8" y1="2" x2="8" y2="6"/>
+        <line x1="3" y1="10" x2="21" y2="10"/>
+        <path d="M12 14v3l2 1"/>
       </svg>
     ),
-    desc: "Gestión de cambios en tu carga académica durante el período habilitado. Consulta fechas en el calendario escolar vigente.",
-    items: ["Alta de materias", "Baja de materias", "Baja temporal de semestre", "Cambio de grupo"],
+    desc: "",
+    items: [],
+  },
+  {
+    key: "inscripciones",
+    title: "Inscripciones",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="28" height="28">
+        <path d="M9 2h6a1 1 0 0 1 1 1v2H8V3a1 1 0 0 1 1-1z"/>
+        <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2"/>
+        <path d="M9 12l2 2 4-4"/>
+      </svg>
+    ),
+    desc: "",
+    items: [
+      "Inscripciones de nuevo ingreso (licenciatura y posgrado)",
+      "Inscripciones de reingreso (licenciatura y posgrado)",
+    ],
+  },
+  {
+    key: "carta-pasante",
+    title: "Carta de Pasante",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="28" height="28">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="M2 6l10 7 10-7"/>
+      </svg>
+    ),
+    desc: "Licenciatura y posgrado.",
+    items: [],
   },
 ];
 
@@ -127,18 +170,18 @@ function ServiciosEscolaresPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) 
         </div>
       </section>
 
-      {/* MAPAS CURRICULARES */}
+      {/* PLANES DE ESTUDIO */}
       <section className="pf-section pf-fade">
         <div className="pf-container">
           <div className="pf-section-head">
             <div className="pf-label">Documentos académicos</div>
-            <h2 className="pf-section-title">Mapas Curriculares</h2>
+            <h2 className="pf-section-title">Planes de Estudio</h2>
             <p className="pf-section-desc">
-              Planes de estudio y mapas curriculares oficiales por programa educativo.
+              Planes de estudio oficiales por programa educativo.
             </p>
           </div>
           <div className="pf-fade doc-group-body">
-            {mapas.map((doc) => (
+            {planesEstudio.map((doc) => (
               <a key={doc.title} href={doc.href} target="_blank" rel="noreferrer" className="doc-row">
                 <span className="doc-row-icon" aria-hidden="true"><DocIcon /></span>
                 <span className="doc-row-text">
@@ -166,14 +209,16 @@ function ServiciosEscolaresPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) 
               <div key={t.key} className="pf-card pf-card-dark">
                 <div className="pf-card-icon">{t.icon}</div>
                 <h3 className="pf-card-title">{t.title}</h3>
-                <p className="pf-card-desc">{t.desc}</p>
-                <ul style={{ margin: "12px 0 0", padding: "0 0 0 18px", listStyle: "disc" }}>
-                  {t.items.map((item) => (
-                    <li key={item} style={{ fontFamily: "var(--font-body)", fontSize: 14, color: "rgba(255,255,255,0.75)", marginBottom: 4 }}>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                {t.desc && <p className="pf-card-desc">{t.desc}</p>}
+                {t.items.length > 0 && (
+                  <ul style={{ margin: "12px 0 0", padding: "0 0 0 18px", listStyle: "disc" }}>
+                    {t.items.map((item) => (
+                      <li key={item} style={{ fontFamily: "var(--font-body)", fontSize: 14, color: "rgba(255,255,255,0.75)", marginBottom: 4 }}>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             ))}
           </div>
