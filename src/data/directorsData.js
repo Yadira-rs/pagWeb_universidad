@@ -173,7 +173,7 @@ export const directors = [
   },
   {
     slug: "celci",
-    name: "Dr. Juan",
+    name: "M.G.P. Carlos Elier Martínez Sifuentes",
     role: "Centro de Lenguas y Competitividad Internacional (CELCI)",
     roleLabel: "Coordinador CELCI",
     area: "Lenguas y comunicación",

@@ -49,9 +49,6 @@ const tabs = [
   { id: "equipo",      label: "Equipo"               },
 ];
 
-// TODO(retroalimentación FECA): faltan los cursos de Alemán y Chino — hoy solo hay
-// Inglés, Francés, Italiano y Japonés (4 de los 6 idiomas pedidos). Agregar aquí con
-// el mismo formato (horarios, costo $1,700, etc.) en cuanto se tenga la información real.
 const cursos = [
   {
     title: "Inglés para adultos",
@@ -68,7 +65,6 @@ const cursos = [
     flag: <IconGlobe size={32} />,
     age: "8 a 11 años",
     horarios: ["Sabatinos · 9:00 a.m. – 2:00 p.m."],
-    note: "Solo reingreso en el periodo feb–jun.",
     pdf: "/docs/horarios_ingles_ninos.pdf",
     color: "#a87f3d",
     gradient: "linear-gradient(135deg, #6b4a1a 0%, #a87f3d 100%)",
@@ -114,6 +110,26 @@ const cursos = [
     gradient: "linear-gradient(135deg, #e31313 0%, #f87171 100%)",
     bg: "#fff1f2",
   },
+  {
+    title: "Alemán",
+    flag: <IconGlobe size={32} />,
+    age: "15 años en adelante",
+    horarios: ["Lunes a viernes · 1 hr. diaria"],
+    pdf: "/docs/horarios_aleman.pdf",
+    color: "#1a1a2e",
+    gradient: "linear-gradient(135deg, #0d0d17 0%, #1a1a2e 100%)",
+    bg: "#f4f4f8",
+  },
+  {
+    title: "Chino Mandarín",
+    flag: <IconGlobe size={32} />,
+    age: "15 años en adelante",
+    horarios: ["Lunes a viernes · 1 hr. diaria"],
+    pdf: "/docs/horarios_chino.pdf",
+    color: "#c2410c",
+    gradient: "linear-gradient(135deg, #7c2d12 0%, #c2410c 100%)",
+    bg: "#fff7ed",
+  },
 ];
 
 const faqs = [
@@ -127,11 +143,11 @@ const faqs = [
   },
   {
     q: "¿Cuál es el número de cuenta al que debo hacer mi pago?",
-    a: "Una vez que selecciones tu clase, el sistema te dará datos de cuenta, monto y referencia. Incluye la referencia correcta para identificar tu pago automáticamente.",
+    a: "Banco Banamex, a nombre de la Universidad Juárez del Estado de Durango. Número de cuenta: 6507/4076666. Clave interbancaria: 002190650740766661. Envía tu comprobante de pago al correo celci.feca@ujed.mx.",
   },
   {
     q: "Soy trabajador de la UJED. ¿Cómo tramito mi exención de pago?",
-    a: "El trámite se hace con la Coordinación de Finanzas y Planeación y no sustituye la inscripción del CLI. Llena el formulario en forms.gle/cQmnVdiDu1ujkQKq6. Después de enviarlo, recibirás tu folio entre 24 y 48 hrs; la validación puede demorar hasta 72 hrs adicionales.",
+    a: "Acude a tu sindicato con el acta de nacimiento de la persona que se inscribirá al curso y tu talón de pago, y lleva la información del grupo al cual será inscrito(a) el alumno para que en el oficio especifiquen el nivel de ingreso. El exento de pago se entrega en las oficinas de CELCI para ingresar los datos del alumno al sistema y registrarlo.",
   },
 ];
 
@@ -145,7 +161,7 @@ const STATS = [
     icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6"/><path d="M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>,
   },
   {
-    num: "4", label: "Idiomas disponibles",
+    num: "6", label: "Idiomas disponibles",
     icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>,
   },
   {
@@ -266,14 +282,14 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
               <div className="df-img-col">
                 <img
                   src="/imagenes/celci_coordinador.jpg"
-                  alt="Dr. Juan"
+                  alt="M.G.P. Carlos Elier Martínez Sifuentes"
                   className="df-img"
                 />
                 <div className="df-img-overlay" />
               </div>
               <div className="df-info-col">
                 <span className="df-role-badge">Coordinador del CELCI</span>
-                <h3 className="df-name">Dr. Juan</h3>
+                <h3 className="df-name">M.G.P. Carlos Elier Martínez Sifuentes</h3>
                 <p className="df-desc">
                   "El CELCI les abre las puertas a un mundo sin fronteras. Aquí aprenderán inglés
                   con un enfoque práctico y vivencial, preparándose para participar en
@@ -314,7 +330,7 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
             <div className="pf-section-head pf-section-head-center">
               <div className="pf-label">Oferta académica</div>
               <h2 className="pf-section-title">Cursos disponibles</h2>
-              <p className="pf-section-desc">Inglés, Francés, Italiano y Japonés para todos los perfiles y edades.</p>
+              <p className="pf-section-desc">Inglés, Francés, Italiano, Japonés, Alemán y Chino Mandarín para todos los perfiles y edades.</p>
             </div>
 
             <div className="celci-courses-grid">
@@ -357,7 +373,7 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
         <section className="pf-section pf-section-light pf-fade">
           <div className="pf-container" style={{ maxWidth: 860 }}>
             <div className="pf-section-head pf-section-head-center">
-              <div className="pf-label">Ciclo A-2025</div>
+              <div className="pf-label">Semestre B 2026</div>
               <h2 className="pf-section-title">Costos de los cursos</h2>
               <p className="pf-section-desc">Precios vigentes con descuentos exclusivos para la comunidad FECA y UJED.</p>
             </div>
@@ -381,7 +397,7 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
                   <div className="celci-flags-row" style={{ color: "var(--text)" }}>
                     <IconGlobe size={28} />
                   </div>
-                  <h3>Francés, Italiano y Japonés</h3>
+                  <h3>Francés, Italiano, Japonés, Alemán y Chino Mandarín</h3>
                 </div>
                 <div className="celci-pricing-amount celci-pricing-amount--alt">
                   <span className="celci-price-currency">$</span>
@@ -398,7 +414,7 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
         <section className="pf-section pf-section-light pf-fade">
           <div className="pf-container" style={{ maxWidth: 860 }}>
             <div className="pf-section-head pf-section-head-center">
-              <div className="pf-label">Trámite</div>
+              <div className="pf-label">Trámite · Semestre B 2026</div>
               <h2 className="pf-section-title">Proceso de inscripción</h2>
               <p className="pf-section-desc">Sigue estos sencillos pasos para asegurar tu lugar en el grupo de tu elección.</p>
             </div>
@@ -417,12 +433,38 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
               ))}
             </div>
 
-            <div className="pf-info-box" style={{ marginTop: 40 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 24, marginTop: 40 }}>
+              <div className="pf-info-box">
+                <h3>Pago por transferencia</h3>
+                <ol style={{ margin: "8px 0 16px", paddingLeft: 20, lineHeight: 1.7 }}>
+                  <li>Puedes realizarlo por medio de transferencia bancaria.</li>
+                  <li>Entra a la página SUMA+ y elige tu horario.</li>
+                  <li>Valida tu pago.</li>
+                </ol>
+                <div style={{ fontSize: 14, lineHeight: 1.9, background: "rgba(227,19,19,0.05)", border: "1px solid rgba(227,19,19,0.12)", borderRadius: 10, padding: "14px 18px" }}>
+                  <div><strong>Banco:</strong> Banamex</div>
+                  <div><strong>A nombre de:</strong> Universidad Juárez del Estado de Durango</div>
+                  <div><strong>Número de cuenta:</strong> 6507/4076666</div>
+                  <div><strong>Clave interbancaria:</strong> 002190650740766661</div>
+                </div>
+              </div>
+              <div className="pf-info-box">
+                <h3>Pago en CELCI</h3>
+                <ol style={{ margin: "8px 0 0", paddingLeft: 20, lineHeight: 1.7 }}>
+                  <li>Elige el idioma de tu preferencia.</li>
+                  <li>Selecciona el horario que más se acomode a tus necesidades.</li>
+                  <li>Realiza tu pago en efectivo o con transferencia.</li>
+                  <li>Una vez validado tu pago en el sistema SUMA+, quedas registrado en el grupo y horario elegido.</li>
+                </ol>
+              </div>
+            </div>
+
+            <div className="pf-info-box" style={{ marginTop: 24 }}>
               <h3>¿Tienes dudas sobre tu inscripción?</h3>
               <p>Comunícate al Centro de Lenguas y Competitividad Internacional o acude directamente a las instalaciones de la Facultad. Nuestro equipo te orientará sobre horarios disponibles, costos, requisitos y grupos abiertos.</p>
               <div className="pf-chips" style={{ marginTop: 16 }}>
                 <span className="pf-chip">Modalidad presencial</span>
-                <span className="pf-chip">Ciclo A-2025</span>
+                <span className="pf-chip">Semestre B 2026</span>
                 <span className="pf-chip">Atención en oficinas</span>
               </div>
             </div>
@@ -506,6 +548,14 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
                 </div>
                 <div><span className="pf-contact-label">Correo</span><span className="pf-contact-value">celci.feca@ujed.mx</span></div>
               </a>
+              <a href="https://wa.me/526181443389" target="_blank" rel="noreferrer" className="pf-contact-item">
+                <div className="pf-contact-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                  </svg>
+                </div>
+                <div><span className="pf-contact-label">WhatsApp</span><span className="pf-contact-value">618 144 33 89</span></div>
+              </a>
               <a href="https://facebook.com/CLI.FECA.UJED" target="_blank" rel="noreferrer" className="pf-contact-item">
                 <div className="pf-contact-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -533,24 +583,24 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
             <div className="cesa-team-grid" style={{ maxWidth: 780, margin: "0 auto" }}>
               <div className="cesa-team-card">
                 <div className="cesa-team-avatar">
-                  <img src="/imagenes/celci_coordinador.jpg" alt="Dr. Juan" />
+                  <img src="/imagenes/celci_coordinador.jpg" alt="M.G.P. Carlos Elier Martínez Sifuentes" />
                 </div>
-                <h3 className="cesa-team-name">Dr. Juan</h3>
+                <h3 className="cesa-team-name">M.G.P. Carlos Elier Martínez Sifuentes</h3>
                 <span className="cesa-team-role cesa-team-role-lead">Coordinador del CELCI</span>
               </div>
               <div className="cesa-team-card">
                 <div className="cesa-team-avatar">
-                  <img src="/imagenes/celci_equipo_1.jpg" alt="Mtra. Fernanda López" />
+                  <img src="/imagenes/celci_equipo_1.jpg" alt="C.P. Arely Guadalupe Soto González" />
                 </div>
-                <h3 className="cesa-team-name">Mtra. Fernanda López</h3>
-                <span className="cesa-team-role">Instructora de Inglés</span>
+                <h3 className="cesa-team-name">C.P. Arely Guadalupe Soto González</h3>
+                <span className="cesa-team-role">Secretaria Administrativa</span>
               </div>
               <div className="cesa-team-card">
                 <div className="cesa-team-avatar">
-                  <img src="/imagenes/celci_equipo_2.jpg" alt="Mtra. Rosa Elena Vargas" />
+                  <img src="/imagenes/celci_equipo_2.jpg" alt="C. Miriam Ornelas Domínguez" />
                 </div>
-                <h3 className="cesa-team-name">Mtra. Rosa Elena Vargas</h3>
-                <span className="cesa-team-role">Coordinadora Administrativa</span>
+                <h3 className="cesa-team-name">C. Miriam Ornelas Domínguez</h3>
+                <span className="cesa-team-role">Secretaria</span>
               </div>
             </div>
           </div>

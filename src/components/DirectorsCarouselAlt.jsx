@@ -32,7 +32,7 @@ const teachers = [
     ],
   },
   {
-    name: "Dr. Juan",
+    name: "M.G.P. Carlos Elier Martínez Sifuentes",
     role: "Director CELCI",
     area: "Formación internacional",
     enfoque: "Inglés práctico",

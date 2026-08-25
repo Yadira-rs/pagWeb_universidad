@@ -62,7 +62,7 @@ const ofertaCards = [
 const STATS = [
   { num: "3", label: "Licenciaturas presenciales" },
   { num: "2", label: "Modalidades de estudio" },
-  { num: "4", label: "Idiomas disponibles" },
+  { num: "6", label: "Idiomas disponibles" },
   { num: "+35", label: "Años de trayectoria" },
 ];
 
