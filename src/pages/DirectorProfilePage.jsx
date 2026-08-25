@@ -58,14 +58,6 @@ export default function DirectorProfilePage({ slug, logoImage, newsPanelOpen, se
         </div>
 
         <div className="dp-body">
-          {/* ── CITA ── */}
-          <section className="dp-quote-section dp-fade">
-            <div className="dp-quote-deco">"</div>
-            <blockquote className="dp-blockquote">
-              <p>{director.quote}</p>
-            </blockquote>
-          </section>
-
           {/* ── FORMACIÓN ACADÉMICA ── */}
           <section className="dp-section dp-fade">
             <div className="dp-section-label">
@@ -83,42 +75,12 @@ export default function DirectorProfilePage({ slug, logoImage, newsPanelOpen, se
             </ul>
           </section>
 
-          {/* ── ÁREA Y ENFOQUE ── */}
-          <section className="dp-cards-section dp-fade">
-            <div className="dp-info-card">
-              <span className="dp-info-label">ÁREA</span>
-              <span className="dp-info-value">{director.area}</span>
-            </div>
-            <div className="dp-info-card">
-              <span className="dp-info-label">ENFOQUE</span>
-              <span className="dp-info-value">{director.enfoque}</span>
-            </div>
-          </section>
-
-          {/* ── BIO ── */}
-          <section className="dp-section dp-fade">
-            <div className="dp-section-label">
-              <span className="dp-section-rule" />
-              TRAYECTORIA
-            </div>
-            <p className="dp-bio-text">{director.bio.trajectory}</p>
-          </section>
-
-          <section className="dp-section dp-fade">
-            <div className="dp-section-label">
-              <span className="dp-section-rule" />
-              GESTIÓN Y ENFOQUE
-            </div>
-            <p className="dp-bio-text">{director.bio.focus}</p>
-          </section>
-
           {/* ── CONTACTO ── */}
           <section className="dp-contact-section dp-fade">
-            <span className="dp-contact-label">Contacto institucional</span>
+            <span className="dp-contact-label">Correo institucional</span>
             <a href={`mailto:${director.bio.contact}`} className="dp-contact-email">
               {director.bio.contact}
             </a>
-            <span className="dp-contact-inst">FECA · UJED Durango</span>
           </section>
         </div>
       </main>

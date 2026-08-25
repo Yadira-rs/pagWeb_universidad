@@ -713,9 +713,9 @@ export const servicePages = {
       },
     ],
     encargado: {
-      name: "Dr. Jesus Espinoza Flores",
+      name: "Enrique Blanco Castañeda",
       role: "Coordinador de Educación a Distancia",
-      image: "/imagenes/educacion-a-distancia/equipo-encargado.jpg",
+      image: "/imagenes/educacion-a-distancia/equipo-1.jpg",
       quote: "La educación a distancia rompe barreras de tiempo y espacio para que más personas puedan formarse con la calidad de la FECA.",
     },
     gallery: [

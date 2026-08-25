@@ -42,14 +42,6 @@ const programs = [
     image: "/imagenes/logo-ciiedo.png",
     href: "#/ciiedo",
   },
-  {
-    title: "CONTRALORÍA INTERNA",
-    description:
-      "Órgano de control interno de la FECA encargado de vigilar la transparencia, el uso correcto de los recursos y el cumplimiento de la normatividad institucional.",
-    image: "/imagenes/contraloria_feca.png",
-    imageClass: "program-card-img--photo",
-    href: "#/servicios/contraloria-interna",
-  },
 ];
 
 
@@ -373,23 +365,18 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
             </p>
           </div>
           <div className="licenciaturas-cta-wrap fade-right">
-            <a href="#/licenciaturas" className="licenciaturas-cta">
-              Conoce nuestras licenciaturas
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
-            </a>
+            <span className="licenciaturas-cta">Conoce nuestras licenciaturas</span>
           </div>
           <div className="licenciaturas-img-strip zoom-in">
-            <div className="licenciaturas-img-item" style={{ backgroundImage: "url('/imagenes/aniversario.jpeg')" }}>
+            <a className="licenciaturas-img-item" href="#/licenciaturas" style={{ backgroundImage: "url('/imagenes/aniversario.jpeg')" }}>
 <div className="licenciaturas-img-label">Contador Público</div>
-            </div>
-            <div className="licenciaturas-img-item" style={{ backgroundImage: "url('/imagenes/feca-entrada.jpg')" }}>
+            </a>
+            <a className="licenciaturas-img-item" href="#/licenciaturas" style={{ backgroundImage: "url('/imagenes/feca-entrada.jpg')" }}>
 <div className="licenciaturas-img-label">Licenciado en Administración</div>
-            </div>
-            <div className="licenciaturas-img-item" style={{ backgroundImage: "url('/imagenes/feca-plaza-1.jpg')" }}>
+            </a>
+            <a className="licenciaturas-img-item" href="#/licenciaturas" style={{ backgroundImage: "url('/imagenes/feca-plaza-1.jpg')" }}>
 <div className="licenciaturas-img-label">Lic. en Economía y Negocios Internacionales</div>
-            </div>
+            </a>
           </div>
         </div>
       </section>
@@ -423,25 +410,25 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
           <div className="fade-up">
             <div className="section-label">Vida universitaria</div>
             <h2 className="section-title">
-              Un campus que
+              Una facultad que
               <br />
               inspira cada día
             </h2>
           </div>
 
           <div className="campus-grid fade-up">
-            <a className="campus-main" href="#/campus-central">
-              <img src="/imagenes/aniversario.jpeg" alt="Campus central" />
+            <div className="campus-main">
+              <img src="/imagenes/aniversario.jpeg" alt="Facultad central" />
               <div className="campus-main-overlay">
-                <h3>Campus central</h3>
+                <h3>Facultad central</h3>
                 <p>
                   Biblioteca, auditorio, laboratorios y áreas verdes en un
                   entorno ideal para estudiar
                 </p>
               </div>
-            </a>
+            </div>
 
-            <a className="campus-main" href="#/cultura-campus">
+            <div className="campus-main">
               <img
                 src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=75"
                 alt="Cultura"
@@ -453,7 +440,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
                   personal para toda la comunidad
                 </p>
               </div>
-            </a>
+            </div>
           </div>
         </div>
       </section>

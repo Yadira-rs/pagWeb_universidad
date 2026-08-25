@@ -195,6 +195,37 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
         </div>
       </section>
 
+      {/* ── COORDINADOR ── */}
+      <section className="pf-section pf-fade">
+        <div className="pf-container">
+          <div className="pf-section-head pf-section-head-center">
+            <div className="pf-label">Te damos la bienvenida</div>
+            <h2 className="pf-section-title">Coordinador del CIIEDO</h2>
+          </div>
+          <div className="df-wrap" style={{ padding: 0 }}>
+            <div className="df-card df-card--in">
+              <div className="df-img-col">
+                <img
+                  src="/imagenes/directivos/ciiedo/DSC_5195.JPG"
+                  alt="Dr. Israel Ivan Gutiérrez Muñoz"
+                  className="df-img"
+                />
+                <div className="df-img-overlay" />
+              </div>
+              <div className="df-info-col">
+                <span className="df-role-badge">Coordinador del CIIEDO</span>
+                <h3 className="df-name">Dr. Israel Ivan Gutiérrez Muñoz</h3>
+                <p className="df-desc">
+                  "En el CIIEDO te acompañamos desde la primera idea hasta su
+                  conexión con el ecosistema de innovación. Si tienes un proyecto
+                  —por pequeño que sea— este es tu espacio para crecer."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ABOUT — logo + texto + imagen */}
       <section className="pf-section pf-section-light pf-fade">
         <div className="pf-container">

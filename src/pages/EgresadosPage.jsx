@@ -81,17 +81,6 @@ const STATS = [
   { value: "15+", label: "Países con presencia FECA" },
 ];
 
-const GALLERY = [
-  { image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=700&q=80", title: "Ceremonias de graduación" },
-  { image: "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=700&q=80", title: "Generaciones FECA" },
-  { image: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=700&q=80", title: "Entrega de reconocimientos" },
-  { image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=700&q=80", title: "Momentos que se quedan" },
-  { image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=700&q=80", title: "Lazos que trascienden" },
-  { image: "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=700&q=80", title: "Celebrando logros" },
-  { image: "https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=700&q=80", title: "Familias FECA" },
-  { image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=700&q=80", title: "Un nuevo comienzo" },
-];
-
 const RECOGNITIONS = [
   { icon: <IconCertificate />, title: "Título Profesional", desc: "El documento que acredita oficialmente tu grado académico obtenido en la FECA." },
   { icon: <IconCap />, title: "Cédula Profesional", desc: "Registro ante la SEP que te habilita para ejercer tu profesión en México." },
@@ -128,7 +117,6 @@ function EgresadosPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
   const [docCategory, setDocCategory] = useState("Todos");
   const [uploadModalOpen, setUploadModalOpen] = useState(false);
   const [testimonios, setTestimonios] = useState([]);
-  const [galeria, setGaleria] = useState([]);
   const observerRef = useRef(null);
 
   useEffect(() => {
@@ -138,13 +126,6 @@ function EgresadosPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
       .eq("publicado", true)
       .order("id", { ascending: false })
       .then(({ data }) => data?.length && setTestimonios(data));
-
-    supabase
-      .from("galeria_fotos")
-      .select("*")
-      .eq("is_active", true)
-      .order("sort_order", { ascending: true })
-      .then(({ data }) => data?.length && setGaleria(data));
   }, []);
 
   const testimonialCards = (testimonios.length > 0 ? testimonios : TESTIMONIALS).map((t, i) => ({
@@ -153,12 +134,6 @@ function EgresadosPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
     image: t.foto_url || t.image || null,
     title: t.nombre ?? t.puesto,
     meta: [t.carrera, t.generacion].filter(Boolean).join(" · "),
-  }));
-
-  const galleryPhotos = (galeria.length > 0 ? galeria : GALLERY).map((g, i) => ({
-    key: g.id ?? i,
-    image: g.imagen_url || g.image,
-    title: g.titulo ?? g.title,
   }));
 
   const docsFiltrados = docCategory === "Todos"
@@ -219,28 +194,6 @@ function EgresadosPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
               <span className="egr-hero-stat-label">{stat.label}</span>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* ══════════ GALERÍA ══════════ */}
-      <section id="egr-galeria" className="egr-section egr-section-cream">
-        <div className="egr-container">
-          <div className="egr-section-head egr-fade">
-            <span className="egr-kicker">Así se vive</span>
-            <h2 className="egr-section-title">Momentos que enorgullecen</h2>
-            <p className="egr-section-sub">Cada generación deja huella. Estos son algunos de esos momentos.</p>
-          </div>
-
-          <div className="egr-gallery-grid egr-fade">
-            {galleryPhotos.map((photo) => (
-              <div key={photo.key} className="egr-gallery-item">
-                <img src={photo.image} alt={photo.title} loading="lazy" />
-                <div className="egr-gallery-overlay">
-                  <span className="egr-gallery-label">{photo.title}</span>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
