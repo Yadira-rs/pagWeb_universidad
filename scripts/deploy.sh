@@ -4,10 +4,10 @@
 set -euo pipefail
 
 # ─── Edita estos valores con los datos de tu servidor ───
-SERVER_USER="feca"
-SERVER_HOST="127.0.0.1"
-SERVER_PORT="2222"
-SERVER_PATH="/var/www/feca/dist"
+SERVER_USER="team3-feca"
+SERVER_HOST="200.23.125.107"
+SERVER_PORT="22"
+SERVER_PATH="/var/www/html/facultad"
 # ────────────────────────────────────────────────────────────
 
 cd "$(dirname "$0")/.."
@@ -24,4 +24,4 @@ else
   scp -P "$SERVER_PORT" -r dist/* "$SERVER_USER@$SERVER_HOST:$SERVER_PATH/"
 fi
 
-echo "==> Listo. Revisa http://$SERVER_HOST/"
+echo "==> Listo. Revisa https://$SERVER_HOST/ (certificado autofirmado: el navegador va a advertir, hay que aceptar/continuar)"

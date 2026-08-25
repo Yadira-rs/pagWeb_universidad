@@ -5,103 +5,52 @@ El sitio ya no depende de Vercel ni de Node.js en el servidor (ver
 propio"): es HTML/CSS/JS estático que solo necesita un servidor web
 sirviendo archivos. El flujo elegido es: **construir en tu computadora
 (`npm run build`) y subir la carpeta `dist/` resultante** — el servidor
-Ubuntu solo necesita Nginx, nada de Node instalado ahí.
+Ubuntu solo necesita Apache, nada de Node instalado ahí.
 
-Por ahora se configura por **HTTP simple** (todavía no hay dominio, solo
-IP). Al final de este archivo está el paso para agregar HTTPS gratis en
-cuanto tengan un dominio apuntando al servidor.
+## Datos del servidor (ya preparado por los administradores de la FECA)
 
-## 1. Preparar el servidor (una sola vez)
+Los administradores del servidor ya dejaron todo listo — no hay que
+instalar ni configurar Apache, eso ya está hecho en el servidor:
 
-Conéctate por SSH al servidor y corre esto:
+- **Servidor:** `200.23.125.107`
+- **Usuario SSH:** `team3-feca` (cuenta compartida del equipo — si
+  cambian la contraseña, avisen antes al resto del equipo/profesor)
+- **Carpeta donde vive el sitio:** `/var/www/html/facultad` — el usuario
+  `team3-feca` ya tiene permisos de escritura ahí (verificado con
+  `getfacl`: el grupo `www-data` tiene acceso vía ACL por defecto, así
+  que cualquier archivo que suban queda automáticamente legible por
+  Apache).
+- **Apache ya sirve esa carpeta** tanto por HTTP (puerto 80, que
+  redirige automático a HTTPS) como por HTTPS (puerto 443, con un
+  certificado **autofirmado** — no es de una autoridad certificadora
+  real, así que el navegador va a mostrar una advertencia de seguridad
+  la primera vez; hay que darle "Avanzado" → "Continuar de todos modos".
+  Esto es normal mientras no tengan un dominio propio con certificado de
+  Let's Encrypt).
+- No hay que tocar `/etc/apache2/` para nada de esto — esa parte es
+  responsabilidad de los administradores del servidor.
 
-```bash
-sudo apt update && sudo apt upgrade -y
-sudo apt install -y nginx
-
-# Carpeta donde van a vivir los archivos del sitio
-sudo mkdir -p /var/www/feca/dist
-sudo chown -R $USER:$USER /var/www/feca
-
-# Firewall: abre SSH (para no perder el acceso) y HTTP
-sudo ufw allow OpenSSH
-sudo ufw allow 'Nginx HTTP'
-sudo ufw enable   # si ya estaba activo, no pasa nada al repetirlo
-sudo ufw status
-```
-
-## 2. Configurar el sitio en Nginx
-
-Crea el archivo de configuración:
-
-```bash
-sudo nano /etc/nginx/sites-available/feca
-```
-
-Pega esto (reemplaza `SERVER_IP_O_DOMINIO` por la IP del servidor, o el
-dominio cuando lo tengan):
-
-```nginx
-server {
-    listen 80;
-    server_name SERVER_IP_O_DOMINIO;
-
-    root /var/www/feca/dist;
-    index index.html;
-
-    gzip on;
-    gzip_types text/css application/javascript application/json image/svg+xml;
-
-    # El sitio usa rutas tipo #/algo (hash), así que el servidor casi
-    # siempre solo entrega index.html; el ruteo real ocurre en el navegador.
-    location / {
-        try_files $uri $uri/ /index.html;
-    }
-
-    # Los archivos dentro de /assets/ llevan un hash en el nombre (los
-    # genera Vite), así que es seguro cachearlos "para siempre": si cambia
-    # el contenido, cambia el nombre del archivo.
-    location /assets/ {
-        add_header Cache-Control "public, max-age=31536000, immutable";
-    }
-
-    # index.html sí debe revisarse siempre, para que la próxima subida se
-    # vea de inmediato sin que el navegador lo tenga cacheado.
-    location = /index.html {
-        add_header Cache-Control "no-cache";
-    }
-}
-```
-
-Actívalo y recarga Nginx:
-
-```bash
-sudo ln -s /etc/nginx/sites-available/feca /etc/nginx/sites-enabled/
-sudo rm -f /etc/nginx/sites-enabled/default   # quita el sitio de bienvenida por defecto
-sudo nginx -t                                  # valida que la configuración esté bien escrita
-sudo systemctl reload nginx
-```
-
-En este punto, si entras a `http://SERVER_IP_O_DOMINIO/` en el navegador
-deberías ver el mensaje "Bienvenido a nginx" reemplazado por un 404 (aún
-no hay nada en `/var/www/feca/dist` — eso se resuelve en el siguiente
-paso).
-
-## 3. Subir el sitio (cada vez que haya cambios)
+## 1. Subir el sitio (cada vez que haya cambios)
 
 Desde tu computadora, dentro de la carpeta del proyecto, usa
-`scripts/deploy.sh` (ver ese archivo — edítalo una sola vez con el
-usuario, la IP y la ruta de tu servidor). Después, cada despliegue es:
+`scripts/deploy.sh` — ya tiene los datos de arriba precargados. Cada
+despliegue es simplemente:
 
 ```bash
 bash scripts/deploy.sh
 ```
 
-Eso corre `npm run build` y sube el contenido de `dist/` al servidor por
-SCP. Al terminar, recarga `http://SERVER_IP_O_DOMINIO/` — deberías ver el
-sitio.
+Eso corre `npm run build` y sube el contenido de `dist/` a
+`/var/www/html/facultad` en el servidor (por `rsync` si está disponible,
+o por `scp` si no). Al terminar, entra a `https://200.23.125.107/`
+(acepta la advertencia del certificado autofirmado) — deberías ver el
+sitio actualizado.
 
-## 4. Variables de entorno
+**Nota:** `rsync --delete` borra en el servidor cualquier archivo que ya
+no exista en tu `dist/` local — así no se van acumulando versiones
+viejas de los archivos con hash que genera Vite.
+
+## 2. Variables de entorno
 
 Como el sitio es estático, las variables `VITE_SUPABASE_URL` y
 `VITE_SUPABASE_ANON_KEY` (ver `.env.example`) **ya quedan incluidas dentro
@@ -110,18 +59,18 @@ el servidor Ubuntu como sí se haría en Vercel. Asegúrate de tener un
 archivo `.env.local` con esos valores en tu computadora *antes* de correr
 `npm run build`, o el sitio se subirá sin conexión a Supabase.
 
-## 5. Cuando tengan un dominio: agregar HTTPS gratis
+## 3. Cuando tengan un dominio propio: certificado real (Let's Encrypt)
 
-Una vez que `SERVER_IP_O_DOMINIO` en la configuración de Nginx sea un
-dominio real apuntando a este servidor (registro DNS tipo A), corre:
+El certificado autofirmado actual sirve para probar, pero siempre va a
+mostrar advertencia en el navegador. Si en algún momento apuntan un
+dominio real a `200.23.125.107` (registro DNS tipo A), pídanle a quien
+administra el servidor que corra esto (requiere acceso a
+`/etc/apache2/`, que el usuario `team3-feca` no tiene):
 
 ```bash
-sudo apt install -y certbot python3-certbot-nginx
-sudo certbot --nginx -d tu-dominio.com
-sudo ufw allow 'Nginx Full'   # abre también 443 (HTTPS)
-sudo ufw delete allow 'Nginx HTTP'   # ya no hace falta el puerto 80 solo
+sudo apt install -y certbot python3-certbot-apache
+sudo certbot --apache -d tu-dominio.com
 ```
 
-Certbot edita la configuración de Nginx solo, agrega el certificado y deja
-todo sirviendo por HTTPS con renovación automática. No hace falta tocar
-`server_name` a mano: certbot lo hace.
+Certbot edita la configuración de Apache solo, agrega el certificado real
+y deja todo sirviendo por HTTPS con renovación automática.
