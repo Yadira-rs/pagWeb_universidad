@@ -1,9 +1,6 @@
-import { useState } from "react";
 import { directors } from "../data/directorsData";
 
 export default function DirectorsList() {
-  const [selectedDirector, setSelectedDirector] = useState(null);
-
   return (
     <section className="el-section">
       {/* Encabezado */}
@@ -55,73 +52,6 @@ export default function DirectorsList() {
           </li>
         ))}
       </ol>
-
-      {/* Modal de Biografía */}
-      {selectedDirector && (
-        <div className="dir-modal-overlay" onClick={() => setSelectedDirector(null)}>
-          <div className="dir-modal-container" onClick={(e) => e.stopPropagation()}>
-            <button className="dir-modal-close" onClick={() => setSelectedDirector(null)} aria-label="Cerrar modal">
-              &times;
-            </button>
-
-            <div className="dir-modal-grid">
-              <div className="dir-modal-left">
-                {selectedDirector.image && (
-                  <div className="dir-modal-photo-wrap">
-                    <img src={selectedDirector.image} alt={selectedDirector.name} className="dir-modal-photo" />
-                  </div>
-                )}
-                <span className="dir-modal-role">{selectedDirector.role}</span>
-                <h3 className="dir-modal-name">{selectedDirector.name}</h3>
-
-                <div className="dir-modal-contact">
-                  <h4>Contacto</h4>
-                  <a href={`mailto:${selectedDirector.bio.contact}`}>{selectedDirector.bio.contact}</a>
-                  <p>FECA - UJED Durango</p>
-                </div>
-              </div>
-
-              <div className="dir-modal-right">
-                <span className="dir-modal-kicker">Biografía y Trayectoria</span>
-                <div className="dir-modal-divider" />
-
-                <blockquote className="dir-modal-quote">
-                  <p>"{selectedDirector.quote}"</p>
-                </blockquote>
-
-                <div className="dir-modal-bio-content">
-                  <section className="dir-modal-bio-section">
-                    <h4>Trayectoria Académica y Profesional</h4>
-                    <p>{selectedDirector.bio.trajectory}</p>
-                  </section>
-
-                  <section className="dir-modal-bio-section">
-                    <h4>Enfoque y Gestión</h4>
-                    <p>{selectedDirector.bio.focus}</p>
-                  </section>
-
-                  <section className="dir-modal-bio-section">
-                    <h4>Grados Académicos</h4>
-                    <ul className="dir-modal-degrees-list">
-                      {selectedDirector.degrees.map((deg, idx) => (
-                        <li key={idx}>
-                          <span className="dir-modal-bullet">•</span> {deg.title}
-                        </li>
-                      ))}
-                    </ul>
-                  </section>
-                </div>
-
-                <div className="dir-modal-footer">
-                  <button className="dir-modal-close-btn" onClick={() => setSelectedDirector(null)}>
-                    Cerrar Información
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 }
