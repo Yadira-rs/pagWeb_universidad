@@ -43,3 +43,15 @@ fotos_directivos/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+# Volcados de la base de datos (pueden contener datos reales de
+# solicitudes/admisión) — nunca se versionan. Los .sql de esquema en
+# database/ y db/ sí se versionan normalmente.
+/full_backup.sql
+/full_backup.sq
+/respaldo_limpio.sql
+/data_backup.sql
+
+# Estado local del CLI de Supabase (project ref, versiones, urls) —
+# se regenera con `supabase link`, no se versiona.
+supabase/.temp/
