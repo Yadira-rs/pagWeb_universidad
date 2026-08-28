@@ -79,17 +79,15 @@ servidor de la universidad**, administrado vía phpPgAdmin. La copia se hizo
 con `pg_dump` (respaldo limpio del esquema `public`) y se importó
 exitosamente en phpPgAdmin.
 
-**Punto importante para la siguiente etapa:** el sitio actualmente no habla
-con PostgreSQL directamente — usa el paquete `@supabase/supabase-js`, que
-depende de tres servicios que Supabase agrega sobre PostgreSQL: una API
-REST automática, el sistema de autenticación (login del panel de
-administración) y el almacenamiento de archivos (imágenes, documentos de
-egresados). Un PostgreSQL "normal" no incluye nada de eso.
-
-Si la instrucción del profesor es que el sitio deje de depender de Supabase
-y use esta base de datos propia, el camino recomendado (sin tener que
-reescribir el código del sitio) es instalar **Supabase self-hosted**
-(la misma plataforma, pero corriendo con Docker en el servidor de la
-universidad en vez de en la nube de Supabase) — queda pendiente de
-confirmar el alcance exacto y el tiempo disponible antes de emprender esa
-parte.
+**Actualización:** se decidió NO usar Supabase self-hosted (habría sido
+correr ~10 contenedores Docker 24/7 en el servidor, justo la carga
+operativa que se evitó al pasar a sitio estático) y en su lugar se
+construyó **una API propia** (`services/pagweb-api`) que reemplaza los
+tres servicios que daba Supabase sobre Postgres: login del panel
+(`admin_users` propia, con JWT y bcrypt), CRUD del contenido (un router
+genérico por tabla, replicando las reglas que antes eran políticas RLS) y
+archivos (imágenes/documentos en disco, en vez de Supabase Storage). El
+sitio ya no depende de `@supabase/supabase-js` en ningún punto — ver
+`services/pagweb-api/README.md` para el contrato completo y qué falta
+para desplegarla en el servidor (instalar Node + `pm2`, y opcionalmente
+un `ProxyPass`/`Alias` en Apache).

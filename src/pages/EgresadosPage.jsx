@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import Header from "../sections/Header";
 import Footer from "../sections/Footer";
 import EgresadoUploadModal from "../components/EgresadoUploadModal";
-import { supabase } from "../lib/supabaseClient";
+import { supabase } from "../lib/apiClient";
 
 /* ── Iconos SVG inline ── */
 const IconCap = () => (

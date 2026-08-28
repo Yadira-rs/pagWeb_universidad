@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { supabase } from "../../lib/supabaseClient";
+import { supabase, getToken } from "../../lib/apiClient";
+import { invitarAccesoPanel } from "../../lib/pagwebApiClient";
 import { useAuth } from "../../lib/useAuth";
 
 const TABLE = "solicitudes_acceso_panel";
@@ -65,11 +66,7 @@ function AccesoManager() {
     setInvitingId(item.id);
     setError("");
     try {
-      const { data, error: fnError } = await supabase.functions.invoke("invitar-acceso-panel", {
-        body: { correo: item.correo, nombre: item.nombre },
-      });
-      if (fnError) throw fnError;
-      if (data?.error) throw new Error(data.error);
+      await invitarAccesoPanel({ correo: item.correo, nombre: item.nombre }, getToken());
       await setEstado(item, "aprobada");
     } catch (err) {
       setError(err.message || "No se pudo invitar a la cuenta.");

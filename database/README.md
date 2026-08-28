@@ -1,3 +1,12 @@
+> **Actualización:** el sitio ya no usa Supabase — corre sobre un
+> PostgreSQL propio (servidor de la universidad, phpPgAdmin) con una API
+> propia encima (`services/pagweb-api`). Las fases de abajo describen la
+> historia real de cómo se construyó cada parte (en su momento, sí, con
+> Supabase) y los archivos `.sql` de esquema siguen siendo la referencia
+> vigente de las tablas — pero las instrucciones de "pégalo en el SQL
+> Editor de Supabase" y "Supabase Auth" ya no aplican. Para el estado
+> actual, ver `services/pagweb-api/README.md` y `database/admin_users.sql`.
+
 # Base de datos FECA — esquema y cómo usarlo
 
 `schema.sql` crea las 14 tablas necesarias para que el administrador edite:

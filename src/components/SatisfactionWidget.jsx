@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { supabase } from "../lib/supabaseClient";
+import { supabase } from "../lib/apiClient";
 
 const LABELS = ["Muy malo", "Malo", "Regular", "Bueno", "Muy bueno"];
 

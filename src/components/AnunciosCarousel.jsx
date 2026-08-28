@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { supabase } from "../lib/supabaseClient";
+import { supabase } from "../lib/apiClient";
 
 export default function AnunciosCarousel() {
   const [slides, setSlides] = useState([]);

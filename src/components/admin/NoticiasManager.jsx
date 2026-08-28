@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { supabase } from "../../lib/supabaseClient";
+import { supabase } from "../../lib/apiClient";
 import DocumentUploadField from "./DocumentUploadField";
 
 const TABLE = "noticias_recientes";

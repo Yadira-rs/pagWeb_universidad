@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Header from "../sections/Header";
 import Footer from "../sections/Footer";
 import AnunciosCarousel from "../components/AnunciosCarousel";
-import { supabase } from "../lib/supabaseClient";
+import { supabase } from "../lib/apiClient";
 
 // Se usa solo si todavía no hay diapositivas en la tabla hero_slides de
 // Supabase (o si falla la consulta), para que el Inicio nunca se quede vacío.

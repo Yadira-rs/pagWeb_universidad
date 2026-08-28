@@ -1,11 +1,11 @@
 # Desplegar el sitio en el servidor Ubuntu de la universidad
 
-El sitio ya no depende de Vercel ni de Node.js en el servidor (ver
-`database/README.md`, sección "Nota sobre desplegar en un servidor Node
-propio"): es HTML/CSS/JS estático que solo necesita un servidor web
-sirviendo archivos. El flujo elegido es: **construir en tu computadora
-(`npm run build`) y subir la carpeta `dist/` resultante** — el servidor
-Ubuntu solo necesita Apache, nada de Node instalado ahí.
+El sitio en sí (`dist/`) es HTML/CSS/JS estático: se construye en tu
+computadora (`npm run build`) y se sube con `scripts/deploy.sh` — el
+servidor solo necesita Apache para servirlo, nada de Node para esa parte
+(ver sección 1). Aparte, desde que el sitio dejó Supabase, el servidor sí
+necesita Node para correr las dos APIs propias que le dan login, CRUD del
+panel y archivos (ver sección 3, `services/pagweb-api/README.md`).
 
 ## Datos del servidor (ya preparado por los administradores de la FECA)
 
@@ -52,14 +52,99 @@ viejas de los archivos con hash que genera Vite.
 
 ## 2. Variables de entorno
 
-Como el sitio es estático, las variables `VITE_SUPABASE_URL` y
-`VITE_SUPABASE_ANON_KEY` (ver `.env.example`) **ya quedan incluidas dentro
-del código JavaScript generado por `npm run build`** — no se configuran en
-el servidor Ubuntu como sí se haría en Vercel. Asegúrate de tener un
-archivo `.env.local` con esos valores en tu computadora *antes* de correr
-`npm run build`, o el sitio se subirá sin conexión a Supabase.
+Como el sitio es estático, `VITE_PAGWEB_API_URL` y `VITE_ADMISIONES_API_URL`
+(ver `.env.example`) **quedan incluidas dentro del código JavaScript
+generado por `npm run build`** — no se configuran en el servidor Ubuntu
+como sí se haría en Vercel. Antes de construir para producción, pon en tu
+`.env.local` la URL pública real de las APIs (ej.
+`https://200.23.125.107:4000` sin el proxy de Apache de la sección 3, o
+una ruta relativa si sí lo configuraste), o el sitio se subirá apuntando
+a `localhost`.
 
-## 3. Cuando tengan un dominio propio: certificado real (Let's Encrypt)
+## 3. Desplegar las APIs propias (pagweb-api y admisiones-api)
+
+El sitio (`dist/`) sigue siendo estático — esto es aparte: dos procesos
+Node pequeños que le dan al sitio login, CRUD del panel y archivos (ver
+`services/pagweb-api/README.md`), corriendo en el mismo servidor porque
+Postgres solo acepta conexiones locales ahí (`localhost`, el mismo que usa
+phpPgAdmin).
+
+### Preparación de una sola vez
+
+Por SSH (`ssh team3-feca@200.23.125.107`):
+
+```bash
+# 1. Instalar Node (si no está) y pm2 (mantiene los procesos vivos y los
+#    reinicia solos si el servidor se reinicia).
+sudo apt update && sudo apt install -y nodejs npm
+sudo npm install -g pm2
+
+# 2. Carpeta para el código de las APIs — FUERA de /var/www/html/facultad,
+#    porque ahí rsync --delete borra todo lo que no venga en el próximo
+#    npm run build del sitio.
+sudo mkdir -p /opt/facultad-api
+sudo chown team3-feca:team3-feca /opt/facultad-api
+
+# 3. Carpeta para los archivos subidos desde el panel (imágenes,
+#    documentos de egresados) — misma razón, fuera del docroot.
+sudo mkdir -p /var/www/html/facultad-uploads
+sudo chown team3-feca:team3-feca /var/www/html/facultad-uploads
+```
+
+Después de correr `scripts/deploy-api.sh` la primera vez (sube el código a
+`/opt/facultad-api/pagweb-api` y `/opt/facultad-api/admisiones-api`), crea
+el `.env` de cada uno directo en el servidor (nunca por git — son
+secretos):
+
+```bash
+cd /opt/facultad-api/pagweb-api && cp .env.example .env && nano .env
+cd /opt/facultad-api/admisiones-api && cp .env.example .env && nano .env
+```
+
+En ambos `.env`: mismas credenciales de Postgres (`PGHOST=localhost`,
+etc.) y el **mismo** `JWT_SECRET` en los dos (así `admisiones-api` puede
+validar la sesión que emite `pagweb-api`). En `pagweb-api`, además:
+`UPLOADS_DIR=/var/www/html/facultad-uploads` y `SITE_URL=https://200.23.125.107`.
+
+```bash
+# Sembrar la primera cuenta de administrador
+cd /opt/facultad-api/pagweb-api && npm run seed-admin -- correo@ujed.mx "contraseña" "Nombre"
+
+# Arrancar ambos con pm2 y dejarlos sobreviviendo a un reinicio
+cd /opt/facultad-api/pagweb-api && pm2 start src/index.js --name pagweb-api
+cd /opt/facultad-api/admisiones-api && pm2 start src/index.js --name admisiones-api
+pm2 save
+pm2 startup   # sigue la instrucción que imprime (un sudo <comando> de una sola línea)
+```
+
+### Cada vez que haya cambios en las APIs
+
+```bash
+bash scripts/deploy-api.sh
+```
+
+### Apache: que el sitio le hable a las APIs por el mismo origen (opcional)
+
+Sin esto, el frontend igual funciona llamando directo a
+`http://200.23.125.107:4000` (CORS ya está configurado), pero el
+navegador va a pedir aceptar el certificado autofirmado *otra vez* para
+ese puerto. Para evitarlo, pídele a quien administra `/etc/apache2/` que
+agregue al `VirtualHost` de HTTPS:
+
+```apache
+ProxyPass /api http://localhost:4000/api
+ProxyPassReverse /api http://localhost:4000/api
+Alias /uploads /var/www/html/facultad-uploads
+<Directory /var/www/html/facultad-uploads>
+    Require all granted
+</Directory>
+```
+
+(requiere `sudo a2enmod proxy proxy_http` una vez). Si se agrega esto,
+`VITE_PAGWEB_API_URL` puede simplificarse a una ruta relativa —
+avísenme cuando lo tengan y actualizamos esa variable.
+
+## 4. Cuando tengan un dominio propio: certificado real (Let's Encrypt)
 
 El certificado autofirmado actual sirve para probar, pero siempre va a
 mostrar advertencia en el navegador. Si en algún momento apuntan un

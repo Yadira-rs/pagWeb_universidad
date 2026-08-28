@@ -55,3 +55,7 @@ fotos_directivos/
 # Estado local del CLI de Supabase (project ref, versiones, urls) —
 # se regenera con `supabase link`, no se versiona.
 supabase/.temp/
+
+# Archivos subidos en desarrollo por services/pagweb-api (imágenes del
+# panel, documentos de egresados) — carpeta local, no se versiona.
+services/pagweb-api/uploads/

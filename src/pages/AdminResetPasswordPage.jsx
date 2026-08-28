@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAuth, signOut } from "../lib/useAuth";
-import { supabase } from "../lib/supabaseClient";
+import { supabase } from "../lib/apiClient";
 
 function AdminResetPasswordPage() {
   const { session, loading } = useAuth();

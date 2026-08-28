@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { supabase } from "./supabaseClient";
+import { supabase } from "./apiClient";
 
 // Hook simple de sesión: expone la sesión actual de Supabase Auth y se
 // mantiene sincronizado si el usuario inicia/cierra sesión en otra pestaña.

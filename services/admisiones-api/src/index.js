@@ -1,9 +1,10 @@
 import "dotenv/config";
 import cors from "cors";
 import express from "express";
+import { ah } from "./asyncHandler.js";
 import { requireAuth } from "./auth.js";
+import { pool } from "./db.js";
 import { notifyNuevaSolicitud } from "./notifyClient.js";
-import { supabaseAdmin } from "./supabaseAdmin.js";
 
 const app = express();
 const PORT = process.env.PORT || 4001;
@@ -23,7 +24,7 @@ app.get("/health", (_req, res) => {
 // Body: { nombre: string (requerido), telefono?, correo?, programa?, mensaje? }
 // Respuesta 201: { id, nombre, ..., created_at }
 // Respuesta 400: { error } si falta "nombre".
-// Respuesta 502: { error } si Supabase no responde.
+// Respuesta 502: { error } si Postgres no responde.
 app.post("/api/solicitudes", async (req, res) => {
   const nombre = (req.body?.nombre || "").toString().trim();
   if (!nombre) {
@@ -38,14 +39,16 @@ app.post("/api/solicitudes", async (req, res) => {
     mensaje: req.body?.mensaje?.toString().trim() || null,
   };
 
-  const { data, error } = await supabaseAdmin
-    .from("solicitudes_admision")
-    .insert(solicitud)
-    .select()
-    .single();
-
-  if (error) {
-    console.error("Error al guardar solicitud:", error.message);
+  let data;
+  try {
+    const { rows } = await pool.query(
+      `insert into solicitudes_admision (nombre, telefono, correo, programa, mensaje)
+       values ($1, $2, $3, $4, $5) returning *`,
+      [solicitud.nombre, solicitud.telefono, solicitud.correo, solicitud.programa, solicitud.mensaje]
+    );
+    data = rows[0];
+  } catch (err) {
+    console.error("Error al guardar solicitud:", err.message);
     return res.status(502).json({ error: "No se pudo guardar la solicitud." });
   }
 
@@ -56,23 +59,19 @@ app.post("/api/solicitudes", async (req, res) => {
 });
 
 // Contrato: GET /api/solicitudes
-// Protegido — requiere Authorization: Bearer <access_token de Supabase Auth>
-// (la misma sesión que usa #/admin). Solo personal con cuenta puede listar.
+// Protegido — requiere Authorization: Bearer <token de sesión emitido por
+// services/pagweb-api> (la misma sesión que usa #/admin). Solo personal
+// con cuenta puede listar.
 // Respuesta 200: solicitud[]
-app.get("/api/solicitudes", requireAuth, async (_req, res) => {
-  const { data, error } = await supabaseAdmin
-    .from("solicitudes_admision")
-    .select("*")
-    .order("created_at", { ascending: false });
-
-  if (error) return res.status(502).json({ error: error.message });
-  res.json(data);
-});
+app.get("/api/solicitudes", requireAuth, ah(async (_req, res) => {
+  const { rows } = await pool.query("select * from solicitudes_admision order by created_at desc");
+  res.json(rows);
+}));
 
 // Contrato: PATCH /api/solicitudes/:id
 // Protegido. Body: { atendida: boolean }
 // Respuesta 200: solicitud actualizada.
-app.patch("/api/solicitudes/:id", requireAuth, async (req, res) => {
+app.patch("/api/solicitudes/:id", requireAuth, ah(async (req, res) => {
   const { id } = req.params;
   const { atendida } = req.body || {};
 
@@ -80,25 +79,27 @@ app.patch("/api/solicitudes/:id", requireAuth, async (req, res) => {
     return res.status(400).json({ error: "El campo 'atendida' debe ser boolean." });
   }
 
-  const { data, error } = await supabaseAdmin
-    .from("solicitudes_admision")
-    .update({ atendida })
-    .eq("id", id)
-    .select()
-    .single();
-
-  if (error) return res.status(502).json({ error: error.message });
-  res.json(data);
-});
+  const { rows } = await pool.query(
+    "update solicitudes_admision set atendida = $1 where id = $2 returning *",
+    [atendida, id]
+  );
+  if (!rows[0]) return res.status(404).json({ error: "No encontrada." });
+  res.json(rows[0]);
+}));
 
 // Contrato: DELETE /api/solicitudes/:id
 // Protegido. Respuesta 204 sin body.
-app.delete("/api/solicitudes/:id", requireAuth, async (req, res) => {
-  const { id } = req.params;
-  const { error } = await supabaseAdmin.from("solicitudes_admision").delete().eq("id", id);
-
-  if (error) return res.status(502).json({ error: error.message });
+app.delete("/api/solicitudes/:id", requireAuth, ah(async (req, res) => {
+  const { rowCount } = await pool.query("delete from solicitudes_admision where id = $1", [req.params.id]);
+  if (!rowCount) return res.status(404).json({ error: "No encontrada." });
   res.status(204).end();
+}));
+
+// Red de seguridad: cualquier error no atrapado en una ruta (ej. Postgres
+// no responde) cae acá en vez de tumbar el proceso.
+app.use((err, _req, res, _next) => {
+  console.error("Error no manejado:", err);
+  res.status(502).json({ error: "El servicio tuvo un problema (revisa la conexión a la base de datos)." });
 });
 
 app.listen(PORT, () => {

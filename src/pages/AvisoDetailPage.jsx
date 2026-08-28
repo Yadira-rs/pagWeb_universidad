@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Header from "../sections/Header";
 import Footer from "../sections/Footer";
-import { supabase } from "../lib/supabaseClient";
+import { supabase } from "../lib/apiClient";
 
 export default function AvisoDetailPage({ id, logoImage, newsPanelOpen, setNewsPanelOpen }) {
   const [aviso, setAviso] = useState(null);

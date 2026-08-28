@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { IconFacebook, IconInstagram, IconXTwitter, IconTikTok } from './components/SocialIcons';
-import { supabase } from "./lib/supabaseClient";
+import { supabase } from "./lib/apiClient";
 import "./App.css";
 import {
   historyEntries,

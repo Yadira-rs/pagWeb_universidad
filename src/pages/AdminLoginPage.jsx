@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { signIn } from "../lib/useAuth";
-import { supabase } from "../lib/supabaseClient";
+import { supabase } from "../lib/apiClient";
 
 function ErrorNote({ children }) {
   return (

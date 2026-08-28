@@ -57,20 +57,21 @@ Requieren el header:
 Authorization: Bearer <access_token>
 ```
 
-`access_token` es el mismo que genera Supabase Auth al iniciar sesión en
-`#/admin` (`supabase.auth.getSession()` en el frontend). El servicio lo
-valida **localmente**, verificando la firma con `SUPABASE_JWT_SECRET`, sin
-llamar a Supabase Auth en cada petición.
+`access_token` es el mismo que emite `services/pagweb-api` al iniciar
+sesión en `#/admin` (`supabase.auth.getSession()` en el frontend, ver
+`src/lib/authClient.js`). El servicio lo valida **localmente**,
+verificando la firma con `JWT_SECRET` (el mismo valor que en el `.env` de
+`pagweb-api`), sin llamarle a ese servicio en cada petición.
 
 - `401` — falta el header o el token no es válido/expiró.
-- `500` — el servicio no tiene configurado `SUPABASE_JWT_SECRET` (error de despliegue, no del cliente).
+- `500` — el servicio no tiene configurado `JWT_SECRET` (error de despliegue, no del cliente).
 
 ## Seguridad
 
 Dos mecanismos distintos, a propósito:
 
 1. **Frontend → Admisiones API** (rutas de administración): Bearer JWT de
-   usuario, emitido por Supabase Auth. Tiene sentido aquí porque hay una
+   usuario, emitido por `pagweb-api`. Tiene sentido aquí porque hay una
    persona identificable detrás de la petición (un admin con sesión
    iniciada).
 2. **Admisiones API → Notificaciones API**: secreto compartido
@@ -79,9 +80,10 @@ Dos mecanismos distintos, a propósito:
    comparado con `crypto.timingSafeEqual` del lado de Notificaciones para
    evitar ataques de temporización— es proporcional al riesgo.
 
-`SUPABASE_SERVICE_ROLE_KEY` vive solo en el `.env` de este servicio
-(nunca en el navegador): es lo que le permite escribir sin pasar por las
-políticas RLS pensadas para el navegador (`anon`/`authenticated`).
+Este servicio se conecta a Postgres directo (`PGHOST`/`PGUSER`/... en el
+`.env`, mismos valores que `pagweb-api`) con un rol de base de datos de
+confianza: corre en un servidor de confianza (nunca en el navegador), y es
+el único componente con permiso de leer/escribir `solicitudes_admision`.
 
 ## Qué pasa si Notificaciones API está caída
 
