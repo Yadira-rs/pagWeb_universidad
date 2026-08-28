@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Footer from "../sections/Footer";
 import Header from "../sections/Header";
 
@@ -55,7 +56,24 @@ function ServiceDetailPage({
   newsPanelOpen,
   setNewsPanelOpen,
 }) {
+  const [caAbierto, setCaAbierto] = useState(null);
+
+  useEffect(() => {
+    if (!caAbierto) return;
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") setCaAbierto(null);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [caAbierto]);
+
   if (!content) return null;
+
+  const cuerposAcademicos = content.cuerposAcademicos ?? [];
 
   return (
     <div className="site-shell">
@@ -92,6 +110,48 @@ function ServiceDetailPage({
                   <p className="encargado-card-quote">"{content.encargado.quote}"</p>
                 )}
               </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {cuerposAcademicos.length > 0 && (
+        <section className="pf-section pf-section-light">
+          <div className="pf-container">
+            <div className="pf-section-head pf-section-head-center">
+              <div className="pf-label">Investigación</div>
+              <h2 className="pf-section-title">Cuerpos Académicos de la FECA</h2>
+              <p className="pf-section-desc">
+                Selecciona un cuerpo académico para consultar su número de
+                registro, líneas de generación y aplicación del conocimiento
+                (LGAC) e integrantes.
+              </p>
+            </div>
+
+            <div className="ca-list">
+              {cuerposAcademicos.map((ca) => (
+                <button
+                  type="button"
+                  key={ca.slug}
+                  className="ca-list-item"
+                  onClick={() => setCaAbierto(ca)}
+                >
+                  <span className="ca-list-item-main">
+                    {ca.grado && (
+                      <span className="ca-list-item-grado">{ca.grado}</span>
+                    )}
+                    <span className="ca-list-item-nombre">{ca.nombre}</span>
+                    {ca.numero && (
+                      <span className="ca-list-item-num">{ca.numero}</span>
+                    )}
+                  </span>
+                  <span className="ca-list-item-arrow" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M9 6l6 6-6 6" />
+                    </svg>
+                  </span>
+                </button>
+              ))}
             </div>
           </div>
         </section>
@@ -168,6 +228,119 @@ function ServiceDetailPage({
           })
         )}
       </main>
+
+      {caAbierto && (
+        <div
+          className="ca-modal-overlay"
+          onClick={() => setCaAbierto(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={caAbierto.nombre}
+        >
+          <div className="ca-modal" onClick={(e) => e.stopPropagation()}>
+            <button
+              type="button"
+              className="ca-modal-close"
+              onClick={() => setCaAbierto(null)}
+              aria-label="Cerrar"
+            >
+              &times;
+            </button>
+
+            <div className="ca-modal-head">
+              {caAbierto.grado && (
+                <span className="ca-modal-grado">{caAbierto.grado}</span>
+              )}
+              <h2 className="ca-modal-title">{caAbierto.nombre}</h2>
+            </div>
+
+            <div className="ca-modal-body">
+              {caAbierto.numero && (
+                <div className="ca-field">
+                  <h3 className="ca-field-label">Número de CA</h3>
+                  <p className="ca-field-text">{caAbierto.numero}</p>
+                </div>
+              )}
+
+              {caAbierto.estatus && (
+                <div className="ca-field">
+                  <h3 className="ca-field-label">Estatus</h3>
+                  <p className="ca-field-text">{caAbierto.estatus}</p>
+                </div>
+              )}
+
+              {caAbierto.lgac && caAbierto.lgac.length > 0 && (
+                <div className="ca-field">
+                  <h3 className="ca-field-label">
+                    Líneas de generación y aplicación del conocimiento
+                  </h3>
+                  <ol className="ca-field-list">
+                    {caAbierto.lgac.map((l) => (
+                      <li key={l}>{l}</li>
+                    ))}
+                  </ol>
+                </div>
+              )}
+
+              {caAbierto.objetivo && caAbierto.objetivo.length > 0 && (
+                <div className="ca-field">
+                  <h3 className="ca-field-label">Objetivo de la LGAC</h3>
+                  {caAbierto.objetivo.map((p, i) => (
+                    <p key={i} className="ca-field-text">{p}</p>
+                  ))}
+                </div>
+              )}
+
+              {caAbierto.descripcion && caAbierto.descripcion.length > 0 && (
+                <div className="ca-field">
+                  <h3 className="ca-field-label">Descripción de la LGAC</h3>
+                  {caAbierto.descripcion.map((p, i) => (
+                    <p key={i} className="ca-field-text">{p}</p>
+                  ))}
+                </div>
+              )}
+
+              {caAbierto.area && (
+                <div className="ca-field">
+                  <h3 className="ca-field-label">Área de conocimiento</h3>
+                  <p className="ca-field-text">{caAbierto.area}</p>
+                </div>
+              )}
+
+              {caAbierto.disciplinas && (
+                <div className="ca-field">
+                  <h3 className="ca-field-label">Disciplinas</h3>
+                  <p className="ca-field-text">{caAbierto.disciplinas}</p>
+                </div>
+              )}
+
+              {caAbierto.integrantes && caAbierto.integrantes.length > 0 && (
+                <div className="ca-field">
+                  <h3 className="ca-field-label">Integrantes</h3>
+                  <ul className="ca-integrantes">
+                    {caAbierto.integrantes.map((m) => (
+                      <li key={m.nombre} className="ca-integrante">
+                        <span className="ca-integrante-grado">{m.grado}</span>
+                        <span>{m.nombre}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {!caAbierto.numero &&
+                (!caAbierto.lgac || caAbierto.lgac.length === 0) &&
+                (!caAbierto.integrantes ||
+                  caAbierto.integrantes.length === 0) && (
+                  <p className="ca-field-text ca-field-empty">
+                    La información detallada de este cuerpo académico se
+                    publicará próximamente.
+                  </p>
+                )}
+            </div>
+          </div>
+        </div>
+      )}
 
       <Footer logoImage={logoImage} />
     </div>

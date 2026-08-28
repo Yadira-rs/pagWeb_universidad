@@ -47,33 +47,9 @@ const programs = [
 
 const highlights = [
   {
-    title: "Docentes con experiencia real",
+    title: "Innovación en el aula",
     description:
-      "El 80% de nuestros profesores trabajan activamente en la industria, trayendo casos reales al salón.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <path d="M22 10v6" />
-        <path d="M2 10l10-5 10 5-10 5z" />
-        <path d="M6 12v5c3 3 9 3 12 0v-5" />
-      </svg>
-    ),
-  },
-  {
-    title: "Movilidad internacional",
-    description:
-      "Convenios con más de 80 universidades en 25 países para intercambios académicos y prácticas profesionales.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M2 12h20" />
-        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-      </svg>
-    ),
-  },
-  {
-    title: "Tecnología de punta",
-    description:
-      "Laboratorios equipados con la última tecnología: IA, robótica, simuladores y espacios de innovación.",
+      "Aprende en nuestras Aulas Interactivas, espacios equipados con tecnología que transforman la experiencia de aprendizaje.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
         <rect x="2" y="3" width="20" height="14" rx="2" />
@@ -83,15 +59,36 @@ const highlights = [
     ),
   },
   {
-    title: "Red de egresados activa",
+    title: "Impulsa tus ideas",
     description:
-      "Conectamos a nuestros alumnos con una red de más de 40,000 egresados en empresas líderes del país y el mundo.",
+      "Desarrolla tu talento con oportunidades de capacitación, certificación, posgrados e idiomas.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+        <path d="M9 18h6" />
+        <path d="M10 22h4" />
+        <path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V18h6v-1.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Formación que conecta",
+    description:
+      "Vive experiencias de investigación, movilidad e intercambio que amplían tu formación profesional.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M2 12h20" />
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Prepárate para destacar",
+    description:
+      "Encuentra en la FECA herramientas, espacios y oportunidades para crecer, dentro y fuera del aula, y construir tu futuro.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <polygon points="12 2 15 8.5 22 9.3 17 14.1 18.2 21 12 17.7 5.8 21 7 14.1 2 9.3 9 8.5 12 2" />
       </svg>
     ),
   },
@@ -127,6 +124,27 @@ const news = [
 function HomePage({ logoImage, setNewsPanelOpen }) {
   const [heroSlides, setHeroSlides] = useState(FALLBACK_HERO_SLIDES);
   const [heroCurrentSlide, setHeroCurrentSlide] = useState(0);
+  const [mapaOpen, setMapaOpen] = useState(false);
+
+  // Precarga el mapa apenas se monta la página, así el lightbox abre al instante.
+  useEffect(() => {
+    const img = new Image();
+    img.src = "/imagenes/mapa-feca.png";
+  }, []);
+
+  // Cerrar el mapa con Escape y bloquear el scroll del fondo mientras está abierto.
+  useEffect(() => {
+    if (!mapaOpen) return;
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") setMapaOpen(false);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [mapaOpen]);
 
   useEffect(() => {
     let active = true;
@@ -417,7 +435,14 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
           </div>
 
           <div className="campus-grid fade-up">
-            <div className="campus-main">
+            <a
+              className="campus-main campus-main--link"
+              href="/imagenes/mapa-feca.png"
+              onClick={(e) => {
+                e.preventDefault();
+                setMapaOpen(true);
+              }}
+            >
               <img src="/imagenes/aniversario.jpeg" alt="Facultad central" />
               <div className="campus-main-overlay">
                 <h3>Facultad central</h3>
@@ -425,8 +450,9 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
                   Biblioteca, auditorio, laboratorios y áreas verdes en un
                   entorno ideal para estudiar
                 </p>
+                <span className="campus-main-cta">Ver mapa de la facultad</span>
               </div>
-            </div>
+            </a>
 
             <div className="campus-main">
               <img
@@ -544,6 +570,31 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
           </div>
         </div>
       </section>
+
+      {mapaOpen && (
+        <div
+          className="mapa-lightbox"
+          onClick={() => setMapaOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mapa de la facultad"
+        >
+          <button
+            type="button"
+            className="mapa-lightbox-close"
+            onClick={() => setMapaOpen(false)}
+            aria-label="Cerrar mapa"
+          >
+            &times;
+          </button>
+          <img
+            src="/imagenes/mapa-feca.png"
+            alt="Mapa de la Facultad de Economía, Contaduría y Administración"
+            className="mapa-lightbox-img"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
 
       <Footer />
     </div>

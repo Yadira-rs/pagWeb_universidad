@@ -51,33 +51,13 @@ const tabs = [
 
 const cursos = [
   {
-    title: "Inglés para adultos",
+    title: "Inglés",
     flag: <IconGlobe size={32} />,
     age: "Mayores de 15 años",
     horarios: ["Lunes a viernes · 1 hr. diaria", "Sabatinos · 9:00 a.m. – 2:00 p.m."],
     pdf: "/docs/horarios_ingles_adultos.pdf",
     color: "#951823",
     gradient: "linear-gradient(135deg, #4a0810 0%, #951823 100%)",
-    bg: "#fff5f5",
-  },
-  {
-    title: "Inglés para niños",
-    flag: <IconGlobe size={32} />,
-    age: "8 a 11 años",
-    horarios: ["Sabatinos · 9:00 a.m. – 2:00 p.m."],
-    pdf: "/docs/horarios_ingles_ninos.pdf",
-    color: "#a87f3d",
-    gradient: "linear-gradient(135deg, #6b4a1a 0%, #a87f3d 100%)",
-    bg: "#fdf8ee",
-  },
-  {
-    title: "Inglés para jóvenes",
-    flag: <IconGlobe size={32} />,
-    age: "12 a 15 años",
-    horarios: ["Sabatinos · 9:00 a.m. – 2:00 p.m."],
-    pdf: "/docs/horarios_ingles_jovenes.pdf",
-    color: "#e31313",
-    gradient: "linear-gradient(135deg, #951823 0%, #e31313 100%)",
     bg: "#fff5f5",
   },
   {
@@ -135,19 +115,33 @@ const cursos = [
 const faqs = [
   {
     q: "Soy alumno de reingreso y no sé cuál es mi matrícula. ¿Cómo puedo conseguirla?",
-    a: "Puedes solicitarla enviando tu nombre completo a celci.feca@ujed.mx, por Facebook (facebook/CLI.FECA.UJED) o por teléfono al 827-13-65 ext. 5725, lunes, miércoles y viernes de 10:00 a.m. a 2:00 p.m.",
+    intro: "Puedes obtenerla de cualquiera de estas dos formas:",
+    steps: [
+      "Acude a las oficinas del CELCI y proporciona tu nombre; ahí te daremos tu número de matrícula.",
+      "O envía un correo a celci.feca@ujed.mx con tu nombre completo y te haremos llegar tu matrícula.",
+    ],
   },
   {
     q: "Ya tengo mi matrícula pero no sé mi contraseña. ¿Cómo puedo conseguirla?",
-    a: "La primera vez que entres al SUMA+ usa tu matrícula como contraseña. Al entrar, el sistema te pedirá que la cambies por una nueva.",
+    a: "La primera vez que entres al SUMA usa tu matrícula como contraseña. Al ingresar, el sistema te pedirá que la cambies por una nueva.",
   },
   {
     q: "¿Cuál es el número de cuenta al que debo hacer mi pago?",
-    a: "Banco Banamex, a nombre de la Universidad Juárez del Estado de Durango. Número de cuenta: 6507/4076666. Clave interbancaria: 002190650740766661. Envía tu comprobante de pago al correo celci.feca@ujed.mx.",
+    intro: "Realiza tu pago por transferencia bancaria a la siguiente cuenta:",
+    lines: [
+      "A nombre de: Universidad Juárez del Estado de Durango",
+      "Número de cuenta: 6507/4076666",
+      "Clave: 002190650740766661",
+    ],
+    note: "Después de pagar, envía tu comprobante al correo celci.feca@ujed.mx para validar el pago.",
   },
   {
-    q: "Soy trabajador de la UJED. ¿Cómo tramito mi exención de pago?",
-    a: "Acude a tu sindicato con el acta de nacimiento de la persona que se inscribirá al curso y tu talón de pago, y lleva la información del grupo al cual será inscrito(a) el alumno para que en el oficio especifiquen el nivel de ingreso. El exento de pago se entrega en las oficinas de CELCI para ingresar los datos del alumno al sistema y registrarlo.",
+    q: "Soy trabajador de la UJED. ¿Cómo tramito mi exento de pago?",
+    intro: "El trámite consta de dos pasos:",
+    steps: [
+      "Acude a tu sindicato con el acta de nacimiento de la persona que se inscribirá al curso y tu talón de pago. Lleva la información del grupo al que será inscrito(a) el alumno para que en el oficio especifiquen el nivel de ingreso.",
+      "Entrega el exento de pago en las oficinas del CELCI, donde ingresarán los datos del alumno al sistema para registrarlo.",
+    ],
   },
 ];
 
@@ -171,9 +165,9 @@ const STATS = [
 ];
 
 const steps = [
-  { n: "01", title: "Elige tu idioma", desc: "Selecciona el idioma y nivel que deseas estudiar según tu perfil." },
-  { n: "02", title: "Realiza tu pago", desc: "El sistema SUMA+ te proporcionará los datos bancarios y tu referencia única." },
-  { n: "03", title: "Confirma tu lugar", desc: "Una vez validado el pago, queda registrada tu inscripción en el grupo elegido." },
+  { n: "01", title: "Elige tu idioma y horario", desc: "Selecciona el idioma, el nivel y el horario que mejor se acomode a tu perfil y necesidades." },
+  { n: "02", title: "Realiza tu pago", desc: "Cubre la cuota del curso por transferencia bancaria o directamente en las oficinas del CELCI. Elige la opción que te resulte más práctica." },
+  { n: "03", title: "Confirma tu lugar", desc: "Cuando tu pago quede validado en el sistema SUMA, tu inscripción se registra en el grupo y horario que elegiste." },
 ];
 
 // Accordeon FAQ item component — mismo estilo y comportamiento que el FAQ de inicio
@@ -193,9 +187,25 @@ function FaqItem({ faq }) {
           </svg>
         </span>
       </button>
-      <div className="faq-fila-body">
-        <p className="faq-fila-a">{faq.a}</p>
-      </div>
+      {open && (
+        <div className="faq-fila-body">
+          <div className="faq-fila-a">
+            {faq.a && <p>{faq.a}</p>}
+            {faq.intro && <p>{faq.intro}</p>}
+            {faq.lines && faq.lines.map((line, i) => (
+              <p key={i}>{line}</p>
+            ))}
+            {faq.steps && (
+              <ol className="faq-fila-pasos">
+                {faq.steps.map((step, i) => (
+                  <li key={i}>{step}</li>
+                ))}
+              </ol>
+            )}
+            {faq.note && <p>{faq.note}</p>}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -378,28 +388,22 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
               <p className="pf-section-desc">Precios vigentes con descuentos exclusivos para la comunidad FECA y UJED.</p>
             </div>
 
-            <div className="celci-pricing-grid">
-              {/* Card Inglés */}
+            <div className="celci-pricing-grid celci-pricing-grid--single">
+              {/* Card único — todos los idiomas al mismo costo */}
               <div className="celci-pricing-card celci-pricing-featured">
                 <div className="celci-pricing-lang">
                   <span style={{ color: "#e31313" }}><IconGlobe size={32} /></span>
-                  <h3>Inglés</h3>
+                  <h3>Todos los idiomas</h3>
+                </div>
+                <div className="pf-chips" style={{ marginBottom: 20 }}>
+                  <span className="pf-chip">Inglés</span>
+                  <span className="pf-chip">Francés</span>
+                  <span className="pf-chip">Italiano</span>
+                  <span className="pf-chip">Japonés</span>
+                  <span className="pf-chip">Alemán</span>
+                  <span className="pf-chip">Chino Mandarín</span>
                 </div>
                 <div className="celci-pricing-amount">
-                  <span className="celci-price-currency">$</span>
-                  <span className="celci-price-num">1,700</span>
-                </div>
-              </div>
-
-              {/* Card Otros idiomas */}
-              <div className="celci-pricing-card">
-                <div className="celci-pricing-lang celci-pricing-lang--multi">
-                  <div className="celci-flags-row" style={{ color: "var(--text)" }}>
-                    <IconGlobe size={28} />
-                  </div>
-                  <h3>Francés, Italiano, Japonés, Alemán y Chino Mandarín</h3>
-                </div>
-                <div className="celci-pricing-amount celci-pricing-amount--alt">
                   <span className="celci-price-currency">$</span>
                   <span className="celci-price-num">1,700</span>
                 </div>
@@ -416,7 +420,7 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
             <div className="pf-section-head pf-section-head-center">
               <div className="pf-label">Trámite · Semestre B 2026</div>
               <h2 className="pf-section-title">Proceso de inscripción</h2>
-              <p className="pf-section-desc">Sigue estos sencillos pasos para asegurar tu lugar en el grupo de tu elección.</p>
+              <p className="pf-section-desc">Para inscripción a los cursos del Centro de Idiomas (CELCI), Semestre B 2026. Sigue estos pasos para asegurar tu lugar en el grupo de tu elección.</p>
             </div>
 
             {/* Steps */}
@@ -428,35 +432,37 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
                   <div className="celci-step-body">
                     <h3 className="celci-step-title">{step.title}</h3>
                     <p className="celci-step-desc">{step.desc}</p>
+
+                    {step.n === "02" && (
+                      <div className="celci-pay-options">
+                        <div className="pf-info-box">
+                          <h3>Opción A · Transferencia bancaria</h3>
+                          <ol style={{ margin: "8px 0 16px", paddingLeft: 20, lineHeight: 1.7 }}>
+                            <li>Realiza la transferencia con los siguientes datos:</li>
+                          </ol>
+                          <div style={{ fontSize: 14, lineHeight: 1.9, background: "rgba(227,19,19,0.05)", border: "1px solid rgba(227,19,19,0.12)", borderRadius: 10, padding: "14px 18px", marginBottom: 16 }}>
+                            <div><strong>Banco:</strong> Banamex</div>
+                            <div><strong>A nombre de:</strong> Universidad Juárez del Estado de Durango</div>
+                            <div><strong>Número de cuenta:</strong> 6507/4076666</div>
+                            <div><strong>Clave:</strong> 002190650740766661</div>
+                          </div>
+                          <ol start={2} style={{ margin: 0, paddingLeft: 20, lineHeight: 1.7 }}>
+                            <li>Envía tu comprobante a <a href="mailto:celci.feca@ujed.mx">celci.feca@ujed.mx</a> para validar el pago en SUMA.</li>
+                          </ol>
+                        </div>
+                        <div className="pf-info-box">
+                          <h3>Opción B · Pago en CELCI</h3>
+                          <ol style={{ margin: "8px 0 0", paddingLeft: 20, lineHeight: 1.7 }}>
+                            <li>Acude a las oficinas del CELCI en la Facultad.</li>
+                            <li>Realiza tu pago en efectivo o con transferencia.</li>
+                            <li>El personal registra tu pago en el sistema SUMA.</li>
+                          </ol>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
-            </div>
-
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 24, marginTop: 40 }}>
-              <div className="pf-info-box">
-                <h3>Pago por transferencia</h3>
-                <ol style={{ margin: "8px 0 16px", paddingLeft: 20, lineHeight: 1.7 }}>
-                  <li>Puedes realizarlo por medio de transferencia bancaria.</li>
-                  <li>Entra a la página SUMA+ y elige tu horario.</li>
-                  <li>Valida tu pago.</li>
-                </ol>
-                <div style={{ fontSize: 14, lineHeight: 1.9, background: "rgba(227,19,19,0.05)", border: "1px solid rgba(227,19,19,0.12)", borderRadius: 10, padding: "14px 18px" }}>
-                  <div><strong>Banco:</strong> Banamex</div>
-                  <div><strong>A nombre de:</strong> Universidad Juárez del Estado de Durango</div>
-                  <div><strong>Número de cuenta:</strong> 6507/4076666</div>
-                  <div><strong>Clave interbancaria:</strong> 002190650740766661</div>
-                </div>
-              </div>
-              <div className="pf-info-box">
-                <h3>Pago en CELCI</h3>
-                <ol style={{ margin: "8px 0 0", paddingLeft: 20, lineHeight: 1.7 }}>
-                  <li>Elige el idioma de tu preferencia.</li>
-                  <li>Selecciona el horario que más se acomode a tus necesidades.</li>
-                  <li>Realiza tu pago en efectivo o con transferencia.</li>
-                  <li>Una vez validado tu pago en el sistema SUMA+, quedas registrado en el grupo y horario elegido.</li>
-                </ol>
-              </div>
             </div>
 
             <div className="pf-info-box" style={{ marginTop: 24 }}>
@@ -469,25 +475,6 @@ function LenguasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
               </div>
             </div>
 
-            <div className="pf-contact-list" style={{ marginTop: 24 }}>
-              <a href="tel:8271365" className="pf-contact-item">
-                <div className="pf-contact-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.93-.93a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                  </svg>
-                </div>
-                <div><span className="pf-contact-label">Teléfono</span><span className="pf-contact-value">827-13-65 ext. 5725</span></div>
-              </a>
-              <a href="mailto:celci.feca@ujed.mx" className="pf-contact-item">
-                <div className="pf-contact-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                    <polyline points="22,6 12,13 2,6"/>
-                  </svg>
-                </div>
-                <div><span className="pf-contact-label">Correo</span><span className="pf-contact-value">celci.feca@ujed.mx</span></div>
-              </a>
-            </div>
           </div>
         </section>
       )}

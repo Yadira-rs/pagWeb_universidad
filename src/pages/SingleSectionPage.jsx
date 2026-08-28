@@ -127,6 +127,31 @@ function SingleSectionPage({ content, slug, logoImage, newsPanelOpen, setNewsPan
                 {/* ── DIRECTIVOS lista ejecutiva ── */}
                 <DirectorsList />
               </>
+            ) : content.ejes ? (
+              <article className="mission-vision-card single-section-card fade-up">
+                <div className="mission-vision-eyebrow">{content.eyebrow}</div>
+                <h2 className="mission-vision-title">{content.title}</h2>
+                <p className="mission-vision-body">{content.body}</p>
+                <div style={{ display: "flex", flexDirection: "column", gap: 20, marginTop: 8 }}>
+                  {content.ejes.map((eje) => (
+                    <div
+                      key={eje.title}
+                      className="pf-card"
+                      style={{ padding: "24px 28px", display: "flex", flexDirection: "column", gap: 10 }}
+                    >
+                      <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+                        <div style={{ width: 44, height: 44, flexShrink: 0, borderRadius: 12, background: "rgba(227,19,19,0.08)", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid rgba(227,19,19,0.15)" }}>
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e31313" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M4 22V4a1 1 0 0 1 1-1h11l3 3v16" /><path d="M4 22h15" /><path d="M9 8h6M9 12h6" />
+                          </svg>
+                        </div>
+                        <h3 className="pf-card-title" style={{ fontSize: "17px", margin: 0 }}>{eje.title}</h3>
+                      </div>
+                      <p className="pf-card-desc" style={{ fontSize: "14px", color: "#5c5c6d", lineHeight: 1.7 }}>{eje.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </article>
             ) : (
               <article className="mission-vision-card single-section-card fade-up">
                 <div className="mission-vision-eyebrow">{content.eyebrow}</div>

@@ -646,13 +646,10 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
       {content.title === "Cursos Intersemestrales" && (
         <DirectorPhotoShowcase
           eyebrow="Cursos Intersemestrales"
-          title="Cursos Intersemestrales"
-          name="Área de Intersemestrales"
+          title="Área de Intersemestrales"
+          name="Dr. Jesús Espinosa Flores"
           quote="Acompañamos a la comunidad estudiantil con opciones académicas para avanzar, regularizar y fortalecer su trayectoria dentro de la FECA."
-          images={[
-            "/imagenes/directivos/intersemestrales/DSC_5203.JPG",
-            "/imagenes/directivos/intersemestrales/DSC_5205.JPG",
-          ]}
+          images={["/imagenes/directivos/intersemestrales/DSC_5203.JPG"]}
         />
       )}
 

@@ -3,6 +3,16 @@ import Header from "../sections/Header";
 import Footer from "../sections/Footer";
 import { directors } from "../data/directorsData";
 
+// Iniciales para el marcador cuando aún no hay foto individual.
+function initials(name) {
+  return name
+    .replace(/^(Dr\.|Dra\.|M\.[A-Z.]+|Ing\.|Lic\.)\s*/i, "")
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((w) => w.charAt(0).toUpperCase())
+    .join("");
+}
+
 export default function DirectorProfilePage({ slug, logoImage, newsPanelOpen, setNewsPanelOpen }) {
   const director = directors.find((d) => d.slug === slug);
   const observerRef = useRef(null);
@@ -22,7 +32,7 @@ export default function DirectorProfilePage({ slug, logoImage, newsPanelOpen, se
         <Header logoImage={logoImage} newsPanelOpen={newsPanelOpen} setNewsPanelOpen={setNewsPanelOpen} />
         <main style={{ padding: "120px 24px", textAlign: "center" }}>
           <p>Directivo no encontrado.</p>
-          <a href="#/nosotros/ejes-rectores">← Volver a Directivos</a>
+          <a href="#/nosotros/organigrama">← Volver a Organigrama</a>
         </main>
         <Footer logoImage={logoImage} />
       </div>
@@ -37,19 +47,21 @@ export default function DirectorProfilePage({ slug, logoImage, newsPanelOpen, se
         {/* ── HERO ── */}
         <div className="dp-hero">
           <div className="dp-hero-inner">
-            {(director.images?.length || director.image) && (
-              <div className={`dp-hero-photo-wrap${director.images?.length > 1 ? " dp-hero-photo-wrap--multi" : ""}`}>
-                {(director.images?.length ? director.images : [director.image]).map((image) => (
-                  <img key={image} src={image} alt={director.name} className="dp-hero-photo" />
-                ))}
-              </div>
-            )}
+            <div className="dp-hero-photo-wrap">
+              {director.image ? (
+                <img src={director.image} alt={director.name} className="dp-hero-photo" />
+              ) : (
+                <div className="dp-hero-photo dp-hero-photo-placeholder" aria-hidden="true">
+                  {initials(director.name)}
+                </div>
+              )}
+            </div>
             <div className="dp-hero-content">
-              <a href="#/nosotros/ejes-rectores" className="dp-back-link">
+              <a href="#/nosotros/organigrama" className="dp-back-link">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="15 18 9 12 15 6" />
                 </svg>
-                Directivos
+                Organigrama
               </a>
               <h1 className="dp-hero-name">{director.name}</h1>
               <span className="dp-hero-role">{director.roleLabel}</span>
@@ -69,7 +81,7 @@ export default function DirectorProfilePage({ slug, logoImage, newsPanelOpen, se
                 <li key={i} className="dp-degree-row">
                   <span className="dp-degree-bullet" />
                   <span className="dp-degree-title">{deg.title}</span>
-                  <span className="dp-degree-inst">{deg.institution}</span>
+                  {deg.institution && <span className="dp-degree-inst">{deg.institution}</span>}
                 </li>
               ))}
             </ul>
@@ -77,10 +89,14 @@ export default function DirectorProfilePage({ slug, logoImage, newsPanelOpen, se
 
           {/* ── CONTACTO ── */}
           <section className="dp-contact-section dp-fade">
-            <span className="dp-contact-label">Correo institucional</span>
-            <a href={`mailto:${director.bio.contact}`} className="dp-contact-email">
-              {director.bio.contact}
-            </a>
+            {director.emails.map((mail) => (
+              <div key={mail.value} className="dp-contact-item">
+                <span className="dp-contact-label">{mail.label}</span>
+                <a href={`mailto:${mail.value}`} className="dp-contact-email">
+                  {mail.value}
+                </a>
+              </div>
+            ))}
           </section>
         </div>
       </main>

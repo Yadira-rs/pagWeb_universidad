@@ -53,24 +53,24 @@ export const programs = [
 
 export const highlights = [
   {
-    title: 'Docentes con experiencia real',
+    title: 'Innovación en el aula',
     description:
-      'El 80% de nuestros profesores trabajan activamente en la industria, trayendo casos reales al salón.',
+      'Aprende en nuestras Aulas Interactivas, espacios equipados con tecnología que transforman la experiencia de aprendizaje.',
   },
   {
-    title: 'Movilidad internacional',
+    title: 'Impulsa tus ideas',
     description:
-      'Convenios con más de 80 universidades en 25 países para intercambios académicos y prácticas profesionales.',
+      'Desarrolla tu talento con oportunidades de capacitación, certificación, posgrados e idiomas.',
   },
   {
-    title: 'Tecnología de punta',
+    title: 'Formación que conecta',
     description:
-      'Laboratorios equipados con herramientas actuales para análisis, simulación e innovación aplicada.',
+      'Vive experiencias de investigación, movilidad e intercambio que amplían tu formación profesional.',
   },
   {
-    title: 'Red de egresados activa',
+    title: 'Prepárate para destacar',
     description:
-      'Conectamos a nuestros alumnos con una red de egresados en empresas líderes del país y el mundo.',
+      'Encuentra en la FECA herramientas, espacios y oportunidades para crecer, dentro y fuera del aula, y construir tu futuro.',
   },
 ]
 
@@ -303,15 +303,40 @@ export const sectionPages = {
   'ejes-rectores': {
     heroTitle: 'Ejes Rectores',
     intro:
-      'Los ejes rectores articulan la planeación institucional y definen las prioridades para consolidar la innovación, pertinencia académica y vinculación de la FECA con el entorno.',
+      'Los ejes rectores articulan la planeación institucional del Plan de Desarrollo 2025-2031 de la FECA y definen las prioridades para consolidar la innovación, pertinencia académica y vinculación de la facultad con el entorno.',
     eyebrow: 'Rumbo estratégico',
     title: 'Prioridades que guían nuestro desarrollo institucional',
     body:
-      'La planeación de la facultad se sostiene en tres ejes estratégicos que orientan las decisiones académicas, tecnológicas y de vinculación de la FECA.',
-    points: [
-      'Excelencia Académica — Fortalecimiento curricular, mejora constante en la práctica docente y programas acreditados que aseguran la máxima calidad formativa.',
-      'Innovación y Tecnología — Investigación aplicada de alto impacto, modernización de espacios educativos y transformación digital para enfrentar los retos del entorno actual.',
-      'Vinculación y Proyección — Estrecha relación con sectores sociales, empresariales y gubernamentales a nivel nacional e internacional para potenciar el egreso exitoso.',
+      'La planeación de la facultad se articula en un eje transversal y seis ejes estratégicos que orientan las decisiones académicas, de investigación, vinculación, cultura de la paz, infraestructura y gestión de la FECA.',
+    ejes: [
+      {
+        title: 'Eje Transversal: Identidad Universitaria',
+        desc: 'Alineado estrechamente a la visión y los ejes estratégicos de la Universidad Juárez del Estado de Durango (UJED), el eje transversal "Identidad Universitaria" del Plan de Desarrollo 2025-2031 de la FECA busca consolidar el sentido de pertenencia y compromiso de estudiantes, docentes y administrativos mediante el impulso prioritario a la cultura y el deporte. Esta estrategia asume ambos pilares como herramientas fundamentales para fomentar el posicionamiento institucional, los valores éticos, la sana convivencia y la equidad, estableciendo metas plurianuales de difusión artística, vinculación local y creación de programas deportivos inclusivos. De esta manera, y tomando como base los Objetivos de Desarrollo Sostenible (ODS) desde una perspectiva global a local, la Facultad refrenda su misión de ofrecer una formación integral, innovadora y de calidad ante los retos de las ciencias económicas y administrativas.',
+      },
+      {
+        title: 'Eje 1: Educación integral de calidad e innovación educativa',
+        desc: 'El "Eje 1: Educación integral de calidad e innovación educativa", busca consolidar la excelencia académica a través de una formación holística, pertinente y basada en el pensamiento crítico. Para lograrlo, este eje establece metas plurianuales enfocadas en la actualización y acreditación continua de los planes de estudio, el desarrollo de nueva oferta educativa y la capacitación docente, asegurando una fuerte vinculación con las necesidades sociales y del mercado laboral. Asimismo, prioriza la equidad y la reducción de desigualdades mediante el fortalecimiento de programas de tutorías e inclusión, a la par que impulsa la internacionalización a través de la movilidad académica y la certificación en estándares de competencias laborales para estudiantes y personal. En su conjunto, estas estrategias, respaldadas por mecanismos de evaluación institucional continua, garantizan un proceso de enseñanza-aprendizaje innovador que prepara a la comunidad universitaria para responder con eficacia a los retos locales y globales.',
+      },
+      {
+        title: 'Eje 2: Promoción e impulso a la investigación y la innovación',
+        desc: 'El "Eje 2: Promoción e impulso a la investigación y la innovación" busca fortalecer la generación de conocimiento aplicado en las ciencias económicas, administrativas y contables para vincularlo estratégicamente con el entorno social y productivo. Con el propósito de resolver problemáticas organizacionales y de política pública, este eje prioriza el fortalecimiento de los Cuerpos Académicos (CA) alineando sus líneas de investigación con los ODS, fomenta la procuración de financiamiento a través de convocatorias y promueve la creación de redes de colaboración multidisciplinaria a nivel local, nacional e internacional. Asimismo, establece metas contundentes para garantizar la transferencia tecnológica y la democratización del conocimiento, impulsando la publicación en revistas de alto impacto, la organización de congresos y coloquios, la conformación de un comité editorial propio y el lanzamiento de una nueva revista especializada que eleve significativamente la visibilidad y el impacto científico de la Facultad.',
+      },
+      {
+        title: 'Eje 3: Vinculación y extensión con impacto social',
+        desc: 'El "Eje 3: Vinculación y extensión con impacto social" busca consolidar alianzas estratégicas con los sectores público, privado y social para dinamizar el desarrollo regional y la transformación económica. Para lograrlo, establece metas enfocadas en la firma permanente de convenios multisectoriales, la divulgación científica aplicada y la diversificación de la educación continua mediante programas flexibles, digitales y con proyección internacional que incrementen la empleabilidad. A la par, este eje fortalece la responsabilidad social universitaria y el tejido social mediante esquemas de acompañamiento integral para estudiantes vulnerables o foráneos, orientación vocacional continua y acciones sostenidas de voluntariado, inclusión y respeto a la diversidad.',
+      },
+      {
+        title: 'Eje 4: Promoción de la cultura de la paz con responsabilidad social y atención a la diversidad e inclusión',
+        desc: 'El "Eje 4: Promoción de la cultura de la paz con responsabilidad social y atención a la diversidad e inclusión" busca afianzar un entorno universitario seguro, libre de violencia y fundamentado en la equidad sustantiva. Para lograrlo, el eje establece estrategias para transversalizar la perspectiva de género, aplicar protocolos de prevención y sanción de la violencia e impulsar una cultura institucional incluyente libre de discriminación. A la par, prioriza el bienestar físico, mental y emocional mediante campañas de salud integral, alianzas de atención psicológica y la capacitación docente en gestión de crisis emocionales. Finalmente, el eje fortalece la Responsabilidad Social Universitaria (RSU), la seguridad física de la comunidad mediante un Plan Maestro de Protección Civil y la integración del desarrollo sostenible en las unidades de aprendizaje, asegurando una convivencia armónica, ética y sustentable.',
+      },
+      {
+        title: 'Eje 5: Infraestructura y equipamiento para un espacio digno, armónico y sustentable con el ambiente',
+        desc: 'El "Eje 5: Infraestructura y equipamiento para un espacio digno, armónico y sustentable con el ambiente" busca transformar el entorno físico de la Facultad hacia un modelo ecológico, seguro e incluyente. Para lograrlo, establece metas orientadas a la eficiencia energética mediante tecnologías limpias como paneles solares, la captación y reutilización de agua, y el impulso a programas de economía circular, reciclaje y cultura ecológica. A la par, el eje moderniza los ambientes de aprendizaje a través de la conversión de salones en aulas interactivas, la adecuación de espacios abiertos de convivencia, la renovación del mobiliario y el fortalecimiento de la seguridad con sistemas de videovigilancia. Finalmente, garantiza la accesibilidad universal mediante la rehabilitación de elevadores y rampas para personas con discapacidad, junto con la actualización continua del acervo bibliográfico físico y digital.',
+      },
+      {
+        title: 'Eje 6: Gestión ética y transformadora',
+        desc: 'El "Eje 6: Gestión ética y transformadora" busca consolidar una administración íntegra, transparente, eficiente y fundamentada en la rendición de cuentas. Para lograrlo, el eje impulsa la modernización institucional a través de la reingeniería de procesos, la digitalización del 100% de los expedientes del personal y la automatización de trámites y servicios en línea. Asimismo, fortalece la sostenibilidad financiera mediante la optimización del presupuesto, la revisión de tarifas y la diversificación en la generación de ingresos propios. Finalmente, garantiza el estricto cumplimiento normativo y la mejora continua mediante tableros de control digitales, sistemas de alerta en tiempo real para auditorías y la automatización de la gestión de riesgos dentro del Sistema Universitario de Calidad y Control Interno.',
+      },
     ],
   },
   valores: {
@@ -368,11 +393,6 @@ export const sectionPages = {
       'Transparencia en gestión, evaluación y seguimiento.',
       'Atención institucional orientada al servicio y la calidad.',
     ],
-  },
-  'ejes-rectores': {
-    heroTitle: 'Ejes rectores',
-    intro:
-      'La estructura organizacional de la facultad define responsabilidades claras y coordinación efectiva para el desarrollo académico e institucional.',
   },
   'marco-normativo': {
     heroTitle: 'Marco normativo',
@@ -622,6 +642,82 @@ export const servicePages = {
     gallery: [
       "/imagenes/cuerpos-academicos/equipo-1.jpg",
       "/imagenes/cuerpos-academicos/equipo-2.jpg",
+    ],
+    // Información tomada del portal de Cuerpos Académicos de la FECA:
+    // https://cadepfeca.ujed.mx/ — se transcribe tal cual aparece ahí.
+    cuerposAcademicos: [
+      {
+        slug: "gestion-y-desarrollo-de-las-organizaciones",
+        nombre: "Gestión y desarrollo de las organizaciones",
+        grado: "CAC",
+        numero: "UJED-CA-101",
+        estatus:
+          "Cuerpo Académico Consolidado (10 de enero de 2017 a 10 de enero de 2024).",
+        area: "Ciencias sociales y administrativas",
+        disciplinas: "Administración y economía",
+        lgac: [
+          "Gestión de las organizaciones y desarrollo socioeconómico",
+          "Las organizaciones inclusivas y sustentables ante la Responsabilidad Social",
+        ],
+        objetivo: [
+          "Objetivo LGC 1. Investigar la gestión de las organizaciones para determinar su impacto en el desarrollo socio-económico de la población, mediante la aplicación de enfoques económico-administrativos que permitan conocer las problemáticas sociales y las condiciones dinámicas del entorno regional y sus implicaciones con los ámbitos nacional e internacional.",
+          "Objetivo LGC 2. Investigar la gestión de las organizaciones ante la inclusión, la sustentabilidad y la responsabilidad social para determinar los impactos que genera en las organizaciones y en el entorno socioeconómico y ambiental, mediante enfoques que permitan conocer la problemática tanto local, regional, nacional e internacional.",
+        ],
+        descripcion: [
+          "LGC 1. La gestión en las organizaciones públicas y privadas, el impacto de éstas en el desarrollo socioeconómico y sus implicaciones en la calidad de vida y el bienestar de la población, hace necesario considerar su análisis, a través de enfoques estratégicos que permitan estudiar el papel de la planificación estratégica en la gobernanza de las IES y la pertinencia de la gestión institucional en relación con las necesidades sociales; conocer los resultados de la actividad económica a partir del uso de los recursos naturales y las energías alternativas; estudiar la gestión y las formas de gobierno de las organizaciones y las redes que han creado para determinar su inserción social; indagar sobre la gestión del desarrollo humano integral, desde una perspectiva sostenible y competitiva. Aspectos tan diversos de la satisfacción de las necesidades humanas y sociales como la educación, el desarrollo económico y la protección del medio ambiente y de los medios para lograrlo, como las políticas públicas, forman el escenario analítico que sustenta investigaciones en temas más puntuales.",
+          "LGC 2. Los temas de inclusión, sustentabilidad y responsabilidad social son tres temas muy importantes en la actualidad conforme a las necesidades de organizaciones, ciudadanas y gubernamentales. La responsabilidad social es una dimensión ética que las organizaciones deben tener contemplada en su misión, incluyendo invariablemente la inclusión y la sustentabilidad. La diversidad e inclusión en la gestión de las organizaciones es indispensable para lograr la competitividad y productividad. Son factores de éxito para la empresa ya que incide directamente en la cultura y el desarrollo de la institución. Las empresas por su afán de producir y de ser altamente productivos están pasando por alto la sustentabilidad; por lo cual, para poder apoyar a los Objetivos del Milenio, es necesario estudiar la inclusión y la sustentabilidad y la responsabilidad social en las organizaciones. Por lo cual se estudiarán estos temas que tienen un alto impacto ciudadano y organizacional.",
+        ],
+        integrantes: [
+          { grado: "Dra.", nombre: "Delia Arrieta Díaz" },
+          { grado: "Dr.", nombre: "Ernesto Geovani Figueroa González" },
+          { grado: "Dra.", nombre: "María Leticia Moreno Elizalde" },
+          { grado: "Dr.", nombre: "Héctor Moreno Loera" },
+          { grado: "Dr.", nombre: "Jesús Guillermo Sotelo Asef" },
+        ],
+      },
+      {
+        slug: "procesos-de-cambio-y-desarrollo-de-las-instituciones",
+        nombre: "Procesos de cambio y desarrollo de las instituciones",
+        grado: "CAC",
+        numero: "",
+        estatus: "Cuerpo Académico Consolidado.",
+        area: "",
+        disciplinas: "",
+        lgac: [],
+        objetivo: [],
+        descripcion: [],
+        integrantes: [],
+      },
+      {
+        slug: "estudios-empresariales-desde-la-perspectiva-economico-administrativa",
+        nombre:
+          "Estudios empresariales desde la perspectiva económico administrativa",
+        grado: "CAC",
+        numero: "UJED-CA-107",
+        estatus:
+          "Cuerpo Académico Consolidado (08 de noviembre de 2017 a 08 de noviembre de 2022).",
+        area: "Ciencias Económico Administrativas",
+        disciplinas: "Administración y Economía",
+        lgac: [
+          "Finanzas y Economía de la Empresa",
+          "Tópicos selectos de Administración Empresarial",
+        ],
+        objetivo: [
+          "LGAC 1. Finanzas y economía de la empresa. Tiene un enfoque económico y financiero comprometido a proponer mejoras y soluciones en el ramo económico y financiero al identificar indicadores y comportamientos económicos y correlacionarlo con indicadores macroeconómicos de manera que las soluciones sean aplicables según el nivel de impacto de los indicadores en los diversos sectores y tópicos analizados.",
+          "LGAC 2. Tópicos selectos de Administración empresarial. Se promueve análisis investigativo que propone soluciones y mejoras en la administración y el sector empresarial tanto de las pequeñas, medianas y grandes empresas; este tópico es muy importante para proponer cambios que lleven a obtener las tan deseadas soluciones y mejoras en los diversos tipos de empresas de manera que se fomente un mayor crecimiento económico y productivo de las mismas.",
+        ],
+        descripcion: [
+          "LGAC 1. Finanzas y economía de la empresa. En esta línea se realizan los trabajos conducentes a analizar e interpretar fenómenos macro y micro económicos, y su impacto en la empresa y en la sociedad en general.",
+          "LGAC 2. Tópicos selectos de Administración empresarial. Esta línea realiza investigaciones sobre fenómenos organizacionales que acontecen en las empresas, con fines de comprender y explicar los mismos, así como proponer soluciones que generen mejoras en la competitividad y desempeño.",
+        ],
+        integrantes: [
+          { grado: "Dr.", nombre: "Francisco Villarreal Solís" },
+          { grado: "Dr.", nombre: "Mario Alberto García Meza" },
+          { grado: "Dr.", nombre: "César Gurrola Ríos" },
+          { grado: "Dr.", nombre: "Ignacio Gómez Romero" },
+          { grado: "Dra.", nombre: "Julieta Evangelina Sánchez Cano" },
+        ],
+      },
     ],
   },
   "educacion-a-distancia": {

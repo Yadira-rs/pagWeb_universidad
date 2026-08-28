@@ -731,17 +731,6 @@ export const legacyPages = {
             ],
           },
           {
-            title: "Inglés para jóvenes",
-            body: "Edad: 12 a 15 años.",
-            items: ["Sabatinos: 9:00 a.m. a 2:00 p.m."],
-            actions: [
-              {
-                href: "/docs/horarios_ingles_jovenes.pdf",
-                label: "Ver horarios",
-              },
-            ],
-          },
-          {
             title: "Francés",
             body: "15 años en adelante.",
             items: ["Lunes a viernes: 1 hora diaria."],

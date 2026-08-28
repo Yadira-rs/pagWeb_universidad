@@ -84,6 +84,12 @@ function ContraloriaPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
         <div className="pf-container">
           <div className="encargado-welcome-card">
             <div className="encargado-welcome-pattern" aria-hidden="true" />
+            <div className="contraloria-logo-tile">
+              <img
+                src="/imagenes/contraloria/logocontraluria.jpeg"
+                alt="Coordinación de Contraloría · FECA"
+              />
+            </div>
             <span className="encargado-welcome-greeting">Te damos la bienvenida</span>
             <div className="encargado-welcome-divider" aria-hidden="true" />
             <span className="encargado-welcome-badge">Contralor Interno</span>
