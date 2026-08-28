@@ -645,6 +645,23 @@ export const servicePages = {
     ],
     // Información tomada del portal de Cuerpos Académicos de la FECA:
     // https://cadepfeca.ujed.mx/ — se transcribe tal cual aparece ahí.
+    //
+    // PENDIENTE (rosters que pasó el equipo el 27/08/2026, aún sin confirmar
+    // si reemplazan o se combinan con los del portal):
+    //   Gestión y desarrollo de las organizaciones:
+    //     - Dra. Delia Arrieta Díaz (Líder)
+    //     - Dr. Jesús Guillermo Sotelo Asef
+    //     - Dr. Héctor Moreno Loera
+    //     - Dr. Ernesto Geovani Figueroa González  (marca "DEP+", significado sin confirmar)
+    //     (no incluye a Dra. María Leticia Moreno Elizalde, que sí está en el portal)
+    //   Procesos de cambio y desarrollo de las instituciones:
+    //     - Dr. Oscar Erasmo Návar García
+    //   Estudios empresariales desde la perspectiva económico administrativa:
+    //     - Dr. César Gurrola Ríos
+    //     - Dr. Mario García Meza
+    //     - Dra. Julieta Evangelina Sánchez Cano
+    //     - Dr. Francisco Martín Villarreal Solís
+    //     (no incluye a Dr. Ignacio Gómez Romero, que sí está en el portal)
     cuerposAcademicos: [
       {
         slug: "gestion-y-desarrollo-de-las-organizaciones",
