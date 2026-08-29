@@ -15,21 +15,36 @@ API_BASE_PATH="/opt/facultad-api"
 
 cd "$(dirname "$0")/.."
 
-deploy_service() {
+push_code() {
   local name="$1"
   echo "==> Subiendo services/$name/ ..."
-  rsync -avz --delete \
-    --exclude node_modules --exclude .env --exclude uploads \
-    -e "ssh -p $SERVER_PORT" \
-    "services/$name/" "$SERVER_USER@$SERVER_HOST:$API_BASE_PATH/$name/"
-
-  echo "==> Instalando dependencias y reiniciando $name con pm2 ..."
-  ssh -p "$SERVER_PORT" "$SERVER_USER@$SERVER_HOST" \
-    "cd $API_BASE_PATH/$name && npm install --omit=dev && pm2 restart $name || pm2 start src/index.js --name $name"
+  if command -v rsync >/dev/null 2>&1; then
+    rsync -avz --delete \
+      --exclude node_modules --exclude .env --exclude uploads \
+      -e "ssh -p $SERVER_PORT" \
+      "services/$name/" "$SERVER_USER@$SERVER_HOST:$API_BASE_PATH/$name/"
+  else
+    # Sin rsync (p. ej. Git Bash en Windows): empaqueta y manda por SSH.
+    # No borra en el servidor archivos que ya no existan localmente.
+    echo "    (rsync no está; usando tar + ssh)"
+    tar czf - -C "services/$name" \
+      --exclude node_modules --exclude .env --exclude uploads . \
+      | ssh -p "$SERVER_PORT" "$SERVER_USER@$SERVER_HOST" \
+        "mkdir -p '$API_BASE_PATH/$name' && tar xzf - -C '$API_BASE_PATH/$name'"
+  fi
 }
 
-deploy_service "pagweb-api"
-deploy_service "admisiones-api"
+restart_service() {
+  local name="$1"
+  echo "==> Instalando dependencias y (re)arrancando $name con pm2 ..."
+  ssh -p "$SERVER_PORT" "$SERVER_USER@$SERVER_HOST" \
+    "cd '$API_BASE_PATH/$name' && npm install --omit=dev && (pm2 restart $name || pm2 start src/index.js --name $name)"
+}
+
+push_code "pagweb-api"
+push_code "admisiones-api"
+restart_service "pagweb-api"
+restart_service "admisiones-api"
 
 ssh -p "$SERVER_PORT" "$SERVER_USER@$SERVER_HOST" "pm2 save"
 

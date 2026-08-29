@@ -123,26 +123,49 @@ pm2 startup   # sigue la instrucción que imprime (un sudo <comando> de una sola
 bash scripts/deploy-api.sh
 ```
 
-### Apache: que el sitio le hable a las APIs por el mismo origen (opcional)
+El script usa `rsync` si está disponible; si no (p. ej. Git Bash en
+Windows, que no lo trae), cae a `tar | ssh`. Pedirá la contraseña SSH
+varias veces (una por conexión).
 
-Sin esto, el frontend igual funciona llamando directo a
-`http://200.23.125.107:4000` (CORS ya está configurado), pero el
-navegador va a pedir aceptar el certificado autofirmado *otra vez* para
-ese puerto. Para evitarlo, pídele a quien administra `/etc/apache2/` que
-agregue al `VirtualHost` de HTTPS:
+### Apache: proxy `/api` (ya configurado en el servidor)
+
+Para que el sitio llame a las APIs por el **mismo origen**
+(`https://200.23.125.107/api/...`) y no por un puerto aparte con otro
+certificado, el `VirtualHost *:443` de `/etc/apache2/sites-available/default-ssl.conf`
+tiene estas líneas (requiere `sudo a2enmod proxy proxy_http` una vez):
 
 ```apache
-ProxyPass /api http://localhost:4000/api
-ProxyPassReverse /api http://localhost:4000/api
-Alias /uploads /var/www/html/facultad-uploads
-<Directory /var/www/html/facultad-uploads>
-    Require all granted
-</Directory>
+ProxyPreserveHost On
+# admisiones-api (:4001): solo /api/solicitudes y /api/solicitudes/<id>
+ProxyPassMatch ^/api/solicitudes(/.*)?$ http://localhost:4001/api/solicitudes$1
+# pagweb-api (:4000): el resto de /api/*
+ProxyPass /api/ http://localhost:4000/api/
+ProxyPassReverse /api/ http://localhost:4000/api/
 ```
 
-(requiere `sudo a2enmod proxy proxy_http` una vez). Si se agrega esto,
-`VITE_PAGWEB_API_URL` puede simplificarse a una ruta relativa —
-avísenme cuando lo tengan y actualizamos esa variable.
+El orden importa: la regla específica de `/api/solicitudes` va **antes**
+de la general `/api/`. Tras editar: `sudo apache2ctl configtest` y
+`sudo systemctl reload apache2`.
+
+### Rebuild del sitio apuntando a las APIs del servidor
+
+El sitio es estático, así que las URLs de las APIs quedan **horneadas en
+el bundle** al construir. En local existe `.env.production.local` (no se
+sube a git) con:
+
+```
+VITE_PAGWEB_API_URL=https://200.23.125.107
+VITE_ADMISIONES_API_URL=https://200.23.125.107
+```
+
+`npm run build` lo usa (y `npm run dev` NO — ese sigue con `.env.local` y
+`localhost`). Después: `bash scripts/deploy.sh` para subir `dist/`.
+
+> **Caché del navegador:** quien ya haya abierto el sitio antes tendrá el
+> `index.html`/JS viejo hasta hacer `Ctrl+Shift+R`. Si molesta, agregar
+> al vhost `<FilesMatch "index\.html$"><Header set Cache-Control "no-cache"></FilesMatch>`
+> (`sudo a2enmod headers`), dejando que los `assets/` con hash se
+> cacheen normal.
 
 ## 4. Cuando tengan un dominio propio: certificado real (Let's Encrypt)
 
