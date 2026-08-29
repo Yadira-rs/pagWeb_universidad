@@ -11011,47 +11011,59 @@ a.prop2-contact-item:hover {
   .encargado-card-photo { min-height: 280px; }
 }
 
-/* ── Lista de Cuerpos Académicos (sin fotos) + modal de detalle ── */
-.ca-list {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  max-width: 860px;
+/* ── Tarjetas de Cuerpos Académicos (sin fotos) + modal de detalle ── */
+.ca-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+  max-width: 1080px;
   margin: 0 auto;
 }
 
-.ca-list-item {
+.ca-card {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
   width: 100%;
   text-align: left;
   background: #fff;
   border: 1px solid #e8e6e2;
-  border-left: 4px solid #e31313;
-  border-radius: 14px;
-  padding: 22px 24px;
+  border-top: 4px solid #e31313;
+  border-radius: 16px;
+  padding: 26px 24px;
   cursor: pointer;
   font-family: var(--font-body);
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
   transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
 }
 
-.ca-list-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(148, 24, 35, 0.16);
-  border-left-color: #951823;
+.ca-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(148, 24, 35, 0.18);
+  border-top-color: #951823;
 }
 
-.ca-list-item-main {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  min-width: 0;
+.ca-card-num {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #951823;
+  background: rgba(227, 19, 19, 0.07);
+  padding: 4px 10px;
+  border-radius: 100px;
 }
 
-.ca-list-item-grado {
+.ca-card-nombre {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a2e;
+  line-height: 1.32;
+}
+
+.ca-card-grado {
   align-self: flex-start;
   background: #e31313;
   color: #fff;
@@ -11064,25 +11076,20 @@ a.prop2-contact-item:hover {
   font-family: var(--font-ui);
 }
 
-.ca-list-item-nombre {
-  font-family: var(--font-display);
-  font-size: 18px;
-  font-weight: 700;
-  color: #1a1a2e;
-  line-height: 1.3;
-}
-
-.ca-list-item-num {
+.ca-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 6px;
+  font-family: var(--font-ui);
   font-size: 13px;
-  color: var(--gray-mid);
-  letter-spacing: 0.02em;
+  font-weight: 700;
+  color: #e31313;
 }
 
-.ca-list-item-arrow {
-  flex-shrink: 0;
-  color: #e31313;
-  display: flex;
-}
+.ca-card-link svg { transition: transform 0.18s ease; }
+.ca-card:hover .ca-card-link svg { transform: translateX(3px); }
 
 .ca-modal-overlay {
   position: fixed;
@@ -11218,18 +11225,46 @@ a.prop2-contact-item:hover {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
 }
 
 .ca-integrante {
   display: flex;
-  align-items: baseline;
-  gap: 10px;
+  align-items: center;
+  gap: 12px;
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: 14px;
   color: #1a1a2e;
+  background: #faf7f4;
+  border: 1px solid #eee6e0;
+  border-radius: 12px;
+  padding: 10px 14px;
+}
+
+.ca-integrante-avatar {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #951823, #e31313);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.ca-integrante-info {
+  min-width: 0;
+}
+
+.ca-integrante-nombre {
+  font-weight: 600;
+  line-height: 1.35;
 }
 
 .ca-integrante-grado {
@@ -11240,7 +11275,8 @@ a.prop2-contact-item:hover {
 }
 
 @media (max-width: 640px) {
-  .ca-list-item { padding: 18px 18px; }
+  .ca-card { padding: 20px 18px; }
+  .ca-integrantes { grid-template-columns: 1fr; }
   .ca-modal-head { padding: 28px 24px 24px; }
   .ca-modal-body { padding: 24px 24px 32px; max-height: none; }
   .ca-modal-title { font-size: 20px; }

@@ -50,6 +50,11 @@ function DocRow({ href, label, subtitle }) {
   );
 }
 
+function inicialesCA(nombre) {
+  const partes = String(nombre).trim().split(/\s+/).filter(Boolean);
+  return ((partes[0]?.[0] ?? "") + (partes[1]?.[0] ?? "")).toUpperCase();
+}
+
 function ServiceDetailPage({
   content,
   logoImage,
@@ -128,26 +133,21 @@ function ServiceDetailPage({
               </p>
             </div>
 
-            <div className="ca-list">
+            <div className="ca-grid">
               {cuerposAcademicos.map((ca) => (
                 <button
                   type="button"
                   key={ca.slug}
-                  className="ca-list-item"
+                  className="ca-card"
                   onClick={() => setCaAbierto(ca)}
                 >
-                  <span className="ca-list-item-main">
-                    {ca.grado && (
-                      <span className="ca-list-item-grado">{ca.grado}</span>
-                    )}
-                    <span className="ca-list-item-nombre">{ca.nombre}</span>
-                    {ca.numero && (
-                      <span className="ca-list-item-num">{ca.numero}</span>
-                    )}
-                  </span>
-                  <span className="ca-list-item-arrow" aria-hidden="true">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M9 6l6 6-6 6" />
+                  {ca.numero && <span className="ca-card-num">{ca.numero}</span>}
+                  <span className="ca-card-nombre">{ca.nombre}</span>
+                  {ca.grado && <span className="ca-card-grado">{ca.grado}</span>}
+                  <span className="ca-card-link">
+                    Ver cuerpo académico
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
                   </span>
                 </button>
@@ -320,8 +320,14 @@ function ServiceDetailPage({
                   <ul className="ca-integrantes">
                     {caAbierto.integrantes.map((m) => (
                       <li key={m.nombre} className="ca-integrante">
-                        <span className="ca-integrante-grado">{m.grado}</span>
-                        <span>{m.nombre}</span>
+                        <span className="ca-integrante-avatar" aria-hidden="true">
+                          {inicialesCA(m.nombre)}
+                        </span>
+                        <span className="ca-integrante-info">
+                          <span className="ca-integrante-nombre">
+                            {m.grado} {m.nombre}
+                          </span>
+                        </span>
                       </li>
                     ))}
                   </ul>
