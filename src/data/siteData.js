@@ -639,10 +639,6 @@ export const servicePages = {
       image: "/imagenes/cuerpos-academicos/equipo-encargado.jpg",
       quote: "La investigación colaborativa fortalece la calidad académica y consolida el prestigio de la FECA a nivel nacional.",
     },
-    gallery: [
-      "/imagenes/cuerpos-academicos/equipo-1.jpg",
-      "/imagenes/cuerpos-academicos/equipo-2.jpg",
-    ],
     // LGAC / número de CA / objetivos / descripción: transcritos del portal
     // https://cadepfeca.ujed.mx/.
     // Integrantes: lista que pasó el equipo (más actual que el portal); reemplaza
