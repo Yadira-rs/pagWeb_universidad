@@ -139,8 +139,12 @@ app.post("/api/admin-users/invite", requireAuth, async (req, res) => {
   const correo = (req.body?.correo || "").toString().trim().toLowerCase();
   const nombre = (req.body?.nombre || "").toString().trim();
 
-  if (!correo || !correo.endsWith("@ujed.mx")) {
-    return res.status(400).json({ error: "Se requiere un correo institucional (@ujed.mx)." });
+  // Se acepta cualquier dominio: la aprobación real la hace una persona a
+  // mano desde el panel, así que restringir a @ujed.mx solo estorbaba a
+  // quien pedía acceso con un correo personal (ver
+  // database/acceso_panel_admin_principal.sql, que también quitó el CHECK).
+  if (!correo || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)) {
+    return res.status(400).json({ error: "Se requiere un correo electrónico válido." });
   }
 
   const placeholderHash = await bcrypt.hash(`invite:${Date.now()}:${Math.random()}`, 10);
