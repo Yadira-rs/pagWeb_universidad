@@ -327,6 +327,9 @@ function ServiceDetailPage({
                           <span className="ca-integrante-nombre">
                             {m.grado} {m.nombre}
                           </span>
+                          {m.rol && (
+                            <span className="ca-integrante-rol">{m.rol}</span>
+                          )}
                         </span>
                       </li>
                     ))}

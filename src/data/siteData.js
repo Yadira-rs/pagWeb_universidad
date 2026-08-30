@@ -643,25 +643,11 @@ export const servicePages = {
       "/imagenes/cuerpos-academicos/equipo-1.jpg",
       "/imagenes/cuerpos-academicos/equipo-2.jpg",
     ],
-    // Información tomada del portal de Cuerpos Académicos de la FECA:
-    // https://cadepfeca.ujed.mx/ — se transcribe tal cual aparece ahí.
-    //
-    // PENDIENTE (rosters que pasó el equipo el 27/08/2026, aún sin confirmar
-    // si reemplazan o se combinan con los del portal):
-    //   Gestión y desarrollo de las organizaciones:
-    //     - Dra. Delia Arrieta Díaz (Líder)
-    //     - Dr. Jesús Guillermo Sotelo Asef
-    //     - Dr. Héctor Moreno Loera
-    //     - Dr. Ernesto Geovani Figueroa González  (marca "DEP+", significado sin confirmar)
-    //     (no incluye a Dra. María Leticia Moreno Elizalde, que sí está en el portal)
-    //   Procesos de cambio y desarrollo de las instituciones:
-    //     - Dr. Oscar Erasmo Návar García
-    //   Estudios empresariales desde la perspectiva económico administrativa:
-    //     - Dr. César Gurrola Ríos
-    //     - Dr. Mario García Meza
-    //     - Dra. Julieta Evangelina Sánchez Cano
-    //     - Dr. Francisco Martín Villarreal Solís
-    //     (no incluye a Dr. Ignacio Gómez Romero, que sí está en el portal)
+    // LGAC / número de CA / objetivos / descripción: transcritos del portal
+    // https://cadepfeca.ujed.mx/.
+    // Integrantes: lista que pasó el equipo (más actual que el portal); reemplaza
+    // a la del portal. La marca "DEP+" de E. G. Figueroa González se muestra tal
+    // cual porque su significado no está confirmado.
     cuerposAcademicos: [
       {
         slug: "gestion-y-desarrollo-de-las-organizaciones",
@@ -685,11 +671,10 @@ export const servicePages = {
           "LGC 2. Los temas de inclusión, sustentabilidad y responsabilidad social son tres temas muy importantes en la actualidad conforme a las necesidades de organizaciones, ciudadanas y gubernamentales. La responsabilidad social es una dimensión ética que las organizaciones deben tener contemplada en su misión, incluyendo invariablemente la inclusión y la sustentabilidad. La diversidad e inclusión en la gestión de las organizaciones es indispensable para lograr la competitividad y productividad. Son factores de éxito para la empresa ya que incide directamente en la cultura y el desarrollo de la institución. Las empresas por su afán de producir y de ser altamente productivos están pasando por alto la sustentabilidad; por lo cual, para poder apoyar a los Objetivos del Milenio, es necesario estudiar la inclusión y la sustentabilidad y la responsabilidad social en las organizaciones. Por lo cual se estudiarán estos temas que tienen un alto impacto ciudadano y organizacional.",
         ],
         integrantes: [
-          { grado: "Dra.", nombre: "Delia Arrieta Díaz" },
-          { grado: "Dr.", nombre: "Ernesto Geovani Figueroa González" },
-          { grado: "Dra.", nombre: "María Leticia Moreno Elizalde" },
-          { grado: "Dr.", nombre: "Héctor Moreno Loera" },
+          { grado: "Dra.", nombre: "Delia Arrieta Díaz", rol: "Líder" },
           { grado: "Dr.", nombre: "Jesús Guillermo Sotelo Asef" },
+          { grado: "Dr.", nombre: "Héctor Moreno Loera" },
+          { grado: "Dr.", nombre: "Ernesto Geovani Figueroa González", rol: "DEP+" },
         ],
       },
       {
@@ -703,7 +688,9 @@ export const servicePages = {
         lgac: [],
         objetivo: [],
         descripcion: [],
-        integrantes: [],
+        integrantes: [
+          { grado: "Dr.", nombre: "Oscar Erasmo Návar García" },
+        ],
       },
       {
         slug: "estudios-empresariales-desde-la-perspectiva-economico-administrativa",
@@ -728,11 +715,10 @@ export const servicePages = {
           "LGAC 2. Tópicos selectos de Administración empresarial. Esta línea realiza investigaciones sobre fenómenos organizacionales que acontecen en las empresas, con fines de comprender y explicar los mismos, así como proponer soluciones que generen mejoras en la competitividad y desempeño.",
         ],
         integrantes: [
-          { grado: "Dr.", nombre: "Francisco Villarreal Solís" },
-          { grado: "Dr.", nombre: "Mario Alberto García Meza" },
           { grado: "Dr.", nombre: "César Gurrola Ríos" },
-          { grado: "Dr.", nombre: "Ignacio Gómez Romero" },
+          { grado: "Dr.", nombre: "Mario García Meza" },
           { grado: "Dra.", nombre: "Julieta Evangelina Sánchez Cano" },
+          { grado: "Dr.", nombre: "Francisco Martín Villarreal Solís" },
         ],
       },
     ],

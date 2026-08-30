@@ -11267,6 +11267,20 @@ a.prop2-contact-item:hover {
   line-height: 1.35;
 }
 
+.ca-integrante-rol {
+  display: inline-block;
+  margin-top: 3px;
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #951823;
+  background: rgba(149, 24, 35, 0.1);
+  border-radius: 100px;
+  padding: 2px 8px;
+}
+
 .ca-integrante-grado {
   flex-shrink: 0;
   font-weight: 700;
