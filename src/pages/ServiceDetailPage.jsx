@@ -244,29 +244,34 @@ function ServiceDetailPage({
               onClick={() => setCaAbierto(null)}
               aria-label="Cerrar"
             >
-              &times;
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                <path d="M6 6l12 12M18 6L6 18" />
+              </svg>
             </button>
 
             <div className="ca-modal-head">
-              {caAbierto.grado && (
-                <span className="ca-modal-grado">{caAbierto.grado}</span>
-              )}
-              <h2 className="ca-modal-title">{caAbierto.nombre}</h2>
+              <span className="ca-modal-pattern" aria-hidden="true" />
+              <div className="ca-modal-head-inner">
+                {caAbierto.grado && (
+                  <span className="ca-modal-grado">
+                    {caAbierto.grado === "CAC"
+                      ? "Cuerpo Académico Consolidado"
+                      : caAbierto.grado}
+                  </span>
+                )}
+                <h2 className="ca-modal-title">{caAbierto.nombre}</h2>
+                {caAbierto.numero && (
+                  <span className="ca-modal-num">{caAbierto.numero}</span>
+                )}
+              </div>
             </div>
 
             <div className="ca-modal-body">
-              {caAbierto.numero && (
-                <div className="ca-field">
-                  <h3 className="ca-field-label">Número de CA</h3>
-                  <p className="ca-field-text">{caAbierto.numero}</p>
-                </div>
-              )}
-
               {caAbierto.estatus && (
-                <div className="ca-field">
-                  <h3 className="ca-field-label">Estatus</h3>
-                  <p className="ca-field-text">{caAbierto.estatus}</p>
-                </div>
+                <p className="ca-modal-estatus">
+                  <span className="ca-modal-estatus-dot" aria-hidden="true" />
+                  {caAbierto.estatus}
+                </p>
               )}
 
               {caAbierto.lgac && caAbierto.lgac.length > 0 && (
@@ -274,49 +279,64 @@ function ServiceDetailPage({
                   <h3 className="ca-field-label">
                     Líneas de generación y aplicación del conocimiento
                   </h3>
-                  <ol className="ca-field-list">
-                    {caAbierto.lgac.map((l) => (
-                      <li key={l}>{l}</li>
+                  <div className="ca-lgac-list">
+                    {caAbierto.lgac.map((l, i) => (
+                      <div key={l} className="ca-lgac">
+                        <span className="ca-lgac-num">{i + 1}</span>
+                        <span className="ca-lgac-text">{l}</span>
+                      </div>
                     ))}
-                  </ol>
+                  </div>
                 </div>
               )}
 
               {caAbierto.objetivo && caAbierto.objetivo.length > 0 && (
                 <div className="ca-field">
                   <h3 className="ca-field-label">Objetivo de la LGAC</h3>
-                  {caAbierto.objetivo.map((p, i) => (
-                    <p key={i} className="ca-field-text">{p}</p>
-                  ))}
+                  <div className="ca-prose">
+                    {caAbierto.objetivo.map((p, i) => (
+                      <p key={i} className="ca-field-text">{p}</p>
+                    ))}
+                  </div>
                 </div>
               )}
 
               {caAbierto.descripcion && caAbierto.descripcion.length > 0 && (
                 <div className="ca-field">
                   <h3 className="ca-field-label">Descripción de la LGAC</h3>
-                  {caAbierto.descripcion.map((p, i) => (
-                    <p key={i} className="ca-field-text">{p}</p>
-                  ))}
+                  <div className="ca-prose">
+                    {caAbierto.descripcion.map((p, i) => (
+                      <p key={i} className="ca-field-text">{p}</p>
+                    ))}
+                  </div>
                 </div>
               )}
 
-              {caAbierto.area && (
-                <div className="ca-field">
-                  <h3 className="ca-field-label">Área de conocimiento</h3>
-                  <p className="ca-field-text">{caAbierto.area}</p>
-                </div>
-              )}
-
-              {caAbierto.disciplinas && (
-                <div className="ca-field">
-                  <h3 className="ca-field-label">Disciplinas</h3>
-                  <p className="ca-field-text">{caAbierto.disciplinas}</p>
+              {(caAbierto.area || caAbierto.disciplinas) && (
+                <div className="ca-modal-specs">
+                  {caAbierto.area && (
+                    <div className="ca-spec">
+                      <span className="ca-spec-label">Área de conocimiento</span>
+                      <span className="ca-spec-value">{caAbierto.area}</span>
+                    </div>
+                  )}
+                  {caAbierto.disciplinas && (
+                    <div className="ca-spec">
+                      <span className="ca-spec-label">Disciplinas</span>
+                      <span className="ca-spec-value">{caAbierto.disciplinas}</span>
+                    </div>
+                  )}
                 </div>
               )}
 
               {caAbierto.integrantes && caAbierto.integrantes.length > 0 && (
                 <div className="ca-field">
-                  <h3 className="ca-field-label">Integrantes</h3>
+                  <h3 className="ca-field-label">
+                    Integrantes
+                    <span className="ca-field-count">
+                      {caAbierto.integrantes.length}
+                    </span>
+                  </h3>
                   <ul className="ca-integrantes">
                     {caAbierto.integrantes.map((m) => (
                       <li key={m.nombre} className="ca-integrante">
