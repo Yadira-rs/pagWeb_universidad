@@ -444,12 +444,6 @@ export const servicePages = {
     heroTitle: "Servicio Social",
     intro:
       "Información importante, reglamentos, formatos y documentos oficiales.",
-    gallery: [
-      "/imagenes/cpei/equipo-1.jpg",
-      "/imagenes/cpei/equipo-2.jpg",
-      "/imagenes/cpei/equipo-3.jpg",
-      "/imagenes/cpei/equipo-4.jpg",
-    ],
     grouped: true,
     items: [
       {
@@ -808,9 +802,9 @@ export const servicePages = {
       },
     ],
     encargado: {
-      name: "Enrique Blanco Castañeda",
+      name: "Mtro. Enrique Blanco Castañeda",
       role: "Coordinador de Educación a Distancia",
-      image: "/imagenes/educacion-a-distancia/equipo-1.jpg",
+      image: "/imagenes/educacion-a-distancia/coordinador.jpg",
       quote: "La educación a distancia rompe barreras de tiempo y espacio para que más personas puedan formarse con la calidad de la FECA.",
     },
     gallery: [

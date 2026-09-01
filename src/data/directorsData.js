@@ -126,9 +126,9 @@ export const directors = [
     area: "Investigación y posgrado",
     enfoque: "Formación avanzada",
     image: "/imagenes/directivos/posgrado/DSC_5267.JPG",
-    // PENDIENTE: confirmar formación académica con el área.
     degrees: [
       { title: "Licenciatura en Administración", institution: "Licenciatura" },
+      { title: "Maestría en Gestión de Negocios", institution: "Maestría" },
       { title: "Doctorado en Gestión de las Organizaciones", institution: "Doctorado" },
     ],
     emails: [

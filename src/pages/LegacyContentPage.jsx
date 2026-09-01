@@ -653,6 +653,17 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
         />
       )}
 
+      {content.routeGroup === "legacy-program" && content.title === "Educación a Distancia" && (
+        <DirectorPhotoShowcase
+          compactHeading
+          eyebrow="Coordinación de Educación a Distancia"
+          title="Coordinación de Educación a Distancia"
+          name="Mtro. Enrique Blanco Castañeda"
+          quote="La educación a distancia rompe barreras de tiempo y espacio para que más personas puedan formarse con la calidad de la FECA."
+          images={["/imagenes/educacion-a-distancia/coordinador.jpg"]}
+        />
+      )}
+
       {/* ── SECTIONS ── */}
       {sections && (
         <>

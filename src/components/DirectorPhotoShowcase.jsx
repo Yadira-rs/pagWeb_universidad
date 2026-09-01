@@ -4,6 +4,7 @@ function DirectorPhotoShowcase({
   name,
   quote,
   images = [],
+  compactHeading = false,
 }) {
   const [primaryImage, ...thumbs] = images;
 
@@ -12,7 +13,7 @@ function DirectorPhotoShowcase({
   return (
     <section className="director-photo-section">
       <div className="director-photo-container">
-        <h2 className="director-photo-heading">{title}</h2>
+        <h2 className={`director-photo-heading${compactHeading ? " director-photo-heading-compact" : ""}`}>{title}</h2>
         <article className="director-photo-card">
           <div className="director-photo-media">
             <img src={primaryImage} alt={name || title} className="director-photo-img" />

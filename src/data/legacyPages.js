@@ -98,7 +98,7 @@ export const legacyPages = {
     routeGroup: "legacy-program",
     heroImage: "/imagenes/distancia.jpg",
     kicker: "Modalidad en línea",
-    title: "Licenciaturas a Distancia",
+    title: "Educación a Distancia",
     intro:
       "Programas diseñados para estudiar desde casa con apoyo académico y herramientas digitales.",
     sections: [
