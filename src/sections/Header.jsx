@@ -163,7 +163,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 <a href="#/cursos-intersemestrales">Cursos Intersemestrales</a>
                 <a href="#/curso-propedeutico">Cursos Propedéutico</a>
                 <a href="#/licenciaturas">Licenciaturas</a>
-                <a href="#/licenciaturas-distancia">Licenciaturas a distancia</a>
+                <a href="#/licenciaturas-distancia">Educación a distancia</a>
                 <a href="https://posgradofeca.ujed.mx/" target="_blank" rel="noreferrer">Posgrado</a>
               </div>
             </div>
@@ -553,7 +553,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
             <a href="#/lenguas" className={`mobile-nav-sub${currentHash === "#/lenguas" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Centro de Lenguas</a>
             <a href="#/ciiedo" className={`mobile-nav-sub${currentHash === "#/ciiedo" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>CIIEDO</a>
             <a href="#/licenciaturas" className={`mobile-nav-sub${currentHash === "#/licenciaturas" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Licenciaturas</a>
-            <a href="#/licenciaturas-distancia" className={`mobile-nav-sub${currentHash === "#/licenciaturas-distancia" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Licenciaturas a distancia</a>
+            <a href="#/licenciaturas-distancia" className={`mobile-nav-sub${currentHash === "#/licenciaturas-distancia" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Educación a distancia</a>
             <a href="https://posgradofeca.ujed.mx/" className="mobile-nav-sub" target="_blank" rel="noreferrer" onClick={closeMobile}>Posgrado</a>
           </div>
 

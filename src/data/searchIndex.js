@@ -36,7 +36,7 @@ export const searchIndex = [
     keywords: "economía negocios internacionales comercio exterior finanzas licenciatura LENI",
   },
   {
-    title: "Licenciaturas a Distancia",
+    title: "Educación a Distancia",
     description: "Programas de licenciatura en modalidad en línea",
     href: "#/distancia",
     keywords: "distancia en línea online virtual modalidad licenciaturas",
