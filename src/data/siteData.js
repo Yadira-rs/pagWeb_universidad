@@ -628,7 +628,7 @@ export const servicePages = {
       "Grupos de profesores investigadores que trabajan en torno a líneas de generación y aplicación del conocimiento, fortaleciendo la investigación y el posgrado de la facultad.",
     items: [],
     encargado: {
-      name: "Dr. Alberto Quiñones",
+      name: "Dr. Francisco Martín Villarreal Solís",
       role: "Coordinador de Cuerpos Académicos",
       image: "/imagenes/cuerpos-academicos/equipo-encargado.jpg",
       quote: "La investigación colaborativa fortalece la calidad académica y consolida el prestigio de la FECA a nivel nacional.",

@@ -78,7 +78,7 @@ function SecretariaAdministrativaPage({ logoImage, newsPanelOpen, setNewsPanelOp
       <section className="pf-hero pf-hero-sm" style={{ background: "linear-gradient(135deg, #c0050f 0%, #e31313 45%, #9b1020 100%)" }}>
         <div className="pf-hero-inner" style={{ paddingBottom: 64 }}>
           <div className="pf-hero-badge">Servicios · FECA</div>
-          <h1 className="pf-hero-title">Servicios<br />Generales</h1>
+          <h1 className="pf-hero-title">Secretaría<br />Administrativa</h1>
           <p className="pf-hero-sub">
             Brindar soporte administrativo eficiente y transparente para garantizar la operación académica de la FECA.
           </p>
@@ -90,7 +90,7 @@ function SecretariaAdministrativaPage({ logoImage, newsPanelOpen, setNewsPanelOp
         <div className="pf-container">
           <div className="pf-section-head">
             <div className="pf-label">Nuestra función</div>
-            <h2 className="pf-section-title">Servicios Generales</h2>
+            <h2 className="pf-section-title">Secretaría Administrativa</h2>
             <p className="pf-section-desc">
               Coordinamos los recursos de la facultad para garantizar el funcionamiento eficiente de todas sus actividades.
             </p>
