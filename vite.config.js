@@ -7,4 +7,12 @@ export default defineConfig({
   server: {
     allowedHosts: true,
   },
+  esbuild: {
+    // Quita console.* y debugger del bundle de producción
+    drop: ["console", "debugger"],
+  },
+  build: {
+    // Avisa si algún chunk se vuelve a disparar de tamaño
+    chunkSizeWarningLimit: 600,
+  },
 })

@@ -38,3 +38,9 @@ a {
   min-height: 100vh;
   min-height: 100dvh;
 }
+
+/* Reserva de espacio mientras se descarga el chunk de una página (lazy) */
+.route-loading {
+  min-height: 100vh;
+  min-height: 100dvh;
+}

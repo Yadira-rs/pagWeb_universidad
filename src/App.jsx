@@ -1,52 +1,55 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import { IconFacebook, IconInstagram, IconXTwitter, IconTikTok } from './components/SocialIcons';
 import { supabase } from "./lib/apiClient";
 import "./App.css";
 import {
   historyEntries,
   logoImage,
-  logoUjedImage,
   missionVisionContent,
   servicePages,
   sectionPages,
 } from "./data/siteData";
 import { legacyPages } from "./data/legacyPages";
-import HistoryPage from "./pages/HistoryPage";
-import LegacyAdmissionPage from "./pages/LegacyAdmissionPage";
-import LegacyContentPage from "./pages/LegacyContentPage";
-import PropedeuticoPage from "./pages/PropedeuticoPage";
 import HomePage from "./pages/HomePage";
-import MissionVisionPage from "./pages/MissionVisionPage";
-import ServiceDetailPage from "./pages/ServiceDetailPage";
-import ServicesPage from "./pages/ServicesPage";
-import SingleSectionPage from "./pages/SingleSectionPage";
-import DirectorProfilePage from "./pages/DirectorProfilePage";
-import AvisoDetailPage from "./pages/AvisoDetailPage";
-
-import FeriaPage from "./pages/FeriaPage";
-import Biblioteca from "./pages/Biblioteca";
-import LenguasPage from "./pages/LenguasPage";
-import PrivacyPage from "./pages/PrivacyPage";
-import TermsPage from "./pages/TermsPage";
-import FaqPage from "./pages/FaqPage";
-import OfertaEducativaPage from "./pages/OfertaEducativaPage";
-import NosotrosPage from "./pages/NosotrosPage";
-import ContraloriaPage from "./pages/ContraloriaPage";
-import FinanzasPage from "./pages/FinanzasPage";
-import SecretariaAdministrativaPage from "./pages/SecretariaAdministrativaPage";
-import SecretariaAcademicaPage from "./pages/SecretariaAcademicaPage";
-import ServiciosEscolaresPage from "./pages/ServiciosEscolaresPage";
-import TutoriasPage from "./pages/TutoriasPage";
-import CiiedoPage from "./pages/CiiedoPage";
-import ValoresPage from "./pages/ValoresPage";
-import GruposPage from "./pages/GruposPage";
-import CafecaPage from "./pages/CafecaPage";
-import EgresadosPage from "./pages/EgresadosPage";
-import AdminPanelPage from "./pages/AdminPanelPage";
-import AdminResetPasswordPage from "./pages/AdminResetPasswordPage";
-import AcademicosPage from "./pages/AcademicosPage";
-import AdministrativosPage from "./pages/AdministrativosPage";
 import SatisfactionWidget from "./components/SatisfactionWidget";
+
+// Cada página se carga en su propio chunk solo cuando se visita su ruta, así
+// el JavaScript inicial (Inicio) es mucho más ligero. El panel de
+// administración —el más pesado— nunca se descarga para el visitante normal.
+const HistoryPage = lazy(() => import("./pages/HistoryPage"));
+const LegacyAdmissionPage = lazy(() => import("./pages/LegacyAdmissionPage"));
+const LegacyContentPage = lazy(() => import("./pages/LegacyContentPage"));
+const PropedeuticoPage = lazy(() => import("./pages/PropedeuticoPage"));
+const MissionVisionPage = lazy(() => import("./pages/MissionVisionPage"));
+const ServiceDetailPage = lazy(() => import("./pages/ServiceDetailPage"));
+const ServicesPage = lazy(() => import("./pages/ServicesPage"));
+const SingleSectionPage = lazy(() => import("./pages/SingleSectionPage"));
+const DirectorProfilePage = lazy(() => import("./pages/DirectorProfilePage"));
+const AvisoDetailPage = lazy(() => import("./pages/AvisoDetailPage"));
+const FeriaPage = lazy(() => import("./pages/FeriaPage"));
+const Biblioteca = lazy(() => import("./pages/Biblioteca"));
+const LenguasPage = lazy(() => import("./pages/LenguasPage"));
+const PrivacyPage = lazy(() => import("./pages/PrivacyPage"));
+const TermsPage = lazy(() => import("./pages/TermsPage"));
+const FaqPage = lazy(() => import("./pages/FaqPage"));
+const OfertaEducativaPage = lazy(() => import("./pages/OfertaEducativaPage"));
+const NosotrosPage = lazy(() => import("./pages/NosotrosPage"));
+const ContraloriaPage = lazy(() => import("./pages/ContraloriaPage"));
+const FinanzasPage = lazy(() => import("./pages/FinanzasPage"));
+const SecretariaAdministrativaPage = lazy(() => import("./pages/SecretariaAdministrativaPage"));
+const SecretariaAcademicaPage = lazy(() => import("./pages/SecretariaAcademicaPage"));
+const ServiciosEscolaresPage = lazy(() => import("./pages/ServiciosEscolaresPage"));
+const TutoriasPage = lazy(() => import("./pages/TutoriasPage"));
+const CiiedoPage = lazy(() => import("./pages/CiiedoPage"));
+const ValoresPage = lazy(() => import("./pages/ValoresPage"));
+const GruposPage = lazy(() => import("./pages/GruposPage"));
+const CafecaPage = lazy(() => import("./pages/CafecaPage"));
+const EgresadosPage = lazy(() => import("./pages/EgresadosPage"));
+const InformePage = lazy(() => import("./pages/InformePage"));
+const AdminPanelPage = lazy(() => import("./pages/AdminPanelPage"));
+const AdminResetPasswordPage = lazy(() => import("./pages/AdminResetPasswordPage"));
+const AcademicosPage = lazy(() => import("./pages/AcademicosPage"));
+const AdministrativosPage = lazy(() => import("./pages/AdministrativosPage"));
 
 function getCurrentRoute() {
   const hash = window.location.hash || "#/";
@@ -64,6 +67,7 @@ function getCurrentRoute() {
   if (hash === "#/preguntas-frecuentes") return { page: "faq" };
   if (hash === "#/bolsa-de-trabajo") return { page: "bolsa-trabajo" };
   if (hash === "#/historia") return { page: "history" };
+  if (hash === "#/informe" || hash === "#/informe-de-actividades") return { page: "informe" };
   if (hash === "#/mision-vision") return { page: "mission-vision" };
 
   if (hash === "#/tutorias") return { page: "tutorias" };
@@ -243,6 +247,8 @@ function App() {
     document.title =
       route.page === "history"
         ? "FECA - Historia"
+        : route.page === "informe"
+          ? "FECA - 1er Informe de Actividades"
         : route.page === "mission-vision"
           ? "FECA - Misión y Visión"
             : route.page === "services"
@@ -302,6 +308,18 @@ function App() {
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [selectedNews, buzonOpen, newsPanelOpen]);
+
+  // Descarga diferida de imágenes: las que arrancan fuera de la pantalla se
+  // marcan como loading="lazy" para que el navegador no pida de golpe todas
+  // las fotos de la página. Las de arriba (hero, logos) se dejan intactas.
+  useEffect(() => {
+    document.querySelectorAll("img:not([loading])").forEach((img) => {
+      img.decoding = "async";
+      if (img.getBoundingClientRect().top > window.innerHeight * 1.2) {
+        img.loading = "lazy";
+      }
+    });
+  }, [route]);
 
   useEffect(() => {
     const elements = document.querySelectorAll(".fade-up, .fade-left, .fade-right, .zoom-in");
@@ -456,6 +474,12 @@ function App() {
         newsPanelOpen={newsPanelOpen}
         setNewsPanelOpen={setNewsPanelOpen}
       />
+    ) : route.page === "informe" ? (
+      <InformePage
+        logoImage={logoImage}
+        newsPanelOpen={newsPanelOpen}
+        setNewsPanelOpen={setNewsPanelOpen}
+      />
     ) : route.page === "admin-panel" ? (
       <AdminPanelPage />
     ) : route.page === "admin-reset-password" ? (
@@ -543,7 +567,9 @@ function App() {
 
   return (
     <>
-      {pageContent}
+      <Suspense fallback={<div className="route-loading" aria-busy="true" />}>
+        {pageContent}
+      </Suspense>
 
       {route.page !== "admin-panel" && (
         <>

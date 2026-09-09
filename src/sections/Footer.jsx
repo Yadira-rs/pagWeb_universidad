@@ -45,12 +45,6 @@ function Footer() {
             <li>
               <a href="#">(618) 827-13-65</a>
             </li>
-            <li>
-              <a href="#">informes@universidad.edu.mx</a>
-            </li>
-            <li>
-              <a href="#/preguntas-frecuentes">Preguntas frecuentes</a>
-            </li>
           </ul>
           <div className="footer-social">
             <a className="si-facebook" href="https://www.facebook.com/FECAUJEDMX/" aria-label="Facebook" target="_blank" rel="noreferrer">

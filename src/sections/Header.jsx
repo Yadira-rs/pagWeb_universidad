@@ -191,15 +191,14 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 </div>
 
                 <div className="acc-row">
-                  <span className="acc-title">
+                  <a className="acc-title acc-title-link" href="#/servicios/secretaria-administrativa">
                     Secretaría Administrativa
                     <svg className="acc-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="11" height="11" aria-hidden="true">
                       <polyline points="9 6 15 12 9 18" />
                     </svg>
-                  </span>
+                  </a>
                   <div className="acc-panel">
                     <a className="dropdown-sub" href="#/servicios/finanzas">Finanzas</a>
-                    <a className="dropdown-sub" href="#/servicios/secretaria-administrativa">Servicios Generales</a>
                     <a className="dropdown-sub" href="#/biblioteca">Biblioteca</a>
                     <a className="dropdown-sub" href="#/administrativos">Administrativos</a>
                   </div>
@@ -215,12 +214,13 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
               </div>
             </div>
 
-            <div className={`nav-item ${currentRoute === "history" || currentRoute === "mission-vision" || currentRoute === "single-section" || currentRoute === "grupos" || currentHash === "#/servicios/cuerpos-academicos" ? "active" : ""}`}>
+            <div className={`nav-item ${currentRoute === "history" || currentRoute === "mission-vision" || currentRoute === "single-section" || currentRoute === "grupos" || currentRoute === "informe" || currentHash === "#/servicios/cuerpos-academicos" ? "active" : ""}`}>
               <a href="#/nosotros">
                 Nosotros
                 <span className="nav-caret" aria-hidden="true"></span>
               </a>
               <div className="dropdown">
+                <a href="#/informe" className={currentHash === "#/informe" ? "active" : ""}>Informe de Actividades</a>
                 <a href="#/nosotros/organigrama" className={currentHash === "#/nosotros/organigrama" ? "active" : ""}>Organigrama</a>
                 <a href="#/nosotros/ejes-rectores" className={currentHash === "#/nosotros/ejes-rectores" ? "active" : ""}>Ejes rectores</a>
                 <a href="#/servicios/cuerpos-academicos" className={currentHash === "#/servicios/cuerpos-academicos" ? "active" : ""}>Cuerpos Académicos</a>
@@ -569,9 +569,8 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
             <a href="#/servicios/servicios-escolares" className={`mobile-nav-sub mobile-nav-subsub${currentHash === "#/servicios/servicios-escolares" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Servicios escolares</a>
             <a href="#/academicos" className={`mobile-nav-sub mobile-nav-subsub${currentHash === "#/academicos" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Académicos</a>
 
-            <span className="mobile-nav-subgroup">Secretaría Administrativa</span>
+            <a href="#/servicios/secretaria-administrativa" className={`mobile-nav-subgroup${currentHash === "#/servicios/secretaria-administrativa" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Secretaría Administrativa</a>
             <a href="#/servicios/finanzas" className={`mobile-nav-sub mobile-nav-subsub${currentHash === "#/servicios/finanzas" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Finanzas</a>
-            <a href="#/servicios/secretaria-administrativa" className="mobile-nav-sub mobile-nav-subsub" onClick={closeMobile}>Servicios Generales</a>
             <a href="#/biblioteca" className={`mobile-nav-sub mobile-nav-subsub${currentHash === "#/biblioteca" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Biblioteca</a>
             <a href="#/administrativos" className={`mobile-nav-sub mobile-nav-subsub${currentHash === "#/administrativos" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Administrativos</a>
 
@@ -583,6 +582,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
           {/* Nosotros */}
           <div className="mobile-menu-section">
             <span className="mobile-menu-section-label">Nosotros</span>
+            <a href="#/informe" className={`mobile-nav-sub${currentHash === "#/informe" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Informe de Actividades</a>
             <a href="#/nosotros/organigrama" className={`mobile-nav-sub${currentHash === "#/nosotros/organigrama" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Organigrama</a>
             <a href="#/nosotros/ejes-rectores" className={`mobile-nav-sub${currentHash === "#/nosotros/ejes-rectores" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Ejes rectores</a>
             <a href="#/servicios/cuerpos-academicos" className={`mobile-nav-sub${currentHash === "#/servicios/cuerpos-academicos" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Cuerpos Académicos</a>
