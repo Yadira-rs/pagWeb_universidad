@@ -135,7 +135,7 @@ export const directors = [
     roleLabel: "División de Estudios de Posgrado",
     area: "Investigación y posgrado",
     enfoque: "Formación avanzada",
-    image: "/imagenes/directivos/posgrado/DSC_5267.JPG",
+    image: "/imagenes/directivos/posgrado/eliu-reyes.jpg",
     degrees: [
       { title: "Licenciatura en Administración", institution: "Licenciatura" },
       { title: "Maestría en Gestión de Negocios", institution: "Maestría" },
@@ -173,7 +173,7 @@ export const directors = [
     roleLabel: "CELCI",
     area: "Lenguas y comunicación",
     enfoque: "Certificaciones internacionales",
-    image: "/imagenes/directivos/celci/DSC_5323.JPG",
+    image: "/imagenes/directivos/celci/carlos-elier.jpg",
     // PENDIENTE: confirmar formación académica con el área.
     degrees: [
       { title: "Licenciatura en Enseñanza del Inglés", institution: "Licenciatura" },
