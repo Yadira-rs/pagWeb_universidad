@@ -139,47 +139,136 @@ export const teachers = [
 // TODO(retroalimentación FECA): este contenido narra la historia del Centro de Idiomas/CELCI,
 // no la historia de la Facultad de Economía, Contaduría y Administración. Reemplazar las 5
 // entradas de abajo por la historia real de la FECA en cuanto se tenga el texto correcto.
+// Carrusel de "Nuestra Historia" (#/historia). Basado en el ensayo "Breve
+// historia de la FECA" de Eliu J. Reyes R.; cada slide lleva el texto de esa
+// época. Los últimos slides recogen las secciones sin año fijo (obras de arte,
+// arquitectura, actualidad) y las fuentes.
 export const historyEntries = [
   {
-    year: 1975,
-    tag: 'Fundación',
-    title: 'Fundación del Centro de Idiomas',
-    body: 'El Centro de Idiomas de la FECA-UJED fue fundado formalmente en 1975 bajo la dirección del C.P. Mtro. Rubén Vargas Quiñones. El primer coordinador fue el Mtro. Jack Hanlon, quien inició esta labor educativa con un grupo de apenas treinta alumnos, marcando el inicio de una larga trayectoria en la enseñanza de lenguas extranjeras.',
-    image: '/imagenes/distancia.jpg',
+    year: 1922,
+    tag: 'Orígenes',
+    title: 'La Escuela Comercial Práctica',
+    body:
+      'La historia de la FECA se enlaza con una de las escuelas más antiguas de la Universidad: la Escuela Comercial Práctica, fundada en 1922. Aunque entonces no llevaba ese nombre, ya impartía Mecanografía y Taquigrafía a cargo de la maestra María Zatarain, quien además habría sido la primera mujer en impartir clases en el Instituto Juárez (Valles, 2014).',
+    image: '/imagenes/historia/profesores-instituto-juarez.jpg',
   },
   {
-    year: 1981,
-    tag: 'Nueva coordinación',
-    title: 'Dr. José Ninahualpa Lucano al frente',
-    body: 'En 1981 la coordinación del Centro quedó a cargo del Dr. José Ninahualpa Lucano (q.e.p.d.), quien dio continuidad al proyecto con un enfoque académico sólido y creciente, consolidando la enseñanza de idiomas como parte esencial de la formación universitaria en la FECA.',
+    year: 1945,
+    tag: 'Primeras carreras',
+    title: 'Carrera de Secretario de Comercio',
+    body:
+      'Hacia 1945 se estableció la carrera de Secretario de Comercio, un antecedente directo de la formación en contaduría y administración dentro del Instituto Juárez (Gallegos, 2010).',
     image: '/imagenes/aniversario.jpeg',
   },
   {
-    year: 1994,
-    tag: 'Nueva etapa',
-    title: 'Lic. Leticia Moreno Elizalde asume la coordinación',
-    body: 'A partir de 1994, la Lic. Leticia Moreno Elizalde asumió la coordinación del Centro, etapa en la que se vivieron cambios significativos tanto en estructura como en oferta académica, consolidando al Centro como un referente en la enseñanza de idiomas dentro de la Universidad Juárez del Estado de Durango.',
-    image: '/imagenes/lic.jpg',
+    year: 1956,
+    tag: 'Primera dirección',
+    title: 'Facultad de Comercio y Administración',
+    body:
+      'Según documentos del H. Consejo Directivo del Instituto Juárez, el 3 de febrero de 1956 se nombró al primer director de la Facultad de Comercio y Administración —también director de la Escuela Comercial Práctica—, el Lic. Alfonso Hernández Medrano. La oferta comprendía Estenógrafo, Auxiliar Contable, Contador Público y Auditor, aunque solo llegaron a impartirse las dos primeras.',
+    image: '/imagenes/imagen.jpeg',
   },
   {
-    year: 2000,
-    tag: 'Crecimiento',
-    title: 'Expansión de la oferta académica',
-    body: 'A lo largo de sus primeras décadas, el Centro de Idiomas de la FECA fue ampliando progresivamente su oferta académica, incorporando nuevos idiomas y metodologías de enseñanza para responder a las necesidades de una comunidad universitaria en constante crecimiento.',
-    image: '/imagenes/cafeteria.jpeg',
+    year: 1958,
+    tag: 'Fundación',
+    title: 'Escuela de Contaduría y Administración',
+    body:
+      'En 1955, la maestra María Zatarain y otros profesores solicitaron la creación de las carreras de Contador Público, Contador Privado y Auditor. Gracias a esa propuesta, el 12 de junio de 1958 se fundó la Escuela de Contaduría y Administración —conocida como la ESCA o ECA—, con sede en el segundo patio del hoy Edificio Central (Gallegos, 2010). Desde entonces se inició la carrera de Contador Público con seis profesores y ocho alumnos (Palencia, 1997).',
+    image: '/imagenes/aniversario.jpeg',
   },
   {
-    year: 2024,
-    tag: 'Actualidad',
-    title: 'Más de mil alumnos y cuatro idiomas',
-    body: 'Actualmente el Centro de Idiomas de la FECA atiende a una población de más de mil alumnos, ofreciendo formación de calidad en inglés, italiano, francés y japonés, dirigida tanto a estudiantes universitarios como al público en general.',
-    items: [
-      'Más de 1,000 alumnos activos.',
-      'Cuatro idiomas: inglés, italiano, francés y japonés.',
-      'Atención a estudiantes universitarios y público en general.',
-      'Casi cinco décadas de trayectoria y excelencia académica.',
-    ],
+    year: 1968,
+    tag: 'Nueva licenciatura',
+    title: 'Licenciatura en Administración',
+    body:
+      'La UNAM creó la carrera de Licenciado en Administración en 1957, pero fue hasta 1968 cuando se incorporó a la UJED. El L.A. Juan José Reyes Valenzuela fue el primer egresado de Administración en la entidad.',
+    image: '/imagenes/objetivo1.jpg',
+  },
+  {
+    year: 1973,
+    tag: 'Nueva sede',
+    title: 'El edificio actual',
+    body:
+      'El 12 de junio de 1973 la escuela abandonó el Edificio Central para ocupar el inmueble que usa hasta hoy: un edificio de estilo modernista obra del arquitecto Wenceslao Bátiz, quien más tarde también diseñaría y construiría el edificio de Posgrado de la institución.',
+    image: '/imagenes/historia/edificio-feca.jpg',
+  },
+  {
+    year: 1979,
+    tag: 'Posgrado',
+    title: 'Facultad de Contaduría y Administración',
+    body:
+      'En septiembre de 1979 dio inicio el primer cuatrimestre del programa de posgrado, tras el esfuerzo de catedráticos como el Dr. Juan Francisco Salazar Benítez, primer jefe de posgrado. De esta manera, la institución pasó a denominarse Facultad de Contaduría y Administración (FCA).',
+    image: '/imagenes/feca-plaza-1.jpg',
+  },
+  {
+    year: 1991,
+    tag: 'Patrimonio',
+    title: 'Monumento a Yacatecuhtli',
+    body:
+      'En recuerdo de la tradición azteca —antecedente histórico y social de las prácticas de administradores y contadores—, el director de la FCA, Lic. Víctor Manuel Lerma Moreno, y el rector Juan Francisco Salazar Benítez develaron en noviembre de 1991 el monumento a Yacatecuhtli, deidad azteca del comercio y de los mercaderes. Entre los aztecas, ser comerciante constituía un estrato social —los pochtecas— educado en las artes del comercio. La fecha de la develación, cincelada en cantera, se perdió en una remodelación del monumento en 2018.',
+    image: '/imagenes/historia/monumento-yacatecuhtli.jpg',
+  },
+  {
+    year: 2008,
+    tag: 'De FCA a FECA',
+    title: 'Se incorpora la Licenciatura en Economía',
+    body:
+      'En 2008, bajo la dirección del C.P. Rubén Solís Ríos, la FCA se convirtió en FECA al incorporar la Licenciatura en Economía como una opción más para los estudiantes. Ana Lorena Jiménez fue la primera egresada de esa licenciatura en titularse, con importantes logros académicos a nivel nacional en representación de su carrera.',
     image: '/imagenes/inicio.png',
+  },
+  {
+    year: 'Arte',
+    tag: 'Obras artísticas',
+    title: 'El mural de Luis Gustavo Sandoval',
+    body:
+      'La FECA alberga tres obras artísticas de importancia: el monumento a Yacatecuhtli y dos murales. El primero, «Alegoría al trabajo, la lucha y tradiciones de los hombres y mujeres de Durango», del artista Luis Gustavo Sandoval, es uno de los ocho creados con motivo del 450 aniversario de la ciudad. Mide casi 6 metros de ancho por 2.5 de alto, está hecho en acrílico y óleo sobre tela y preside el vestíbulo de doble altura del edificio principal.',
+    image: '/imagenes/historia/mural-luis-gustavo-sandoval.jpg',
+  },
+  {
+    year: 'Mural',
+    tag: 'Obras artísticas',
+    title: 'El mural de Candelario Vázquez',
+    body:
+      'La tercera obra es un mural del maestro Candelario Vázquez, de la Escuela de Pintura, Escultura y Artesanías de la UJED. Ubicado frente al área de Servicios Escolares, muestra al centro el Edificio Central de la UJED y el edificio de la FECA, rodeados de elementos gráficos y personajes que representan la vida y el quehacer universitario de alumnos y docentes.',
+    image: '/imagenes/historia/mural-candelario-vazquez.jpg',
+  },
+  {
+    year: 'Edificio',
+    tag: 'Arquitectura',
+    title: 'Un edificio de estilo modernista',
+    body:
+      'El inmueble que la FECA ocupa desde 1973 rompe con el estilo de toda la ciudad de Durango. Es un diseño modernista de Wenceslao Bátiz que comparte rasgos con la escuela alemana Bauhaus (1919–1933): materiales usados con armonía —cantera, metal, mármol y vidrio—, un espejo de agua hoy clausurado, amplios ventanales que privilegian la luz natural y techos cuadriculados que economizan material. Rasgos afines a obras como el Pabellón de Barcelona de Mies van der Rohe (1929). Bátiz pudo recibir esa influencia por la llegada a México de referentes de la Bauhaus como Hannes Meyer en los años cuarenta (Droste, 2019).',
+    image: '/imagenes/historia/pabellon-de-barcelona.jpg',
+  },
+  {
+    year: 'Hoy',
+    tag: 'Actualidad',
+    title: 'Una de las facultades de mayor prestigio de la UJED',
+    body:
+      'Hoy la Facultad de Economía, Contaduría y Administración es una de las unidades académicas de mayor solidez y prestigio de la Universidad Juárez del Estado de Durango. El compromiso con su historia es un aliciente para seguir mejorando ante los retos que plantea la revolución del conocimiento.',
+    items: [
+      'Tres licenciaturas: Contaduría Pública, Administración y Economía.',
+      'Programas de posgrado con más de cuatro décadas de trayectoria.',
+      'Más de dos mil alumnos, profesores y trabajadores cada día.',
+      'Un edificio de valor arquitectónico único en la ciudad de Durango.',
+    ],
+    image: '/imagenes/feca-entrada.jpg',
+  },
+  {
+    year: 'Fuentes',
+    tag: 'Bibliografía',
+    title: 'Texto: Eliu J. Reyes R.',
+    body:
+      'Esta reseña histórica de la FECA fue escrita por Eliu J. Reyes R. y se apoya en las siguientes fuentes:',
+    items: [
+      'Droste, M. (2019). The Bauhaus 1919-1933. Reform and Avant-Garde. Taschen.',
+      'Droste, M. (2019). Bauhaus-Archiv Berlin. Taschen.',
+      'Gallegos, J. (1981). Historia de la Universidad Juárez del Estado de Durango. Durango: UJED.',
+      'Hernández, B. (2004). «Bauhaus, la escuela que unió arte y técnica». Técnica Industrial.',
+      'Palencia, V. (1997). Hojas de Vida. Testimonios para la historia de la UJED.',
+      'Valles, B. y Corral, B. (2014). La Presencia Femenina en el Instituto Juárez (1872-1957). Inst. de Investigaciones Históricas, UJED.',
+    ],
+    image: '/imagenes/biblioteca_historica.png',
   },
 ]
 

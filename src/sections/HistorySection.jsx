@@ -21,7 +21,7 @@ function HistorySection({ entries }) {
     if (entries.length < 2) return undefined
     autoplayIntervalRef.current = window.setInterval(() => {
       setActiveIndex((current) => (current + 1) % entries.length)
-    }, 3200)
+    }, 9000)
     return () => {
       window.clearInterval(autoplayIntervalRef.current)
       autoplayIntervalRef.current = null
@@ -40,7 +40,7 @@ function HistorySection({ entries }) {
     if (autoplayIntervalRef.current || entries.length < 2) return
     autoplayIntervalRef.current = window.setInterval(() => {
       setActiveIndex((current) => (current + 1) % entries.length)
-    }, 3200)
+    }, 9000)
   }
 
   return (
@@ -119,7 +119,9 @@ function HistorySection({ entries }) {
           {/* Centro: badge + año + título */}
           <div className="history-feature-body">
             <div className="history-feature-tag">{activeEntry.tag}</div>
-            <div className="history-feature-year">{activeEntry.year}</div>
+            <div className={`history-feature-year${typeof activeEntry.year === "number" ? "" : " is-label"}`}>
+              {activeEntry.year}
+            </div>
             <h3 className="history-feature-title">{activeEntry.title}</h3>
           </div>
 

@@ -5016,6 +5016,8 @@ a.acc-title-link:hover {
 }
 
 .history-visual img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -5027,8 +5029,12 @@ a.acc-title-link:hover {
   transform: scale(1.04);
 }
 
+/* La foto principal llena todo el alto de la columna central (no queda una
+   franja diminuta cuando el texto del slide es largo). */
 .history-visual-main {
+  align-self: stretch;
   min-height: 420px;
+  max-height: 600px;
 }
 
 .history-feature-body {
@@ -5062,6 +5068,11 @@ a.acc-title-link:hover {
   margin-top: 18px;
   margin-bottom: 16px;
   text-align: center;
+}
+/* Slides sin año numérico (Arte, Edificio, Hoy, Fuentes): etiqueta más chica */
+.history-feature-year.is-label {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  letter-spacing: 0.02em;
 }
 
 .history-feature-title {
@@ -15255,6 +15266,12 @@ body.footer-in-view .sw-root {
   border-top: 2px solid var(--navy);
 }
 
+/* Tarjeta sin nombre (integrantes aún sin identificar): solo foto, con el
+   acento rojo inferior para mantener el ritmo visual del resto. */
+.acad-member-card--noname {
+  border-bottom: 3px solid var(--navy);
+}
+
 /* ── Momentos del equipo (fotos grupales, sin nombre) ── */
 .dp-body.acad-body {
   max-width: 1100px;
@@ -16586,3 +16603,4 @@ body.footer-in-view .sw-root {
   .informe-hero-cover { width: min(260px, 62vw); transform: none; }
   .informe-flip { aspect-ratio: 3 / 4; }
 }
+

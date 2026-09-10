@@ -1,6 +1,10 @@
 import { useEffect, useRef } from "react";
 import Header from "../sections/Header";
 import Footer from "../sections/Footer";
+import EncargadoCard from "../components/EncargadoCard";
+import { directors } from "../data/directorsData";
+
+const encargado = directors.find((d) => d.slug === "secretaria-academica");
 
 const GALLERY_IMAGES = [
   "DSC_5054.JPG",
@@ -100,6 +104,9 @@ function SecretariaAcademicaPage({ logoImage, newsPanelOpen, setNewsPanelOpen })
           </p>
         </div>
       </section>
+
+      {/* ENCARGADO */}
+      <EncargadoCard director={encargado} fadeClass="pf-fade" />
 
       {/* ÁREAS QUE ATENDEMOS */}
       <section className="pf-section pf-fade">

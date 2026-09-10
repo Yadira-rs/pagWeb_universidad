@@ -56,8 +56,12 @@ export const directors = [
     roleLabel: "Secretario Académico",
     area: "Desarrollo académico",
     enfoque: "Calidad educativa",
-    // PENDIENTE: foto individual del responsable.
-    image: null,
+    image: "/imagenes/directivos/secretaria-academica/DSC_5054.JPG",
+    // Tarjeta de bienvenida (Secretaría Académica y página de Académicos).
+    // BORRADOR — pendiente de que el área envíe su mensaje.
+    welcomeTitle: "Secretario Académico",
+    welcomeText:
+      "Desde la Secretaría Académica acompañamos a estudiantes y docentes en cada etapa de su trayectoria en la FECA. Trabajamos por programas educativos de calidad, un servicio social y prácticas profesionales con impacto real, y un acompañamiento cercano a través de las tutorías.",
     // PENDIENTE: confirmar formación académica con el área.
     degrees: [
       { title: "Licenciatura en Administración", institution: "Licenciatura" },
@@ -68,8 +72,9 @@ export const directors = [
       { label: "Correo del área", value: "academica.feca@ujed.mx" },
     ],
     // Fotos del equipo — se usan en AcademicosPage, no en el organigrama.
+    // El Secretario (DSC_5054) no va aquí: tiene su propia tarjeta destacada.
+    // PENDIENTE: nombres reales de los integrantes (hoy se ocultan por ser genéricos).
     teamMembers: [
-      { photo: "/imagenes/directivos/secretaria-academica/DSC_5054.JPG", name: "Integrante 1" },
       { photo: "/imagenes/directivos/secretaria-academica/DSC_5095.JPG", name: "Integrante 3" },
       { photo: "/imagenes/directivos/secretaria-academica/DSC_5113.JPG", name: "Integrante 4" },
       { photo: "/imagenes/directivos/secretaria-academica/DSC_5134.JPG", name: "Integrante 5" },
@@ -89,8 +94,12 @@ export const directors = [
     roleLabel: "Secretaría Administrativa",
     area: "Administración y recursos",
     enfoque: "Gestión operativa",
-    // PENDIENTE: foto individual del responsable.
-    image: null,
+    image: "/imagenes/directivos/secretaria-administrativa/DSC_4991.JPG",
+    // Tarjeta de bienvenida (Secretaría Administrativa y página de Administrativos).
+    // BORRADOR — pendiente de que el área envíe su mensaje.
+    welcomeTitle: "Secretaria Administrativa",
+    welcomeText:
+      "En la Secretaría Administrativa damos soporte a toda la vida académica de la FECA. Nuestro compromiso es una gestión eficiente y transparente de los recursos humanos, materiales y financieros, para que docentes y estudiantes cuenten con lo necesario para cumplir su labor.",
     // PENDIENTE: confirmar formación académica con el área.
     degrees: [
       { title: "Contador Público", institution: "Licenciatura" },
@@ -102,8 +111,9 @@ export const directors = [
       { label: "Correo del área", value: "administrativa.feca@ujed.mx" },
     ],
     // Fotos del equipo — se usan en AdministrativosPage, no en el organigrama.
+    // La Secretaria (DSC_4991) no va aquí: tiene su propia tarjeta destacada.
+    // PENDIENTE: nombres reales de los integrantes (hoy se ocultan por ser genéricos).
     teamMembers: [
-      { photo: "/imagenes/directivos/secretaria-administrativa/DSC_4991.JPG", name: "Integrante 1" },
       { photo: "/imagenes/directivos/secretaria-administrativa/DSC_5002.JPG", name: "Integrante 2" },
       { photo: "/imagenes/directivos/secretaria-administrativa/DSC_5004.JPG", name: "Integrante 3" },
       { photo: "/imagenes/directivos/secretaria-administrativa/DSC_5024.JPG", name: "Integrante 4" },

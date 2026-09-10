@@ -1,6 +1,10 @@
 import { useEffect, useRef } from "react";
 import Header from "../sections/Header";
 import Footer from "../sections/Footer";
+import EncargadoCard from "../components/EncargadoCard";
+import { directors } from "../data/directorsData";
+
+const encargado = directors.find((d) => d.slug === "secretaria-administrativa");
 
 const queHacemos = [
   {
@@ -84,6 +88,9 @@ function SecretariaAdministrativaPage({ logoImage, newsPanelOpen, setNewsPanelOp
           </p>
         </div>
       </section>
+
+      {/* ENCARGADA */}
+      <EncargadoCard director={encargado} fadeClass="pf-fade" />
 
       {/* ¿QUÉ HACEMOS? */}
       <section className="pf-section pf-fade">
@@ -169,7 +176,7 @@ function SecretariaAdministrativaPage({ logoImage, newsPanelOpen, setNewsPanelOp
                   </div>
                   <div>
                     <span className="pf-contact-label">Titular</span>
-                    <span className="pf-contact-value">Lic. María Elena Torres Rodríguez</span>
+                    <span className="pf-contact-value">Dra. Marcela Rodríguez Martínez</span>
                   </div>
                 </div>
                 <div className="pf-contact-item">

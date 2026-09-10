@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import Header from "../sections/Header";
 import Footer from "../sections/Footer";
+import EncargadoCard from "../components/EncargadoCard";
 import { directors } from "../data/directorsData";
 
 export default function AcademicosPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
@@ -38,6 +39,8 @@ export default function AcademicosPage({ logoImage, newsPanelOpen, setNewsPanelO
           </div>
         </div>
 
+        <EncargadoCard director={secretariaAcademica} fadeClass="dp-fade" />
+
         <div className="dp-body acad-body">
           {teamMembers.length > 0 && (
             <section className="dp-section dp-fade">
@@ -46,14 +49,17 @@ export default function AcademicosPage({ logoImage, newsPanelOpen, setNewsPanelO
                 EQUIPO
               </div>
               <div className="acad-members-grid">
-                {teamMembers.map((member) => (
-                  <div key={member.photo} className="acad-member-card">
-                    <div className="acad-member-photo-wrap">
-                      <img src={member.photo} alt={member.name} className="acad-member-photo" loading="lazy" />
+                {teamMembers.map((member) => {
+                  const showName = member.name && !/^integrante\b/i.test(member.name.trim());
+                  return (
+                    <div key={member.photo} className={`acad-member-card${showName ? "" : " acad-member-card--noname"}`}>
+                      <div className="acad-member-photo-wrap">
+                        <img src={member.photo} alt={showName ? member.name : "Integrante del equipo"} className="acad-member-photo" loading="lazy" />
+                      </div>
+                      {showName && <span className="acad-member-name">{member.name}</span>}
                     </div>
-                    <span className="acad-member-name">{member.name}</span>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </section>
           )}

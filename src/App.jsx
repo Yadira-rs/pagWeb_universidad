@@ -322,7 +322,7 @@ function App() {
   }, [route]);
 
   useEffect(() => {
-    const elements = document.querySelectorAll(".fade-up, .fade-left, .fade-right, .zoom-in");
+    const SELECTOR = ".fade-up, .fade-left, .fade-right, .zoom-in";
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry, index) => {
@@ -330,14 +330,33 @@ function App() {
             window.setTimeout(() => {
               entry.target.classList.add("visible");
             }, index * 80);
+            observer.unobserve(entry.target);
           }
         });
       },
       { threshold: 0.1 },
     );
 
-    elements.forEach((element) => observer.observe(element));
-    return () => observer.disconnect();
+    const observeAll = (root) => {
+      if (root.nodeType !== 1) return;
+      if (root.matches?.(SELECTOR)) observer.observe(root);
+      root.querySelectorAll?.(SELECTOR).forEach((el) => observer.observe(el));
+    };
+
+    observeAll(document.body);
+
+    // Las páginas se cargan de forma diferida (lazy): su contenido aparece
+    // después de este efecto, así que hay que observar también lo que se
+    // añade al DOM más tarde para que las animaciones de entrada se disparen.
+    const mo = new MutationObserver((mutations) => {
+      mutations.forEach((m) => m.addedNodes.forEach(observeAll));
+    });
+    mo.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      observer.disconnect();
+      mo.disconnect();
+    };
   }, [route]);
 
   // Oculta los botones flotantes (WhatsApp, encuesta de satisfacción) justo
@@ -577,7 +596,7 @@ function App() {
 
           <a
             className="whatsapp-fab"
-            href="https://wa.me/526188271365"
+            href="https://wa.me/526183650498"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Contactar por WhatsApp"
