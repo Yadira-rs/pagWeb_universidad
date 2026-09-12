@@ -56,13 +56,17 @@ Cada tabla montada con `createTableRouter` (`src/tableRouter.js`) expone:
 
 Tablas montadas (ver `src/index.js`), todas ya migradas en su manager del
 panel (`AnunciosManager`, `HeroSlidesManager`, `TestimoniosManager`,
-`GaleriaManager`, `NoticiasManager`, `OpinionesManager`,
-`EgresadosDocsManager`) y en `AdminLoginPage`/`SatisfactionWidget`/
-`EgresadoUploadModal` para las que insertan público:
+`GaleriaManager`, `NoticiasManager`, `AvisosEscolaresManager`,
+`OpinionesManager`, `EgresadosDocsManager`) y en `AdminLoginPage`/
+`SatisfactionWidget`/`EgresadoUploadModal` para las que insertan público:
 
 - `anuncios_noticias`, `hero_slides`, `testimonios`, `galeria_fotos`,
-  `noticias_recientes` — lectura pública filtrada
+  `noticias_recientes`, `avisos_escolares` — lectura pública filtrada
   (`publicado`/`is_active`, según la tabla); escritura solo con sesión.
+  `avisos_escolares` alimenta la sección "Avisos" de
+  `#/servicios/servicios-escolares` (fechas de inscripción, protocolos y
+  exámenes) — tabla creada por `database/avisos_escolares.sql`, que hay
+  que correr una vez en phpPgAdmin (igual que `database/admin_users.sql`).
 - `solicitudes_acceso_panel` — creación pública (formulario del login);
   lectura/edición/borrado solo con sesión.
 - `calificaciones` — creación pública (encuesta de satisfacción), lectura

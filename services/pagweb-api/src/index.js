@@ -188,6 +188,20 @@ app.use(
   })
 );
 
+// Avisos de Servicios Escolares (fechas de inscripción, protocolos y
+// exámenes). Mismo patrón que noticias_recientes: lectura pública
+// filtrada por `publicado`, escritura solo con sesión.
+app.use(
+  "/api/avisos_escolares",
+  createTableRouter({
+    table: "avisos_escolares",
+    columns: ["categoria", "titulo", "fecha_texto", "descripcion", "publicado", "orden"],
+    orderBy: "orden asc",
+    permissions: { read: "public", insert: "auth", update: "auth", delete: "auth" },
+    publicFilter: "publicado = true",
+  })
+);
+
 // Documentos de egresados: el CRUD queda listo, pero EgresadosDocsManager
 // todavía no se cambia de import — depende de Supabase Storage, que se
 // migra en el siguiente hito (src/lib/storageClient.js).

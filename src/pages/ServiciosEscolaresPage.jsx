@@ -1,6 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Header from "../sections/Header";
 import Footer from "../sections/Footer";
+import { supabase } from "../lib/apiClient";
 
 const planesEstudio = [
   {
@@ -122,14 +123,38 @@ function DocIcon() {
 
 function ServiciosEscolaresPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
   const observerRef = useRef(null);
+  const [avisos, setAvisos] = useState([]);
 
   useEffect(() => {
+    // Depende de `avisos`: la sección de Avisos se monta después (llega por
+    // fetch), así que hay que volver a observar sus .pf-fade una vez que
+    // aparecen, o se quedarían con opacity:0 para siempre.
     observerRef.current = new IntersectionObserver(
       (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("visible")),
       { threshold: 0.1 }
     );
     document.querySelectorAll(".pf-fade").forEach((el) => observerRef.current.observe(el));
     return () => observerRef.current?.disconnect();
+  }, [avisos]);
+
+  useEffect(() => {
+    let active = true;
+    supabase
+      .from("avisos_escolares")
+      .select("*")
+      .eq("publicado", true)
+      .order("orden", { ascending: true })
+      .then(({ data, error }) => {
+        if (!active) return;
+        if (error) {
+          console.error("Error cargando avisos escolares:", error);
+          return;
+        }
+        setAvisos(data || []);
+      });
+    return () => {
+      active = false;
+    };
   }, []);
 
   return (
@@ -224,6 +249,31 @@ function ServiciosEscolaresPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) 
           </div>
         </div>
       </section>
+
+      {/* AVISOS */}
+      {avisos.length > 0 && (
+        <section className="pf-section pf-fade">
+          <div className="pf-container">
+            <div className="pf-section-head">
+              <div className="pf-label">Control escolar</div>
+              <h2 className="pf-section-title">Avisos</h2>
+              <p className="pf-section-desc">
+                Fechas de periodo de inscripción, protocolos y exámenes ordinarios y extraordinarios.
+              </p>
+            </div>
+            <div className="pf-cards-grid pf-fade">
+              {avisos.map((a) => (
+                <div key={a.id} className="pf-card">
+                  <span className="pf-chip" style={{ marginBottom: 12 }}>{a.categoria}</span>
+                  <h3 className="pf-card-title" style={{ color: "var(--navy)" }}>{a.titulo}</h3>
+                  <p className="pf-card-desc" style={{ color: "#951823", fontWeight: 600 }}>{a.fecha_texto}</p>
+                  {a.descripcion && <p className="pf-card-desc" style={{ color: "#666" }}>{a.descripcion}</p>}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* CONTACTO */}
       <section className="pf-section pf-section-alt pf-fade">
