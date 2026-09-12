@@ -57,7 +57,7 @@ export const directors = [
     area: "Desarrollo académico",
     enfoque: "Calidad educativa",
     image: "/imagenes/directivos/secretaria-academica/DSC_5054.JPG",
-    // Tarjeta de bienvenida (Secretaría Académica y página de Académicos).
+    // Tarjeta de bienvenida (Secretaría Académica).
     // BORRADOR — pendiente de que el área envíe su mensaje.
     welcomeTitle: "Secretario Académico",
     welcomeText:
@@ -69,22 +69,7 @@ export const directors = [
     ],
     emails: [
       { label: "Correo institucional", value: "tomas.diaz@ujed.mx" },
-      { label: "Correo del área", value: "academica.feca@ujed.mx" },
-    ],
-    // Fotos del equipo — se usan en AcademicosPage, no en el organigrama.
-    // El Secretario (DSC_5054) no va aquí: tiene su propia tarjeta destacada.
-    // PENDIENTE: nombres reales de los integrantes (hoy se ocultan por ser genéricos).
-    teamMembers: [
-      { photo: "/imagenes/directivos/secretaria-academica/DSC_5095.JPG", name: "Integrante 3" },
-      { photo: "/imagenes/directivos/secretaria-academica/DSC_5113.JPG", name: "Integrante 4" },
-      { photo: "/imagenes/directivos/secretaria-academica/DSC_5134.JPG", name: "Integrante 5" },
-      { photo: "/imagenes/directivos/secretaria-academica/DSC_5318.JPG", name: "Integrante 6" },
-    ],
-    teamGroupPhotos: [
-      "/imagenes/directivos/secretaria-academica/DSC_5267.JPG",
-      "/imagenes/directivos/secretaria-academica/DSC_5273.JPG",
-      "/imagenes/directivos/secretaria-academica/DSC_5291.JPG",
-      "/imagenes/directivos/secretaria-academica/DSC_5294.JPG",
+      { label: "Correo del área", value: "sacademica.feca@ujed.mx" },
     ],
   },
   {
@@ -95,7 +80,7 @@ export const directors = [
     area: "Administración y recursos",
     enfoque: "Gestión operativa",
     image: "/imagenes/directivos/secretaria-administrativa/DSC_4991.JPG",
-    // Tarjeta de bienvenida (Secretaría Administrativa y página de Administrativos).
+    // Tarjeta de bienvenida (Secretaría Administrativa).
     // BORRADOR — pendiente de que el área envíe su mensaje.
     welcomeTitle: "Secretaria Administrativa",
     welcomeText:
@@ -109,23 +94,6 @@ export const directors = [
     emails: [
       { label: "Correo institucional", value: "marcela.rodriguez@ujed.mx" },
       { label: "Correo del área", value: "administrativa.feca@ujed.mx" },
-    ],
-    // Fotos del equipo — se usan en AdministrativosPage, no en el organigrama.
-    // La Secretaria (DSC_4991) no va aquí: tiene su propia tarjeta destacada.
-    // PENDIENTE: nombres reales de los integrantes (hoy se ocultan por ser genéricos).
-    teamMembers: [
-      { photo: "/imagenes/directivos/secretaria-administrativa/DSC_5002.JPG", name: "Integrante 2" },
-      { photo: "/imagenes/directivos/secretaria-administrativa/DSC_5004.JPG", name: "Integrante 3" },
-      { photo: "/imagenes/directivos/secretaria-administrativa/DSC_5024.JPG", name: "Integrante 4" },
-      { photo: "/imagenes/directivos/secretaria-administrativa/DSC_5029.JPG", name: "Integrante 5" },
-      { photo: "/imagenes/directivos/secretaria-administrativa/DSC_5189.JPG", name: "Integrante 6" },
-      { photo: "/imagenes/directivos/secretaria-administrativa/DSC_5356.JPG", name: "Integrante 7" },
-    ],
-    teamGroupPhotos: [
-      "/imagenes/directivos/secretaria-administrativa/DSC_5006.JPG",
-      "/imagenes/directivos/secretaria-administrativa/DSC_5018.JPG",
-      "/imagenes/directivos/secretaria-administrativa/DSC_5267.JPG",
-      "/imagenes/directivos/secretaria-administrativa/DSC_5334.JPG",
     ],
   },
   {

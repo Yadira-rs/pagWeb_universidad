@@ -6,22 +6,6 @@ import { directors } from "../data/directorsData";
 
 const encargado = directors.find((d) => d.slug === "secretaria-academica");
 
-const GALLERY_IMAGES = [
-  "DSC_5054.JPG",
-  "DSC_5091.JPG",
-  "DSC_5095.JPG",
-  "DSC_5113.JPG",
-  "DSC_5134.JPG",
-  "DSC_5267.JPG",
-  "DSC_5269.JPG",
-  "DSC_5273.JPG",
-  "DSC_5291.JPG",
-  "DSC_5294.JPG",
-  "DSC_5296.JPG",
-  "DSC_5303.JPG",
-  "DSC_5318.JPG",
-].map((file) => `/imagenes/directivos/secretaria-academica/${file}`);
-
 const areas = [
   {
     title: "Servicio social",
@@ -130,23 +114,6 @@ function SecretariaAcademicaPage({ logoImage, newsPanelOpen, setNewsPanelOpen })
         </div>
       </section>
 
-      {/* GALERÍA */}
-      <section className="pf-section pf-section-alt pf-fade">
-        <div className="pf-container">
-          <div className="pf-section-head">
-            <div className="pf-label">Nuestro equipo</div>
-            <h2 className="pf-section-title">Secretaría Académica en imágenes</h2>
-          </div>
-          <div className="egr-gallery-grid egr-fade">
-            {GALLERY_IMAGES.map((src) => (
-              <div key={src} className="egr-gallery-item">
-                <img src={src} alt="Secretaría Académica" loading="lazy" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CONTACTO */}
       <section className="pf-section pf-fade">
         <div className="pf-container">
@@ -161,7 +128,7 @@ function SecretariaAcademicaPage({ logoImage, newsPanelOpen, setNewsPanelOpen })
             <p style={{ margin: "0 0 18px" }}>
               Escríbenos para dudas sobre programas educativos, docentes o trámites académicos.
             </p>
-            <a href="mailto:academica.feca@ujed.mx" className="pf-chip">academica.feca@ujed.mx</a>
+            <a href="mailto:sacademica.feca@ujed.mx" className="pf-chip">sacademica.feca@ujed.mx</a>
           </div>
         </div>
       </section>

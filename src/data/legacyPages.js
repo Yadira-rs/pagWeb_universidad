@@ -407,6 +407,7 @@ export const legacyPages = {
         variant: "contact",
         items: [
           "phone:(618) 827-13-65",
+          "email:cis.feca@ujed.mx",
         ],
       },
     ],
