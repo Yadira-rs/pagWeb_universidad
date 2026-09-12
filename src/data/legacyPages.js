@@ -25,6 +25,7 @@ export const legacyPages = {
             color: "#e31313",
             body: "Formación en información financiera, fiscal, administrativa, auditoría, costos y finanzas para la toma de decisiones empresariales e institucionales.",
             actions: [
+              { href: "#/licenciaturas/contador-publico", label: "Conocer la carrera" },
               { href: "/docs/plan-de-estudios_cp_2021.pdf", label: "Descargar plan" },
               { href: "/docs/mapa-curricular_cp_2021.pdf", label: "Mapa curricular" },
             ],
@@ -36,6 +37,7 @@ export const legacyPages = {
             color: "#e31313",
             body: "Formación para planear, dirigir y evaluar organizaciones con visión estratégica, flexible y emprendedora orientada al liderazgo.",
             actions: [
+              { href: "#/licenciaturas/licenciado-en-administracion", label: "Conocer la carrera" },
               { href: "/docs/plan_de_estudios_la_2021.pdf", label: "Descargar plan" },
               { href: "/docs/mapas_curriculares_la_2021.pdf", label: "Mapa curricular" },
             ],
@@ -47,6 +49,7 @@ export const legacyPages = {
             color: "#e31313",
             body: "Formación en análisis económico, comercio exterior, finanzas, mercados y negocios internacionales con visión global.",
             actions: [
+              { href: "#/licenciaturas/economia-y-negocios-internacionales", label: "Conocer la carrera" },
               { href: "/docs/plan_de_estudios_leni_2021.pdf", label: "Descargar plan" },
               { href: "/docs/mapas_curriculares_leni_2021.pdf", label: "Mapa curricular" },
             ],

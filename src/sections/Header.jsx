@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { logoImage as defaultLogo } from "../data/siteData";
 import { searchIndex } from "../data/searchIndex";
+import { licenciaturas } from "../data/licenciaturasData";
 import { IconFacebook, IconInstagram, IconXTwitter, IconTikTok } from "../components/SocialIcons";
 
 function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
@@ -157,14 +158,40 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 Oferta Educativa
                 <span className="nav-caret" aria-hidden="true"></span>
               </a>
-              <div className="dropdown">
-                <a href="#/lenguas">Centro de Lenguas</a>
-                <a href="#/ciiedo">CIIEDO</a>
-                <a href="#/cursos-intersemestrales">Cursos Intersemestrales</a>
-                <a href="#/curso-propedeutico">Cursos Propedéutico</a>
-                <a href="#/licenciaturas">Licenciaturas</a>
-                <a href="#/licenciaturas-distancia">Educación a distancia</a>
-                <a href="https://posgradofeca.ujed.mx/" target="_blank" rel="noreferrer">Posgrado</a>
+              <div className="dropdown dropdown-accordion">
+                <div className="acc-row acc-row-flat">
+                  <a className="acc-title acc-title-link" href="#/lenguas">Centro de Lenguas</a>
+                </div>
+                <div className="acc-row acc-row-flat">
+                  <a className="acc-title acc-title-link" href="#/ciiedo">CIIEDO</a>
+                </div>
+                <div className="acc-row acc-row-flat">
+                  <a className="acc-title acc-title-link" href="#/cursos-intersemestrales">Cursos Intersemestrales</a>
+                </div>
+                <div className="acc-row acc-row-flat">
+                  <a className="acc-title acc-title-link" href="#/curso-propedeutico">Cursos Propedéutico</a>
+                </div>
+
+                <div className="acc-row">
+                  <a className="acc-title acc-title-link" href="#/licenciaturas">
+                    Licenciaturas
+                    <svg className="acc-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="11" height="11" aria-hidden="true">
+                      <polyline points="9 6 15 12 9 18" />
+                    </svg>
+                  </a>
+                  <div className="acc-panel">
+                    {licenciaturas.map((lic) => (
+                      <a key={lic.slug} className="dropdown-sub" href={`#/licenciaturas/${lic.slug}`}>{lic.name}</a>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="acc-row acc-row-flat">
+                  <a className="acc-title acc-title-link" href="#/licenciaturas-distancia">Educación a distancia</a>
+                </div>
+                <div className="acc-row acc-row-flat">
+                  <a className="acc-title acc-title-link" href="https://posgradofeca.ujed.mx/" target="_blank" rel="noreferrer">Posgrado</a>
+                </div>
               </div>
             </div>
 
@@ -550,7 +577,21 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
             <span className="mobile-menu-section-label">Oferta educativa</span>
             <a href="#/lenguas" className={`mobile-nav-sub${currentHash === "#/lenguas" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Centro de Lenguas</a>
             <a href="#/ciiedo" className={`mobile-nav-sub${currentHash === "#/ciiedo" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>CIIEDO</a>
-            <a href="#/licenciaturas" className={`mobile-nav-sub${currentHash === "#/licenciaturas" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Licenciaturas</a>
+            <a href="#/cursos-intersemestrales" className={`mobile-nav-sub${currentHash === "#/cursos-intersemestrales" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Cursos Intersemestrales</a>
+            <a href="#/curso-propedeutico" className={`mobile-nav-sub${currentHash === "#/curso-propedeutico" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Cursos Propedéutico</a>
+
+            <a href="#/licenciaturas" className={`mobile-nav-subgroup${currentHash === "#/licenciaturas" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Licenciaturas</a>
+            {licenciaturas.map((lic) => (
+              <a
+                key={lic.slug}
+                href={`#/licenciaturas/${lic.slug}`}
+                className={`mobile-nav-sub mobile-nav-subsub${currentHash === `#/licenciaturas/${lic.slug}` ? " mobile-nav-active" : ""}`}
+                onClick={closeMobile}
+              >
+                {lic.name}
+              </a>
+            ))}
+
             <a href="#/licenciaturas-distancia" className={`mobile-nav-sub${currentHash === "#/licenciaturas-distancia" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Educación a distancia</a>
             <a href="https://posgradofeca.ujed.mx/" className="mobile-nav-sub" target="_blank" rel="noreferrer" onClick={closeMobile}>Posgrado</a>
           </div>

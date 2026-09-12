@@ -180,24 +180,27 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
                 <p className="pf-card-desc">{card.body}</p>
                 {card.actions && (
                   <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: "auto" }}>
-                    {card.actions.map((action, i) => (
-                      <a
-                        key={action.href}
-                        href={action.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={i === 0 ? "pf-btn-primary" : ""}
-                        style={i !== 0 ? {
-                          display: "inline-flex", alignItems: "center", gap: 8,
-                          fontFamily: "var(--font-ui)", fontWeight: 700, fontSize: 13,
-                          color: "var(--navy)", textDecoration: "none",
-                          border: "1.5px solid var(--navy)", borderRadius: 999,
-                          padding: "10px 20px",
-                        } : { background: "linear-gradient(135deg, #c0050f 0%, #e31313 45%, #9b1020 100%)", color: "#fff" }}
-                      >
-                        {action.label}
-                      </a>
-                    ))}
+                    {card.actions.map((action, i) => {
+                      const isExternal = /^https?:\/\//.test(action.href);
+                      return (
+                        <a
+                          key={action.href}
+                          href={action.href}
+                          target={isExternal ? "_blank" : undefined}
+                          rel={isExternal ? "noopener noreferrer" : undefined}
+                          className={i === 0 ? "pf-btn-primary" : ""}
+                          style={i !== 0 ? {
+                            display: "inline-flex", alignItems: "center", gap: 8,
+                            fontFamily: "var(--font-ui)", fontWeight: 700, fontSize: 13,
+                            color: "var(--navy)", textDecoration: "none",
+                            border: "1.5px solid var(--navy)", borderRadius: 999,
+                            padding: "10px 20px",
+                          } : { background: "linear-gradient(135deg, #c0050f 0%, #e31313 45%, #9b1020 100%)", color: "#fff" }}
+                        >
+                          {action.label}
+                        </a>
+                      );
+                    })}
                   </div>
                 )}
               </div>

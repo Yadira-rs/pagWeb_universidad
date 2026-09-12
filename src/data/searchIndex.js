@@ -20,25 +20,25 @@ export const searchIndex = [
   {
     title: "Contador Público",
     description: "Formación en contabilidad financiera, fiscal, auditoría y finanzas",
-    href: "#/licenciaturas",
+    href: "#/licenciaturas/contador-publico",
     keywords: "contador público contabilidad fiscal auditoría finanzas licenciatura CP",
   },
   {
     title: "Licenciado en Administración",
     description: "Planear, dirigir y evaluar organizaciones con visión estratégica y liderazgo",
-    href: "#/licenciaturas",
+    href: "#/licenciaturas/licenciado-en-administracion",
     keywords: "administración empresas gestión recursos humanos estrategia licenciatura LA",
   },
   {
     title: "Economía y Negocios Internacionales",
     description: "Análisis económico, comercio exterior y negocios internacionales",
-    href: "#/licenciaturas",
+    href: "#/licenciaturas/economia-y-negocios-internacionales",
     keywords: "economía negocios internacionales comercio exterior finanzas licenciatura LENI",
   },
   {
     title: "Educación a Distancia",
     description: "Programas de licenciatura en modalidad en línea",
-    href: "#/distancia",
+    href: "#/licenciaturas-distancia",
     keywords: "distancia en línea online virtual modalidad licenciaturas",
   },
   {

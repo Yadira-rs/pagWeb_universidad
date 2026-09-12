@@ -10,6 +10,7 @@ import {
   sectionPages,
 } from "./data/siteData";
 import { legacyPages } from "./data/legacyPages";
+import { getLicenciatura } from "./data/licenciaturasData";
 import HomePage from "./pages/HomePage";
 import SatisfactionWidget from "./components/SatisfactionWidget";
 
@@ -47,6 +48,7 @@ const EgresadosPage = lazy(() => import("./pages/EgresadosPage"));
 const InformePage = lazy(() => import("./pages/InformePage"));
 const AdminPanelPage = lazy(() => import("./pages/AdminPanelPage"));
 const AdminResetPasswordPage = lazy(() => import("./pages/AdminResetPasswordPage"));
+const LicenciaturaDetailPage = lazy(() => import("./pages/LicenciaturaDetailPage"));
 
 function getCurrentRoute() {
   const hash = window.location.hash || "#/";
@@ -102,6 +104,11 @@ function getCurrentRoute() {
   if (hash.startsWith("#/directivos/")) {
     const slug = hash.replace("#/directivos/", "");
     return { page: "director-profile", slug };
+  }
+
+  if (hash.startsWith("#/licenciaturas/")) {
+    const slug = hash.replace("#/licenciaturas/", "");
+    return { page: "licenciatura-detail", slug };
   }
 
   if (hash.startsWith("#/aviso/")) {
@@ -262,6 +269,8 @@ function App() {
                     ? "FECA - Centro de Lenguas y Competitividad Internacional"
                     : route.page === "admin-panel"
                     ? "FECA - Administración"
+                : route.page === "licenciatura-detail"
+                      ? `FECA - ${getLicenciatura(route.slug)?.name ?? "Licenciaturas"}`
                 : route.page === "legacy-program"
                       ? `FECA - ${legacyPages[route.slug]?.title ?? "Oferta Educativa"}`
                       : route.page === "legacy-campus"
@@ -527,6 +536,13 @@ function App() {
       />
     ) : route.page === "director-profile" ? (
       <DirectorProfilePage
+        slug={route.slug}
+        logoImage={logoImage}
+        newsPanelOpen={newsPanelOpen}
+        setNewsPanelOpen={setNewsPanelOpen}
+      />
+    ) : route.page === "licenciatura-detail" ? (
+      <LicenciaturaDetailPage
         slug={route.slug}
         logoImage={logoImage}
         newsPanelOpen={newsPanelOpen}
