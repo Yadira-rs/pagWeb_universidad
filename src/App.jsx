@@ -17,7 +17,6 @@ import SatisfactionWidget from "./components/SatisfactionWidget";
 // el JavaScript inicial (Inicio) es mucho más ligero. El panel de
 // administración —el más pesado— nunca se descarga para el visitante normal.
 const HistoryPage = lazy(() => import("./pages/HistoryPage"));
-const LegacyAdmissionPage = lazy(() => import("./pages/LegacyAdmissionPage"));
 const LegacyContentPage = lazy(() => import("./pages/LegacyContentPage"));
 const PropedeuticoPage = lazy(() => import("./pages/PropedeuticoPage"));
 const MissionVisionPage = lazy(() => import("./pages/MissionVisionPage"));
@@ -273,9 +272,7 @@ function App() {
                         ? `FECA - ${legacyPages[route.slug]?.title ?? "Vida universitaria"}`
                         : route.page === "legacy-teacher"
                           ? `FECA - ${legacyPages[route.slug]?.title ?? "Maestros"}`
-                          : route.page === "legacy-admission"
-                            ? `FECA - ${legacyPages[route.slug]?.title ?? "Solicitud"}`
-                            : route.page === "service-detail"
+                          : route.page === "service-detail"
                               ? `FECA - ${servicePages[route.slug]?.heroTitle ?? "Servicios"}`
                               : route.page === "valores"
                                   ? "FECA - Valores Institucionales"
@@ -466,14 +463,6 @@ function App() {
         newsPanelOpen={newsPanelOpen}
         setNewsPanelOpen={setNewsPanelOpen}
       />
-    ) : route.page === "legacy-admission" ? (
-      <LegacyAdmissionPage
-        content={legacyPages[route.slug]}
-        logoImage={logoImage}
-        newsPanelOpen={newsPanelOpen}
-        setNewsPanelOpen={setNewsPanelOpen}
-      />
-    
     ) : route.page === "biblioteca" ? (
       <Biblioteca
         logoImage={logoImage}

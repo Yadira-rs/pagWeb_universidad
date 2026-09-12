@@ -1401,56 +1401,6 @@ export const legacyPages = {
       },
     ],
   },
-  solicitud: {
-    routeGroup: "legacy-admission",
-    heroImage: "/imagenes/inicio.png",
-    kicker: "Admisiones FECA",
-    title: "Inicia tu solicitud",
-    intro:
-      "Comienza tu proceso de admisión con un registro sencillo. Nuestro equipo puede orientarte sobre carreras, requisitos y fechas importantes.",
-    steps: [
-      {
-        title: "1. Registro",
-        body: "Comparte tus datos y la carrera de interés.",
-      },
-      {
-        title: "2. Orientación",
-        body: "Recibe información sobre requisitos, fechas y documentos.",
-      },
-      {
-        title: "3. Seguimiento",
-        body: "Un asesor te acompañará hasta completar tu inscripción.",
-      },
-    ],
-    requirements: [
-      "Acta de nacimiento",
-      "CURP",
-      "Certificado o constancia de bachillerato",
-      "Correo y teléfono de contacto",
-    ],
-    formFields: [
-      { label: "Nombre completo", name: "nombre", type: "text", placeholder: "Tu nombre" },
-      { label: "Teléfono", name: "telefono", type: "tel", placeholder: "(618) 000-0000" },
-      { label: "Correo", name: "correo", type: "email", placeholder: "correo@ejemplo.com" },
-      {
-        label: "Programa de interés",
-        name: "programa",
-        type: "select",
-        options: [
-          "Licenciatura en Economía",
-          "Licenciatura en Contabilidad",
-          "Licenciatura en Administración",
-          "Posgrado",
-        ],
-      },
-      {
-        label: "Mensaje",
-        name: "mensaje",
-        type: "textarea",
-        placeholder: "Cuéntanos si tienes dudas sobre horarios, requisitos o proceso.",
-      },
-    ],
-  },
   "campus-central": {
     routeGroup: "legacy-campus",
     heroImage: "/imagenes/aniversario.jpeg",
