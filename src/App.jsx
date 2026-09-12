@@ -47,8 +47,6 @@ const EgresadosPage = lazy(() => import("./pages/EgresadosPage"));
 const InformePage = lazy(() => import("./pages/InformePage"));
 const AdminPanelPage = lazy(() => import("./pages/AdminPanelPage"));
 const AdminResetPasswordPage = lazy(() => import("./pages/AdminResetPasswordPage"));
-const AcademicosPage = lazy(() => import("./pages/AcademicosPage"));
-const AdministrativosPage = lazy(() => import("./pages/AdministrativosPage"));
 
 function getCurrentRoute() {
   const hash = window.location.hash || "#/";
@@ -83,8 +81,6 @@ function getCurrentRoute() {
   if (hash === "#/lenguas") return { page: "lenguas" };
   if (hash === "#/ciiedo") return { page: "ciiedo" };
   if (hash === "#/egresados") return { page: "egresados" };
-  if (hash === "#/academicos") return { page: "academicos" };
-  if (hash === "#/administrativos") return { page: "administrativos" };
   if (hash === "#/admin" || hash === "#/admin/login" || hash === "#/admin/egresados-docs") return { page: "admin-panel" };
   if (hash === "#/grupos-representativos") return { page: "grupos" };
 
@@ -492,18 +488,6 @@ function App() {
       <AdminPanelPage />
     ) : route.page === "admin-reset-password" ? (
       <AdminResetPasswordPage />
-    ) : route.page === "academicos" ? (
-      <AcademicosPage
-        logoImage={logoImage}
-        newsPanelOpen={newsPanelOpen}
-        setNewsPanelOpen={setNewsPanelOpen}
-      />
-    ) : route.page === "administrativos" ? (
-      <AdministrativosPage
-        logoImage={logoImage}
-        newsPanelOpen={newsPanelOpen}
-        setNewsPanelOpen={setNewsPanelOpen}
-      />
     ) : route.slug === "curso-propedeutico" ? (
       <PropedeuticoPage
         logoImage={logoImage}
