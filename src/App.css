@@ -6008,11 +6008,21 @@ a.acc-title-link:hover {
   margin: 0 auto;
 }
 
+/* Un solo card (FECA Store, sin CAFECA): caja más angosta para que no
+   quede una franja vacía enorme alrededor de un solo card centrado. */
+.feca-store-section--single {
+  max-width: 520px;
+}
+
 .feca-store-inner {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 410px));
   justify-content: center;
   gap: 24px;
+}
+
+.feca-store-inner--single {
+  grid-template-columns: minmax(0, 410px);
 }
 
 .feca-store-card {
@@ -6040,10 +6050,6 @@ a.acc-title-link:hover {
   overflow: hidden;
 }
 
-.feca-store-logo-wrap--photo {
-  background: #fff;
-}
-
 .feca-store-logo {
   width: 100%;
   max-width: 320px;
@@ -6051,16 +6057,6 @@ a.acc-title-link:hover {
   height: 100%;
   object-fit: contain;
   display: block;
-}
-
-.feca-store-logo-wrap--photo .feca-store-logo {
-  max-width: 320px;
-  min-height: 0;
-  object-fit: contain;
-}
-
-.feca-store-logo-wrap--photo .feca-store-logo--cafeca {
-  padding: 0;
 }
 
 .feca-store-content {

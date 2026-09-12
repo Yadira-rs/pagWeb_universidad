@@ -529,8 +529,8 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
       </section>
 
       <section className="section section-alt feca-store-wrapper fade-up">
-        <div className="feca-store-section">
-          <div className="feca-store-inner">
+        <div className="feca-store-section feca-store-section--single">
+          <div className="feca-store-inner feca-store-inner--single">
             <article className="feca-store-card">
               <div className="feca-store-logo-wrap">
                 <img src="/imagenes/feca_store.png" alt="FECA Store" className="feca-store-logo" />
@@ -548,22 +548,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
                   className="feca-store-btn"
                 >
                   Visitar FECA Store
-                </a>
-              </div>
-            </article>
-
-            <article className="feca-store-card">
-              <div className="feca-store-logo-wrap feca-store-logo-wrap--photo">
-                <img src="/imagenes/cafeca.png" alt="CAFECA" className="feca-store-logo feca-store-logo--cafeca" />
-              </div>
-              <div className="feca-store-content">
-                <div className="section-label feca-store-label">CAFECA</div>
-                <h2 className="feca-store-title">Sabores para tu día</h2>
-                <p className="feca-store-desc">
-                  Disfruta alimentos, bebidas y un espacio cómodo para convivir entre clases dentro de la facultad.
-                </p>
-                <a href="#/cafeteria" className="feca-store-btn">
-                  Ver CAFECA
                 </a>
               </div>
             </article>
