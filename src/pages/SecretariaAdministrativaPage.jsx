@@ -214,18 +214,6 @@ function SecretariaAdministrativaPage({ logoImage, newsPanelOpen, setNewsPanelOp
                     <span className="pf-contact-value">administrativa.feca@ujed.mx</span>
                   </div>
                 </a>
-                <div className="pf-contact-item">
-                  <div className="pf-contact-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                      <circle cx="12" cy="10" r="3"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <span className="pf-contact-label">Ubicación</span>
-                    <span className="pf-contact-value">Edificio FECA · Planta Baja · Cubículo 05</span>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -246,7 +234,6 @@ function SecretariaAdministrativaPage({ logoImage, newsPanelOpen, setNewsPanelOp
               </p>
               <div className="pf-chips" style={{ justifyContent: "center" }}>
                 <span className="pf-chip">Lun–Vie · 8–15 h</span>
-                <span className="pf-chip">Cubículo 05</span>
               </div>
             </div>
           </div>

@@ -288,8 +288,7 @@ function ServiciosEscolaresPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) 
           <div className="pf-fade" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 20 }}>
             {[
               { label: "Horario", value: "Lunes a Viernes · 8:00 – 15:00 h", icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="20" height="20"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> },
-              { label: "Ubicación", value: "Edificio FECA · Planta Baja", icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="20" height="20"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> },
-              { label: "Correo", value: "escolares@feca.ujed.mx", href: "mailto:escolares@feca.ujed.mx", icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="20" height="20"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> },
+              { label: "Correo", value: "escolares.feca@ujed.mx", href: "mailto:escolares.feca@ujed.mx", icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="20" height="20"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> },
             ].map((c) => (
               c.href
                 ? <a key={c.label} href={c.href} className="pf-contact-item" style={{ background: "#fff", borderRadius: 12, padding: "24px 28px", textDecoration: "none" }}>

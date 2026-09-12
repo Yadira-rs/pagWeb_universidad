@@ -313,6 +313,32 @@ export default function Biblioteca({
         </div>
       </section>
 
+      {/* ── CONTACTO ── */}
+      <section className="pf-section pf-fade">
+        <div className="pf-container" style={{ maxWidth: 720 }}>
+          <div className="pf-info-box" style={{ textAlign: "center" }}>
+            <div className="pf-card-icon pf-card-icon-light" style={{ margin: "0 auto 18px" }}>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                width="28"
+                height="28"
+              >
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+            </div>
+            <h2 style={{ margin: "0 0 10px" }}>¿Necesitas ayuda?</h2>
+            <p style={{ margin: "0 0 18px" }}>
+              Escríbenos para dudas sobre préstamos, acervo o los servicios de la Biblioteca.
+            </p>
+            <a href="mailto:bibloteca.feca@ujed.mx" className="pf-chip">bibloteca.feca@ujed.mx</a>
+          </div>
+        </div>
+      </section>
+
       <Footer logoImage={logoImage} />
     </div>
   );

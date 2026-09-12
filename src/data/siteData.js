@@ -670,6 +670,7 @@ export const servicePages = {
     heroTitle: "Coordinación de Planeación y Evaluación Institucional",
     intro:
       "Área responsable de la planeación estratégica, la evaluación de programas académicos y el seguimiento de los planes de desarrollo de la facultad.",
+    email: "planeacion.feca@ujed.mx",
     items: [
       {
         title: "Funciones de la Coordinación de Planeación y Evaluación Institucional",

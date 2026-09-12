@@ -211,16 +211,15 @@ function TutoriasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
         <div className="pf-container">
           <div className="pf-section-head pf-section-head-center">
             <div className="pf-label">Contacto</div>
-            <h2 className="pf-section-title">Ubicación y medios de contacto</h2>
+            <h2 className="pf-section-title">Medios de contacto</h2>
             <p className="pf-section-desc">
               Ante cualquier duda, aclaración o necesidad, puedes acudir directamente a la Coordinación de Tutorías o comunicarte por las vías institucionales:
             </p>
           </div>
           <div className="pf-fade" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 20 }}>
             {[
-              { label: "Ubicación", value: "Edificio D (Ubicada exactamente detrás del elevador)." },
-              { label: "Teléfono de oficina", value: "618-827-13-65 | Extensión: 5735 ", href: "Extensión: 5735" },
-              { label: "Correo electrónico", value: "tutorias.feca@ujed.mx", href: "mailto:tutorias@feca.ujed.mx" },
+              { label: "Teléfono de oficina", value: "618-827-13-65 | Extensión: 5735 ", href: "tel:+526188271365,5735" },
+              { label: "Correo electrónico", value: "tutorias.feca@ujed.mx", href: "mailto:tutorias.feca@ujed.mx" },
             ].map((item) => (
               item.href ? (
                 <a key={item.label} href={item.href} className="pf-contact-item" style={{ background: "#fff", borderRadius: 12, padding: "24px 28px" }}>
