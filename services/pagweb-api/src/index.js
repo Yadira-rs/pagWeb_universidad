@@ -202,6 +202,20 @@ app.use(
   })
 );
 
+// Agenda/calendario de CIIEDO (eventos, talleres y certificaciones).
+// Mismo patrón que noticias_recientes/avisos_escolares: lectura pública
+// filtrada por `publicado`, escritura solo con sesión.
+app.use(
+  "/api/ciiedo_agenda",
+  createTableRouter({
+    table: "ciiedo_agenda",
+    columns: ["tipo", "titulo", "fecha_texto", "descripcion", "publicado", "orden"],
+    orderBy: "orden asc",
+    permissions: { read: "public", insert: "auth", update: "auth", delete: "auth" },
+    publicFilter: "publicado = true",
+  })
+);
+
 // Documentos de egresados: el CRUD queda listo, pero EgresadosDocsManager
 // todavía no se cambia de import — depende de Supabase Storage, que se
 // migra en el siguiente hito (src/lib/storageClient.js).

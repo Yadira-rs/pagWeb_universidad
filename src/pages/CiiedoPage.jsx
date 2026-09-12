@@ -1,6 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Header from "../sections/Header";
 import Footer from "../sections/Footer";
+import { supabase } from "../lib/apiClient";
 
 const servicios = [
   {
@@ -143,6 +144,7 @@ const STATS = [
 
 export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
   const observerRef = useRef(null);
+  const [agenda, setAgenda] = useState([]);
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -151,6 +153,26 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
     );
     document.querySelectorAll(".pf-fade").forEach((el) => observerRef.current.observe(el));
     return () => observerRef.current?.disconnect();
+  }, []);
+
+  useEffect(() => {
+    let active = true;
+    supabase
+      .from("ciiedo_agenda")
+      .select("*")
+      .eq("publicado", true)
+      .order("orden", { ascending: true })
+      .then(({ data, error }) => {
+        if (!active) return;
+        if (error) {
+          console.error("Error cargando agenda de CIIEDO:", error);
+          return;
+        }
+        setAgenda(data || []);
+      });
+    return () => {
+      active = false;
+    };
   }, []);
 
   return (
@@ -370,11 +392,29 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
                   border: "1px solid #ece8e8",
                 }}
               >
-                <img
-                  src="/imagenes/CIIEDO_calendario.jpeg"
-                  alt="Calendario CIIEDO"
-                  style={{ width: "100%", height: "auto", display: "block" }}
-                />
+                {agenda.length > 0 ? (
+                  <div style={{ padding: 24, display: "flex", flexDirection: "column", gap: 18 }}>
+                    {agenda.map((a, i) => (
+                      <div
+                        key={a.id}
+                        style={i < agenda.length - 1 ? { paddingBottom: 18, borderBottom: "1px solid #f0e8e8" } : undefined}
+                      >
+                        <span className="pf-chip" style={{ marginBottom: 8 }}>{a.tipo}</span>
+                        <h4 style={{ margin: "8px 0 4px", color: "var(--navy)" }}>{a.titulo}</h4>
+                        <p style={{ margin: 0, color: "#951823", fontWeight: 600, fontSize: 14 }}>{a.fecha_texto}</p>
+                        {a.descripcion && (
+                          <p style={{ margin: "4px 0 0", color: "#666", fontSize: 14 }}>{a.descripcion}</p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <img
+                    src="/imagenes/CIIEDO_calendario.jpeg"
+                    alt="Calendario CIIEDO"
+                    style={{ width: "100%", height: "auto", display: "block" }}
+                  />
+                )}
               </div>
             </div>
           </div>
