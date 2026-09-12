@@ -300,13 +300,13 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
 
             <h2 className="wds-heading">
               Un mensaje de <br />
-              <em className="wds-heading-em">nuestra Dirección</em>
+              <em className="wds-heading-em">nuestro Director</em>
             </h2>
 
             <div className="wds-quote-block">
               <span className="wds-quote-mark" aria-hidden="true">"</span>
               <p className="wds-quote-text">
-                La Dirección guía el desarrollo académico, administrativo y humano de la facultad,
+                Como Director, guío el desarrollo académico, administrativo y humano de la facultad,
                 fortaleciendo el rumbo institucional de la FECA y el futuro profesional de cada uno de nuestros estudiantes.
               </p>
             </div>
