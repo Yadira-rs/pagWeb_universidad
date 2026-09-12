@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import Footer from "../sections/Footer";
 import Header from "../sections/Header";
 import DirectorPhotoShowcase from "../components/DirectorPhotoShowcase";
+import { supabase } from "../lib/apiClient";
 
 /* ── Carrusel de historia ── */
 function HistoryCarousel({ slides }) {
@@ -85,10 +86,36 @@ function HistoryCarousel({ slides }) {
 /* ── Componente principal ── */
 function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen }) {
   const [activeTab, setActiveTab] = useState(content?.tabs?.[0]?.href ?? "");
+  const [intersemestralDocs, setIntersemestralDocs] = useState([]);
   const observerRef = useRef(null);
 
   useEffect(() => {
     setActiveTab(content?.tabs?.[0]?.href ?? "");
+  }, [content]);
+
+  // "Oferta Intersemestral" era una tarjeta fija con un PDF hardcodeado
+  // (ver cursos-intersemestrales en legacyPages.js). Ahora se puede subir
+  // el documento desde el panel (#/admin) — si ya hay algo publicado ahí,
+  // reemplaza esa tarjeta; si la tabla sigue vacía, no cambia nada.
+  useEffect(() => {
+    if (content?.title !== "Cursos Intersemestrales") return;
+    let active = true;
+    supabase
+      .from("cursos_intersemestrales_docs")
+      .select("*")
+      .eq("publicado", true)
+      .order("orden", { ascending: true })
+      .then(({ data, error }) => {
+        if (!active) return;
+        if (error) {
+          console.error("Error cargando documentos de Cursos Intersemestrales:", error);
+          return;
+        }
+        setIntersemestralDocs(data || []);
+      });
+    return () => {
+      active = false;
+    };
   }, [content]);
 
   useEffect(() => {
@@ -106,6 +133,21 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
     content.tabMode === "switch"
       ? content.sections?.filter((s) => s.id === activeTab)
       : content.sections;
+
+  // Si ya hay documentos publicados en el panel, sustituyen a la tarjeta
+  // fija "Oferta Intersemestral" (misma forma: title/body/actions) sin
+  // tocar el resto de los panels (ej. "Contacto").
+  const panels =
+    content.title === "Cursos Intersemestrales" && intersemestralDocs.length > 0
+      ? [
+          ...intersemestralDocs.map((doc) => ({
+            title: doc.titulo,
+            body: doc.descripcion,
+            actions: [{ href: doc.archivo_url, label: doc.boton_label || "Descargar" }],
+          })),
+          ...(content.panels ?? []).filter((p) => p.title !== "Oferta Intersemestral"),
+        ]
+      : content.panels;
 
   /* ── Renderiza una sección interna ── */
   const renderSection = (section) => {
@@ -374,17 +416,17 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
 
   /* ── Renderiza panels (modo legacy sin sections) ── */
   const renderPanels = () => {
-    if (!content.panels) return null;
+    if (!panels) return null;
 
     if (content.planStyle) {
       return (
         <div className="plan-style-section">
           <div className="legacy-kicker plan-section-label">Planes de estudio</div>
-          {content.panels.filter(p => !p.actions).map(panel => (
+          {panels.filter(p => !p.actions).map(panel => (
             <p key={panel.title} className="plan-style-intro">{panel.body}</p>
           ))}
           <div className="plan-cards-grid">
-            {content.panels.filter(p => p.actions).map(panel => (
+            {panels.filter(p => p.actions).map(panel => (
               <article key={panel.title} className="plan-card">
                 <div className="plan-card-icon">
                   <svg viewBox="0 0 24 24" fill="none" width="32" height="32">
@@ -425,13 +467,13 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
     if (content.listStyle) {
       return (
         <>
-          {content.panels.filter((p) => !p.actions && !p.items).map((panel) => (
+          {panels.filter((p) => !p.actions && !p.items).map((panel) => (
             <p key={panel.title} style={{ fontFamily: "var(--font-body)", fontSize: 16, color: "#555", lineHeight: 1.75, marginBottom: 20 }}>
               {panel.body}
             </p>
           ))}
           <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-            {content.panels.filter((p) => p.actions || p.items).map((panel) => (
+            {panels.filter((p) => p.actions || p.items).map((panel) => (
               <div key={panel.title} className="pf-info-box" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 24, flexWrap: "wrap" }}>
                 <div style={{ flex: 1 }}>
                   <h2 style={{ fontFamily: "var(--font-display)", fontSize: 20, color: "var(--navy)", margin: "0 0 8px" }}>{panel.title}</h2>
@@ -492,7 +534,7 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
 
     return (
       <div className="pf-cards-grid">
-        {content.panels.map((panel) => (
+        {panels.map((panel) => (
           <div
             key={panel.title}
             className={`pf-card pf-card-top ${panel.variant === "contact" ? "" : ""}`}
@@ -691,7 +733,7 @@ function LegacyContentPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
       )}
 
       {/* ── PANELS ── */}
-      {content.panels && (
+      {panels && (
         <section className="pf-section pf-section-light pf-fade">
           <div className="pf-container">
             {renderPanels()}

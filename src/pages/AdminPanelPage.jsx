@@ -8,12 +8,14 @@ import AccesoManager from "../components/admin/AccesoManager";
 import NoticiasManager from "../components/admin/NoticiasManager";
 import AvisosEscolaresManager from "../components/admin/AvisosEscolaresManager";
 import CiiedoAgendaManager from "../components/admin/CiiedoAgendaManager";
+import IntersemestralesDocsManager from "../components/admin/IntersemestralesDocsManager";
 
 const TABS = [
   { key: "anuncios", label: "Anuncios y noticias" },
   { key: "noticias", label: "Últimas noticias" },
   { key: "avisos-escolares", label: "Avisos escolares" },
   { key: "ciiedo-agenda", label: "Agenda CIIEDO" },
+  { key: "intersemestrales-docs", label: "Oferta Intersemestral" },
   { key: "hero", label: "Carrusel de Inicio" },
   { key: "opiniones", label: "Opiniones del sitio" },
   { key: "acceso", label: "Solicitudes de acceso" },
@@ -73,6 +75,8 @@ function AdminPanelPage() {
         <AvisosEscolaresManager />
       ) : tab === "ciiedo-agenda" ? (
         <CiiedoAgendaManager />
+      ) : tab === "intersemestrales-docs" ? (
+        <IntersemestralesDocsManager />
       ) : tab === "hero" ? (
         <HeroSlidesManager />
       ) : tab === "opiniones" ? (

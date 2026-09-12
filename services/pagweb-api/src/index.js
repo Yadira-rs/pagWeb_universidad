@@ -216,6 +216,20 @@ app.use(
   })
 );
 
+// Documento(s) de "Oferta Intersemestral" en Cursos Intersemestrales.
+// Mismo patrón que avisos_escolares/ciiedo_agenda: lectura pública
+// filtrada por `publicado`, escritura solo con sesión.
+app.use(
+  "/api/cursos_intersemestrales_docs",
+  createTableRouter({
+    table: "cursos_intersemestrales_docs",
+    columns: ["titulo", "descripcion", "boton_label", "archivo_url", "publicado", "orden"],
+    orderBy: "orden asc",
+    permissions: { read: "public", insert: "auth", update: "auth", delete: "auth" },
+    publicFilter: "publicado = true",
+  })
+);
+
 // Documentos de egresados: el CRUD queda listo, pero EgresadosDocsManager
 // todavía no se cambia de import — depende de Supabase Storage, que se
 // migra en el siguiente hito (src/lib/storageClient.js).
