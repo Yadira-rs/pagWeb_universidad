@@ -533,6 +533,7 @@ export const servicePages = {
     heroTitle: "Servicio Social",
     intro:
       "Información importante, reglamentos, formatos y documentos oficiales.",
+    email: "serviciosocial.feca@ujed.mx",
     grouped: true,
     items: [
       {
@@ -930,6 +931,7 @@ export const servicePages = {
     heroTitle: "Prácticas Profesionales",
     intro:
       "Consulta información sobre experiencia recepcional, formatos y documentos para tu proceso.",
+    email: "serviciosocial.feca@ujed.mx",
     items: [
       {
         title: "Instrucciones Prácticas Profesionales",
