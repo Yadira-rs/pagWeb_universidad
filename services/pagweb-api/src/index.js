@@ -12,7 +12,26 @@ import { uploadsRouter } from "./uploads.js";
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-app.use(cors({ origin: process.env.CORS_ORIGIN || "http://localhost:5173" }));
+// CORS_ORIGIN acepta uno o varios orígenes separados por coma (ej. el
+// sitio en el servidor de la universidad y, aparte, el mismo sitio
+// desplegado en Vercel) — antes solo aceptaba uno solo, así que un
+// visitante desde el origen "extra" se topaba con un "Failed to fetch"
+// silencioso (el navegador bloquea la respuesta antes de que JS la vea).
+const allowedOrigins = (process.env.CORS_ORIGIN || "http://localhost:5173")
+  .split(",")
+  .map((o) => o.trim())
+  .filter(Boolean);
+
+app.use(
+  cors({
+    origin(origin, callback) {
+      // Sin header Origin (ej. curl, Postman, apps móviles) o coincide con
+      // la lista permitida: se deja pasar. Cualquier otro origen se rechaza.
+      if (!origin || allowedOrigins.includes(origin)) return callback(null, true);
+      callback(new Error("Origen no permitido por CORS"));
+    },
+  })
+);
 app.use(express.json());
 
 app.get("/health", (_req, res) => {
