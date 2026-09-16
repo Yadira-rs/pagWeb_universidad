@@ -145,6 +145,7 @@ const STATS = [
 export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
   const observerRef = useRef(null);
   const [agenda, setAgenda] = useState([]);
+  const [imagenes, setImagenes] = useState({});
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -169,6 +170,29 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
           return;
         }
         setAgenda(data || []);
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  // Carteles que CIIEDO reemplaza desde el panel ("Imágenes CIIEDO"):
+  // "institucional" y "calendario" (este último con prioridad sobre la
+  // agenda en lista de arriba — ver CiiedoAgendaManager).
+  useEffect(() => {
+    let active = true;
+    supabase
+      .from("ciiedo_imagenes")
+      .select("*")
+      .then(({ data, error }) => {
+        if (!active) return;
+        if (error) {
+          console.error("Error cargando imágenes de CIIEDO:", error);
+          return;
+        }
+        const bySlug = {};
+        for (const row of data || []) bySlug[row.slug] = row.imagen_url;
+        setImagenes(bySlug);
       });
     return () => {
       active = false;
@@ -369,7 +393,7 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
                 }}
               >
                 <img
-                  src="/imagenes/CIIEDO.jpg"
+                  src={imagenes.institucional || "/imagenes/CIIEDO.jpg"}
                   alt="Información institucional CIIEDO"
                   style={{ width: "100%", height: "auto", display: "block" }}
                 />
@@ -392,7 +416,13 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
                   border: "1px solid #ece8e8",
                 }}
               >
-                {agenda.length > 0 ? (
+                {imagenes.calendario ? (
+                  <img
+                    src={imagenes.calendario}
+                    alt="Calendario CIIEDO"
+                    style={{ width: "100%", height: "auto", display: "block" }}
+                  />
+                ) : agenda.length > 0 ? (
                   <div style={{ padding: 24, display: "flex", flexDirection: "column", gap: 18 }}>
                     {agenda.map((a, i) => (
                       <div

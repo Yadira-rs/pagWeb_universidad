@@ -249,6 +249,20 @@ app.use(
   })
 );
 
+// Imágenes de CIIEDO ("Información institucional" y "Calendarios y
+// actividades") — carteles de diseño que CIIEDO reemplaza cada
+// cuatrimestre. Dos filas fijas identificadas por `slug`, sin concepto
+// de "publicado" (siempre son las 2 imágenes vigentes).
+app.use(
+  "/api/ciiedo_imagenes",
+  createTableRouter({
+    table: "ciiedo_imagenes",
+    columns: ["slug", "titulo", "imagen_url"],
+    orderBy: "slug asc",
+    permissions: { read: "public", insert: "auth", update: "auth", delete: "auth" },
+  })
+);
+
 // Documentos de egresados: el CRUD queda listo, pero EgresadosDocsManager
 // todavía no se cambia de import — depende de Supabase Storage, que se
 // migra en el siguiente hito (src/lib/storageClient.js).

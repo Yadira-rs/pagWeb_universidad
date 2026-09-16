@@ -112,7 +112,12 @@ function CiiedoAgendaManager() {
       <div className="admpanel-section-header">
         <div>
           <h2>Agenda de CIIEDO</h2>
-          <p>Aparece en la sección "Calendarios y actividades" de la página de CIIEDO: eventos, talleres y certificaciones. Mientras no haya ningún elemento publicado, la página sigue mostrando la imagen fija de respaldo.</p>
+          <p>
+            Alternativa en texto a la sección "Calendarios y actividades" de la página de CIIEDO. La pestaña
+            "Imágenes CIIEDO" (el cartel que suben cada cuatrimestre) tiene prioridad: mientras haya una imagen
+            subida ahí, esta lista no se muestra. Solo aparece si en algún momento prefieren quitar esa imagen
+            y usar una lista de eventos en su lugar.
+          </p>
         </div>
         <button className="admpanel-btn-primary" onClick={openNew}>+ Nuevo elemento</button>
       </div>
