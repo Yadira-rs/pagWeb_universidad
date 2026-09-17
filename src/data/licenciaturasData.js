@@ -14,15 +14,41 @@ export const licenciaturas = [
     name: "Contador Público",
     plan: "P2021",
     tagline: "Domina las finanzas, la fiscalidad y la auditoría",
-    resumen:
-      "Formación en información financiera, fiscal, administrativa, auditoría, costos y finanzas para la toma de decisiones empresariales e institucionales. Te preparamos para ser la persona en quien las organizaciones confían su contabilidad, su cumplimiento fiscal y la salud de sus finanzas.",
-    perfilEgreso: [
-      "Elaborar, analizar e interpretar estados financieros para la toma de decisiones.",
-      "Diseñar y aplicar sistemas de costos y de control interno.",
-      "Cumplir y asesorar en materia fiscal, laboral y de seguridad social.",
-      "Planear y ejecutar auditorías financieras, fiscales y administrativas.",
-      "Participar en la planeación financiera y presupuestal de organizaciones públicas y privadas.",
+    resumen: [
+      "La Licenciatura en Contador Público te prepara para comprender y transformar la información financiera en decisiones que generan valor para las organizaciones.",
+      "Durante tu formación desarrollarás competencias en contabilidad, finanzas, costos, auditoría, control interno, fiscalidad y proyectos de inversión, además de fortalecer tus habilidades para analizar información, resolver problemas y tomar decisiones con visión estratégica.",
+      "Aprenderás a utilizar tecnologías de información, interpretar la normatividad y legislación aplicable, y comunicarte de manera efectiva en español e inglés, siempre bajo principios de ética, responsabilidad social y compromiso profesional.",
+      "Prepárate para convertir los números en decisiones y las decisiones en oportunidades.",
     ],
+    perfilIngreso: {
+      intro: "Es deseable que el aspirante tenga:",
+      items: [
+        "Capacidad para analizar e interpretar información.",
+        "Interés por las matemáticas, la contabilidad y las finanzas.",
+        "Capacidad para resolver problemas y proponer soluciones.",
+        "Facilidad para comunicar sus ideas de manera clara.",
+        "Capacidad para trabajar en equipo y colaborar con diferentes personas.",
+        "Pensamiento crítico y reflexivo para tomar decisiones.",
+        "Disposición para aprender, innovar y adaptarse a los cambios.",
+        "Interés por el entorno empresarial y económico.",
+      ],
+    },
+    perfilEgreso: {
+      intro:
+        "Al concluir la Licenciatura en Contador Público, serás un profesional preparado para analizar información, resolver problemas y tomar decisiones financieras y administrativas que contribuyan al crecimiento de las organizaciones. Contarás con las competencias para:",
+      items: [
+        "Diseñar y gestionar sistemas de información contable y financiera conforme a la normatividad nacional e internacional.",
+        "Analizar información financiera, costos y recursos para apoyar la toma de decisiones.",
+        "Aplicar conocimientos en auditoría, control interno y gestión de riesgos.",
+        "Interpretar y aplicar disposiciones fiscales, legales y administrativas para el cumplimiento de obligaciones.",
+        "Formular y evaluar proyectos de inversión e identificar oportunidades de negocio.",
+        "Utilizar tecnologías, plataformas digitales y herramientas de análisis de datos en el ejercicio profesional.",
+        "Trabajar en equipos multidisciplinarios, comunicarte de manera efectiva en español e inglés y desarrollar habilidades de liderazgo.",
+        "Ejercer la profesión con ética, responsabilidad social, inclusión y compromiso con el desarrollo sostenible.",
+      ],
+      cierre:
+        "Tu formación te permitirá desempeñarte en distintos ámbitos y organizaciones del sector público y privado, adaptarte a nuevos retos y continuar desarrollándote profesionalmente.",
+    },
     campoLaboral: [
       "Despachos de contaduría y auditoría",
       "Departamentos de finanzas, contabilidad y tesorería",
@@ -45,15 +71,41 @@ export const licenciaturas = [
     name: "Licenciado en Administración",
     plan: "P2021",
     tagline: "Lidera, planea y transforma organizaciones",
-    resumen:
-      "Formación para planear, dirigir y evaluar organizaciones con visión estratégica, flexible y emprendedora orientada al liderazgo. Aprenderás a gestionar personas, recursos y proyectos para que cualquier organización —desde una startup hasta una gran empresa— funcione mejor.",
-    perfilEgreso: [
-      "Diseñar y aplicar estrategias de planeación, organización, dirección y control.",
-      "Gestionar el talento humano, la mercadotecnia, las operaciones y las finanzas de una organización.",
-      "Detectar oportunidades de negocio y desarrollar proyectos emprendedores.",
-      "Tomar decisiones basadas en el análisis de información administrativa y de mercado.",
-      "Impulsar la mejora continua y la innovación dentro de las organizaciones.",
+    resumen: [
+      "La Licenciatura en Administración te prepara para diseñar, dirigir y transformar organizaciones, desarrollando las habilidades necesarias para gestionar personas, recursos financieros y tecnológicos de manera estratégica.",
+      "Durante tu formación aprenderás a planear, organizar, dirigir y evaluar procesos, identificar oportunidades, resolver problemas y tomar decisiones que contribuyan a la eficiencia, rentabilidad y competitividad de las organizaciones.",
+      "Desarrollarás competencias para desempeñarte en áreas relacionadas con la gestión empresarial, talento humano, finanzas, negocios y emprendimiento, tanto en organizaciones públicas como privadas y en diferentes contextos nacionales e internacionales.",
+      "Además, fortalecerás tus habilidades de liderazgo, innovación, trabajo en equipo y responsabilidad social, preparándote para enfrentar los retos de un entorno empresarial en constante cambio.",
+      "Si tienes ideas, te gustan los retos y quieres aprender a convertir oportunidades en resultados, la Administración puede ser tu camino.",
     ],
+    perfilIngreso: {
+      intro:
+        "Si te interesa el mundo de los negocios, las organizaciones y el liderazgo, la Licenciatura en Administración puede ser para ti.",
+      items: [
+        "Iniciativa, pensamiento crítico y capacidad para resolver problemas, disfrutando analizar información, proponer ideas y buscar nuevas formas de hacer las cosas.",
+        "Facilidad para comunicar tus ideas, trabajar en equipo, interpretar información y utilizar herramientas matemáticas para analizar diferentes situaciones.",
+        "Curiosidad, creatividad y disposición para asumir retos, capaz de escuchar diferentes puntos de vista y convertir tus ideas en soluciones.",
+      ],
+      cierre:
+        "Si te gusta tomar la iniciativa, trabajar con personas y transformar ideas en resultados, aquí puedes comenzar a construir tu futuro.",
+    },
+    perfilEgreso: {
+      intro:
+        "Al concluir la Licenciatura en Administración, serás un profesional capaz de gestionar organizaciones, desarrollar proyectos y tomar decisiones estratégicas para responder a los retos de un entorno empresarial en constante cambio. Contarás con las competencias para:",
+      items: [
+        "Identificar oportunidades de negocio y gestionar proyectos y riesgos para impulsar el crecimiento y permanencia de las organizaciones.",
+        "Resolver problemas en áreas como capital humano, operaciones, mercadotecnia y finanzas.",
+        "Analizar la situación financiera de las organizaciones y gestionar sus recursos para alcanzar sus objetivos.",
+        "Gestionar procesos de producción, logística, calidad y cadena de valor.",
+        "Formular y evaluar proyectos de inversión y nuevos negocios en los sectores público y privado.",
+        "Utilizar tecnologías y herramientas digitales para analizar información, gestionar procesos y apoyar la toma de decisiones.",
+        "Aplicar herramientas de investigación para analizar mercados, identificar necesidades y generar soluciones.",
+        "Comunicarte de manera efectiva en español y otra lengua, desenvolviéndote en diferentes contextos profesionales.",
+        "Integrar principios de responsabilidad social, desarrollo sustentable y ética profesional en la gestión de las organizaciones.",
+      ],
+      cierre:
+        "Tu formación te permitirá desempeñarte en diferentes áreas de las organizaciones públicas y privadas, participar en proyectos, desarrollar negocios y asumir responsabilidades de gestión y dirección. Prepárate para liderar organizaciones, transformar ideas en proyectos y convertir los retos del entorno en oportunidades.",
+    },
     campoLaboral: [
       "Dirección y gerencia de empresas públicas y privadas",
       "Áreas de recursos humanos, mercadotecnia y operaciones",
@@ -76,15 +128,43 @@ export const licenciaturas = [
     name: "Lic. en Economía y Negocios Internacionales",
     plan: "P2021",
     tagline: "Analiza mercados y conecta a México con el mundo",
-    resumen:
-      "Formación en análisis económico, comercio exterior, finanzas, mercados y negocios internacionales con visión global. Es la carrera para quienes quieren entender cómo se mueve la economía y participar en el comercio entre países y empresas.",
-    perfilEgreso: [
-      "Analizar el comportamiento de mercados, precios e indicadores económicos.",
-      "Diseñar estrategias de comercio exterior, importación y exportación.",
-      "Evaluar proyectos de inversión y negocios internacionales.",
-      "Interpretar el impacto de políticas económicas y tratados comerciales.",
-      "Aplicar herramientas cuantitativas para la toma de decisiones económicas y financieras.",
+    resumen: [
+      "La Licenciatura en Economía y Negocios Internacionales te prepara para comprender cómo funcionan los mercados, las empresas y las economías, utilizando teoría económica, herramientas cuantitativas y análisis de datos para interpretar los retos del entorno y proponer soluciones.",
+      "Durante tu formación desarrollarás habilidades para analizar fenómenos económicos, tomar decisiones estratégicas, negociar y responder a escenarios económicos cambiantes, tanto en empresas como en mercados financieros y en el sector público.",
+      "Además, podrás participar en proyectos relacionados con los negocios internacionales, contribuyendo al crecimiento económico y al desarrollo de propuestas sustentables, innovadoras y socialmente responsables.",
+      "Si te interesa entender cómo funciona la economía, analizar el mundo de los negocios y convertir los datos en decisiones, esta carrera puede ser para ti.",
     ],
+    perfilIngreso: {
+      intro:
+        "Si te interesa entender cómo funcionan la economía, los mercados y los negocios, disfrutas analizar información y buscas comprender los cambios que ocurren en México y el mundo, esta carrera puede ser para ti.",
+      items: [
+        "Facilidad para el análisis, el razonamiento numérico y la interpretación de información.",
+        "Interés por investigar, resolver problemas y proponer soluciones.",
+        "Iniciativa, pensamiento crítico y capacidad para tomar decisiones.",
+        "Facilidad para comunicarte, trabajar en equipo y adaptarte a nuevos retos.",
+        "Valores como la responsabilidad, honestidad, respeto, disciplina y tolerancia.",
+      ],
+      cierre:
+        "Si quieres entender el mundo a través de los datos, analizar oportunidades y participar en los negocios del futuro, aquí puedes comenzar.",
+    },
+    perfilEgreso: {
+      intro:
+        "Al concluir la Licenciatura en Economía y Negocios Internacionales, serás un profesional capaz de analizar fenómenos económicos, interpretar datos y desarrollar estrategias para responder a los retos de los mercados y los negocios en un entorno global. Contarás con las competencias para:",
+      items: [
+        "Diseñar, analizar y evaluar proyectos desde una perspectiva económica.",
+        "Interpretar datos estadísticos y modelos económicos para generar información que apoye la toma de decisiones.",
+        "Desarrollar proyectos de inversión y estrategias de comercio exterior.",
+        "Crear, emprender e innovar en negocios con una visión global y sostenible.",
+        "Aplicar la normatividad económica, financiera, comercial y aduanera en contextos nacionales e internacionales.",
+        "Diseñar estrategias de internacionalización de empresas, incluyendo procesos de importación, exportación e inversión extranjera.",
+        "Utilizar herramientas matemáticas, estadísticas, econométricas y de investigación para analizar y resolver problemas económicos.",
+        "Desarrollarte en español e inglés en contextos académicos, profesionales y de negocios.",
+        "Trabajar en equipos multidisciplinarios, asumir roles de liderazgo y adaptarte a los cambios del entorno económico.",
+        "Ejercer tu profesión con ética, responsabilidad social, inclusión y respeto al medio ambiente.",
+      ],
+      cierre:
+        "Tu formación te permitirá participar en empresas, mercados financieros, organismos públicos, proyectos de inversión y negocios internacionales, así como desarrollar tus propios proyectos y emprendimientos. Convierte los datos en decisiones, las oportunidades en negocios y tu visión en impacto global.",
+    },
     campoLaboral: [
       "Comercio exterior, importación y exportación",
       "Instituciones financieras y de análisis económico",

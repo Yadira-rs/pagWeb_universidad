@@ -37,7 +37,7 @@ export default function LicenciaturaDetailPage({ slug, logoImage, newsPanelOpen,
     );
   }
 
-  const { abbr, name, plan, tagline, resumen, perfilEgreso, campoLaboral, destacados, planEstudiosHref, mapaCurricularHref } = licenciatura;
+  const { abbr, name, plan, tagline, resumen, perfilIngreso, perfilEgreso, campoLaboral, destacados, planEstudiosHref, mapaCurricularHref } = licenciatura;
 
   return (
     <div className="site-shell">
@@ -69,26 +69,60 @@ export default function LicenciaturaDetailPage({ slug, logoImage, newsPanelOpen,
           <div className="pf-section-head">
             <div className="pf-label">{abbr} · {plan}</div>
             <h2 className="pf-section-title">¿De qué se trata esta carrera?</h2>
-            <p className="pf-section-desc">{resumen}</p>
+            {resumen.map((parrafo) => (
+              <p key={parrafo} className="pf-section-desc">{parrafo}</p>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* PERFIL DE EGRESO + CAMPO LABORAL */}
+      {/* PERFIL DE INGRESO */}
       <section className="pf-section pf-section-alt pf-fade">
+        <div className="pf-container" style={{ maxWidth: 820 }}>
+          <div className="pf-section-head">
+            <div className="pf-label">¿Es esta tu carrera?</div>
+            <h2 className="pf-section-title">Perfil de ingreso</h2>
+            {perfilIngreso.intro && <p className="pf-section-desc">{perfilIngreso.intro}</p>}
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+            {perfilIngreso.items.map((item) => (
+              <div key={item} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
+                <span style={{ color: "#e31313", marginTop: 2 }}><CheckIcon /></span>
+                <span style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "#444", lineHeight: 1.6 }}>{item}</span>
+              </div>
+            ))}
+          </div>
+          {perfilIngreso.cierre && (
+            <p className="pf-section-desc" style={{ marginTop: 20 }}>{perfilIngreso.cierre}</p>
+          )}
+        </div>
+      </section>
+
+      {/* PERFIL DE EGRESO + CAMPO LABORAL */}
+      <section className="pf-section pf-fade">
         <div className="pf-container">
           <div className="pf-two-col" style={{ gap: 40, alignItems: "start" }}>
             <div>
               <div className="pf-label" style={{ marginBottom: 6 }}>Al egresar, serás capaz de</div>
               <h2 className="pf-section-title" style={{ marginBottom: 20 }}>Perfil de egreso</h2>
+              {perfilEgreso.intro && (
+                <p style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "#444", lineHeight: 1.6, margin: "0 0 16px" }}>
+                  {perfilEgreso.intro}
+                </p>
+              )}
               <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-                {perfilEgreso.map((item) => (
+                {perfilEgreso.items.map((item) => (
                   <div key={item} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
                     <span style={{ color: "#e31313", marginTop: 2 }}><CheckIcon /></span>
                     <span style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "#444", lineHeight: 1.6 }}>{item}</span>
                   </div>
                 ))}
               </div>
+              {perfilEgreso.cierre && (
+                <p style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "#444", lineHeight: 1.6, margin: "16px 0 0" }}>
+                  {perfilEgreso.cierre}
+                </p>
+              )}
             </div>
 
             <div>
