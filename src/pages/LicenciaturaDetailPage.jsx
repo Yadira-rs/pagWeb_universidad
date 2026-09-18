@@ -37,7 +37,7 @@ export default function LicenciaturaDetailPage({ slug, logoImage, newsPanelOpen,
     );
   }
 
-  const { abbr, name, plan, tagline, resumen, perfilIngreso, perfilEgreso, campoLaboral, destacados, planEstudiosHref, mapaCurricularHref } = licenciatura;
+  const { abbr, name, plan, tagline, resumen, perfilIngreso, perfilEgreso, campoLaboral, destacados, planEstudiosHref, mapaCurricularHref, mapaCurricularImg } = licenciatura;
 
   return (
     <div className="site-shell">
@@ -166,6 +166,23 @@ export default function LicenciaturaDetailPage({ slug, logoImage, newsPanelOpen,
               Consulta el plan de estudios completo y el mapa curricular de {name}.
             </p>
           </div>
+          {mapaCurricularImg && (
+            <a
+              href={mapaCurricularImg}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pf-fade"
+              style={{ display: "block", maxWidth: 1000, margin: "0 auto 28px" }}
+              title="Abrir mapa curricular en tamaño completo"
+            >
+              <img
+                src={mapaCurricularImg}
+                alt={`Mapa curricular de ${name}, plan ${plan}`}
+                loading="lazy"
+                style={{ width: "100%", height: "auto", display: "block", borderRadius: 10, background: "#fff" }}
+              />
+            </a>
+          )}
           <div className="pf-fade" style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
             <a href={planEstudiosHref} target="_blank" rel="noopener noreferrer" className="pf-btn-primary" style={{ background: "linear-gradient(135deg, #c0050f 0%, #e31313 45%, #9b1020 100%)", color: "#fff" }}>
               Descargar plan de estudios

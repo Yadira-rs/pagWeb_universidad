@@ -64,6 +64,7 @@ export const licenciaturas = [
     ],
     planEstudiosHref: "/docs/plan-de-estudios_cp_2021.pdf",
     mapaCurricularHref: "/docs/mapa-curricular_cp_2021.pdf",
+    mapaCurricularImg: "/imagenes/mapas/mapa-curricular-cp-2021.jpg",
   },
   {
     slug: "licenciado-en-administracion",
@@ -121,6 +122,7 @@ export const licenciaturas = [
     ],
     planEstudiosHref: "/docs/plan_de_estudios_la_2021.pdf",
     mapaCurricularHref: "/docs/mapas_curriculares_la_2021.pdf",
+    mapaCurricularImg: "/imagenes/mapas/mapa-curricular-la-2021.jpg",
   },
   {
     slug: "economia-y-negocios-internacionales",
@@ -180,6 +182,7 @@ export const licenciaturas = [
     ],
     planEstudiosHref: "/docs/plan_de_estudios_leni_2021.pdf",
     mapaCurricularHref: "/docs/mapas_curriculares_leni_2021.pdf",
+    mapaCurricularImg: "/imagenes/mapas/mapa-curricular-leni-2021.jpg",
   },
 ];
 
