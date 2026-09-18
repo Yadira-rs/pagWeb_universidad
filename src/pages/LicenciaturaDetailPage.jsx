@@ -194,24 +194,6 @@ export default function LicenciaturaDetailPage({ slug, logoImage, newsPanelOpen,
         </div>
       </section>
 
-      {/* CONTACTO */}
-      <section className="pf-section pf-fade">
-        <div className="pf-container" style={{ maxWidth: 720 }}>
-          <div className="pf-info-box" style={{ textAlign: "center" }}>
-            <div className="pf-card-icon pf-card-icon-light" style={{ margin: "0 auto 18px" }}>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="28" height="28">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.82 19 19.5 19.5 0 0 1 5 12 19.79 19.79 0 0 1 1.14 4.16 2 2 0 0 1 3.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11l-.91.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-              </svg>
-            </div>
-            <h2 style={{ margin: "0 0 10px" }}>¿Te interesa estudiar {abbr}?</h2>
-            <p style={{ margin: "0 0 18px" }}>
-              Llámanos al (618) 827-13-65 o consulta los trámites de inscripción en Servicios Escolares.
-            </p>
-            <a href="#/servicios/servicios-escolares" className="pf-chip">Ver trámites de inscripción</a>
-          </div>
-        </div>
-      </section>
-
       <Footer logoImage={logoImage} />
     </div>
   );
