@@ -386,13 +386,13 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
             <span className="licenciaturas-cta">Conoce nuestras licenciaturas</span>
           </div>
           <div className="licenciaturas-img-strip zoom-in">
-            <a className="licenciaturas-img-item" href="#/licenciaturas" style={{ backgroundImage: "url('/imagenes/aniversario.jpeg')" }}>
+            <a className="licenciaturas-img-item" href="#/licenciaturas/contador-publico" style={{ backgroundImage: "url('/imagenes/aniversario.jpeg')" }}>
 <div className="licenciaturas-img-label">Contador Público</div>
             </a>
-            <a className="licenciaturas-img-item" href="#/licenciaturas" style={{ backgroundImage: "url('/imagenes/feca-entrada.jpg')" }}>
+            <a className="licenciaturas-img-item" href="#/licenciaturas/licenciado-en-administracion" style={{ backgroundImage: "url('/imagenes/feca-entrada.jpg')" }}>
 <div className="licenciaturas-img-label">Licenciado en Administración</div>
             </a>
-            <a className="licenciaturas-img-item" href="#/licenciaturas" style={{ backgroundImage: "url('/imagenes/feca-plaza-1.jpg')" }}>
+            <a className="licenciaturas-img-item" href="#/licenciaturas/economia-y-negocios-internacionales" style={{ backgroundImage: "url('/imagenes/feca-plaza-1.jpg')" }}>
 <div className="licenciaturas-img-label">Lic. en Economía y Negocios Internacionales</div>
             </a>
           </div>
