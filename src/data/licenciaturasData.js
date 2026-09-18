@@ -11,6 +11,7 @@ export const licenciaturas = [
     abbr: "CP",
     name: "Contador Público",
     plan: "P2021",
+    heroImg: "/imagenes/aniversario.jpeg",
     tagline: "Domina las finanzas, la fiscalidad y la auditoría",
     resumen: [
       "La Licenciatura en Contador Público te prepara para comprender y transformar la información financiera en decisiones que generan valor para las organizaciones.",
@@ -80,6 +81,7 @@ export const licenciaturas = [
     abbr: "LA",
     name: "Licenciado en Administración",
     plan: "P2021",
+    heroImg: "/imagenes/feca-entrada.jpg",
     tagline: "Lidera, planea y transforma organizaciones",
     resumen: [
       "La Licenciatura en Administración te prepara para diseñar, dirigir y transformar organizaciones, desarrollando las habilidades necesarias para gestionar personas, recursos financieros y tecnológicos de manera estratégica.",
@@ -145,6 +147,7 @@ export const licenciaturas = [
     abbr: "LENI",
     name: "Lic. en Economía y Negocios Internacionales",
     plan: "P2021",
+    heroImg: "/imagenes/feca-plaza-1.jpg",
     tagline: "Analiza mercados y conecta a México con el mundo",
     resumen: [
       "La Licenciatura en Economía y Negocios Internacionales te prepara para comprender cómo funcionan los mercados, las empresas y las economías, utilizando teoría económica, herramientas cuantitativas y análisis de datos para interpretar los retos del entorno y proponer soluciones.",
