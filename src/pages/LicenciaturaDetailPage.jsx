@@ -258,12 +258,12 @@ export default function LicenciaturaDetailPage({ slug, logoImage, newsPanelOpen,
       </section>
 
       {/* PLAN DE ESTUDIOS */}
-      <section id="lic-plan" className="pf-section pf-section-dark pf-fade">
+      <section id="lic-plan" className="pf-section pf-section-alt pf-fade">
         <div className="pf-container">
           <div className="pf-section-head pf-section-head-center">
-            <div className="pf-label pf-label-light">Documentos oficiales</div>
-            <h2 className="pf-section-title pf-title-white">Plan de estudios {plan}</h2>
-            <p className="pf-section-desc pf-desc-white">
+            <div className="pf-label">Documentos oficiales</div>
+            <h2 className="pf-section-title">Plan de estudios {plan}</h2>
+            <p className="pf-section-desc">
               Consulta el plan de estudios completo y el mapa curricular de {name}.
             </p>
           </div>
