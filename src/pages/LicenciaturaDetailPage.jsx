@@ -30,7 +30,7 @@ export default function LicenciaturaDetailPage({ slug, logoImage, newsPanelOpen,
         <Header logoImage={logoImage} newsPanelOpen={newsPanelOpen} setNewsPanelOpen={setNewsPanelOpen} />
         <main style={{ padding: "120px 24px", textAlign: "center" }}>
           <p>Licenciatura no encontrada.</p>
-          <a href="#/licenciaturas">← Volver a Licenciaturas</a>
+          <a href="#/oferta-educativa">← Volver a Oferta Educativa</a>
         </main>
         <Footer logoImage={logoImage} />
       </div>
@@ -51,11 +51,11 @@ export default function LicenciaturaDetailPage({ slug, logoImage, newsPanelOpen,
       {/* HERO */}
       <section className="pf-hero pf-hero-sm" style={{ background: "linear-gradient(135deg, #c0050f 0%, #e31313 45%, #9b1020 100%)" }}>
         <div className="pf-hero-inner" style={{ paddingBottom: 64 }}>
-          <a href="#/licenciaturas" className="dp-back-link">
+          <a href="#/oferta-educativa" className="dp-back-link">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="15 18 9 12 15 6" />
             </svg>
-            Licenciaturas
+            Oferta Educativa
           </a>
           <div className="pf-hero-badge">Licenciatura presencial · {plan}</div>
           <h1 className="pf-hero-title">{name}</h1>

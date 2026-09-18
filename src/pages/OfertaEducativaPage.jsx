@@ -4,13 +4,6 @@ import Footer from "../sections/Footer";
 
 const ofertaCards = [
   {
-    title: "Licenciaturas",
-    description: "Programas presenciales de Contaduría Pública, Administración y Economía y Negocios Internacionales.",
-    href: "#/licenciaturas",
-    image: "/imagenes/lic.jpg",
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M22 10v6"/><path d="M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>,
-  },
-  {
     title: "Educación a distancia",
     description: "Estudia en modalidad en línea con la misma calidad académica y flexibilidad de horarios.",
     href: "#/licenciaturas-distancia",

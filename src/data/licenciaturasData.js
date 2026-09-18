@@ -1,11 +1,9 @@
 // Contenido de las pantallas individuales de cada licenciatura presencial
 // (#/licenciaturas/:slug), enlazadas desde el submenú "Licenciaturas" del
-// header y desde las tarjetas de #/licenciaturas.
+// header y desde las fotos de la página de inicio.
 //
 // Duración (8 semestres / 4 años) confirmada con el dato ya publicado en
-// FaqPage.jsx ("¿Cuántos semestres dura cada licenciatura?"). Los enlaces
-// de plan de estudios y mapa curricular son los mismos que ya usa la
-// tarjeta de cada carrera en legacyPages.js (licenciaturas.sections[0]).
+// FaqPage.jsx ("¿Cuántos semestres dura cada licenciatura?").
 
 export const licenciaturas = [
   {

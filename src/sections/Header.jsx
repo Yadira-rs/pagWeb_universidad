@@ -173,12 +173,12 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
                 </div>
 
                 <div className="acc-row">
-                  <a className="acc-title acc-title-link" href="#/licenciaturas">
+                  <span className="acc-title">
                     Licenciaturas
                     <svg className="acc-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="11" height="11" aria-hidden="true">
                       <polyline points="9 6 15 12 9 18" />
                     </svg>
-                  </a>
+                  </span>
                   <div className="acc-panel">
                     {licenciaturas.map((lic) => (
                       <a key={lic.slug} className="dropdown-sub" href={`#/licenciaturas/${lic.slug}`}>{lic.name}</a>
@@ -580,7 +580,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
             <a href="#/cursos-intersemestrales" className={`mobile-nav-sub${currentHash === "#/cursos-intersemestrales" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Cursos Intersemestrales</a>
             <a href="#/curso-propedeutico" className={`mobile-nav-sub${currentHash === "#/curso-propedeutico" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Cursos Propedéutico</a>
 
-            <a href="#/licenciaturas" className={`mobile-nav-subgroup${currentHash === "#/licenciaturas" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Licenciaturas</a>
+            <span className="mobile-nav-subgroup">Licenciaturas</span>
             {licenciaturas.map((lic) => (
               <a
                 key={lic.slug}

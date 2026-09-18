@@ -12,12 +12,6 @@ export const searchIndex = [
     keywords: "oferta educativa programas academicos cursos centros formacion licenciaturas posgrado propedeutico intersemestrales celci ciiedo idiomas innovacion carreras",
   },
   {
-    title: "Licenciaturas",
-    description: "Contador Público, Licenciado en Administración, Economía y Negocios Internacionales",
-    href: "#/licenciaturas",
-    keywords: "licenciaturas programas oferta educativa presencial carreras contador administración economía",
-  },
-  {
     title: "Contador Público",
     description: "Formación en contabilidad financiera, fiscal, auditoría y finanzas",
     href: "#/licenciaturas/contador-publico",
