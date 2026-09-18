@@ -82,18 +82,19 @@ export default function LicenciaturaDetailPage({ slug, logoImage, newsPanelOpen,
           <div className="pf-section-head">
             <div className="pf-label">¿Es esta tu carrera?</div>
             <h2 className="pf-section-title">Perfil de ingreso</h2>
-            {perfilIngreso.intro && <p className="pf-section-desc">{perfilIngreso.intro}</p>}
+            {perfilIngreso.parrafos
+              ? perfilIngreso.parrafos.map((p) => <p key={p} className="pf-section-desc">{p}</p>)
+              : perfilIngreso.intro && <p className="pf-section-desc">{perfilIngreso.intro}</p>}
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-            {perfilIngreso.items.map((item) => (
-              <div key={item} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
-                <span style={{ color: "#e31313", marginTop: 2 }}><CheckIcon /></span>
-                <span style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "#444", lineHeight: 1.6 }}>{item}</span>
-              </div>
-            ))}
-          </div>
-          {perfilIngreso.cierre && (
-            <p className="pf-section-desc" style={{ marginTop: 20 }}>{perfilIngreso.cierre}</p>
+          {perfilIngreso.items && (
+            <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+              {perfilIngreso.items.map((item) => (
+                <div key={item} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
+                  <span style={{ color: "#e31313", marginTop: 2 }}><CheckIcon /></span>
+                  <span style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "#444", lineHeight: 1.6 }}>{item}</span>
+                </div>
+              ))}
+            </div>
           )}
         </div>
       </section>
@@ -128,11 +129,21 @@ export default function LicenciaturaDetailPage({ slug, logoImage, newsPanelOpen,
             <div>
               <div className="pf-label" style={{ marginBottom: 6 }}>¿Dónde puedes trabajar?</div>
               <h2 className="pf-section-title" style={{ marginBottom: 20 }}>Campo laboral</h2>
+              {campoLaboral.intro && (
+                <p style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "#444", lineHeight: 1.6, margin: "0 0 16px" }}>
+                  {campoLaboral.intro}
+                </p>
+              )}
               <div className="pf-chips" style={{ flexDirection: "column", alignItems: "flex-start", gap: 10 }}>
-                {campoLaboral.map((item) => (
+                {campoLaboral.items.map((item) => (
                   <span key={item} className="pf-chip" style={{ width: "100%", justifyContent: "flex-start", boxSizing: "border-box" }}>{item}</span>
                 ))}
               </div>
+              {campoLaboral.cierre && (
+                <p style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "#444", lineHeight: 1.6, margin: "16px 0 0" }}>
+                  {campoLaboral.cierre}
+                </p>
+              )}
             </div>
           </div>
         </div>

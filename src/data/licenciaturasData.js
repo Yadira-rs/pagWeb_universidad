@@ -49,13 +49,24 @@ export const licenciaturas = [
       cierre:
         "Tu formación te permitirá desempeñarte en distintos ámbitos y organizaciones del sector público y privado, adaptarte a nuevos retos y continuar desarrollándote profesionalmente.",
     },
-    campoLaboral: [
-      "Despachos de contaduría y auditoría",
-      "Departamentos de finanzas, contabilidad y tesorería",
-      "Instituciones públicas y organismos de gobierno",
-      "Consultoría fiscal y financiera independiente",
-      "Docencia e investigación contable",
-    ],
+    campoLaboral: {
+      intro:
+        "Como egresado de la Licenciatura en Contador Público, podrás desarrollarte en organizaciones públicas y privadas, empresas, instituciones financieras, firmas de servicios profesionales y otros sectores, en áreas como:",
+      items: [
+        "Contabilidad y auditoría",
+        "Fiscal y cumplimiento de obligaciones",
+        "Finanzas y gestión de recursos",
+        "Administración y contraloría",
+        "Costos y presupuestos",
+        "Control interno y sistemas contables",
+        "Proyectos de inversión y proyectos sociales",
+        "Asesoría de negocios",
+        "Capacitación y consultoría",
+        "Docencia e investigación",
+      ],
+      cierre:
+        "Podrás desempeñarte en cargos operativos, de supervisión o directivos, aplicando tus conocimientos para contribuir a la gestión y toma de decisiones de las organizaciones.",
+    },
     destacados: [
       "Plan de estudios P2021 actualizado, con mapa curricular disponible para descarga.",
       "Docentes con experiencia profesional en despachos contables y financieros.",
@@ -80,15 +91,13 @@ export const licenciaturas = [
       "Si tienes ideas, te gustan los retos y quieres aprender a convertir oportunidades en resultados, la Administración puede ser tu camino.",
     ],
     perfilIngreso: {
-      intro:
+      parrafos: [
         "Si te interesa el mundo de los negocios, las organizaciones y el liderazgo, la Licenciatura en Administración puede ser para ti.",
-      items: [
-        "Iniciativa, pensamiento crítico y capacidad para resolver problemas, disfrutando analizar información, proponer ideas y buscar nuevas formas de hacer las cosas.",
-        "Facilidad para comunicar tus ideas, trabajar en equipo, interpretar información y utilizar herramientas matemáticas para analizar diferentes situaciones.",
-        "Curiosidad, creatividad y disposición para asumir retos, capaz de escuchar diferentes puntos de vista y convertir tus ideas en soluciones.",
-      ],
-      cierre:
+        "Es deseable que seas una persona con iniciativa, pensamiento crítico y capacidad para resolver problemas, que disfrute analizar información, proponer ideas y buscar nuevas formas de hacer las cosas.",
+        "También es importante que tengas facilidad para comunicar tus ideas, trabajar en equipo, interpretar información y utilizar herramientas matemáticas para analizar diferentes situaciones.",
+        "Buscamos jóvenes con curiosidad, creatividad y disposición para asumir retos, capaces de escuchar diferentes puntos de vista y convertir sus ideas en soluciones.",
         "Si te gusta tomar la iniciativa, trabajar con personas y transformar ideas en resultados, aquí puedes comenzar a construir tu futuro.",
+      ],
     },
     perfilEgreso: {
       intro:
@@ -107,13 +116,22 @@ export const licenciaturas = [
       cierre:
         "Tu formación te permitirá desempeñarte en diferentes áreas de las organizaciones públicas y privadas, participar en proyectos, desarrollar negocios y asumir responsabilidades de gestión y dirección. Prepárate para liderar organizaciones, transformar ideas en proyectos y convertir los retos del entorno en oportunidades.",
     },
-    campoLaboral: [
-      "Dirección y gerencia de empresas públicas y privadas",
-      "Áreas de recursos humanos, mercadotecnia y operaciones",
-      "Consultoría y emprendimiento propio",
-      "Instituciones gubernamentales y organismos no lucrativos",
-      "Docencia e investigación en administración",
-    ],
+    campoLaboral: {
+      intro:
+        "El egresado de la Licenciatura en Administración puede desarrollarse en organizaciones públicas y privadas, instituciones educativas, empresas de distintos sectores o ejercer de manera independiente, en áreas como:",
+      items: [
+        "Administración y gestión organizacional",
+        "Recursos humanos",
+        "Finanzas y contraloría",
+        "Mercadotecnia y relaciones públicas",
+        "Sistemas y procesos administrativos",
+        "Consultoría y asesoría empresarial",
+        "Gestión de proyectos",
+        "Emprendimiento y creación de empresas",
+        "Capacitación",
+        "Docencia e investigación",
+      ],
+    },
     destacados: [
       "Plan de estudios P2021 con enfoque en liderazgo, innovación y emprendimiento.",
       "Vinculación con el sector productivo a través de prácticas profesionales y el CIIEDO.",
@@ -137,17 +155,13 @@ export const licenciaturas = [
       "Si te interesa entender cómo funciona la economía, analizar el mundo de los negocios y convertir los datos en decisiones, esta carrera puede ser para ti.",
     ],
     perfilIngreso: {
-      intro:
+      parrafos: [
         "Si te interesa entender cómo funcionan la economía, los mercados y los negocios, disfrutas analizar información y buscas comprender los cambios que ocurren en México y el mundo, esta carrera puede ser para ti.",
-      items: [
-        "Facilidad para el análisis, el razonamiento numérico y la interpretación de información.",
-        "Interés por investigar, resolver problemas y proponer soluciones.",
-        "Iniciativa, pensamiento crítico y capacidad para tomar decisiones.",
-        "Facilidad para comunicarte, trabajar en equipo y adaptarte a nuevos retos.",
-        "Valores como la responsabilidad, honestidad, respeto, disciplina y tolerancia.",
-      ],
-      cierre:
+        "Es deseable que tengas facilidad para el análisis, el razonamiento numérico y la interpretación de información, así como interés por investigar, resolver problemas y proponer soluciones.",
+        "También buscamos jóvenes con iniciativa, pensamiento crítico y capacidad para tomar decisiones, que sepan comunicarse, trabajar en equipo y adaptarse a nuevos retos.",
+        "Tu formación se fortalecerá con valores como la responsabilidad, honestidad, respeto, disciplina y tolerancia, fundamentales para desenvolverte en un entorno profesional global.",
         "Si quieres entender el mundo a través de los datos, analizar oportunidades y participar en los negocios del futuro, aquí puedes comenzar.",
+      ],
     },
     perfilEgreso: {
       intro:
@@ -167,13 +181,22 @@ export const licenciaturas = [
       cierre:
         "Tu formación te permitirá participar en empresas, mercados financieros, organismos públicos, proyectos de inversión y negocios internacionales, así como desarrollar tus propios proyectos y emprendimientos. Convierte los datos en decisiones, las oportunidades en negocios y tu visión en impacto global.",
     },
-    campoLaboral: [
-      "Comercio exterior, importación y exportación",
-      "Instituciones financieras y de análisis económico",
-      "Organismos públicos de planeación y política económica",
-      "Empresas con operaciones internacionales",
-      "Consultoría económica y de negocios internacionales",
-    ],
+    campoLaboral: {
+      intro:
+        "El egresado de la Licenciatura en Economía y Negocios Internacionales puede desarrollarse en empresas privadas, instituciones públicas, organismos nacionales e internacionales, centros de investigación y organizaciones del sector financiero, en áreas como:",
+      items: [
+        "Economía y análisis de mercados",
+        "Comercio exterior y negocios internacionales",
+        "Finanzas y mercados internacionales",
+        "Consultoría y asesoría económica",
+        "Gestión de recursos y políticas públicas",
+        "Diseño y evaluación de proyectos de desarrollo económico",
+        "Análisis del entorno económico",
+        "Gestión de negocios internacionales",
+        "Función pública y organismos internacionales",
+        "Investigación y análisis económico",
+      ],
+    },
     destacados: [
       "Plan de estudios P2021 con enfoque en comercio exterior y economía global.",
       "Formación complementaria en idiomas a través del Centro de Lenguas (CELCI).",
