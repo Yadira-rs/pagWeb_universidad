@@ -300,7 +300,7 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
             {/* Columna derecha: foto grande + mini fotos */}
             <div className="ciiedo-about-gallery">
               <div className="ciiedo-about-img-main">
-                <img src="/imagenes/feca-entrada.jpg" alt="Entrada FECA" />
+                <img src="/imagenes/Galeria_5.jpg" alt="Entrada FECA" />
                 <div className="ciiedo-about-img-caption">Facultad de Economía, Contaduría y Administración</div>
               </div>
               <div className="ciiedo-about-img-side">
@@ -311,7 +311,7 @@ export default function CiiedoPage({ logoImage, newsPanelOpen, setNewsPanelOpen 
                     className="ciiedo-about-logo"
                   />
                 </div>
-                <img src="/imagenes/feca-plaza-1.jpg" alt="Campus FECA" />
+                <img src="/imagenes/Inv_Publicaciones.jpg" alt="Campus FECA" />
                 <img src="/imagenes/aniversario.jpeg" alt="FECA UJED" />
               </div>
             </div>

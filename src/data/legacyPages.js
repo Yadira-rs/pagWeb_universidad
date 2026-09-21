@@ -319,7 +319,7 @@ export const legacyPages = {
   },
   cesa: {
     routeGroup: "cesa",
-    heroImage: "/imagenes/feca-plaza-1.jpg",
+    heroImage: "/imagenes/Inv_Publicaciones.jpg",
     kicker: "Vida universitaria · Gestión 2025-2027",
     title: "CESA · UNE FECA",
     intro:

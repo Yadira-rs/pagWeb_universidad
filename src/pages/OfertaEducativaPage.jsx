@@ -23,14 +23,14 @@ const ofertaCards = [
     title: "Curso Propedéutico",
     description: "Prepárate para el ingreso a la facultad con nuestro curso introductorio de dos modalidades.",
     href: "#/curso-propedeutico",
-    image: "/imagenes/feca-entrada.jpg",
+    image: "/imagenes/Galeria_5.jpg",
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>,
   },
   {
     title: "Cursos Intersemestrales",
     description: "Avanza en tu carrera durante los periodos entre semestres con cursos intensivos.",
     href: "#/cursos-intersemestrales",
-    image: "/imagenes/inicio.png",
+    image: "/imagenes/FECA.jpg",
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>,
   },
   {
@@ -82,7 +82,7 @@ export default function OfertaEducativaPage({ logoImage, newsPanelOpen, setNewsP
       {/* ── HERO ── */}
       <section
         className="pf-hero"
-        style={{ backgroundImage: `url('/imagenes/feca-entrada.jpg')` }}
+        style={{ backgroundImage: `url('/imagenes/Galeria_5.jpg')` }}
       >
         <div className="pf-hero-overlay" />
         <div className="pf-hero-inner">

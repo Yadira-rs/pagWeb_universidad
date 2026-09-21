@@ -29,7 +29,7 @@ function SingleSectionPage({ content, slug, logoImage, newsPanelOpen, setNewsPan
         className="pf-hero pf-hero-sm"
         style={
           slug === "organigrama"
-            ? { backgroundImage: `url('/imagenes/feca-entrada.jpg')` }
+            ? { backgroundImage: `url('/imagenes/Galeria_5.jpg')` }
             : { background: "linear-gradient(135deg, #c0050f 0%, #e31313 45%, #9b1020 100%)" }
         }
       >

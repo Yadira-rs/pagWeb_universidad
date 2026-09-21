@@ -198,7 +198,7 @@ export const historyEntries = [
     title: 'Facultad de Contaduría y Administración',
     body:
       'En septiembre de 1979 dio inicio el primer cuatrimestre del programa de posgrado, tras el esfuerzo de catedráticos como el Dr. Juan Francisco Salazar Benítez, primer jefe de posgrado. De esta manera, la institución pasó a denominarse Facultad de Contaduría y Administración (FCA).',
-    image: '/imagenes/feca-plaza-1.jpg',
+    image: '/imagenes/Inv_Publicaciones.jpg',
   },
   {
     year: 1991,
@@ -252,7 +252,7 @@ export const historyEntries = [
       'Más de dos mil alumnos, profesores y trabajadores cada día.',
       'Un edificio de valor arquitectónico único en la ciudad de Durango.',
     ],
-    image: '/imagenes/feca-entrada.jpg',
+    image: '/imagenes/Galeria_5.jpg',
   },
   {
     year: 'Fuentes',
@@ -440,7 +440,7 @@ export const sectionPages = {
       {
         title: 'Valores de pertenencia',
         items: ['Responsabilidad social', 'sentido de pertenencia'],
-        image: '/imagenes/feca-plaza-1.jpg',
+        image: '/imagenes/Inv_Publicaciones.jpg',
       },
       {
         title: 'Valores de compromiso',
@@ -455,7 +455,7 @@ export const sectionPages = {
       {
         title: 'Valores institucionales',
         items: ['Responsabilidad social', 'sentido de pertenencia'],
-        image: '/imagenes/feca-entrada.jpg',
+        image: '/imagenes/Galeria_5.jpg',
       },
       {
         title: 'Valores sociales',

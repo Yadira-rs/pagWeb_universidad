@@ -56,7 +56,7 @@ function TutoriasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
       <section
         className="pf-hero pf-hero-sm"
         style={{
-          backgroundImage: `linear-gradient(135deg, rgba(80,12,18,0.78), rgba(227,19,19,0.22)), url('/imagenes/feca-entrada.jpg')`,
+          backgroundImage: `linear-gradient(135deg, rgba(80,12,18,0.78), rgba(227,19,19,0.22)), url('/imagenes/Galeria_5.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'

@@ -177,7 +177,7 @@ function PropedeuticoPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
       <section
         className="prop2-hero"
         style={{
-          backgroundImage: `url('/imagenes/feca-entrada.jpg')`,
+          backgroundImage: `url('/imagenes/Galeria_5.jpg')`,
         }}
       >
         <div className="prop2-hero-overlay" />

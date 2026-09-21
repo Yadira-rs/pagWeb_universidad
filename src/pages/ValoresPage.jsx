@@ -8,7 +8,7 @@ const valueSections = [
     title: "Valores Fundamentales",
     body: "La base ética que orienta el comportamiento, las decisiones y las relaciones de toda nuestra comunidad universitaria.",
     items: ["Ética", "Honestidad", "Respeto a la dignidad humana"],
-    image: "/imagenes/feca-plaza-1.jpg",
+    image: "/imagenes/Inv_Publicaciones.jpg",
   },
   {
     eyebrow: "IDENTIDAD Y COMPROMISO",
@@ -22,7 +22,7 @@ const valueSections = [
     title: "Valores Sociales y de Excelencia",
     body: "Impulsamos un entorno inclusivo y transformador donde la innovación, la calidad y el respeto a la diversidad son motores de crecimiento.",
     items: ["Equidad", "Igualdad", "Interculturalidad", "Cultura de la paz", "Innovación", "Calidad", "Emprendimiento"],
-    image: "/imagenes/feca-entrada.jpg",
+    image: "/imagenes/Galeria_5.jpg",
   },
 ];
 

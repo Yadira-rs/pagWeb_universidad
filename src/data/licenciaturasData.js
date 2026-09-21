@@ -11,7 +11,8 @@ export const licenciaturas = [
     abbr: "CP",
     name: "Contador Público",
     plan: "P2021",
-    heroImg: "/imagenes/aniversario.jpeg",
+    heroImg: "/imagenes/Galeria_4.jpg",
+    coordinador: { grado: "Dra.", nombre: "Carmen Eugenia Herrera Sánchez", foto: null },
     tagline: "Domina las finanzas, la fiscalidad y la auditoría",
     resumen: [
       "La Licenciatura en Contador Público te prepara para comprender y transformar la información financiera en decisiones que generan valor para las organizaciones.",
@@ -81,7 +82,8 @@ export const licenciaturas = [
     abbr: "LA",
     name: "Licenciado en Administración",
     plan: "P2021",
-    heroImg: "/imagenes/feca-entrada.jpg",
+    heroImg: "/imagenes/Galeria_5.jpg",
+    coordinador: { grado: "Dra.", nombre: "Lourdes Elena Hernández Carrillo", foto: null },
     tagline: "Lidera, planea y transforma organizaciones",
     resumen: [
       "La Licenciatura en Administración te prepara para diseñar, dirigir y transformar organizaciones, desarrollando las habilidades necesarias para gestionar personas, recursos financieros y tecnológicos de manera estratégica.",
@@ -147,7 +149,8 @@ export const licenciaturas = [
     abbr: "LENI",
     name: "Lic. en Economía y Negocios Internacionales",
     plan: "P2021",
-    heroImg: "/imagenes/feca-plaza-1.jpg",
+    heroImg: "/imagenes/Inv_Publicaciones.jpg",
+    coordinador: { grado: "Dr.", nombre: "Mario Alberto García Meza", foto: null },
     tagline: "Analiza mercados y conecta a México con el mundo",
     resumen: [
       "La Licenciatura en Economía y Negocios Internacionales te prepara para comprender cómo funcionan los mercados, las empresas y las economías, utilizando teoría económica, herramientas cuantitativas y análisis de datos para interpretar los retos del entorno y proponer soluciones.",

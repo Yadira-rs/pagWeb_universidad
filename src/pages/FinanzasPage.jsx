@@ -114,7 +114,7 @@ function FinanzasPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
       />
 
       {/* HERO */}
-      <section className="pf-hero" style={{ backgroundImage: "url('/imagenes/feca-entrada.jpg')" }}>
+      <section className="pf-hero" style={{ backgroundImage: "url('/imagenes/Galeria_5.jpg')" }}>
         <div className="pf-hero-overlay" />
         <div className="pf-hero-inner">
           <div className="pf-hero-badge">Servicios · FECA</div>

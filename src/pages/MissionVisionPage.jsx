@@ -64,7 +64,7 @@ function MissionVisionPage({ content, logoImage, newsPanelOpen, setNewsPanelOpen
           </div>
           <div>
             <img
-              src="/imagenes/feca-plaza-1.jpg"
+              src="/imagenes/Inv_Publicaciones.jpg"
               alt="Fachada principal de la FECA"
               style={{ width: "100%", borderRadius: 20, boxShadow: "0 20px 56px rgba(0,0,0,0.14)" }}
             />

@@ -171,7 +171,7 @@ function NosotrosPage({ logoImage, newsPanelOpen, setNewsPanelOpen }) {
       {/* ── HERO ── */}
       <section
         className="pf-hero"
-        style={{ backgroundImage: `url('/imagenes/feca-plaza-1.jpg')` }}
+        style={{ backgroundImage: `url('/imagenes/Inv_Publicaciones.jpg')` }}
       >
         <div className="pf-hero-overlay" />
         <div className="pf-hero-inner">

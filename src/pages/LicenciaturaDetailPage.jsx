@@ -95,7 +95,7 @@ export default function LicenciaturaDetailPage({ slug, logoImage, newsPanelOpen,
     );
   }
 
-  const { abbr, name, plan, heroImg, tagline, resumen, perfilIngreso, perfilEgreso, campoLaboral, destacados, planEstudiosHref, mapaCurricularHref, mapaCurricularImg } = licenciatura;
+  const { abbr, name, plan, heroImg, coordinador, tagline, resumen, perfilIngreso, perfilEgreso, campoLaboral, destacados, planEstudiosHref, mapaCurricularHref, mapaCurricularImg } = licenciatura;
   const ingreso = normalizaIngreso(perfilIngreso);
   const [lead, ...restoResumen] = resumen;
   const frase = restoResumen.length > 1 ? restoResumen[restoResumen.length - 1] : null;
@@ -238,6 +238,30 @@ export default function LicenciaturaDetailPage({ slug, logoImage, newsPanelOpen,
           {campoLaboral.cierre && <p className="lic-closing">{campoLaboral.cierre}</p>}
         </div>
       </section>
+
+      {/* COORDINACIÓN */}
+      {coordinador && (
+        <section className="pf-section pf-fade lic-coord-section">
+          <div className="pf-container">
+            <div className="lic-coord">
+              {coordinador.foto ? (
+                <img className="lic-coord-photo" src={coordinador.foto} alt={`${coordinador.grado} ${coordinador.nombre}`} loading="lazy" />
+              ) : (
+                <span className="lic-coord-photo lic-coord-initials" aria-hidden="true">
+                  {coordinador.nombre.split(" ").filter((_, i, a) => i === 0 || i === a.length - 2).map((p) => p[0]).join("")}
+                </span>
+              )}
+              <div>
+                <div className="pf-label">Coordinación de la carrera</div>
+                <h3 className="lic-coord-name">{coordinador.grado} {coordinador.nombre}</h3>
+                <p className="lic-coord-role">
+                  {coordinador.grado === "Dra." ? "Coordinadora" : "Coordinador"} de la Licenciatura en {name.replace(/^Lic(enciado|\.)? en /, "")}
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* POR QUÉ ESTUDIARLA EN LA FECA */}
       <section className="pf-section pf-fade">
