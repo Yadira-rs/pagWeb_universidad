@@ -514,30 +514,36 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
         </div>
       </section>
 
-      <section className="section section-alt feca-store-wrapper fade-up">
-        <div className="feca-store-section feca-store-section--single">
-          <div className="feca-store-inner feca-store-inner--single">
-            <article className="feca-store-card">
-              <div className="feca-store-logo-wrap">
-                <img src="/imagenes/feca_store.png" alt="FECA Store" className="feca-store-logo" />
+      <section className="section feca-store-wrapper fade-up">
+        <div className="container">
+          <article className="feca-store-banner">
+            <div className="feca-store-banner-logo">
+              <img src="/imagenes/feca_store.png" alt="FECA Store" className="feca-store-logo" />
+            </div>
+            <div className="feca-store-banner-content">
+              <div className="section-label feca-store-label">Tienda oficial</div>
+              <h2 className="feca-store-title">Lleva la FECA contigo</h2>
+              <p className="feca-store-desc">
+                Playeras, sudaderas, accesorios y más con el sello oficial de la Facultad de Economía, Contaduría y Administración.
+              </p>
+              <div className="feca-store-tags">
+                <span className="feca-store-tag">Playeras</span>
+                <span className="feca-store-tag">Sudaderas</span>
+                <span className="feca-store-tag">Accesorios</span>
               </div>
-              <div className="feca-store-content">
-                <div className="section-label feca-store-label">Tienda oficial</div>
-                <h2 className="feca-store-title">Lleva la FECA contigo</h2>
-                <p className="feca-store-desc">
-                  Encuentra playeras, sudaderas, accesorios y más con el sello oficial de la Facultad de Economía, Contaduría y Administración.
-                </p>
-                <a
-                  href="https://fecastore.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="feca-store-btn"
-                >
-                  Visitar FECA Store
-                </a>
-              </div>
-            </article>
-          </div>
+              <a
+                href="https://fecastore.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="feca-store-btn"
+              >
+                Visitar FECA Store
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M7 17 17 7" /><path d="M7 7h10v10" />
+                </svg>
+              </a>
+            </div>
+          </article>
         </div>
       </section>
 

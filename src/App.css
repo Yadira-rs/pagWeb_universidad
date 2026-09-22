@@ -6009,103 +6009,109 @@ a.acc-title-link:hover {
   }
 }
 
-.feca-store-section {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d0a0a 50%, #1a1a1a 100%);
-  padding: 38px;
+.feca-store-banner {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  background: linear-gradient(120deg, #1a1414 0%, #2d0a0a 55%, #4a0d10 100%);
   border-radius: 24px;
-  max-width: 960px;
-  margin: 0 auto;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgb(80 10 15 / 22%);
 }
 
-/* Un solo card (FECA Store, sin CAFECA): caja más angosta para que no
-   quede una franja vacía enorme alrededor de un solo card centrado. */
-.feca-store-section--single {
-  max-width: 520px;
+.feca-store-banner::before {
+  content: "";
+  position: absolute;
+  inset: -40% -10% auto auto;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(227 19 19 / 30%) 0%, transparent 70%);
+  pointer-events: none;
 }
 
-.feca-store-inner {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 410px));
-  justify-content: center;
-  gap: 24px;
-}
-
-.feca-store-inner--single {
-  grid-template-columns: minmax(0, 410px);
-}
-
-.feca-store-card {
-  min-width: 0;
-  display: grid;
-  grid-template-rows: auto 1fr;
-  gap: 24px;
-  padding: 24px;
-  border-radius: 18px;
-  background: rgb(255 255 255 / 4%);
-  border: 1px solid rgb(255 255 255 / 10%);
-  text-align: center;
-  align-items: center;
-}
-
-.feca-store-logo-wrap {
-  background: #fff;
-  border-radius: 18px;
-  height: 190px;
-  padding: 24px;
-  box-shadow: 0 24px 60px rgb(0 0 0 / 40%);
+.feca-store-banner-logo {
+  flex: 0 0 300px;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  padding: 40px;
 }
 
 .feca-store-logo {
   width: 100%;
-  max-width: 320px;
-  max-height: 128px;
-  height: 100%;
+  max-width: 230px;
+  height: auto;
   object-fit: contain;
   display: block;
+  background: #fff;
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 20px 44px rgb(0 0 0 / 35%);
 }
 
-.feca-store-content {
+.feca-store-banner-content {
+  position: relative;
+  flex: 1;
   min-width: 0;
+  padding: 44px 48px 44px 8px;
   display: flex;
   flex-direction: column;
-  align-self: stretch;
+  justify-content: center;
 }
 
 .feca-store-label {
-  color: #e31313 !important;
+  color: #ff5c5c !important;
 }
 
 .feca-store-title {
   font-family: var(--font-display);
-  font-size: clamp(30px, 3vw, 44px);
+  font-size: clamp(28px, 3vw, 40px);
   font-weight: 700;
   color: #fff;
-  line-height: 1.1;
-  margin: 10px 0 20px;
+  line-height: 1.12;
+  margin: 10px 0 14px;
 }
 
 .feca-store-desc {
-  font-size: 16px;
-  color: rgb(255 255 255 / 70%);
+  font-size: 15.5px;
+  color: rgb(255 255 255 / 72%);
   line-height: 1.7;
-  margin-bottom: 36px;
-  flex: 1;
+  max-width: 460px;
+  margin: 0 0 20px;
+}
+
+.feca-store-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.feca-store-tag {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: rgb(255 255 255 / 85%);
+  background: rgb(255 255 255 / 8%);
+  border: 1px solid rgb(255 255 255 / 16%);
+  border-radius: 999px;
+  padding: 6px 14px;
 }
 
 .feca-store-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  background: var(--navy);
+  gap: 8px;
+  align-self: flex-start;
+  background: #e31313;
   color: #fff !important;
   font-weight: 700;
   font-size: 15px;
-  padding: 14px 32px;
+  padding: 14px 30px;
   border-radius: 50px;
   text-decoration: none;
   transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
@@ -6113,33 +6119,34 @@ a.acc-title-link:hover {
 }
 
 .feca-store-btn:hover {
-  background: var(--navy-mid);
+  background: #951823;
   transform: translateY(-2px);
   box-shadow: 0 12px 32px rgb(227 19 19 / 50%);
 }
 
 @media (max-width: 768px) {
-  .feca-store-inner {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .feca-store-section {
-    padding: 24px;
-  }
-
-  .feca-store-card {
-    padding: 22px;
+  .feca-store-banner {
+    flex-direction: column;
     text-align: center;
   }
 
-  .feca-store-logo-wrap {
-    height: 160px;
+  .feca-store-banner-logo {
+    flex: none;
+    padding: 32px 24px 8px;
+  }
+
+  .feca-store-banner-content {
+    padding: 20px 28px 36px;
   }
 
   .feca-store-desc {
-    margin-left: auto;
-    margin-right: auto;
+    max-width: none;
+  }
+
+  .feca-store-tags,
+  .feca-store-btn {
+    align-self: center;
+    justify-content: center;
   }
 }
 
@@ -9741,10 +9748,6 @@ a.mobile-nav-subgroup:hover {
 
   .statsbar-inner {
     gap: 1px;
-  }
-
-  .feca-store-inner {
-    gap: 20px;
   }
 
   .contraloria-grid {
