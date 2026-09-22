@@ -5429,6 +5429,15 @@ a.acc-title-link:hover {
   margin-top: 48px;
 }
 
+.campus-grid--single {
+  grid-template-columns: 1fr;
+  max-width: 760px;
+}
+
+.campus-grid--single .campus-main {
+  height: 420px;
+}
+
 .campus-main,
 .campus-mini {
   border-radius: 12px;

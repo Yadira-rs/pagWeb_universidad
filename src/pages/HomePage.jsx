@@ -434,7 +434,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
             </h2>
           </div>
 
-          <div className="campus-grid fade-up">
+          <div className="campus-grid campus-grid--single fade-up">
             <a
               className="campus-main campus-main--link"
               href="/imagenes/mapa-feca.png"
@@ -443,9 +443,9 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
                 setMapaOpen(true);
               }}
             >
-              <img src="/imagenes/Homepage_Heade_FECAUJED.jpeg" alt="Facultad central" />
+              <img src="/imagenes/Homepage_Heade_FECAUJED.jpeg" alt="Mapa de la facultad" />
               <div className="campus-main-overlay">
-                <h3>Facultad central</h3>
+                <h3>Mapa de la facultad</h3>
                 <p>
                   Biblioteca, auditorio, laboratorios y áreas verdes en un
                   entorno ideal para estudiar
@@ -453,20 +453,6 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
                 <span className="campus-main-cta">Ver mapa de la facultad</span>
               </div>
             </a>
-
-            <div className="campus-main">
-              <img
-                src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=75"
-                alt="Cultura"
-              />
-              <div className="campus-main-overlay">
-                <h3>Cultura y actividades extracurriculares</h3>
-                <p>
-                  Espacios de convivencia, arte, deporte y crecimiento
-                  personal para toda la comunidad
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
