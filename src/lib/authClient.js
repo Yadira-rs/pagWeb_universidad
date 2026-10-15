@@ -67,19 +67,42 @@ function recoverySessionFromUrl() {
 
 let recoverySession = recoverySessionFromUrl();
 
+function isTokenExpired(token) {
+  const payload = decodeJwtPayload(token);
+  return !payload?.exp || payload.exp * 1000 <= Date.now();
+}
+
 async function getSession() {
   if (recoverySession) return { data: { session: recoverySession } };
 
   if (!currentToken) return { data: { session: null } };
 
-  const res = await fetch(`${API_URL}/api/auth/session`, {
-    headers: { Authorization: `Bearer ${currentToken}` },
-  });
-  if (!res.ok) {
+  // Si el servidor no responde (caído o muy lento), no tiene caso dejar la
+  // pantalla cargando para siempre: a los 8s se corta la espera.
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 8000);
+  try {
+    const res = await fetch(`${API_URL}/api/auth/session`, {
+      headers: { Authorization: `Bearer ${currentToken}` },
+      signal: controller.signal,
+    });
+    if (!res.ok) {
+      setToken(null);
+      return { data: { session: null } };
+    }
+    return { data: { session: sessionFromToken(currentToken) } };
+  } catch {
+    // Sin conexión con el servidor: si el token guardado todavía no venció,
+    // se deja pasar con esa sesión (las llamadas que sí necesiten datos
+    // fallarán por su cuenta) en vez de mandar al login de golpe.
+    if (!isTokenExpired(currentToken)) {
+      return { data: { session: sessionFromToken(currentToken) } };
+    }
     setToken(null);
     return { data: { session: null } };
+  } finally {
+    clearTimeout(timeoutId);
   }
-  return { data: { session: sessionFromToken(currentToken) } };
 }
 
 function onAuthStateChange(callback) {
