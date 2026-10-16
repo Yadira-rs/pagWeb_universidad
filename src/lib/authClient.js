@@ -35,20 +35,48 @@ export function getToken() {
   return currentToken;
 }
 
-async function request(path, body) {
-  let res;
-  try {
-    res = await fetch(`${API_URL}/api/auth/${path}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body || {}),
-    });
-  } catch (err) {
-    return { data: null, error: { message: err.message || "No se pudo conectar con el servidor." } };
+function wait(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+// El servidor (hosteado por la universidad) a veces tiene cortes de red
+// breves: una misma petición puede fallar y funcionar segundos después sin
+// que nadie haga nada. En vez de mostrarle el error al primer intento,
+// reintenta un par de veces antes de darse por vencido — así la mayoría
+// de esos cortes ya ni se notan al usar el panel.
+async function request(path, body, { retries = 2, retryDelay = 1200, attemptTimeout = 10000 } = {}) {
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), attemptTimeout);
+    let res;
+    try {
+      res = await fetch(`${API_URL}/api/auth/${path}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body || {}),
+        signal: controller.signal,
+      });
+    } catch (err) {
+      if (attempt < retries) {
+        await wait(retryDelay);
+        continue;
+      }
+      return {
+        data: null,
+        error: {
+          message:
+            err.name === "AbortError"
+              ? "El servidor está tardando demasiado en responder. Intenta de nuevo en un momento."
+              : "No se pudo conectar con el servidor. Intenta de nuevo en un momento.",
+        },
+      };
+    } finally {
+      clearTimeout(timeoutId);
+    }
+    const json = res.status === 204 ? null : await res.json().catch(() => null);
+    if (!res.ok) return { data: null, error: { message: json?.error || `Error ${res.status}` } };
+    return { data: json, error: null };
   }
-  const json = res.status === 204 ? null : await res.json().catch(() => null);
-  if (!res.ok) return { data: null, error: { message: json?.error || `Error ${res.status}` } };
-  return { data: json, error: null };
 }
 
 // Detecta el enlace de recuperación (#access_token=...&type=recovery),
