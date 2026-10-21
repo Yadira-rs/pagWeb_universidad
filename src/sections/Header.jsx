@@ -160,7 +160,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
               </a>
               <div className="dropdown dropdown-accordion">
                 <div className="acc-row acc-row-flat">
-                  <a className="acc-title acc-title-link" href="#/lenguas">Centro de Lenguas</a>
+                  <a className="acc-title acc-title-link" href="#/lenguas">CELCI</a>
                 </div>
                 <div className="acc-row acc-row-flat">
                   <a className="acc-title acc-title-link" href="#/ciiedo">CIIEDO</a>
@@ -575,7 +575,7 @@ function Header({ logoImage = defaultLogo, currentRoute, setNewsPanelOpen }) {
           {/* Oferta Educativa */}
           <div className="mobile-menu-section">
             <span className="mobile-menu-section-label">Oferta educativa</span>
-            <a href="#/lenguas" className={`mobile-nav-sub${currentHash === "#/lenguas" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Centro de Lenguas</a>
+            <a href="#/lenguas" className={`mobile-nav-sub${currentHash === "#/lenguas" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>CELCI</a>
             <a href="#/ciiedo" className={`mobile-nav-sub${currentHash === "#/ciiedo" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>CIIEDO</a>
             <a href="#/cursos-intersemestrales" className={`mobile-nav-sub${currentHash === "#/cursos-intersemestrales" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Cursos Intersemestrales</a>
             <a href="#/curso-propedeutico" className={`mobile-nav-sub${currentHash === "#/curso-propedeutico" ? " mobile-nav-active" : ""}`} onClick={closeMobile}>Cursos Propedéutico</a>
