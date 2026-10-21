@@ -13,11 +13,6 @@ const FALLBACK_HERO_SLIDES = [
     logoAlt: "Logo FECA",
     logoLightBg: true,
   },
-  {
-    image: "/imagenes/aniversario.jpeg",
-    logo: "/imagenes/logo-68-aniversario.png",
-    logoAlt: "Logo 68 aniversario FECA",
-  },
 ];
 
 const programs = [
@@ -253,7 +248,7 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
           </div>
 
           <div className="carousel-controls">
-            {heroSlides.map((_, index) => (
+            {heroSlides.length > 1 && heroSlides.map((_, index) => (
               <button
                 key={index}
                 className={`carousel-dot ${index === heroCurrentSlide ? "active" : ""}`}
