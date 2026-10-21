@@ -13,6 +13,9 @@ const FALLBACK_HERO_SLIDES = [
     logoAlt: "Logo FECA",
     logoLightBg: true,
   },
+  {
+    image: "/imagenes/aniversario.jpeg",
+  },
 ];
 
 const programs = [
@@ -222,26 +225,28 @@ function HomePage({ logoImage, setNewsPanelOpen }) {
                       src={slide.logo}
                       alt={slide.logoAlt}
                     />
-                  ) : (
+                  ) : (slide.badge || slide.title || slide.titleLines || slide.description) ? (
                     <>
                       {slide.badge ? (
                         <div className="carousel-badge">{slide.badge}</div>
                       ) : null}
-                      <h1 className="hero-title">
-                        {slide.titleLines
-                          ? slide.titleLines.map((line, lineIndex) => (
-                              <span key={line}>
-                                {line}
-                                {lineIndex < slide.titleLines.length - 1 ? (
-                                  <br />
-                                ) : null}
-                              </span>
-                            ))
-                          : slide.title}
-                      </h1>
-                      <p className="hero-desc">{slide.description}</p>
+                      {(slide.title || slide.titleLines) && (
+                        <h1 className="hero-title">
+                          {slide.titleLines
+                            ? slide.titleLines.map((line, lineIndex) => (
+                                <span key={line}>
+                                  {line}
+                                  {lineIndex < slide.titleLines.length - 1 ? (
+                                    <br />
+                                  ) : null}
+                                </span>
+                              ))
+                            : slide.title}
+                        </h1>
+                      )}
+                      {slide.description && <p className="hero-desc">{slide.description}</p>}
                     </>
-                  )}
+                  ) : null}
                 </div>
               </div>
             ))}
