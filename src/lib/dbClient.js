@@ -1,9 +1,9 @@
 import { getToken } from "./authClient";
 
-const API_URL = import.meta.env.VITE_PAGWEB_API_URL || "http://localhost:4000";
+const API_URL = import.meta.env.VITE_PAGWEB_API_URL ?? "http://localhost:4000";
 
 async function request(path, { method = "GET", body, query } = {}) {
-  const url = new URL(`${API_URL}/api/${path}`);
+  const url = new URL(`${API_URL}/api/${path}`, window.location.origin);
   if (query) {
     for (const [k, v] of Object.entries(query)) url.searchParams.set(k, v);
   }

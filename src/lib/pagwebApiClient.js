@@ -1,7 +1,7 @@
 // Llamadas a services/pagweb-api que no encajan en el patrón
 // .from(tabla) genérico de dbClient.js (ver su README, sección
 // "Recursos CRUD genéricos" vs. rutas propias como esta).
-const API_URL = import.meta.env.VITE_PAGWEB_API_URL || "http://localhost:4000";
+const API_URL = import.meta.env.VITE_PAGWEB_API_URL ?? "http://localhost:4000";
 
 // Reemplaza a supabase.functions.invoke("invitar-acceso-panel", ...).
 export async function invitarAccesoPanel({ correo, nombre }, token) {

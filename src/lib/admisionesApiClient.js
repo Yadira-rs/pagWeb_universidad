@@ -2,7 +2,7 @@
 // A diferencia de supabaseClient.js (que habla directo con Supabase), este
 // servicio es código propio del equipo: expone su propio contrato HTTP
 // documentado en services/admisiones-api/README.md.
-const BASE_URL = import.meta.env.VITE_ADMISIONES_API_URL || "http://localhost:4001";
+const BASE_URL = import.meta.env.VITE_ADMISIONES_API_URL ?? "http://localhost:4001";
 
 async function request(path, { method = "GET", body, token } = {}) {
   const headers = { "Content-Type": "application/json" };

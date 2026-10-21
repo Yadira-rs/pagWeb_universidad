@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_PAGWEB_API_URL || "http://localhost:4000";
+const API_URL = import.meta.env.VITE_PAGWEB_API_URL ?? "http://localhost:4000";
 const STORAGE_KEY = "pagweb_token";
 
 let currentToken = localStorage.getItem(STORAGE_KEY) || null;

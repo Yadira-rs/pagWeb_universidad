@@ -154,8 +154,8 @@ el bundle** al construir. En local existe `.env.production.local` (no se
 sube a git) con:
 
 ```
-VITE_PAGWEB_API_URL=https://200.23.125.107
-VITE_ADMISIONES_API_URL=https://200.23.125.107
+VITE_PAGWEB_API_URL=
+VITE_ADMISIONES_API_URL=
 ```
 
 `npm run build` lo usa (y `npm run dev` NO — ese sigue con `.env.local` y

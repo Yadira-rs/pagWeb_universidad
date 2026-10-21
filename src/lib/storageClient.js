@@ -1,6 +1,6 @@
 import { getToken } from "./authClient";
 
-const API_URL = import.meta.env.VITE_PAGWEB_API_URL || "http://localhost:4000";
+const API_URL = import.meta.env.VITE_PAGWEB_API_URL ?? "http://localhost:4000";
 
 function authHeaders(extra) {
   const token = getToken();
