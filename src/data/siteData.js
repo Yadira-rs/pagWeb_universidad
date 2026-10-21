@@ -720,7 +720,7 @@ export const servicePages = {
     items: [],
     encargado: {
       name: "Dr. Francisco Martín Villarreal Solís",
-      role: "Coordinador de Cuerpos Académicos",
+      role: "Coordinador de Investigación",
       image: "/imagenes/cuerpos-academicos/equipo-encargado.jpg",
       quote: "La investigación colaborativa fortalece la calidad académica y consolida el prestigio de la FECA a nivel nacional.",
     },
