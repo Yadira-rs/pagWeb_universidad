@@ -59,3 +59,6 @@ supabase/.temp/
 # Archivos subidos en desarrollo por services/pagweb-api (imágenes del
 # panel, documentos de egresados) — carpeta local, no se versiona.
 services/pagweb-api/uploads/
+
+# Documento con contraseñas del servidor, base de datos y panel — nunca se sube.
+ACCESOS.md
