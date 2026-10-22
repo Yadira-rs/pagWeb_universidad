@@ -1,170 +1,98 @@
-# Sitio web FECA (UJED)
+# Portal FECA
 
-Sitio web de la Facultad de Economía, Contaduría y Administración de la
-Universidad Juárez del Estado de Durango, hecho con React + Vite.
+Sitio web institucional de la Facultad de Economía, Contaduría y
+Administración (FECA), Universidad Juárez del Estado de Durango.
 
-## Requisitos
+Frontend en React servido como sitio estático, con dos servicios propios
+en Node/Express sobre un PostgreSQL dedicado para el login, el panel de
+administración y las solicitudes de admisión.
 
-- [Node.js](https://nodejs.org/) 18 o superior.
+## Stack
+
+| Pieza | Tecnología |
+| --- | --- |
+| Frontend | React 19 + Vite. Enrutamiento propio por hash (`#/ruta`), sin librería de router. Estilos en una única hoja (`src/App.css`), sin framework de CSS. |
+| `services/pagweb-api` | Node.js + Express sobre PostgreSQL (`pg`). Login (JWT + bcrypt), CRUD del panel de administración, subida de archivos, correo (Resend o SMTP). |
+| `services/admisiones-api` | Node.js + Express. Único dueño de la tabla `solicitudes_admision`; valida localmente los JWT que emite `pagweb-api`. |
+| Base de datos | PostgreSQL propio (sin Supabase ni ningún otro proveedor externo). |
+
+Cada servicio es un proceso independiente, con sus propias dependencias,
+y solo se comunica con el resto por HTTP.
 
 ## Desarrollo local
+
+Requiere Node.js 18+.
 
 ```
 npm install
 npm run dev
 ```
 
-Esto levanta el sitio en `http://localhost:5173` (o el siguiente puerto
-libre) con recarga automática al guardar cambios.
+Levanta el sitio en `http://localhost:5173` con recarga automática.
 
-## Generar la versión de producción
+Por defecto el frontend apunta a `http://localhost:4000` y
+`http://localhost:4001` (ver `.env.local`, basado en `.env.example`), así
+que para probar login, panel o el formulario de admisión hace falta tener
+corriendo también los dos servicios:
+
+```
+# Terminal 2
+cd services/pagweb-api && cp .env.example .env && npm install && npm run dev
+
+# Terminal 3
+cd services/admisiones-api && cp .env.example .env && npm install && npm run dev
+```
+
+Cada servicio tiene su propio README con el contrato completo
+(endpoints, autenticación, formato de request/response):
+[`services/pagweb-api`](services/pagweb-api) ·
+[`services/admisiones-api`](services/admisiones-api).
+
+El esquema de base de datos está en [`database/`](database/).
+
+## Build de producción
 
 ```
 npm run build
 ```
 
-Esto crea una carpeta `dist/` con el sitio ya optimizado y listo para
-publicar (HTML, CSS, JavaScript, imágenes y los PDFs de `public/docs/`).
-
-Puedes revisar cómo se ve ese resultado localmente antes de publicarlo:
+Genera `dist/`: HTML, CSS, JS e imágenes listos para publicar, más los
+PDFs de `public/docs/`. Para revisar el resultado localmente antes de
+publicar:
 
 ```
 npm run preview
 ```
 
----
+## Despliegue
 
-## Microservicios (`services/`)
+El sitio está publicado en dos lugares a la vez:
 
-El flujo de **solicitudes de admisión** (`#/solicitud` y la pestaña
-"Solicitudes" de `#/admin`) ya no le habla directo a Supabase: pasa por
-dos microservicios propios, pensados para la exposición de arquitectura
-orientada a servicios (ver [ARQUITECTURA.md](ARQUITECTURA.md) para el
-diagrama completo y la justificación de cada decisión):
+- **Vercel** (`pag-web-universidad.vercel.app`) — espejo estático,
+  se actualiza solo en cada `git push` a `main`.
+- **Servidor propio de la universidad** (`https://200.23.125.107`) — sirve
+  el sitio estático *y* corre las dos APIs y la base de datos. Se publica
+  con `bash scripts/deploy.sh` (sitio) y `bash scripts/deploy-api.sh`
+  (APIs).
 
-- [`services/admisiones-api`](services/admisiones-api) — dueño de la
-  tabla `solicitudes_admision`.
-- [`services/notificaciones-api`](services/notificaciones-api) — envía
-  el correo de aviso cuando llega una solicitud nueva.
+Ambas entradas llaman siempre al mismo backend. Guía completa, con los
+datos reales del servidor, en [`DEPLOY.md`](DEPLOY.md).
 
-Para desarrollo local completo (frontend + los dos servicios):
-
-```
-# Terminal 1
-cd services/notificaciones-api && cp .env.example .env && npm install && npm start
-
-# Terminal 2
-cd services/admisiones-api && cp .env.example .env && npm install && npm start
-
-# Terminal 3
-npm install && npm run dev
-```
-
-Cada servicio tiene su propio `README.md` con el contrato (endpoints,
-auth, formato de request/response). El resto del sitio (anuncios, login
-del panel, egresados, etc.) sigue hablando directo con Supabase, sin
-cambios.
-
----
-
-## Cómo publicar el sitio en el servidor institucional
-
-Este sitio es **100% estático**: no tiene backend activo, no necesita PHP
-ni base de datos para funcionar. Además, todas sus rutas usan `#` (por
-ejemplo `#/grupos-representativos`), así que el navegador las maneja
-solo — **no se necesita configurar reglas de redirección en el
-servidor**, algo que sí hace falta en la mayoría de los sitios hechos en
-React.
-
-En resumen: cualquier servidor web (Apache, Nginx, IIS, cPanel
-compartido, etc.) puede publicarlo sin configuración especial.
-
-### Paso 1: Generar la build
+## Estructura del repositorio
 
 ```
-npm run build
+src/                   Frontend (React)
+  pages/                 Pantallas
+  components/            Piezas reutilizables, incl. components/admin/ (panel)
+  sections/               Header, Footer
+  data/                  Contenido editorial fijo
+  lib/                   Clientes HTTP hacia las dos APIs
+  App.css                Estilos del sitio completo
+services/
+  pagweb-api/            Login, CRUD del panel, archivos
+  admisiones-api/        Solicitudes de admisión
+database/               Esquema SQL y documentación de tablas
+public/                 Imágenes, fuentes y documentos descargables
+scripts/                deploy.sh, deploy-api.sh
+DEPLOY.md               Guía de despliegue, paso a paso
 ```
-
-La carpeta `dist/` es lo único que hay que subir al servidor.
-
-### Paso 2: Preguntar al área de sistemas de la institución
-
-Antes de subir nada, hay que pedir tres datos:
-
-1. **Cómo se van a subir los archivos**: ¿panel tipo cPanel con
-   administrador de archivos? ¿FTP/SFTP (te dan host, usuario y
-   contraseña)? ¿acceso por SSH?
-2. **Cuál es la carpeta raíz pública** del servidor, donde hay que
-   colocar el sitio (comúnmente se llama `public_html`, `htdocs` o
-   `www`).
-3. **En qué dominio o subdominio** va a quedar publicado (por ejemplo
-   `feca.ujed.mx` o `www.ujed.mx/feca`).
-
-### Paso 3: Subir el contenido de `dist/`
-
-Importante: se sube el **contenido** de la carpeta `dist/` (los archivos
-que están adentro), **no la carpeta `dist` en sí**. Es decir,
-`index.html` debe quedar directamente dentro de la carpeta raíz pública
-del servidor, no dentro de una subcarpeta llamada `dist`.
-
-**Si te dan acceso a cPanel / Administrador de archivos:**
-1. Comprime el contenido de `dist/` en un `.zip` (todo lo que está
-   *dentro* de `dist/`, no la carpeta en sí).
-2. Entra al Administrador de Archivos de cPanel y navega hasta
-   `public_html` (o la subcarpeta que te indiquen).
-3. Sube el `.zip` y usa la opción "Extraer" ahí mismo.
-4. Verifica que `index.html` haya quedado directamente en esa carpeta.
-
-**Si te dan acceso por FTP/SFTP:**
-1. Usa un programa como [FileZilla](https://filezilla-project.org/) o
-   WinSCP.
-2. Conéctate con el host, usuario y contraseña que te dieron.
-3. Arrastra todo el contenido de `dist/` hacia la carpeta pública del
-   servidor.
-
-**Si te dan acceso por SSH:**
-```
-scp -r dist/* usuario@servidor:/ruta/a/public_html/
-```
-o, si prefieres `rsync` (más rápido en subidas posteriores, porque solo
-copia lo que cambió):
-```
-rsync -avz dist/ usuario@servidor:/ruta/a/public_html/
-```
-
-### Algo a tener en cuenta
-
-La carpeta `public/docs/` tiene muchos PDFs (organigramas, reglamentos,
-planes de estudio, avisos de privacidad, etc.) que se incluyen tal cual
-dentro de `dist/docs/`. En total pesa varios MB, así que la primera
-subida puede tardar más de lo esperado, especialmente por FTP.
-
-### Actualizaciones futuras
-
-Cada vez que se haga un cambio de contenido o diseño en el código:
-
-1. `npm run build` de nuevo (genera un `dist/` actualizado).
-2. Volver a subir el contenido de `dist/`, reemplazando lo que ya estaba
-   en el servidor.
-
----
-
-## Base de datos y panel de administración
-
-El sitio ya no es puramente estático en cuanto a contenido: la mayoría
-de las secciones que cambian seguido (anuncios, noticias, carrusel de
-inicio, documentos de egresados, testimonios, opiniones del sitio) se
-editan desde un panel propio en `#/admin` (`src/pages/AdminPanelPage.jsx`),
-con autenticación de Supabase Auth. El esquema de base de datos
-(PostgreSQL vía Supabase) está en [`database/`](database/).
-
-El acceso a ese panel también está automatizado: alguien pide acceso
-desde la pantalla de login, el administrador principal lo aprueba desde
-la pestaña "Solicitudes de acceso", y una Edge Function
-(`supabase/functions/invitar-acceso-panel`) crea la cuenta y manda el
-correo de invitación — no hace falta darla de alta a mano en Supabase.
-
-El *build* (`npm run build`) sigue siendo HTML/CSS/JS estático y se
-publica igual que se describe arriba; lo dinámico (contenido, admisiones,
-autenticación) lo resuelven Supabase y los microservicios propios en
-tiempo de ejecución, no el servidor que sirve los archivos.

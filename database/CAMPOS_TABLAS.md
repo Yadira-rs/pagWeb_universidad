@@ -1,9 +1,8 @@
 # Diccionario de campos — qué lleva cada tabla
 
-Este documento complementa a `EXPLICACION_TABLAS.md` (que explica *para
-qué* es cada tabla) con el detalle de *qué columnas tiene cada una*, en
-lenguaje simple. Útil para quien vaya a construir los formularios del
-panel de administración o a cargar datos a mano.
+Detalle de qué columnas tiene cada tabla, en lenguaje simple. Útil para
+quien vaya a construir un formulario nuevo del panel de administración o
+a cargar datos a mano.
 
 Leyenda:
 - **Obligatorio**: no puede quedar vacío.

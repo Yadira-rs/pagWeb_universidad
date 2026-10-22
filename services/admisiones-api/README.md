@@ -1,8 +1,9 @@
 # Admisiones API
 
-Microservicio propio (no es Supabase) dueño del dominio **solicitudes de
-admisión**. Es el único componente del sistema con permiso para leer o
-escribir directamente en la tabla `solicitudes_admision`.
+Servicio propio, independiente de `pagweb-api`, dueño del dominio
+**solicitudes de admisión**. Es el único componente del sistema con
+permiso para leer o escribir directamente en la tabla
+`solicitudes_admision`.
 
 ## Cómo correrlo
 
@@ -13,9 +14,9 @@ npm install
 npm start               # http://localhost:4001
 ```
 
-Se puede arrancar, detener (Ctrl+C) y volver a arrancar sin afectar a
-Notificaciones API ni al frontend — no comparte proceso, memoria ni código
-con ellos, solo los llama por HTTP.
+Se puede detener (Ctrl+C) y volver a arrancar sin afectar al frontend ni
+a `pagweb-api` — no comparte proceso, memoria ni código con ellos, solo
+los llama por HTTP.
 
 ## Contrato
 
@@ -23,7 +24,7 @@ Base URL: `http://localhost:4001` (configurable con `PORT`).
 
 | Método | Ruta | Auth | Descripción |
 |---|---|---|---|
-| GET | `/health` | Ninguna | `{ service, status }`, para comprobar que el servicio está vivo. |
+| GET | `/health` | Ninguna | `{ service, status }`, para que un monitor externo sepa si el servicio está vivo. |
 | POST | `/api/solicitudes` | Ninguna (pública) | Crea una solicitud. La llama el formulario "Inicia tu solicitud" del sitio. |
 | GET | `/api/solicitudes` | Bearer JWT | Lista todas las solicitudes, más nuevas primero. |
 | PATCH | `/api/solicitudes/:id` | Bearer JWT | Cambia `atendida`. |
@@ -45,9 +46,9 @@ Request body:
 
 Solo `nombre` es requerido. Respuestas:
 
-- `201` — solicitud creada: `{ id, nombre, telefono, correo, programa, mensaje, atendida, created_at, notified }`. `notified` indica si Notificaciones API confirmó el envío del correo (ver más abajo qué pasa si no).
+- `201` — solicitud creada: `{ id, nombre, telefono, correo, programa, mensaje, atendida, created_at }`.
 - `400` — falta `nombre`.
-- `502` — no se pudo guardar en la base de datos (p. ej. credenciales de Supabase mal configuradas).
+- `502` — no se pudo guardar en la base de datos.
 
 ### GET / PATCH / DELETE `/api/solicitudes[...]`
 
@@ -58,48 +59,29 @@ Authorization: Bearer <access_token>
 ```
 
 `access_token` es el mismo que emite `services/pagweb-api` al iniciar
-sesión en `#/admin` (`supabase.auth.getSession()` en el frontend, ver
-`src/lib/authClient.js`). El servicio lo valida **localmente**,
-verificando la firma con `JWT_SECRET` (el mismo valor que en el `.env` de
-`pagweb-api`), sin llamarle a ese servicio en cada petición.
+sesión en `#/admin` (ver `src/lib/authClient.js` del frontend). Este
+servicio lo valida **localmente**, verificando la firma con `JWT_SECRET`
+(el mismo valor que en el `.env` de `pagweb-api`), sin llamarle a ese
+servicio en cada petición.
 
 - `401` — falta el header o el token no es válido/expiró.
 - `500` — el servicio no tiene configurado `JWT_SECRET` (error de despliegue, no del cliente).
 
 ## Seguridad
 
-Dos mecanismos distintos, a propósito:
-
-1. **Frontend → Admisiones API** (rutas de administración): Bearer JWT de
-   usuario, emitido por `pagweb-api`. Tiene sentido aquí porque hay una
-   persona identificable detrás de la petición (un admin con sesión
-   iniciada).
-2. **Admisiones API → Notificaciones API**: secreto compartido
-   (`X-Service-Token`), no un JWT de usuario. Es una llamada máquina a
-   máquina sin usuario detrás, así que un token estático simple —
-   comparado con `crypto.timingSafeEqual` del lado de Notificaciones para
-   evitar ataques de temporización— es proporcional al riesgo.
+Las rutas de administración (listar/editar/borrar) piden un Bearer JWT de
+usuario, emitido por `pagweb-api`: tiene sentido aquí porque siempre hay
+una persona identificable detrás de la petición (un administrador con
+sesión iniciada en el panel).
 
 Este servicio se conecta a Postgres directo (`PGHOST`/`PGUSER`/... en el
 `.env`, mismos valores que `pagweb-api`) con un rol de base de datos de
 confianza: corre en un servidor de confianza (nunca en el navegador), y es
 el único componente con permiso de leer/escribir `solicitudes_admision`.
 
-## Qué pasa si Notificaciones API está caída
+## Qué pasa si este servicio está caído
 
-`POST /api/solicitudes` primero guarda la solicitud en la base de datos;
-**solo después** intenta avisarle a Notificaciones API, con un timeout de
-3&nbsp;segundos. Si esa llamada falla (servicio caído, tarda demasiado,
-responde error), se captura el error, se registra en el log y la
-respuesta al visitante sigue siendo `201` con `"notified": false` — el
-usuario ve "recibimos tu solicitud" igual, porque su dato ya quedó a
-salvo. Nada se pierde; solo no se manda el correo de aviso en el momento
-(se puede consultar en la tabla de todos modos, u
- reintentar el aviso manualmente).
-
-## Qué pasa si Admisiones API está caída
-
-El frontend recibe un error de red al hacer `fetch`, lo captura y muestra
-"No se pudo enviar tu solicitud..." — Supabase y Notificaciones API no se
-enteran de nada, siguen funcionando con normalidad para el resto del
-sitio (que no depende de este servicio).
+El frontend recibe un error de red al hacer `fetch` al enviar el
+formulario, lo captura y muestra "No se pudo enviar tu solicitud..." — el
+resto del sitio (que no depende de este servicio) sigue funcionando con
+normalidad.

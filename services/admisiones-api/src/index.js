@@ -4,7 +4,6 @@ import express from "express";
 import { ah } from "./asyncHandler.js";
 import { requireAuth } from "./auth.js";
 import { pool } from "./db.js";
-import { notifyNuevaSolicitud } from "./notifyClient.js";
 
 const app = express();
 const PORT = process.env.PORT || 4001;
@@ -12,8 +11,7 @@ const PORT = process.env.PORT || 4001;
 app.use(cors({ origin: process.env.CORS_ORIGIN || "http://localhost:5173" }));
 app.use(express.json());
 
-// Salud del servicio: útil para la demo (mostrar que responde) y para
-// que Notificaciones API o cualquier monitor sepa si está vivo.
+// Salud del servicio: para que un monitor externo sepa si está vivo.
 app.get("/health", (_req, res) => {
   res.json({ service: "admisiones-api", status: "ok" });
 });
@@ -52,10 +50,7 @@ app.post("/api/solicitudes", async (req, res) => {
     return res.status(502).json({ error: "No se pudo guardar la solicitud." });
   }
 
-  // Best effort: no bloquea ni condiciona la respuesta al visitante.
-  const notifyResult = await notifyNuevaSolicitud(data);
-
-  res.status(201).json({ ...data, notified: notifyResult.notified });
+  res.status(201).json(data);
 });
 
 // Contrato: GET /api/solicitudes

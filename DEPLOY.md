@@ -14,7 +14,7 @@ instalar ni configurar Apache, eso ya está hecho en el servidor:
 
 - **Servidor:** `200.23.125.107`
 - **Usuario SSH:** `team3-feca` (cuenta compartida del equipo — si
-  cambian la contraseña, avisen antes al resto del equipo/profesor)
+  cambian la contraseña, avisen antes al resto del equipo)
 - **Carpeta donde vive el sitio:** `/var/www/html/facultad` — el usuario
   `team3-feca` ya tiene permisos de escritura ahí (verificado con
   `getfacl`: el grupo `www-data` tiene acceso vía ACL por defecto, así

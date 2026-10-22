@@ -1,9 +1,8 @@
 # Pagweb API
 
-Microservicio propio (no es Supabase) que reemplaza lo que antes daba la
-plataforma Supabase sobre el mismo PostgreSQL: login del panel de
-administración (`admin_users`) y CRUD de las tablas de contenido, con las
-mismas reglas de acceso que antes vivían como políticas RLS.
+Servicio propio sobre PostgreSQL: da el login del panel de administración
+(`admin_users`), el CRUD de las tablas de contenido del sitio y el manejo
+de archivos subidos desde el panel.
 
 Sigue el mismo patrón que `services/admisiones-api`: proceso y
 dependencias propias, solo se comunica con el resto del sistema por HTTP.
@@ -88,22 +87,6 @@ docroot se borra en cada deploy del sitio):
 
 Migrados: `ImageUploadField`, `DocumentUploadField`,
 `EgresadosDocsManager`, `EgresadoUploadModal`.
-
-## Qué queda pendiente a propósito
-
-- **Lecturas públicas** (`HomePage.jsx`, `EgresadosPage.jsx`,
-  `AvisoDetailPage.jsx`, `AnunciosCarousel.jsx`, `App.jsx` — el panel de
-  noticias del header): siguen leyendo del Supabase real, para no
-  arriesgar el sitio público mientras se termina de migrar el panel.
-- **`AccesoManager.jsx`**: su lectura/aprobación/borrado de
-  `solicitudes_acceso_panel` ya podría migrar, pero el botón "Aprobar"
-  llama a la Edge Function `invitar-acceso-panel` (Supabase). Se deja
-  entero en `supabaseClient` hasta reemplazar esa función.
-- **`SolicitudesManager.jsx`**: solo usa `supabase.auth.getSession()`
-  para mandarle el JWT a `admisiones-api`, que todavía valida tokens de
-  Supabase (`SUPABASE_JWT_SECRET`). Migra junto con `admisiones-api`
-  (siguiente hito), no antes — si no, sus peticiones empezarían a fallar
-  con 401 (token de otra firma).
 
 ## Seguridad
 
