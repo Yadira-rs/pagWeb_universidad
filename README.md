@@ -3,96 +3,186 @@
 Sitio web institucional de la Facultad de Economía, Contaduría y
 Administración (FECA), Universidad Juárez del Estado de Durango.
 
-Frontend en React servido como sitio estático, con dos servicios propios
-en Node/Express sobre un PostgreSQL dedicado para el login, el panel de
-administración y las solicitudes de admisión.
+El sitio público es una aplicación React compilada a archivos estáticos.
+Lo que cambia seguido (noticias, avisos, carrusel, agenda, documentos) se
+edita desde un panel de administración en `#/admin`, que guarda en un
+PostgreSQL propio a través de dos APIs en Node.js.
 
-## Stack
-
-| Pieza | Tecnología |
-| --- | --- |
-| Frontend | React 19 + Vite. Enrutamiento propio por hash (`#/ruta`), sin librería de router. Estilos en una única hoja (`src/App.css`), sin framework de CSS. |
-| `services/pagweb-api` | Node.js + Express sobre PostgreSQL (`pg`). Login (JWT + bcrypt), CRUD del panel de administración, subida de archivos, correo (Resend o SMTP). |
-| `services/admisiones-api` | Node.js + Express. Único dueño de la tabla `solicitudes_admision`; valida localmente los JWT que emite `pagweb-api`. |
-| Base de datos | PostgreSQL propio (sin Supabase ni ningún otro proveedor externo). |
-
-Cada servicio es un proceso independiente, con sus propias dependencias,
-y solo se comunica con el resto por HTTP.
-
-## Desarrollo local
-
-Requiere Node.js 18+.
+## Cómo está construido
 
 ```
+Navegador
+   │
+   ▼
+Apache (HTTPS) ──────────► sitio estático: dist/  (HTML, CSS, JS, imágenes, PDFs)
+   │
+   │  /api/solicitudes/*         /api/*  (todo lo demás)
+   ▼                             ▼
+admisiones-api :4001         pagweb-api :4000 ───► archivos subidos (UPLOADS_DIR)
+   │                             │
+   └──────────► PostgreSQL ◄─────┘
+               (feca-ujed-web)
+```
+
+- **Sitio público:** todas las páginas se resuelven en el navegador con
+  rutas por hash (`#/oferta-educativa`, `#/admin`, …). Apache solo sirve
+  archivos; no hay PHP ni lógica de servidor para las páginas.
+- **pagweb-api:** login del panel, lectura y escritura del contenido
+  editable, subida de imágenes y documentos, encuesta de satisfacción y
+  envío de correos (recuperar contraseña, invitaciones, avisos).
+- **admisiones-api:** recibe y administra las solicitudes de admisión.
+  Valida la sesión del panel con el mismo `JWT_SECRET` que `pagweb-api`.
+- **PostgreSQL:** guarda todo el contenido editable y las cuentas del
+  panel. Solo acepta conexiones desde el propio servidor.
+- **Apache** reenvía `/api/solicitudes/*` a `admisiones-api` y el resto
+  de `/api/*` a `pagweb-api`, así el sitio y las APIs comparten dominio.
+
+Cada API es un proceso independiente, con sus propias dependencias, y se
+comunica con el resto solo por HTTP.
+
+## Herramientas
+
+| Parte                   | Herramienta                       | Versión                           |
+| ----------------------- | --------------------------------- | --------------------------------- |
+| Interfaz                | React                             | 19                                |
+| Compilación del sitio   | Vite (con `@vitejs/plugin-react`) | 8                                 |
+| Estilos                 | CSS propio en `src/App.css`       | —                                 |
+| APIs                    | Node.js + Express                 | Node 18 o más reciente, Express 4 |
+| Base de datos           | PostgreSQL (cliente `pg`)         | 18                                |
+| Sesiones                | JSON Web Tokens (`jsonwebtoken`)  | —                                 |
+| Contraseñas             | `bcryptjs`                        | —                                 |
+| Correo                  | `nodemailer` (SMTP) o Resend      | —                                 |
+| Procesos en el servidor | pm2                               | —                                 |
+| Servidor web            | Apache 2 (proxy y HTTPS)          | —                                 |
+| Pruebas                 | Playwright                        | 1.61                              |
+| Revisión de código      | ESLint                            | 10                                |
+
+El sitio no usa librería de rutas ni framework de CSS: el enrutamiento
+está en `src/App.jsx` y los estilos en una sola hoja.
+
+## Arrancarlo en una computadora
+
+Requisitos: Node.js 18 o más reciente, PostgreSQL 18 y Git.
+
+### 1. Base de datos
+
+La base se arranca a partir de un respaldo del servidor de producción
+(exportado desde phpPgAdmin con "Estructura y datos" en formato SQL, o
+con `pg_dump`). Así queda con las mismas tablas y el mismo contenido:
+
+```bash
+createdb feca-ujed-web
+psql -d feca-ujed-web -f respaldo.sql          # exportado desde phpPgAdmin
+# o, si el respaldo es de pg_dump -F c:
+pg_restore -d feca-ujed-web --no-owner --no-privileges respaldo.dump
+```
+
+Los archivos de `database/` documentan cómo se fue creando cada tabla,
+pero no reconstruyen la base completa por sí solos: varios son de una
+versión anterior del sitio que usaba Supabase.
+
+### 2. APIs
+
+Cada una en su propia terminal:
+
+```bash
+# Terminal 1
+cd services/pagweb-api
+cp .env.example .env        # llena PGUSER, PGPASSWORD y JWT_SECRET
 npm install
-npm run dev
-```
+npm run seed-admin -- correo@ejemplo.com "contraseña" "Nombre"   # solo la primera vez
+npm run dev                 # http://localhost:4000
 
-Levanta el sitio en `http://localhost:5173` con recarga automática.
-
-Por defecto el frontend apunta a `http://localhost:4000` y
-`http://localhost:4001` (ver `.env.local`, basado en `.env.example`), así
-que para probar login, panel o el formulario de admisión hace falta tener
-corriendo también los dos servicios:
-
-```
 # Terminal 2
-cd services/pagweb-api && cp .env.example .env && npm install && npm run dev
-
-# Terminal 3
-cd services/admisiones-api && cp .env.example .env && npm install && npm run dev
+cd services/admisiones-api
+cp .env.example .env        # mismos datos de PostgreSQL y el mismo JWT_SECRET
+npm install
+npm run dev                 # http://localhost:4001
 ```
 
-Cada servicio tiene su propio README con el contrato completo
-(endpoints, autenticación, formato de request/response):
+`JWT_SECRET` puede ser cualquier texto largo; se genera uno con
+`node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"`.
+Sin datos de SMTP en el `.env`, los correos no se envían y su enlace se
+imprime en la consola de `pagweb-api`.
+
+### 3. Sitio
+
+```bash
+# Terminal 3, en la raíz del proyecto
+cp .env.example .env.local
+npm install
+npm run dev                 # http://localhost:5173
+```
+
+El panel queda en `http://localhost:5173/#/admin`, con la cuenta creada
+por `seed-admin`.
+
+### Comandos
+
+| Comando                   | Qué hace                                                                       |
+| ------------------------- | ------------------------------------------------------------------------------ |
+| `npm run dev`             | Sitio en modo desarrollo, con recarga automática                               |
+| `npm run build`           | Genera `dist/`, lista para publicar                                            |
+| `npm run preview`         | Sirve `dist/` en local para revisarla antes de publicar                        |
+| `npm run lint`            | Revisa el código con ESLint                                                    |
+| `npx playwright test`     | Corre las pruebas de `tests/` (levanta el sitio solo)                          |
+| `npm run seed-admin -- …` | En `services/pagweb-api`: crea una cuenta del panel o restablece su contraseña |
+
+Cada API documenta sus endpoints en su propio README:
 [`services/pagweb-api`](services/pagweb-api) ·
 [`services/admisiones-api`](services/admisiones-api).
 
-El esquema de base de datos está en [`database/`](database/).
+## Publicar
 
-## Build de producción
+El sitio de producción corre en un servidor Ubuntu con Apache, pm2 y
+PostgreSQL. Se publica desde una computadora con el proyecto:
 
-```
-npm run build
-```
-
-Genera `dist/`: HTML, CSS, JS e imágenes listos para publicar, más los
-PDFs de `public/docs/`. Para revisar el resultado localmente antes de
-publicar:
-
-```
-npm run preview
+```bash
+bash scripts/deploy.sh        # compila el sitio y sube dist/
+bash scripts/deploy-api.sh    # sube las APIs y las reinicia con pm2
 ```
 
-## Despliegue
+Antes de compilar para producción debe existir `.env.production.local`
+con `VITE_PAGWEB_API_URL=` y `VITE_ADMISIONES_API_URL=` vacías, para que
+el sitio llame a `/api` en su mismo dominio. La guía completa está en
+[`DEPLOY.md`](DEPLOY.md).
 
-El sitio está publicado en dos lugares a la vez:
-
-- **Vercel** (`pag-web-universidad.vercel.app`) — espejo estático,
-  se actualiza solo en cada `git push` a `main`.
-- **Servidor propio de la universidad** (`https://200.23.125.107`) — sirve
-  el sitio estático *y* corre las dos APIs y la base de datos. Se publica
-  con `bash scripts/deploy.sh` (sitio) y `bash scripts/deploy-api.sh`
-  (APIs).
-
-Ambas entradas llaman siempre al mismo backend. Guía completa, con los
-datos reales del servidor, en [`DEPLOY.md`](DEPLOY.md).
+Una copia del sitio también se publica en Vercel en cada `git push` a
+`main`; ahí las URLs de las APIs se configuran en las variables de
+entorno del proyecto en Vercel.
 
 ## Estructura del repositorio
 
 ```
-src/                   Frontend (React)
-  pages/                 Pantallas
-  components/            Piezas reutilizables, incl. components/admin/ (panel)
-  sections/               Header, Footer
-  data/                  Contenido editorial fijo
-  lib/                   Clientes HTTP hacia las dos APIs
-  App.css                Estilos del sitio completo
+src/                    Sitio (React)
+  App.jsx                 Rutas por hash y armado de cada página
+  App.css                 Estilos de todo el sitio
+  pages/                  Una pantalla por archivo
+  components/             Piezas reutilizables
+    admin/                Pestañas del panel de administración
+  sections/               Encabezado y pie de página
+  data/                   Contenido fijo (textos, directivos, menús, búsqueda)
+  lib/                    Clientes HTTP hacia las dos APIs
 services/
-  pagweb-api/            Login, CRUD del panel, archivos
-  admisiones-api/        Solicitudes de admisión
-database/               Esquema SQL y documentación de tablas
+  pagweb-api/             Login, contenido del panel, archivos, correos
+  admisiones-api/         Solicitudes de admisión
+database/               Esquema SQL y descripción de cada tabla
 public/                 Imágenes, fuentes y documentos descargables
-scripts/                deploy.sh, deploy-api.sh
-DEPLOY.md               Guía de despliegue, paso a paso
+tests/                  Pruebas de Playwright
+scripts/                deploy.sh y deploy-api.sh
+DEPLOY.md               Despliegue en el servidor, paso a paso
+MIGRACION.md            Mudar el sitio completo a otro servidor (ej. AWS)
 ```
+
+## Documentación
+
+| Documento                                                | Para quién                          | Qué explica                                                                                    |
+| -------------------------------------------------------- | ----------------------------------- | ---------------------------------------------------------------------------------------------- |
+| [`DEPLOY.md`](DEPLOY.md)                                 | Quien publica cambios               | Preparar el servidor y desplegar el sitio y las APIs.                                          |
+| [`database/README.md`](database/README.md)               | Quien modifica la base              | Notas de diseño de las tablas y de las cuentas del panel.                                      |
+| [`database/CAMPOS_TABLAS.md`](database/CAMPOS_TABLAS.md) | Quien modifica la base              | Qué guarda cada columna de cada tabla.                                                         |
+| Guía de administración                                   | Quien administra el sitio           | Acceso al servidor, cuentas del panel, respaldos, APIs y problemas comunes. Se entrega aparte. |
+| [`MIGRACION.md`](MIGRACION.md)                           | Quien mude el sitio a otro servidor | Paso a paso para mudar sitio, APIs, base y archivos, con AWS como ejemplo.                     |
+
+Las contraseñas (SSH, PostgreSQL, correo) y los archivos `.env` no están
+en el repositorio: se entregan aparte.
