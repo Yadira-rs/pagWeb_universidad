@@ -62,3 +62,13 @@ services/pagweb-api/uploads/
 
 # Documento con contraseñas del servidor, base de datos y panel — nunca se sube.
 ACCESOS.md
+
+# Respaldos de la base exportados (phpPgAdmin o pg_dump): traen correos y
+# contraseñas encriptadas del panel — nunca se suben.
+database/copia_*.sql
+*.dump
+respaldos/
+migracion-feca/
+
+# Documentos de entrega con credenciales (Word de las guías) — nunca se suben.
+credenciales pagina web/

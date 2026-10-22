@@ -147,9 +147,8 @@ con `VITE_PAGWEB_API_URL=` y `VITE_ADMISIONES_API_URL=` vacías, para que
 el sitio llame a `/api` en su mismo dominio. La guía completa está en
 [`DEPLOY.md`](DEPLOY.md).
 
-Una copia del sitio también se publica en Vercel en cada `git push` a
-`main`; ahí las URLs de las APIs se configuran en las variables de
-entorno del proyecto en Vercel.
+Una copia del sitio también se publica en Vercel; ahí las URLs de las
+APIs se configuran en las variables de entorno del proyecto en Vercel.
 
 ## Estructura del repositorio
 
@@ -166,7 +165,7 @@ src/                    Sitio (React)
 services/
   pagweb-api/             Login, contenido del panel, archivos, correos
   admisiones-api/         Solicitudes de admisión
-database/               Esquema SQL y descripción de cada tabla
+database/               Historial del esquema SQL y descripción de cada tabla
 public/                 Imágenes, fuentes y documentos descargables
 tests/                  Pruebas de Playwright
 scripts/                deploy.sh y deploy-api.sh
